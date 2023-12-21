@@ -1,0 +1,25 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>sabdaliterasipalu</ShortName>
+	<Description>Search {{ site.title }} - {{ site.description }} </Description>
+	<Contact>help@wordpress.com</Contact>
+	<Url type="application/atom+xml" template="{{ site.url }}/?s={searchTerms}&amp;feed=atom" />
+	<Url type="rss+xml" template="{{ site.url }}/?s={searchTerms}&amp;feed=rss2" />
+	<Url type="text/html" template="{{ site.url }}/?s={searchTerms}" method="GET" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="{{ site.url }}/osd.xml" />
+	<LongName>{{ site.title }}</LongName>
+	<Image height="16" width="16" type="image/vnd.microsoft.icon">{{ site.url }}/favicon-16x16.png</Image>
+	<Image height="60" width="60" type="image/png">{{ site.url }}/apple-icon-60x60.png</Image>
+	<Query role="example" searchTerms="photography" />
+	<Tags>blog</Tags>
+	<Developer>Automattic</Developer>
+	<SyndicationRight>private</SyndicationRight>
+	<AdultContent>false</AdultContent>
+	<Language>id-ID</Language>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<InputEncoding>UTF-8</InputEncoding>
+	<moz:SearchForm>{{ site.url }}</moz:SearchForm>
+</OpenSearchDescription>

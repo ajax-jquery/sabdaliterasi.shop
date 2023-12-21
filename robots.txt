@@ -1,0 +1,7 @@
+---
+layout: null
+---
+User-agent: *
+Disallow: /folder/*
+
+Sitemap: {{ site.url }}/sitemap_index.xml

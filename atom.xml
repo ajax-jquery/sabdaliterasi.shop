@@ -1,0 +1,42 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?><feed
+	xmlns="http://www.w3.org/2005/Atom"
+	xmlns:thr="http://purl.org/syndication/thread/1.0"
+	xml:lang="id"
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+	<title type="text">{{ site.title }} | Ebook Shop termurah dan terlengkap di Indonesia</title>
+	<subtitle type="text">{{ site.description }}</subtitle>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<link rel="alternate" type="text/html" href="{{ site.url }}" />
+	<id>{{ site.url }}/atom</id>
+	<link rel="self" type="application/atom+xml" href="{{ site.url }}/atom" />
+	<generator uri="https://wordpress.org/" version="6.3.2">WordPress</generator>
+<icon>{{ site.url }}/media/favicon-32x32.png</icon>
+	
+ {% for post in site.posts limit:9999 %} 
+  <entry>
+		<author>
+		<name>{{ post.author | xml_escape }}</name>
+		<uri>{{ site.url }}</uri>
+		</author>
+
+		<title type="html"><![CDATA[{{ post.title | xml_escape }}]]></title>
+		<link rel="alternate" type="text/html" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" />
+		<id>{{ post.url | prepend: site.baseurl | prepend: site.url }}?p={{ post.date | date_to_xmlschema }}</id>
+		<updated>{{ post.date | date_to_xmlschema }}</updated>
+		<published>{{ post.date | date_to_xmlschema }}</published>
+    {% for cat in post.keyword %}
+		<category scheme="{{ site.url }}" term="{{ cat | xml_escape }}" />
+     {% endfor %}
+		<summary type="html"><![CDATA[{{ post.description | xml_escape }}]]></summary>
+		<content type="html" xml:base="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><![CDATA[{{ post.content | xml_escape }}]]></content>
+		<link rel="replies" type="text/html" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments" thr:count="100" />
+		<link rel="replies" type="application/atom+xml" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}?feed/atom/" thr:count="100" />
+		<thr:total>100</thr:total>
+			</entry>
+  {% endfor %}
+	</feed>

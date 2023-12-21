@@ -1,0 +1,77 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<title>{% if page.title %}{{ page.title }} | {% endif %}Ebook Shop | {{ site.title }}</title>
+<meta name="description" content="{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta content="{% if page.title %}{{ page.title }}{% endif %}, download ebook {% if page.title %}{{ page.title }}{% endif %}, {% if page.title %}{{ page.title }}{% endif %} pdf, {% if page.title %}{{ page.title }}{% endif %} pdf download,{% if page.author %}{{ page.author }}{% endif %},{% for keywords in page.keyword limit:10 %}{{keywords}}{% if forloop.last == false %},{% endif %}{% endfor %},sabda literasi, Sabda Literasi Palu, ebook store, ebook shop, ebook free, ebook, jual ebook, toko ebook, toko buku, jual buku, buku filsafat, book bestseller, buku terbaik, jual pdf, ebook filsafat, ebook kuliah, ebook populer" name="keywords" />
+<meta name="content_tags" content="{% for keywords in page.keyword limit:10 %}{{keywords}}{% if forloop.last == false %},{% endif %}{% endfor %},sabda literasi, Sabda Literasi Palu, ebook store, ebook shop, ebook free, ebook, jual ebook, toko ebook, toko buku, jual buku, buku filsafat, book bestseller, buku terbaik, jual pdf, ebook filsafat, ebook kuliah, ebook populer" />
+<link rel="canonical" href="{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}" class="yoast-seo-meta-tag" />
+<link rel='amphtml' href='{{ site.url }}/amp{% if page.permalink %}{{ page.permalink }}{% endif %}' class="yoast-seo-meta-tag" />
+<meta property="og:locale" content="id_ID" class="yoast-seo-meta-tag" />
+<meta property="og:type" content="article" class="yoast-seo-meta-tag" />
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}Ebook Shop | {{ site.title }}" class="yoast-seo-meta-tag" />
+<meta property="og:description" content="{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:url" content="{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:site_name" content="{{ site.title }} - {{ site.description }}" class="yoast-seo-meta-tag" />
+<meta property="article:publisher" content="https://www.facebook.com/sabdaliterasipalu" class="yoast-seo-meta-tag" />
+<meta property="article:author" content="facebook.com/sabdaliterasipalu" class="yoast-seo-meta-tag" />
+{% if page.date %}
+<meta property="article:published_time" content="{{ page.date }}" class="yoast-seo-meta-tag" />
+<meta property="article:modified_time" content="{{ page.date }}" class="yoast-seo-meta-tag" />
+{% endif %}
+<meta property="article:section" content="Business">
+{% for keywords in page.keyword limit:10 %}
+<meta property="article:tag" content="{{keywords}}">
+{% endfor %}
+<meta property="og:image" content="{% if page.image %}{{ page.image }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:image:width" content="1200" class="yoast-seo-meta-tag" />
+<meta property="og:image:height" content="630" class="yoast-seo-meta-tag" />
+<meta property="og:image:type" content="image/png" class="yoast-seo-meta-tag" />
+<meta name="author" content="{{ site.title }}" class="yoast-seo-meta-tag" />
+<meta name="twitter:card" content="summary_large_image" class="yoast-seo-meta-tag" />
+<meta name="twitter:site" content="@sabdaliterasipalu" class="yoast-seo-meta-tag" />
+<meta name="twitter:label1" content="Ditulis oleh" class="yoast-seo-meta-tag" />
+<meta name="twitter:data1" content="{% if page.author %}{{ page.author }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta name="twitter:label2" content="Estimasi waktu membaca" class="yoast-seo-meta-tag" />
+<meta name="twitter:data2" content="5 menit" class="yoast-seo-meta-tag" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{ site.url }}/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s0.wp.com/wp-includes/wlwmanifest.xml" />
+<link rel="search" type="application/opensearchdescription+xml" href="{{ site.url }}/osd.xml" title="{{ site.title }}" />
+<link rel="alternate" type="text/xml+oembed" href="{{ site.url }}/embed.xml" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<meta name="application-name" content="{{ site.title }}" />
+<meta name="msapplication-window" content="width=device-width;height=device-height" />
+<meta name="msapplication-tooltip" content="{{ site.description }}" />
+<meta name="msapplication-task" content="name=Berlangganan;action-uri={{ site.url }}/rss;icon-uri={{ site.url }}/media/android-icon-192x192.png" />
+{% include json-amp-nonamp.html %}
+{% include gtag.html %}
+<!--<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#article","isPartOf":{"@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"},"author":{"name":"{{ site.title }}","@id":"{{ site.url }}/#/schema/person/bbb0f706ecf75745a462926c4c52da0a"},"headline":"{% if page.title %}{{ page.title }}{% endif %}","datePublished":"{% if page.date %}{{ page.date }}{% endif %}","dateModified":"{% if page.date %}{{ page.date }}{% endif %}","mainEntityOfPage":{"@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"},"wordCount":653,"commentCount":0,"publisher":{"@id":"{{ site.url }}/#organization"},"image":{"@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#primaryimage"},"thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}","keywords":[{% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ site.title }}","sabda literasi","Sabda Literasi Palu","ebook store","ebook shop","ebook free","ebook","jual ebook","toko ebook","toko buku","jual buku","buku filsafat","book bestseller","buku terbaik","jual pdf","ebook filsafat","ebook kuliah","ebook populer"],"articleSection":["{{ site.title }}"],"inLanguage":"id","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#respond"]}]},{"@type":"WebPage","@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}","url":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}","name":"{% if page.title %}{{ page.title }}{% endif %}","isPartOf":{"@id":"{{ site.url }}/#website"},"primaryImageOfPage":{"@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#primaryimage"},"image":{"@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#primaryimage"},"thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}","datePublished":"{% if page.date %}{{ page.date }}{% endif %}","dateModified":"{% if page.date %}{{ page.date }}{% endif %}","description":"{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}","breadcrumb":{"@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#breadcrumb"},"inLanguage":"id","potentialAction":[{"@type":"ReadAction","target":["{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"]}]},{"@type":"ImageObject","inLanguage":"id","@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#primaryimage","url":"{% if page.image %}{{ page.image }}{% endif %}","contentUrl":"{% if page.image %}{{ page.image }}{% endif %}","width":1280,"height":720,"caption":"{% if page.title %}{{ page.title }} | {% endif %} Ebook Shop | {{ site.title }}"},{"@type":"BreadcrumbList","@id":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"{% if page.author %}{{ page.author }}{% endif %}","item":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}/#"},{"@type":"ListItem","position":3,"name":"{% if page.title %}{{ page.title }}{% endif %}"}]},{"@type":"WebSite","@id":"{{ site.url }}/#website","url":"{{ site.url }}/","name":"{{ site.title }}","description":"{{ site.description }}","publisher":{"@id":"{{ site.url }}/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{ site.url }}/search/?ebook={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"id"},{"@type":"Organization","@id":"{{ site.url }}/#organization","name":"{{ site.title }}","url":"{{ site.url }}/","logo":{"@type":"ImageObject","inLanguage":"id","@id":"{{ site.url }}/#/schema/logo/image/","url":"{{ site.url }}/media/android-icon-192x192.png","contentUrl":"{{ site.url }}/android-icon-192x192.png","width":192,"height":192,"caption":"{{ site.title }}"},"image":{"@id":"{{ site.url }}/#/schema/logo/image/"},"sameAs":["https://wa.me/6285186666836","mailto:sabdaliterasipalu@gmail.com","https://www.tiktok.com/@sabdaliterasipalu","https://instagram.com/sabdaliterasipalu","https://facebook.com/sabdaliterasipalu"]},{"@type":"Person","@id":"{{ site.url }}/#/schema/person/bbb0f706ecf75745a462926c4c52da0a","name":"{{ site.title }}","image":{"@type":"ImageObject","inLanguage":"id","@id":"{{ site.url }}/#/schema/person/image/","url":"{{ site.url }}/media/android-icon-192x192.png","contentUrl":"{{ site.url }}/android-icon-192x192.png","caption":"{{ site.title }}"},"description":"{{ site.description }}","sameAs":["https://wa.me/6285186666836","mailto:sabdaliterasipalu@gmail.com","https://www.tiktok.com/@sabdaliterasipalu","https://instagram.com/sabdaliterasipalu","https://facebook.com/sabdaliterasipalu"]}]}</script>-->
+<!--<script type='application/ld+json' class="yoast-schema-graph"> { "@context": "http://schema.org", "@type": "NewsArticle", "mainEntityOfPage": { "@type": "WebPage", "@id": "{% if page.title %}{{ page.title }}{% endif %}" }, "headline": "{% if page.title %}{{ page.title }}{% endif %}", "image": { "@type": "ImageObject", "url": "{% if page.image %}{{ page.image }}{% endif %}", "height": 800, "width": 800 }, "datePublished": "{% if page.date %}{{ page.date }}{% endif %}", "dateModified": "{% if page.date %}{{ page.date }}{% endif %}", "author": { "@type": "Person", "name": "{{ site.title }} Official", "url": "{{ site.url }}" }, "publisher": { "@type": "Organization", "name": "{{ site.title }}a Official", "logo": { "@type": "ImageObject", "url": "{{ site.url }}/android-icon-192x192.png", "width": 192, "height": 192 } }, "description": "{% if page.description %}{{ page.description }}{% endif %}" } </script>-->
+<!--<script type="application/ld+json">{"@context":"http://schema.org","@type":"ItemList","itemListElement": [{"@type": "SiteNavigationElement","position": 1, "name": "Beranda","description":"{{ site.title }} merupakan agen penjualan pulsa dan pembayaran PPOB terlengkap dan termurah di Indonesia dengan semua pembayaran dalam satu genggaman.","url":"https://sabdaliterasipalu.freeregistrasi.site/#beranda" },{"@type": "SiteNavigationElement","position": 2, "name": "Daftar","description": "{{ site.title }} - Kаmս Masih Bingung Bagaimana Cara Daftar Jadi Agen Pulsa Murah di {{ site.title }} ? Yuk Simak Panduan bergabung di Bisnis Pulsa Murah PPOB Yang sangat.","url":"https://sabdaliterasipalu.freeregistrasi.site/cara-daftar-jadi-agen-pulsa-murah/" },{"@type": "SiteNavigationElement","position": 3, "name": "Deposit","description": "{{ site.title }} - Deposit {{ site.title }} Artinya adalah dana yang nanti di gunakan untuk membeli produk layanan di Server kami melalui Handphone anda.","url":"https://sabdaliterasipalu.freeregistrasi.site/cara-deposit-saldo-agen-pulsa-dan-ppob/" },{"@type": "SiteNavigationElement","position": 4, "name": "Transaksi","description": "{{ site.title }} - Langkah selanjutnya jika kamu sudah sukses terdaftar Jadi Master {{ site.title }} dan sudah melakukan isi saldo deposit, maka sekarang saatnya kamu bisa.","url":"https://sabdaliterasipalu.freeregistrasi.site/cara-transaksi-sebagai-agen-pulsa-dan-ppob/" },{"@type": "SiteNavigationElement","position": 5, "name": "Download","description": "Download aplikasi {{ site.title }} melalui Google Play Store sekarang juga","url":"https://s.id/IRplaystore"}]}</script> -->
+<meta name="googlebot-news" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />  
+<meta name="generator" content="Github.com" /> 
+
+<link rel="alternate" type="application/rss+xml" title="Feed - {{ site.title }}" href="{{ site.url }}/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="RSS - {{ site.title }}" href="{{ site.url }}/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="Atom - {{ site.title }}" href="{{ site.url }}/atom.xml" />
+
+<link rel="apple-touch-icon" sizes="57x57" href="/media/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/media/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/media/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/media/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/media/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/media/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/media/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/media/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/apple-icon-180x180.png">
+<link rel="shortcut icon" type="image/png" sizes="192x192"  href="/media/android-icon-192x192.png">
+<link rel="shortcut icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
+<link rel="shortcut icon" type="image/png" sizes="96x96" href="/media/favicon-96x96.png">
+<link rel="shortcut icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
+<link rel="shortcut icon" type="image/x-icon" href="/media/favicon.ico">
+<link rel="manifest" href="/media/manifest.json">
+<meta name="msapplication-TileColor" content="#f26926">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#f26926"> 
+<link rel='dns-prefetch' href='//sabdaliterasi.shop' />
