@@ -5,5 +5,6 @@ User-agent: *
 Disallow: /test/
 Disallow: /uji-home/
 Disallow: /buy/
+Disallow: /offline/
 
 Sitemap: {{ site.url }}/sitemap_index.xml
