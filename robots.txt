@@ -4,5 +4,6 @@ layout: null
 User-agent: *
 Disallow: /test/
 Disallow: /uji-home/
+Disallow: /buy/
 
 Sitemap: {{ site.url }}/sitemap_index.xml
