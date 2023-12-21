@@ -61,7 +61,7 @@ layout: null
       "type": "image/png",
       "density": "4.0",
       "purpose": "any maskable"
-      },
+      }
     ],
  "serviceworker": {
     "src": "/sw.js"
