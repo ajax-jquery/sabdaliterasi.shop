@@ -1,7 +1,7 @@
 ---
 layout: page
 author: Cicero
-title: How to Win an Argument: Sebuah Panduan Klasik tentang Seni Persuasi
+title: How to Win an Argument; Sebuah Panduan Klasik tentang Seni Persuasi
 buy: https://lynk.id/sabdaliterasi/p2d5gDP
 harga: Rp49.500
 image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701360483183_9484929
