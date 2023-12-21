@@ -5,7 +5,7 @@ title: Filsafat Modern Barat; Sebuah Kajian  Tematik
 buy: https://lynk.id/sabdaliterasi/4OqbYOv
 harga: Rp41.000
 image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701287548200_5564102
-description: Buku Filsafat Modern Barat; Sebuah Kajian Tematik tetap berupaya membahas sebagian besar dari aliran-aliran epistemologi filsafat modern Barat yang tu...
+description: Buku Filsafat Modern Barat; Sebuah Kajian Tematik tetap berupaya membahas sebagian besar dari aliran-aliran epistemologi filsafat modern Barat yang tu.
 permalink: /filsafat-modern-barat/
 keyword: [pengantar filsafat, filsafat barat, filsafat modern, buku ajar filsafat, filsafat untuk pemula, epistemologi]
 ---
