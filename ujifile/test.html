@@ -4,17 +4,15 @@ permalink: /test/
 ---
 <!DOCTYPE html>
 <html> 
-<head><meta name="robots" content="none">
+<head><title>ekyll v{{ jekyll.version }}</title><meta name="robots" content="none">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("p").click(function(){
-    $(this).hide();
-  });
-});
-</script>
 </head>
-<body><script src="//cdn.firebase.com/js/client/2.2.1/firebase.js"></script> {{ site.posts | size | times: 4 }}
+<body>
+ <ul>
+{% for p in site.posts }
+<li><strong><a title="{{ p.title }}" href="{{ site.url }}{{ p.permalink }}">{{ p.title }}</a></strong></li>
+{% endfor %}  
+ </ul>   
 <p>{{ 10000000 | money: "IDR" }}</p>
 
 <p>Click me too!</p>
@@ -22,7 +20,7 @@ $(document).ready(function(){
 <p>Click me away!</p>
 <p>Click me too!</p>
 <b>   Jekyll v{{ jekyll.version }}</b>
-<section class="preview">
+<!--<section class="preview">
 <h3>Live Previev:</h3>
 <div id="preview"></div>
 </section>
@@ -309,30 +307,6 @@ function RATE8() {
 
 RATE8();
 })(StarRatingCreator)
-</script>
-<!--<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAFuoVF8LkEtVHtd33A0FJHIyIOhDzGbjA",
-    authDomain: "sabaliterasipalu.firebaseapp.com",
-    databaseURL: "https://sabaliterasipalu-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "sabaliterasipalu",
-    storageBucket: "sabaliterasipalu.appspot.com",
-    messagingSenderId: "567229920099",
-    appId: "1:567229920099:web:636ca97b7ee332b342d956",
-    measurementId: "G-7W6SD9QBY7"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 </script>--></body>
 </html>
 
