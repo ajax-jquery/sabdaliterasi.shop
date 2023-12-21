@@ -2,6 +2,7 @@
 layout: null
 ---
 User-agent: *
-Disallow: /folder/*
+Disallow: /test/
+Disallow: /uji-home/
 
 Sitemap: {{ site.url }}/sitemap_index.xml
