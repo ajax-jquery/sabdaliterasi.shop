@@ -1,6 +1,9 @@
-{% if page.title %}LazyScript("{{ '/assets/js/rating-fontawesome.js' | prepend: site.url }}");
+{% if page.title %
+}LazyScript("{{ '/assets/js/rating-fontawesome.js' | prepend: site.url }}");
 LazyScript("{{ '/assets/js/findbook.min.js' | prepend: site.url }}")
 {% endif %}
+/**/
+$.each($(".Rate[data-id]"),function(a,t){var s=$(t).addClass("view-load");new Firebase("https://sabda-562b1-default-rtdb.firebaseio.com/nz3xtmOvc/sabdaliterasi_shop/sabdaliterasi_shop__"+$(t).attr("data-id").split("/").join("")).once("value",function(a){var t=a.val(),i=!1;null==t&&((t={}).value=0,i=!0);var e=Math.round(500*t.nz3xtm0vc)/100;s.removeClass("view-load").html('<i class="fa fa-star"></i> '+e)})});
 /**/
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
