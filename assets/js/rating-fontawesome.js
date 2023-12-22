@@ -9,12 +9,290 @@ var i= new Firebase("https://sabda-562b1-default-rtdb.firebaseio.com/nz3xtmOvc/s
             null == n && (n = {}, n.value = 0, t = !0);
             var e=Math.round(500*n.nz3xtm0vc)/100,z=n.nz3xtn0vc;
             
-            $(".stars").html('<i class="fa fa-star active">'+e+'/5 ('+z+')</i><br><div id="PRBTX_" class="TextAtas">Terimakasih atas bintang <b>'+JJJJJ+'</b> nya</div>')
+            $(".stars").html('<i class="fa fa-star active">'+e+'/5 ('+z+')</i><br><div id="PRBTX_w3schools_com__jquery__tryit_asp" class="TextAtas">Terimakasih atas bintang <b>'+JJJJJ+'</b> nya</div>')
         })
         
         
         
 }
- else{!function(e){var t;if(0===e&&!document.querySelector('script[src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"]')){let a=document.createElement("script");a.src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js",document.head.appendChild(a);let n=document.createElement("script");n.src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js",document.head.appendChild(n)}function s(e,t,a,n){let s=document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar")[a],r=Math.round((t-Math.floor(t))*n);s.getElementsByTagName("full")[0].style.width=r+"px",s.getElementsByTagName("empty")[0].style.width=n-r+"px",s.getElementsByTagName("empty")[0].getElementsByTagName("img")[0].style.margin="0 0 0 -"+r+"px"}function r(e,t,a){let n=document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar");for(let r=0;r<n.length;r++)r<=t?r<Math.floor(t)?(n[r].getElementsByTagName("full")[0].style.width="100%",n[r].getElementsByTagName("empty")[0].style.width="0%"):s(e,t,r,a):r>t&&(n[r].getElementsByTagName("full")[0].style.width="0%",n[r].getElementsByTagName("empty")[0].style.width="100%",n[r].getElementsByTagName("empty")[0].getElementsByTagName("img")[0].style.margin="0 0 0 0"),n[r].getElementsByTagName("hover")[0].style.width="0%"}function i(e,t,a,n,s){if(localStorage["bsrgl_"+e])document.getElementById("PBPSR_"+e).setAttribute("title",n.replace(/\$userRating\$/g,localStorage["bsrgl_"+e])),document.getElementById("PBPSR_"+e).style.cursor="default";else{r(e,t,a);for(var i=0;i<t;i++)"auto"===s&&(document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar")[i].style.opacity="0.8"),document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar")[i].getElementsByTagName("empty")[0].style.width="0",document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar")[i].getElementsByTagName("full")[0].style.width="0",document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar")[i].getElementsByTagName("hover")[0].style.width=a+"px";""!=document.getElementById("PRBTX_"+e).innerHTML&&(document.getElementById("PRBTX_"+e).innerHTML=t+" / "+document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar").length)}}function l(e,t,a,n){r(e,t,a);for(var s=document.getElementById("PBPSR_"+e).getElementsByTagName("star"),i=0;i<s.length;i++)s[i].style.opacity="1";localStorage["bsrgl_"+e]||(document.getElementById("PRBTX_"+e).innerHTML=n)}function o(e){for(var t=0;t<document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar").length;t++)document.getElementById("PBPSR_"+e).getElementsByTagName("SRSstar")[t].style.cursor="default"}function g(e){var t=document.getElementById("SRSrepeat_"+e);t.innerHTML=t.innerHTML.replace(/\$userRating\$/g,localStorage["bsrgl_"+e]),t.style.visibility="visible",t.style.opacity="1",setTimeout(function(){t.style.visibility="hidden",t.style.opacity="0"},4e3)}t=setInterval(function(){"undefined"!=typeof firebase&&(function e(){var t=JSON.parse(JSON.stringify({firebaseURL:"https://sabda-562b1-default-rtdb.firebaseio.com/",ratingName:"auto",fullStarImg:"https://3.bp.blogspot.com/-QSNdWP4Ijx4/Wsjf7QOUZ4I/AAAAAAAAAJ8/F2nReVG5WfA1rLV3dGcAFMsPOnIQck4YwCLcBGAs/s1600/pelna.png",emptyStarImg:"https://1.bp.blogspot.com/-pOr9XGwtSJc/Wsjf8ULOIqI/AAAAAAAAAKE/KBh-LUDIn0YzASKf-t7mQo8UNpdHhr2SgCLcBGAs/s1600/pusta.png",hoverStarImg:"https://2.bp.blogspot.com/-RBgidB2Udbw/Wsjf7XxAJqI/AAAAAAAAAJ0/arOCBC7u9gsPPnEB4GBmqxCxmmIEBITdQCLcBGAs/s1600/najech.png",numberOfStars:"5",starSize:"30",textSize:"15",textColor:"#292929",fontFamily:"Georgia, serif",align:"center",topText:"Berikan bintang untuk Ebook ini:",bottomText:"Average: $average$ / $max$ ($votes$ votes)",thankYouText:"Thanks for voting",blockingText:"Kamu sudah memberikan  bintang $userRating$.",status:"active"}));let a=document.getElementById("Rating"),n=location.host.replace("www.","").replace(/\./g,"_").replace(/\//g,"__"),s=location.href.split("?")[0].split("#")[0].replace(location.protocol+"//","").replace("www.","");("/"===s.substring(s.length-1)||"."===s.substring(s.length-1))&&(s=s.substring(0,s.length-1)),s=s.replace(/\./g,"_").replace(/\//g,"__").replace(/\,/g,"___").replace(/\s/g,"");let l=t.ratingName;if(l?"auto"===l&&(l=s):l="default",l=l.replace(/\s/g,"_").replace(/\#/g,"-").replace(/\./g,"-").replace(/\@/g,"-").replace(/\!/g,"-").replace(/\$/g,"-").replace(/\%/g,"-").replace(/\&/g,"-").replace(/\(/g,"-").replace(/\)/g,"-"),document.querySelector("#PBPSR_"+l)){let m=document.createElement("div");m.innerHTML='Gagal Memuat Rating, refresh halaman kamu!',a.parentNode.insertBefore(m,a)}else{let c=document.createElement("div");c.setAttribute("id","PBPSR_"+l),a.parentNode.insertBefore(c,a);let p=document.createElement("div"),d=document.createElement("div"),y=null!==t.topText?t.topText:"Beri Rating:",S=null!==t.bottomText?t.bottomText:'<i class="fa-solid fa-star"></i> <b>$average$</b> / $max$ (<b>$votes$</b> votes)',f=Number(t.numberOfStars);(f<1||isNaN(f))&&(f=5);let u=null!==t.thankYouText?t.thankYouText:"Thanks for voting";S=S.replace(/\$average\$/g,'<span class="kozyr-SRS-average"></span>').replace(/\$votes\$/g,'<span class="kozyr-SRS-votes"></span>').replace(/\$max\$/g,f),p.innerHTML=y,p.setAttribute("id","PRBTX_"+l),p.setAttribute("class","TextAtas"),c.appendChild(p),d.setAttribute("id","PRSTS_"+l),d.setAttribute("class","hilang"),d.innerHTML=S;let B=t.firebaseURL;null===B?B='Firebase error. Add attribute firebaseURL="https://YOUR-FIREBASE.firebaseio.com" to your rating script.':""==B?B='Firebase error. Enter the URL adress of your Firebase to "firebaseURL" attribute in your rating script.':0!==B.indexOf("https://")?B="Firebase error. Invalid Fierabse URL":5>B.lastIndexOf("firebaseio.com")?B="Firebase error. Invalid Fierabse URL":B.lastIndexOf("/")!==B.length-1&&(B+="/");let h=t.emptyStarImg?t.emptyStarImg:"https://1.bp.blogspot.com/-pOr9XGwtSJc/Wsjf8ULOIqI/AAAAAAAAAKE/KBh-LUDIn0YzASKf-t7mQo8UNpdHhr2SgCLcBGAs/s1600/pusta.png",b=t.fullStarImg?t.fullStarImg:"https://3.bp.blogspot.com/-QSNdWP4Ijx4/Wsjf7QOUZ4I/AAAAAAAAAJ8/F2nReVG5WfA1rLV3dGcAFMsPOnIQck4YwCLcBGAs/s1600/pelna.png",R=t.hoverStarImg;(null===R||""==R)&&(R=b);let v=t.starSize;(!v||0>Number(v)||isNaN(v))&&(v=25),v=Number(v);let A=t.blockingText;null===A&&(A="Kamu sudah memberikan bintang $userRating$.");let E=t.align;"right"!==E&&"left"!==E&&(E="center");let T=t.textSize;(!T||0>Number(T)||isNaN(T))&&(T=15),T=Number(T);let P=t.textColor?t.textColor:"inherit",x=t.fontFamily;x="Georgia"==x||"Georgia, serif"==x?"Georgia, serif":"Palatino"==x||"'Palatino Linotype', 'Book Antiqua', Palatino, serif"==x?'"Palatino Linotype", "Book Antiqua", Palatino, serif':"Times New Roman"==x||"'Times New Roman', Times, serif"==x?'"Times New Roman", Times, serif':"Arial"==x||"Arial, Helvetica, sans-serif"==x?"Arial, Helvetica, sans-serif":"Arial Black"==x||"'Arial Black', Gadget, sans-serif"==x?'"Arial Black", Gadget, sans-serif':"Comic Sans"==x||"'Comic Sans MS', cursive, sans-serif"==x?'"Comic Sans MS", cursive, sans-serif':"Impact"==x||"Impact, Charcoal, sans-serif"==x?"Impact, Charcoal, sans-serif":"Lucida Sans"==x||"'Lucida Sans Unicode', 'Lucida Grande', sans-serif"==x?'"Lucida Sans Unicode", "Lucida Grande", sans-serif':"Tahoma"==x||"Tahoma, Geneva, sans-serif"==x?"Tahoma, Geneva, sans-serif":"Trebuchet"==x||"'Trebuchet MS', Helvetica, sans-serif"==x?'"Trebuchet MS", Helvetica, sans-serif':"Verdana"==x||"Verdana, Geneva, sans-serif"==x?"Verdana, Geneva, sans-serif":"Courier New"==x||"'Courier New', Courier, monospace"==x?'"Courier New", Courier, monospace':"Lucida Console"==x||"'Lucida Console', Monaco, monospace"==x?'"Lucida Console", Monaco, monospace':"Inherit";let I="readonly"===t.status,w=R===b?"auto":"ok";for(let N=1;N<=f;N++){let L=document.createElement("SRSstar");I||(L.onmouseenter=function(){i(l,N,v,A,w)}),L.setAttribute("wartosc",N);let C=document.createElement("full"),_=document.createElement("empty"),k=document.createElement("hover"),z=document.createElement("img"),G=document.createElement("img"),M=document.createElement("img");z.src=h,G.src=b,M.src=R,z.style.width=v+"px",G.style.width=v+"px",M.style.width=v+"px",C.appendChild(G),_.appendChild(z),k.appendChild(M),L.appendChild(C),L.appendChild(_),L.appendChild(k),c.appendChild(L)}c.appendChild(d);let H=document.createElement("div");H.setAttribute("id","SRSrepeat_"+l),H.innerHTML=A,c.appendChild(H),r(l,0,v);let U=document.createElement("style");if(U.innerHTML="#PBPSR_"+l+" {text-align:"+E+";position:relative;} #PBPSR_"+l+" SRSstar {display:inline-block;width:"+v+"px;cursor:"+(localStorage["bsrgl_"+l]||I?"default":"pointer")+";} #PBPSR_"+l+" SRSstar full, #PBPSR_"+l+" SRSstar empty, #PBPSR_"+l+" SRSstar hover {display:inline-block;overflow:hidden;} #PBPSR_"+l+" SRSstar img {background:transparent;border:0;padding:0;margin:0;max-width:none;} #PRBTX_"+l+", #PRSTS_"+l+" {font-size:"+T+"px;line-height:1.8;font-family:"+x+";text-align:"+E+";color:"+P+";} #SRSrepeat_"+l+" {display:"+(""==A?"none":"block")+";width:140px;position:absolute;bottom:100%;left:calc(50% - 10px);z-index:999;margin-left:-70px;padding:5px 10px;background:black;color:white;line-height:normal;font-size:"+T+"px;border-radius:7px;visibility:hidden;opacity:0;transition:opacity 1s;}",document.head.appendChild(U),0>B.indexOf("Firebase error")){let O=new Firebase(B+"nz3xtmOvc/"+n+"/"+l),F=O;F.on("value",e=>{let t=e.val();t||(t={nz3xtm0vc:0,nz3xtn0vc:0,nz3xtnOvc:s},F.set(t)),r(l,e.val().nz3xtm0vc*f,v),document.getElementById("PBPSR_"+l).setAttribute("onmouseout",'RATE4("'+l+'", '+e.val().nz3xtm0vc*f+", "+v+', "'+y+'")');for(var a=0;a<document.getElementById("PRSTS_"+l).getElementsByClassName("kozyr-SRS-average").length;a++){var n=Math.round(e.val().nz3xtm0vc*f*100)/100;document.getElementById("PRSTS_"+l).getElementsByClassName("kozyr-SRS-average")[a].innerHTML=n}for(var i=0;i<document.getElementById("PRSTS_"+l).getElementsByClassName("kozyr-SRS-votes").length;i++){var m=e.val().nz3xtn0vc;document.getElementById("PRSTS_"+l).getElementsByClassName("kozyr-SRS-votes")[i].innerHTML=m,$(".stars i.active").text(n+"/5 ("+m+")")}if(!I)for(var c=0;c<document.getElementById("PBPSR_"+l).getElementsByTagName("SRSstar").length;c++)document.getElementById("PBPSR_"+l).getElementsByTagName("SRSstar")[c].onclick=function(){if(localStorage["bsrgl_"+l])g(l);else{var t=(e.val().nz3xtm0vc*e.val().nz3xtn0vc+Number(this.getAttribute("wartosc"))/f)/(e.val().nz3xtn0vc+1);F.child("nz3xtm0vc").set(t),F.child("nz3xtn0vc").set(e.val().nz3xtn0vc+1),localStorage["bsrgl_"+l]=Number(this.getAttribute("wartosc")),o(l),""!=y&&(document.getElementById("PRBTX_"+l).innerHTML=u,setTimeout(function(){document.getElementById("PRBTX_"+l).innerHTML="terima Kasih atas Ratenya"},4e3))}}})}else document.getElementById("PBPSR_"+l).innerHTML=B}}(),clearInterval(t))},50)}(StarRatingCreator="undefined"==typeof StarRatingCreator?0:StarRatingCreator+1);
+ else{
+    
+  
+
+StarRatingCreator = typeof StarRatingCreator == 'undefined' ? 0 : StarRatingCreator + 1;
+
+(function(numer) {
+	
+	if (numer === 0 && !document.querySelector('script[src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"]')) {
+		let s = document.createElement('script');
+		s.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js';
+		document.head.appendChild(s);
+		let k = document.createElement('script');
+		k.src = 'https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js';
+		document.head.appendChild(k);
+	}
+	
+function RATE1(rateID, ocena, x, width) {
+    let proc = ocena - Math.floor(ocena);
+    let nrgw = document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar')[x];
+    let kalkul = Math.round(proc * width);
+    nrgw.getElementsByTagName('full')[0].style.width = kalkul + 'px';
+    nrgw.getElementsByTagName('empty')[0].style.width = width-kalkul + 'px';
+    nrgw.getElementsByTagName('empty')[0].getElementsByTagName('img')[0].style.margin = '0 0 0 -' + kalkul + 'px';
 }
+
+function RATE2(rateID, ocena, width) {
+    let gwizdki = document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar');
+    for (let x=0; x<gwizdki.length; x++) {
+        if (x <= ocena) {
+            if (x < Math.floor(ocena)) {
+                gwizdki[x].getElementsByTagName('full')[0].style.width = '100%';
+                gwizdki[x].getElementsByTagName('empty')[0].style.width = '0%';
+            } else {
+                RATE1(rateID, ocena, x, width);
+            }
+        } else if (x > ocena) {
+            gwizdki[x].getElementsByTagName('full')[0].style.width = '0%';
+            gwizdki[x].getElementsByTagName('empty')[0].style.width = '100%';
+            gwizdki[x].getElementsByTagName('empty')[0].getElementsByTagName('img')[0].style.margin = '0 0 0 0';
+        }
+		gwizdki[x].getElementsByTagName('hover')[0].style.width = '0%';
+    }
+}
+
+function RATE3(rateID, co, width, blockingText, hvr) {
+    if (!localStorage['bsrgl_' + rateID]) {
+        RATE2(rateID, co, width);
+        for (var x=0; x<co; x++) {
+			if (hvr === 'auto') {
+                document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar')[x].style.opacity = '0.8';
+			}
+			document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar')[x].getElementsByTagName('empty')[0].style.width = '0';
+			document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar')[x].getElementsByTagName('full')[0].style.width = '0';
+			document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar')[x].getElementsByTagName('hover')[0].style.width = width + 'px';
+        }
+		if (document.getElementById("PRBTX_" + rateID).innerHTML != '') {
+		    document.getElementById("PRBTX_" + rateID).innerHTML = co + ' / ' + document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar').length;
+		}
+    } else {
+        document.getElementById("PBPSR_" + rateID).setAttribute('title', blockingText.replace(/\$userRating\$/g, localStorage['bsrgl_' + rateID]));
+		document.getElementById("PBPSR_" + rateID).style.cursor = 'default';
+    }
+}
+
+function RATE4(rateID, co, width, txt) {
+    RATE2(rateID, co, width);
+    var gwizdki = document.getElementById("PBPSR_" + rateID).getElementsByTagName('star');
+    for (var x=0; x<gwizdki.length; x++) {
+        gwizdki[x].style.opacity = '1';
+    }
+	if (!localStorage['bsrgl_' + rateID]) {
+	    document.getElementById("PRBTX_" + rateID).innerHTML = txt;
+	}
+}
+
+function RATE5(id) {
+	for (var v=0; v<document.getElementById("PBPSR_" + id).getElementsByTagName('SRSstar').length; v++) {
+	    document.getElementById("PBPSR_" + id).getElementsByTagName('SRSstar')[v].style.cursor = 'default';
+    }
+}
+
+function RATE6(id) {
+	var popup = document.getElementById('SRSrepeat_' + id);
+	popup.innerHTML = popup.innerHTML.replace(/\$userRating\$/g, localStorage['bsrgl_' + id]);
+	popup.style.visibility = 'visible';
+	popup.style.opacity = '1';
+	setTimeout(function() {
+		popup.style.visibility = 'hidden';
+		popup.style.opacity = '0';
+    }, 4000)
+}
+
+function BikinTag() {
+  
+      
+      
+      var Datanya ={
+        firebaseURL:"https://sabda-562b1-default-rtdb.firebaseio.com/",
+        ratingName: "auto",
+        fullStarImg:"https://3.bp.blogspot.com/-QSNdWP4Ijx4/Wsjf7QOUZ4I/AAAAAAAAAJ8/F2nReVG5WfA1rLV3dGcAFMsPOnIQck4YwCLcBGAs/s1600/pelna.png",
+        emptyStarImg:"https://1.bp.blogspot.com/-pOr9XGwtSJc/Wsjf8ULOIqI/AAAAAAAAAKE/KBh-LUDIn0YzASKf-t7mQo8UNpdHhr2SgCLcBGAs/s1600/pusta.png",
+        hoverStarImg:"https://2.bp.blogspot.com/-RBgidB2Udbw/Wsjf7XxAJqI/AAAAAAAAAJ0/arOCBC7u9gsPPnEB4GBmqxCxmmIEBITdQCLcBGAs/s1600/najech.png",
+        numberOfStars:"5",
+        starSize:"30",
+        textSize:"15",
+        textColor:"#292929",
+        fontFamily:"Georgia, serif",
+        align:"center",
+        topText:"Berikan bintang untuk Ebook ini:",
+        bottomText:"Average: $average$ / $max$ ($votes$ votes)",
+        thankYouText:"Thanks for voting",
+        blockingText:"Kamu sudah memberikan  bintang $userRating$.",
+        status:"active"     
+ 		},datanya=JSON.parse(JSON.stringify(Datanya));
+      
+      
+		let TAGScript = document.getElementById('Rating');
+		let GantiURL = location.host.replace('www.', '').replace(/\./g, '_').replace(/\//g, '__');
+		let ITEmURL = location.href.split('?')[0].split('#')[0].replace(location.protocol + '//', '').replace('www.', '');
+		if (ITEmURL.substring(ITEmURL.length-1) === '/' || ITEmURL.substring(ITEmURL.length-1) === '.') {
+			ITEmURL = ITEmURL.substring(0, ITEmURL.length-1);
+		}
+		ITEmURL = ITEmURL.replace(/\./g, '_').replace(/\//g, '__').replace(/\,/g, '___').replace(/\s/g, '');
+		let rateID = datanya.ratingName;
+		if (!rateID) {
+			rateID = 'default';
+		} else if (rateID === 'auto') {
+			rateID = ITEmURL;
+		}
+		rateID = rateID.replace(/\s/g, '_').replace(/\#/g, '-').replace(/\./g, '-').replace(/\@/g, '-').replace(/\!/g, '-').replace(/\$/g, '-').replace(/\%/g, '-').replace(/\&/g, '-').replace(/\(/g, '-').replace(/\)/g, '-');
+		if (document.querySelector('#PBPSR_' + rateID)) {
+			let blok = document.createElement('div');
+			blok.innerHTML = 'You can\'t use more than one Rating Widget with the same value of "<b>ratingName</b>" attribute on the same page.';
+			TAGScript.parentNode.insertBefore(blok, TAGScript);
+		} else {
+			let blok = document.createElement('div');
+			blok.setAttribute("id", "PBPSR_" + rateID);
+			TAGScript.parentNode.insertBefore(blok, TAGScript);
+			let teksciorTop = document.createElement('div');
+			let teksciorDown = document.createElement('div');
+			let txtUp = datanya.topText !== null ? datanya.topText : 'Beri Rating:';
+			let txtDown = datanya.bottomText !== null ? datanya.bottomText : '<i class="fa-solid fa-star"></i> <b>$average$</b> / $max$ (<b>$votes$</b> votes)';
+			let ilosc = Number(datanya.numberOfStars);
+			if (ilosc < 1 || isNaN(ilosc)) ilosc = 5;
+			let thanksText = datanya.thankYouText !== null ? datanya.thankYouText : 'Thanks for voting';
+			txtDown = txtDown.replace(/\$average\$/g, '<span class="kozyr-SRS-average"></span>').replace(/\$votes\$/g, '<span class="kozyr-SRS-votes"></span>').replace(/\$max\$/g, ilosc);
+			teksciorTop.innerHTML = txtUp;
+			teksciorTop.setAttribute("id", "PRBTX_" + rateID);
+          	teksciorTop.setAttribute("class", "TextAtas");
+			blok.appendChild(teksciorTop);
+			teksciorDown.setAttribute("id", "PRSTS_" + rateID);
+          	teksciorDown.setAttribute("class", "hilang");
+			teksciorDown.innerHTML = txtDown;
+			let firebaza = datanya.firebaseURL;
+			if (firebaza === null) { firebaza = 'Firebase error. Add attribute firebaseURL="https://YOUR-FIREBASE.firebaseio.com" to your rating script.'; } else if (firebaza == '') { firebaza = 'Firebase error. Enter the URL adress of your Firebase to "firebaseURL" attribute in your rating script.'; } else if (firebaza.indexOf('https://') !== 0) { firebaza = 'Firebase error. Invalid Fierabse URL'; } else if (firebaza.lastIndexOf('firebaseio.com') < 5) { firebaza = 'Firebase error. Invalid Fierabse URL'; } else if (firebaza.lastIndexOf('/') !== firebaza.length - 1) { firebaza = firebaza + '/'; }
+			let pusta = datanya.emptyStarImg ? datanya.emptyStarImg : 'https://1.bp.blogspot.com/-pOr9XGwtSJc/Wsjf8ULOIqI/AAAAAAAAAKE/KBh-LUDIn0YzASKf-t7mQo8UNpdHhr2SgCLcBGAs/s1600/pusta.png';
+			let pelna = datanya.fullStarImg ? datanya.fullStarImg : 'https://3.bp.blogspot.com/-QSNdWP4Ijx4/Wsjf7QOUZ4I/AAAAAAAAAJ8/F2nReVG5WfA1rLV3dGcAFMsPOnIQck4YwCLcBGAs/s1600/pelna.png';
+			let najech = datanya.hoverStarImg;
+			if (najech === null || najech == '') najech = pelna;
+			let width = datanya.starSize;
+			if (!width || Number(width) < 0 || isNaN(width)) width = 25;
+			width = Number(width);
+			let blockingText = datanya.blockingText;
+			if (blockingText === null) blockingText = 'Kamu sudah memberikan bintang $userRating$.';
+			let wyrownanie = datanya.align;
+			if (wyrownanie !== 'right' && wyrownanie !== 'left') wyrownanie = 'center';
+			let wielkoscTekstu = datanya.textSize;
+			if (!wielkoscTekstu || Number(wielkoscTekstu) < 0 || isNaN(wielkoscTekstu)) wielkoscTekstu = 15;
+			wielkoscTekstu = Number(wielkoscTekstu);
+			let kolor = datanya.textColor ? datanya.textColor : 'inherit';
+			
+			let czcionka = datanya.fontFamily;if (czcionka == 'Georgia' || czcionka == 'Georgia, serif') { czcionka = 'Georgia, serif' }  else if (czcionka == 'Palatino' || czcionka == "'Palatino Linotype', 'Book Antiqua', Palatino, serif") { czcionka = '"Palatino Linotype", "Book Antiqua", Palatino, serif'; } else if (czcionka == 'Times New Roman' || czcionka == "'Times New Roman', Times, serif") { czcionka = '"Times New Roman", Times, serif'; } else if (czcionka == 'Arial' || czcionka == 'Arial, Helvetica, sans-serif') { czcionka = 'Arial, Helvetica, sans-serif'; } else if (czcionka == 'Arial Black' || czcionka == "'Arial Black', Gadget, sans-serif") { czcionka = '"Arial Black", Gadget, sans-serif'; } else if (czcionka == 'Comic Sans' || czcionka == "'Comic Sans MS', cursive, sans-serif") { czcionka = '"Comic Sans MS", cursive, sans-serif'; } else if (czcionka == 'Impact' || czcionka == 'Impact, Charcoal, sans-serif') { czcionka = 'Impact, Charcoal, sans-serif'; } else if (czcionka == 'Lucida Sans' || czcionka == "'Lucida Sans Unicode', 'Lucida Grande', sans-serif") { czcionka = '"Lucida Sans Unicode", "Lucida Grande", sans-serif'; } else if (czcionka == 'Tahoma' || czcionka == 'Tahoma, Geneva, sans-serif') { czcionka = 'Tahoma, Geneva, sans-serif'; } else if (czcionka == 'Trebuchet' || czcionka == "'Trebuchet MS', Helvetica, sans-serif") { czcionka = '"Trebuchet MS", Helvetica, sans-serif'; } else if (czcionka == 'Verdana' || czcionka == 'Verdana, Geneva, sans-serif') { czcionka = 'Verdana, Geneva, sans-serif'; } else if (czcionka == 'Courier New' || czcionka == "'Courier New', Courier, monospace") { czcionka = '"Courier New", Courier, monospace'; } else if (czcionka == 'Lucida Console' || czcionka == "'Lucida Console', Monaco, monospace") { czcionka = '"Lucida Console", Monaco, monospace'; } else { czcionka = 'Inherit'; }
+			
+			
+			let readonly = datanya.status === 'readonly' ? true : false;
+			
+			let hvr = najech === pelna ? 'auto' : 'ok';
+			
+			for (let x=1; x<=ilosc; x++) {
+				let star = document.createElement('SRSstar');
+				if (!readonly) {
+					star.onmouseenter = function() {
+						RATE3(rateID, x, width, blockingText, hvr);
+					}
+				}
+				star.setAttribute('wartosc', x);
+				let full = document.createElement('full');
+				let empty = document.createElement('empty');
+				let hover = document.createElement('hover');
+				let pustaObr = document.createElement('img');
+				let pelnaObr = document.createElement('img');
+				let hoverObr = document.createElement('img');
+				pustaObr.src = pusta;
+				pelnaObr.src = pelna;
+				hoverObr.src = najech;
+				pustaObr.style.width = width + 'px';
+				pelnaObr.style.width = width + 'px';
+				hoverObr.style.width = width + 'px';
+				full.appendChild(pelnaObr);
+				empty.appendChild(pustaObr);
+				hover.appendChild(hoverObr);
+				star.appendChild(full);
+				star.appendChild(empty);
+				star.appendChild(hover);
+				blok.appendChild(star);
+			}
+			blok.appendChild(teksciorDown);
+			let alertBox = document.createElement('div');
+			alertBox.setAttribute('id', 'SRSrepeat_' + rateID);
+			alertBox.innerHTML = blockingText;
+			blok.appendChild(alertBox);
+			RATE2(rateID, 0, width);
+			let style = document.createElement('style');
+			style.innerHTML = '#PBPSR_' + rateID + ' {text-align:'+wyrownanie+';position:relative;} #PBPSR_' + rateID + ' SRSstar {display:inline-block;width:'+width+'px;cursor:'+(!localStorage['bsrgl_' + rateID] && !readonly ? 'pointer' : 'default')+';} #PBPSR_' + rateID + ' SRSstar full, #PBPSR_' + rateID + ' SRSstar empty, #PBPSR_' + rateID + ' SRSstar hover {display:inline-block;overflow:hidden;} #PBPSR_' + rateID + ' SRSstar img {background:transparent;border:0;padding:0;margin:0;max-width:none;} #PRBTX_' + rateID + ', #PRSTS_' + rateID + ' {font-size:'+wielkoscTekstu+'px;line-height:1.8;font-family:'+czcionka+';text-align:'+wyrownanie+';color:'+kolor+';} #SRSrepeat_' + rateID + ' {display:'+(blockingText == "" ? "none" : "block")+';width:140px;position:absolute;bottom:100%;left:calc(50% - 10px);z-index:999;margin-left:-70px;padding:5px 10px;background:black;color:white;line-height:normal;font-size:'+wielkoscTekstu+'px;border-radius:7px;visibility:hidden;opacity:0;transition:opacity 1s;}';
+			document.head.appendChild(style);
+			if (firebaza.indexOf('Firebase error') < 0) {
+				const firebase = new Firebase(firebaza+'nz3xtmOvc/' + GantiURL + '/' + rateID);
+				let databaza = firebase;
+				
+				databaza['on']('value', (zrzut) => {
+					let dane = zrzut.val();
+					if (!dane) {
+						dane = {'nz3xtm0vc':0, 'nz3xtn0vc':0, 'nz3xtnOvc':ITEmURL}
+						databaza.set(dane);
+					}
+					RATE2(rateID, zrzut.val().nz3xtm0vc * ilosc, width);
+					document.getElementById("PBPSR_" + rateID).setAttribute('onmouseout', 'RATE4("' + rateID + '", ' + zrzut.val().nz3xtm0vc * ilosc + ', ' + width + ', "' + txtUp + '")');
+					for (var sz=0; sz<document.getElementById("PRSTS_" + rateID).getElementsByClassName('kozyr-SRS-average').length; sz++) {
+						var hasilnya=Math.round(zrzut.val().nz3xtm0vc * ilosc * 100) / 100;
+                      document.getElementById("PRSTS_" + rateID).getElementsByClassName('kozyr-SRS-average')[sz].innerHTML = hasilnya;
+                      
+					}
+					for (var sz2=0; sz2<document.getElementById("PRSTS_" + rateID).getElementsByClassName('kozyr-SRS-votes').length; sz2++) {
+						var votingan=zrzut.val().nz3xtn0vc;
+                      document.getElementById("PRSTS_" + rateID).getElementsByClassName('kozyr-SRS-votes')[sz2].innerHTML = votingan;$(".stars i.active").text(hasilnya+"/5 ("+votingan+")")
+					}
+					if (!readonly) {
+						for (var np=0; np<document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar').length; np++) {
+							document.getElementById("PBPSR_" + rateID).getElementsByTagName('SRSstar')[np].onclick = function() {
+								if (!localStorage['bsrgl_' + rateID]) {
+									var ocn2 = ((zrzut.val().nz3xtm0vc * zrzut.val().nz3xtn0vc)+(Number(this.getAttribute('wartosc')))/ilosc)/(zrzut.val().nz3xtn0vc+1);
+									databaza.child("nz3xtm0vc").set(ocn2);
+									databaza.child("nz3xtn0vc").set(zrzut.val().nz3xtn0vc+1);
+									localStorage['bsrgl_' + rateID] = Number(this.getAttribute('wartosc'));
+									RATE5(rateID);
+									if (txtUp != '') {
+										document.getElementById("PRBTX_" + rateID).innerHTML = thanksText;
+                                       $('srsstar').fadeOut()
+										setTimeout(function() {
+                                          var kambing=window.location.pathname.split('/').join('');  var JJJJJ = localStorage.getItem("bsrgl_sabdaliterasi_shop__"+kambing);
+											document.getElementById("PRBTX_" + rateID).innerHTML = "Terimakasih atas bintang <b>"+JJJJJ+"</b> nya";
+                                          $('srsstar').fadeOut()
+										}, 0);
+									}
+								} else {
+									RATE6(rateID);
+								}
+							}
+						}
+					}
+				});
+			} else {
+				document.getElementById("PBPSR_" + rateID).innerHTML = firebaza;
+			}
+		}
+	}
+
+function RATE8() {
+    var pipa = setInterval(function() {
+		if (typeof firebase != 'undefined') {
+			BikinTag();
+			clearInterval(pipa)	
+		}
+	}, 50)
+}
+
+RATE8();
+})(StarRatingCreator)
+ }
   }();
