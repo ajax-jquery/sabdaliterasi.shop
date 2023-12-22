@@ -10,6 +10,19 @@ wa: https://wa.me/6285186666836
 mail: mailto:sabdaliterasipalu@gmail.com
 # Your name to show in the footer
 author: Sabda Literasi
+testimoni: [
+"saya sudah berlangganan di {{ site.title }} sejak dua tahun yang lalu, tak pernah mengecewakan. ",
+"Barang telah sampai tujuan dengan selamat. habis bayar langsung masuk ke email. luar biasa :) ",
+"ebooknya {% if page.title %}{{ page.title }}{% endif %} sangat bagus... Sesuai dengan pesanan, Seller baik sangat membantu. Nggak nyesel deh pokoknya order, smg ilmunya bermanfaat. makasih Sabda Literasi Palu semoga sehat selalu semua.  Aamiin. ",
+"sabdaliterasi.shop is the BEST 👍 Paket buku yang saya order sudah sampai dan saya terima dengan sangat baik. Produknya original, kualitasnya bagus, kecepatan kirim sesuai estimasi, juga respon sellernya sangat bagus. RECOMENDED seller 👍 Thanks, toko Sabda Literasi Palu.. ",
+"Siang, ini saya Suradi Yasil telah menerima  kiriman buku Etika Nikomakea sesuai pesanan saya. Saya gembira dan mengapresiasi pelayanan Anda. Makasih ",
+"Bukunya sudah saya terima, terimakasih. Senang bisa berbelanja di {{ site.title }}",
+"Pak pesanan bukunya sudah saya terima. Terima kasih atas kerja samanya. Lain waktu mudah-mudahan bisa kerjasama lagi. ",
+"Bukunya sudah saya terima, terimakasih. Senang bisa berbelanja di {{ site.title }}",
+"Buku feminisme:sebuah pengantar singkat sudah saya terima. Terima kasih, makasih Sabda Literasi Palu. Saya sangat puas dengan pelayanannya, harap dipertahankan dan semoga Sabda Literasi Palu makin maju. ",
+"Selamat siang, Ya, saya sudah menerima buku itu. Kamus itu sangat baik. Terima kasih! Jong-Guk Bak ",
+"Terima kasih, pelayanannya cepat dan memuaskan :)"
+]
 #gtag: 
 
 ###############################################
