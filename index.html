@@ -337,7 +337,7 @@ var rpplBlogUrl =  "{{ site.url }}/";function LazyScript(e){var t=!1;window.addE
 </script><script src="{{ site.url }}/assets/js/findbook.min.js"></script><div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
 </div></div>
 <div id="sitemap5" class="result hidden"><p id="judul" class="judul"></p><div class="ajax-search" id="ajax-search"><div>
-<ol class="ajax-search-results badan" id="badan">{% for post in site.posts %}<li data-search-term="{{ post.title }} {{ post.author }} {{ post.description }}" class="list-produk serrcok hidden"><p class="ajax-search-image loading"><img class="lazyload" data-src="{{ post.image }}" alt="{{ post.title }}" style="display:block;width:60px;height:60px;" src='data:,'></p><h4 class="ajax-search-title"><a alt="{{ post.title }}" title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h4></li>{% endfor %}</ol></div></div></div>
+<ol class="ajax-search-results badan" id="badan">{% for post in site.posts %}<li data-search-term="{{ post.title }} {{ post.author }} {{ post.description }}" class="list-produk serrcok hidden"><p class="ajax-search-image loading"><img class="lazyload" data-src="{{ post.image }}" alt="{{ post.title }}" style="display:block;width:60px;height:60px;" src='data:,'></p><h4 class="ajax-search-title"><a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h4></li>{% endfor %}</ol></div></div></div>
 <script src="{{ site.url }}/assets/js/kutoko.js"></script>
 <!-- Google Tag Manager (noscript) -->
 {% if site.gtag %}<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtag }}"
