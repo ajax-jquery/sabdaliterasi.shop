@@ -146,7 +146,7 @@ Type: <b>Ebook [PDF]</b><br>
 <div class="produk-showcase">
   <div class="produk-box" id="EbookSI">
     {% for post in site.posts %}
-    <div class="produk"><div class="img-product"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}">Lihat</a></div></div>
+    <div class="produk"><div class="img-product"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}">Lihat</a><div class="Rate" data-id="{{ post.permalink }}"></div></div></div>
     {% endfor %}
  </div>
 </div>
@@ -278,6 +278,7 @@ Lihat produk lengkapku
 </div>
 <div class='popular-post-snippet'>
 <div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div>
+<div class="Rate" data-id="{{ post.permalink }}"></div>
 </div>
 <div class='js-popular-post-snippet'></div>
 </div>
