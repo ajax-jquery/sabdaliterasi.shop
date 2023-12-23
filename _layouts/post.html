@@ -181,22 +181,7 @@ Type: <b>Ebook [PDF]</b><br>
 </div>
 </div>
 </div>
- <style>
-   #commentsdisqus h2.comments-title {
-    border-radius: 6px;
-    background: #f26926;
-    display: block;
-    text-align: center;
-    padding: 6px 12px;
-    margin: 0;
-    font-size: 13px;
-    font-size: 1.3rem;
-    color: #fff;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-  </style>
-<section class='comments comments-threaded' data-embed='true' data-num-comments='2' id='commentsdisqus'>
+<section class='comments comments-threaded' data-embed='true' data-num-comments='2' id='commentsdis'>
 <h2 class='comments-title'>
 <span>Diskusi</span>
 </h2>
@@ -307,12 +292,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endif %}<!-- End Google Tag Manager (noscript) -->
   <script>{% include scriptbawapost.html %}
   /**/
-      $(document).ready(function(){
-   $("#commentsdisqus .comments-title").click(function(){
-  var babi= $("#commentsdisqus .comment-thread").html()
-       if(babi === undefined){
-  $("#commentsdisqus .comment-thread").html('<div id="disqus_thread"></div><script src="https://sabda-literasi-palu.disqus.com/embed.js"><\/script>');
-       }else{ $("#commentsdisqus .comment-thread").html('')}
+     $(document).ready(function(){
+          $("#commentsdis .comments-title").click(function(){
+  var babi= $("#disqus_thread").html();
+       if(babi == undefined){
+  $("#comment-main > div").html('<div id="disqus_thread">s</div><script src="https://sabda-literasi-palu.disqus.com/embed.js"><\/script>');
+       }else{ $("#comment-main > div").html('')}
   
   });
   
