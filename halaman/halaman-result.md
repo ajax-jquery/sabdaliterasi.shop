@@ -4,7 +4,7 @@ author: Sabda Literasi
 title: Search
 harga: Rp0
 description: Menampilkan seluruh hasil pencarian yang kamu cari di situs website kami.
-permalink: /search/
+permalink: /r/
 image: https://sabdaliterasi.shop/media/android-icon-512x512
 keyword: [search]
 ---
