@@ -1,12 +1,12 @@
 ---
 layout: halaman
 author: Sabda Literasi
-title: Search
+title: Result
 harga: Rp0
 description: Menampilkan seluruh hasil pencarian yang kamu cari di situs website kami.
-permalink: /r/
+permalink: /result/
 image: https://sabdaliterasi.shop/media/android-icon-512x512
-keyword: [search]
+keyword: [result]
 ---
 <div id="gcsengine"></div>
 <script>
