@@ -12,6 +12,5 @@ group :jekyll_plugins do
   gem 'jekyll-money2'
   gem 'jekyll-redirect-from'
   gem "jekyll-last-modified-at"
-  gem 'jekyll-tagging-related_posts'
 end
 gem 'cucumber'
