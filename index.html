@@ -50,8 +50,11 @@ permalink: /
 </label>
 </div>
 <div class='searchcontainer'>
-<form action='{{ site.url }}/search/?' id='search'>
-<input onkeyup="Cari()" aria-label='Cari' autocomplete='off' id='search-terms' name='ebook' placeholder='Cari...' type='text' value=''/>
+<form action='{{ site.url }}/result/' id='search'>
+<input onkeyup="Cari()" aria-label='Cari' autocomplete='off' id='search-terms' name='gsc.q' placeholder='Cari...' type='text' value=''/>
+<input type='hidden' name='cx' value='c7367564f98394c59' />
+<input type='hidden' name='cof' value='FORID:10' />
+<input type='hidden' name='ie' value='ISO-8859-1' />
 </form>
 </div>
 </div>
