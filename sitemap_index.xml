@@ -7,6 +7,10 @@ layout : null
 		<loc>{{ site.url }}/product-sitemap.xml</loc>
 		<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
 	</sitemap>
+  <sitemap>
+		<loc>{{ site.url }}/post-sitemap.xml</loc>
+		<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+	</sitemap>
 	<sitemap>
 		<loc>{{ site.url }}/page-sitemap.xml</loc>
 		<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
