@@ -1,0 +1,276 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="id-ID">
+{% include headpost-halaman.html %}
+<body class='is-post'>
+<div class='template-settings section' id='template-settings'><div class='widget HTML' data-version='2' id='HTML70'>
+{% include setting.html %}</div></div><script>!function(e){var o={darkMode:!0,autoDarkMode:!0};themeOption(o);let t=e.body;if(!o.darkMode)return t.classList.add("no-darkmode"),console.log("NTULL");var e=!!o.autoDarkMode&&window.matchMedia("(prefers-color-scheme: dark)").matches,o="darkmode"===localStorage.getItem("stylemode"),a="lightmode"===localStorage.getItem("stylemode");!e&&!o||a?(localStorage.setItem("stylemode","lightmode"),t.classList.remove("dark")):(localStorage.setItem("stylemode","darkmode"),t.classList.add("dark"))}(document);</script>
+<div class='custom-css section' id='custom-css'><div class='widget HTML' data-version='2' id='HTML82'>
+</div></div>
+<div id='wrapper'>
+<header id='header-wrapper'>
+<div class='header'>
+<button aria-label='menu' class='navmenu-button'>
+<span></span>
+<span></span>
+<span></span>
+</button>
+<div class='header-title section' id='header-title'><div class='widget Header' data-version='2' id='Header1'>
+<a href='{{ site.url }}/' title='{{ site.title }}'>
+<img loading="lazy" alt='{{ site.title }}' height='110' src='{{ site.url }}/media/logo-banner.png' title='{{ site.title }}' width='579' />
+</a>
+<div class='site-title-wrap hide-title'>
+<h2 class='site-title'>
+<a data-text='{{ site.title }}' href='{{ site.url }}/' title='{{ site.title }}'>{{ site.title }}</a>
+</h2>
+</div>
+</div></div>
+<div class='navmenu-desktop section' id='navmenu-desktop'><div class='widget HTML' data-version='2' id='HTML642'>
+<nav>
+<ul>
+  
+  {% include navigasi.html %}
+  
+  </ul>
+</nav>
+</div></div>
+<nav class='navmenu-mobile'>
+<div class='navmenu-list'>
+</div>
+</nav>
+<div class='navmenu-overlay'></div>
+<div class='nav-right'>
+<div id='darkmode-button'>
+<input aria-label='darkmode' class='darkmode' id='darkmode' name='darkmode' type='checkbox'/><label for='darkmode' title='darkmode'></label>
+</div>
+<label class='search-button' for='search-terms'>
+</label>
+</div>
+<div class='searchcontainer'>
+<form action='{{ site.url }}/search/?' id='search'>
+<input onkeyup="Cari()" aria-label='Cari' autocomplete='off' id='search-terms' name='ebook' placeholder='Cari...' type='text' value=''/>
+</form>
+</div>
+</div>
+</header>
+<main id='main'>
+<div id='banner-container'>
+</div>
+<div id='recent-container'>
+</div>
+<div class='main-content section' id='main-content'><div class='widget Blog' data-version='2' id='Blog1'>
+<script type='application/ld+json'>
+        {
+            "@context":"http://schema.org",
+            "@type":"WebPage",
+            "name":"{% if page.title %}{{ page.title }} |{% endif %} Ebook Shop | {{ site.title }}",
+            "url":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"
+        }
+        </script>
+<div class='post-container post-single post-single-produk'>
+<div class='breadcrumbs-post'>
+<div class='breadcrumbs'  >
+<span>
+<a href='{{ site.url }}/' title='Home'>
+<span>
+Beranda
+</span>
+</a>
+</span>
+<span class='arrow'>&#8250;</span>
+<span>
+<a href='{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#' rel='nofollow' title='{% if page.tag %}{{ page.tag }}{% endif %}'>
+<span>
+{% if page.tag %}{{ page.tag }}{% endif %}
+</span>
+</a>
+</span>
+<span class='arrow'>&#8250;</span>
+<span>{% if page.title %}{{ page.title }}{% endif %}</span>
+</div>
+</div>
+<div class='post-message-container'>
+</div>
+<article class='post-outer'>
+<div class='post' itemscope='itemscope'>
+<div class='post-title'>
+<h1>{% if page.title %}{{ page.title }}{% endif %}</h1>
+</div>
+<div class='post-body'>
+{{ content }}
+</div>
+<div id='after-content'>
+<div class='share-buttons'>
+<script>
+            var sharePostUrl = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}";
+            var sharePostTitle = "{% if page.title %}{{ page.title }}{% endif %}";
+            </script>
+<button aria-label='Berbagi' class='share-btn'>
+<span>Berbagi</span></button>
+<div class='share-links'>
+<div class='links'>
+</div>
+</div>
+</div>
+<div id="ms-related-post" class="msr-artikel"><div class="ms-related-title"><p>Artikel Terkait</p></div><ul class="ms-related-hasthumb">
+ <li><div class="msr-thumb-outer"><a title="Markup: HTML Tags and Formatting" href="https://kutoko.sugeng.id/2011/02/markup-html-tags-and-formatting.html"><img alt="Markup: HTML Tags and Formatting" class="msr-thumb lazyload loaded" data-src="//blogger.googleusercontent.com/img/a/AVvXsEgZ26_6DOEGZrh8BHctHaEhdt49Y0b3YfXoxAqd-9TXrmxHZ7fNcH1LdFQOy66t-SRlZcOBgIZVLTs7upXSezPblNIlzrfuJLOJUVa_LH-sZcVPlgSIjSQMYuPKYZFtUzPiGZ1OWy7DXNdwYAc7C9fLxEAGg-l_SbBKWewKg_9vbm2rBgFwHq4kc6U0=w600-h338-n-k-no-nu-rw" width="300" height="169" src="//blogger.googleusercontent.com/img/a/AVvXsEgZ26_6DOEGZrh8BHctHaEhdt49Y0b3YfXoxAqd-9TXrmxHZ7fNcH1LdFQOy66t-SRlZcOBgIZVLTs7upXSezPblNIlzrfuJLOJUVa_LH-sZcVPlgSIjSQMYuPKYZFtUzPiGZ1OWy7DXNdwYAc7C9fLxEAGg-l_SbBKWewKg_9vbm2rBgFwHq4kc6U0=w600-h338-n-k-no-nu-rw" lazied="IMG"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="Markup: HTML Tags and Formatting" href="https://kutoko.sugeng.id/2011/02/markup-html-tags-and-formatting.html">Markup: HTML Tags and Formatting</a></div></div></li>
+  </ul>
+</div>
+<aside id="ratingbook" style="display:none"><div class="testimonial-title">
+<h2>Total Penilaian Ebook {% if page.title %}{{ page.title }}{% endif %}</h2></div>
+<div class="stars"><i class="fa fa-star active"></i></div>
+<div id="Rating"></div> 
+</aside>
+<div id="ms-related-post">
+  <div class="ms-related-title"><p>Produk Kami</p></div>
+<div class="produk-showcase">
+  <div class="produk-box" id="EbookSI">
+    {% for post in site.posts %}
+    <div class="produk"><div class="img-product"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}">Lihat</a><div class="Rate" data-id="{{ post.permalink }}"></div></div></div>
+    {% endfor %}
+ </div>
+</div>
+</div><script> var postLabels = ["Sepatu", ]; var relatedConfig = { relatedOuter: "ms-related-post", postUrl: "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}", homePageUrl: "{{ site.url }}/", relatedTitleText:  "Produk Terkait", }; </script>
+{% include testimoni.html %}
+</div>
+<div id='after-content-hidden'>
+<div class='call-to-action2-wrap'>
+</div>
+<div class='pb-wrapper' id='cc-wrapper'>
+<div class='pb-content' id='cc-content'>
+<div class='pb-main' id='cc-main'>
+<h2 class='cc-title'>ORDER VIA CHAT</h2>
+<div class='cc-detail-produk'>
+<p class='cc-nama-produk'>Produk : <strong>{% if page.title %}{{ page.title }}{% endif %}</strong></p>
+<p class='cc-harga-produk'>Harga : <strong></strong><span></span></p>
+<p class='cc-url-produk'>{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}</p>
+</div>
+<div class='cc-input'>
+<div class='cc-input-jmlhproduk'></div>
+<div class='cc-input-kontak'></div>
+<div class='cc-input-alamat'></div>
+</div>
+<div class='input-has-error'></div>
+<a class='cc-chat-wa-link' href='#'><b id='cc-chatwa'></b></a>
+</div>
+</div>
+</div>
+<div class='pb-wrapper' id='cm-wrapper'>
+<div class='pb-content' id='cm-content'>
+<div class='pb-main' id='cm-main'>
+<h2 class='cm-title'>ORDER VIA MARKETPLACE</h2>
+<div class='cm-links'>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class='comments comments-threaded' data-embed='true' data-num-comments='2' id='commentsdis'>
+<h2 class='comments-title'>
+<span>Diskusi</span>
+</h2>
+<div class='comments-content'>
+<div id='comment-main'>
+<div class="comment-thread toplevel-thread">
+</div>
+</div>
+<div class='comment-footer'>
+<div class='comment-form default-comment-form'>
+<p class='comment-note'>
+Silakan berdikusi
+</p>
+</div>
+</div>
+</div>
+
+  
+  
+  </section>
+</div>
+</article>
+</div>
+</div></div>
+</main>
+<aside id='footer-widget-wrapper'>
+<div id='footer-widget'>
+<div class='footer-widget-1 section' id='footer-widget-1'><div class='widget Label' data-version='2' id='Label1'>
+<div class='normalwidget-title'>
+<h2 class='title'>Metode Pembayaran</h2>
+</div>
+<div class='widget-content list-label-widget-content'>
+<div class="third-service"> <div class="shopee"></div> <div class="qris"></div> <div class="ovo"></div> <div class="bca"></div> <div class="mandiri"></div> <div class="bri"></div> <div class="permatabank"></div> <div class="bni"></div> <div class="mybank"></div> <div class="cimb"></div> <div class="mastercard"></div> <div class="visa"></div> <div class="atmbersama"></div> <div class="alfamart"></div> <div class="pegadaian"></div><div class="kantorpos"></div>
+</div>
+</div>
+</div><div class='widget PageList' data-version='2' id='PageList1'>
+<div class='normalwidget-title'>
+<h2 class='title'>Halaman</h2>
+</div>
+<div class='widget-content'>
+<ul>{% include navigasi-footer.html %}</ul>
+</div>
+</div></div>
+<div class='footer-widget-2 section' id='footer-widget-2'>
+{% include profil.html %}
+<div class='widget PopularPosts' data-version='2' id='PopularPosts1'>
+<h2 class='title'>Populer</h2>
+<div class='widget-content'>
+{% for post in site.posts limit:3 %}
+<div class='popular-post'>
+<div class='popular-post-thumbnail'>
+<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" title="{{ post.title }}">
+<img alt='{{ post.title }}' class='lazyload' data-src='{{ post.image }}' height='100' src='data:,' width='100'/>
+<div class='lazy-loading'></div>
+</a>
+</div>
+<div class='popular-post-info'>
+<div class='popular-post-title'>
+<a href='{{ post.url | prepend: site.baseurl | prepend: site.url }}' title="{{ post.title }}">
+{{ post.title }}
+</a>
+</div>
+<div class='popular-post-snippet'>
+<div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div>
+<div class="Rate" data-id="{{ post.permalink }}"></div>
+</div>
+<div class='js-popular-post-snippet'></div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div></div>
+</div>
+</aside>
+<footer id='footer-wrapper'>
+<div class='socialicon-widget-container section' id='socialicon-widget-container'><div class='widget HTML' data-version='2' id='HTML637'>
+<div class='socialicon-widget'>
+  <a aria-label="facebook-icon" href="https://facebook.com/sabdaliterasipalu"><span class="social-icon facebook-icon"><i></i></span></a>
+  <a aria-label="whatsapp-icon" href="https://wa.me/6285186666836"><span class="social-icon whatsapp-icon"><i></i></span></a>
+  <a aria-label="instagram-icon" href="https://instagram.com/sabdaliterasipalu"><span class="social-icon instagram-icon"><i></i></span></a>
+  <a aria-label="tiktok-icon" href="https://www.tiktok.com/@sabdaliterasipalu"><span class="social-icon tiktok-icon"><i></i></span></a>
+  <a aria-label="icon-mail" href="mailto:sabdaliterasipalu@gmail.com"><span class="social-icon icon-mail"><i></i></span></a>
+</div>
+</div></div>
+<div class='footer-content section' id='footer-content'><div class='widget HTML' data-version='2' id='HTML80'>
+<div class='footer-text'>
+
+                    &#169; 2023 - <a href='{{ site.url }}/'>{{ site.title }}</a>
+</div>
+</div></div>
+<button aria-label='scrolltop' class='scrollToTopBtn'></button>
+</footer>
+</div>
+{% include popup.html %}	
+<script>{% include scriptbawapost.html %}</script>
+<script src="{{ site.url }}/assets/js/kutoko.js"></script><div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
+</div></div>
+<!--<div id="sitemap5" class="result hidden"><p id="judul" class="judul"></p><div class="ajax-search" id="ajax-search"><div>
+<ol class="ajax-search-results badan" id="badan">{% for post in site.posts limit:9999 %}<li data-search-term="{{ post.title }} {{ post.author }} {{ post.description }}" class="list-produk serrcok hidden"><p class="ajax-search-image loading"><img class="lazyload" data-src="{{ post.image }}" alt="{{ post.title }}" style="display:block;width:60px;height:60px;" src='data:,'></p><h4 class="ajax-search-title"><a alt="{{ post.title }}" title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h4></li>{% endfor %}</ol></div></div></div>
+-->
+<!-- Google Tag Manager (noscript) -->
+{% if site.gtag %}<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtag }}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+{% endif %}<!-- End Google Tag Manager (noscript) -->
+ </body>
+</html>
