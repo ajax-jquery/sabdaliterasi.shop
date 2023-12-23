@@ -306,5 +306,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-timeago
   - jekyll-last-modified-at
+
 collections:
-  -artikel
+  artikel:
+  output: true
