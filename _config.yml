@@ -287,6 +287,12 @@ defaults:
     values:
       layout: "page"
 
+    scope:
+      path: ""
+      type: "artike"
+    values:
+      layout: "post"
+
 # Exclude these files from production site
 exclude:
   - CHANGELOG.md
@@ -307,6 +313,3 @@ plugins:
   - jekyll-timeago
   - jekyll-last-modified-at
 
-collections:
-  artikel:
-  output: true
