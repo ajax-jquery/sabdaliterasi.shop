@@ -279,7 +279,8 @@ Silakan berdikusi
 <script>
 var URL_INI = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}",
 URL_BERANDA = "{{ site.url }}",
-URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.buy | replace:'/','' }}{% endif %}"
+URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.permalink | replace:'/','' }}{% endif %}",
+JUDUL_INI="{{ page.title }}";
 function lanjutBuy(){window.location.href = "{{ site.url }}/buy/?id="+URL_ID}
 var rpplBlogUrl =  "{{ site.url }}/";function LazyScript(e){var t=!1;window.addEventListener("scroll",function(){var r,c;(0!=document.documentElement.scrollTop&&!1===t||0!=document.body.scrollTop&&!1===t)&&((r=document.createElement("script")).type="text/javascript",r.async=!0,r.src=e,(c=document.getElementsByTagName("script")[0]).parentNode.insertBefore(r,c),t=!0)},!0)};
 </script><script src="{{ site.url }}/assets/js/kutoko.js"></script><div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
