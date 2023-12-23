@@ -193,39 +193,8 @@ Beranda
 </ul>
 </div>
 </div></div>
-<div class='footer-widget-2 section' id='footer-widget-2'><div class='widget Profile' data-version='2' id='Profile1'>
-<div class='normalwidget-title'>
-<h2 class='title'>Mengenai Saya</h2>
-</div>
-<div class='widget-content individual'>
-<div class='profile-line1'>
-<div class='profile-img-wrap'>
-<a href='{{ site.url }}' rel='nofollow'>
-<img alt='Foto saya' class='lazyload' data-src='{{ site.avatar }}' height='113' src='data:,' width='113'/>
-<div class='lazy-loading'></div>
-</a>
-</div>
-<div class='profile-info has-location'>
-<a class='profile-link-author g-profile' href='{{ site.url }}' rel='author nofollow'>
-{{ site.title }}
-</a>
-<div class='profile-data location'>
-<span>Indonesia</span>
-</div>
-</div>
-</div>
-<div class='profile-line2'>
-<div class='profile-bio'>
-<div class='profile-textblock'>
-{{ site.description }}
-</div>
-<a class='profile-link' href='{{ site.url }}' rel='author noopener nofollow' target='_blank'>
-Lihat produk lengkapku
-</a>
-</div>
-</div>
-</div>
-</div><div class='widget PopularPosts' data-version='2' id='PopularPosts1'>
+<div class='footer-widget-2 section' id='footer-widget-2'>
+{% include profil.html %}<div class='widget PopularPosts' data-version='2' id='PopularPosts1'>
 <h2 class='title'>Populer</h2>
 <div class='widget-content'>
 {% for post in site.posts limit:3 %}
