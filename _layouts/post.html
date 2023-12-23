@@ -291,9 +291,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /**/
       $(document).ready(function(){
    $("comments-title").click(function(){
-  
+  var babi= $("comment-thread").html()
+       if(babi === undefined){
   $("comment-thread").html('<div id="disqus_thread"></div><script src="https://sabda-literasi-palu.disqus.com/embed.js"><\/script>');
-       
+       }else{ $("comment-thread").html('')}
   
   });
   
