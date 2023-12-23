@@ -273,7 +273,7 @@ kramdown:
 
 collections:
   artikel:
-    permalink: "/artikel/:year/:month/:day/:title/"
+    permalink: "/artikel/:title/"
     output: true
 
 # Default YAML values (more information on Jekyll's site)
