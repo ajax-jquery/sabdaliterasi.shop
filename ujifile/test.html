@@ -15,7 +15,9 @@ permalink: /test/
 {% endfor %}  
  </ul>   
 <p>{{ 10000000 | money: "IDR" }}</p>
-
+{% for p in site.artikel %}
+<strong><a title="{{ p.title }}" href="{{p.title }}">{{ p.title }}</a></strong>
+{% endfor %}  
 <p>Click me too!</p>
 <p>If you click on me, I will disappear.</p>
 <p>Click me away!</p>
