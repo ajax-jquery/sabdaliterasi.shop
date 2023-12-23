@@ -306,6 +306,5 @@ plugins:
   - jekyll-redirect-from
   - jekyll-timeago
   - jekyll-last-modified-at
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
-
+collections:
+  -artikel
