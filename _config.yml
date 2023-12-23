@@ -271,6 +271,11 @@ paginate: 5
 kramdown:
   input: GFM
 
+collections:
+  artikel:
+    permalink: "/artikel/:year/:month/:day/:title/"
+    output: true
+
 # Default YAML values (more information on Jekyll's site)
 defaults:
   -
@@ -288,7 +293,7 @@ defaults:
       layout: "page"
   -
     scope:
-      path: ""
+      path: "_artikel"
       type: "artikel"
     values:
       layout: "post"
