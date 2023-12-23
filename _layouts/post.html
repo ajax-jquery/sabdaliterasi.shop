@@ -181,14 +181,29 @@ Type: <b>Ebook [PDF]</b><br>
 </div>
 </div>
 </div>
-<section class='comments comments-threaded' data-embed='true' data-num-comments='2' id='commentsdis'>
+ <style>
+   #commentsdisqus h2.comments-title {
+    border-radius: 6px;
+    background: #f26926;
+    display: block;
+    text-align: center;
+    padding: 6px 12px;
+    margin: 0;
+    font-size: 13px;
+    font-size: 1.3rem;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+  </style>
+<section class='comments comments-threaded' data-embed='true' data-num-comments='2' id='#commentsdisqus'>
 <h2 class='comments-title'>
 <span>Diskusi</span>
 </h2>
 <div class='comments-content'>
 <div id='comment-main'>
 <div class="comment-thread toplevel-thread">
-  </div>
+</div>
 </div>
 <div class='comment-footer'>
 <div class='comment-form default-comment-form'>
@@ -198,7 +213,10 @@ Silakan berdikusi
 </div>
 </div>
 </div>
-</section>
+
+  
+  
+  </section>
 </div>
 </article>
 </div>
@@ -290,7 +308,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>{% include scriptbawapost.html %}
   /**/
       $(document).ready(function(){
-   $(".comments-title").click(function(){
+   $("#commentsdisqus .comments-title").click(function(){
   var babi= $(".comment-thread").html()
        if(babi === undefined){
   $(".comment-thread").html('<div id="disqus_thread"></div><script src="https://sabda-literasi-palu.disqus.com/embed.js"><\/script>');
