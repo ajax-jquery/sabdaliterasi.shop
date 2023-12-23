@@ -18,10 +18,30 @@ layout: null
 <icon>{{ site.url }}/media/favicon-32x32.png</icon>
 	
  {% for post in site.posts limit:9999 %} {% assign i = forloop.index | times: 235 %} {% assign TahunNormal = "now" | date: "%Y" %} {% assign HariNormal = "now" | date: "%d" %} {% assign BulanNormal = "now" | date: "%m" %} {% assign Hasilo =  site.time | plus: i | date_to_xmlschema%} {% assign TahunNggak = Hasilo | date: "%Y" %} {% assign HariNggak = Hasilo | date: "%d" %} {% assign caraI = Hasilo | replace: TahunNggak , TahunNormal %} {% assign caraII = caraI | replace: HariNggak , HariNormal  %} {% assign akhirnyaaaaaaaaa = caraII  %} 
-
   <entry>
 		<author>
 		<name>{{ post.author | xml_escape }}</name>
+		<uri>{{ site.url }}</uri>
+		</author>
+
+		<title type="html"><![CDATA[{{ post.title | xml_escape }}]]></title>
+		<link rel="alternate" type="text/html" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" />
+		<id>{{ post.url | prepend: site.baseurl | prepend: site.url }}?p={{ post.date | date_to_xmlschema }}</id>
+		<updated>{{ akhirnyaaaaaaaaa }}</updated>
+		<published>{{ post.date | date_to_xmlschema }}</published>
+    {% for cat in post.keyword %}
+		<category scheme="{{ site.url }}" term="{{ cat | xml_escape }}" />
+     {% endfor %}
+		<summary type="html"><![CDATA[{{ post.description | xml_escape }}]]></summary>
+		<content type="html" xml:base="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><![CDATA[{{ post.content | xml_escape }}]]></content>
+		<link rel="replies" type="text/html" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments" thr:count="100" />
+		<link rel="replies" type="application/atom+xml" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}?feed/atom/" thr:count="100" />
+		<thr:total>100</thr:total>
+			</entry>
+  {% endfor %}{% for post in site.artikel limit:9999 %} {% assign i = forloop.index | times: 235 %} {% assign TahunNormal = "now" | date: "%Y" %} {% assign HariNormal = "now" | date: "%d" %} {% assign BulanNormal = "now" | date: "%m" %} {% assign Hasilo =  site.time | plus: i | date_to_xmlschema%} {% assign TahunNggak = Hasilo | date: "%Y" %} {% assign HariNggak = Hasilo | date: "%d" %} {% assign caraI = Hasilo | replace: TahunNggak , TahunNormal %} {% assign caraII = caraI | replace: HariNggak , HariNormal  %} {% assign akhirnyaaaaaaaaa = caraII  %} 
+  <entry>
+		<author>
+		<name>{{ site.author | xml_escape }}</name>
 		<uri>{{ site.url }}</uri>
 		</author>
 
