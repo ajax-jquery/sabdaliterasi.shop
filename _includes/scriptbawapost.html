@@ -2,7 +2,7 @@ function LazyScript(e){var t=!1;window.addEventListener("scroll",function(){var 
 {% if page.title %}
 var URL_INI = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}",
 URL_BERANDA = "{{ site.url }}",
-URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% elsif page.permalink %}{{ page.permalink | replace:'/','' }}{% else %}{{ page.url }}{% endif %}",
+URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% elsif page.permalink %}{{ page.permalink | replace:'/','' }}{% else %}{{ page.url | replace: "/artikel","artikel" }}{% endif %}",
 JUDUL_INI="{{ page.title }}";
 function lanjutBuy(){window.location.href = "{{ site.url }}/buy/?id="+URL_ID}
 var rpplBlogUrl =  "{{ site.url }}/";
