@@ -312,5 +312,4 @@ plugins:
   - jekyll-redirect-from
   - jekyll-timeago
   - jekyll-last-modified-at
-  - jekyll-tagging-related_posts
 
