@@ -282,7 +282,6 @@ URL_BERANDA = "{{ site.url }}",
 URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.buy | replace:'/','' }}{% endif %}"
 function lanjutBuy(){window.location.href = "{{ site.url }}/buy/?id="+URL_ID}
 var rpplBlogUrl =  "{{ site.url }}/";function LazyScript(e){var t=!1;window.addEventListener("scroll",function(){var r,c;(0!=document.documentElement.scrollTop&&!1===t||0!=document.body.scrollTop&&!1===t)&&((r=document.createElement("script")).type="text/javascript",r.async=!0,r.src=e,(c=document.getElementsByTagName("script")[0]).parentNode.insertBefore(r,c),t=!0)},!0)};
-$(document).ready(function(){var t=document.title; $.ajax({ async:!0,crossDomain:!0,url:"https://api.short.io/links/public",method:"POST",headers:{accept:"application/json","content-type":"application/json",Authorization:"pk_D9uOY0QQ1UkTpktw"},processData:!1,data:'{"domain":"buy.sabdaliterasi.shop","allowDuplicates":false,"originalURL":"'+URL_INI+'","path":"'+URL_ID+'","title":"'+t+'"}'}).done(function(a){console.log(a.path)}) });function sharelink() { navigator.clipboard.writeText("https://buy.sabdaliterasi.shop"+URL_ID)}
 </script><script src="{{ site.url }}/assets/js/kutoko.js"></script><div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
 </div></div>
 <!--<div id="sitemap5" class="result hidden"><p id="judul" class="judul"></p><div class="ajax-search" id="ajax-search"><div>
