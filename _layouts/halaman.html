@@ -236,22 +236,16 @@ Beranda
 <button aria-label='scrolltop' class='scrollToTopBtn'></button>
 </footer>
 </div>
-<script>
-var URL_INI = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}",
-URL_BERANDA = "{{ site.url }}",
-URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.permalink | replace:'/','' }}{% endif %}",
-JUDUL_INI="{{ page.title }}";
-function lanjutBuy(){window.location.href = "{{ site.url }}{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','/buy/?id=' }}{% endif %}"}
-var rpplBlogUrl =  "{{ site.url }}/";
-</script><script src="{{ site.url }}/assets/js/kutoko.js"></script><div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
+<div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
 </div></div>
 <div id="sitemap5" class="result hidden"><p id="judul" class="judul"></p><div class="ajax-search" id="ajax-search"><div>
 <ol class="ajax-search-results badan" id="badan">{% for post in site.posts limit:9999 %}<li data-search-term="{{ post.title }} {{ post.author }} {{ post.description }}" class="list-produk serrcok hidden"><p class="ajax-search-image loading"><img class="lazyload" data-src="{{ post.image }}" alt="{{ post.title }}" style="display:block;width:60px;height:60px;" src='data:,'></p><h4 class="ajax-search-title"><a title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h4></li>{% endfor %}</ol></div></div></div>
+<script>{% include scriptbawapost.html %}</script>
+<script src="{{ site.url }}/assets/js/kutoko.js"></script>
 <script async src="{{ site.url }}/assets/js/findbook.min.js"></script>
 <!-- Google Tag Manager (noscript) -->
 {% if site.gtag %}<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtag }}"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endif %}<!-- End Google Tag Manager (noscript) -->
-    <script>{% include scriptbawapost.html %}</script>
 </body>
 </html>
