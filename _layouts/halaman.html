@@ -237,8 +237,10 @@ Beranda
 </footer>
 </div>
 <script>
-var URL_INI = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}";
-var URL_BERANDA = "{{ site.url }}";
+var URL_INI = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}",
+URL_BERANDA = "{{ site.url }}",
+URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.permalink | replace:'/','' }}{% endif %}",
+JUDUL_INI="{{ page.title }}";
 function lanjutBuy(){window.location.href = "{{ site.url }}{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','/buy/?id=' }}{% endif %}"}
 var rpplBlogUrl =  "{{ site.url }}/";
 </script><script src="{{ site.url }}/assets/js/kutoko.js"></script><div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
