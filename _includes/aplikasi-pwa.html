@@ -1,3 +1,7 @@
+<link rel="sitemap" type="application/xml" title="Sitemap - {{ site.title }}" href="{{ site.url }}/sitemap_index.xml">
+<link rel="alternate" type="application/atom+xml" title="Atom - {{ site.title }}" href="{{ site.url }}/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title="RSS - {{ site.title }}" href="{{ site.url }}/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="Feed - {{ site.title }}" href="{{ site.url }}/feed.xml" />
 <link rel="apple-touch-icon" sizes="57x57" href="/media/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/media/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/media/apple-icon-72x72.png">
@@ -7,16 +11,37 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/media/apple-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/media/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-icon-180x180.png">
-<link rel="shortcut icon" type="image/png" sizes="192x192" href="/media/android-icon-192x192.png">
+<link rel="shortcut icon" type="image/png" sizes="192x192"  href="/media/android-icon-192x192.png">
 <link rel="shortcut icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
 <link rel="shortcut icon" type="image/png" sizes="96x96" href="/media/favicon-96x96.png">
 <link rel="shortcut icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
 <link rel="shortcut icon" type="image/x-icon" href="/media/favicon.ico">
 <link rel="manifest" href="/media/manifest.json">
 <meta name="msapplication-TileColor" content="#f26926">
-<meta name="msapplication-TileImage" content="/media/ms-icon-144x144.png">
-<meta name="theme-color" content="#f26926">
-<meta name="application-name" content="Sabda Literasi" />
-<meta name="msapplication-window" content="width=device-width;height=device-height" />
-<meta name="msapplication-tooltip" content="Sabda Literasi merupakan tempat penjualan Ebook atau buku elektronik terlengkap dengan harga termurah dan satu-satunya di Indonesia." />
-<meta name="msapplication-task" content="name=Berlangganan;action-uri=https://sabdaliterasi.shop/rss;icon-uri=https://sabdaliterasi.shop/media/android-icon-192x192.png" />
+<meta name="msapplication-TileImage" content="media/ms-icon-144x144.png">
+<meta name="theme-color" content="#f26926"> 
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{ site.url }}/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{{ site.url }}/WP/wp-includes/wlwmanifest.xml" /> 
+<link rel="search" type="application/opensearchdescription+xml" href="{{ site.url }}/osd.xml" title="{{ site.title }}" /> 
+<link rel="alternate" type="text/xml+oembed" href="{{ site.url }}/embed.xml" /> 
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" /> 
+<meta name="application-name" content="{{ site.title }}" /> 
+<meta name="msapplication-window" content="width=device-width;height=device-height" /> 
+<meta name="msapplication-tooltip" content="{{ site.description }}" /> 
+<meta name="msapplication-task" content="name=Berlangganan;action-uri={{ site.url }}/rss;icon-uri={{ site.url }}/media/android-icon-192x192.png" />
+<meta name="googlebot-news" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /> 
+<meta content="all" name="Googlebot-Image" />
+<meta content="all" name="MSNBot" />
+<meta content="all" name="MSNBot-Media" />
+<meta content="all" name="spiders" />
+<meta content="all" name="WEBCRAWLERS" />
+<meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+<meta name="generator" content="Github.com" />
+{% include TagVerifikasi.html %}
+<meta content="global" name="target" />
+<meta content="global" name="distribution" />
+<meta content="general" name="rating" />
+<meta content="1 days" name="revisit-after" />
+<meta content="true" name="MSSmartTagsPreventParsing" />
