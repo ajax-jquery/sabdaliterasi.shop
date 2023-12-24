@@ -2,7 +2,7 @@
 layout: artikel
 tag: Buku
 title: "Menyelami Zadig Ou La Destinee: Apakah Tuhan Absen di Hadapan Penderitaan?"
-image: "https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/12/Astarte-Zadig-karya-John-Raphael-Smith.jpg?resize=800%2C467&ssl=1"
+image: "https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/12/Astarte-Zadig-karya-John-Raphael-Smith.jpg"
 description: Zadig menghadapi penderitaan dan ketidakadilan yang tiada henti, dan pada akhirnya menemukan keadilan dan kebahagiaan.
 keyword: ["eksistensi","Tuhan","voltair","buku voltaire"]
 ---
