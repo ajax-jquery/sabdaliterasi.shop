@@ -65,7 +65,7 @@ layout: null
             "@context":"http://schema.org",
             "@type":"WebPage",
             "name":"{% if page.title %}{{ page.title }} |{% endif %} Ebook Shop | {{ site.title }}",
-            "url":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"
+            "url":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}"
         }
         </script>
 <script type='application/ld+json'>
@@ -108,7 +108,7 @@ Beranda
             "@type": "BlogPosting",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"
+                "@id": "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}"
             },
             "headline": "{% if page.title %}{{ page.title }}{% endif %}",
             "description": "In ac felis quis tortor malesuada pretium. In hac habitasse platea dictumst. Vestibulum ullamcorper mauris at ligula. Vestibulum ullamcorper mauris a&#8230;",
@@ -151,7 +151,7 @@ Beranda
 <div id='after-content'>
 <div class='share-buttons'>
 <script>
-            var sharePostUrl = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}";
+            var sharePostUrl = "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}";
             var sharePostTitle = "{% if page.title %}{{ page.title }}{% endif %}";
             </script>
 <button aria-label='Berbagi' class='share-btn'>
