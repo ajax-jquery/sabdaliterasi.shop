@@ -675,7 +675,7 @@ template {
     <div class="author">
     <div class="author__avatar">
         <a href="{{ site.url }}/#{% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}" rel="author">
-            <amp-img class="author__img" src="{{ site.title }}{{ site.avatar }}" height="42" width="42" alt="{% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}"></amp-img>
+            <amp-img class="author__img" src="{{ site.url }}{{ site.avatar }}" height="42" width="42" alt="{% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}"></amp-img>
         </a>
     </div>
     <div class="author__text">
@@ -735,7 +735,7 @@ template {
 
                     <div class="community-author-bottom">
     <a href="{{ site.url }}/#{% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}">
-                    <amp-img class="img-circle" src="{{ site.title }}{{ site.avatar }}" alt="{% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}" width="55" height="55" layout="responsive"></amp-img>
+                    <amp-img class="img-circle" src="{{ site.url }}{{ site.avatar }}" alt="{% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}" width="55" height="55" layout="responsive"></amp-img>
             </a>
             <p class="red community-author-bottom__badge">
             <i class="fa fa-users"></i>
