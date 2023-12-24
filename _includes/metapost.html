@@ -2,13 +2,13 @@
 <meta name="description" content="{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}" />
 <meta content="{% if page.title %}{{ page.title }}{% endif %}, {% if page.buy %}download ebook {% if page.title %}{{ page.title }}{% endif %}, {% if page.title %}{{ page.title }}{% endif %} pdf, {% if page.title %}{{ page.title }}{% endif %} pdf download,{% if page.author %}{{ page.author }}{% endif %},{% endif %}{% for keywords in page.keyword limit:10 %}{{keywords}}{% if forloop.last == false %},{% endif %}{% endfor %},sabda literasi, Sabda Literasi Palu, ebook store, ebook shop, ebook free, ebook, jual ebook, toko ebook, toko buku, jual buku, buku filsafat, book bestseller, buku terbaik, jual pdf, ebook filsafat, ebook kuliah, ebook populer" name="keywords" />
 <meta name="content_tags" content="{% for keywords in page.keyword limit:10 %}{{keywords}}{% if forloop.last == false %},{% endif %}{% endfor %},sabda literasi, Sabda Literasi Palu, ebook store, ebook shop, ebook free, ebook, jual ebook, toko ebook, toko buku, jual buku, buku filsafat, book bestseller, buku terbaik, jual pdf, ebook filsafat, ebook kuliah, ebook populer" />
-<link rel="canonical" href="{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% else %}{{ page.url }}{% endif %}" />
-<link rel='amphtml' href='{{ site.url }}/amp{% if page.permalink %}{{ page.permalink }}{% else %}{{ page.url }}{% endif %}' />
+<link rel="canonical" href="{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}" />
+<link rel='amphtml' href='{{ site.url }}/amp{% if page.url %}{{ page.url }}{% endif %}' />
 <meta property="og:locale" content="id_ID" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{% if page.buy %}{{ page.title }} | Ebook Shop | {% else %}{{ page.title }} |{% endif %} {{ site.title }}" />
 <meta property="og:description" content="{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}" />
-<meta property="og:url" content="{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% else %}{{ page.url }}{% endif %}" />
+<meta property="og:url" content="{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}" />
 <meta property="og:site_name" content="{{ site.title }} - {{ site.description }}" />
 <meta property="article:publisher" content="https://www.facebook.com/sabdaliterasipalu" />
 <meta property="article:author" content="https://facebook.com/sabdaliterasipalu" />
