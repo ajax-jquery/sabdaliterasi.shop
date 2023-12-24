@@ -1,5 +1,4 @@
 ---
-layout: artikel
 tag: Refleksi
 title: "Sistem Politik Islam: Konsep dan Adopsi Menuju Masyarakat Madani"
 image: https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/10/The-Carpet-Seller-karya-anonimous.jpg
