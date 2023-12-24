@@ -144,7 +144,7 @@ permalink: /
 <div class='post-message-container'>
 </div>
 {% for post in site.posts limit: 10 %}
-<article class="post-outer"> <div class="post"> <div class="img-thumbnail"> <div class="ini-stokhabis">{{ post.author }}</div> <a href="{{ site.url }}{{ post.permalink }}"> <img alt="{{ post.title }}" class="lazyload" data-src="{{ post.image }}" height="300" src="data:," title="{{ post.title }}" width="300"> <div class="lazy-loading"></div> </a> </div> <div class="post-summary"> <div class="label-info"> <span>Ebook</span></div> <h2 class="post-title"> <a href="{{ site.url }}{{ post.permalink }}">{{ post.title }}</a> </h2> <div class="post-snippet" id="post-snippet-{{ post.buy | replace: 'https://lynk.id/sabdaliterasi/' , '' | upcase }}SL"><div class="produk-snippet" id="produk-snippet{{ post.buy | replace: 'https://lynk.id/sabdaliterasi/' , '' | upcase }}SL"><div class="harga-produk">{{ post.harga }}</div><div class="Rate" data-id="{{ post.permalink }}"></div><div class="status-produk"><div class="info-produk">ORIGINAL</div></div></div> <div class="js-produk-snippet" id="js-produk-snippet-{{ post.buy | replace: 'https://lynk.id/sabdaliterasi/' , '' | upcase }}SL"></div></div></div></div></article>
+<article class="post-outer"> <div class="post"> <div class="img-thumbnail"> <div class="ini-stokhabis">{{ post.author }}</div> <a href="{{ site.url }}{{ post.url }}"> <img alt="{{ post.title }}" class="lazyload" data-src="{{ post.image }}" height="300" src="data:," title="{{ post.title }}" width="300"> <div class="lazy-loading"></div> </a> </div> <div class="post-summary"> <div class="label-info"> <span>Ebook</span></div> <h2 class="post-title"> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> </h2> <div class="post-snippet" id="post-snippet-{{ post.buy | replace: 'https://lynk.id/sabdaliterasi/' , '' | upcase }}SL"><div class="produk-snippet" id="produk-snippet{{ post.buy | replace: 'https://lynk.id/sabdaliterasi/' , '' | upcase }}SL"><div class="harga-produk">{{ post.harga }}</div><div class="Rate" data-id="{{ post.url }}"></div><div class="status-produk"><div class="info-produk">ORIGINAL</div></div></div> <div class="js-produk-snippet" id="js-produk-snippet-{{ post.buy | replace: 'https://lynk.id/sabdaliterasi/' , '' | upcase }}SL"></div></div></div></div></article>
 {% endfor %}
   </div>
 </div></div>
@@ -167,7 +167,7 @@ permalink: /
 </div>
 {% include popup.html %}	
 <script>
-var URL_INI = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}";
+var URL_INI = "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}";
 var URL_BERANDA = "{{ site.url }}";
 function lanjutBuy(){window.location.href = "{{ site.url }}{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','/buy/?id=' }}{% endif %}"}
 var rpplBlogUrl =  "{{ site.url }}/";function LazyScript(e){var t=!1;window.addEventListener("scroll",function(){var r,c;(0!=document.documentElement.scrollTop&&!1===t||0!=document.body.scrollTop&&!1===t)&&((r=document.createElement("script")).type="text/javascript",r.async=!0,r.src=e,(c=document.getElementsByTagName("script")[0]).parentNode.insertBefore(r,c),t=!0)},!0)}
