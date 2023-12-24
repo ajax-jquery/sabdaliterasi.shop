@@ -32,7 +32,7 @@ layout: null
             src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async='async' custom-element='amp-lightbox' src='https://cdn.ampproject.org/v0/amp-lightbox-0.1.js'></script>
       <script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>
-    
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
     <!-- AMP SCRIPT -end -->
 
     <!-- AMP STYLESHEET -start -->
@@ -104,7 +104,18 @@ button.search_icon svg path {
   cursor: pointer
 }
 #search-box form {
+    text-align: center;
   position: relative;
+}#search-box button[type=submit] {
+    font-size: 15px;
+    background: #f37021;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    margin-top: 9px;
+    border-radius: 4px;
+    border: 0px;
+    padding: 10px;
 }
 #search-box form input[type=text] {
   width: 100%;
@@ -2161,7 +2172,7 @@ Type: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }
 <button class='resetbutton' type='reset'><svg viewBox='0 0 24 24'>
 <path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' fill='#000000'/>
 </svg></button>
-<button type='submit'>Cari</button>
+<button type='submit'><span class="fa fa-search-plus"></span></button>
 </form>
 <div class='note_search'>Press Enter To Search</div>
 </div>
