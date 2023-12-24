@@ -784,7 +784,7 @@ template {
         <div class="latest__cards">
           {% for p in site.posts limit: 7 %}
 <div class="card card--horizontal">
-    <a href="{{ site.url }}{{ p.permalink }}" title="{{ p.title }}">
+    <a href="{{ site.url }}{{ p.url }}" title="{{ p.title }}">
 
  <div style="background-image: url('{{ p.image}}')" class="card__thumbnail card__thumbnail--horizontal "> </div>
         
