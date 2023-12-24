@@ -69,7 +69,7 @@ layout: null
             "@context":"http://schema.org",
             "@type":"WebPage",
             "name":"{% if page.title %}{{ page.title }} |{% endif %} Ebook Shop | {{ site.title }}",
-            "url":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"
+            "url":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}"
         }
         </script>
 <div class='post-container post-single post-single-produk'>
@@ -84,7 +84,7 @@ Beranda
 </span>
 <span class='arrow'>&#8250;</span>
 <span>
-<a href='{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#Produk' title='Produk'>
+<a href='{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#Produk' title='Produk'>
 <span>
 Produk
 </span>
@@ -92,7 +92,7 @@ Produk
 </span>
 <span class='arrow'>&#8250;</span>
 <span>
-<a href='{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#{{ page.author }}' rel='nofollow' title='{% if page.author %}{{ page.author }}{% endif %}'>
+<a href='{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#{{ page.author }}' rel='nofollow' title='{% if page.author %}{{ page.author }}{% endif %}'>
 <span>
 {% if page.author %}{{ page.author }}{% endif %}
 </span>
@@ -133,7 +133,7 @@ Type: <b>Ebook [PDF]</b><br>
 <div id='after-content'>
 <div class='share-buttons'>
 <script>
-            var sharePostUrl = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}";
+            var sharePostUrl = "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}";
             var sharePostTitle = "{% if page.title %}{{ page.title }}{% endif %}";
             </script>
 <button aria-label='Berbagi' class='share-btn'>
@@ -157,7 +157,7 @@ Type: <b>Ebook [PDF]</b><br>
     {% endfor %}
  </div>
 </div>
-</div><script> var postLabels = ["Sepatu", ]; var relatedConfig = { relatedOuter: "ms-related-post", postUrl: "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}", homePageUrl: "{{ site.url }}/", relatedTitleText:  "Produk Terkait", }; </script>
+</div><script> var postLabels = ["Sepatu", ]; var relatedConfig = { relatedOuter: "ms-related-post", postUrl: "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}", homePageUrl: "{{ site.url }}/", relatedTitleText:  "Produk Terkait", }; </script>
 {% include testimoni.html %}
 </div>
 <div id='after-content-hidden'>
@@ -170,7 +170,7 @@ Type: <b>Ebook [PDF]</b><br>
 <div class='cc-detail-produk'>
 <p class='cc-nama-produk'>Produk : <strong>{% if page.title %}{{ page.title }}{% endif %}</strong></p>
 <p class='cc-harga-produk'>Harga : <strong></strong><span></span></p>
-<p class='cc-url-produk'>{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}</p>
+<p class='cc-url-produk'>{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}</p>
 </div>
 <div class='cc-input'>
 <div class='cc-input-jmlhproduk'></div>
