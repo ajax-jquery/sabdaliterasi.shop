@@ -18,8 +18,17 @@ keyword: [produk]
 
 <script>
   var url_wa = 'https://api.whatsapp.com/send/';
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){url_wa = 'whatsapp://send/'};
-function cariproduk(){
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){url_wa = 'whatsapp://send/'};  
+function noproduk(){      
+var kaka=document.getElementsByClassName('showw');
+var kaka1=document.getElementById('judul');
+if (kaka.length > 0){
+        kaka1.innerHTML='Total Ebook: '+kaka.length
+          }
+      else{
+          kaka1.innerHTML='Maaf Ebook yang Anda cari belum kami input.<br>HUBUNGI PENJUAL UNTUK REQUEST EBOOK<br><a href="'+url_wa+'?phone=6285186666836&amp;text=Halo%20min%20saya%20ingin%20memesan%20Ebook%2Cberikut%20datanya%3A%0A---%0AJudul%3A%0APenulis%3A%0APenerbit%3A%0A---%0Asaya%20berharap%20bisa%20segerah%20di%20upload%20di%20https%3A%2F%2Fsabdaliteari.shop" style="border: 2px solid; display: block; color: #FFF; margin: 7px; padding: 2px; font-weight: 600;">KLIK DISINI</a>'
+          }};
+  function cariproduk(){
 	var input = document.getElementById("SerNOw");
 	var filter = input.value.toLowerCase();
 	var ul = document.getElementById("isi_produk");
@@ -37,20 +46,7 @@ function cariproduk(){
         }
 noproduk()
 	}
-};  
-  
-  
-  
-function noproduk(){      
-var kaka=document.getElementsByClassName('showw');
-var kaka1=document.getElementById('judul');
-if (kaka.length > 0){
-        kaka1.innerHTML='Total Ebook: '+kaka.length
-          }
-      else{
-          kaka1.innerHTML='Maaf Ebook yang Anda cari belum kami input.<br>HUBUNGI PENJUAL UNTUK REQUEST EBOOK<br><a href="'+url_wa+'?phone=6285186666836&amp;text=Halo%20min%20saya%20ingin%20memesan%20Ebook%2Cberikut%20datanya%3A%0A---%0AJudul%3A%0APenulis%3A%0APenerbit%3A%0A---%0Asaya%20berharap%20bisa%20segerah%20di%20upload%20di%20https%3A%2F%2Fsabdaliteari.shop" style="border: 2px solid; display: block; color: #FFF; margin: 7px; padding: 2px; font-weight: 600;">KLIK DISINI</a>'
-          }};
-  
+}; 
 
 function PARams(){
   var e=function e(a=null){if(null===a)return null;for(var t,i=[],l=window.location.href.slice(window.location.href.indexOf("?")+1).split("&"),s=0;s<l.length;s++)t=l[s].split("="),i.push(t[0]),i[t[0]]=t[1];return i[a]}("ebook"),a=e.toLowerCase().replace("#","").split("%20").join("");console.log(a),document.getElementById("isi_produk");for(var t=document.querySelectorAll("#ms-related-post .ms-related-hasthumb li.searproduk"),i=0;i<t.length;i++){t[i].getAttribute("data-search-term").toLowerCase().indexOf(a.split(" ").join(""))>-1?(t[i].classList.remove("hidden"),t[i].classList.add("showw")):(t[i].classList.add("hidden"),t[i].classList.remove("showw"));var l=document.getElementsByClassName("showw"),s=document.getElementById("judul");l.length>0?s.innerHTML="Hasil dari:  <i>"+e.toUpperCase().replace("#","").split("%20").join(" ")+"</i><br/> Total Ebook: "+l.length:s.innerHTML='Maaf Ebook yang Anda cari (<i>'+e.toUpperCase().replace("#","").split("%20").join(" ")+'</i>) belum kami input.<br>HUBUNGI PENJUAL UNTUK REQUEST EBOOK<br><a href="'+url_wa+'?phone=6285186666836&amp;text=Halo%20min%20saya%20ingin%20memesan%20Ebook%2Cberikut%20datanya%3A%0A---%0AJudul%3A%0APenulis%3A%0APenerbit%3A%0A---%0Asaya%20berharap%20bisa%20segerah%20di%20upload%20di%20https%3A%2F%2Fsabdaliteari.shop" style="border: 2px solid; display: block; color: #FFF; margin: 7px; padding: 2px; font-weight: 600;">KLIK DISINI</a>',document.getElementById("ulng").style.display="flex"}}
