@@ -72,6 +72,9 @@ layout: null
 	<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
 	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
     <script async custom-element="amp-fx-flying-carpet" src="https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js"></script>
+    <script async='async' custom-element='amp-lightbox' src='https://cdn.ampproject.org/v0/amp-lightbox-0.1.js'></script>
+   <script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>
+    
     <!--<script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
      <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script> --> 
 <title>{% if page.title %}{{ page.title }}{% endif %}</title>
@@ -82,7 +85,10 @@ layout: null
  	<script type='application/ld+json'>{"@context":"https://schema.org","@graph":[ {"@type":"Article","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#article","isPartOf":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}"},"author":{"name":"{{ site.title }}","@id":"{{ site.url }}/#/schema/person/bbb0f706ecf75745a462926c4c52da0a"},"headline":"{% if page.title %}{{ page.title }}{% endif %}","datePublished":"{% if page.date %}{{ page.date }}{% endif %}","dateModified":"{% if page.date %}{{ page.date }}{% endif %}","mainEntityOfPage":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}"},"wordCount":653,"commentCount":0,"publisher":{"@id":"{{ site.url }}/#organization"},"image":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#primaryimage"},"thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}","keywords":[{% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ page.tag }}","{{ site.title }}","{% if page.title %}{{ page.title }}{% endif %}"],"articleSection":["{{ site.title }}"],"inLanguage":"id","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#commentsdis"]}]},{"@type":"WebPage","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}","url":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}","name":"{% if page.title %}{{ page.title }}{% endif %}","isPartOf":{"@id":"{{ site.url }}/#website"},"primaryImageOfPage":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#primaryimage"},"image":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#primaryimage"},"thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}","datePublished":"{% if page.date %}{{ page.date }}{% endif %}","dateModified":"{% if page.date %}{{ page.date }}{% endif %}","description":"{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}","breadcrumb":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#breadcrumb"},"inLanguage":"id","potentialAction":[{"@type":"ReadAction","target":["{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}"]}]},{"@type":"ImageObject","inLanguage":"id","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#primaryimage","url":"{% if page.image %}{{ page.image }}{% endif %}","contentUrl":"{% if page.image %}{{ page.image }}{% endif %}","width":1280,"height":720,"caption":"{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}"},{"@type":"BreadcrumbList","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#breadcrumb","itemListElement":[ {"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Artikel","item":"{{ site.url }}/post-sitemap.xml"},{"@type":"ListItem","position":3,"name":"{{ page.tag }}","item":"{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}#{{ page.tag | replace: " ","-" }}"},{"@type":"ListItem","position":4,"name":"{% if page.title %}{{ page.title }}{% endif %}"} ]},{"@type":"WebSite","@id":"{{ site.url }}/#website","url":"{{ site.url }}/","name":"{{ site.title }}","description":"{{ site.description }}","publisher":{"@id":"{{ site.url }}/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{ site.url }}/result/?cx=c7367564f98394c59&ie=UTF-8&cof=FORID%3A10&q={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"id"},{"@type":"Organization","@id":"{{ site.url }}/#organization","name":"{{ site.title }}","url":"{{ site.url }}/","logo":{"@type":"ImageObject","inLanguage":"id","@id":"{{ site.url }}/#/schema/logo/image/","url":"{{ site.url }}/media/android-icon-192x192.png","contentUrl":"{{ site.url }}/media/android-icon-192x192.png","width":192,"height":192,"caption":"{{ site.title }}"},"image":{"@id":"{{ site.url }}/#/schema/logo/image/"},"sameAs":["{{ site.wa }}","{{ site.fb }}","{{ site.ig }}","{{ site.tk }}","{{ site.mail }}"]},{"@type":"Person","@id":"{{ site.url }}/#/schema/person/bbb0f706ecf75745a462926c4c52da0a","name":"{{ site.title }}","image":{"@type":"ImageObject","inLanguage":"id","@id":"{{ site.url }}/#/schema/person/image/","url":"{{ site.url }}/media/android-icon-192x192.png","contentUrl":"{{ site.url }}/media/android-icon-192x192.png","caption":"{{ site.title }}"},"description":"{{ site.description }}","sameAs":["{{ site.wa }}","{{ site.fb }}","{{ site.ig }}","{{ site.tk }}","{{ site.mail }}"]},{"@type": "NewsArticle", "mainEntityOfPage": {"@type": "WebPage", "@id": "{% if page.title %}{{ page.title }}{% endif %}" }, "headline": "{% if page.title %}{{ page.title }}{% endif %}", "image": {"@type": "ImageObject", "url": "{% if page.image %}{{ page.image }}{% endif %}", "height": 800, "width": 800 }, "datePublished": "{% if page.date %}{{ page.date }}{% endif %}", "dateModified": "{% if page.date %}{{ page.date }}{% endif %}", "author": {"@type": "Person", "name": "{{ site.title }} Official", "url": "{{ site.url }}" }, "publisher": {"@type": "Organization", "name": "{{ site.title }}", "logo": {"@type": "ImageObject", "url": "{{ site.url }}/media/android-icon-192x192.png", "width": 192, "height": 192 } }, "description": "{% if page.description %}{{ page.description }}{% endif %}" }]}</script>
  	<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"{{ site.title }}","image":"{{ site.url }}{{ site.avatar }}","address":{ "@type":"PostalAddress","streetAddress":"Jl. Medan Merdeka Barat No.16","addressLocality":"Jakarta Pusat","addressRegion":"DKI Jakarta","postalCode":"10110","addressCountry":"ID" }, "telephone":"+6285186666836","priceRange":"$","openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek": [ "Monday","Tuesday" ],"opens":"00:00","closes":"23:59" },{"@type":"OpeningHoursSpecification","dayOfWeek": [ "Wednesday","Thursday","Friday" ],"opens":"00:00","closes":"23:59" },{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"00:00","closes":"23:59" },{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"00:00","closes":"23:59" } ],"aggregateRating":{ "@type":"AggregateRating","bestRating":5,"worstRating":1,"ratingCount":"{{ site.posts | size | times: 34195 }}","ratingValue":"4.9" } }</script>
     <!-- START MAIN CSS -->
+    <link rel="dns-prefetch" href="https://pro.fontawesome.com">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
     <style amp-custom>
+        button.search_icon {border: none; cursor: pointer; } button.search_icon svg { width: 32px; height: 32px; vertical-align: middle; } button.search_icon svg path { fill: #666; } .resetbutton { background: 0 0; border: none; position: absolute; top: 50%; margin-top: -17px; right: 10px; padding: 0; cursor: pointer; line-height: 1; transition: all .4s ease-in-out; z-index: 999 } .resetbutton svg { width: 34px; height: 34px; vertical-align: middle } .resetbutton svg path { fill: #999 } .resetbutton:focus { outline: 0 } #search-box .search-form:not(:valid)~.resetbutton { display: none } #search-box { width: 70%; position: absolute; top: 20%; -webkit-animation-name: slideInUp; animation-name: slideInUp; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; left:50%; margin-left:-35%; } .sos-profil .search button { background: 0 0; border: none; color: red; font-size: 30px; padding: 0; cursor: pointer } #search-box form { text-align: center; position: relative; }#search-box button[type=submit] { font-size: 25px; background: #f37021; color: #fff; width: 50px; height: 50px; margin-top: 9px; border-radius: 4px; border: 0px; padding: 10px; } #search-box form input[type=text] { width: 100%; top: 0; left: 0; z-index: 99; padding: 10px 50px 10px 10px; border: none; border-bottom: 2px dotted #999; outline: 0; font-size: 3em; color: #999; background: #000; background: rgba(0, 0, 0, .3); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; text-align: center; } amp-lightbox { z-index: 10000 } .lightbox { background: rgba(0, 0, 0, .6); width: 100%; height: 100%; position: absolute; display: flex; align-items: center; justify-content: center } .lightbox .close_search { background: 0 0; border: none; color: red; font-size: 50px; position: absolute; top: 10px; right: 20px; cursor: pointer; line-height: 1 } #search-box .note_search { color: #999; text-align: center; padding: 10px 50px 10px 10px; } @-webkit-keyframes slideInUp { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); visibility: visible } 100% { -webkit-transform: translateY(0); transform: translateY(0) } } @keyframes slideInUp { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); visibility: visible } 100% { -webkit-transform: translateY(0); transform: translateY(0) } } 
       .article-description {
     position: relative;
     overflow: hidden;
@@ -449,7 +455,7 @@ template {
             <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Slab:wght@100;300;400;700&family=Roboto:wght@100;300;400;700&display=swap">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        
     
     <link rel="canonical" href="{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}" />
     <meta property="og:url" content="{{ site.url }}{% if page.url %}{{ page.url | replace: "amp/", "" }}{% endif %}" />
@@ -473,9 +479,9 @@ template {
             <amp-img class="main-header__logo__img" src="{{ site.url }}/media/logo-AMP.png" width="238" height="40" alt="{{ site.title }}"></amp-img>
         </a>
         <div class="header-menu">
-          <a href="{{ site.url }}/?search=on" class="main-header__btn">
+          <button class='search_icon main-header__btn' on='tap:search_box'> 
               <i class="fa fa-search"></i>
-          </a>
+          </button>
           <button type="button" on="tap:header-sidebar.toggle" class="main-header__btn close-button">
             <span aria-hidden="true">×</span>
           </button>
@@ -636,9 +642,9 @@ template {
             <amp-img class="main-header__logo__img" src="{{ site.url }}/media/logo-AMP.png" width="238" height="40" alt="{{ site.title }}"></amp-img>
         </a>
         <div class="header-menu">
-            <a href="{{ site.url }}/?search=on" class="main-header__btn">
-                <i class="fa fa-search"></i>
-            </a>
+            <button class='search_icon main-header__btn' on='tap:search_box'> 
+              <i class="fa fa-search"></i>
+            </button>
             <button type="button" on="tap:header-sidebar.toggle" class="main-header__btn">
                 <i class="fa fa-bars"></i>
             </button>
@@ -806,6 +812,23 @@ template {
         </div>
         <!-- END MAIN CONTAINER -->
     </div>
-    
+<amp-lightbox id='search_box' layout='nodisplay'>
+<div class='lightbox'>
+<button class='close_search' on='tap:search_box.close' role='button' tabindex='0' title='Close'><span class="fad fa-window-close"></span></button>
+<div id='search-box'>
+<form action='/result/' method='get' target='_blank'>
+<input name="cx" type="hidden" value="c7367564f98394c59" />
+<input name="ie" type="hidden" value="UTF-8" />
+<input name="cof" type="hidden" value="FORID:10" />
+<input autocomplete='off' autofocus="autofocus" class='search-form' name='q' placeholder='Search...' required='required' type='text'/>
+<button class='resetbutton' type='reset'><svg viewBox='0 0 24 24'>
+<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' fill='#000000'/>
+</svg></button>
+<button type='submit'><span class="fad fa-search-plus"></span></button>
+</form>
+<div class='note_search'>Press Enter To Search</div>
+</div>
+</div>
+</amp-lightbox>     
 </body>
 </html>
