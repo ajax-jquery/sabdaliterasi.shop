@@ -713,7 +713,7 @@ template {
             <!-- END SOCIAL SHARE -->
         
         <div class="article__date">
-            <time datetime="{% if page.date %}{{ page.date date: '%Y-%m-%d' }}{% endif %}">{% if page.date %}{{ page.date | timeago }}{% endif %}</time>
+            <time datetime="{% if page.date %}{{ page.date | date: '%Y-%m-%d' }}{% endif %}">{% if page.date %}{{ page.date | timeago }}{% endif %}</time>
         </div>  
         <div class="article__content">
             <div class="article-description ">
