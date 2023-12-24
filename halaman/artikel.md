@@ -12,7 +12,7 @@ keyword: [artikel]
 <div id="ms-related-post"><div class="ms-related-title"><p id="hasilo">all produk</p></div>
   <ul class="ms-related-hasthumb" id="isi_produk">
   {% for p in site.artikel %}
- <li data-search-term="{{ p.title | replace: ' ','' | downcase }}{{ p.description | replace: ' ','' | replace: '"','' | downcase }}" class="searproduk"><div class="msr-thumb-outer"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}"><img alt="{{ p.title }}" class="msr-thumb lazyload" data-src="{{ p.image }}" width="300" height="300" src="data:,"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}">{{ p.title }}</a></div><div class="harga-produk">{{ p.harga }}</div></div></li>
+ <li data-search-term="{{ p.title | replace: ' ','' | downcase }}{{ p.description | replace: ' ','' | replace: '"','' | downcase }}" class="searproduk"><div class="msr-thumb-outer"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}"><img alt="{{ p.title }}" class="msr-thumb lazyload" data-src="{{ p.image }}?resize=300%2C300&ssl=1" width="300" height="300" src="data:,"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}">{{ p.title }}</a></div><div class="harga-produk">{{ p.harga }}</div></div></li>
   {% endfor %}
   </ul></div>
 
