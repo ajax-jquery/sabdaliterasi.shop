@@ -1,0 +1,42 @@
+---
+layout: null
+permalink: /feeds/posts/default/-/Produk%20Populer/
+---
+{
+    "version":"1.0","encoding":"UTF-8","feed":{
+      "xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/georss","xmlns$gd":"http://schemas.google.com/g/2005","xmlns$thr":"http://purl.org/syndication/thread/1.0",
+        "id":{
+          "$t":"tag:blogger.com,1999:blog-6015663568293314492"},
+            "updated":{
+              "$t":"2023-12-23T20:05:48.387-08:00"},
+                "category":[
+                  {"term":"Artikel"},{"term":"Gadget"},{"term":"Produk Wanita"},{"term":"Sepatu"},{"term":"Pre-Order"},{"term":"Stok Habis"},{"term":"Buah"},{"term":"Furniture"},{"term":"Produk Pria"},{"term":"Template"},{"term":"Theme"}],
+                  "title":{
+                    "type":"text","$t":"KuToko"},
+                      "subtitle":{
+                        "type":"html","$t":""},
+                          "link":[
+                            {"rel":"http://schemas.google.com/g/2005#feed","type":"application/atom+xml","href":"https:\/\/kutoko.sugeng.id\/feeds\/posts\/default"},{"rel":"self","type":"application/atom+xml","href":"https:\/\/www.blogger.com\/feeds\/6015663568293314492\/posts\/default\/-\/Gadget?alt=json\u0026max-results=2\u0026orderby=published"},{"rel":"alternate","type":"text/html","href":"https:\/\/kutoko.sugeng.id\/search\/label\/Gadget"},{"rel":"hub","href":"http://pubsubhubbub.appspot.com/"},{"rel":"next","type":"application/atom+xml","href":"https:\/\/www.blogger.com\/feeds\/6015663568293314492\/posts\/default\/-\/Gadget\/-\/Gadget?alt=json\u0026start-index=3\u0026max-results=2\u0026orderby=published"}],
+                            "author":[
+                              {"name":{"$t":"Mas Sugeng"},"uri":{"$t":"http:\/\/www.blogger.com\/profile\/09472128557843314842"},"email":{"$t":"noreply@blogger.com"},"gd$image":{"rel":"http://schemas.google.com/g/2005#thumbnail","width":"32","height":"32","src":"\/\/blogger.googleusercontent.com\/img\/b\/R29vZ2xl\/AVvXsEi72H4eO6pwTECxoVNhyxq5aKqRMWOy-l89BM2LFMLl2Z4yoNjvQHUQpQvoery8VZO0X4IOCOsUrk_KU3qQUizQoUwGQyzwgstRAL8KzYc2u79C4WXtP7zzTctxXURElw\/s113\/16998689_1416992091708885_6181724705663760479_n_e02ce5878bb75d555b9a0405730f5a5d+%281%29.png"}}],
+                              "generator":{
+                                "version":"7.00","uri":"http://www.blogger.com","$t":"Blogger"},
+                                  "openSearch$totalResults":{
+                                    "$t":"4"},
+                                      "openSearch$startIndex":{"$t":"1"},"openSearch$itemsPerPage":{"$t":"2"},
+                                        
+                                        
+"entry":[
+  {% for p in site.posts %} {"id":{"$t":"tag:blogger.com,1999:blog-6015663568293314492.post-4800559242630508044"},"published":{"$t":"2022-02-18T20:38:00.004-08:00"},"updated":{"$t":"2022-04-26T03:25:26.437-07:00"},"category":[{"scheme":"http://www.blogger.com/atom/ns#","term":"Gadget"}],"title":{"type":"text","$t":"{{ p.title }}"},"content":{"type":"html","$t":"\u003Cdiv class=\"gambar-produk\"\u003E\u003Cdiv class=\"gambar-slide\"\u003E\u003Cimg alt=\"Gambar Produk 1\" src=\"{{ p.image }}\" \/\u003E\u003C\/div\u003E\u003Cdiv class=\"status-produk\"\u003E\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\"detail-produk\"\u003E\u003Cdiv class=\"harga-produk\"\u003E{{ p.harga }}\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\"deskripsi-produk\"\u003E{{ p.description }}\u003C\/div\u003E\u003Cdiv class=\"deskripsi-produk-panjang\"\u003EVivamus consectetuer hendrerit lacus. Phasellus a est. Praesent egestas neque eu enim. Pellentesque posuere.\u003Cbr \/\u003E\u003Cbr \/\u003E{{ p.description }}\u003C\/div\u003E\u003Cmeta content=\"2400000\" itemprop=\"price\"\u003E\u003C\/meta\u003E\u003Cdiv class=\"link-marketplace\"\u003E\u003Ca class=\"link-tokopedia\" href=\"https:\/\/tokopedia.com\" rel=\"nofollow\"\u003ETokopedia\u003C\/a\u003E\u003Ca class=\"link-shopee\" href=\"https:\/\/shopee.com\" rel=\"nofollow\"\u003EShopee\u003C\/a\u003E\u003Ca class=\"link-bukalapak\" href=\"https:\/\/bukalapak.com\" rel=\"nofollow\"\u003EBukalapak\u003C\/a\u003E\u003C\/div\u003E\u003Cscript\u003E\u003C\/script\u003E"},"link":[{"rel":"replies","type":"application/atom+xml","href":"https:\/\/kutoko.sugeng.id\/feeds\/4800559242630508044\/comments\/default","title":"Posting Komentar"},{"rel":"replies","type":"text/html","href":"{{ p.url | prepend: site.url }}#comment-form","title":"0 Komentar"},{"rel":"edit","type":"application/atom+xml","href":"https:\/\/www.blogger.com\/feeds\/6015663568293314492\/posts\/default\/4800559242630508044"},{"rel":"self","type":"application/atom+xml","href":"https:\/\/www.blogger.com\/feeds\/6015663568293314492\/posts\/default\/4800559242630508044"},{"rel":"alternate","type":"text/html","href":"{{ p.url | prepend: site.url }}","title":"{{ p.title }}"}],"author":[{"name":{"$t":"{{ p.author }}"},"uri":{"$t":"http:\/\/www.blogger.com\/profile\/09472128557843314842"},"email":{"$t":"noreply@blogger.com"},"gd$image":{"rel":"http://schemas.google.com/g/2005#thumbnail","width":"32","height":"32","src":"\/\/blogger.googleusercontent.com\/img\/b\/R29vZ2xl\/AVvXsEi72H4eO6pwTECxoVNhyxq5aKqRMWOy-l89BM2LFMLl2Z4yoNjvQHUQpQvoery8VZO0X4IOCOsUrk_KU3qQUizQoUwGQyzwgstRAL8KzYc2u79C4WXtP7zzTctxXURElw\/s113\/16998689_1416992091708885_6181724705663760479_n_e02ce5878bb75d555b9a0405730f5a5d+%281%29.png"}}],"media$thumbnail":{"xmlns$media":"http://search.yahoo.com/mrss/","url":"{{ p.image }}","height":"72","width":"72"},"thr$total":{"$t":"0"}}{% if forloop.last == false %},{% endif %}{% endfor %}
+]
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }}
