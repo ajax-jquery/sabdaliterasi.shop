@@ -69,7 +69,7 @@ layout: null
             "@context":"http://schema.org",
             "@type":"WebPage",
             "name":"{% if page.title %}{{ page.title }} |{% endif %} Ebook Shop | {{ site.title }}",
-            "url":"{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}"
+            "url":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}"
         }
         </script>
 <div class='post-container post-single post-single-artikel'>
@@ -120,7 +120,7 @@ Artikel
 <div id='after-content'>
 <div class='share-buttons'>
 <script>
-            var sharePostUrl = "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}";
+            var sharePostUrl = "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}";
             var sharePostTitle = "{% if page.title %}{{ page.title }}{% endif %}";
             </script>
 <button aria-label='Berbagi' class='share-btn'>
@@ -146,11 +146,11 @@ Artikel
 <div class="produk-showcase">
   <div class="produk-box" id="EbookSI">
     {% for post in site.posts %}
-    <div class="produk"><div class="img-product"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.permalink }}"  target="_blank" title="{{ post.title }}">Lihat</a><div class="Rate" data-id="{{ post.permalink }}"></div></div></div>
+    <div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Lihat</a><div class="Rate" data-id="{{ post.url }}"></div></div></div>
     {% endfor %}
  </div>
 </div>
-</div><script> var postLabels = ["Sepatu", ]; var relatedConfig = { relatedOuter: "ms-related-post", postUrl: "{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}", homePageUrl: "{{ site.url }}/", relatedTitleText:  "Produk Terkait", }; </script>
+</div><script> var postLabels = ["Sepatu", ]; var relatedConfig = { relatedOuter: "ms-related-post", postUrl: "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}", homePageUrl: "{{ site.url }}/", relatedTitleText:  "Produk Terkait", }; </script>
 {% include testimoni.html %}
 </div>
 <div id='after-content-hidden'>
@@ -163,7 +163,7 @@ Artikel
 <div class='cc-detail-produk'>
 <p class='cc-nama-produk'>Produk : <strong>{% if page.title %}{{ page.title }}{% endif %}</strong></p>
 <p class='cc-harga-produk'>Harga : <strong></strong><span></span></p>
-<p class='cc-url-produk'>{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}</p>
+<p class='cc-url-produk'>{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}</p>
 </div>
 <div class='cc-input'>
 <div class='cc-input-jmlhproduk'></div>
