@@ -30,7 +30,8 @@ layout: null
             src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" ></script>
     <script async custom-element="amp-bind"
             src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-
+    <script async='async' custom-element='amp-lightbox' src='https://cdn.ampproject.org/v0/amp-lightbox-0.1.js'></script>
+      <script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>
     
     <!-- AMP SCRIPT -end -->
 
@@ -38,6 +39,142 @@ layout: null
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
     <style amp-custom>
+        button.search_icon {
+  background: 0 0;
+  border: none;
+  color: red;
+  font-size: 30px;
+  padding: 0;
+  cursor: pointer;
+}
+button.search_icon svg {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+button.search_icon svg path {
+  fill: #666;
+}
+.resetbutton {
+  background: 0 0;
+  border: none;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  right: 10px;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+  transition: all .4s ease-in-out;
+  z-index: 999
+}
+.resetbutton svg {
+  width: 34px;
+  height: 34px;
+  vertical-align: middle
+}
+.resetbutton svg path {
+  fill: #999
+}
+.resetbutton:focus {
+  outline: 0
+}
+#search-box .search-form:not(:valid)~.resetbutton {
+  display: none
+}
+#search-box {
+  width: 70%;
+  position: absolute;
+  top: 20%;
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  left:50%;
+  margin-left:-35%;
+}
+.sos-profil .search button {
+  background: 0 0;
+  border: none;
+  color: red;
+  font-size: 30px;
+  padding: 0;
+  cursor: pointer
+}
+#search-box form {
+  position: relative;
+}
+#search-box form input[type=text] {
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  padding: 10px 50px 10px 10px;
+  border: none;
+  border-bottom: 2px dotted #999;
+  outline: 0;
+  font-size: 3em;
+  color: #999;
+  background: #000;
+  background: rgba(0, 0, 0, .3);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+amp-lightbox {
+  z-index: 10000
+}
+.lightbox {
+  background: rgba(0, 0, 0, .6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.lightbox .close_search {
+  background: 0 0;
+  border: none;
+  color: red;
+  font-size: 50px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  line-height: 1
+}
+#search-box .note_search {
+  color: #999;
+  text-align: center;
+  padding: 10px 50px 10px 10px;
+}
+@-webkit-keyframes slideInUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    visibility: visible
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+}
+@keyframes slideInUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    visibility: visible
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+}
+
         @font-face {
             font-family: 'effra';
             src: url('https://www.static-src.com/fonts/1.0.0/effra/effra-regular.woff2') format('woff2'),
@@ -2012,5 +2149,23 @@ Type: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }
     </script>
 </amp-analytics>
 <!-- AMP ANALYTICS -end -->
+    <amp-lightbox id='search_box' layout='nodisplay'>
+<div class='lightbox'>
+<button class='close_search' on='tap:search_box.close' role='button' tabindex='0' title='Close'>x</button>
+<div id='search-box'>
+<form action='https://sabdaliterasi.shop/result/' method='get' target='_blank'>
+<input name="cx" type="hidden" value="c7367564f98394c59" />
+<input name="ie" type="hidden" value="UTF-8" />
+<input name="cof" type="hidden" value="FORID:10" />
+<input autocomplete='off' autofocus="autofocus" class='search-form' name='q' placeholder='Search...' required='required' type='text'/>
+<button class='resetbutton' type='reset'><svg viewBox='0 0 24 24'>
+<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' fill='#000000'/>
+</svg></button>
+<button type='submit'>Cari</button>
+</form>
+<div class='note_search'>Press Enter To Search</div>
+</div>
+</div>
+</amp-lightbox>
 </body>
 </html>
