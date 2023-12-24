@@ -1,5 +1,4 @@
 ---
-layout: artikel
 tag: Film
 title: "Nihilisme dan Perayaan Hidup"
 image: https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/10/The-Professor.jpg
