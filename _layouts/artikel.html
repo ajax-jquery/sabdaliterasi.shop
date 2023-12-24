@@ -84,7 +84,15 @@ Beranda
 </span>
 <span class='arrow'>&#8250;</span>
 <span>
-<a href='{{ site.url }}{% if page.url %}{{ page.url | relative_url }}{% endif %}#' rel='nofollow' title='{% if page.tag %}{{ page.tag }}{% endif %}'>
+<a href='{{ site.url }}{% if page.url %}{{ page.url | relative_url }}{% endif %}#Artikel' rel='nofollow' title='Artikel'>
+<span>
+Artikel
+</span>
+</a>
+</span>
+<span class='arrow'>&#8250;</span>
+<span>
+<a href='{{ site.url }}{% if page.url %}{{ page.url | relative_url }}{% endif %}#{{ page.tag }}' rel='nofollow' title='{% if page.tag %}{{ page.tag }}{% endif %}'>
 <span>
 {% if page.tag %}{{ page.tag }}{% endif %}
 </span>
