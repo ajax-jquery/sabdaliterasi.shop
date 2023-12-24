@@ -84,7 +84,15 @@ Beranda
 </span>
 <span class='arrow'>&#8250;</span>
 <span>
-<a href='{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#' rel='nofollow' title='{% if page.author %}{{ page.author }}{% endif %}'>
+<a href='{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#Produk' title='Produk'>
+<span>
+Produk
+</span>
+</a>
+</span>
+<span class='arrow'>&#8250;</span>
+<span>
+<a href='{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}#{{ page.author }}' rel='nofollow' title='{% if page.author %}{{ page.author }}{% endif %}'>
 <span>
 {% if page.author %}{{ page.author }}{% endif %}
 </span>
