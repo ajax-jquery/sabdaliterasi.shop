@@ -16,8 +16,6 @@ layout: null
             src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
     <script async custom-element="amp-social-share"
             src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
-    <script async custom-element="amp-analytics"
-            src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-install-serviceworker"
             src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
     <script async custom-element="amp-lightbox"
@@ -30,7 +28,6 @@ layout: null
             src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" ></script>
     <script async custom-element="amp-bind"
             src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <script async='async' custom-element='amp-lightbox' src='https://cdn.ampproject.org/v0/amp-lightbox-0.1.js'></script>
       <script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>
     <link rel="dns-prefetch" href="https://pro.fontawesome.com">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
@@ -1451,16 +1448,9 @@ layout: null
 <!-- End Service Worker AMP Javasript -->
 
 <!-- Start Alexa AMP Certify Javasript -->
-<amp-analytics type="alexametrics">
-    <script type="application/json">
-        { "vars": { "atrk_acct": "9o/vllak0EYlbz", "domain": "sabdaliterasi.shop" }}
-    </script>
-</amp-analytics>
 <!-- End Alexa AMP Certify Javasript -->
 
 <!--AMP GTM-->
-<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-112122&gtm.url=SOURCE_URL"
-               data-credentials="include"></amp-analytics>
 <!--AMP GTM-->
 
 <!-- AMP HEADER -start -->
@@ -1985,36 +1975,7 @@ Type: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }
 </amp-list>
 
 <!-- AMP ANALYTICS -start -->
-<amp-analytics type="googleanalytics">
-    <script type="application/json">
-        {
-            "vars": {
-                "account": "UA-21718848-13"
-            },
-            "triggers": {
-                "trackPageviewWithCustomUrl": {
-                    "on": "visible",
-                    "request": "pageview"
-                }
-            }
-        }
-    </script>
-</amp-analytics>
-<amp-analytics type="googleanalytics">
-    <script type="application/json">
-        {
-            "vars": {
-                "account": "UA-83629916-2"
-            },
-            "triggers": {
-                "trackPageviewWithCustomUrl": {
-                    "on": "visible",
-                    "request": "pageview"
-                }
-            }
-        }
-    </script>
-</amp-analytics>
+
 <!-- AMP ANALYTICS -end -->
     <amp-lightbox id='search_box' layout='nodisplay'>
 <div class='lightbox'>
