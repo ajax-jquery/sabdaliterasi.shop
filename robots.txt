@@ -7,5 +7,6 @@ Disallow: /uji-home/
 Disallow: /buy/
 Disallow: /offline/
 Disallow: /search/
+Disallow: /404/
 
 Sitemap: {{ site.url }}/sitemap_index.xml
