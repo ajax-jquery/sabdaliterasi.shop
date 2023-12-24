@@ -1550,11 +1550,11 @@ layout: null
                 <h3>Deskripsi produk</h3><br>
                 <div>
                     
-Penulis: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}">{% if page.author %}{{ page.author }}{% endif %}</a><br>
-Bahasa: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}">Indonesia</a><br>
-Type: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}">Ebook [PDF]</a><br>
-<a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}" class="product__warranty">EBOOK 100% ORIGINAL</a><br>
-<a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}" class="product__warranty">PEMBAYARAN OTOMATIS</a><br>
+Penulis: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}">{% if page.author %}{{ page.author }}{% endif %}</a><br>
+Bahasa: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}">Indonesia</a><br>
+Type: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}">Ebook [PDF]</a><br>
+<a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}" class="product__warranty">EBOOK 100% ORIGINAL</a><br>
+<a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}" class="product__warranty">PEMBAYARAN OTOMATIS</a><br>
                     
                     
                     
@@ -1578,11 +1578,11 @@ Type: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% end
                                 <h1>{% if page.title %}{{ page.title }}{% endif %}</h1>
                                 <div class="product__selengkapnya-detail-brand">
                                     
-Penulis: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}">{% if page.author %}{{ page.author }}{% endif %}</a><br>
-Bahasa: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}">Indonesia</a><br>
-Type: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}">Ebook [PDF]</a><br>                                    
-<a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}" class="product__warranty">EBOOK 100% ORIGINAL</a><br>
-<a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}" class="product__warranty">PEMBAYARAN OTOMATIS</a><br>
+Penulis: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}">{% if page.author %}{{ page.author }}{% endif %}</a><br>
+Bahasa: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}">Indonesia</a><br>
+Type: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}">Ebook [PDF]</a><br>                                    
+<a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}" class="product__warranty">EBOOK 100% ORIGINAL</a><br>
+<a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}" class="product__warranty">PEMBAYARAN OTOMATIS</a><br>
                                     
                                     
                                     
@@ -1658,7 +1658,7 @@ Type: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% end
                                     
                                 </div>
                                 
-                                <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}">
+                                <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}">
                                     <div class="seller__additional-info">
                                         <i class="icon"></i>
                                     </div>
@@ -1792,7 +1792,7 @@ Type: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% end
 
             <!-- shipping [ 
             <div class="merchant card-medium gap cwa">
-                <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}" class="product__shipping">
+                <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}" class="product__shipping">
                     <div class="">
                         Cek metode pengiriman ke lokasimu
                         <div class="c-lime">
@@ -1847,7 +1847,7 @@ Type: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% end
                         atau hubungi
                         <a href="https://wa.me/6285186666836">0804 1 871 871</a>.
                     </div>
-                    <a class="qna__btn" href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}#comments">Tanya tentang produk ini</a>
+                    <a class="qna__btn" href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#comments">Tanya tentang produk ini</a>
                     
                     <div class="qna__empty">
                         <div class="qna__empty-title">
@@ -1937,7 +1937,7 @@ Type: <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% end
                     </div>
                     
                     <div class="breadcrumb__block">
-                      <a href="{{ site.url }}{% if page.permalink1 %}{{ page.permalink1 }}{% endif %}#"
+                      <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#"
                          class="breadcrumb__link router-link-active">
                         <span>{% if page.author %}{{ page.author }}{% endif %}</span>
                       </a>
