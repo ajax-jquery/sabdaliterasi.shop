@@ -1,5 +1,4 @@
 ---
-layout: artikel
 tag: Refleksi
 title: "Menumbuhkan Moralitas Kebangsaan Jelang Pilpres"
 image: https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/10/Memupuk-Moralitas-Kebangsaan-Jelang-Pilpres.jpg
