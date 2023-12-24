@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 const CACHE_VERSION=1;
 let CURRENT_CACHES={offline:"offline-v1"};
 const OFFLINE_URL="/offline/";
