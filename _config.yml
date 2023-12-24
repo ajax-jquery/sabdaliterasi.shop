@@ -275,6 +275,9 @@ collections:
   artikel:
     permalink: "/artikel/:title/"
     output: true
+  amp:
+    permalink: "/amp/artikel/:title/"
+    output: true
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
@@ -291,6 +294,18 @@ defaults:
       path: "" # any file that's not a post will be a "page" layout by default
     values:
       layout: "page"
+  -
+    scope:
+      path: ""
+      type: "artikel"
+    values:
+      layout: "artikel"
+  -
+    scope:
+      path: ""
+      type: "amp"
+    values:
+      layout: "amp"
 
 
 # Exclude these files from production site
