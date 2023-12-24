@@ -148,7 +148,7 @@ collections:
   amp:
     permalink: "/amp/artikel/:title/"
     output: true
-  amppost:
+  postsamp:
     permalink: "/amp/:title/"
     output: true
   posts:
@@ -185,7 +185,7 @@ defaults:
   -
     scope:
       path: ""
-      type: "amppost"
+      type: "postsamp"
     values:
       layout: "page"
 
