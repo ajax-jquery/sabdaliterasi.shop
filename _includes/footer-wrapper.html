@@ -19,8 +19,8 @@
 <div class='footer-widget-2 section' id='footer-widget-2'>{% include profil.html %}
   <div class='widget PopularPosts' data-version='2' id='PopularPosts1'>
 <h2 class='title'>Populer</h2>
-<div class='widget-content'>
-{% for post in site.posts limit:3 %}
+<div class='widget-content'>{% assign pp = site.posts | reverse %}
+{% for post in pp limit:3 %}
 <div class='popular-post'>
 <div class='popular-post-thumbnail'>
 <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" title="{{ post.title }}">
