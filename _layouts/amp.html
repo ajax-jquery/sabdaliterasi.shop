@@ -100,8 +100,9 @@ content="sha384-cx26UTwZj7X5zOEg7iBSDRBD4HJL-RRcv8e05PiGTVpO1qT2BZ2VAawP-y85JQSk
 <link rel="dns-prefetch" href="https://pro.fontawesome.com">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
 <style amp-custom>
-button.search_icon {border: none; cursor: pointer; } button.search_icon svg { width: 32px; height: 32px; vertical-align: middle; } button.search_icon svg path { fill: #666; } .resetbutton { background: 0 0; border: none; position: absolute; top: 50%; margin-top: -17px; right: 10px; padding: 0; cursor: pointer; line-height: 1; transition: all .4s ease-in-out; z-index: 999 } .resetbutton svg { width: 34px; height: 34px; vertical-align: middle } .resetbutton svg path { fill: #999 } .resetbutton:focus { outline: 0 } #search-box .search-form:not(:valid)~.resetbutton { display: none } #search-box { width: 70%; position: absolute; top: 20%; -webkit-animation-name: slideInUp; animation-name: slideInUp; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; left:50%; margin-left:-35%; } .sos-profil .search button { background: 0 0; border: none; color: red; font-size: 30px; padding: 0; cursor: pointer } #search-box form { text-align: center; position: relative; }#search-box button[type=submit] { font-size: 25px; background: #f37021; color: #fff; width: 50px; height: 50px; margin-top: 9px; border-radius: 4px; border: 0px; padding: 10px; } #search-box form input[type=text] { width: 100%; top: 0; left: 0; z-index: 99; padding: 10px 50px 10px 10px; border: none; border-bottom: 2px dotted #999; outline: 0; font-size: 3em; color: #999; background: #000; background: rgba(0, 0, 0, .3); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; text-align: center; } amp-lightbox { z-index: 10000 } .lightbox { background: rgba(0, 0, 0, .6); width: 100%; height: 100%; position: absolute; display: flex; align-items: center; justify-content: center } .lightbox .close_search { background: 0 0; border: none; color: red; font-size: 50px; position: absolute; top: 10px; right: 20px; cursor: pointer; line-height: 1 } #search-box .note_search { color: #999; text-align: center; padding: 10px 50px 10px 10px; } @-webkit-keyframes slideInUp { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); visibility: visible } 100% { -webkit-transform: translateY(0); transform: translateY(0) } } @keyframes slideInUp { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); visibility: visible } 100% { -webkit-transform: translateY(0); transform: translateY(0) } } 
-.article-description {
+div.search_box{position:fixed;overflow:hidden;display:block;height:0;top:0;bottom:0;left:0;right:0;max-height:100%;max-width:100%;min-height:100%;min-width:100%;width:0;margin:auto;z-index:3;}div#search_box[hidden]{display:none;}
+button.search_icon {border: none; cursor: pointer; } button.search_icon svg { width: 32px; height: 32px; vertical-align: middle; } button.search_icon svg path { fill: #666; } .resetbutton { background: 0 0; border: none; position: absolute; top: 50%; margin-top: -17px; right: 10px; padding: 0; cursor: pointer; line-height: 1; transition: all .4s ease-in-out; z-index: 999 } .resetbutton svg { width: 34px; height: 34px; vertical-align: middle } .resetbutton svg path { fill: #999 } .resetbutton:focus { outline: 0 } #search-box .search-form:not(:valid)~.resetbutton { display: none } #search-box { width: 70%; position: absolute; top: 20%; -webkit-animation-name: slideInUp; animation-name: slideInUp; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; left:50%; margin-left:-35%; } .sos-profil .search button { background: 0 0; border: none; color: red; font-size: 30px; padding: 0; cursor: pointer } #search-box form { text-align: center; position: relative; }#search-box button[type=submit] { font-size: 25px; background: #f37021; color: #fff; width: 50px; height: 50px; margin-top: 9px; border-radius: 4px; border: 0px; padding: 10px; } #search-box form input[type=text] { width: 100%; top: 0; left: 0; z-index: 99; padding: 10px 50px 10px 10px; border: none; border-bottom: 2px dotted #999; outline: 0; font-size: 3em; color: #999; background: #000; background: rgba(0, 0, 0, .3); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; text-align: center; } amp-lightbox { z-index: 10000 } .lightbox { background: rgba(0, 0, 0, .6); width: 100%; height: 100%; position: absolute; display: flex; align-items: center; justify-content: center } .lightbox .close_search { background: 0 0; border: none; color: red; font-size: 50px; position: absolute; top: 10px; right: 20px; cursor: pointer; line-height: 1 } #search-box .note_search { color: #999; text-align: center; padding: 10px 50px 10px 10px; } @-webkit-keyframes slideInUp { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); visibility: visible } 100% { -webkit-transform: translateY(0); transform: translateY(0) } } @keyframes slideInUp { 0% { -webkit-transform: translateY(100%); transform: translateY(100%); visibility: visible } 100% { -webkit-transform: translateY(0); transform: translateY(0) } }
+    .article-description {
 position: relative;
 overflow: hidden;
 }.article-description::after {
@@ -487,9 +488,6 @@ display: none;
 <amp-img class="main-header__logo__img" src="{{ site.url }}/media/logo-AMP.png" width="238" height="40" alt="{{ site.title }}"></amp-img>
 </a>
 <div class="header-menu">
-<button class='search_icon main-header__btn' on='tap:search_box'> 
-<i class="fa fa-search"></i>
-</button>
 <button type="button" on="tap:header-sidebar.toggle" class="main-header__btn close-button">
 <span aria-hidden="true">×</span>
 </button>
@@ -649,7 +647,7 @@ display: none;
 <amp-img class="main-header__logo__img" src="{{ site.url }}/media/logo-AMP.png" width="238" height="40" alt="{{ site.title }}"></amp-img>
 </a>
 <div class="header-menu">
-<button class='search_icon main-header__btn' on='tap:search_box'> 
+<button class='search_icon main-header__btn' on='tap:search_box.toggleVisibility'> 
 <i class="fa fa-search"></i>
 </button>
 <button type="button" on="tap:header-sidebar.toggle" class="main-header__btn">
@@ -657,24 +655,6 @@ display: none;
 </button>
 </div>
 </div>
-<amp-lightbox id='search_box' layout='nodisplay'>
-<div class='lightbox'>
-<button class='close_search' on='tap:search_box.close' role='button' tabindex='0' title='Close'><span class="fad fa-window-close"></span></button>
-<div id='search-box'>
-<form action='/result/' method='get' target='_blank'>
-<input name="cx" type="hidden" value="c7367564f98394c59" />
-<input name="ie" type="hidden" value="UTF-8" />
-<input name="cof" type="hidden" value="FORID:10" />
-<input autocomplete='off' autofocus="autofocus" class='search-form' name='q' placeholder='Search...' required='required' type='text'/>
-<button class='resetbutton' type='reset'><svg viewBox='0 0 24 24'>
-<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' fill='#000000'/>
-</svg></button>
-<button type='submit'><span class="fad fa-search-plus"></span></button>
-</form>
-<div class='note_search'>Press Enter To Search</div>
-</div>
-</div>
-</amp-lightbox>
 </header>
 <!-- START LEFT CONTENT -->
 <div class="wrap push">
@@ -836,6 +816,23 @@ Topik:
 </div>
 <!-- END MAIN CONTAINER -->
 </div> 
+div id='search_box' class='search_box' hidden>
+<div class='lightbox'>
+<button class='close_search' on='tap:search_box.toggleVisibility' role='button' tabindex='0' title='Close'><span class="fad fa-window-close"></span></button>
+<div id='search-box'>
+<form action='/result/' method='get' target='_blank'>
+<input name="cx" type="hidden" value="c7367564f98394c59" />
+<input name="ie" type="hidden" value="UTF-8" />
+<input name="cof" type="hidden" value="FORID:10" />
+<input autocomplete='off' autofocus="autofocus" class='search-form' name='q' placeholder='Search...' required='required' type='text'/>
+<button class='resetbutton' type='reset'><svg viewBox='0 0 24 24'>
+<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' fill='#000000'/>
+</svg></button>
+<button type='submit'><span class="fad fa-search-plus"></span></button>
+</form>
+<div class='note_search'>Press Enter To Search</div>
+</div>
+</div></div>
 <amp-install-serviceworker data-iframe-src='/offline/' layout='nodisplay' src='/serviceworker.js'></amp-install-serviceworker>
 </body>
 </html>
