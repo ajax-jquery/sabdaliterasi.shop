@@ -52,7 +52,7 @@ $(document).ready(function(){
   var keyword=$('input[name=keyword]').val().split(",").join("','")
   var p=$('#cke_1_contents > iframe').contents().find("html");
    $(p).find('a').removeAttr("data-cke-saved-href").attr("target","_blank").attr("rel","nofollow noopener noreferrer");
-   $(p).find('img').removeAttr("data-cke-saved-src");
+   $(p).find('img').removeAttr("data-cke-saved-src");$(p).find('br').remove();
   var isi= $(p).find("body").html();
   var isidua=isi;
   var isitiga=isidua.split("&nbsp;").join(" ");
