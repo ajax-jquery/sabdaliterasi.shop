@@ -1,7 +1,7 @@
 ---
 tag: Keluarga
 title: Hormati Dan muliakan Ibu Serta Jagalah Kesehatanya di Hari Ibu
-image: https://i0.wp.com/cdn.pixabay.com/photo/2021/04/22/01/48/mothers-day-6197813_960_720.png
+image: https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2021/04/22/01/48/mothers-day-6197813_960_720.png
 description: 'Jangan pernah bosan untuk terus memberikan penghormatan, mengagungkan dan berbuat baik (ihsanan) kepada ibu'
 keyword: [hari ibu, keluarga, kebaikan]
 ---	
