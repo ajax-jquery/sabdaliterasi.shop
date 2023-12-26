@@ -1,7 +1,7 @@
 ---
 tag: Film
 title: "Nihilisme dan Perayaan Hidup"
-image: https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/10/The-Professor.jpg
+image: https://sabdaliterasi.shop/img/lsfdiscourse.org/wp-content/uploads/2023/10/The-Professor.jpg
 description: '"Richard Says Goodbye" mengeksplorasi penerimaan kematian melalui perjalanan seorang dosen yang sakit parah dalam menerima kematiannya yang akan datang.'
 keyword: [Nihilisme, nietszche, eksisntensialis, film filsafa]
 ---
