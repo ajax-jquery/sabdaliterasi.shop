@@ -1,6 +1,8 @@
 ---
 layout: null
+permalink: /edit/
 ---
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -114,7 +116,9 @@ String.prototype.codePointAt||(oJ=function(t){if(null==this)throw TypeError();va
                     allow: [
                         {
                             name: /.*/,
-                            attributes: false,
+                            attributes: true,
+                            classes: true,
+                            styles: true
                         }
                     ]
                 },
