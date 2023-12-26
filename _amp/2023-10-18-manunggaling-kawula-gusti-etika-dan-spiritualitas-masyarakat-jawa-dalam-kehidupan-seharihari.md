@@ -1,7 +1,7 @@
 ---
 tag: 'Refleksi'
 title: 'Manunggaling Kawula Gusti: Etika dan Spiritualitas Masyarakat Jawa dalam Kehidupan Sehari-hari'
-image: 'https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/10/Masyarakat-Agraris-Nusantara-karya-Gabrielle.jpg'
+image: 'https://sabdaliterasi.shop/img/lsfdiscourse.org/wp-content/uploads/2023/10/Masyarakat-Agraris-Nusantara-karya-Gabrielle.jpg'
 description: 'Manunggaling Kawula Gusti merupakan suatu asas dasar yang dihidupi secara spiritual dalam masyarakat Jawa, hingga akhirnya turut melahirkan berbagai etika, moral dan cara pandang masyarakat Jawa dalam kehidupan sehari-harinya.'
 keyword: ['filsafat jawa',' tasawuf',' suku jawa',' etika jawa',' jawa']
 ---
