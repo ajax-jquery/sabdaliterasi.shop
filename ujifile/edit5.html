@@ -14,11 +14,31 @@ permalink: /edit5/
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 <style> #container { width: 100%; margin: 20px auto; } .ck-editor__editable[role="textbox"] { min-height: 200px; } .ck-content .image { max-width: 80%; margin: 20px auto; } </style>
 </head><body>
-<div id="container"><div id="editor"></div></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<div id="container">
+<div class="untukisi">
+<p>
+karakter:<br><input type="text" name="karakter" value="ајіѕ" readonly><br>
+Tanggal:<br><input type="date" name="tanggal"><br>
+Judul:<br><input type="text" name="judul"><br>
+Tag:<br><input type="text" name="tag"><br>
+image:<br><input type="text" name="image"><br>
+description:<br><input type="text" name="description"><br>
+keyword:<br><input type="text" name="keyword"><br>
+contet:
+<textarea name="editor"></textarea>
+<button id="hasil">hasilkan</button>
+</div>
+<p><input type="text" name="hasilink" id="hasilink" readonly></p><p><textarea id="hasilnya" readonly></textarea></p>
+
+
+</div>
 <script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/super-build/ckeditor.js"></script>
 <script>
 CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
-toolbar: { items: [ 'exportPDF','exportWord', '|', 'findAndReplace', 'selectAll', '|', 'heading', '|', 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|', 'bulletedList', 'numberedList', 'todoList', '|', 'outdent', 'indent', '|', 'undo', 'redo', '-', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|', 'alignment', '|', 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|', 'specialCharacters', 'horizontalLine', 'pageBreak', '|', 'textPartLanguage', '|', 'sourceEditing' ], shouldNotGroupWhenFull: true },               
+toolbar: { items: [ 'exportPDF','exportWord', '|', 'findAndReplace', 'selectAll', '|', 'heading', '|', 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|', 'bulletedList', 'numberedList', 'todoList', '|', 'outdent', 'indent', '|', 'undo', 'redo', '-', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|', 'alignment', '|', 'link', 'insertImage', 'blockQuote', '|', 'sourceEditing' ], shouldNotGroupWhenFull: true },               
                 /* language: 'es', */
                 list: {
                     properties: {
