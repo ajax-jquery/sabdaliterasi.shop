@@ -130,5 +130,42 @@ heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-headi
             });
   
         </script>
+<script>
+$(document).ready(function(){
+  $("#hasil").click(function(){
+  function leftPad(num, length) { var result = '' + num; while (result.length < length) { result = '0' + result; } return result};
+
+  var judul=$('input[name=judul]').val()
+  var tag=$('input[name=tag]').val()
+  var image=$('input[name=image]').val().replace("http://","").replace("https://","")
+  var description=$('input[name=description]').val()
+  var keyword=$('input[name=keyword]').val().split(",").join("','")
+  var p=$('.ck-content');
+   $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
+   $(p).find('img').removeAttr("data-cke-saved-src");
+  var isi= $(p).html();
+  var isidua=isi;
+  var isitiga=isidua.split("&nbsp;").join(" ");
+  var hasil="---\ntag: '"+tag+"'\ntitle: '"+judul+"'\nimage: 'https://sabdaliterasi.shop/img/"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
+
+
+
+  var hasilsatu=judul.toLowerCase();
+  var hhh=hasilsatu.split(/[^a-z0-9\s]/gi).join('')
+  var hasildua=hhh.split(/[_\s]/g).join('-');
+  var hasiltiga=hasildua;
+  var d = new Date($('input[name=tanggal]').val());
+
+
+ var link=d.getFullYear()+"-"+leftPad(d.getMonth()+1,2)+"-"+leftPad(d.getDate(),2)+"-"+hasiltiga+".md";
+
+
+
+
+    $("#hasilnya").val(hasil);
+    $("#hasilink").val(link);
+  });
+});
+</script>
 </body>
 </html>
