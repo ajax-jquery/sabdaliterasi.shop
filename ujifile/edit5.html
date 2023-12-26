@@ -38,7 +38,7 @@ contet:
 <script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/super-build/ckeditor.js"></script>
 <script>
 CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
-toolbar: { items: [ 'exportPDF','exportWord', '|', 'findAndReplace', 'selectAll', '|', 'heading', '|', 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|', 'bulletedList', 'numberedList', 'todoList', '|', 'outdent', 'indent', '|', 'undo', 'redo', '-', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|', 'alignment', '|', 'link', 'insertImage', 'blockQuote', '|', 'sourceEditing' ], shouldNotGroupWhenFull: true },               
+toolbar: { items: [ 'findAndReplace', 'selectAll', '|', 'heading', '|', 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', '|', 'bulletedList', 'numberedList', 'todoList', '|', 'undo', 'redo', 'fontSize', '|', 'alignment', '|', 'link', 'blockQuote', '|', 'sourceEditing' ], shouldNotGroupWhenFull: true },               
                 /* language: 'es', */
                 list: {
                     properties: {
@@ -142,9 +142,9 @@ $(document).ready(function(){
   var keyword=$('input[name=keyword]').val().split(",").join("','")
   var p=$('.ck-content');
    $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
-   $(p).find('img').removeAttr("data-cke-saved-src");
-  var isi= $(p).html();
-  var isidua=isi;
+   $(p).find('a').attr("target","_blank").attr("rel", "nofollow noopener noreferrer");
+  var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
+  var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>");
   var isitiga=isidua.split("&nbsp;").join(" ");
   var hasil="---\ntag: '"+tag+"'\ntitle: '"+judul+"'\nimage: 'https://sabdaliterasi.shop/img/"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
 
