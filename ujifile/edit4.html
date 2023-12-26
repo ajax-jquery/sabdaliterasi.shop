@@ -50,7 +50,7 @@ $(document).ready(function(){
    keyword=$('input[name=keyword]').val().split(",").join("','"),
    p=$('#cke_1_contents > iframe').contents().find("html"),
    isi= $(p).find("body").html(),
-   hasil="---\ntitle: '"+judul+"' \ntag: '"+tag+"' \nimage: '"+image+"' \ndescription: '"+description+"' \nkeyword: ['"+keyword+"'] \n---\n"+isi,
+   hasil="---\ntitle: '"+judul+"' \ntag: '"+tag+"' \nimage: 'https://i0.wp.com/"+image+"' \ndescription: '"+description+"' \nkeyword: ['"+keyword+"'] \n---\n"+isi,
    hasilsatu=judul.toLowerCase(),
    hhh=hasilsatu.split(/[^a-z0-9\s]/gi).join(''),
    hasildua=hhh.split(/[_\s]/g).join('-'),
