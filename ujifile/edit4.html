@@ -48,8 +48,10 @@ $(document).ready(function(){
    image=$('input[name=image]').val().replace("http://","").replace("https://",""),
    description=$('input[name=description]').val(),
    keyword=$('input[name=keyword]').val().split(",").join("','"),
-   p=$('#cke_1_contents > iframe').contents().find("html"),
-   isi= $(p).find("body").html(),
+   p=$('#cke_1_contents > iframe').contents().find("html");
+   $(p).find('a').removeAttr("data-cke-saved-href").attr("target","_blank").attr("rel","nofollow noopener noreferrer");
+  var isiiii= $(p).find("body").html(),
+   isi = isiiii.split("&nbsp;").join(" "),
    hasil="---\ntitle: '"+judul+"' \ntag: '"+tag+"' \nimage: 'https://i0.wp.com/"+image+"' \ndescription: '"+description+"' \nkeyword: ['"+keyword+"'] \n---\n"+isi,
    hasilsatu=judul.toLowerCase(),
    hhh=hasilsatu.split(/[^a-z0-9\s]/gi).join(''),
