@@ -661,7 +661,9 @@ display: none;
  {% if page.description %}{{ page.description }}{% endif %}
 </p>
 <div class="article__cover">
-<amp-img src="{% if page.image %}{{ page.image }}{% endif %}?resize=1080%2C607&ssl=1" height="280" width="420" layout="responsive" alt="{% if page.title %}{{ page.title }}{% endif %}">
+<amp-img src="{% if page.image %}{{ page.image }}{% endif %}?resize=1080%2C607&ssl=1" 
+    srcset="{% if page.image %}{{ page.image }}{% endif %}?resize=720%2C405&ssl=1 720w, {% if page.image %}{{ page.image }}{% endif %}?resize=480%2C270&ssl=1 480w, {% if page.image %}{{ page.image }}{% endif %}?resize=360%2C202&ssl=1 360w"
+    height="280" width="420" layout="responsive" alt="{% if page.title %}{{ page.title }}{% endif %}">
 </amp-img>
 </div>
 <div class="author">
