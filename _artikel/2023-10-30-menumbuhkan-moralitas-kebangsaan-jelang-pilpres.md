@@ -1,7 +1,7 @@
 ---
 tag: Refleksi
 title: "Menumbuhkan Moralitas Kebangsaan Jelang Pilpres"
-image: https://i0.wp.com/lsfdiscourse.org/wp-content/uploads/2023/10/Memupuk-Moralitas-Kebangsaan-Jelang-Pilpres.jpg
+image: https://sabdaliterasi.shop/img/lsfdiscourse.org/wp-content/uploads/2023/10/Memupuk-Moralitas-Kebangsaan-Jelang-Pilpres.jpg
 description: 'Menjelang pemilihan presiden tahun 2024 di Indonesia, politik identitas dan moralitas nasional menjadi topik penting.'
 keyword: [pilpres, moral, pilpres 2024, filsafat pilpres, moralitas]
 ---			
