@@ -3,9 +3,9 @@ layout: null
 permalink: /edit5/
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Artikel Editor</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="dns-prefetch" href="//sabdaliterasi.shop" />
@@ -13,16 +13,15 @@ permalink: /edit5/
 <link rel="preload" href="https://sabdaliterasi.shop/assets/js/ckeditor5.min.js" as="script" />
 <meta name="robots" content="noindex, nofollow" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <style>.col-md-8 {-ms-flex: 100%;flex: 100% !important;     max-width: 100% !important; }.bootstrap-tagsinput{background-color:#fff;border:1px solid #ccc;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);display:inline-block;padding:4px 6px;color:#555;vertical-align:middle;border-radius:4px;width:100%;line-height:22px;cursor:text}.bootstrap-tagsinput input,.bootstrap-tagsinput input:focus{border:none;box-shadow:none}.bootstrap-tagsinput input{outline:0;background-color:transparent;padding:0 6px;margin:0;width:auto;max-width:inherit}.bootstrap-tagsinput.form-control input::-moz-placeholder{color:#777;opacity:1}.bootstrap-tagsinput.form-control input:-ms-input-placeholder{color:#777}.bootstrap-tagsinput.form-control input::-webkit-input-placeholder{color:#777}.bootstrap-tagsinput .badge{margin-right:2px;color:#fff;background-color:#0275d8;padding:5px 8px;border-radius:3px;border:1px solid #01649e}.bootstrap-tagsinput .badge [data-role=remove]{margin-left:8px;cursor:pointer}.bootstrap-tagsinput .badge [data-role=remove]:after{content:"x";padding:0 4px;background-color:rgba(0,0,0,.1);border-radius:50%;font-size:13px}.bootstrap-tagsinput .badge [data-role=remove]:hover:after{background-color:rgba(0,0,0,.62)}.bootstrap-tagsinput .badge [data-role=remove]:hover:active{box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.form-outline.mb-2.button { margin-top: 12px; }textarea#hasilnya { min-height: 240px; }</style>
+  <style>.bootstrap-tagsinput{background-color:#fff;border:1px solid #ccc;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);display:inline-block;padding:4px 6px;color:#555;vertical-align:middle;border-radius:4px;width:100%;line-height:22px;cursor:text}.bootstrap-tagsinput input,.bootstrap-tagsinput input:focus{border:none;box-shadow:none}.bootstrap-tagsinput input{outline:0;background-color:transparent;padding:0 6px;margin:0;width:auto;max-width:inherit}.bootstrap-tagsinput.form-control input::-moz-placeholder{color:#777;opacity:1}.bootstrap-tagsinput.form-control input:-ms-input-placeholder{color:#777}.bootstrap-tagsinput.form-control input::-webkit-input-placeholder{color:#777}.bootstrap-tagsinput .badge{margin-right:2px;color:#fff;background-color:#0275d8;padding:5px 8px;border-radius:3px;border:1px solid #01649e}.bootstrap-tagsinput .badge [data-role=remove]{margin-left:8px;cursor:pointer}.bootstrap-tagsinput .badge [data-role=remove]:after{content:"x";padding:0 4px;background-color:rgba(0,0,0,.1);border-radius:50%;font-size:13px}.bootstrap-tagsinput .badge [data-role=remove]:hover:after{background-color:rgba(0,0,0,.62)}.bootstrap-tagsinput .badge [data-role=remove]:hover:active{box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.form-outline.mb-2.button { margin-top: 12px; }textarea#hasilnya { min-height: 240px; }</style>
 </head>
 <body>
-
-<div class="row">
-  <div class="col-md-8 mb-2">
-<div class="card mb-2">
   <div class="card-header py-3">
 <h5 class="mb-0">Artikel</h5>
   </div>
+<div class="row">
+<div class="col-md-6">
+<div class="card mb-2">
   <div class="card-body">
 <form>
   <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -65,25 +64,27 @@ permalink: /edit5/
 
   
 </form>
-<div class="form-outline mb-2 button">
+
+  </div>
+</div>
+  </div>
+<div class="col-md-6">
+  <div class="card mb-2">
+    <div class="card-body">
+  <div class="form-outline mb-2 button">
   <button type="button" class="btn btn-primary btn-lg btn-block" id="hasil">
   Send
 </button>
 </div>
-
 <div class="form-outline mb-2">
    <p><input type="text"name="hasilink" id="hasilink" readonly class="form-control" placeholder="xxxx-xx-xx-title.md"/></p>
  </div>
 <div class="form-outline mb-2">
 <textarea  class="form-control" id="hasilnya" readonly rows="4" placeholder="markdwn"></textarea>
 </div>
-  </div>
-</div>
-  </div>
-
- 
-</div>
-  <script src="https://sabdaliterasi.shop/assets/js/ckeditor5.min.js"></script>
+  </div></div> 
+</div></div>
+  <script src="https://sabdaliterasi.shop/assets/js/ckeditor5.min.js?mabs"></script>
 <script>
 ClassicEditor.create(document.getElementById("editor"), {
 heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading1', view: 'h1', title: 'H1', class: 'ck-heading_heading1' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
