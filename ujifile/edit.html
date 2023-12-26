@@ -113,6 +113,6 @@ heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-headi
 
 {% endcapture %}
 
-{{ string_with_newlines | strip_newlines }}
+{{ string_with_newlines | strip_newlines | strip }}
 </body>
 </html>
