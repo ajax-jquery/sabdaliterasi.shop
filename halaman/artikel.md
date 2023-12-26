@@ -11,7 +11,8 @@ keyword: [artikel]
 <div class='search-area'><div class='codehim-ss-bar'> <form id="CariProduk"><input onkeyup="cariproduk()" type='text' id="SerNOw" autocomplete="off" placeholder="Cari Artikel Di Sini..."/><button type="submit" class="codehim-circle-search-button" disabled> </button> </form> </div> </div>
 <div id="ms-related-post"><div class="ms-related-title"><p id="hasilo">all produk</p></div>
   <ul class="ms-related-hasthumb" id="isi_produk">
-  {% for p in site.artikel | reverse %}
+{% assign post = site.artikel | sort: "date" %}
+  {% for p in post %}
  <li data-search-term="{{ p.title | replace: ' ','' | downcase }}{{ p.description | replace: ' ','' | replace: '"','' | downcase }}" class="searproduk"><div class="msr-thumb-outer"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}"><img alt="{{ p.title }}" class="msr-thumb lazyload" data-src="{{ p.image }}?resize=300%2C300&ssl=1" width="300" height="300" src="data:,"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}">{{ p.title }}</a></div><div class="harga-produk">{{ p.harga }}</div></div></li>
   {% endfor %}
   </ul></div>
