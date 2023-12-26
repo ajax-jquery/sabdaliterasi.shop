@@ -1488,7 +1488,7 @@ layout: null
                         <amp-img on="tap:lightboxProduct"
                                  role="button"
                                  attribution="visualhunt"
-                                 src="{% if page.image %}{{ page.image | replace: "https://","" | replace: "http://", "" | prepend: "https://sabdaliterasi.shop/img/" }}{% endif %}"
+                                 src="{% if page.image %}{{ page.image }}{% endif %}"
                                  alt="{% if page.title %}{{ page.title }}{% endif %}"
                                  width="380"
                                  height="380"
@@ -1759,7 +1759,7 @@ Type: <a href="{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }
 <a class="product__item" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
                             <div class="product__img">
                                 <amp-img
-                                        src="{{ post.image | replace: "https://","" | replace: "http://", "" | prepend: "https://sabdaliterasi.shop/img/" }}"
+                                        src="{{ post.image }}"
                                         alt="{{ post.title }}"
                                         width="380"
                                         height="380"
