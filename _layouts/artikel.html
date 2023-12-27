@@ -133,8 +133,11 @@ Artikel
 <div id="ms-related-post" class="msr-artikel"><div class="ms-related-title"><p>Artikel Terkait</p></div><ul class="ms-related-hasthumb">
     {% for p in site.artikel %}
     {% if p.tag == page.tag %}
-<li><div class="msr-thumb-outer"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}"><img alt="{{ p.title }}" class="msr-thumb lazyload" data-src="{{ p.image }}?resize=300%2C300&ssl=1" width="300" height="169" src="data:,"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}">{{ p.title }}</a></div></div></li>
-{% endif %}{% endfor %}
+    {% for i in p limit: 4 %}
+<li><div class="msr-thumb-outer"><a title="{{i.title }}" href="{{i.url | prepend: site.url }}"><img alt="{{i.title }}" class="msr-thumb lazyload" data-src="{{i.image }}?resize=300%2C300&ssl=1" width="300" height="169" src="data:,"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="{{i.title }}" href="{{i.url | prepend: site.url }}">{{i.title }}</a></div></div></li>
+    {% endfor %}
+    {% endif %}
+{% endfor %}
 </ul>
 </div>
 <aside id="ratingbook" style="display:none"><div class="testimonial-title">
