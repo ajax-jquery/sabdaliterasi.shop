@@ -138,12 +138,9 @@ Artikel
 <div id="ms-related-post">
   <div class="ms-related-title"><p>Artikel Terkait</p></div>
 <div class="produk-showcase">
-  <div class="produk-box">
-    {% for post in site.artikel %}
-    {% if post.tag == page.tag %}
-    <div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}?resize=300%2C300&ssl=1" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk"></div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Read</a></div></div>
-    {% if i.tag == page.tag %}{% endfor %}
- </div>
+<div class="produk-box">{% for post in site.artikel %}{% if post.tag == page.tag %}
+<div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}?resize=300%2C300&ssl=1" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk"></div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Read</a></div></div>
+{% endif %}{% endfor %}</div>
 </div>    
     <div class="ms-related-title"><p>Produk Kami</p></div>
 <div class="produk-showcase">
