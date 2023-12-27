@@ -130,21 +130,22 @@ Artikel
 </div>
 </div>
 </div>
-<div id="ms-related-post" class="msr-artikel"><div class="ms-related-title"><p>Artikel Terkait</p></div><ul class="ms-related-hasthumb">
-    {% for i in site.artikel limit: 4 offset: continue %}
-    {% if i.tag == page.tag %}
-<li><div class="msr-thumb-outer"><a title="{{i.title }}" href="{{i.url | prepend: site.url }}"><img alt="{{i.title }}" class="msr-thumb lazyload" data-src="{{i.image }}?resize=300%2C300&ssl=1" width="300" height="169" src="data:,"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="{{i.title }}" href="{{i.url | prepend: site.url }}">{{i.title }}</a></div></div></li>
-    {% endif %}
-{% endfor %}
-</ul>
-</div>
 <aside id="ratingbook" style="display:none"><div class="testimonial-title">
 <h2>Total Penilaian Ebook {% if page.title %}{{ page.title }}{% endif %}</h2></div>
 <div class="stars"><i class="fa fa-star active"></i></div>
 <div id="Rating"></div> 
 </aside>
 <div id="ms-related-post">
-  <div class="ms-related-title"><p>Produk Kami</p></div>
+  <div class="ms-related-title"><p>Artikel Terkait</p></div>
+<div class="produk-showcase">
+  <div class="produk-box">
+    {% for post in site.artikel %}
+    {% if post.tag == page.tag %}
+    <div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}?resize=300%2C300&ssl=1" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk"></div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Read</a></div></div>
+    {% if i.tag == page.tag %}{% endfor %}
+ </div>
+</div>    
+    <div class="ms-related-title"><p>Produk Kami</p></div>
 <div class="produk-showcase">
   <div class="produk-box" id="EbookSI">
     {% for post in site.posts %}
