@@ -131,7 +131,10 @@ Artikel
 </div>
 </div>
 <div id="ms-related-post" class="msr-artikel"><div class="ms-related-title"><p>Artikel Terkait</p></div><ul class="ms-related-hasthumb">
-{% for p in site.artikel limit: 4 %}{% if p.tag == page.tag %}
+{% assign tag = page.tag %}
+    {% for p in site.artikel limit: 4 %}
+    {% assign tagbaru = p.tag %}
+    {% if tagbaru == tag %}
 <li><div class="msr-thumb-outer"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}"><img alt="{{ p.title }}" class="msr-thumb lazyload" data-src="{{ p.image }}?resize=300%2C300&ssl=1" width="300" height="169" src="data:,"><div class="lazy-loading"></div></a></div><div class="msr-post-summary"><div class="msr-post-title"><a title="{{ p.title }}" href="{{ p.url | prepend: site.url }}">{{ p.title }}</a></div></div></li>
 {% endif %}{% endfor %}
 </ul>
