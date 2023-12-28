@@ -23,7 +23,7 @@ permalink: /edit6/
     position: absolute;
 }.ck.ck-content {
     height: 340px;
-}
+}.hidden{display:none}
 .bootstrap-tagsinput{background-color:#fff;border:1px solid #ccc;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);display:inline-block;padding:4px 6px;color:#555;vertical-align:middle;border-radius:4px;width:100%;line-height:22px;cursor:text}.bootstrap-tagsinput input,.bootstrap-tagsinput input:focus{border:none;box-shadow:none}.bootstrap-tagsinput input{outline:0;background-color:transparent;padding:0 6px;margin:0;width:auto;max-width:inherit}.bootstrap-tagsinput.form-control input::-moz-placeholder{color:#777;opacity:1}.bootstrap-tagsinput.form-control input:-ms-input-placeholder{color:#777}.bootstrap-tagsinput.form-control input::-webkit-input-placeholder{color:#777}.bootstrap-tagsinput .badge{margin-right:2px;color:#fff;background-color:#0275d8;padding:5px 8px;border-radius:3px;border:1px solid #01649e}.bootstrap-tagsinput .badge [data-role=remove]{margin-left:8px;cursor:pointer}.bootstrap-tagsinput .badge [data-role=remove]:after{content:"x";padding:0 4px;background-color:rgba(0,0,0,.1);border-radius:50%;font-size:13px}.bootstrap-tagsinput .badge [data-role=remove]:hover:after{background-color:rgba(0,0,0,.62)}.bootstrap-tagsinput .badge [data-role=remove]:hover:active{box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.form-outline.mb-2.button { margin-top: 12px; }textarea#hasilnya { min-height: 340px; }</style><script src="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
@@ -101,7 +101,9 @@ permalink: /edit6/
 
 <div class="form-outline mb-2">
 <input type="text" name="image" id="form7Example4" class="form-control" placeholder="Image" />
-</div>
+<div style="text-align:center" class="image hidden">
+<img width="64" height="64" src="" alt>
+</div></div>
 
 <div class="form-outline mb-2">
 <textarea name="description" class="form-control" id="form7Example7" rows="4" placeholder="Description"></textarea>
@@ -179,6 +181,11 @@ var b={
 };
 var k=JSON.stringify(b);
 localStorage.setItem("Ebook", k);  
+});
+
+$("input[name=image]").keyup(function(){
+$(".image img").attr("src",$(this).val());
+$(".image").removeClass("hidden")
 });
     
   
