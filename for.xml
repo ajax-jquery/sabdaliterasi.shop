@@ -1,35 +1,47 @@
 ---
 layout: null
 ---
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:atom="http://www.w3.org/2005/Atom"
-	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
-	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-	xmlns:media="http://search.yahoo.com/mrss/"
-	xmlns:georss="http://www.georss.org/georss"
-	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-	>
-  <channel>
-   <title>Sabda Literasi Palu | Ebook Shop termurah dan terlengkap di Indonesia</title>
-	<atom:link href="https://sabdaliterasi.shop/rss.xml" rel="self" type="application/rss+xml" />
-	<link>https://sabdaliterasi.shop</link>
-	<description>Sabda Literasi merupakan tempat penjualan Ebook Berbahasa Indonesia terlengkap dengan harga dua kali lebih murah dan tersedia dalam bentuk PDF.</description>
-	<lastBuildDate>{{ site.time }}</lastBuildDate>
-	<language>id</language>
-	<sy:updatePeriod>hourly</sy:updatePeriod>
-	<sy:updateFrequency>1	</sy:updateFrequency>
-	<generator>Jekyll v4.3.3</generator>
-<image>
-	<url>https://sabdaliterasi.shop/media/android-icon-512x512.png</url>
-	<title>Sabda Literasi Palu</title>
-	<link>https://sabdaliterasi.shop</link>
-	<width>32</width>
-	<height>32</height>
-</image> 
-  
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" > <channel> <title>Sabda Literasi Palu | Ebook Shop termurah dan terlengkap di Indonesia</title> <atom:link href="https://sabdaliterasi.shop/rss.xml" rel="self" type="application/rss+xml" /> <link>https://sabdaliterasi.shop</link> <description>Sabda Literasi merupakan tempat penjualan Ebook Berbahasa Indonesia terlengkap dengan harga dua kali lebih murah dan tersedia dalam bentuk PDF.</description> <lastBuildDate>{{ site.time }}</lastBuildDate> <language>id</language> <sy:updatePeriod>hourly</sy:updatePeriod> <sy:updateFrequency>1	</sy:updateFrequency> <generator>Jekyll v4.3.3</generator>
+<image> <url>https://sabdaliterasi.shop/media/android-icon-512x512.png</url> <title>Sabda Literasi Palu</title> <link>https://sabdaliterasi.shop</link> <width>32</width> <height>32</height> </image>
+<item>
+        <title>Dasar-Dasar Filsafat Barat; Tuhan, Benar dan Salah, Politik, Dunia Eksternal, Sains, Pikiran, Seni</title>
+	
+        <category><![CDATA[Tuhan]]></category>
+        
+        <category><![CDATA[Benar dan Salah]]></category>
+        
+        <category><![CDATA[Politik]]></category>
+        
+        <category><![CDATA[Dunia Eksternal]]></category>
+        
+        <category><![CDATA[Sains]]></category>
+        
+        <category><![CDATA[Pikiran]]></category>
+        
+        <category><![CDATA[Seni]]></category>
+        
+        <category><![CDATA[pengantar filsafat]]></category>
+        
+        <category><![CDATA[dasar filsafat]]></category>
+        
+        <category><![CDATA[ebook pengantar filsafat]]></category>
+        
+        <category><![CDATA[buku rekomendasi filsafat]]></category>
+        
+        <category><![CDATA[filaafat untuk pemula]]></category>
+        
+	<link>https://sabdaliterasi.shop/dasar-dasar-filsafat-barat/</link>
+	<guid isPermaLink="true">https://sabdaliterasi.shop/dasar-dasar-filsafat-barat/</guid>
+	<comments>https://sabdaliterasi.shop/dasar-dasar-filsafat-barat/#comments</comments>
+	<dc:creator><![CDATA[Nigel Warburton]]></dc:creator>
+  <description><![CDATA[<p>Dasar-dasar Filsafat Barat ini adalah pengantar kepada filsafat bagi siapa pun yang baru pertama kali mengenal filsafat.</p><p>Produk ebook&nbsp;<a href="https://sabdaliterasi.shop/dasar-dasar-filsafat-barat/" rel="nofollow">Dasar-Dasar Filsafat Barat; Tuhan, Benar dan Salah, Politik, Dunia Eksternal, Sains, Pikiran, Seni</a> ini ditulis oleh Nigel Warburton dan pertama kali dijual dalam bentuk ebook di <a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu</a></p><p><a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu</a> - <a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu | Ebook Shop termurah dan terlengkap di Indonesia</a></p> ]]></description>
+	<content:encoded><![CDATA[<p><strong>Dasar-dasar Filsafat Barat</strong> adalah pengantar kepada filsafat bagi siapa pun yang baru pertama kali mengenal filsafat, khususnya mereka yang mempelajarinya di sekolah, college ataupun universitas. Buku ini mengambil pendekatan <i>topic-based</i>, masing-masing bab membahas sebuah ranah filsafat (Tuhan, benar dan salah, politik. dunia eksternal, sains, pikiran, seni) dan menyuguhkan garis-garis besar sejumlah isu filosofis yang berkaitan dengan ranah tersebut. Setiap bab diakhiri dengan saran-saran yang realistis untuk bacaan lebih lanjut.&nbsp;</p><p>Pembaca didorong untuk berpikir secara filosofis. Buku ini memperkenalkan persoalan-persoalan filsafat yang penting dan berbagai tanggapan yang telah dikemukakan terhadap persoalan-persoalan tersebut. Meskipun tokoh-tokoh utama filsafat disebutkan, penekanan buku ini adalah pada argumen-argumen yang mendukung dan menentang setiap gagasan yang dibicarakan. Dengan cara ini, pembaca bisa mengikuti arah dan perkembangan suatu pendapat filosofis dan secara kritis menjajagi sendiri pendapat tersebut.&nbsp;</p><p>Buku ini dimulai dengan pertanyaan 'Apa Itu filsafat?' dan 'Mengapa kita mengkaji filsafat?' Di akhir buku kecil yang menarik dan ditulis dengan cara yang memikat ini, pembaca akan sampai pada jawaban-jawabannya sendiri.</p>]]></content:encoded>   
+   <pubDate>Fri, 09 Jul 2021 00:00:00 -0400</pubDate>
+<media:thumbnail url="https://s3.us-west-1.wasabisys.com/lynk.id/products/11-03-2023/1678518506847_1567528" width="75" height="75" time="Fri, 09 Jul 2021 00:00:00 -0400" />
+<media:content url="https://s3.us-west-1.wasabisys.com/lynk.id/products/11-03-2023/1678518506847_1567528" medium="image"/>
+</item>
+      
     <item>
         <title>How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah</title>
 	
