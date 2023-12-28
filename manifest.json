@@ -64,6 +64,6 @@ layout: null
       }
     ],
  "serviceworker": {
-    "src": "/sw.js"
+    "src": "/serviceworker.js"
   }
 }
