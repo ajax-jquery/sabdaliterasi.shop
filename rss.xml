@@ -53,7 +53,7 @@ layout: null
 	<link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
 	<guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
 	<comments>{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments</comments>
-	<dc:creator><![CDATA[{{ post.author }}]]></dc:creator>
+	<dc:creator><![CDATA[{{ site.title }}]]></dc:creator>
         <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Produk ebook&nbsp;<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" rel="nofollow">{{ post.title }}</a> ini ditulis oleh {{ site.author }} dan diterbitkan di <a href="{{ site.url }}" rel="nofollow">{{ site.title }}</a></p><p><a href="{{ site.url }}" rel="nofollow">{{ site.title }}</a> - <a href="{{ site.url }}" rel="nofollow">{{ site.title }} | {{ site.subjudul }}</a></p> ]]></description>
 	<content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
