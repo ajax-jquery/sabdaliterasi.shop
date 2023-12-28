@@ -1,0 +1,60 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+  <channel>
+   <title>Sabda Literasi Palu | Ebook Shop termurah dan terlengkap di Indonesia</title>
+	<atom:link href="https://sabdaliterasi.shop/rss.xml" rel="self" type="application/rss+xml" />
+	<link>https://sabdaliterasi.shop</link>
+	<description>Sabda Literasi merupakan tempat penjualan Ebook Berbahasa Indonesia terlengkap dengan harga dua kali lebih murah dan tersedia dalam bentuk PDF.</description>
+	<lastBuildDate>{{ site.time }}</lastBuildDate>
+	<language>id</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1	</sy:updateFrequency>
+	<generator>Jekyll v4.3.3</generator>
+<image>
+	<url>https://sabdaliterasi.shop/media/android-icon-512x512.png</url>
+	<title>Sabda Literasi Palu</title>
+	<link>https://sabdaliterasi.shop</link>
+	<width>32</width>
+	<height>32</height>
+  
+  
+    <item>
+        <title>How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah</title>
+	
+        <category><![CDATA[stoik]]></category>
+        
+        <category><![CDATA[kebahagiaan]]></category>
+        
+        <category><![CDATA[self improvment]]></category>
+        
+        <category><![CDATA[cara tidak marah]]></category>
+        
+        <category><![CDATA[marah]]></category>
+        
+        <category><![CDATA[agar tidak gampang marah]]></category>
+        
+	<link>https://sabdaliterasi.shop/how-to-keep-your-cool/</link>
+	<guid isPermaLink="true">https://sabdaliterasi.shop/how-to-keep-your-cool/</guid>
+	<comments>https://sabdaliterasi.shop/how-to-keep-your-cool/#comments</comments>
+	<dc:creator><![CDATA[Seneca]]></dc:creator>
+  <description><![CDATA[<p>Dalam buku How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah, Seneca mengajarkan berbagai prinsip dan strategi untuk mengelola emosi, khus</p><p>Produk ebook&nbsp;<a href="https://sabdaliterasi.shop/how-to-keep-your-cool/" rel="nofollow">How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah</a> ini ditulis oleh Seneca dan pertama kali dijual dalam bentuk ebook di <a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu</a></p><p><a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu</a> - <a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu | Ebook Shop termurah dan terlengkap di Indonesia</a></p> ]]></description>
+	<content:encoded><![CDATA[<p>Dalam buku <strong>How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah</strong>, Seneca mengajarkan berbagai prinsip dan strategi untuk mengelola emosi, khususnya amarah. Anda akan belajar bagaimana memahami asal usul amarah, mengendalikan reaksi emosional Anda, dan menemukan kedamaian dalam situasi sulit. Buku ini berisi ajaran filosofis yang dapat membantu Anda mencapai kebijaksanaan dan ketenangan batin.</p><p>Di awal buku ini terdapat sebuah kalimat provokatif dari Seneca:</p><p>“Kemarahanmu adalah sejenis kegilaan, karena kau menetapkan harga tinggi untuk hal-hal tak berharga.” Kata-kata ini ditulis Seneca pada pertengahan abad pertama Masehi. Di mata Seneca, menyeruaknya amarah membahayakan kondisi moral Anda lebih dari semua emosi lainnya karena amarah adalah gairah paling kuat, paling destruktif, dan paling tak tertahankan.</p><p>Dengan mengubah perspektif kita atau memperluas cakupan mental kita, Seneca menantang akal sehat kita mengenai apa yang pantas membuat kita marah, kalau ada. Kebanggaan, martabat, harga diri berlebihan—sumber amarah ketika kita merasa tersakiti—akhirnya tampak hampa ketika kita memandang dalam konteks lebih besar dan melihat kehidupan kita dengan sikap berjarak. Kesehatan spiritual menuntut agar kita melepas amarah, atau kalau tidak, amarah tak akan pernah melepaskan kita.</p>]]></content:encoded>   
+   <pubDate>Mon, 14 Jun 2021 00:00:00 -0400</pubDate>
+<media:thumbnail url="https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701360238702_6156973" width="75" height="75" time="Mon, 14 Jun 2021 00:00:00 -0400" />
+<media:content url="https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701360238702_6156973" medium="image"/>
+</item>
+    
+  </channel>
+</rss>
