@@ -1,0 +1,236 @@
+---
+layout: null
+permlink: /edit6/
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>Produk Editor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="dns-prefetch" href="//sabdaliterasi.shop" />
+<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
+<link rel="preload" href="https://sabdaliterasi.shop/assets/js/ckeditor5.min.js" as="script" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<style>
+.hasil {
+    position: relative;
+    overflow: hidden;
+} button#copy_link,button#copy_isi {
+    top: 0;
+    right: 0;
+    position: absolute;
+}.ck.ck-content {
+    height: 340px;
+}
+.bootstrap-tagsinput{background-color:#fff;border:1px solid #ccc;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);display:inline-block;padding:4px 6px;color:#555;vertical-align:middle;border-radius:4px;width:100%;line-height:22px;cursor:text}.bootstrap-tagsinput input,.bootstrap-tagsinput input:focus{border:none;box-shadow:none}.bootstrap-tagsinput input{outline:0;background-color:transparent;padding:0 6px;margin:0;width:auto;max-width:inherit}.bootstrap-tagsinput.form-control input::-moz-placeholder{color:#777;opacity:1}.bootstrap-tagsinput.form-control input:-ms-input-placeholder{color:#777}.bootstrap-tagsinput.form-control input::-webkit-input-placeholder{color:#777}.bootstrap-tagsinput .badge{margin-right:2px;color:#fff;background-color:#0275d8;padding:5px 8px;border-radius:3px;border:1px solid #01649e}.bootstrap-tagsinput .badge [data-role=remove]{margin-left:8px;cursor:pointer}.bootstrap-tagsinput .badge [data-role=remove]:after{content:"x";padding:0 4px;background-color:rgba(0,0,0,.1);border-radius:50%;font-size:13px}.bootstrap-tagsinput .badge [data-role=remove]:hover:after{background-color:rgba(0,0,0,.62)}.bootstrap-tagsinput .badge [data-role=remove]:hover:active{box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.form-outline.mb-2.button { margin-top: 12px; }textarea#hasilnya { min-height: 340px; }</style>
+</head>
+<body>
+<div class="card-header py-3">
+<h5 class="mb-0">Produk</h5>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="card mb-2">
+<div class="card-body">
+<form>
+
+<div class="row mb-2">
+  
+  
+  
+  
+  
+<div class="col">
+<div class="form-outline">
+<input type="text" id="form7Example1" name="author" class="form-control" placeholder="Author" />
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<input type="date" name="tanggal" id="form7Example2" class="form-control" placeholder="Tanggal"/>
+</div>
+</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  
+  <div class="row mb-2">
+  
+  
+  
+  
+  
+<div class="col">
+<div class="form-outline">
+<input type="text" id="form7Example1" name="buy" class="form-control" placeholder="https://lynk.id/" />
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<input type="text" name="harga" id="form7Example2" class="form-control" placeholder="Harga"/>
+</div>
+</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+<div class="form-outline mb-2">
+<input type="text" name="judul" id="form7Example3" class="form-control" placeholder="Title" />
+</div>
+
+<div class="form-outline mb-2">
+<input type="text" name="image" id="form7Example4" class="form-control" placeholder="Image" />
+</div>
+
+<div class="form-outline mb-2">
+<textarea name="description" class="form-control" id="form7Example7" rows="4" placeholder="Description"></textarea>
+</div>
+
+<div class="form-outline mb-2">
+<input name="keyword" type="text" id="form7Example5" class="form-control" data-role="tagsinput" placeholder="Keywords" />
+</div>
+
+<div class="form-outline mb-2" id="editor">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card mb-2">
+<div class="card-body">
+<div class="form-outline mb-2">
+<input type="text" name="karakter" value="ајіѕ" readonly class="form-control" />
+</div>
+<div class="form-outline mb-2 button">
+<button type="button" class="btn btn-primary btn-lg btn-block" id="hasil">
+Send
+</button>
+</div>
+<div class="form-outline mb-2 hasil">
+<input type="text" name="hasilink" id="hasilink" readonly class="form-control" placeholder="xxxx-xx-xx-title.md" />
+<button id="copy_link" class="btn-primary btn">copy</button>
+</div>
+<div class="form-outline mb-2 hasil">
+<textarea class="form-control" id="hasilnya" readonly rows="4" placeholder="markdwn"></textarea>
+<button id="copy_isi" class="btn-primary btn">copy</button>
+</div>
+</div></div>
+</div></div></div>
+<script src="https://sabdaliterasi.shop/assets/js/ckeditor5.min.js?mabs"></script>
+<script>
+ClassicEditor.create(document.getElementById("editor"), {
+heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading1', view: 'h1', title: 'H1', class: 'ck-heading_heading1' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
+  }); 
+  
+</script>
+<script src="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js"></script>
+<script>
+  
+  
+  
+$(document).ready(function(){
+  
+$("form").keyup(function(){
+var b={
+  judul:$('input[name=judul]').val(),
+  buy: $('input[name=buy]').val(),
+  harga: $('input[name=harga]').val(),
+  author: $('input[name=author]').val(),
+  image: $('input[name=image]').val(),
+  description: $('textarea[name=description]').val(),
+  keyword: $('input[name=keyword]').val(),
+  tanggal: $('input[name=tanggal]').val()
+ 
+};
+var k=JSON.stringify(b);
+localStorage.setItem("Ebook", k);  
+});
+  
+var Babi=JSON.parse(localStorage.getItem("Ebook"));
+if(Babi){
+ $('input[name=judul]').val(Babi.judul),
+ $('input[name=buy]').val(Babi.buy),
+ $('input[name=harga]').val(Babi.harga),
+ $('input[name=author]').val(Babi.author),
+ $('input[name=image]').val(Babi.image),
+ $('textarea[name=description]').val(Babi.description),
+ $('input[name=keyword]').val(Babi.keyword),
+ $('input[name=tanggal]').val(Babi.tanggal)
+
+  }; 
+  
+  
+  $("#hasil").click(function(){
+  function leftPad(t,e){for(var r=""+t;r.length<e;)r="0"+r;return r}function lo(t){let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
+
+    
+  var judul=$('input[name=judul]').val();
+  var buy=$('input[name=buy]').val();
+  var harga=$('input[name=harga]').val().split(",").join(".").replace("IDR","Rp");
+  var tag=lo($('input[name=author]').val());
+  var image=$('input[name=image]').val();
+  var description=$('textarea[name=description]').val()
+  var keyword=$('input[name=keyword]').val().split(",").join("','")
+  var p=$('.ck-content');
+   $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
+   $(p).find('a').attr("target","_blank").attr("rel", "nofollow noopener noreferrer");
+$(p).find('br').remove();
+  var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
+  var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>");
+  var isitiga=isidua.split("&nbsp;").join(" ");
+  var hasil="---\nauthor: '"+tag+"'\ntitle: '"+judul+"'\nbuy: '"+buy+"'\nharga: '"+harga+"'\nimage: '"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
+
+
+  var hasilsatu=judul.toLowerCase();
+  var hhh=hasilsatu.split(/[^a-z0-9\s]/gi).join('')
+  var hasildua=hhh.split(/[_\s]/g).join('-');
+  var hasiltiga=hasildua;
+    
+  var d = new Date($('input[name=tanggal]').val());
+ var coo=d.getFullYear()+"-"+leftPad(d.getMonth()+1,2)+"-"+leftPad(d.getDate(),2)+"-"+hasiltiga+".md";
+
+ var link=coo.replace("-.",".");
+
+$("#hasilnya").val(hasil);
+$("#hasilink").val(link);
+localStorage.removeItem('Ebook')  });
+  $("#copy_isi").click(function(){
+    $("#hasilnya").select();document.execCommand("copy");
+  }); 
+  $("#copy_link").click(function(){
+    $("#hasilink").select();document.execCommand("copy");
+  }); 
+  
+  
+  
+  
+  
+  
+  
+});
+</script>
+<script>!function(t){"use strict";var e={tagClass:function(t){return"badge badge-info"},focusClass:"focus",itemValue:function(t){return t?t.toString():t},itemText:function(t){return this.itemValue(t)},itemTitle:function(t){return null},freeInput:!0,addOnBlur:!0,maxTags:void 0,maxChars:void 0,confirmKeys:[13,44],delimiter:",",delimiterRegex:null,cancelConfirmKeysOnEmpty:!1,onTagExists:function(t,e){e.hide().fadeIn()},trimValue:!1,allowDuplicates:!1,triggerChange:!0};function n(e,n){this.isInit=!0,this.itemsArray=[],this.$element=t(e),this.$element.hide(),this.isSelect="SELECT"===e.tagName,this.multiple=this.isSelect&&e.hasAttribute("multiple"),this.objectItems=n&&n.itemValue,this.placeholderText=e.hasAttribute("placeholder")?this.$element.attr("placeholder"):"",this.inputSize=Math.max(1,this.placeholderText.length),this.$container=t('<div class="bootstrap-tagsinput"></div>'),this.$input=t('<input type="text" placeholder="'+this.placeholderText+'"/>').appendTo(this.$container),this.$element.before(this.$container),this.build(n),this.isInit=!1}function i(t,e){if("function"!=typeof t[e]){var n=t[e];t[e]=function(t){return t[n]}}}function a(t,e){if("function"!=typeof t[e]){var n=t[e];t[e]=function(){return n}}}n.prototype={constructor:n,add:function(e,n,i){var a=this;if(!(a.options.maxTags&&a.itemsArray.length>=a.options.maxTags)&&(!1===e||e)){if("string"==typeof e&&a.options.trimValue&&(e=t.trim(e)),"object"==typeof e&&!a.objectItems)throw"Can't add objects when itemValue option is not set";if(!e.toString().match(/^\s*$/)){if(a.isSelect&&!a.multiple&&a.itemsArray.length>0&&a.remove(a.itemsArray[0]),"string"==typeof e&&"INPUT"===this.$element[0].tagName){var o=a.options.delimiterRegex?a.options.delimiterRegex:a.options.delimiter,s=e.split(o);if(s.length>1){for(var l=0;l<s.length;l++)this.add(s[l],!0);return void(n||a.pushVal(a.options.triggerChange))}}var u=a.options.itemValue(e),p=a.options.itemText(e),c=a.options.tagClass(e),h=a.options.itemTitle(e),m=t.grep(a.itemsArray,(function(t){return a.options.itemValue(t)===u}))[0];if(!m||a.options.allowDuplicates){if(!(a.items().toString().length+e.length+1>a.options.maxInputLength)){var f=t.Event("beforeItemAdd",{item:e,cancel:!1,options:i});if(a.$element.trigger(f),!f.cancel){a.itemsArray.push(e);var d=t('<span class="badge '+r(c)+(null!==h?'" title="'+h:"")+'">'+r(p)+'<span data-role="remove"></span></span>');d.data("item",e),a.findInputWrapper().before(d),d.after(" ");var g=t('option[value="'+encodeURIComponent(u)+'"]',a.$element).length||t('option[value="'+r(u)+'"]',a.$element).length;if(a.isSelect&&!g){var v=t("<option selected>"+r(p)+"</option>");v.data("item",e),v.attr("value",u),a.$element.append(v)}n||a.pushVal(a.options.triggerChange),a.options.maxTags!==a.itemsArray.length&&a.items().toString().length!==a.options.maxInputLength||a.$container.addClass("bootstrap-tagsinput-max"),t(".typeahead, .twitter-typeahead",a.$container).length&&a.$input.typeahead("val",""),this.isInit?a.$element.trigger(t.Event("itemAddedOnInit",{item:e,options:i})):a.$element.trigger(t.Event("itemAdded",{item:e,options:i}))}}}else if(a.options.onTagExists){var y=t(".badge",a.$container).filter((function(){return t(this).data("item")===m}));a.options.onTagExists(e,y)}}}},remove:function(e,n,i){var a=this;if(a.objectItems&&(e=(e="object"==typeof e?t.grep(a.itemsArray,(function(t){return a.options.itemValue(t)==a.options.itemValue(e)})):t.grep(a.itemsArray,(function(t){return a.options.itemValue(t)==e})))[e.length-1]),e){var o=t.Event("beforeItemRemove",{item:e,cancel:!1,options:i});if(a.$element.trigger(o),o.cancel)return;t(".badge",a.$container).filter((function(){return t(this).data("item")===e})).remove(),t("option",a.$element).filter((function(){return t(this).data("item")===e})).remove(),-1!==t.inArray(e,a.itemsArray)&&a.itemsArray.splice(t.inArray(e,a.itemsArray),1)}n||a.pushVal(a.options.triggerChange),a.options.maxTags>a.itemsArray.length&&a.$container.removeClass("bootstrap-tagsinput-max"),a.$element.trigger(t.Event("itemRemoved",{item:e,options:i}))},removeAll:function(){var e=this;for(t(".badge",e.$container).remove(),t("option",e.$element).remove();e.itemsArray.length>0;)e.itemsArray.pop();e.pushVal(e.options.triggerChange)},refresh:function(){var e=this;t(".badge",e.$container).each((function(){var n=t(this),i=n.data("item"),a=e.options.itemValue(i),o=e.options.itemText(i),s=e.options.tagClass(i);(n.attr("class",null),n.addClass("badge "+r(s)),n.contents().filter((function(){return 3==this.nodeType}))[0].nodeValue=r(o),e.isSelect)&&t("option",e.$element).filter((function(){return t(this).data("item")===i})).attr("value",a)}))},items:function(){return this.itemsArray},pushVal:function(){var e=this,n=t.map(e.items(),(function(t){return e.options.itemValue(t).toString()}));e.$element.val(n,!0),e.options.triggerChange&&e.$element.trigger("change")},build:function(n){var o=this;if(o.options=t.extend({},e,n),o.objectItems&&(o.options.freeInput=!1),i(o.options,"itemValue"),i(o.options,"itemText"),a(o.options,"tagClass"),o.options.typeahead){var r=o.options.typeahead||{};a(r,"source"),o.$input.typeahead(t.extend({},r,{source:function(e,n){function i(t){for(var e=[],i=0;i<t.length;i++){var r=o.options.itemText(t[i]);a[r]=t[i],e.push(r)}n(e)}this.map={};var a=this.map,s=r.source(e);t.isFunction(s.success)?s.success(i):t.isFunction(s.then)?s.then(i):t.when(s).then(i)},updater:function(t){return o.add(this.map[t]),this.map[t]},matcher:function(t){return-1!==t.toLowerCase().indexOf(this.query.trim().toLowerCase())},sorter:function(t){return t.sort()},highlighter:function(t){var e=new RegExp("("+this.query+")","gi");return t.replace(e,"<strong>$1</strong>")}}))}if(o.options.typeaheadjs){var l=o.options.typeaheadjs;t.isArray(l)||(l=[null,l]),t.fn.typeahead.apply(o.$input,l).on("typeahead:selected",t.proxy((function(t,e,n){var i=0;l.some((function(t,e){return t.name===n&&(i=e,!0)})),l[i].valueKey?o.add(e[l[i].valueKey]):o.add(e),o.$input.typeahead("val","")}),o))}o.$container.on("click",t.proxy((function(t){o.$element.attr("disabled")||o.$input.removeAttr("disabled"),o.$input.focus()}),o)),o.options.addOnBlur&&o.options.freeInput&&o.$input.on("focusout",t.proxy((function(e){0===t(".typeahead, .twitter-typeahead",o.$container).length&&(o.add(o.$input.val()),o.$input.val(""))}),o)),o.$container.on({focusin:function(){o.$container.addClass(o.options.focusClass)},focusout:function(){o.$container.removeClass(o.options.focusClass)}}),o.$container.on("keydown","input",t.proxy((function(e){var n=t(e.target),i=o.findInputWrapper();if(o.$element.attr("disabled"))o.$input.attr("disabled","disabled");else{switch(e.which){case 8:if(0===s(n[0])){var a=i.prev();a.length&&o.remove(a.data("item"))}break;case 46:if(0===s(n[0])){var r=i.next();r.length&&o.remove(r.data("item"))}break;case 37:var l=i.prev();0===n.val().length&&l[0]&&(l.before(i),n.focus());break;case 39:var u=i.next();0===n.val().length&&u[0]&&(u.after(i),n.focus())}var p=n.val().length,c=p+Math.ceil(p/5)+1;n.attr("size",Math.max(this.inputSize,c))}}),o)),o.$container.on("keypress","input",t.proxy((function(e){var n=t(e.target);if(o.$element.attr("disabled"))o.$input.attr("disabled","disabled");else{var i,a,r,s=n.val(),l=o.options.maxChars&&s.length>=o.options.maxChars;o.options.freeInput&&(i=e,a=o.options.confirmKeys,r=!1,t.each(a,(function(t,e){if("number"==typeof e&&i.which===e)return r=!0,!1;if(i.which===e.which){var n=!e.hasOwnProperty("altKey")||i.altKey===e.altKey,a=!e.hasOwnProperty("shiftKey")||i.shiftKey===e.shiftKey,o=!e.hasOwnProperty("ctrlKey")||i.ctrlKey===e.ctrlKey;if(n&&a&&o)return r=!0,!1}})),r||l)&&(0!==s.length&&(o.add(l?s.substr(0,o.options.maxChars):s),n.val("")),!1===o.options.cancelConfirmKeysOnEmpty&&e.preventDefault());var u=n.val().length,p=u+Math.ceil(u/5)+1;n.attr("size",Math.max(this.inputSize,p))}}),o)),o.$container.on("click","[data-role=remove]",t.proxy((function(e){o.$element.attr("disabled")||o.remove(t(e.target).closest(".badge").data("item"))}),o)),o.options.itemValue===e.itemValue&&("INPUT"===o.$element[0].tagName?o.add(o.$element.val()):t("option",o.$element).each((function(){o.add(t(this).attr("value"),!0)})))},destroy:function(){var t=this;t.$container.off("keypress","input"),t.$container.off("click","[role=remove]"),t.$container.remove(),t.$element.removeData("tagsinput"),t.$element.show()},focus:function(){this.$input.focus()},input:function(){return this.$input},findInputWrapper:function(){for(var e=this.$input[0],n=this.$container[0];e&&e.parentNode!==n;)e=e.parentNode;return t(e)}},t.fn.tagsinput=function(e,i,a){var o=[];return this.each((function(){var r=t(this).data("tagsinput");if(r)if(e||i){if(void 0!==r[e]){if(3===r[e].length&&void 0!==a)var s=r[e](i,null,a);else s=r[e](i);void 0!==s&&o.push(s)}}else o.push(r);else r=new n(this,e),t(this).data("tagsinput",r),o.push(r),"SELECT"===this.tagName&&t("option",t(this)).attr("selected","selected"),t(this).val(t(this).val())})),"string"==typeof e?o.length>1?o:o[0]:o},t.fn.tagsinput.Constructor=n;var o=t("<div />");function r(t){return t?o.text(t).html():""}function s(t){var e=0;if(document.selection){t.focus();var n=document.selection.createRange();n.moveStart("character",-t.value.length),e=n.text.length}else(t.selectionStart||"0"==t.selectionStart)&&(e=t.selectionStart);return e}t((function(){t("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput()}))}(window.jQuery);</script>
+</body>
+</html>
