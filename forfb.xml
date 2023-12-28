@@ -1,0 +1,56 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+  <channel>
+   <title>Sabda Literasi Palu | Ebook Shop termurah dan terlengkap di Indonesia</title>
+	<atom:link href="https://sabdaliterasi.shop/rss.xml" rel="self" type="application/rss+xml" />
+	<link>https://sabdaliterasi.shop</link>
+	<description>Sabda Literasi merupakan tempat penjualan Ebook Berbahasa Indonesia terlengkap dengan harga dua kali lebih murah dan tersedia dalam bentuk PDF.</description>
+	<lastBuildDate>{{ site.time }}</lastBuildDate>
+	<language>id</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1	</sy:updateFrequency>
+	<generator>Jekyll v4.3.3</generator>
+<image>
+	<url>https://sabdaliterasi.shop/media/android-icon-512x512.png</url>
+	<title>Sabda Literasi Palu</title>
+	<link>https://sabdaliterasi.shop</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+     
+    
+<item>
+        <title>Kearifan Hidup</title>
+	
+        <category><![CDATA[Eksistensialisme]]></category>
+        
+        <category><![CDATA[ filsafat hidup]]></category>
+        
+        <category><![CDATA[ pengantar eksistensialisme]]></category>
+        
+	<link>https://sabdaliterasi.shop/kearifan-hidup/?amp</link>
+	<guid isPermaLink="true">https://sabdaliterasi.shop/kearifan-hidup/</guid>
+	<comments>https://sabdaliterasi.shop/kearifan-hidup/#comments</comments>
+	<dc:creator><![CDATA[Arthur Schopenhauer]]></dc:creator>
+  <description><![CDATA[<p>Dalam Buku Kearifan Hidup, sang filsuf mengunggulkan kekuatan individu dan kemandirian.</p><p>Produk ebook&nbsp;<a href="https://sabdaliterasi.shop" rel="nofollow">Kearifan Hidup</a> ini ditulis oleh Arthur Schopenhauer dan pertama kali dijual dalam bentuk ebook di <a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu</a></p><p><a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu</a> - <a href="https://sabdaliterasi.shop" rel="nofollow">Sabda Literasi Palu | Ebook Shop termurah dan terlengkap di Indonesia</a></p> ]]></description>
+	<content:encoded><![CDATA[<p>Seorang ahli metafisika Jerman terkemuka dari abad ke-19, Arthur Schopenhauer, memberikan pengaruh yang jauh melampaui dunia hermetis filsafat, dengan penganut mulai dari Richard Wagner dan Friedrich Nietzsche hingga Leo Tolstoy dan Thomas Mann. Di antara kontribusi utama Schopenhauer di bidang filsafat adalah penolakannya terhadap idealisme orang-orang sezamannya dan cakupannya terhadap variasi praktis materialisme. </p><p>Dalam Buku <strong>Kearifan Hidup</strong>, sang filsuf mengunggulkan kekuatan individu dan kemandirian. Dia memeriksa cara-cara mengatur kehidupan untuk memperoleh tingkat kesenangan dan kesuksesan tertinggi, memberikan pedoman untuk mencapai cara hidup yang penuh dan kaya ini, dan menyarankan bahwa bahkan kehidupan yang dijalani dengan baik harus selalu bercita-cita untuk menjadi lebih luhur.</p><p>Kearifan hidup dalam artian lazimnya adalah seni menata hidup demi mencapai tingkat kebahagiaan dan kesuksesan tertinggi; sebuah seni yang teorinya dapat disebut Eudaemonologi, lantaran seni tersebut mengajarkan kita cara hidup bahagia. </p>]]></content:encoded>   
+   <pubDate>Thu, 28 Dec 2023 00:00:00 -0500</pubDate>
+<media:thumbnail url="https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/28-12-2023/1703740660749_1866944" width="75" height="75" time="Thu, 28 Dec 2023 00:00:00 -0500" />
+<media:content url="https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/28-12-2023/1703740660749_1866944" medium="image"/>
+</item>
+    
+    
+  </channel>
+</rss>
