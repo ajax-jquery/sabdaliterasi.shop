@@ -6,6 +6,7 @@ description: Menampilkan seluruh Artikel.
 permalink: /artikel/
 image: https://sabdaliterasi.shop/media/android-icon-512x512
 keyword: [artikel]
+tag: [artikel]
 ---
 <style>.search-area{background:#f2f2f2;padding:10px;border:1px solid #f3f3f3;margin:10px;text-align:center;border-radius:10px}.codehim-ss-bar{padding:10px;box-sizing:border-box}.codehim-ss-bar input[type=text]{color:#444;caret-color:#000;font-size:10pt;width:80%;padding:13px;display:inline;background:#fff;border:1px solid #e6e6e6;outline:0;border-radius:30px 0 0 30px}.codehim-circle-search-button:hover{box-shadow:1px 2px 6px #444;color:#3ea055;background:#fff}.codehim-ss-bar input[type=text]:focus{background:#fff;box-shadow:1px 2px 8px #3ea055}.codehim-circle-search-button{display:inline-block;margin-left:-33px;border:0;outline:0;background:#052a49;color:#fff;width:50px;height:50px;cursor:pointer;transition:.3s;-webkit-transition:.3s;-moz-transition:.3s;font-size:14pt;border-radius:50%}.codehim-circle-search-button:before{content:"\e986";font-family:sugengidfont;font-weight:400}</style>
 <div class='search-area'><div class='codehim-ss-bar'> <form id="CariProduk"><input onkeyup="cariproduk()" type='text' id="SerNOw" autocomplete="off" placeholder="Cari Artikel Di Sini..."/><button type="submit" class="codehim-circle-search-button" disabled> </button> </form> </div> </div>
