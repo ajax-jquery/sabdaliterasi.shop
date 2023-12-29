@@ -4,7 +4,7 @@ layout: null
 {
 {% for p in site.posts %}
 {% assign i = forloop.index | plus: 1 %}
-  "sabdaliterasi_shop__{{ p.permalink | replace: "/","" }}": {
+  "sabdaliterasi_shop__{{ p.url | replace: "/","" }}": {
     "nz3xtm0vc": 0.977,
     "nz3xtn0vc": {{ "34195" | plus: i}},
     "nz3xtnOvc": "sabdaliterasi_shop__{{ p.permalink | replace: "/","" }}"
