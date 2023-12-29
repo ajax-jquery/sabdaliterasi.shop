@@ -107,6 +107,21 @@ heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-headi
 </script>
 <script>
 $(document).ready(function(){
+$("form").keyup(function(){
+var b={
+  judul:$('input[name=judul]').val(),
+  tag: $('input[name=tag]').val(),
+  image: $('input[name=image]').val(),
+  description: $('textarea[name=description]').val(),
+  keyword: $('input[name=keyword]').val(),
+  tanggal: $('input[name=tanggal]').val(),
+  isi: $('.ck-content').html() 
+};
+var k=JSON.stringify(b);
+localStorage.setItem("Artikel", k);  
+});
+
+
   $("#hasil").click(function(){
   function leftPad(t,e){for(var r=""+t;r.length<e;)r="0"+r;return r}function lo(t){let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
 
