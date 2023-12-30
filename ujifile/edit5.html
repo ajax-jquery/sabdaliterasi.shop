@@ -84,11 +84,25 @@ permalink: /edit5/
 <div class="form-outline mb-2">
 <input type="text" name="karakter" value="ајіѕ" readonly class="form-control" />
 </div>
-<div class="form-outline mb-2 button">
-<button type="button" class="btn btn-primary btn-lg btn-block" id="hasil">
-Send
+
+
+<div class="row mb-2">
+<div class="col">
+<div class="form-outline button">
+<button type="button" class="btn btn-primary btn-lg btn-block" id="hasil">Send
 </button>
 </div>
+</div>
+<div class="col">
+<div class="form-outline">
+<button type="button" class="btn btn-danger btn-lg btn-block" id="reset">
+Reset
+</button>
+</div>
+</div>
+</div>
+
+
 <div class="form-outline mb-2 hasil">
 <input type="text" name="hasilink" id="hasilink" readonly class="form-control" placeholder="xxxx-xx-xx-title.md" />
 <button id="copy_link" class="btn-primary btn">copy</button>
@@ -96,11 +110,6 @@ Send
 <div class="form-outline mb-2 hasil">
 <textarea class="form-control" id="hasilnya" readonly rows="4" placeholder="markdwn"></textarea>
 <button id="copy_isi" class="btn-primary btn">copy</button>
-</div>
-<div class="form-outline mb-2 button">
-<button type="button" class="btn btn-danger btn-lg btn-block" id="reset">
-Send
-</button>
 </div>
 </div></div>
 </div></div></div>
@@ -137,15 +146,16 @@ var b={
 var k=JSON.stringify(b);
 localStorage.setItem("Artikel", k);  
 });
+
 $("#reset").click(function(){
 localStorage.removeItem("Artikel");
-$('input[name=judul]').val(""),
-$('input[name=tag]').val(""),
-$('input[name=image]').val(""),
-$('textarea[name=description]').val(""),
-$('input[name=keyword]').val(""),
-$('input[name=tanggal]').val(""),
-$('.ck-content').html("<p></p>) 
+$('input[name=judul]').val("");
+$('input[name=tag]').val("");
+$('input[name=image]').val("");
+$('textarea[name=description]').val("");
+$('input[name=keyword]').val("");
+$('input[name=tanggal]').val("");
+$('.ck-content').html("<p></p>")
 });
 
   $("#hasil").click(function(){
