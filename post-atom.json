@@ -114,4 +114,4 @@ layout: null
       "url":"{{ p.image }}?resize=1080%2C607&ssl=1","height":"607","width":"1080"},"thr$total":{"$t":"6"}}{% if forloop.last == false %},{% endif %}
   {% endfor %}
   
-  ]}};
+  ]}}
