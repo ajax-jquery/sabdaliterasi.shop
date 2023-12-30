@@ -56,9 +56,11 @@ layout: null
         "$t":"Blogger"
       },"openSearch$totalResults":{"$t":"{{ site.artikel | size }}"},"openSearch$startIndex":{"$t":"1"},"openSearch$itemsPerPage":{"$t":"2"},
       "entry":[
-        {% for p in site.artikel %}
+        {% assign sos = site.artikel | sort: "date" | reverse %}
+  {% for p in sos limit:9999 %} {% assign i = forloop.index | times: 235 %} {% assign TahunNormal = "now" | date: "%Y" %} {% assign HariNormal = "now" | date: "%d" %} {% assign BulanNormal = "now" | date: "%m" %} {% assign Hasilo =  site.time | plus: i | date_to_xmlschema%} {% assign TahunNggak = Hasilo | date: "%Y" %} {% assign HariNggak = Hasilo | date: "%d" %} {% assign caraI = Hasilo | replace: TahunNggak , TahunNormal %} {% assign caraII = caraI | replace: HariNggak , HariNormal  %} {% assign akhirnyaaaaaaaaa = caraII  %} 
+      
         {
-          "id":{"$t":"tag:blogger.com,1999:blog-6015663568293314492.post-8836815504279590949"},"published":{"$t":"{{ p.date | date_to_xmlschema }}"},"updated":{"$t":"{{ site.time | date_to_xmlschema }}"},
+          "id":{"$t":"tag:blogger.com,1999:blog-6015663568293314492.post-8836815504279590949"},"published":{"$t":"{{ p.date | date_to_xmlschema }}"},"updated":{"$t":"{{ akhirnyaaaaaaaaa }}"},
     "category":
       {
         "scheme":"http://www.blogger.com/atom/ns#",
