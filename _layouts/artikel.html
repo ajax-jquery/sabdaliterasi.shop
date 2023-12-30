@@ -5,6 +5,14 @@ layout: null
 <html lang="id-ID">
 {% include headpost-halaman.html %}
 <body class='is-post'>
+<style>
+.RelatedPost { background-color: rgba(153,163,173,0.08); border-left: 4px solid #f26926; color: #fff;  margin: 10px 0px; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; flex-wrap: nowrap; justify-content: space-between; transition: all .3s ease; }.RelatedPost a{padding: 8px 10px;width:100%;}
+.RelatedPost:hover {background-color:#252525;}
+.RelatedPost .content {padding:10px 15px;}
+.RelatedPost .content .text {margin-right:10px; text-decoration:underline;}
+.RelatedPost .content a {color:#fff; text-decoration:none; line-height:1.5em;}
+.RelatedPost:hover .icon {background-color:#000;}
+</style>
 <div class='template-settings section' id='template-settings'><div class='widget HTML' data-version='2' id='HTML70'>
 {% include setting.html %}</div></div><script>!function(e){var o={darkMode:!0,autoDarkMode:!0};themeOption(o);let t=e.body;if(!o.darkMode)return t.classList.add("no-darkmode"),console.log("NTULL");var e=!!o.autoDarkMode&&window.matchMedia("(prefers-color-scheme: dark)").matches,o="darkmode"===localStorage.getItem("stylemode"),a="lightmode"===localStorage.getItem("stylemode");!e&&!o||a?(localStorage.setItem("stylemode","lightmode"),t.classList.remove("dark")):(localStorage.setItem("stylemode","darkmode"),t.classList.add("dark"))}(document);</script>
 <div class='custom-css section' id='custom-css'><div class='widget HTML' data-version='2' id='HTML82'>
@@ -220,9 +228,8 @@ Silakan berdikusi
 {% include footer-wrapper.html %}
 </div>
 {% include popup.html %}	
-<script>{% include scriptbawapost.html %}</script>
-<script src="{{ site.url }}/assets/js/kutoko.js"></script><div class='custom-javascript-footer section' id='custom-javascript-footer'><div class='widget HTML' data-version='2' id='HTML782'>
-</div></div>
+<script>{% include scriptbawapost.html %}/*!RELATED*/var Kategori="{{ page.tag }}"$(function(){$.ajax({url:"https://sabdaliterasi.shop/post-atom.json",type:"get",dataType:"json",success:function(e){!function(){let e=document.querySelectorAll(".post-body h3,.post-body > p"),t=e.length/4;c=Array.from({length:3},(e,t)=>t+1);for(let n=0;n<c.length;n++){let r=parseInt(t*c[n]),l=document.createElement("div");l.className="RelatedPost","P"==e[r].nodeName?e[r].parentNode.insertBefore(l,e[r]):e[r].parentNode.insertBefore(l,e[r].nextSibling)}}();var t=[],n=0,r=[];function l(){for(var e=[],n=[],l=0;l<r.length;l++)o(e,r[l])||(e.length+=1,e[e.length-1]=r[l],n.length+=1,n[n.length-1]=t[l]);t=n,r=e}function o(e,t){for(var n=0;n<e.length;n++)if(e[n]==t)return!0;return!1}for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.category.term==Kategori){t[n]=s.title.$t;for(var f=0;f<s.link.length;f++)if("alternate"==s.link[f].rel){r[n]=s.link[f].href,n++;break}}}!function e(){let n=Math.floor((t.length-1)*Math.random()),l=0,o=document.querySelectorAll(".RelatedPost");for(;l<t.length&&l<o.length;)for(let a=0;a<o.length;a++)o[a].innerHTML='<a href="'+r[n]+'" title="'+t[n]+'">Baca Juga: <strong>'+t[n]+'</strong></a>',n<t.length-1?n++:n=0,l++}()},error:function(){$("#result").html("<strong>Error loading feed!</strong>")}})});</script>
+<script src="{{ site.url }}/assets/js/kutoko.js"></script>
 <!--<div id="sitemap5" class="result hidden"><p id="judul" class="judul"></p><div class="ajax-search" id="ajax-search"><div>
 <ol class="ajax-search-results badan" id="badan">{% for post in site.posts limit:9999 %}<li data-search-term="{{ post.title }} {{ post.author }} {{ post.description }}" class="list-produk serrcok hidden"><p class="ajax-search-image loading"><img class="lazyload" data-src="{{ post.image }}" alt="{{ post.title }}" style="display:block;width:60px;height:60px;" src='data:,'></p><h4 class="ajax-search-title"><a alt="{{ post.title }}" title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h4></li>{% endfor %}</ol></div></div></div>
 -->
