@@ -97,6 +97,11 @@ Send
 <textarea class="form-control" id="hasilnya" readonly rows="4" placeholder="markdwn"></textarea>
 <button id="copy_isi" class="btn-primary btn">copy</button>
 </div>
+<div class="form-outline mb-2 button">
+<button type="button" class="btn btn-danger btn-lg btn-block" id="reset">
+Send
+</button>
+</div>
 </div></div>
 </div></div></div>
 
@@ -132,7 +137,16 @@ var b={
 var k=JSON.stringify(b);
 localStorage.setItem("Artikel", k);  
 });
-
+$("#reset").click(function(){
+localStorage.removeItem("Artikel");
+$('input[name=judul]').val(""),
+$('input[name=tag]').val(""),
+$('input[name=image]').val(""),
+$('textarea[name=description]').val(""),
+$('input[name=keyword]').val(""),
+$('input[name=tanggal]').val(""),
+$('.ck-content').html("<p></p>) 
+});
 
   $("#hasil").click(function(){
   function leftPad(t,e){for(var r=""+t;r.length<e;)r="0"+r;return r}function lo(t){let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
