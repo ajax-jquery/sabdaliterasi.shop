@@ -170,8 +170,7 @@ $(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAtt
   var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
   var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>").split('src=').join('src="data:," data-src=').split("</figure>").join('<div class="lazy-loading"></div></figure>');
   var isitiga=isidua.split("&nbsp;").join(" ");
-  var hasil="---\ntag: '"+tag+"'\ntitle: '"+judul+"'\nimage: 'https://sabdaliterasi.shop/img/"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
-
+  
 
 
   var hasilsatu=judul.toLowerCase();
@@ -182,6 +181,9 @@ $(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAtt
  var coo=d.getFullYear()+"-"+leftPad(d.getMonth()+1,2)+"-"+leftPad(d.getDate(),2)+"-"+hasiltiga+".md";
 
  var link=coo.replace("-.",".");
+var ho=new Date();
+var timem =d.getFullYear()+"-"+leftPad(d.getMonth()+1,2)+"-"+leftPad(d.getDate(),2)+" "+ho.getHours()+":"+ho.getMinutes()+":"+ho.getSeconds()+" +0200";
+var hasil="---\ndate: '"+timem+"'\ntag: '"+tag+"'\ntitle: '"+judul+"'\nimage: 'https://sabdaliterasi.shop/img/"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
 
 $("#hasilnya").val(hasil);
 $("#hasilink").val(link);
