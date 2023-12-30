@@ -148,6 +148,7 @@ localStorage.setItem("Artikel", k);
 });
 
 $("#reset").click(function(){
+$('form')[0].reset();
 localStorage.removeItem("Artikel");
 $('input[name=judul]').val("");
 $('input[name=tag]').val("");
