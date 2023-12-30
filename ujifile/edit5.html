@@ -19,6 +19,23 @@ permalink: /edit5/
 <script async src="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js"></script>
 <script src="https://sabdaliterasi.shop/assets/js/editartikel.min.js?m3s"></script>
 <style>
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
 .autocomplete {
   position: relative;
   display: inline-block;
