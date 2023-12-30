@@ -150,13 +150,7 @@ localStorage.setItem("Artikel", k);
 $("#reset").click(function(){
 $('form')[0].reset();
 localStorage.removeItem("Artikel");
-$('input[name=judul]').val("");
-$('input[name=tag]').val("");
-$('input[name=image]').val("");
-$('textarea[name=description]').val("");
-$('input[name=keyword]').val("");
-$('input[name=tanggal]').val("");
-$('form > div.ck.ck-editor__main > div.ck-content').html("")
+location.reload();window.location = window.location
 });
 
   $("#hasil").click(function(){
