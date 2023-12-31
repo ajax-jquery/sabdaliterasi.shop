@@ -81,10 +81,12 @@ permalink: /edit5/
 
 
 <script>
-$( "#myTaGG" ).on( "focus", function() {
+ $("#myTaGG").focus(function(){
   $(this).attr("list","tagger").after('<datalist id="tagger">{% for TAG in posting %}<option value="{{ TAG }}">{% endfor %}</datalist>');
 
-});$( "#myTaGG" ).on("blur", function() {
+});
+
+ $("#myTaGG").focus(function(){
 $(this).removeAttr("list");$("#tagger").remove()
 })
 </script>
