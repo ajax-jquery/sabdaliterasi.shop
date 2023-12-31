@@ -77,19 +77,7 @@ permalink: /edit5/
 <div class="row mb-2">
 <div class="col">
 <div class="form-outline autocomplete">
-<input list="tagger" type="text" id="myTaGG" name="tag" class="form-control" placeholder="Tag" />
-
-
-<script>
- $("#myTaGG").on( "focus", function() {
-  $(this).attr("list","tagger").after('<datalist id="tagger">{% for TAG in posting %}<option value="{{ TAG }}">{% endfor %}</datalist>');
-
-});
-
- $("#myTaGG").blur(function(){
-$(this).removeAttr("list");$("#tagger").remove()
-})
-</script>
+<input type="text" id="myTag" name="tag" class="form-control" placeholder="Tag" />
 </div>
 </div>
 <div class="col">
