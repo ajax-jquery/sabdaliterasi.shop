@@ -151,7 +151,7 @@ function autocomplete(e,t){var n;function i(e){if(!e)return!1;(function e(t){for
 {% assign posting = site.artikel | map: 'tag' | uniq %}
 
 /*An array containing all the country names in the world:*/
-var TagSite = [{% for po in posting %} {% assign my_filter = po | split: ', ' | uniq %}"{{ po }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
+var TagSite = [{% for po in posting %}"{{ po }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myTag"), TagSite); 
