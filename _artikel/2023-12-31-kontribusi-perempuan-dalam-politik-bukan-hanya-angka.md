@@ -1,5 +1,5 @@
 ---
-date: '2023-12-31 09:59:06 +0700'
+date: '2023-12-31 09:59:06 +0800'
 tag: 'Perempuan'
 title: 'Kontribusi Perempuan Dalam Politik Bukan Hanya Angka'
 image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2023/03/29/15/25/women-7885757_1280.jpg'
