@@ -77,12 +77,15 @@ permalink: /edit5/
 <div class="row mb-2">
 <div class="col">
 <div class="form-outline autocomplete">
-<input list="tagger" type="text" id="myTa" name="tag" class="form-control" placeholder="Tag" />
-<datalist id="tagger">
-{% for TAG in posting %}
-<option value="{{ TAG }}">
-{% endfor %}
-</datalist>
+<input list="tagger" type="text" id="myTaGG" name="tag" class="form-control" placeholder="Tag" />
+
+
+<script>
+$( "#myTaGG" ).on( "focus", function() {
+  $(this).attr("list","tagger").after('<datalist id="tagger">{% for TAG in posting %}<option value="{{ TAG }}">{% endfor %}</datalist>');
+
+} );
+</script>
 </div>
 </div>
 <div class="col">
