@@ -39,9 +39,8 @@ permalink: /edit5/
 .autocomplete {
   position: relative;
   display: inline-block;
-overflow: hidden
 }
-#suggestions,.autocomplete-items {
+.autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;
   border-bottom: none;
@@ -78,8 +77,8 @@ overflow: hidden
 <div class="row mb-2">
 <div class="col">
 <div class="form-outline autocomplete">
-<input list="suggestions" type="text" id="myTag" name="tag" class="form-control" placeholder="Tag" />
-<datalist id="suggestions">
+<input list="tagger" type="text" id="myTa" name="tag" class="form-control" placeholder="Tag" />
+<datalist id="tagger">
 {% for TAG in posting %}
 <option value="{{ TAG }}">
 {% endfor %}
