@@ -5,7 +5,7 @@ permalink: /edit5/
 <!DOCTYPE html>
 <html lang="id">
 <head><meta name="robots" content="noindex, nofollow" />
-<title>Artikel Editor</title>
+<title>Artikel Editor</title>{% assign posting = site.artikel | map: 'tag' | uniq %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="dns-prefetch" href="//sabdaliterasi.shop" />
@@ -77,7 +77,12 @@ permalink: /edit5/
 <div class="row mb-2">
 <div class="col">
 <div class="form-outline autocomplete">
-<input type="text" id="myTag" name="tag" class="form-control" placeholder="Tag" />
+<input list="suggestions" type="text" id="myTag" name="tag" class="form-control" placeholder="Tag" />
+<datalist id="suggestions">
+{% for TAG in posting %}
+<option value="{{ TAG }}">
+{% endfor %}
+</datalist>
 </div>
 </div>
 <div class="col">
@@ -147,8 +152,6 @@ Reset
 </div></div></div>
 <script>
 function autocomplete(e,t){var n;function i(e){if(!e)return!1;(function e(t){for(var n=0;n<t.length;n++)t[n].classList.remove("autocomplete-active")})(e),n>=e.length&&(n=0),n<0&&(n=e.length-1),e[n].classList.add("autocomplete-active")}function a(t){for(var n=document.getElementsByClassName("autocomplete-items"),i=0;i<n.length;i++)t!=n[i]&&t!=e&&n[i].parentNode.removeChild(n[i])}e.addEventListener("input",function(i){var l,s,o,r=this.value;if(a(),!r)return!1;for(n=-1,(l=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),l.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(l),o=0;o<t.length;o++)t[o].substr(0,r.length).toUpperCase()==r.toUpperCase()&&((s=document.createElement("DIV")).innerHTML="<strong>"+t[o].substr(0,r.length)+"</strong>",s.innerHTML+=t[o].substr(r.length),s.innerHTML+="<input type='hidden' value='"+t[o]+"'>",s.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,a()}),l.appendChild(s))}),e.addEventListener("keydown",function(e){var t=document.getElementById(this.id+"autocomplete-list");t&&(t=t.getElementsByTagName("div")),40==e.keyCode?(n++,i(t)):38==e.keyCode?(n--,i(t)):13==e.keyCode&&(e.preventDefault(),n>-1&&t&&t[n].click())}),document.addEventListener("click",function(e){a(e.target)})}
-
-{% assign posting = site.artikel | map: 'tag' | uniq %}
 
 /*An array containing all the country names in the world:*/
 var TagSite = [{% for po in posting %}"{{ po }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
