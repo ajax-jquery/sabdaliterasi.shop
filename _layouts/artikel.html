@@ -117,8 +117,8 @@ Artikel
 #share_btnper{margin:5px;padding:0}
 .showother{display:none}
 .share_btn{position:relative;margin:0;padding:0;display:block;overflow:hidden}
-.share_btn ul,ul .showother{position:relative;margin:0;padding:0;font-size:12px}
-.share_btn ul li{float:left;display:inline-block;overflow:hidden;margin:0}
+.share_btn ul,ul .showother{text-align: center;position:relative;margin:0;padding:0;font-size:12px}
+.share_btn ul li{display:inline-block;overflow:hidden;margin:0}
 .share_btn li button,.shareplus{color:#fff;padding:0;width:40px;display:block;text-align:center;height:35px;line-height:35px;transition:all 0.25s;margin:0 5px 5px 0;text-transform:uppercase;letter-spacing:1px;border-radius:4px;overflow:hidden}.share_btn li button{border:0;cursor: pointer;}
 .share_btn i{font-size:16px;padding:0;margin:0;line-height:35px;text-align:center}
 .shareplus{padding:0;background:#aaa;cursor:pointer}
@@ -159,26 +159,26 @@ Artikel
   
 <li><button class='gp' onclick='sharelink()'  title='Share Copy Link'><i class='fa fa-link'></i></button></li>
 
-<li id='showshare'><span class='shareplus' onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;block&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;none&apos;'><i aria-hidden='true' class='fa fa-plus'></i></span></li>
+<li id='showshare'><span class='shareplus' onclick='showshare()'><i aria-hidden='true' class='fa fa-plus'></i></span></li>
+    
 </ul>
 <ul class='showother' id='showother'>
-<li><button title='Share ke Pinterest' class='pt'  onclick='window.open("http://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}&description= %5B{{ page.title }}%5D%0A{{ page.description }}", "_blank", "width=400,height=300")' ><i class='fa-brands fa-pinterest'></i></button></li>
-  
-<li><button class='le'  onclick='window.open("http://www.linkedin.com/shareArticle?mini=true&url={{ page.url | prepend: site.url }}&title={{ page.title }}&summary={{ page.description }}", "_blank", "width=400,height=300")' title='Share on LinkEdin'><i aria-hidden='true' class='fa-brands fa-linkedin'></i></button></li>
-  
-<li><button title='Share ke Tumblr' class='tr' onclick='window.open("http://www.tumblr.com/share?shareSource=legacy&canonicalUrl={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'  ><i class='fa-brands fa-tumblr'></i></button></li>
-  
-<li><button title='Share ke Line' class='ln' onclick='window.open("https://timeline.line.me/social-plugin/share?url={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")' title='Share On Line'>
-  <i class='fa-brands fa-line'></i>
-  
-  </button></li>
+<li><button title='Share ke Pinterest' class='pt'  onclick='window.open("http://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}&description= %5B{{ page.title }}%5D%0A{{ page.description }}", "_blank", "width=400,height=300")' ><i class='fa-brands fa-pinterest'></i></button></li> <li><button class='le'  onclick='window.open("http://www.linkedin.com/shareArticle?mini=true&url={{ page.url | prepend: site.url }}&title={{ page.title }}&summary={{ page.description }}", "_blank", "width=400,height=300")' title='Share on LinkEdin'><i aria-hidden='true' class='fa-brands fa-linkedin'></i></button></li> <li><button title='Share ke Tumblr' class='tr' onclick='window.open("http://www.tumblr.com/share?shareSource=legacy&canonicalUrl={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'  ><i class='fa-brands fa-tumblr'></i></button></li> <li><button title='Share ke Line' class='ln' onclick='window.open("https://timeline.line.me/social-plugin/share?url={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")' title='Share On Line'> <i class='fa-brands fa-line'></i> </button></li>
 
-<li id='showshare'><span class='shareplus'  onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;none&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;block&apos;'><i aria-hidden='true' class='fa fa-minus'></i></span></li>
+<li id='showshare'><span class='shareplus'  onclick='shareplus()'><i aria-hidden='true' class='fa fa-minus'></i></span></li>
   </ul>
   </div>
   
 </div>
 <script>
+    function showshare(){
+        document.getElementById("showother").style.display="block";
+        document.getElementById("showshare").style.display="none"
+    }
+    function shareplus(){
+        document.getElementById("showother").removeAttribute("style");
+        document.getElementById("showshare").removeAttribute("style")
+    }
 function ShareWA(){var a="https://api.whatsapp.com/send/";/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(a="whatsapp://send/");window.location.href=a+"?phone=&text=%2A%5B{{ page.title }}%5D%2A%0A{{ page.description }}%0A%2ABaca%20Selengkapnya%3A%2A%0A{{ page.url | prepend: site.url }}"}  
 </script>
 
