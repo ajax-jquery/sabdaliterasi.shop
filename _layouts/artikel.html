@@ -119,59 +119,61 @@ Artikel
 .share_btn{position:relative;margin:0;padding:0;display:block;overflow:hidden}
 .share_btn ul,ul .showother{position:relative;margin:0;padding:0;font-size:12px}
 .share_btn ul li{float:left;display:inline-block;overflow:hidden;margin:0}
-.share_btn li a,.shareplus{color:#fff;padding:0;width:40px;display:block;text-align:center;height:35px;line-height:35px;transition:all 0.25s;margin:0 5px 5px 0;text-transform:uppercase;letter-spacing:1px;border-radius:4px;overflow:hidden}
+.share_btn li button,.shareplus{color:#fff;padding:0;width:40px;display:block;text-align:center;height:35px;line-height:35px;transition:all 0.25s;margin:0 5px 5px 0;text-transform:uppercase;letter-spacing:1px;border-radius:4px;overflow:hidden}.share_btn li button{border:0;cursor: pointer;}
 .share_btn i{font-size:16px;padding:0;margin:0;line-height:35px;text-align:center}
 .shareplus{padding:0;background:#aaa;cursor:pointer}
-.share_btn li a.fb i,.share_btn li a.tw i{width:20px;text-align:left}
+.share_btn li button.fb i,.share_btn li button.tw i{width:20px;text-align:left}
 .share_btn a:hover{background:#333}
-.share_btn li a.fb{background:#4867aa;padding:0 35px;width:auto}
-.share_btn li a.tw{background:#565656;padding:0 35px;width:auto}
-.share_btn li a.gp{background:#f26926}
-.share_btn li a.tl{background:#51c6e1}
-.share_btn li a.pt{background:#ca2128}
-.share_btn li a.le{background:#0673ab}
-.share_btn li a.tr{background:#43556e}
-.share_btn li a.em{background:#141b23}
-.share_btn li a.ln{background:#00c300}
-.share_btn li a.bm{background:#000}
-.share_btn li a.wa{background:#4dc247}
-.share_btn li a:hover,.shareplus:hover{-webkit-filter:grayscale(100%);opacity:0.8}
+.share_btn li button.fb{background:#4867aa;padding:0 35px;width:auto}
+.share_btn li button.tw{background:#565656;padding:0 35px;width:auto}
+.share_btn li button.gp{background:#f26926}
+.share_btn li button.tl{background:#51c6e1}
+.share_btn li button.pt{background:#ca2128}
+.share_btn li button.le{background:#0673ab}
+.share_btn li button.tr{background:#43556e}
+.share_btn li button.em{background:#141b23}
+.share_btn li button.ln{background:#00c300}
+.share_btn li button.bm{background:#000}
+.share_btn li button.wa{background:#4dc247}
+.share_btn li button:hover,.shareplus:hover{-webkit-filter:grayscale(100%);opacity:0.8}
 @media screen and (max-width:600px){
-.share_btn li a.fb,.share_btn li a.tw{padding:0 37px}}
+.share_btn li button.fb,.share_btn li button.tw{padding:0 37px}}
 @media screen and (max-width:480px){
-.share_btn li a.fb,.share_btn li a.tw{padding:0 25px}}
+.share_btn li button.fb,.share_btn li button.tw{padding:0 25px}}
 @media screen and (max-width:320px){
-.share_btn ul li a.fb,.share_btn ul li a.tw{padding:0 14px}}
+.share_btn ul li button.fb,.share_btn ul li button.tw{padding:0 14px}}div#showshare { display: inline-block; }
 </style>
+
+
 <div class='share-wrapper' id='share_btnper'>
 <div class='share_btn'><ul>
-<li><a class='fb' href='http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=626,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' title='Share ke Facebook'><i class='fa-brands fa-facebook'></i> SHARE</a></li>
+<li><button class='fb' onclick='window.open(http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }},&quot;popupwindow&quot;,&quot;status=0,height=500,width=626,resizable=0,top=50,left=100&quot;);return false;'  title='Share ke Facebook'><i class='fa-brands fa-facebook'></i> SHARE</button></li>
   
-<li><a title='Share ke X' class='tw' href='https://twitter.com/intent/tweet?url={{ page.url | prepend: site.url }}&text={{ page.title }}' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><i class='fa-brands fa-x-twitter'></i> SHARE</a></li>
+<li><button title='Share ke X' class='tw' onclick='window.open(https://twitter.com/intent/tweet?url={{ page.url | prepend: site.url }}&text={{ page.title }},&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;'  ><i class='fa-brands fa-x-twitter'></i> SHARE</button></li>
   
-<li><a title='Share ke Telegram' class='tl' href='https://t.me/share/url?url={{ page.url | prepend: site.url }}&text={{ page.title }}' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;'><i class='fa-brands fa-telegram'></i></a></li>
+<li><button title='Share ke Telegram' class='tl' onclick='window.open(https://t.me/share/url?url={{ page.url | prepend: site.url }}&text={{ page.title }},&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;'><i class='fa-brands fa-telegram'></i></button></li>
   
-<li><a title='Share ke Whatsapp' class='wa' href='#' onclick='ShareWA()'><i class='fa-brands fa-whatsapp'></i></a></li>
+<li><button title='Share ke Whatsapp' class='wa' onclick='ShareWA()'><i class='fa-brands fa-whatsapp'></i></button></li>
 
   
   
-<li><a class='gp' href='#' onclick='sharelink()' rel='nofollow' title='Share Copy Link'><i class='fa fa-link'></i></a></li>
+<li><button class='gp' onclick='sharelink()'  title='Share Copy Link'><i class='fa fa-link'></i></button></li>
 
-<div id='showshare'><span class='shareplus' href='javascript:void(0)' onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;inline-block&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;none&apos;'><i aria-hidden='true' class='fa fa-plus'></i></span></div>
+<div id='showshare'><span class='shareplus' onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;inline-block&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;none&apos;'><i aria-hidden='true' class='fa fa-plus'></i></span></div>
 </ul>
 <ul class='showother' id='showother'>
-<li><a title='Share ke Pinterest' class='pt' href='http://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}&description= %5B{{ page.title }}%5D%0A{{ page.description }}' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' target='_blank'><i class='fa-brands fa-pinterest'></i></a></li>
+<li><button title='Share ke Pinterest' class='pt'  onclick='window.open(http://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}&description= %5B{{ page.title }}%5D%0A{{ page.description }},&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' ><i class='fa-brands fa-pinterest'></i></button></li>
   
-<li><a class='le' href='http://www.linkedin.com/shareArticle?mini=true&url={{ page.url | prepend: site.url }}&title={{ page.title }}&summary={{ page.description }}' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank' title='Share on LinkEdin'><i aria-hidden='true' class='fa-brands fa-linkedin'></i></a></li>
+<li><button class='le'  onclick='window.open(http://www.linkedin.com/shareArticle?mini=true&url={{ page.url | prepend: site.url }}&title={{ page.title }}&summary={{ page.description }},&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' title='Share on LinkEdin'><i aria-hidden='true' class='fa-brands fa-linkedin'></i></button></li>
   
-<li><a title='Share ke Tumblr' class='tr' href='http://www.tumblr.com/share?shareSource=legacy&canonicalUrl={{ page.url | prepend: site.url }}' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><i class='fa-brands fa-tumblr'></i></a></li>
+<li><button title='Share ke Tumblr' class='tr' onclick='window.open(http://www.tumblr.com/share?shareSource=legacy&canonicalUrl={{ page.url | prepend: site.url }},&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;'  ><i class='fa-brands fa-tumblr'></i></button></li>
   
-<li><a title='Share ke Line' class='ln' href='https://timeline.line.me/social-plugin/share?url={{ page.url | prepend: site.url }}' target='_blank' title='Share On Line'>
+<li><button title='Share ke Line' class='ln' onclick='window.open(https://timeline.line.me/social-plugin/share?url={{ page.url | prepend: site.url }},&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' title='Share On Line'>
   <i class='fa-brands fa-line'></i>
   
-  </a></li>
+  </button></li>
 
-<div id='showshare'><span class='shareplus' href='javascript:void(0)' onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;none&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;inline-block&apos;'><i aria-hidden='true' class='fa fa-minus'></i></span></div>
+<div id='showshare'><span class='shareplus'  onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;none&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;inline-block&apos;'><i aria-hidden='true' class='fa fa-minus'></i></span></div>
   </ul>
   </div>
   
@@ -180,7 +182,7 @@ Artikel
 function ShareWA(){var a="https://api.whatsapp.com/send/";/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(a="whatsapp://send/");window.location.href=a+"?phone=&text=%2A%5B{{ page.title }}%5D%2A%0A{{ page.description }}%0A%2ABaca%20Selengkapnya%3A%2A%0A{{ page.url | prepend: site.url }}"}  
 </script>
 
-
+    
 </div>
 <div class='post-body'>
 <div id="toc"><b class="toc"></b></div>
