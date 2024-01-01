@@ -159,7 +159,7 @@ Artikel
   
 <li><button class='gp' onclick='sharelink()'  title='Share Copy Link'><i class='fa fa-link'></i></button></li>
 
-<div id='showshare'><span class='shareplus' onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;inline-block&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;none&apos;'><i aria-hidden='true' class='fa fa-plus'></i></span></div>
+<li id='showshare'><span class='shareplus' onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;block&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;none&apos;'><i aria-hidden='true' class='fa fa-plus'></i></span></li>
 </ul>
 <ul class='showother' id='showother'>
 <li><button title='Share ke Pinterest' class='pt'  onclick='window.open("http://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}&description= %5B{{ page.title }}%5D%0A{{ page.description }}", "_blank", "width=400,height=300")' ><i class='fa-brands fa-pinterest'></i></button></li>
@@ -173,7 +173,7 @@ Artikel
   
   </button></li>
 
-<div id='showshare'><span class='shareplus'  onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;none&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;inline-block&apos;'><i aria-hidden='true' class='fa fa-minus'></i></span></div>
+<li id='showshare'><span class='shareplus'  onclick='document.getElementById(&apos;showother&apos;).style.display=&apos;none&apos;;document.getElementById(&apos;showshare&apos;).style.display=&apos;block&apos;'><i aria-hidden='true' class='fa fa-minus'></i></span></li>
   </ul>
   </div>
   
