@@ -122,10 +122,9 @@ Artikel
 .share_btn li button,.shareplus{color:#fff;padding:0;width:40px;display:block;text-align:center;height:35px;line-height:35px;transition:all 0.25s;margin:0 5px 5px 0;text-transform:uppercase;letter-spacing:1px;border-radius:4px;overflow:hidden}.share_btn li button{border:0;cursor: pointer;}
 .share_btn i{font-size:16px;padding:0;margin:0;line-height:35px;text-align:center}
 .shareplus{padding:0;background:#aaa;cursor:pointer}
-.share_btn li button.fb i,.share_btn li button.tw i{width:20px;text-align:left}
-.share_btn a:hover{background:#333}
-.share_btn li button.fb{background:#4867aa;padding:0 35px;width:auto}
-.share_btn li button.tw{background:#565656;padding:0 35px;width:auto}
+.share_btn button:hover{background:#333}
+.share_btn li button.fb{background:#4867aa}
+.share_btn li button.tw{background:#565656}
 .share_btn li button.gp{background:#f26926}
 .share_btn li button.tl{background:#51c6e1}
 .share_btn li button.pt{background:#ca2128}
@@ -136,20 +135,14 @@ Artikel
 .share_btn li button.bm{background:#000}
 .share_btn li button.wa{background:#4dc247}
 .share_btn li button:hover,.shareplus:hover{-webkit-filter:grayscale(100%);opacity:0.8}
-@media screen and (max-width:600px){
-.share_btn li button.fb,.share_btn li button.tw{padding:0 37px}}
-@media screen and (max-width:480px){
-.share_btn li button.fb,.share_btn li button.tw{padding:0 25px}}
-@media screen and (max-width:320px){
-.share_btn ul li button.fb,.share_btn ul li button.tw{padding:0 14px}}div#showshare { display: inline-block; }
 </style>
 
 
 <div class='share-wrapper' id='share_btnper'>
 <div class='share_btn'><ul>
-<li><button class='fb' onclick='window.open("http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'  title='Share ke Facebook'><i class='fa-brands fa-facebook'></i> SHARE</button></li>
+<li><button class='fb' onclick='window.open("http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'  title='Share ke Facebook'><i class='fa-brands fa-facebook'></i></button></li>
   
-<li><button title='Share ke X' class='tw' onclick='window.open("https://twitter.com/intent/tweet?url={{ page.url | prepend: site.url }}&text={{ page.title }}", "_blank", "width=400,height=300")'  ><i class='fa-brands fa-x-twitter'></i> SHARE</button></li>
+<li><button title='Share ke X' class='tw' onclick='window.open("https://twitter.com/intent/tweet?url={{ page.url | prepend: site.url }}&text={{ page.title }}", "_blank", "width=400,height=300")'  ><i class='fa-brands fa-x-twitter'></i></button></li>
   
 <li><button title='Share ke Telegram' class='tl' onclick='window.open("https://t.me/share/url?url={{ page.url | prepend: site.url }}&text={{ page.title }}", "_blank", "width=400,height=300")'><i class='fa-brands fa-telegram'></i></button></li>
   
