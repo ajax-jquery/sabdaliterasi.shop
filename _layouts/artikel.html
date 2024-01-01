@@ -111,7 +111,9 @@ Artikel
 <img style="height:auto;border-radius:15px;width:100%" class='lazyload' alt='{% if page.title %}{{ page.title }}{% endif %}' height='607' data-src='{% if page.image %}{{ page.image }}{% endif %}?resize=1080%2C607&ssl=1' title='{% if page.title %}{{ page.title }}{% endif %}' width='1080' src='data:,'/>
 <div class='lazy-loading'></div>
 </div>
-    
+ {% assign hm = page.date | date: "%d//%m/%Y" %}
+{% assign words = page.content | strip_html | number_of_words %}
+<div class="rincian" style="text-align:center;font-size:14px"><i class="fa-duotone fa-calendar-days"></i> {{ hm }} | <i class="fas fa-clock"></i> {% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} mins{% endif %} read</div>   
 <div class='share-wrapper' id='share_btnper'>
 <div class='share_btn'><ul>
 <li><button class='fb' onclick='window.open("http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'  title='Share ke Facebook'><i class='fa-brands fa-facebook'></i></button></li>
