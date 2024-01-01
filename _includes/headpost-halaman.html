@@ -25,7 +25,8 @@
 <meta class="yoast-seo-meta-tag"  name="twitter:card" content="summary_large_image"/>
 <meta class="yoast-seo-meta-tag"  name="twitter:site" content="@sabdaliterasipalu"/>
 <meta class="yoast-seo-meta-tag"  name="twitter:label1" content="Estimasi waktu membaca"/>
-<meta class="yoast-seo-meta-tag"  name="twitter:data1" content="15 menit"/>
+{% assign words = page.content | strip_html | number_of_words %}
+<meta class="yoast-seo-meta-tag"  name="twitter:data1" content="{% if words < 360 %}1{% else %}{{ words | divided_by:180 }}{% endif %} menit"/>
 {% include ld-json-home.html %}
  {% endif %}
 {% include gtag.html %}
