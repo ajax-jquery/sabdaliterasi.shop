@@ -2,7 +2,7 @@
 date: '2024-01-01 13:49:14 +0800'
 tag: 'Perempuan'
 title: 'Maraknya KBGO: Dimana Ruang Aman Dunia Maya?'
-image: 'https://sabdaliterasi.shop/img/'
+image: 'https://sabdaliterasi.shop/img/imgx.parapuan.co/crop/x/photo/2021/06/20/istock-1278019531jpg-20210620070942.jpg'
 description: 'Kampanye 16HAKTP Remotivi dan SAFEnet menyoroti perlindungan terhadap korban KBGO di internet.'
 keyword: ['pelecehan','ruang aman perempuan','media sosial','KBGO','feminis']
 ---
