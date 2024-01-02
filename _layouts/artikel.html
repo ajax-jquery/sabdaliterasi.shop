@@ -108,8 +108,7 @@ Artikel
 <h1>{% if page.title %}{{ page.title }}{% endif %}</h1>
 <p class="description">{% if page.description %}{{ page.description }}{% endif %}</p>
 <div class='thumbnail' style="position:relative;overflow:hidden;">
-<img style="height:auto;border-radius:15px;width:100%" class='lazyload' alt='{% if page.title %}{{ page.title }}{% endif %}' height='607' data-src='{% if page.image %}{{ page.image }}{% endif %}?resize=1080%2C607&ssl=1' title='{% if page.title %}{{ page.title }}{% endif %}' width='1080' src='data:,'/>
-<div class='lazy-loading'></div>
+<img style="height:auto;border-radius:15px;width:100%"  alt='{% if page.title %}{{ page.title }}{% endif %}' height='607' src='{% if page.image %}{{ page.image }}{% endif %}?resize=1080%2C607&ssl=1' title='{% if page.title %}{{ page.title }}{% endif %}' width='1080'srcset="{% if page.image %}{{ page.image }}{% endif %}?resize=720%2C405&ssl=1 720w, {% if page.image %}{{ page.image }}{% endif %}?resize=480%2C270&ssl=1 480w, {% if page.image %}{{ page.image }}{% endif %}?resize=360%2C202&ssl=1 360w"/>
 </div>
  {% assign hm = page.date | date: "%d/%m/%Y" %}
 {% assign words = page.content | strip_html | number_of_words %}
