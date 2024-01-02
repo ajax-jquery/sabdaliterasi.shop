@@ -282,13 +282,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      <script>
     !function(){const viewBtn = document.querySelector(".shareplus"),
     popup = document.querySelector(".share-pop .popup"),
+    popupss = document.querySelector(".share-pop"),
     close = popup.querySelector(".close"),
     field = popup.querySelector(".field"),
     input = field.querySelector("input"),
     copy = field.querySelector("button.COPY");
 
     viewBtn.onclick = ()=>{
-      popup.classList.toggle("show");
+    popup.classList.toggle("show");
+    popupss.classList.toggle("pb-wrapper pb-show");
     }
     close.onclick = ()=>{
       viewBtn.click();
