@@ -137,22 +137,7 @@ Artikel
   </ul>
   </div>
   
-</div>
-<script>
-    function showshare(){
-        document.getElementById("showother").style.display="block";
-        document.getElementById("showshare").style.display="none"
-    }
-    function shareplus(){
-        document.getElementById("showother").removeAttribute("style");
-        document.getElementById("showshare").removeAttribute("style")
-    }
-function ShareWA(){var a="https://api.whatsapp.com/send/";/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(a="whatsapp://send/");
-                   window.open(a+"?phone=&text=%2A%5B{{ page.title }}%5D%2A%0A{{ page.description }}%0A%2ABaca%20Selengkapnya%3A%2A%0A{{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")
-                               }  
-</script>
-
-    
+</div>    
 </div>
 <div class='post-body'>
 <div id="toc"><b class="toc"></b></div>
@@ -160,7 +145,8 @@ function ShareWA(){var a="https://api.whatsapp.com/send/";/Android|webOS|iPhone|
 <hr/>
 <p id="Keywords">
 TAGS: {% for key in page.keyword %}<strong class="Keywords" id="{{ key | replace: ' ', '' }}">{{ key }}</strong>{% endfor %}
-<p> 
+<p>
+<printfriendly-options style="display:none;" data-content-features="disableClickToDel=0;hideImages=0;imageDisplayStyle=block;disablePDF=0;disableEmail=0;disablePrint=0;encodeImages=0;showHiddenContent=0;"></printfriendly-options><script>var pfBtVersion='3';(function(){var js,pf;pf=document.createElement('script');pf.type='text/javascript';pf.src='//cdn.printfriendly.com/printfriendly.js';document.getElementsByTagName('head')[0].appendChild(pf)})();</script><a href="https://www.printfriendly.com" style="color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="//cdn.printfriendly.com/buttons/new/print-energy-blue.svg" alt="Print Friendly and PDF"/></a>
 </div>
 <script>
 var headliner=document.querySelector(" div.post-body > h2");
@@ -262,7 +248,7 @@ Silakan berdikusi
 {% include footer-wrapper.html %}
 </div>
 {% include popup.html %}	
-<script>{% include scriptbawapost.html %}/*!RELATED*/var Kategori="{{ page.tag }}";$(function(){$.ajax({url:"https://sabdaliterasi.shop/post-atom.json",type:"get",dataType:"json",success:function(e){!function(){let e=document.querySelectorAll(".post-body h3,.post-body > p"),t=e.length/4;c=Array.from({length:3},(e,t)=>t+1);for(let n=0;n<c.length;n++){let r=parseInt(t*c[n]),l=document.createElement("div");l.className="RelatedPost","P"==e[r].nodeName?e[r].parentNode.insertBefore(l,e[r]):e[r].parentNode.insertBefore(l,e[r].nextSibling)}}();var t=[],n=0,r=[];function l(){for(var e=[],n=[],l=0;l<r.length;l++)o(e,r[l])||(e.length+=1,e[e.length-1]=r[l],n.length+=1,n[n.length-1]=t[l]);t=n,r=e}function o(e,t){for(var n=0;n<e.length;n++)if(e[n]==t)return!0;return!1}for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.category.term==Kategori){t[n]=s.title.$t;for(var f=0;f<s.link.length;f++)if("alternate"==s.link[f].rel){r[n]=s.link[f].href,n++;break}}}!function e(){let n=Math.floor((t.length-1)*Math.random()),l=0,o=document.querySelectorAll(".RelatedPost");for(;l<t.length&&l<o.length;)for(let a=0;a<o.length;a++)o[a].innerHTML='<a target="_blank" href="'+r[n]+'" title="'+t[n]+'">Baca Juga: <strong>'+t[n]+'</strong></a>',n<t.length-1?n++:n=0,l++}()},error:function(){$("#result").html("<strong>Error loading feed!</strong>")}})});</script>
+<script>{% include scriptbawapost.html %}/*!RELATED*/function showshare(){ document.getElementById("showother").style.display="block"; document.getElementById("showshare").style.display="none" } function shareplus(){ document.getElementById("showother").removeAttribute("style"); document.getElementById("showshare").removeAttribute("style") } function ShareWA(){var a="https://api.whatsapp.com/send/";/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(a="whatsapp://send/"); window.open(a+"?phone=&text=%2A%5B{{ page.title }}%5D%2A%0A{{ page.description }}%0A%2ABaca%20Selengkapnya%3A%2A%0A{{ page.url | prepend: site.url }}", "_blank", "width=400,height=300") };var Kategori="{{ page.tag }}";$(function(){$.ajax({url:"https://sabdaliterasi.shop/post-atom.json",type:"get",dataType:"json",success:function(e){!function(){let e=document.querySelectorAll(".post-body h3,.post-body > p"),t=e.length/4;c=Array.from({length:3},(e,t)=>t+1);for(let n=0;n<c.length;n++){let r=parseInt(t*c[n]),l=document.createElement("div");l.className="RelatedPost","P"==e[r].nodeName?e[r].parentNode.insertBefore(l,e[r]):e[r].parentNode.insertBefore(l,e[r].nextSibling)}}();var t=[],n=0,r=[];function l(){for(var e=[],n=[],l=0;l<r.length;l++)o(e,r[l])||(e.length+=1,e[e.length-1]=r[l],n.length+=1,n[n.length-1]=t[l]);t=n,r=e}function o(e,t){for(var n=0;n<e.length;n++)if(e[n]==t)return!0;return!1}for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.category.term==Kategori){t[n]=s.title.$t;for(var f=0;f<s.link.length;f++)if("alternate"==s.link[f].rel){r[n]=s.link[f].href,n++;break}}}!function e(){let n=Math.floor((t.length-1)*Math.random()),l=0,o=document.querySelectorAll(".RelatedPost");for(;l<t.length&&l<o.length;)for(let a=0;a<o.length;a++)o[a].innerHTML='<a target="_blank" href="'+r[n]+'" title="'+t[n]+'">Baca Juga: <strong>'+t[n]+'</strong></a>',n<t.length-1?n++:n=0,l++}()},error:function(){$("#result").html("<strong>Error loading feed!</strong>")}})});</script>
 <script src="{{ site.url }}/assets/js/kutoko.js"></script>
 <!--<div id="sitemap5" class="result hidden"><p id="judul" class="judul"></p><div class="ajax-search" id="ajax-search"><div>
 <ol class="ajax-search-results badan" id="badan">{% for post in site.posts limit:9999 %}<li data-search-term="{{ post.title }} {{ post.author }} {{ post.description }}" class="list-produk serrcok hidden"><p class="ajax-search-image loading"><img class="lazyload" data-src="{{ post.image }}" alt="{{ post.title }}" style="display:block;width:60px;height:60px;" src='data:,'></p><h4 class="ajax-search-title"><a alt="{{ post.title }}" title="{{ post.title }}" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h4></li>{% endfor %}</ol></div></div></div>
