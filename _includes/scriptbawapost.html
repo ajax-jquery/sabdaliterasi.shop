@@ -1,4 +1,4 @@
-function LazyScript(e){var t=!1;window.addEventListener("scroll",function(){var r,c;(0!=document.documentElement.scrollTop&&!1===t||0!=document.body.scrollTop&&!1===t)&&((r=document.createElement("script")).type="text/javascript",r.async=!0,r.src=e,(c=document.getElementsByTagName("script")[0]).parentNode.insertBefore(r,c),t=!0)},!0)};
+function LazyScript(e){var t=!1;window.addEventListener("scroll",function(){var r,c;(0!=document.documentElement.scrollTop&&!1===t||0!=document.body.scrollTop&&!1===t)&&((r=document.createElement("script")).type="text/javascript",r.async=!0,r.src=e,(c=document.getElementsByTagName("script")[0]).parentNode.insertBefore(r,c),t=!0)},!0)};LazyScript("{{ '/assets/js/GTM-P6VLR58Z.js' | prepend: site.url }}")
 {% if page.title %}
 var URL_INI = "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}",
 URL_BERANDA = "{{ site.url }}",
