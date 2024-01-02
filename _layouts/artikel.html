@@ -125,41 +125,8 @@ Artikel
 </div>
 </div> 
 <style>
-.share-pop > *{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; } .share-pop .view-modal,.share-pop .popup{ position: absolute; left: 50%; } .share-pop .view-modal{ top: 50%; color: #7d2ae8; font-size: 18px; padding: 10px 25px; background: #fff; transform: translate(-50%, -50%); } .share-pop .popup{ background: #fff; padding: 25px; border-radius: 15px; top: -150%; max-width: 380px; width: 100%; opacity: 0; pointer-events: none; box-shadow: 0px 10px 15px rgba(0,0,0,0.1); transform: translate(-50%, -50%) scale(1.2); transition: top 0s 0.2s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out; } .share-pop .popup.show{z-index: 10; position: fixed;top: 50%; opacity: 1; pointer-events: auto; transform:translate(-50%, -50%) scale(1); transition: top 0s 0s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out; } .share-pop .popup :is(.share-pop .header, .share-pop .icons,.share-pop .field){ display: flex; align-items: center; justify-content: space-between; } .share-pop .popup .header{ padding-bottom: 15px; border-bottom: 1px solid #ebedf9; } .share-pop .header span{ font-size: 21px; font-weight: 600; } .share-pop .header .close,.share-pop .icons button{ display: flex; align-items: center; border-radius: 50%; justify-content: center; transition: all 0.3s ease-in-out; cursor: pointer } .share-pop .header .close{ color: #878787; font-size: 17px; background: #f2f3fb; height: 33px; width: 33px; cursor: pointer; } .share-pop .header .close:hover{ background: #ebedf9; } .share-pop .popup .content{ margin: 20px 0; } .share-pop .popup .icons{ margin: 15px 0 20px 0; } .share-pop .content p{ font-size: 16px; } .share-pop .content .icons button{ height: 50px; width: 50px; font-size: 20px; text-decoration: none; border: 1px solid transparent; } .share-pop .icons button i{ transition: transform 0.3s ease-in-out; } .share-pop .icons button.fb{ color: #1877F2; border-color: #b7d4fb; } .share-pop .icons button.fb:hover{ background: #1877F2; } .share-pop .icons button.tw{ color: #000; border-color: #000; } .share-pop .icons button.tw:hover{ background: #000; } .share-pop .icons button.ig{ color: #e1306c; border-color: #f5bccf; } .share-pop .icons button.ig:hover{ background: #e1306c; } .share-pop .icons button.wa{ color: #25D366; border-color: #bef4d2; } .share-pop .icons button.wa:hover{ background: #25D366; } .share-pop .icons button.tl{ color: #0088cc; border-color: #b3e6ff; } .share-pop .icons button.tl:hover{ background: #0088cc; } .share-pop .icons button.pt{ color: #ca2128; border-color: #ca2128; } .share-pop .icons button.pt:hover{ background: #ca2128; } .share-pop .icons button.le{ color: #0673ab; border-color: #0673ab; } .share-pop .icons button.le:hover{ background: #0673ab; }.share-pop .icons button.tr{ color: #43556e; border-color: #43556e; } .share-pop .icons button.tr:hover{ background: #43556e; }.share-pop .icons button.ln{ color: #00c300; border-color: #00c300; } .share-pop .icons button.ln:hover{ background: #00c300; } .share-pop .icons button:hover{ color: #fff; border-color: transparent; } .share-pop .icons button:hover i{ transform: scale(1.2); } .share-pop .content .field{ margin: 12px 0 -5px 0; height: 45px; border-radius: 4px; padding: 0 5px; border: 1px solid #e1e1e1; } .share-pop .field.active{ border-color: #7d2ae8; } .share-pop .field i{ width: 50px; font-size: 18px; text-align: center; } .share-pop .field.active i{ color: #7d2ae8; } .share-pop .field input{ width: 100%; height: 100%; border: none; outline: none; font-size: 15px; } .share-pop .field button.COPY{ color: #fff; padding: 5px 18px; background: #7d2ae8; } .share-pop .field button.COPY:hover{ background: #8d39fa; }
-  </style>
-<div class="share-pop">
-<div class="popup">
-    <div class="header">
-      <span>Share Artikel</span>
-      <div class="close"><i class="fa fa-times"></i></div>
-    </div>
-    <div class="content">
-      <p>Share this link via</p>
-      <div class="icons">
-        <button title="Share ke FB" class="fb" onclick='window.open("http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'><i class="fab fa-facebook"></i></button>
-        <button title="Share ke X" class="tw" onclick='window.open("https://twitter.com/intent/tweet?url={{ page.url | prepend: site.url }}&text={{ page.title }}", "_blank", "width=400,height=300")'><i class="fab fa-x-twitter"></i></button>
-        <button title="Share ke Whatsapp" class="wa" onclick='ShareWA()'><i class="fab fa-whatsapp"></i></button>
-        <button title="Share ke Telegram" class="tl" onclick='window.open("https://t.me/share/url?url={{ page.url | prepend: site.url }}&text={{ page.title }}", "_blank", "width=400,height=300")'><i class="fab fa-telegram"></i></button>
-      </div>
-      <div class="icons">
-        <button title="Share ke Pinterest" class="pt" onclick='window.open("http://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}&description= %5B{{ page.title }}%5D%0A{{ page.description }}", "_blank", "width=400,height=300")'><i class="fab fa-pinterest"></i></button>
-        <button title="Share ke Linkedin" class="le" onclick='window.open("http://www.linkedin.com/shareArticle?mini=true&url={{ page.url | prepend: site.url }}&title={{ page.title }}&summary={{ page.description }}", "_blank", "width=400,height=300")'><i class="fab fa-linkedin"></i></button>
-        <button title="Share ke Tumblr" class="tr" onclick='window.open("https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl={{ page.url | prepend: site.url }}&posttype=text&title={{ page.title }}&content={{ page.description }}<b>Baca Selengkapnya:</b><a href={{ page.url | prepend: site.url }}>{{ page.url | prepend: site.url }}</a>", "_blank", "width=400,height=300")'><i class="fab fa-tumblr"></i></button>
-        <button title="Share ke Line" class="ln" onclick='window.open("https://timeline.line.me/social-plugin/share?url={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'><i class="fab fa-line"></i></button>
-      </div>
-      <p>Or copy link</p>
-      <div class="field">
-        <i class="fa fa-link"></i>
-        <input type="text" readonly value="{{ page.url | prepend: site.url }}">
-        <button class="COPY"><i class="fa-duotone fa-copy"></i></button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-    
+.share-pop > *{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; } .share-pop .view-modal,.share-pop .popup{ position: absolute; left: 50%; } .share-pop .view-modal{ top: 50%; color: #7d2ae8; font-size: 18px; padding: 10px 25px; background: #fff; transform: translate(-50%, -50%); } .share-pop .popup{ background: #fff; padding: 25px; border-radius: 15px; top: -150%; max-width: 380px; width: 100%; opacity: 0; pointer-events: none; box-shadow: 0px 10px 15px rgba(0,0,0,0.1); transform: translate(-50%, -50%) scale(1.2); transition: top 0s 0.2s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out; } .share-pop .popup.show{border-top: 5px dashed #f26926;z-index: 10; position: fixed;top: 50%; opacity: 1; pointer-events: auto; transform:translate(-50%, -50%) scale(1); transition: top 0s 0s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out; } .share-pop .popup :is(.share-pop .header, .share-pop .icons,.share-pop .field){ display: flex; align-items: center; justify-content: space-between; } .share-pop .popup .header{ padding-bottom: 15px; border-bottom: 1px solid #ebedf9; } .share-pop .header span{ font-size: 21px; font-weight: 600; } .share-pop .header .close,.share-pop .icons button{ display: flex; align-items: center; border-radius: 50%; justify-content: center; transition: all 0.3s ease-in-out; cursor: pointer } .share-pop .header .close{ color: #878787; font-size: 17px; background: #f2f3fb; height: 33px; width: 33px; cursor: pointer; } .share-pop .header .close:hover{ background: #ebedf9; } .share-pop .popup .content{ margin: 20px 0; } .share-pop .popup .icons{ margin: 15px 0 20px 0; } .share-pop .content p{ font-size: 16px; } .share-pop .content .icons button{ height: 50px; width: 50px; font-size: 20px; text-decoration: none; border: 1px solid transparent; } .share-pop .icons button i{ transition: transform 0.3s ease-in-out; } .share-pop .icons button.fb{ color: #1877F2; border-color: #b7d4fb; } .share-pop .icons button.fb:hover{ background: #1877F2; } .share-pop .icons button.tw{ color: #000; border-color: #000; } .share-pop .icons button.tw:hover{ background: #000; } .share-pop .icons button.ig{ color: #e1306c; border-color: #f5bccf; } .share-pop .icons button.ig:hover{ background: #e1306c; } .share-pop .icons button.wa{ color: #25D366; border-color: #bef4d2; } .share-pop .icons button.wa:hover{ background: #25D366; } .share-pop .icons button.tl{ color: #0088cc; border-color: #b3e6ff; } .share-pop .icons button.tl:hover{ background: #0088cc; } .share-pop .icons button.pt{ color: #ca2128; border-color: #ca2128; } .share-pop .icons button.pt:hover{ background: #ca2128; } .share-pop .icons button.le{ color: #0673ab; border-color: #0673ab; } .share-pop .icons button.le:hover{ background: #0673ab; }.share-pop .icons button.tr{ color: #43556e; border-color: #43556e; } .share-pop .icons button.tr:hover{ background: #43556e; }.share-pop .icons button.ln{ color: #00c300; border-color: #00c300; } .share-pop .icons button.ln:hover{ background: #00c300; } .share-pop .icons button:hover{ color: #fff; border-color: transparent; } .share-pop .icons button:hover i{ transform: scale(1.2); } .share-pop .content .field{ margin: 12px 0 -5px 0; height: 45px; border-radius: 4px; padding: 0 5px; border: 1px solid #e1e1e1; } .share-pop .field.active{ border-color: #7d2ae8; } .share-pop .field i{ width: 50px; font-size: 18px; text-align: center; } .share-pop .field.active i{ color: #7d2ae8; } .share-pop .field input{ width: 100%; height: 100%; border: none; outline: none; font-size: 15px; } .share-pop .field button.COPY{ color: #fff; padding: 7px 0px; background: #f26926; } .share-pop .field button.COPY:hover{ background: #8d39fa; }.dark .share-pop .field input,.dark .share-pop .popup{background: #2e2e2e !important;}.dark .share-pop .field input{color: #f2f3fb;}
+  </style>    
 </div>
 <div class='post-body'>
 <div id="toc"><b class="toc"></b></div>
@@ -268,6 +235,35 @@ Silakan berdikusi
 </div></div>
 </main>
 {% include footer-wrapper.html %}
+</div>
+<div class="share-pop">
+<div class="popup">
+    <div class="header">
+      <span>Share Artikel</span>
+      <div class="close"><i class="fa fa-times"></i></div>
+    </div>
+    <div class="content">
+      <p>Share Article via</p>
+      <div class="icons">
+        <button title="Share ke FB" class="fb" onclick='window.open("http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'><i class="fab fa-facebook"></i></button>
+        <button title="Share ke X" class="tw" onclick='window.open("https://twitter.com/intent/tweet?url={{ page.url | prepend: site.url }}&text={{ page.title }}", "_blank", "width=400,height=300")'><i class="fab fa-x-twitter"></i></button>
+        <button title="Share ke Whatsapp" class="wa" onclick='ShareWA()'><i class="fab fa-whatsapp"></i></button>
+        <button title="Share ke Telegram" class="tl" onclick='window.open("https://t.me/share/url?url={{ page.url | prepend: site.url }}&text={{ page.title }}", "_blank", "width=400,height=300")'><i class="fab fa-telegram"></i></button>
+      </div>
+      <div class="icons">
+        <button title="Share ke Pinterest" class="pt" onclick='window.open("http://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}&description= %5B{{ page.title }}%5D%0A{{ page.description }}", "_blank", "width=400,height=300")'><i class="fab fa-pinterest"></i></button>
+        <button title="Share ke Linkedin" class="le" onclick='window.open("http://www.linkedin.com/shareArticle?mini=true&url={{ page.url | prepend: site.url }}&title={{ page.title }}&summary={{ page.description }}", "_blank", "width=400,height=300")'><i class="fab fa-linkedin"></i></button>
+        <button title="Share ke Tumblr" class="tr" onclick='window.open("https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl={{ page.url | prepend: site.url }}&posttype=text&title={{ page.title }}&content={{ page.description }}<b>Baca Selengkapnya:</b><a href={{ page.url | prepend: site.url }}>{{ page.url | prepend: site.url }}</a>", "_blank", "width=400,height=300")'><i class="fab fa-tumblr"></i></button>
+        <button title="Share ke Line" class="ln" onclick='window.open("https://timeline.line.me/social-plugin/share?url={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")'><i class="fab fa-line"></i></button>
+      </div>
+      <p>Or copy link</p>
+      <div class="field">
+        <i class="fa fa-link"></i>
+        <input type="text" readonly value="{{ page.url | prepend: site.url }}">
+        <button class="COPY"><i class="fa-duotone fa-copy"></i></button>
+      </div>
+    </div>
+  </div>
 </div>
 {% include popup.html %}	
 <script>{% include scriptbawapost.html %}/*!RELATED*/function showshare(){ document.getElementById("showother").style.display="block"; document.getElementById("showshare").style.display="none" } function shareplus(){ document.getElementById("showother").removeAttribute("style"); document.getElementById("showshare").removeAttribute("style") } function ShareWA(){var a="https://api.whatsapp.com/send/";/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(a="whatsapp://send/"); window.open(a+"?phone=&text=%2A%5B{{ page.title }}%5D%2A%0A{{ page.description }}%0A%2ABaca%20Selengkapnya%3A%2A%0A{{ page.url | prepend: site.url }}", "_blank", "width=400,height=300") };var Kategori="{{ page.tag }}";$(function(){$.ajax({url:"https://sabdaliterasi.shop/post-atom.json",type:"get",dataType:"json",success:function(e){!function(){let e=document.querySelectorAll(".post-body h3,.post-body > p"),t=e.length/4;c=Array.from({length:3},(e,t)=>t+1);for(let n=0;n<c.length;n++){let r=parseInt(t*c[n]),l=document.createElement("div");l.className="RelatedPost","P"==e[r].nodeName?e[r].parentNode.insertBefore(l,e[r]):e[r].parentNode.insertBefore(l,e[r].nextSibling)}}();var t=[],n=0,r=[];function l(){for(var e=[],n=[],l=0;l<r.length;l++)o(e,r[l])||(e.length+=1,e[e.length-1]=r[l],n.length+=1,n[n.length-1]=t[l]);t=n,r=e}function o(e,t){for(var n=0;n<e.length;n++)if(e[n]==t)return!0;return!1}for(var a=0;a<e.feed.entry.length;a++){var s=e.feed.entry[a];if(s.category.term==Kategori){t[n]=s.title.$t;for(var f=0;f<s.link.length;f++)if("alternate"==s.link[f].rel){r[n]=s.link[f].href,n++;break}}}!function e(){let n=Math.floor((t.length-1)*Math.random()),l=0,o=document.querySelectorAll(".RelatedPost");for(;l<t.length&&l<o.length;)for(let a=0;a<o.length;a++)o[a].innerHTML='<a target="_blank" href="'+r[n]+'" title="'+t[n]+'">Baca Juga: <strong>'+t[n]+'</strong></a>',n<t.length-1?n++:n=0,l++}()},error:function(){$("#result").html("<strong>Error loading feed!</strong>")}})});</script>
