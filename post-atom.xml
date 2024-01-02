@@ -29,9 +29,10 @@ layout: null
 		<id>{{ post.url | prepend: site.baseurl | prepend: site.url }}?p={{ post.date | date_to_xmlschema }}</id>
 		<updated>{{ akhirnyaaaaaaaaa }}</updated>
 		<published>{{ post.date | date_to_xmlschema }}</published>
-    {% for cat in post.keyword %}
+    <category scheme="{{ post.url | prepend: site.baseurl | prepend: site.url }}#{{ post.tag | xml_escape }}" term="{{ post.tag | xml_escape }}" />
+{% for cat in post.keyword %}
 		<category scheme="{{ post.url | prepend: site.baseurl | prepend: site.url }}#{{ cat | replace: ' ', '' }}" term="{{ cat | xml_escape }}" />
-     {% endfor %}
+{% endfor %}
 		<summary type="html"><![CDATA[{{ post.description | xml_escape }}]]></summary>
 		<content type="html" xml:base="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><![CDATA[{{ post.content | xml_escape }}]]></content>
 		<link rel="replies" type="text/html" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments" thr:count="100" />
