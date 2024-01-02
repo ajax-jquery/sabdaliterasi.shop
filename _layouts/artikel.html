@@ -158,7 +158,7 @@ function ShareWA(){var a="https://api.whatsapp.com/send/";/Android|webOS|iPhone|
 {{ content }}
 <hr/>
 <p id="Keywords">
-TAGS: {% for key in page.keyword %}<strong class="Keywords" id="{{ key | replace: " ","" }}">{{ key }}</strong>{% endfor %}
+TAGS: {% for key in page.keyword %}<strong class="Keywords" id="{{ key | replace: ' ', '' }}">{{ key }}</strong>{% endfor %}
 <p> 
 </div>
 <script>
