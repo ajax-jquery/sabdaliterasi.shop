@@ -150,7 +150,7 @@ Artikel
       <p>Or copy link</p>
       <div class="field">
         <i class="fa fa-link"></i>
-        <input type="text" readonly value="example.com/share-link">
+        <input type="text" readonly value="{{ page.url | prepend: site.url }}">
         <button class="COPY">Copy</button>
       </div>
     </div>
