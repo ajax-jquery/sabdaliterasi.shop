@@ -151,7 +151,7 @@ Artikel
       <div class="field">
         <i class="fa fa-link"></i>
         <input type="text" readonly value="{{ page.url | prepend: site.url }}">
-        <button class="COPY">Copy</button>
+        <button class="COPY"><i class="fa-duotone fa-copy"></i></button>
       </div>
     </div>
   </div>
@@ -302,12 +302,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if(copy){ //if the selected text copy
       CopyLink()
         field.classList.add("active");
-        copy.innerText = "Copied";
+        copy.innerText = '<i class="fa-solid fa-thumbs-up"></i>';
         setTimeout(()=>{
           window.getSelection().removeAllRanges(); //remove selection from document
           field.classList.remove("active");
-          copy.innerText = "Copy";
-        }, 3000);
+          copy.innerText = '<i class="fa-duotone fa-copy"></i>';
+        }, 2000);
       }
     }}()
   </script>
