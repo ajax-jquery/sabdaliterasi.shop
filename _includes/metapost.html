@@ -32,6 +32,7 @@
 <meta name="twitter:label1" content="Ditulis oleh" />
 <meta name="twitter:data1" content="{% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}" />
 <meta name="twitter:label2" content="Estimasi waktu membaca" />
-<meta name="twitter:data2" content="5 menit" />
+{% assign words = page.content | strip_html | number_of_words %}
+<meta class="yoast-seo-meta-tag"  name="twitter:data1" content="{% if words < 360 %}1{% else %}{{ words | divided_by:180 }}{% endif %} menit"/>
 {% include json-amp-nonamp.html %}
 {% include gtag.html %}
