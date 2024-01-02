@@ -104,7 +104,7 @@ Artikel
 </div>
 <article class='post-outer'>
 <div class='post' itemscope='itemscope'>
-<div class='post-title' style="border-bottom: 1px solid rgb(153 153 153 / 50%); margin-bottom: 2rem;">
+<div id="PRINT"><div class='post-title' style="border-bottom: 1px solid rgb(153 153 153 / 50%); margin-bottom: 2rem;">
 <h1>{% if page.title %}{{ page.title }}{% endif %}</h1>
 <p class="description">{% if page.description %}{{ page.description }}{% endif %}</p>
 <div class='thumbnail' style="position:relative;overflow:hidden;">
@@ -147,7 +147,7 @@ Artikel
 TAGS: {% for key in page.keyword %}<strong class="Keywords" id="{{ key | replace: ' ', '' }}">{{ key }}</strong>{% endfor %}
 <p>
 <printfriendly-options style="display:none;" data-content-features="disableClickToDel=0;hideImages=0;imageDisplayStyle=block;disablePDF=0;disableEmail=0;disablePrint=0;encodeImages=0;showHiddenContent=0;"></printfriendly-options><script>var pfBtVersion='3';(function(){var js,pf;pf=document.createElement('script');pf.type='text/javascript';pf.src='//cdn.printfriendly.com/printfriendly.js';document.getElementsByTagName('head')[0].appendChild(pf)})();</script><a href="https://www.printfriendly.com" style="color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="//cdn.printfriendly.com/buttons/new/print-energy-blue.svg" alt="Print Friendly and PDF"/></a>
-</div>
+  </div></div>
 <script>
 var headliner=document.querySelector(" div.post-body > h2");
 if (headliner){/*!TOC*/!function(e){function t(e){var t=(e=function(e,t){for(var n in t)t.hasOwnProperty(n)&&t[n]&&(e[n]=t[n]);return e}({selector:"h1, h2, h3, h4, h5, h6",scope:"body",overwrite:!1,prefix:"toc"},e)).selector;if("string"!=typeof t)throw TypeError("selector must be a string");if(!t.match(/^(?:h[1-6],?\s*)*$/g))throw TypeError("selector must contains only h1-6");var c,l,a,s,u=location.hash;return u&&setTimeout(function(){location.hash="",location.hash=u},0),e=(t=e).selector,c=t.scope,a=l=document.createElement("ol"),s=i(t.overwrite,t.prefix),n(e,c).reduce(function(e,t,n){var i=r(t.tagName),e=o(a,i-e)||l,c=document.createElement("li"),u=document.createElement("a");return s(t,u,n),e.appendChild(c).appendChild(u),a=c,i},r(e)),l}var n=function(e,t){var n=[],t=document.querySelectorAll(t);return Array.prototype.forEach.call(t,function(t){t=t.querySelectorAll(e),n=n.concat(Array.prototype.slice.call(t))}),n},r=function(e){return"string"!=typeof e?0:(e=e.match(/\d/g))?Math.min.apply(null,e):1},o=function(e,t){if(t<0)return o(e.parentElement,t+1);if(0<t){for(var n=e,r=t;r--;){var i=document.createElement("ol");n.appendChild(i),n=i}return n}return e.parentElement},i=function(e,t){return function(n,r,o){n.innerText,o=t+"-"+o,r.innerHTML="<strong>"+n.innerText+"</strong>",o=encodeURIComponent(o=!e&&n.id||o),n.id=o,r.href="#"+o}};"function"==typeof define&&define.amd?define("toc",[],function(){return t}):e.initTOC=t}(window);var aside=document.getElementById("toc"),toc=initTOC({selector:"h2, h3",scope:".post-body"});function tocShowHide(){var e={tocHide:!0,showText:"",hideText:""},t=(themeOption(e),document.querySelector(".toc")),n=document.createElement("button"),r=document.querySelector("#toc ol");t.appendChild(n),r.style.height="0",r.style.overflow="hidden",n.setAttribute("class","fa fa-bars"),n.innerHTML=e.showText,document.querySelector(".toc").addEventListener("click",function(){var t=r.scrollHeight;r.clientHeight?(r.style.height="0",n.setAttribute("class","fa fa-bars"),n.innerHTML=e.showText):(r.style.height=t+"px",n.setAttribute("class","fa fa-angle-double-down"),n.innerHTML=e.hideText)})}function tocOption(){var e=document.querySelector(".toc"),t={judulTOC:"Daftar Isi",showHideTOC:!0};themeOption(t),null!=e&&(e.innerHTML=t.judulTOC),tocShowHide()}null!=aside&&(aside.appendChild(toc),tocOption())}else{document.getElementById("toc").setAttribute("class","hidden")}</script>
@@ -184,7 +184,8 @@ if (headliner){/*!TOC*/!function(e){function t(e){var t=(e=function(e,t){for(var
     {% endfor %}
  </div>
 </div>
-</div><script> var postLabels = ["Sepatu", ]; var relatedConfig = { relatedOuter: "ms-related-post", postUrl: "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}", homePageUrl: "{{ site.url }}/", relatedTitleText:  "Produk Terkait", }; </script>
+</div>
+  <script> var postLabels = ["Sepatu", ]; var relatedConfig = { relatedOuter: "ms-related-post", postUrl: "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}", homePageUrl: "{{ site.url }}/", relatedTitleText:  "Produk Terkait", }; </script>
 {% include testimoni.html %}
 </div>
 <div id='after-content-hidden'>
