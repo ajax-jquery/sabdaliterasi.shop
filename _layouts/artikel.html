@@ -302,11 +302,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if(copy){ //if the selected text copy
       CopyLink()
         field.classList.add("active");
-        copy.innerText = '<i class="fa-solid fa-thumbs-up"></i>';
+        copy.innerHTML = '<i class="fa-solid fa-thumbs-up"></i>';
         setTimeout(()=>{
           window.getSelection().removeAllRanges(); //remove selection from document
           field.classList.remove("active");
-          copy.innerText = '<i class="fa-duotone fa-copy"></i>';
+          copy.innerHTML = '<i class="fa-duotone fa-copy"></i>';
         }, 2000);
       }
     }}()
