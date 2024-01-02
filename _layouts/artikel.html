@@ -149,7 +149,7 @@ Artikel
       </div>
       <p>Or copy link</p>
       <div class="field">
-        <i class="url-icon uil uil-link"></i>
+        <i class="fa fa-link"></i>
         <input type="text" readonly value="example.com/share-link">
         <button class="COPY">Copy</button>
       </div>
@@ -290,7 +290,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     viewBtn.onclick = ()=>{
     popup.classList.toggle("show");
-    popupss.classList.toggle("pb-wrapper").classList.toggle("pb-show");
+    popupss.classList.toggle("pb-wrapper");
+    popupss.classList.toggle("pb-show")
     }
     close.onclick = ()=>{
       viewBtn.click();
