@@ -8,6 +8,7 @@ description: Buku Pengantar Filsafat Dari Klasik Hingga Postmodernisme ini akan 
 permalink: /pengantar-filsafat-dari-klasik-hingga-postmodernisme/
 image: https://s3.us-west-1.wasabisys.com/lynk.id/products/25-05-2023/1684998184616_1203350.svg
 keyword: [ebook filsafat, ebook pengantar filsafat, buku filsafat untuk pemula, buku filsafat terbaik, jual buku filsafat murah, rekomendasi bacaan filsafat, ali maksum]
+ISBN: "9786023130580"
 ---
 Filsafat bukanlah sebuah disiplin yang mengawang, kosong, abstrak, dan jauh dari kehidupan sehari-hari. Faktanya, filsafat lah yang dapat membantu kita untuk memahami realitas kehidupan baik secara umum (lebenswelt) maupun secara mendasar dan prinsipil (erlebnisse).
 
