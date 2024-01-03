@@ -8,6 +8,7 @@ description: Apakah agnostisisme adalah sekadar mengangkat bahu atas pertanyaan 
 permalink: /agnostisisme-sebuah-pengantar-singkat/
 image: https://s3.us-west-1.wasabisys.com/lynk.id/products/02-04-2023/1680417079432_4598636
 keyword: [Robin Le Poidevin, Agnostisisme, Agnostisisme ebook, Ateis, teis]
+ISBN: "9786236699232"
 ---
 
 Apakah agnostisisme adalah sekadar mengangkat bahu atas pertanyaan seputar Tuhan?
