@@ -8,6 +8,7 @@ description: Aristoteles adalah putra Nikomakus, seorang tabib raja Makedonia, A
 permalink: /filsafat-periode-aristoteles/
 image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677950160761_8050167
 keyword: [aristoteles, buku tentang aristoteles, buku filsafat aristoteles, siapa itu aristoteles, biografi aristoteles, pemikiran aristoteles]
+ISBN: "9786233050029"
 ---
 Aristoteles adalah putra Nikomakus, seorang tabib raja Makedonia, Amyntas II. Ketika berusia tujuh belas tahun, ia pergi ke Athena dan akhirnya menjadi anggota Akademi yang didirikan Plato. Pada diri Plato, Aristoteles menemukan sosok panutan dan teman yang mengagumkan. Meskipun di tahun-tahun berikutnya, minat ilmiahnya jauh lebih mendominasi dan ia tak lagi sejalan dengan Plato, pengajaran metafisika dan religius Plato memiliki pengaruh yang mendalam pada dirinya.
 
