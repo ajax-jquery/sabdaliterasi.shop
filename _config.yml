@@ -209,4 +209,5 @@ plugins:
   - jekyll-redirect-from
   - jekyll-timeago
   - jekyll-last-modified-at
+  - jekyll-json-feed
 
