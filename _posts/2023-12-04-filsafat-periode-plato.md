@@ -8,6 +8,7 @@ description: Dari Plato muncul gema pertama tentang Atlantis. Dari Plato pula be
 permalink: /filsafat-periode-plato/
 image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677949950117_6801384.svg
 keyword: [plato, buku tentang plato, buku filsafat plato, siapa itu plato, biografi plato, pemikiran plato]
+ISBN: "9786233050005"
 ---
 
 Awalnya ia dipanggil Aristocles, kemudian ia diberi nama Plato karena sosoknya yang kuat. Setelah kematian Socrates, ia menarik diri ke Megara dan berlindung dengan Euclid, tetapi ia lekas kembali ke Athena. Dikatakan oleh para penulis biografi bahwa ia telah melakukan perjalanan ke Kirene, Italia, dan Mesir. Kisah-kisah itu sulit dipastikan karena Plato sendiri tak pernah berkisah tentangnya. Namun yang pasti, Plato mengunjungi Italia dan Sisilia ketika ia berusia empat puluh tahun. Sekembalinya ke Athena, di dekat tempat sakral pahlawan Akademus, Plato mendirikan Akademi. Akademi ini adalah universitas Eropa pertama.
