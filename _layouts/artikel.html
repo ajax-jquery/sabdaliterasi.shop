@@ -160,7 +160,7 @@ if (headliner){/*!TOC*/!function(e){function t(e){var t=(e=function(e,t){for(var
 <div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}?resize=300%2C300&ssl=1" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk"></div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Read</a></div></div>
 {% endif %}{% endfor %}</div>
 </div>    
-    <div class="ms-related-title"><p>Produk Kami</p></div>
+    <div class="ms-related-title"><p>Produk Kami <span><a href="{{ "/produk/" | prepend: site.url }}">View All</a></span></p></div>
 <div class="produk-showcase">
   <div class="produk-box" id="EbookSI">
     {% for post in site.posts limit: 10 %}
