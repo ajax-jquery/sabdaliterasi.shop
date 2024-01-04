@@ -57,16 +57,16 @@
                         },"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{ site.url }}/result/?cx=c7367564f98394c59&ie=UTF-8&cof=FORID%3A10&q={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"id-ID"},
     
     {
-          "@type":"WebPage","@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#/schema/webpage/1","url":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}","name":"{% if page.title %}{{ page.title }}{% endif %}",
+          "@type":"WebPage","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#/schema/webpage/1","url":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}","name":"{% if page.title %}{{ page.title }}{% endif %}",
       "isPartOf":{"@id":"{{ site.url }}/#/schema/website/1"},
       
-      "primaryImageOfPage":{"@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#primaryimage"},
+      "primaryImageOfPage":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#primaryimage"},
       "image":{
-        "@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#primaryimage"},
+        "@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#primaryimage"},
       "thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}",
       "datePublished":"{% if page.date %}{{ page.date }}{% endif %}",
       "dateModified":"{% if page.date %}{{ page.date }}{% endif %}",
-      "description":"{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}","breadcrumb":{"@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#breadcrumb"},"inLanguage":"id-ID","potentialAction":[{"@type":"ReadAction","target":["{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}"]}]},
+      "description":"{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}","breadcrumb":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#breadcrumb"},"inLanguage":"id-ID","potentialAction":[{"@type":"ReadAction","target":["{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}"]}]},
     
     
     
@@ -74,20 +74,20 @@
     
     
     {
-      "@type":"Article","@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#article",
-      "isPartOf":{"@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#/schema/webpage/1"},
+      "@type":"Article","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#article",
+      "isPartOf":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#/schema/webpage/1"},
       
       "author":{
         "name":"{{ site.title }}","@id":"{{ site.url }}/#/schema/person/1"},
       "headline":"{% if page.title %}{{ page.title }}{% endif %}",
-      "datePublished":"{% if page.date %}{{ page.date }}{% endif %}","dateModified":"{% if page.date %}{{ page.date }}{% endif %}","mainEntityOfPage":{"@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}"},"wordCount":{% assign words = page.content | strip_html | number_of_words %}{{ words }},"commentCount":0,
-      "publisher":{"@id":"{{ site.url }}/#/schema/Store/1"},"image":{"@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#primaryimage"},"thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}","keywords":[{% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ page.tag }}","{{ site.title }}","{% if page.title %}{{ page.title }}{% endif %}"],"articleSection":["{{ site.title }}"],"inLanguage":"id-ID","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#commentsdis"]}]},
+      "datePublished":"{% if page.date %}{{ page.date }}{% endif %}","dateModified":"{% if page.date %}{{ page.date }}{% endif %}","mainEntityOfPage":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}"},"wordCount":{% assign words = page.content | strip_html | number_of_words %}{{ words }},"commentCount":0,
+      "publisher":{"@id":"{{ site.url }}/#/schema/Store/1"},"image":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#primaryimage"},"thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}","keywords":[{% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ page.tag }}","{{ site.title }}","{% if page.title %}{{ page.title }}{% endif %}"],"articleSection":["{{ site.title }}"],"inLanguage":"id-ID","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#commentsdis"]}]},
         
       
      {
-              "@type":"ImageObject","inLanguage":"id-ID","@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#primaryimage","url":"{% if page.image %}{{ page.image }}{% endif %}","contentUrl":"{% if page.image %}{{ page.image }}{% endif %}","width":1280,"height":720,"caption":"{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}"},
+              "@type":"ImageObject","inLanguage":"id-ID","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#primaryimage","url":"{% if page.image %}{{ page.image }}{% endif %}","contentUrl":"{% if page.image %}{{ page.image }}{% endif %}","width":1280,"height":720,"caption":"{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}"},
       { 
-                  "@type":"BreadcrumbList","@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#breadcrumb","itemListElement":[ { "@type":"ListItem", "position":1, "name":"Home", "item":"{{ site.url }}/"},{ "@type":"ListItem","position":2,"name":"{% if page.tag %}Artikel{% else %}Halaman{% endif %}","item":"{{ site.url }}/artikel"},{"@type":"ListItem","position":3,"name":"{% if page.tag %}{{ page.tag }}{% else %}Page{% endif %}","item":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#{% if page.tag %}{{ page.tag | replace: " ","-" }}{% else %}Page{% endif %}"}, { "@type":"ListItem", "position":4, "name":"{% if page.title %}{{ page.title }}{% endif %}"}]},
+                  "@type":"BreadcrumbList","@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#breadcrumb","itemListElement":[ { "@type":"ListItem", "position":1, "name":"Home", "item":"{{ site.url }}/"},{ "@type":"ListItem","position":2,"name":"{% if page.tag %}Artikel{% else %}Halaman{% endif %}","item":"{{ site.url }}/artikel"},{"@type":"ListItem","position":3,"name":"{% if page.tag %}{{ page.tag }}{% else %}Page{% endif %}","item":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#{% if page.tag %}{{ page.tag | replace: " ","-" }}{% else %}Page{% endif %}"}, { "@type":"ListItem", "position":4, "name":"{% if page.title %}{{ page.title }}{% endif %}"}]},
                     
                    
                             
@@ -96,10 +96,10 @@
                                 
                                 {
                                   "@type": "NewsArticle", 
-                                    "mainEntityOfPage": {"@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#/schema/webpage/1" 
+                                    "mainEntityOfPage": {"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#/schema/webpage/1" 
                                     }, "headline": "{% if page.title %}{{ page.title }}{% endif %}", 
                                       "image": {
-                                        "@type": "ImageObject", "@id":"{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}#primaryimage"
+                                        "@type": "ImageObject", "@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#primaryimage"
                                       
                                       
                                       }, 
