@@ -71,7 +71,7 @@
       "dateModified":"{% if page.date %}{{ page.date }}{% endif %}",
       "description":"{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}",
       "keywords":[
-          {% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ page.tag }}","{{ site.title }}","{% if page.title %}{{ page.title }}{% endif %}"]
+          {% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ page.tag }}","{{ site.title }}","{% if page.title %}{{ page.title }}{% endif %}"],
     
     "breadcrumb":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#breadcrumb"},"inLanguage":"id-ID","potentialAction":[{"@type":"ReadAction","target":["{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}"]}]},
     
@@ -86,7 +86,7 @@
       "headline":"{% if page.title %}{{ page.title }}{% endif %}",
       "datePublished":"{% if page.date %}{{ page.date }}{% endif %}","dateModified":"{% if page.date %}{{ page.date }}{% endif %}","mainEntityOfPage":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#/schema/webpage/1" },"wordCount":{% assign words = page.content | strip_html | number_of_words %}{{ words }},"commentCount":0,
       "publisher":{"@id":"{{ site.url }}/#/schema/Store/1"},"image":{"@id":"{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#primaryimage"},"thumbnailUrl":"{% if page.image %}{{ page.image }}{% endif %}",
-        ,"articleSection":[{% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ page.tag }}"],"inLanguage":"id-ID","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#commentsdis"]}]},
+        "articleSection":[{% for keywords in page.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ page.tag }}"],"inLanguage":"id-ID","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["{{ site.url }}{% if page.url %}{{ page.url | replace: 'amp/','' }}{% endif %}#commentsdis"]}]},
         
       
      {
