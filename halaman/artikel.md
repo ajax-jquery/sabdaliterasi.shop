@@ -28,7 +28,7 @@ keyword: [artikel]
   
   <h2><a href="{{ POST.url | prepend: site.url }}" class="font-medium inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">{{ POST.title }}</a></h2><p class="text-gray-500 text-sm"> {{ POST.description }} </p></div><div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100"><span href="{{ POST.url | prepend: site.url }}" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center"><i class="fa fa-clock"></i><span class="ml-1">{% assign words = POST.content | strip_html | number_of_words %}{% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} mins{% endif %} read</span></span><span href="{{ POST.url | prepend: site.url }}" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center"><i class="fa fa fa-comment-lines"></i><span class="ml-1 DisCount" data-URL="{{ POST.url | prepend: site.url }}">0 Komentar</span></span></div></article>
       {% endfor %}<!-- CARD END -->
-    </div></div>
+    </div></div></div>
   
   
   
