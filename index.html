@@ -171,7 +171,8 @@ permalink: /
 </main>
 {% include footer-wrapper.html %}
 </div>
-{% include popup.html %}	
+{% include popup.html %}
+{% endcapture %}{{ body_newlines | strip_newlines }}
 <script>
 var URL_INI = "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}";
 var URL_BERANDA = "{{ site.url }}";
@@ -187,5 +188,5 @@ var rpplBlogUrl =  "{{ site.url }}/";function LazyScript(e){var t=!1;window.addE
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endif %}<!-- End Google Tag Manager (noscript) -->
 <script>{% include scriptbawapost.html %}</script>
-{% endcapture %}{{ body_newlines | strip_newlines }}</body>
+</body>
 </html>
