@@ -112,7 +112,7 @@ Artikel
 </div>
  {% assign hm = page.date | date: "%d/%m/%Y" %}
 {% assign words = page.content | strip_html | number_of_words %}
-<div class="rincian" style="border-bottom:1px solid rgb(153 153 153 / 50%);margin-bottom:13px;text-align:center; font-size:14px"><i class="fa-duotone fa-calendar-days"></i> {{ hm }} | <i class="fas fa-clock fa-spin"></i> {% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} mins{% endif %} Read <br> <i class="fa fa fa-comment-lines"></i> <b class="DisCount" data-URL="{{ page.url | prepend: site.url }}">0</b> Komentar| <span class="likepost"><i class="far fa-heart"></i> <span class="liked">0</span> Suka</span</div>   
+<div class="rincian" style="border-bottom:1px solid rgb(153 153 153 / 50%);margin-bottom:13px;text-align:center; font-size:14px"><i class="fa-duotone fa-calendar-days"></i> {{ hm }} | <i class="fas fa-clock fa-spin"></i> {% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} mins{% endif %} Read <br> <i class="fa fa fa-comment-lines"></i> <b class="DisCount" data-URL="{{ page.url | prepend: site.url }}">0</b> Komentar| <span class="likepost"><i class="far fa-heart"></i> <span class="liked">0</span> Suka</span></div>   
  <div class="share-wrapper" id="ShareThis">
 <div class="shareThis" data-text="Share:"><ul>
 <li><button class="fb" onclick='window.open("http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}", "_blank", "width=400,height=300")' title="Share ke Facebook"><i class="fa-brands fa-facebook"></i></button></li>
