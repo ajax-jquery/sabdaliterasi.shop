@@ -2,7 +2,7 @@
 date: '2024-01-06 13:44:43 +0800'
 tag: 'Feminis'
 title: 'Upaya Pembebasan Perempuan dalam Pandangan Feminisme Marxis'
-image: 'https://sabdaliterasi.shop/img/ magdalene.co/wp-content/uploads/2023/04/Islam-Anti-Feminis_SarahArifin.jpg'
+image: 'https://sabdaliterasi.shop/img/magdalene.co/wp-content/uploads/2023/04/Islam-Anti-Feminis_SarahArifin.jpg'
 description: 'Meskipun demikian, feminisme marxis tetap menjadi pendekatan yang penting dalam memahami dan memperjuangkan pembebasan perempuan.'
 keyword: ['Feminis','marxis','pembebebasan perempuan','anti-kapitalis','feminis marxis']
 ---
