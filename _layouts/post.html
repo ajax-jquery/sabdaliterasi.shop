@@ -107,7 +107,7 @@ Produk
 <div class='post' itemscope='itemscope'>
 <div class='post-title'>
 <h1>{% if page.title %}{{ page.title }}{% endif %}</h1>
-<div class="rincian" style="border-bottom:1px solid rgb(153 153 153 / 50%);margin-bottom:13px;font-size:14px"><i class="fa fa fa-comment-lines"></i> <b class="DisCount" data-URL="{{ page.url | prepend: site.url }}">0</b> Komentar | <a href="#ratingbook"><span class="Rate" data-id="{{ page.url }}"></span></a> | <span class='sabda-bookmark-btn' data-quantity='1' data-borkimage='{{ page.image }}?resize=320%2C320&ssl=1' data-id='{{ page.url | replace: "/","" }}' data-link='{{ page.url | prepend: site.url }}' data-title="{{ page.title }}"><i class="fa-regular fa-bookmark"></i></span></div>  
+<div class="rincian" style="border-bottom:1px solid rgb(153 153 153 / 50%);margin-bottom:13px;font-size:14px"><a title="comment" href="#commentsdis"><i class="fa fa fa-comment-lines"></i> <b class="DisCount" data-URL="{{ page.url | prepend: site.url }}">0</b> Komentar</a> | <a title="Rate" href="#ratingbook"><span class="Rate" data-id="{{ page.url }}"></span></a> | <span class='sabda-bookmark-btn' data-quantity='1' data-borkimage='{{ page.image }}?resize=320%2C320&ssl=1' data-id='{{ page.url | replace: "/","" }}' data-link='{{ page.url | prepend: site.url }}' data-title="{{ page.title }}"><i class="fa-regular fa-bookmark"></i></span></div>  
 </div>
 <div class='post-body'>
 <div class="gambar-produk">
