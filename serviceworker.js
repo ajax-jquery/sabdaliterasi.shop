@@ -1,5 +1,10 @@
-'use strict'; 
-const CACHE_VERSION=1;
-let CURRENT_CACHES={offline:"offline-v1"};
-const OFFLINE_URL="/offline/";
-function createCacheBustedRequest(a){let b=new Request(a,{cache:"reload"});if("cache"in b)return b;let c=new URL(a,self.location.href);return c.search+=(c.search?"&":"")+"cachebust="+Date.now(),new Request(c)}self.addEventListener("install",a=>{a.waitUntil(fetch(createCacheBustedRequest(OFFLINE_URL)).then(function(a){return caches.open(CURRENT_CACHES.offline).then(function(b){return b.put(OFFLINE_URL,a)})}))}),self.addEventListener("activate",a=>{let b=Object.keys(CURRENT_CACHES).map(function(a){return CURRENT_CACHES[a]});a.waitUntil(caches.keys().then(a=>Promise.all(a.map(a=>{if(-1===b.indexOf(a))return console.log("Deleting out of date cache:",a),caches.delete(a)}))))}),self.addEventListener("fetch",a=>{("navigate"===a.request.mode||"GET"===a.request.method&&a.request.headers.get("accept").includes("text/html"))&&(console.log("Handling fetch event for",a.request.url),a.respondWith(fetch(a.request).catch(a=>(console.log("Fetch failed; returning offline page instead.",a),caches.match(OFFLINE_URL)))))});
+---
+layout: null  
+---  
+'use strict';const cacheName='{{ site.name }}';const startPage='{{ site.url }}';const offlinePage='{{ site.url }}/offline/';const filesToCache=[startPage,offlinePage];const neverCacheUrls=[/\/wp-admin/,/\/wp-login/,/preview=true/];self.addEventListener('install',function(e){console.log('SuperPWA service worker installation');e.waitUntil(caches.open(cacheName).then(function(cache){console.log('SuperPWA service worker caching dependencies');filesToCache.map(function(url){return cache.add(url).catch(function(reason){return console.log('SuperPWA: '+String(reason)+' '+url);});});}));});self.addEventListener('activate',function(e){console.log('PWA service worker activation');e.waitUntil(caches.keys().then(function(keyList){return Promise.all(keyList.map(function(key){if(key!==cacheName){console.log('PWA old cache removed',key);return caches.delete(key);}}));}));return self.clients.claim();});self.addEventListener('fetch',function(e){if(!neverCacheUrls.every(checkNeverCacheList,e.request.url)){console.log('PWA: Current request is excluded from cache.');return;}
+if(!e.request.url.match(/^(http|https):\/\//i))
+return;if(new URL(e.request.url).origin!==location.origin)
+return;if(e.request.method!=='GET'){e.respondWith(fetch(e.request).catch(function(){return caches.match(offlinePage);}));return;}
+if(e.request.mode==='navigate'&&navigator.onLine){e.respondWith(fetch(e.request).then(function(response){return caches.open(cacheName).then(function(cache){cache.put(e.request,response.clone());return response;});}));return;}
+e.respondWith(caches.match(e.request).then(function(response){return response||fetch(e.request).then(function(response){return caches.open(cacheName).then(function(cache){cache.put(e.request,response.clone());return response;});});}).catch(function(){return caches.match(offlinePage);}));});function checkNeverCacheList(url){if(this.match(url)){return false;}
+return true;}
