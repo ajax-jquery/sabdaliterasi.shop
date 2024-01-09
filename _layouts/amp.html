@@ -708,8 +708,8 @@ display: none;
 </div>
 <!-- END SOCIAL SHARE -->
 
-<div class="article__date">
-<time datetime="{% if page.date %}{{ page.date | date: '%Y-%m-%d' }}{% endif %}">{% if page.date %}{{ page.date | timeago }}{% endif %}</time>
+<div class="article__date">{% assign hm = page.date | date: "%d/%m/%Y" %}{% assign words = page.content | strip_html | number_of_words %}
+<time datetime="{{ page.date | date: '%Y-%m-%d' }}"><i class="fad fa-calendar"></i> {{ hm }} | <i class="fas fa-clock fa-spin"></i> {% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} mins{% endif %} read </time>
 </div>
 <div class="article__content">
 <div class="article-description ">
