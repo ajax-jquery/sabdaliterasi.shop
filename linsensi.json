@@ -11,7 +11,7 @@ layout: null
     },
    {
       "name": "{{ site.title }} Owner",
-      "url": "{{ site.url }}",
+      "url": "sabdaliterasi.shop",
       "id": "801953276432701327",
       "code": "fadhelfikri"
     },
