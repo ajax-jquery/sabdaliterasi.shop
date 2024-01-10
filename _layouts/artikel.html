@@ -102,46 +102,55 @@ layout: null
 <span class='pGrt' data-text='Welcome!' id='greetings'>
 <svg viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' fill-rule='evenodd'></path><path class='svgC' d='M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683z'></path><path class='svgC' d='M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z'></path></svg>
 </span>
-<span class='pVws hidden pu-views' data-add='true' data-id='1298050093222355263'>
+<span class='pVws hidden pu-views' data-add='true' data-id='{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}'>
 <svg class='line' viewBox='0 0 24 24'><g transform='translate(2.000000, 4.000000)'><path class='svgC' d='M13.1643,8.0521 C13.1643,9.7981 11.7483,11.2141 10.0023,11.2141 C8.2563,11.2141 6.8403,9.7981 6.8403,8.0521 C6.8403,6.3051 8.2563,4.8901 10.0023,4.8901 C11.7483,4.8901 13.1643,6.3051 13.1643,8.0521 Z'></path><path d='M0.7503,8.0521 C0.7503,11.3321 4.8923,15.3541 10.0023,15.3541 C15.1113,15.3541 19.2543,11.3351 19.2543,8.0521 C19.2543,4.7691 15.1113,0.7501 10.0023,0.7501 C4.8923,0.7501 0.7503,4.7721 0.7503,8.0521 Z'></path></g></svg>
 </span>
 </div>
-<script>/*<![CDATA[*/ var welElem = document.querySelector("#greetings"); var curHr = new Date().getHours(); var welMes = ["Have a Sweet Dreams!", "Good Morning!", "Good Afternoon!", "Good Evening!", "Good Night!", "It's time to sleep!"]; let welText = ""; if (curHr < 4) welText = welMes[0]; else if (curHr < 12) welText = welMes[1]; else if (curHr < 17) welText = welMes[2]; else if (curHr < 19) welText = welMes[3]; else if (curHr < 22) welText = welMes[4]; else welText = welMes[5]; welElem.setAttribute('data-text', welText); /*]]>*/</script>
+<script>/*<![CDATA[*/ var welElem = document.querySelector("#greetings"); var curHr = new Date().getHours(); var welMes = ["Semoga Mimpi Indah!", "Selamat Pagi!", "Selamat Siang!", "Selamat Malam!", "Selamat Malam!", "Saatnya tidur!"]; let welText = ""; if (curHr < 4) welText = welMes[0]; else if (curHr < 12) welText = welMes[1]; else if (curHr < 17) welText = welMes[2]; else if (curHr < 19) welText = welMes[3]; else if (curHr < 22) welText = welMes[4]; else welText = welMes[5]; welElem.setAttribute('data-text', welText); /*]]>*/</script>
+
+  
 <div class='brdCmb' itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
 <div class='hm' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
-<a href='https://plus-ui.fineshopdesign.com/' itemprop='item'><span itemprop='name'>Home</span></a>
+<a href='{{ site.url }}' itemprop='item'><span itemprop='name'>Home</span></a>
 <meta content='1' itemprop='position'/>
 </div>
 <div class='lb' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
-<a href='https://plus-ui.fineshopdesign.com/search/label/Features' itemprop='item'><span itemprop='name'>Features</span></a>
+<a href='{{ "/artikel/" | prepend: site.url }}' itemprop='item'><span itemprop='name'>Artikel</span></a>
 <meta content='2' itemprop='position'/>
 </div>
+<div class='lb' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
+<a href='{{ page.url | prepend: site.url }}#{{ Page.tag }}' itemprop='item'><span itemprop='name'>{{ Page.tag }}</span></a>
+<meta content='3' itemprop='position'/>
 </div>
+</div>
+  
+  
+  
 <h1 class='pTtl aTtl sml itm'>
 <span>
-Split Post - Split Article Into Several Pages
+{{ Page.title }}
 </span>
 </h1>
-<div class='pDesc'>Examples of posts that use the split post feature, allowing you to split the article into several pages.</div>
+<div class='pDesc'>{{ Page.description }}</div>
 <div class='pInf pSml ps'>
 <div class='pIm'>
-<div class='im lazy lazy' data-style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiChUE7OjbGo__1CYWg2fF_4nuel7kwHuWwkkjkHfgIA6RdUoQ3-GgXJ68lVK00d7Z0B6nV5Tcps6GEst3E4d6-4URvrQnp-_GVVavEe_PYK2R251UzvoKp61uf8Sox4VnCm25BQ3e8CpF8-9T6ufn1LFgtOh-rAaeu89Evf6ApOR-OXwMtq95pkkduuMlL/w40-h40-p-k-no-nu/Deo_K.webp)'>
+<div class='im lazy lazy' data-style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'>
 </div>
-<noscript><div class='im' style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiChUE7OjbGo__1CYWg2fF_4nuel7kwHuWwkkjkHfgIA6RdUoQ3-GgXJ68lVK00d7Z0B6nV5Tcps6GEst3E4d6-4URvrQnp-_GVVavEe_PYK2R251UzvoKp61uf8Sox4VnCm25BQ3e8CpF8-9T6ufn1LFgtOh-rAaeu89Evf6ApOR-OXwMtq95pkkduuMlL/w40-h40-p-k-no-nu/Deo_K.webp)'></div></noscript>
+<noscript><div class='im' style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'></div></noscript>
 </div>
 <div class='pNm'>
-<a aria-label='Deo K.' class='nm' data-text='Deo K.' data-write='Published by' href='https://draft.blogger.com/profile/16542346501107515979' rel='author noreferrer' target='_blank'>
+<a aria-label='{{ site.title }}' class='nm' data-text='{{ site.title }}' data-write='Published by' href='{{ site.url }}' rel='author noreferrer' target='_blank'>
 </a>
 <div class='pDr'>
 <bdi class='pDt pIn'>
-<time class='aTtmp pTtmp pbl' data-text='November 1, 2022' data-time='Nov 1, 2022' datetime='2022-11-01T15:35:00+05:30' title='Published: November 1, 2022'></time>
+<time class='aTtmp pTtmp pbl' data-text='{{ page.date | date: "%B %d, %y" }}' data-time='{{ page.date | date: "%b %d, %y" }}' datetime='{{ page.date | date_to_xmlschema }}' title='Published: {{ page.date | date: "%B %d, %y" }}'></time>
 </bdi>
 <div class='pRd pIn'><bdi id='rdTime'></bdi></div>
 </div>
 </div>
 <div class='pCm l'>
 <div class='pIc'>
-<label aria-label='Read later' bm-id='1298050093222355263' bm-img='https://4.bp.blogspot.com/-h7L596y5eJE/YCn4vAO5mQI/AAAAAAAAQXY/iX-ptYVvnfcsNFe5DEhgLY9J_OAvy577wCNcBGAsYHQ/w240-h240-p-k-no-nu/imagz-split.png' bm-ttl='Split Post - Split Article Into Several Pages' bm-url='{{ page.url | prepend: site.url }}?m=0' class='bmPs tIc' data-added='Remove'>
+<label aria-label='Read later' bm-id='{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}' bm-img='{{ page.image }}?resize=240%2C240&ssl=1' bm-ttl='{{ Page.title }}' bm-url='{{ page.url | prepend: site.url }}?m=0' class='bmPs tIc' data-added='Remove'>
 <svg class='line' viewBox='0 0 24 24'><g transform='translate(4.500000, 2.500000)'><path d='M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z'></path><line class='svgC v' transform='translate(-4.500000, -2.500000)' x1='12' x2='12' y1='6' y2='12'></line><line class='svgC h' transform='translate(-4.500000, -2.500000)' x1='15' x2='9' y1='9' y2='9'></line></g></svg>
 </label>
 <label class='cmnt tIc' data-text='2' for='forComments'>
@@ -156,56 +165,23 @@ Split Post - Split Article Into Several Pages
 <div class='pInr'>
 <div class='pAd'>
 </div>
-<div class='pEnt' id='postID-1298050093222355263'>
+<div class='pEnt' id='postID-{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}'>
 <div class='pS post-body postBody' id='postBody'>
 <div id='postSplit'>
   <table class='tr-caption-container'>
     <tbody>
       <tr>
         <td>
-          <img alt="Split Post - Split Article Into Several Pages" src="https://4.bp.blogspot.com/-h7L596y5eJE/YCn4vAO5mQI/AAAAAAAAQXY/iX-ptYVvnfcsNFe5DEhgLY9J_OAvy577wCNcBGAsYHQ/s0-rw/imagz-split.png"/>
+          <img alt="{{ Page.title }}" src="{{ page.image }}?resize=1280%2C720&ssl=1"/>
         </td>
       </tr>
       <tr>
-        <td class='tr-caption'>Berguna untuk membagi artikel menjadi beberapa halaman</td>
+        <td class='tr-caption'></td>
       </tr>
     </tbody>
   </table>
   
-  <h2>Sample text to extend content</h2>
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum dignissim diam, et efficitur felis commodo et. Mauris vel diam pellentesque lorem lacinia luctus. Nulla quam magna, pharetra in ultrices at, condimentum id tellus. Sed suscipit sapien sed turpis ultrices viverra. Ut quis dui sed odio sollicitudin fermentum. Aliquam vitae metus laoreet, dapibus enim sit amet, feugiat lorem. Sed in dui purus.</p>
-
-  <p>Morbi turpis arcu, eleifend a tortor quis, sagittis dapibus ipsum. Vestibulum in imperdiet arcu, eget fringilla libero. Aenean commodo, felis id fermentum pellentesque, risus elit efficitur augue, at lobortis libero ipsum quis nulla. Suspendisse imperdiet magna at tellus feugiat rhoncus. Donec in massa vitae quam lobortis cursus. Donec tincidunt interdum ex ut finibus.</p>
-
-  <p>Praesent at dui scelerisque, laoreet justo eu, egestas justo. Nullam dapibus, dolor quis blandit suscipit, massa odio hendrerit neque, at fermentum dolor tellus ac justo. Cras placerat sit amet libero sit amet rhoncus. Aenean ultrices vitae erat ut malesuada. Vivamus fringilla mollis leo, ut tempus nibh feugiat sollicitudin. Phasellus sodales maximus turpis, eget sollicitudin tortor volutpat ac.</p>
-
-  <p>In imperdiet ultrices iaculis. Proin consequat, massa ut hendrerit lacinia, eros nibh finibus justo, ut consectetur nibh orci vitae massa. Ut sodales lobortis sollicitudin. Phasellus eget mi dictum neque mollis vehicula. Vestibulum et dolor accumsan, volutpat est quis, posuere tortor. Maecenas euismod turpis eu metus elementum tempor. Pellentesque in ullamcorper massa. Pellentesque lectus ipsum, dignissim nec ornare et, laoreet eget ex. Duis convallis lorem vitae consequat mattis. Aenean dui lectus, auctor eu dui et, gravida pellentesque velit. In vitae justo lacus. Vivamus id imperdiet sapien. Mauris non maximus purus. Nulla facilisi.</p>
-  <p></p>
-  <p>Curabitur quis vestibulum arcu, at aliquet urna. Aenean ex risus, rhoncus vitae urna accumsan, congue aliquet tortor. Suspendisse imperdiet nibh eget odio posuere maximus. Integer vitae neque ante. Donec pellentesque dictum diam, a luctus lectus ultrices vitae.</p>
-      
-  <p>Donec pretium dui erat, a maximus nunc dapibus sed. Nulla malesuada lectus a felis malesuada pretium. Nulla sit amet augue in neque rhoncus commodo ac nec nibh. Duis semper eleifend mauris, vel tristique velit bibendum sit amet. Mauris vitae justo eu nisl scelerisque condimentum eget eu mi.</p>
-
-  <p>Nullam non sapien sit amet ex consequat tempor ut nec risus. Phasellus non justo eget ex faucibus mattis. Vivamus vestibulum interdum consectetur. Morbi pulvinar ut lectus eu semper. Ut et sagittis leo. Pellentesque vitae posuere orci. Praesent sit amet egestas tortor, vel consectetur nulla. Duis feugiat consectetur nisl.</p>
-      
-  <p>Nunc interdum a sapien sed commodo. Maecenas porttitor dictum mi quis luctus. Vestibulum turpis quam, laoreet in dignissim dapibus, ullamcorper in tortor. Morbi malesuada massa sapien, sagittis ullamcorper quam pharetra ultrices.</p>
-
-  <p>Donec laoreet fringilla mattis. Proin vitae scelerisque neque, nec imperdiet sem. Aliquam pellentesque euismod eros, eget pharetra est vehicula eu. Nulla ligula orci, pellentesque sed quam vel, posuere sodales neque. Nulla turpis justo, lobortis vel imperdiet ut, viverra id nunc. Aliquam ipsum lectus, rutrum vel blandit sed, commodo ut ligula.</p>
-      
-  <p>Ut in condimentum eros. Duis in elit ultricies, molestie metus ac, dapibus augue. Pellentesque eu feugiat risus, sed rhoncus urna. Quisque viverra tellus nec placerat ullamcorper. Sed nec volutpat est, at pharetra mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi eu ultrices metus. Morbi placerat tempus nibh nec ultricies.</p>
-  
-  <p></p>
-  <p>Proin finibus aliquam suscipit. Mauris malesuada ornare sollicitudin. Sed faucibus lacinia pharetra. Nunc ultrices neque eget accumsan dignissim. Fusce efficitur ultricies volutpat. Maecenas ut mauris in dui pretium eleifend eu at purus. Etiam pretium luctus massa eget condimentum. Morbi gravida, elit at molestie rutrum, ligula est accumsan nunc, fringilla suscipit orci ligula vel est.</p>
-      
-  <p>Aliquam auctor cursus lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non porttitor ligula, vitae ultricies nisl. Phasellus quis arcu arcu. Praesent at nunc faucibus, sagittis ipsum non, egestas magna. Nam enim eros, fermentum nec odio vitae, blandit molestie lorem. Pellentesque sed mattis elit.</p>
-
-  <p>Donec vulputate id nisi ut pharetra. Nunc et risus lorem. Praesent in lectus nulla. Cras convallis odio eros, consectetur tristique turpis dictum feugiat. Aenean leo sem, blandit quis ante eu, tempus laoreet nisi. Duis in tincidunt lacus. Donec ornare ac nisl nec convallis. Etiam interdum ipsum nisl, sollicitudin luctus quam sollicitudin quis.</p>
-      
-  <p>Ut ipsum libero, cursus vel scelerisque eget, elementum quis velit. Donec quis velit at ex faucibus cursus. Nulla at erat sed leo consectetur auctor sed dignissim est. Maecenas nec gravida dui. Maecenas non nisi nibh. Nunc viverra nisl sed risus sagittis vulputate. Quisque egestas eros non ornare mollis. Nunc ornare viverra nibh vitae faucibus.</p>
-
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In eget porta sapien. Donec eu sapien egestas, blandit sem in, consectetur neque. Cras quis diam id ipsum volutpat pretium vulputate sit amet dolor. Nunc quis tortor scelerisque, egestas lectus vitae, auctor augue. Proin sit amet efficitur tellus, et lacinia lorem.</p>
-      
-  <p>Etiam lacus mauris, mattis ut sagittis et, suscipit ac elit. Nulla vitae luctus leo. Vivamus sit amet est vitae nisi vulputate iaculis vitae in lorem. Nullam lectus lectus, luctus vitae ante ut, finibus ultricies eros. Aenean quis rhoncus nibh. Ut nibh massa, venenatis id neque quis, sodales semper lorem. Mauris feugiat elementum arcu, eu rutrum erat congue quis. Nam lacinia orci id facilisis aliquet. Vestibulum tellus elit, feugiat nec sem ac, gravida interdum augue. Donec ligula augue, viverra eu odio sit amet, tempor euismod augue.</p>
+{{ content }}
 
   
 </div>
@@ -214,29 +190,31 @@ Split Post - Split Article Into Several Pages
 <div id='aChp'></div>
 </div>
 </div>
-<div class='blog-admin qEdit' id='qEdit'><input class='qeMn hidden' id='offqeMn' type='checkbox'/><label class='qeBtn' for='offqeMn'><svg class='line svg-1' viewBox='0 0 24 24'><g transform='translate(3.500000, 2.500000)'><path class='svgC' d='M8.5,7 C9.88088012,7 11,8.11911988 11,9.5 C11,10.8808801 9.88088012,12 8.5,12 C7.11911988,12 6,10.8808801 6,9.5 C6,8.11911988 7.11911988,7 8.5,7 Z'></path><path d='M16.6680023,4.75024695 L16.6680023,4.75024695 C15.9844554,3.55799324 14.4712377,3.15003899 13.2885153,3.83852352 C12.2597626,4.43613205 10.9740669,3.68838056 10.9740669,2.49217572 C10.9740669,1.11619444 9.86587758,0 8.4997646,0 L8.4997646,0 C7.13365161,0 6.02546233,1.11619444 6.02546233,2.49217572 C6.02546233,3.68838056 4.73976662,4.43613205 3.71199461,3.83852352 C2.52829154,3.15003899 1.01507378,3.55799324 0.331526939,4.75024695 C-0.351039204,5.94250065 0.053989269,7.46664934 1.23769234,8.15414609 C2.26546435,8.7527424 2.26546435,10.2472576 1.23769234,10.8458539 C0.053989269,11.5343384 -0.351039204,13.0584871 0.331526939,14.2497531 C1.01507378,15.4420068 2.52829154,15.849961 3.71101391,15.1624643 L3.71199461,15.1624643 C4.73976662,14.5638679 6.02546233,15.3116194 6.02546233,16.5078243 L6.02546233,16.5078243 C6.02546233,17.8838056 7.13365161,19 8.4997646,19 L8.4997646,19 C9.86587758,19 10.9740669,17.8838056 10.9740669,16.5078243 L10.9740669,16.5078243 C10.9740669,15.3116194 12.2597626,14.5638679 13.2885153,15.1624643 C14.4712377,15.849961 15.9844554,15.4420068 16.6680023,14.2497531 C17.3515491,13.0584871 16.9455399,11.5343384 15.7628176,10.8458539 L15.7618369,10.8458539 C14.7340648,10.2472576 14.7340648,8.7527424 15.7628176,8.15414609 C16.9455399,7.46664934 17.3515491,5.94250065 16.6680023,4.75024695 Z'></path></g></svg><svg class='svg-2 line' viewbox='0 0 24 24'><line x1='18' x2='6' y1='6' y2='18'></line><line x1='6' x2='18' y1='6' y2='18'></line></svg></label><div class='qeBtns'><a class='qeBtn a' href='https://www.blogger.com/blog/settings/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Settings'><svg class='line svg-1' viewBox='0 0 24 24'><g transform='translate(3.500000, 2.500000)'><path class='svgC' d='M8.5,7 C9.88088012,7 11,8.11911988 11,9.5 C11,10.8808801 9.88088012,12 8.5,12 C7.11911988,12 6,10.8808801 6,9.5 C6,8.11911988 7.11911988,7 8.5,7 Z'></path><path d='M16.6680023,4.75024695 L16.6680023,4.75024695 C15.9844554,3.55799324 14.4712377,3.15003899 13.2885153,3.83852352 C12.2597626,4.43613205 10.9740669,3.68838056 10.9740669,2.49217572 C10.9740669,1.11619444 9.86587758,0 8.4997646,0 L8.4997646,0 C7.13365161,0 6.02546233,1.11619444 6.02546233,2.49217572 C6.02546233,3.68838056 4.73976662,4.43613205 3.71199461,3.83852352 C2.52829154,3.15003899 1.01507378,3.55799324 0.331526939,4.75024695 C-0.351039204,5.94250065 0.053989269,7.46664934 1.23769234,8.15414609 C2.26546435,8.7527424 2.26546435,10.2472576 1.23769234,10.8458539 C0.053989269,11.5343384 -0.351039204,13.0584871 0.331526939,14.2497531 C1.01507378,15.4420068 2.52829154,15.849961 3.71101391,15.1624643 L3.71199461,15.1624643 C4.73976662,14.5638679 6.02546233,15.3116194 6.02546233,16.5078243 L6.02546233,16.5078243 C6.02546233,17.8838056 7.13365161,19 8.4997646,19 L8.4997646,19 C9.86587758,19 10.9740669,17.8838056 10.9740669,16.5078243 L10.9740669,16.5078243 C10.9740669,15.3116194 12.2597626,14.5638679 13.2885153,15.1624643 C14.4712377,15.849961 15.9844554,15.4420068 16.6680023,14.2497531 C17.3515491,13.0584871 16.9455399,11.5343384 15.7628176,10.8458539 L15.7618369,10.8458539 C14.7340648,10.2472576 14.7340648,8.7527424 15.7628176,8.15414609 C16.9455399,7.46664934 17.3515491,5.94250065 16.6680023,4.75024695 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/comments/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Comments'><svg class='line' viewBox='0 0 24 24'><g transform='translate(2.000000, 2.000000)'><line class='svgC' x1='13.9394' x2='13.9484' y1='10.413' y2='10.413'></line><line class='svgC' x1='9.9304' x2='9.9394' y1='10.413' y2='10.413'></line><line class='svgC' x1='5.9214' x2='5.9304' y1='10.413' y2='10.413'></line><path d='M17.0710351,17.0698449 C14.0159481,20.1263505 9.48959549,20.7867004 5.78630747,19.074012 C5.23960769,18.8538953 1.70113357,19.8338667 0.933341969,19.0669763 C0.165550368,18.2990808 1.14639409,14.7601278 0.926307229,14.213354 C-0.787154393,10.5105699 -0.125888852,5.98259958 2.93020311,2.9270991 C6.83146881,-0.9756997 13.1697694,-0.9756997 17.0710351,2.9270991 C20.9803405,6.8359285 20.9723008,13.1680512 17.0710351,17.0698449 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/feeds/801953276432701327/archive' rel='nofollow noopener noreferrer' title='Backup content'><svg class='line' viewBox='0 0 24 24'><polyline class='svgC' points='8 17 12 21 16 17'></polyline><line class='svgC' x1='12' x2='12' y1='12' y2='21'></line><path d='M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29'></path></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/stats/week/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='7-days blog stats'><svg class='line' viewBox='0 0 24 24'><g transform='translate(2.300000, 2.300000)'><line class='svgC' x1='5.18305279' x2='5.18305279' y1='7.960947' y2='14.6546312'></line><line class='svgC' x1='9.73684179' x2='9.73684179' y1='4.757368' y2='14.6552627'></line><line class='svgC' x1='14.2156838' x2='14.2156838' y1='11.498211' y2='14.6550531'></line><path d='M-3.55271368e-14,9.73684211 C-3.55271368e-14,2.43473684 2.43473684,2.13162821e-14 9.73684211,2.13162821e-14 C17.0389474,2.13162821e-14 19.4736842,2.43473684 19.4736842,9.73684211 C19.4736842,17.0389474 17.0389474,19.4736842 9.73684211,19.4736842 C2.43473684,19.4736842 -3.55271368e-14,17.0389474 -3.55271368e-14,9.73684211 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/posts/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Dashboard'><svg class='line' viewBox='0 0 24 24'><line x1='8' x2='21' y1='6' y2='6'></line><line x1='8' x2='21' y1='12' y2='12'></line><line x1='8' x2='21' y1='18' y2='18'></line><line class='svgC' x1='3' x2='3.01' y1='6' y2='6'></line><line class='svgC' x1='3' x2='3.01' y1='12' y2='12'></line><line class='svgC' x1='3' x2='3.01' y1='18' y2='18'></line></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/post/edit/801953276432701327/1298050093222355263' rel='nofollow noopener noreferrer' target='_blank' title='Edit post'><svg class='line' viewBox='0 0 24 24'><path d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'></path><path class='svgC' d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'></path></svg></a></div><label class='fCls' for='offqeMn'></label></div>
+<div class='blog-admin qEdit' id='qEdit'><input class='qeMn hidden' id='offqeMn' type='checkbox'/><label class='qeBtn' for='offqeMn'><svg class='line svg-1' viewBox='0 0 24 24'><g transform='translate(3.500000, 2.500000)'><path class='svgC' d='M8.5,7 C9.88088012,7 11,8.11911988 11,9.5 C11,10.8808801 9.88088012,12 8.5,12 C7.11911988,12 6,10.8808801 6,9.5 C6,8.11911988 7.11911988,7 8.5,7 Z'></path><path d='M16.6680023,4.75024695 L16.6680023,4.75024695 C15.9844554,3.55799324 14.4712377,3.15003899 13.2885153,3.83852352 C12.2597626,4.43613205 10.9740669,3.68838056 10.9740669,2.49217572 C10.9740669,1.11619444 9.86587758,0 8.4997646,0 L8.4997646,0 C7.13365161,0 6.02546233,1.11619444 6.02546233,2.49217572 C6.02546233,3.68838056 4.73976662,4.43613205 3.71199461,3.83852352 C2.52829154,3.15003899 1.01507378,3.55799324 0.331526939,4.75024695 C-0.351039204,5.94250065 0.053989269,7.46664934 1.23769234,8.15414609 C2.26546435,8.7527424 2.26546435,10.2472576 1.23769234,10.8458539 C0.053989269,11.5343384 -0.351039204,13.0584871 0.331526939,14.2497531 C1.01507378,15.4420068 2.52829154,15.849961 3.71101391,15.1624643 L3.71199461,15.1624643 C4.73976662,14.5638679 6.02546233,15.3116194 6.02546233,16.5078243 L6.02546233,16.5078243 C6.02546233,17.8838056 7.13365161,19 8.4997646,19 L8.4997646,19 C9.86587758,19 10.9740669,17.8838056 10.9740669,16.5078243 L10.9740669,16.5078243 C10.9740669,15.3116194 12.2597626,14.5638679 13.2885153,15.1624643 C14.4712377,15.849961 15.9844554,15.4420068 16.6680023,14.2497531 C17.3515491,13.0584871 16.9455399,11.5343384 15.7628176,10.8458539 L15.7618369,10.8458539 C14.7340648,10.2472576 14.7340648,8.7527424 15.7628176,8.15414609 C16.9455399,7.46664934 17.3515491,5.94250065 16.6680023,4.75024695 Z'></path></g></svg><svg class='svg-2 line' viewbox='0 0 24 24'><line x1='18' x2='6' y1='6' y2='18'></line><line x1='6' x2='18' y1='6' y2='18'></line></svg></label><div class='qeBtns'><a class='qeBtn a' href='https://www.blogger.com/blog/settings/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Settings'><svg class='line svg-1' viewBox='0 0 24 24'><g transform='translate(3.500000, 2.500000)'><path class='svgC' d='M8.5,7 C9.88088012,7 11,8.11911988 11,9.5 C11,10.8808801 9.88088012,12 8.5,12 C7.11911988,12 6,10.8808801 6,9.5 C6,8.11911988 7.11911988,7 8.5,7 Z'></path><path d='M16.6680023,4.75024695 L16.6680023,4.75024695 C15.9844554,3.55799324 14.4712377,3.15003899 13.2885153,3.83852352 C12.2597626,4.43613205 10.9740669,3.68838056 10.9740669,2.49217572 C10.9740669,1.11619444 9.86587758,0 8.4997646,0 L8.4997646,0 C7.13365161,0 6.02546233,1.11619444 6.02546233,2.49217572 C6.02546233,3.68838056 4.73976662,4.43613205 3.71199461,3.83852352 C2.52829154,3.15003899 1.01507378,3.55799324 0.331526939,4.75024695 C-0.351039204,5.94250065 0.053989269,7.46664934 1.23769234,8.15414609 C2.26546435,8.7527424 2.26546435,10.2472576 1.23769234,10.8458539 C0.053989269,11.5343384 -0.351039204,13.0584871 0.331526939,14.2497531 C1.01507378,15.4420068 2.52829154,15.849961 3.71101391,15.1624643 L3.71199461,15.1624643 C4.73976662,14.5638679 6.02546233,15.3116194 6.02546233,16.5078243 L6.02546233,16.5078243 C6.02546233,17.8838056 7.13365161,19 8.4997646,19 L8.4997646,19 C9.86587758,19 10.9740669,17.8838056 10.9740669,16.5078243 L10.9740669,16.5078243 C10.9740669,15.3116194 12.2597626,14.5638679 13.2885153,15.1624643 C14.4712377,15.849961 15.9844554,15.4420068 16.6680023,14.2497531 C17.3515491,13.0584871 16.9455399,11.5343384 15.7628176,10.8458539 L15.7618369,10.8458539 C14.7340648,10.2472576 14.7340648,8.7527424 15.7628176,8.15414609 C16.9455399,7.46664934 17.3515491,5.94250065 16.6680023,4.75024695 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/comments/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Comments'><svg class='line' viewBox='0 0 24 24'><g transform='translate(2.000000, 2.000000)'><line class='svgC' x1='13.9394' x2='13.9484' y1='10.413' y2='10.413'></line><line class='svgC' x1='9.9304' x2='9.9394' y1='10.413' y2='10.413'></line><line class='svgC' x1='5.9214' x2='5.9304' y1='10.413' y2='10.413'></line><path d='M17.0710351,17.0698449 C14.0159481,20.1263505 9.48959549,20.7867004 5.78630747,19.074012 C5.23960769,18.8538953 1.70113357,19.8338667 0.933341969,19.0669763 C0.165550368,18.2990808 1.14639409,14.7601278 0.926307229,14.213354 C-0.787154393,10.5105699 -0.125888852,5.98259958 2.93020311,2.9270991 C6.83146881,-0.9756997 13.1697694,-0.9756997 17.0710351,2.9270991 C20.9803405,6.8359285 20.9723008,13.1680512 17.0710351,17.0698449 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/feeds/801953276432701327/archive' rel='nofollow noopener noreferrer' title='Backup content'><svg class='line' viewBox='0 0 24 24'><polyline class='svgC' points='8 17 12 21 16 17'></polyline><line class='svgC' x1='12' x2='12' y1='12' y2='21'></line><path d='M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29'></path></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/stats/week/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='7-days blog stats'><svg class='line' viewBox='0 0 24 24'><g transform='translate(2.300000, 2.300000)'><line class='svgC' x1='5.18305279' x2='5.18305279' y1='7.960947' y2='14.6546312'></line><line class='svgC' x1='9.73684179' x2='9.73684179' y1='4.757368' y2='14.6552627'></line><line class='svgC' x1='14.2156838' x2='14.2156838' y1='11.498211' y2='14.6550531'></line><path d='M-3.55271368e-14,9.73684211 C-3.55271368e-14,2.43473684 2.43473684,2.13162821e-14 9.73684211,2.13162821e-14 C17.0389474,2.13162821e-14 19.4736842,2.43473684 19.4736842,9.73684211 C19.4736842,17.0389474 17.0389474,19.4736842 9.73684211,19.4736842 C2.43473684,19.4736842 -3.55271368e-14,17.0389474 -3.55271368e-14,9.73684211 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/posts/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Dashboard'><svg class='line' viewBox='0 0 24 24'><line x1='8' x2='21' y1='6' y2='6'></line><line x1='8' x2='21' y1='12' y2='12'></line><line x1='8' x2='21' y1='18' y2='18'></line><line class='svgC' x1='3' x2='3.01' y1='6' y2='6'></line><line class='svgC' x1='3' x2='3.01' y1='12' y2='12'></line><line class='svgC' x1='3' x2='3.01' y1='18' y2='18'></line></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/post/edit/801953276432701327/{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}' rel='nofollow noopener noreferrer' target='_blank' title='Edit post'><svg class='line' viewBox='0 0 24 24'><path d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'></path><path class='svgC' d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'></path></svg></a></div><label class='fCls' for='offqeMn'></label></div>
 <div class='pAd'>
 </div>
 <script>/*<![CDATA[*/ function get_text(el) {ret = ''; var length = el.childNodes.length; for(var i = 0; i < length; i++) {var node = el.childNodes[i]; if(node.nodeType != 8) {ret += node.nodeType != 1 ? node.nodeValue : get_text(node);} } return ret;} var words = get_text(document.getElementById('postBody')); var count = words.split(' ').length; var avg = 200; var counted = count / avg; var maincount = Math.round(counted); document.getElementById('rdTime').innerHTML = 'Estimated read time: ' + maincount + ' min'; /*]]>*/</script>
 <div class='admAbt'>
-<h2 class='title dt'>About the Author</h2>
+<h2 class='title dt'>About Us</h2>
 <div class='admPs'>
 <div class='admIm'>
-<div class='im lazy lazy' data-style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiChUE7OjbGo__1CYWg2fF_4nuel7kwHuWwkkjkHfgIA6RdUoQ3-GgXJ68lVK00d7Z0B6nV5Tcps6GEst3E4d6-4URvrQnp-_GVVavEe_PYK2R251UzvoKp61uf8Sox4VnCm25BQ3e8CpF8-9T6ufn1LFgtOh-rAaeu89Evf6ApOR-OXwMtq95pkkduuMlL/w40-h40-p-k-no-nu/Deo_K.webp)'>
+<div class='im lazy lazy' data-style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'>
 </div>
-<noscript><div class='im' style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiChUE7OjbGo__1CYWg2fF_4nuel7kwHuWwkkjkHfgIA6RdUoQ3-GgXJ68lVK00d7Z0B6nV5Tcps6GEst3E4d6-4URvrQnp-_GVVavEe_PYK2R251UzvoKp61uf8Sox4VnCm25BQ3e8CpF8-9T6ufn1LFgtOh-rAaeu89Evf6ApOR-OXwMtq95pkkduuMlL/w40-h40-p-k-no-nu/Deo_K.webp)'></div></noscript>
+<noscript><div class='im' style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'></div></noscript>
 </div>
 <div class='admI'>
-<bdi class='admN' data-text='Deo K.' data-write='Posted by'></bdi>
+<bdi class='admN' data-text='{{ site.title }}' data-write='Posted by'></bdi>
 <div class='admA'>
-Hey! I&#39;m Deo Kumar, a passionate web developer skilled in JavaScript, Node.js, Cloudflare Workers, KV stores, and Next.js. With a focus on dynamic web applications, I excel in JavaScript and Node.js, ensuring robust websites. As a front-end expe&#8230;
+{{ site.description }}
 </div>
 </div>
 </div>
 </div>
 <div class='pSh'>
 <div class='lbHt'>
-<a aria-label='Features' href='https://plus-ui.fineshopdesign.com/search/label/Features'>#Features</a>
+{% for TAG in page.keyword %} 
+<a aria-label='{{ TAG }}' href='{{ page.url | prepend: site.url }}#{{ TAG }}'>{{ TAG }}</a>
+{% endfor %}    
 </div>
 <div class='pShc' data-text='Share:'>
 <a aria-label='Facebook' class='c fb' data-text='Share' href='https://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}' rel='noopener' role='button' target='_blank'>
@@ -427,7 +405,7 @@ Where is this code
 <div class='cmHr a'>
 <span class='n' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'>
 <bdi itemprop='name'>
-Deo K.</bdi>
+{{ site.title }}</bdi>
 </span>
 <span class='d dtTm' data-datetime='10/14/2023 08:55:00 pm'></span>
 <span class='d date' data-datetime='10/14/2023 08:55:00 pm' itemprop='datePublished'>10/14/2023 08:55:00 pm</span>
@@ -469,7 +447,7 @@ Post a Comment
 <div class='cmMs note'>
 🌟 Attention, Valued Community Members! 🌟<br /><br />We&#39;re delighted to have you engage in our vibrant discussions. To ensure a respectful and inclusive environment for everyone, we kindly request your cooperation with the following guidelines:<br /><br />1. <b>Respect Privacy</b>: Please refrain from sharing sensitive or private information in your comments.<br /><br />2. <b>Spread Positivity</b>: We uphold a zero-tolerance policy towards hate speech or abusive language. Let&#39;s keep our conversations respectful and friendly.<br /><br />3. <b>Language of Choice</b>: Feel free to express yourself in either English or Hindi. These two languages will help us maintain clear and coherent discussions.<br /><br />4. <b>Respect Diversity</b>: To foster an inclusive atmosphere, we kindly request that you avoid discussing religious matters in your comments.<br /><br />Remember, your contributions are valued, and we appreciate your commitment to making our community a welcoming place for everyone. Let&#39;s continue to learn and grow together through constructive and respectful discussions.<br /><br />Thank you for being a part of our vibrant community! 🌟
 </div>
-<button class='iCmn' data-comment='https://draft.blogger.com/comment/frame/801953276432701327?po=1298050093222355263&hl=en-GB&skin=contempo&skin=contempo' data-text='Join the conversation (2)' id='iCmn'></button>
+<button class='iCmn' data-comment='https://draft.blogger.com/comment/frame/801953276432701327?po={{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}&hl=en-GB&skin=contempo&skin=contempo' data-text='Join the conversation (2)' id='iCmn'></button>
 <script>/*<![CDATA[*/ (function(){var tCom=getid('iCmn'),urlCom=tCom.getAttribute('data-comment'),ifCom=document.createElement('iframe');ifCom.width='100%';ifCom.height='296';ifCom.setAttribute('data-src',urlCom);ifCom.setAttribute('id','comment-editor');ifCom.setAttribute('class','blogger-iframe-colorize blogger-comment-from-post lazy');ifCom.setAttribute('name','comment-editor');ifCom.setAttribute('lazied','');tCom.addEventListener('click',function(){tCom.insertAdjacentElement('beforebegin',ifCom);this.remove();});})() /*]]>*/</script>
 </div>
 </div>
@@ -484,27 +462,31 @@ Post a Comment
 </div>
 </div>
 </div>
-<div class='widget HTML' data-version='2' id='HTML01'>
+<!--<div class='widget HTML' data-version='2' id='HTML01'>
 <div class='widget-content'>
 <div class='adB h240' data-text='Ads go here (Middle Post Ad 01)'></div>
 </div>
 <script>/*<![CDATA[*/ middleAds('p',[['HTML01', 3]]) /*]]>*/</script>
-</div><div class='widget HTML' data-version='2' id='HTML02'>
+</div>
+<div class='widget HTML' data-version='2' id='HTML02'>
 <div class='widget-content'>
 <div class='adB h240' data-text='Ads go here (Middle Post Ad 02)'></div>
 </div>
 <script>/*<![CDATA[*/ middleAds('p',[['HTML02', 6]]) /*]]>*/</script>
-</div><div class='widget HTML' data-version='2' id='HTML03'>
+</div>
+<div class='widget HTML' data-version='2' id='HTML03'>
 <div class='widget-content'>
 <div class='adB h240' data-text='Ads go here (Middle Post Ad 03)'></div>
 </div>
 <script>/*<![CDATA[*/ middleAds('p',[['HTML03', 9]]) /*]]>*/</script>
-</div><div class='widget HTML' data-version='2' id='HTML04'>
+</div>
+<div class='widget HTML' data-version='2' id='HTML04'>
 <div class='widget-content'>
 <div class='adB h240' data-text='Ads go here (Recurring Post Ad)'></div>
 </div>
 <script>/*<![CDATA[*/ recurAds('p', {ads:'HTML04', every:4}) /*]]>*/</script>
-</div></div>
+</div>-->
+</div>
 </main>
 <!--[ Sidebar content ]-->
 {% include UI-sidebar.html %}
