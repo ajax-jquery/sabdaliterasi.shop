@@ -8,5 +8,6 @@ Disallow: /buy/
 Disallow: /offline/
 Disallow: /search/
 Disallow: /404/
+Disallow: /ujifile/*
 
 Sitemap: {{ site.url }}/sitemap_index.xml
