@@ -140,17 +140,17 @@ layout: null
 </a>
 <div class='pDr'>
 <bdi class='pDt pIn'>
-<time class='aTtmp pTtmp pbl' data-text='{{ page.date | date: "%B %d, %y" }}' data-time='{{ page.date | date: "%b %d, %y" }}' datetime='{{ page.date | date_to_xmlschema }}' title='Published: {{ page.date | date: "%B %d, %y" }}'></time>
+<time class='aTtmp pTtmp pbl' data-text='{{ page.date | date: "%B %d, %Y" }}' data-time='{{ page.date | date: "%b %d, %Y" }}' datetime='{{ page.date | date_to_xmlschema }}' title='Published: {{ page.date | date: "%B %d, %Y" }}'></time>
 </bdi>
 <div class='pRd pIn'><bdi id='rdTime'></bdi></div>
 </div>
 </div>
 <div class='pCm l'>
 <div class='pIc'>
-<label aria-label='Read later' bm-id='{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}' bm-img='{{ page.image }}?resize=240%2C240&ssl=1' bm-ttl='{{ page.title }}' bm-url='{{ page.url | prepend: site.url }}?m=0' class='bmPs tIc' data-added='Remove'>
+<label aria-label='Read later' bm-id='{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}' bm-img='{{ page.image }}?resize=240%2C240&ssl=1' bm-ttl='{{ page.title }}' bm-url='{{ page.url | prepend: site.url }}' class='bmPs tIc' data-added='Remove'>
 <svg class='line' viewBox='0 0 24 24'><g transform='translate(4.500000, 2.500000)'><path d='M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z'></path><line class='svgC v' transform='translate(-4.500000, -2.500000)' x1='12' x2='12' y1='6' y2='12'></line><line class='svgC h' transform='translate(-4.500000, -2.500000)' x1='15' x2='9' y1='9' y2='9'></line></g></svg>
 </label>
-<label class='cmnt tIc' data-text='2' for='forComments'>
+<label data-LINK="{{ page.url | prepend: site.url }}" class='cmnt tIc' data-text='2' for='forComments'>
 <svg class='line' viewBox='0 0 24 24'><g transform='translate(2.000000, 2.000000)'><path d='M17.0710351,17.0698449 C14.0159481,20.1263505 9.48959549,20.7867004 5.78630747,19.074012 C5.23960769,18.8538953 1.70113357,19.8338667 0.933341969,19.0669763 C0.165550368,18.2990808 1.14639409,14.7601278 0.926307229,14.213354 C-0.787154393,10.5105699 -0.125888852,5.98259958 2.93020311,2.9270991 C6.83146881,-0.9756997 13.1697694,-0.9756997 17.0710351,2.9270991 C20.9803405,6.8359285 20.9723008,13.1680512 17.0710351,17.0698449 Z'></path></g></svg>
 </label>
 <label class='sh tIc' for='forShare'>
@@ -382,7 +382,7 @@ Post a Comment
 🌟 Attention, Valued Community Members! 🌟<br /><br />We&#39;re delighted to have you engage in our vibrant discussions. To ensure a respectful and inclusive environment for everyone, we kindly request your cooperation with the following guidelines:<br /><br />1. <b>Respect Privacy</b>: Please refrain from sharing sensitive or private information in your comments.<br /><br />2. <b>Spread Positivity</b>: We uphold a zero-tolerance policy towards hate speech or abusive language. Let&#39;s keep our conversations respectful and friendly.<br /><br />3. <b>Language of Choice</b>: Feel free to express yourself in either English or Hindi. These two languages will help us maintain clear and coherent discussions.<br /><br />4. <b>Respect Diversity</b>: To foster an inclusive atmosphere, we kindly request that you avoid discussing religious matters in your comments.<br /><br />Remember, your contributions are valued, and we appreciate your commitment to making our community a welcoming place for everyone. Let&#39;s continue to learn and grow together through constructive and respectful discussions.<br /><br />Thank you for being a part of our vibrant community! 🌟
 </div>
 <button class='iCmn' data-comment='https://draft.blogger.com/comment/frame/801953276432701327?po={{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}&hl=en-GB&skin=contempo&skin=contempo' data-text='Join the conversation (2)' id='iCmn'></button>
-<script>/*<![CDATA[*/ (function(){var tCom=getid('iCmn'),urlCom=tCom.getAttribute('data-comment'),ifCom=document.createElement('iframe');ifCom.width='100%';ifCom.height='296';ifCom.setAttribute('data-src',urlCom);ifCom.setAttribute('id','comment-editor');ifCom.setAttribute('class','blogger-iframe-colorize blogger-comment-from-post lazy');ifCom.setAttribute('name','comment-editor');ifCom.setAttribute('lazied','');tCom.addEventListener('click',function(){tCom.insertAdjacentElement('beforebegin',ifCom);this.remove();});})() /*]]>*/</script>
+<!--<script>/*<![CDATA[*/ (function(){var tCom=getid('iCmn'),urlCom=tCom.getAttribute('data-comment'),ifCom=document.createElement('iframe');ifCom.width='100%';ifCom.height='296';ifCom.setAttribute('data-src',urlCom);ifCom.setAttribute('id','comment-editor');ifCom.setAttribute('class','blogger-iframe-colorize blogger-comment-from-post lazy');ifCom.setAttribute('name','comment-editor');ifCom.setAttribute('lazied','');tCom.addEventListener('click',function(){tCom.insertAdjacentElement('beforebegin',ifCom);this.remove();});})() /*]]>*/</script>-->
 </div>
 </div>
 </div>
