@@ -47,9 +47,11 @@ permalink: /ujifile/post/
 <label aria-label='Close' class='c' data-text='Close' for='offNav'></label>
 </div>
 <!--[ Mobile additional menu(only shown in mobile view) ]-->
-<div class='mnMob section' id='nav-widget-1'><div class='widget PageList' data-version='2' id='PageList002'>
+<div class='mnMob section' id='nav-widget-1'>
+    <div class='widget PageList hidden' data-version='2' id='PageList002'>
 {% include UI-navpage.html %}
-</div><div class='widget LinkList' data-version='2' id='LinkList002'>
+    </div>
+    <div class='widget LinkList' data-version='2' id='LinkList002'>
 <div class='mNav'>
 <label class='tIc bIc' for='offNav'>
 <svg viewBox='0 0 512 512'><path d='M417.4,224H288V94.6c0-16.9-14.3-30.6-32-30.6c-17.7,0-32,13.7-32,30.6V224H94.6C77.7,224,64,238.3,64,256 c0,17.7,13.7,32,30.6,32H224v129.4c0,16.9,14.3,30.6,32,30.6c17.7,0,32-13.7,32-30.6V288h129.4c16.9,0,30.6-14.3,30.6-32 C448,238.3,434.3,224,417.4,224z'></path></svg>
@@ -68,7 +70,7 @@ permalink: /ujifile/post/
 <!--[ Blog content ]-->
 <div class='blogCont'>
 <div class='secIn'>
-<div class='section' id='notif-widget'><div class='widget LinkList' data-version='2' id='LinkList001'>
+<div class='section' id='notif-widget'><div class='widget LinkList hidden' data-version='2' id='LinkList001'>
 {% include UI-navtag.html %}
 </div><div class='widget HTML' data-version='2' id='HTML0'>
 <input checked='checked' class='ntfI hidden' id='forNft' type='checkbox'/>
@@ -76,13 +78,10 @@ permalink: /ujifile/post/
 <div class='ntfT'><!--[ Your content here, Lorem ipsum dolor sit amet, consectetur adipiscing elit. ]-->
 
 <!--[ Alternatif content with button link ]-->
-<div class='ntfA'> 
-  <span>
-
-Notification texts go here.
-
-  </span> 
-  <a href='https://plus-ui.fineshopdesign.com/p/purchase.html' target='_blank'>Buy Now!</a>
+<div class='ntfA'>
+{% assign posta = site.artikel | sort: "date" | reverse %}{% for post in posta limit: 1 %}
+<span>New Post: {{ post.title }} </span> <a title="{{ post.title }}" href='{{ post.url | prepend: site.url }}' target='_blank'>Read</a>
+{% endfor %}
 </div></div>
 <label aria-label='Close Menu' class='c' for='forNft'></label>
 </div>
