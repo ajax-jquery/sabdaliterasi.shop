@@ -10,16 +10,10 @@ layout: null
       "code": "fadhelfikri"
     },
    {
-      "name": "{{ site.title }} Owner",
+      "name": "{{ site.title }}",
       "url": "sabdaliterasi.shop",
       "id": "801953276432701327",
-      "code": "fadhelfikri"
-    },
-    {
-      "name": "Pushpendra",
-      "url": "www.psmiahraa.in",
-      "id": "",
-      "code": "a"
+      "code": "sabdaliterasi"
     }
   ]
 }
