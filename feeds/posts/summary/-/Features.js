@@ -1,6 +1,5 @@
 ---
 layout: null
-permalink: /feeds/posts/summary/-/Features/
 ---
 // API callback
 showRelatedPost({
