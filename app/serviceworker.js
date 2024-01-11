@@ -14,8 +14,8 @@ const config = {
     runtime: "run-time",
   },
   fallback: "/app/fallback/",
-  manifest: "/manifest.json",
-  favicon: "/favicon.ico",
+  manifest: "/app/manifest.json",
+  favicon: "/app/favicon.ico",
 };
 
 // Check if workbox-sw is successfully imported
