@@ -5,7 +5,9 @@ layout: null
 <html dir='ltr' lang='id'>
 <!--[ <head> Open ]-->
 {% include head-ui.html %}
-<body class='MN-3 mobS flT hdMn bD onItm onPs' id='mainCont'>
+<body class='MN-3 mobS flT hdMn bD onItm onPs' id='mainCont'><style>
+.drK .produk-showcase .desk-produk span,.drK .produk-showcase .desk-produk .harga-produk{color: #fff;}.produk-showcase{width:100%;height:auto;margin-bottom:25px;padding:0}.produk-showcase .produk-box{width:100%;height:auto;overflow-x:scroll;overflow-y:hidden;padding:10px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:block;white-space:nowrap}.produk-showcase .produk-box::-webkit-scrollbar{width:2px;height:8px}.produk-showcase .produk-box::-webkit-scrollbar-thumb{background-color:#f26926}.produk-showcase .produk-header{background:#f26926;color:#fff;font-family:Roboto,sans-serif;font-size:16px;font-weight:700;margin:0;padding:0 10px;display:block;text-align:left;height:30px;line-height:30px;text-transform:uppercase}.produk-showcase .produk{background:rgba(153,163,173,0.08);position:relative;margin-right:6px;width:150px;min-height:277px;height:auto;border:1px solid #f26926;border-radius:10px;overflow:hidden;display:inline-grid;white-space:normal}.produk-showcase .produk.last{margin-right:0}.produk-showcase .img-product{width:100%;height:auto;position:absolute;top:0;left:0}.produk-showcase .img-product img{width:100%;height:auto;display:block}.produk-showcase .desk-produk{margin-top:160px;position:relative;padding:10px 10px 10px}.produk-showcase .desk-produk span{width: 132px;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;color:#333;font-family:Roboto,sans-serif;font-size:14px;font-weight:600;margin-bottom:5px;line-height:1.1;display:block}.produk-showcase .desk-produk .harga-produk{color:#f26926b0;font-family:Roboto,sans-serif;font-size:14px;font-weight:700;margin-bottom:5px;line-height:1.1;display:block}.produk-showcase .desk-produk a.link-produk{border-radius: 6px;background:#f26926;color:#fff;font-family:Roboto,sans-serif;font-size:14px;font-weight:500;padding:8px 12px;display:block;text-align:center}.produk-showcase .google-auto-placed{display:none}
+</style>
 <!--[ Show only one grid column in Mobile ]-->
 <!--[ Enable tag below to change Mobile Menu style, try 'MN-2', 'MN-3' or 'MN-4' ]-->
 <!--[ Enable tag below to change Header style (Only Mobile) ]-->
@@ -343,7 +345,7 @@ layout: null
 <input class='cmAl hidden' id='forAllCm' type='checkbox'/>
 <div class='cmShw'>
 <label class='cmBtn button ln' for='forComments'>
-<span>Join the conversation (2)</span>
+<span>Join the conversation</span>
 </label>
 </div>
 <section class='cm cmBr fixL' data-embed='true' data-num-comments='2' id='comments'>
@@ -351,7 +353,7 @@ layout: null
 <div class='cmBrs fixLs'>
 <div class='cmH fixH'>
 <h3 class='title'>
-2 comments
+comments
 </h3>
 <div class='cmI cl'>
 <label aria-label='' class='s' data-new='Newest' data-text='Oldest' for='forAllCm'></label>
@@ -401,14 +403,20 @@ Post a Comment
 <div class='adB h240' data-text='Ads go here (Middle Post Ad 01)'></div>
 </div>
 <script>/*<![CDATA[*/ middleAds('p',[['HTML01', 3]]) /*]]>*/</script>
-</div>
+</div>-->
 <div class='widget HTML' data-version='2' id='HTML02'>
 <div class='widget-content'>
-<div class='adB h240' data-text='Ads go here (Middle Post Ad 02)'></div>
+<div class="produk-showcase">
+  <div class="produk-box" id="EbookSI">
+    {% for post in site.posts limit: 10 %}
+    <div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazyload" src="data:," alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"><div class="lazy-loading"></div></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Lihat</a><div class="Rate" data-id="{{ post.url }}"></div></div></div>
+    {% endfor %}
+ </div>
+</div>
 </div>
 <script>/*<![CDATA[*/ middleAds('p',[['HTML02', 6]]) /*]]>*/</script>
 </div>
-<div class='widget HTML' data-version='2' id='HTML03'>
+<!--<div class='widget HTML' data-version='2' id='HTML03'>
 <div class='widget-content'>
 <div class='adB h240' data-text='Ads go here (Middle Post Ad 03)'></div>
 </div>
