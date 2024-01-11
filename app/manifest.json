@@ -69,7 +69,7 @@ layout: null
       "name": "Artikel",
       "short_name": "Artikel",
       "description": "{{ site.description }}",
-      "url": "/Artikel/?utm_source=homescreen",
+      "url": "/artikel/?utm_source=homescreen",
       "icons": [
         {
           "src": "media/android-icon-192x192.png",
