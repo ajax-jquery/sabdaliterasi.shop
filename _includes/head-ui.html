@@ -30,10 +30,57 @@
 {% include ld-json-home.html %}
  {% endif %}
 {% include gtag.html %}
-{% include aplikasi-pwa.html %}
+<link rel="sitemap" type="application/xml" title="Sitemap - {{ site.title }}" href="{{ site.url }}/sitemap_index.xml">
+<link rel="alternate" type="application/atom+xml" title="Atom - {{ site.title }}" href="{{ site.url }}/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title="RSS - {{ site.title }}" href="{{ site.url }}/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="Feed - {{ site.title }}" href="{{ site.url }}/feed.xml" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{ site.url }}/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{{ site.url }}/WP/wp-includes/wlwmanifest.xml" /> 
+<link rel="search" type="application/opensearchdescription+xml" href="{{ site.url }}/osd.xml" title="{{ site.title }}" /> 
+<link rel="alternate" type="text/xml+oembed" href="{{ site.url }}/embed.xml" /> 
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" /> 
+<meta name="application-name" content="{{ site.title }}" /> 
+<meta name="msapplication-window" content="width=device-width;height=device-height" /> 
+<meta name="msapplication-tooltip" content="{{ site.description }}" /> 
+<meta name="msapplication-task" content="name=Berlangganan;action-uri={{ site.url }}/rss;icon-uri={{ site.url }}/media/android-icon-192x192.png" />
+<meta name="googlebot-news" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /> 
+<meta content="all" name="Googlebot-Image" />
+<meta content="all" name="MSNBot" />
+<meta content="all" name="MSNBot-Media" />
+<meta content="all" name="spiders" />
+<meta content="all" name="WEBCRAWLERS" />
+<meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+<meta name="generator" content="Github.com" />
+{% include TagVerifikasi.html %}
+<meta content="global" name="target" />
+<meta content="global" name="distribution" />
+<meta content="general" name="rating" />
+<meta content="1 days" name="revisit-after" />
+<meta content="true" name="MSSmartTagsPreventParsing" />
+<link href='/app/icons/apple-icon-57x57.png' rel='apple-touch-icon' sizes='57x57'/>
+<link href='/app/icons/apple-icon-60x60.png' rel='apple-touch-icon' sizes='60x60'/>
+<link href='/app/icons/apple-icon-72x72.png' rel='apple-touch-icon' sizes='72x72'/>
+<link href='/app/icons/apple-icon-76x76.png' rel='apple-touch-icon' sizes='76x76'/>
+<link href='/app/icons/apple-icon-114x114.png' rel='apple-touch-icon' sizes='114x114'/>
+<link href='/app/icons/apple-icon-120x120.png' rel='apple-touch-icon' sizes='120x120'/>
+<link href='/app/icons/apple-icon-144x144.png' rel='apple-touch-icon' sizes='144x144'/>
+<link href='/app/icons/apple-icon-152x152.png' rel='apple-touch-icon' sizes='152x152'/>
+<link href='/app/icons/apple-icon-180x180.png' rel='apple-touch-icon' sizes='180x180'/>
+<link href='/app/icons/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'/>
+<link href='/app/icons/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'/>
+<link href='/app/icons/favicon-96x96.png' rel='icon' sizes='96x96' type='image/png'/>
+<link href='/app/icons/android-icon-192x192.png' rel='icon' sizes='192x192' type='image/png'/>
+<link href='/app/manifest.json' rel='manifest'/>
+<meta content='yes' name='mobile-web-app-capable'/>
+<meta content='{{ site.title }}' name='application-name'/>
+<meta content='#ffffff' name='theme-color'/>
+<meta content='yes' name='apple-mobile-web-app-capable'/>
+<meta content='{{ site.title }}' name='apple-mobile-web-app-title'/>
+<meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'/>
 <meta content='/app/browserconfig.xml' name='msapplication-config'/>
-<!--[ END: PWA Meta Tags ]-->
-<!--[ Start: Progressive Web App Script ]-->
+<meta content='/app/icons/ms-icon-144x144.png' name='msapplication-TileImage'/>
+<meta content='#ffffff' name='msapplication-TileColor'/>
 <script async='async' defer='defer' src='/app/pwa.js' type='module'></script>
 <!--[ Preconnect and DNS Prefetch ]-->
 <link href='//1.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//2.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//3.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//4.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//blogger.googleusercontent.com' rel='preconnect dns-prefetch'/><link href='//lh3.googleusercontent.com' rel='preconnect dns-prefetch'/><link href='//www.blogger.com' rel='preconnect dns-prefetch'/><link href='//feeds.feedburner.com' rel='preconnect dns-prefetch'/><link href='https://plus-ui.fineshopdesign.com/feeds/posts/default' rel='preconnect dns-prefetch'/><link href='https://plus-ui.fineshopdesign.com/feeds/comments/default' rel='preconnect dns-prefetch'/><link href='//cdn.widgetpack.com' rel='preconnect dns-prefetch'/><link href='//translate.google.com' rel='preconnect dns-prefetch'/><link href='//maxcdn.bootstrapcdn.com' rel='preconnect dns-prefetch'/><link href='//fonts.googleapis.com' rel='preconnect dns-prefetch'/><link href='//use.fontawesome.com' rel='preconnect dns-prefetch'/><link href='//ajax.googleapis.com' rel='preconnect dns-prefetch'/><link href='//resources.blogblog.com' rel='preconnect dns-prefetch'/><link href='//ajax.microsoft.com ' rel='preconnect dns-prefetch'/><link href='//ajax.aspnetcdn.com ' rel='preconnect dns-prefetch'/><link href='//github.com' rel='preconnect dns-prefetch'/><link href='//cdn.rawgit.com' rel='preconnect dns-prefetch'/><link href='//cdnjs.cloudflare.com' rel='preconnect dns-prefetch'/><link href='//www.google-analytics.com' rel='preconnect dns-prefetch'/><link href='//themes.googleusercontent.com ' rel='preconnect dns-prefetch'/><link href='//pagead2.googlesyndication.com' rel='preconnect dns-prefetch'/><link href='//googleads.g.doubleclick.net' rel='preconnect dns-prefetch'/><link href='//www.gstatic.com' rel='preconnect dns-prefetch'/><link href='//www.googletagservices.com' rel='preconnect dns-prefetch'/><link href='//static.xx.fbcdn.net' rel='preconnect dns-prefetch'/><link href='//tpc.googlesyndication.com' rel='preconnect dns-prefetch'/><link href='//apis.google.com' rel='preconnect dns-prefetch'/><link href='//www.w3.org' rel='preconnect dns-prefetch'/><link href='//www.facebook.com' rel='preconnect dns-prefetch'/><link href='//connect.facebook.net' rel='preconnect dns-prefetch'/><link href='//disqus.com' rel='preconnect dns-prefetch'/><link href='//plus.google.com' rel='preconnect dns-prefetch'/><link href='//twitter.com' rel='preconnect dns-prefetch'/><link href='//platform.twitter.com' rel='preconnect dns-prefetch'/><link href='//syndication.twitter.com' rel='preconnect dns-prefetch'/><link href='//r.twimg.com ' rel='preconnect dns-prefetch'/><link href='//p.twitter.com ' rel='preconnect dns-prefetch'/><link href='//cdn.api.twitter.com ' rel='preconnect dns-prefetch'/><link href='//www.youtube.com' rel='preconnect dns-prefetch'/><link href='//img.youtube.com' rel='preconnect dns-prefetch'/><link href='//www.pinterest.com' rel='preconnect dns-prefetch'/><link href='//statically.io/' rel='preconnect dns-prefetch'/><link href='//www.linkedin.com' rel='preconnect dns-prefetch'/><link href='//player.vimeo.com' rel='preconnect dns-prefetch'/><link href='//s3.amazonaws.com ' rel='preconnect dns-prefetch'/><link href='//s3.buysellads.com ' rel='preconnect dns-prefetch'/><link href='//stats.buysellads.com ' rel='preconnect dns-prefetch'/><link href='//cdn.adpacks ' rel='preconnect dns-prefetch'/>
