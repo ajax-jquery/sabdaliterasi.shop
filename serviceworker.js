@@ -1,10 +1,57 @@
 ---
 layout: null
 ---
-'use strict';const cacheName='{{ site.title }}';const startPage='{{ site.url }}';const offlinePage='{{ site.url }}/offline/';const filesToCache=[startPage,offlinePage];const neverCacheUrls=[/\/wp-admin/,/\/wp-login/,/preview=true/];self.addEventListener('install',function(e){console.log('SuperPWA service worker installation');e.waitUntil(caches.open(cacheName).then(function(cache){console.log('SuperPWA service worker caching dependencies');filesToCache.map(function(url){return cache.add(url).catch(function(reason){return console.log('SuperPWA: '+String(reason)+' '+url);});});}));});self.addEventListener('activate',function(e){console.log('PWA service worker activation');e.waitUntil(caches.keys().then(function(keyList){return Promise.all(keyList.map(function(key){if(key!==cacheName){console.log('PWA old cache removed',key);return caches.delete(key);}}));}));return self.clients.claim();});self.addEventListener('fetch',function(e){if(!neverCacheUrls.every(checkNeverCacheList,e.request.url)){console.log('PWA: Current request is excluded from cache.');return;}
-if(!e.request.url.match(/^(http|https):\/\//i))
-return;if(new URL(e.request.url).origin!==location.origin)
-return;if(e.request.method!=='GET'){e.respondWith(fetch(e.request).catch(function(){return caches.match(offlinePage);}));return;}
-if(e.request.mode==='navigate'&&navigator.onLine){e.respondWith(fetch(e.request).then(function(response){return caches.open(cacheName).then(function(cache){cache.put(e.request,response.clone());return response;});}));return;}
-e.respondWith(caches.match(e.request).then(function(response){return response||fetch(e.request).then(function(response){return caches.open(cacheName).then(function(cache){cache.put(e.request,response.clone());return response;});});}).catch(function(){return caches.match(offlinePage);}));});function checkNeverCacheList(url){if(this.match(url)){return false;}
-return true;}
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-sw.js');
+if (workbox) {
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
+workbox.core.setCacheNameDetails({
+  prefix: 'thn-sw',
+  suffix: 'v22',
+  precache: 'install-time',
+  runtime: 'run-time'
+});
+
+const FALLBACK_HTML_URL = '/offline/';
+const version = workbox.core.cacheNames.suffix;
+workbox.precaching.precacheAndRoute([{url: FALLBACK_HTML_URL, revision: null},{url: '/manifest.json', revision: null},{url: '/favicon.ico', revision: null}]);
+
+workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
+
+workbox.routing.registerRoute(
+    new RegExp('.(?:css|js|png|gif|jpg|svg|ico)$'),
+    new workbox.strategies.CacheFirst({
+        cacheName: 'images-js-css-' + version,
+        plugins: [
+            new workbox.expiration.ExpirationPlugin({
+                maxAgeSeconds: 60 * 24 * 60 * 60,
+                maxEntries:200,
+                purgeOnQuotaError: true
+            })
+        ],
+    }),'GET'
+);
+
+workbox.routing.setCatchHandler(({event}) => {
+      switch (event.request.destination) {
+        case 'document':
+        return caches.match(FALLBACK_HTML_URL);
+      break;
+      default:
+        return Response.error();
+  }
+});
+
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches
+      .keys()
+      .then(keys => keys.filter(key => !key.endsWith(version)))
+      .then(keys => Promise.all(keys.map(key => caches.delete(key))))
+  );
+});
+
+}
+else {
+    console.log('Boo! Workbox didnt load ');
+}
