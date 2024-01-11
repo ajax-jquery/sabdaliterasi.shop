@@ -4,7 +4,8 @@ layout: null
 {
   "BlogID_801953276432701327": {
 {% for P in site.artikel %}
-    "PostID_{{ P.content | size }}{{ P.date | date: "%Y%m%d%H%M" }}": {{ "130698" | forloop.index | times: 2 }},
+{% assign i = forloop.index | times: 2 %}
+    "PostID_{{ P.content | size }}{{ P.date | date: "%Y%m%d%H%M" }}": {{ "130698" | plus: i }},
 {% endfor %}
     "PostID_WebsiteStats": 48
   }
