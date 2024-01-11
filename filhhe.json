@@ -2,12 +2,10 @@
 layout: null
 ---
 {
-{% for p in site.posts %}
-{% assign i = forloop.index | plus: 1 %}
-  "sabdaliterasi_shop__{{ p.url | replace: "/","" }}": {
-    "nz3xtm0vc": 0.977,
-    "nz3xtn0vc": {{ "34195" | plus: i}},
-    "nz3xtnOvc": "sabdaliterasi_shop__{{ p.permalink | replace: "/","" }}"
-  }{% if forloop.last == false %},{% endif %}
- {% endfor %}
+  "BlogID_801953276432701327": {
+{% for P in site.artikel %}
+    "PostID_1298050093222355263": 6,
+{% endfor %}
+    "PostID_WebsiteStats": 48
+  }
 }
