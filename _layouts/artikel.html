@@ -210,7 +210,7 @@ layout: null
 <div class='pSh'>
 <div class='lbHt'>
 {% for TAG in page.keyword %} 
-<a aria-label='{{ TAG }}' href='{{ page.url | prepend: site.url }}#{{ TAG }}'>{{ TAG }}</a>
+<a aria-label='{{ TAG }}' href='{{ page.url | prepend: site.url }}#{{ TAG | repclace: "","" }}' id="{{ TAG | repclace: '','' }}"><strong>{{ TAG }}</strong></a>
 {% endfor %}    
 </div>
 <div class='pShc' data-text='Share:'>
