@@ -111,18 +111,15 @@ layout: null
 <script>/*<![CDATA[*/ var welElem = document.querySelector("#greetings"); var curHr = new Date().getHours(); var welMes = ["Semoga Mimpi Indah!", "Selamat Pagi!", "Selamat Siang!", "Selamat Malam!", "Selamat Malam!", "Saatnya tidur!"]; let welText = ""; if (curHr < 4) welText = welMes[0]; else if (curHr < 12) welText = welMes[1]; else if (curHr < 17) welText = welMes[2]; else if (curHr < 19) welText = welMes[3]; else if (curHr < 22) welText = welMes[4]; else welText = welMes[5]; welElem.setAttribute('data-text', welText); /*]]>*/</script>
 
   
-<div class='brdCmb' itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
-<div class='hm' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
-<a href='{{ site.url }}' itemprop='item'><span itemprop='name'>Home</span></a>
-<meta content='1' itemprop='position'/>
+<div class='brdCmb'>
+<div class='hm'>
+<a href='{{ site.url }}'><span>Home</span></a>
 </div>
-<div class='lb' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
-<a href='{{ "/artikel/" | prepend: site.url }}' itemprop='item'><span itemprop='name'>Artikel</span></a>
-<meta content='2' itemprop='position'/>
+<div class='lb'>
+<a href='{{ "/artikel/" | prepend: site.url }}'><span>Artikel</span></a>
 </div>
-<div class='lb' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
-<a href='{{ page.url | prepend: site.url }}#{{ page.tag }}' itemprop='item'><span itemprop='name'>{{ page.tag }}</span></a>
-<meta content='3' itemprop='position'/>
+<div class='lb'>
+<a href='{{ page.url | prepend: site.url }}#{{ page.tag }}'><span>{{ page.tag }}</span></a>
 </div>
 </div> 
 <h1 class='pTtl aTtl sml itm'>
