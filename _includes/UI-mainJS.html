@@ -1,7 +1,6 @@
 <script>
 var DISQUSWIDGETS,disqus_domain,disqus_shortname; typeof DISQUSWIDGETS==="undefined"&&(DISQUSWIDGETS=function(){var f=document,a=f.getElementById("dsq-count-scr"),a=a&&a.src.match(/(https?:)?\/\/(?:www\.)?([\w_\-]+)\.((?:dev\.)?disqus\.(?:com|org)(?::\d+)?)/i),e={},s=f.head||f.body,j={},q={identifier:1,url:2};e.domain=a&&a[3]||disqus_domain||"disqus.com";e.forum=a&&a[2]||disqus_shortname;e.proto=a&&a[1]||"";e.getCount=function(b){var c;c=encodeURIComponent;var a="https://sabda-literasi-palu.disqus.com/count-data.js?",d=[],k=0,l=10,r="",b=b||{};b.reset&& (j={},r="&_="+ +new Date);for(var b=[f.getElementsByTagName("A"),f.getElementsByClassName&&f.getElementsByClassName("DisCount")||[]],m,i,g,h,n=0;n<b.length;n++){m=b[n];for(var o=0;o<m.length;o++){i=m[o];g=i.getAttribute("data-disqus-identifier");h=i.hash==="#comment"&&i.href.replace("#comment","")||i.getAttribute("data-link");if(g)h=q.identifier;else if(h)g=h,h=q.url;else continue;var p;j.hasOwnProperty(g)?p=j[g]:(p=j[g]={elements:[],type:h},d.push(c(h)+"="+c(g)));p.elements.push(i)}}d.sort(); for(c=d.slice(k,l);c.length;)b=f.createElement("script"),b.src=a+c.join("&")+r,s.appendChild(b),k+=10,l+=10,c=d.slice(k,l)};e.displayCount=function(b){for(var c,a,d,e=b.counts,b=b.text.comments;c=e.shift();)if(a=j[c.id]){switch(c.comments){case 0:d=b.zero;break;case 1:d=b.one;break;default:d=b.multiple}c=d.replace("{num}",c.comments);a=a.elements;for(d=a.length-1;d>=0;d--)a[d].setAttribute("data-text",c)}};return e}());DISQUSWIDGETS.getCount();
 </script>
-
 <!--[ additional javascript ]-->
 <script>
 /*<![CDATA[*/
@@ -61,7 +60,7 @@ const PuSet = {
   },
   gTranslate: {
     pageLang: "id",
-    includedLangs: "en,hi,gu,bn,ta,te,mr,ne,id",
+    includedLangs: "en,hi,gu,bn,ta,te,mr,ne,id,iw,de,ar",
     autoDisplay: "true",
     multiLangPage: "true"
   },
@@ -69,12 +68,12 @@ const PuSet = {
     bmTitle: "Bookmark Posts",
     closeText: "Close",
     noBmIcon: "<svg class='line' viewBox='0 0 24 24'><g transform='translate(3.650100, 2.749900)'><path d='M16.51,5.55 L10.84,0.15 C10.11,0.05 9.29,0 8.39,0 C2.1,0 -1.95399252e-14,2.32 -1.95399252e-14,9.25 C-1.95399252e-14,16.19 2.1,18.5 8.39,18.5 C14.69,18.5 16.79,16.19 16.79,9.25 C16.79,7.83 16.7,6.6 16.51,5.55 Z'/><path d='M10.2839,0.0827 L10.2839,2.7437 C10.2839,4.6017 11.7899,6.1067 13.6479,6.1067 L16.5989,6.1067'/><line class='svgC' x1='10.6623' y1='10.2306' x2='5.7623' y2='10.2306'/><line class='svgC' x1='8.2131' y1='12.6808' x2='8.2131' y2='7.7808'/></g></svg>",
-    noBmMes: "The list of favorite articles does not exist yet...",
-    noBmAll: "View all articles",
-    noBmLink: "/search",
+    noBmMes: "Belum ada simpanan...",
+    noBmAll: "Liat Semua Bacaan",
+    noBmLink: "/",
     delIcon: "<svg class='line' viewBox='0 0 24 24'><g transform='translate(3.500000, 2.000000)'><path d='M15.3891429,7.55409524 C15.3891429,15.5731429 16.5434286,19.1979048 8.77961905,19.1979048 C1.01485714,19.1979048 2.19295238,15.5731429 2.19295238,7.55409524'/><line x1='16.8651429' y1='4.47980952' x2='0.714666667' y2='4.47980952'/><path d='M12.2148571,4.47980952 C12.2148571,4.47980952 12.7434286,0.714095238 8.78914286,0.714095238 C4.83580952,0.714095238 5.36438095,4.47980952 5.36438095,4.47980952'/></g></svg>",
-    addedNtf: "<i class='check'></i>Added to Bookmarks!",
-    removedNtf: "<i class='del'></i>Removed from Bookmarks!",
+    addedNtf: "<i class='check'></i>Disimpan",
+    removedNtf: "<i class='del'></i>Dihapus",
   },
   adsenseAds: {
     publisherId: ""/*caPubAdsense.replace('ca-pub-','')*/, /* Auto or replace with Publisher ID i.e. "000000000000", */
