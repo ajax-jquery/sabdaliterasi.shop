@@ -171,7 +171,8 @@ layout: null
     <tbody>
       <tr>
         <td>
-          <img alt="{{ page.title }}" src="{{ page.image }}?resize=1280%2C720&ssl=1"/>
+          <img class="lazy" alt="{{ page.title }}" width="1280" height="720" data-src="{{ page.image }}?resize=1280%2C720&ssl=1" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
+          <noscript><img alt="{{ page.title }}" width="1280" height="720" src="{{ page.image }}?resize=1280%2C720&ssl=1"/></noscript>
         </td>
       </tr>
       <tr>
