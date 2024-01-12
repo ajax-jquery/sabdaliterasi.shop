@@ -202,9 +202,36 @@ Type: <b>Ebook [PDF]</b><br>
 <h2>Deskripsi Buku</h2>
 {{ content }}  
 <h2>Wajib Baca</h2><p>Cara Membeli:</p><ol><li>Klik tombol <b>Beli Sekarang</b></li><li>Kamu akan diarahkan ke halaman pembayaran</li><li>Klik tombol <b>Buy Now</b></li><li>Saat muncul Pop-up, klik lagi <b>Buy Now</b></li><li>Masukkan data diri kamu yang tepat berupa <b>Email</b>, No Hp, dan Nama kamu.</li><li>Pilih Metode Pembayaran</li><li>Lakukan pembayaran</li><li>Kamu Akan menerima Link Baca Ebook Ini di Kotak Masuk email kamu.</li><li>Always Happy To Read The Ebook</li></ol></div>
+
+
 <script>
-!function(){let e=JSON.stringify({domain:"buy.sabdaliterasi.shop",allowDuplicates:!1,originalURL:"{{ page.url | prepend: site.url }}",path:"{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.url }}{% endif %}",title:"{{ page.title }}",redirectType:301}),t=new XMLHttpRequest;t.withCredentials=!0,t.addEventListener("readystatechange",function(){this.readyState===this.DONE&&console.log(this.responseText)}),t.open("POST","https://api.short.io/links/public"),t.setRequestHeader("accept","application/json"),t.setRequestHeader("content-type","application/json"),t.setRequestHeader("Authorization","pk_D9uOY0QQ1UkTpktw"),t.send(e)}();
-function lanjutBuy(){window.location.href = "{{ site.url }}/buy/?id={{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}"}
+var URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.url }}{% endif %}", 
+    JUDUL ='{{ page.title }}', 
+    CANONICAL="{{ page.url | prepend: site.url }}"; 
+  
+ const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    Authorization: 'pk_uvnA8OG11ZcdgrwI'
+  },
+  body: JSON.stringify({
+    domain: 'buy.sabdaliterasi.shop',
+    allowDuplicates: false,
+    originalURL: CANONICAL,
+    path: URL_ID,
+    title: JUDUL,
+    redirectType: 301
+  })
+};
+
+fetch('https://api.short.io/links/public', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+function lanjutBuy(){
+  window.location.href = "{{ site.url }}/buy/?id={{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}"}
 !function(B){var t=B.querySelector(".post-body .gambar-produk"),e=B.querySelector(".post .post-title");t||(e.style.float="none",e.style.paddingLeft="0")}(document);
   </script>
 </div>
