@@ -14,7 +14,7 @@ permalink: /feeds/posts/default/-/Features/
     
     "entry":[
         
-      {% assign poss = site.artikel | sort: "date" | reverse %}
+      {% assign poss = site.artikel | sort: "title" %}
   {% for post in poss limit: 3%}
       {
         "id":{"$t":"tag:blogger.com,1999:blog-801953276432701327.post-576615824737679485"},
