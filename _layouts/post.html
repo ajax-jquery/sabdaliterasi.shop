@@ -205,6 +205,7 @@ Type: <b>Ebook [PDF]</b><br>
 
 
 <script>
+function ShortLink(){
 var URL_ID = "{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.url }}{% endif %}", 
     JUDUL ='{{ page.title }}', 
     CANONICAL="{{ page.url | prepend: site.url }}"; 
@@ -230,6 +231,7 @@ fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
+    }
 function lanjutBuy(){
   window.location.href = "{{ site.url }}/buy/?id={{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}"}
 !function(B){var t=B.querySelector(".post-body .gambar-produk"),e=B.querySelector(".post .post-title");t||(e.style.float="none",e.style.paddingLeft="0")}(document);
@@ -315,7 +317,7 @@ function lanjutBuy(){
 </a>
 </div>
 <div data-text='Pinterest'>
-<a aria-label='Pinterest' data-pin-config='beside' href='https://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media=https://4.bp.blogspot.com/-h7L596y5eJE/YCn4vAO5mQI/AAAAAAAAQXY/iX-ptYVvnfcsNFe5DEhgLY9J_OAvy577wCNcBGAsYHQ/w1600/imagz-split.png' rel='noopener' target='_blank'>
+<a aria-label='Pinterest' data-pin-config='beside' href='https://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media={{ page.image }}' rel='noopener' target='_blank'>
 <svg viewBox='0 0 64 64'><path d='M14.4,53.8c2.4,2,6.1,0.6,6.8-2.4l0-0.1c0.4-1.8,2.4-10.2,3.2-13.7c0.2-0.9,0.2-1.8-0.1-2.7 C24.2,34,24,32.8,24,31.5c0-4.1,2.4-7.2,5.4-7.2c2.5,0,3.8,1.9,3.8,4.2c0,2.6-1.6,6.4-2.5,9.9c-0.7,3,1.5,5.4,4.4,5.4 c5.3,0,8.9-6.8,8.9-14.9c0-6.1-4.1-10.7-11.6-10.7c-8.5,0-13.8,6.3-13.8,13.4c0,2.4,0.7,4.2,1.8,5.5c0.5,0.6,0.6,0.9,0.4,1.6 c-0.1,0.5-0.4,1.8-0.6,2.2c-0.2,0.7-0.8,1-1.4,0.7c-3.9-1.6-5.7-5.9-5.7-10.7c0-8,6.7-17.5,20-17.5c10.7,0,17.7,7.7,17.7,16 c0,11-6.1,19.2-15.1,19.2c-1.9,0-3.8-0.7-5.2-1.6c-0.9-0.6-2.1-0.1-2.4,0.9c-0.5,1.9-1.1,4.3-1.3,4.9c-0.1,0.5-0.3,0.9-0.4,1.4 c-1,2.7,0.9,5.5,3.7,5.7c2.1,0.1,4.2,0,6.3-0.3c12.4-2,22.1-12.2,23.4-24.7C61.5,18.1,48.4,4,32,4C16.5,4,4,16.5,4,32 C4,40.8,8.1,48.6,14.4,53.8z'></path></svg>
 </a>
 </div>
@@ -343,7 +345,7 @@ function lanjutBuy(){
 </div>
 <div class='cpLn' id='cpNotif'></div>
 <script>
-function copyFunction(){document.getElementById('getlink').select(),document.execCommand('copy'),toastNotif('<i class="copy"></i>Link copied to clipboard'); if('vibrate' in navigator){navigator.vibrate([50])};}</script>
+function copyFunction(){document.getElementById('getlink').select(),document.execCommand('copy'),toastNotif('<i class="copy"></i>Link copied to clipboard'); if('vibrate' in navigator){navigator.vibrate([50])};ShortLink()}</script>
 </div>
 </div>
 </div>
