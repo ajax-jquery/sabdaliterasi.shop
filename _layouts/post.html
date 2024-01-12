@@ -1,0 +1,528 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html dir='ltr' lang='id'>
+<!--[ <head> Open ]-->
+{% include head-ui.html %}
+<body class='MN-3 mobS flT hdMn bD onItm onPs' id='mainCont'>
+<style>.databuku .product__warranty {
+    background: url(https://www.static-src.com/frontend/product-detail/static/img/ic-correct.ec4209ab.svg) center left no-repeat;
+    padding-left: 22px;
+}.databuku b {
+    color: var(--themeC);
+}
+  button.checkout-chat {
+    border-radius: 6px;
+    background: var(--linkC);
+    color: #fff;
+    padding: 12px 15px;
+    margin: 3px 5px 3px 0;
+    display: inline-block;
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+    line-height: 1;
+  }button.checkout-chat:hover{background: var(--themeC)}
+.post-single-produk .gambar-produk{margin-bottom:30px;text-align:center;float:left;width:38%;position:relative}@media screen and (max-width:480px){.post-single-produk .gambar-produk{float:none;max-width:85%;width:100%;margin:25px auto 0}}@media screen and (max-width:320px){.post-single-produk .gambar-produk{max-width:80%}}.post-single-produk .gambar-produk .gambar-slide{border-radius:12px;background:#eef1f4;max-width:100%;overflow:hidden}.post-single-produk .gambar-produk .gambar-slide img{width:100%;display:inline-block;vertical-align:top}.post-single-produk .gambar-produk .gambar-slide>img:not(:first-child){display:none}.post-single-produk .gambar-produk .status-produk{position:absolute;top:6px;left:6px;text-align:left}.post-single-produk .gambar-produk .status-produk div{border-radius:6px;display:none;vertical-align:top;background:#f26926;position:relative;padding:4px 8px;margin-bottom:4px;color:#fff;font-size:11px;font-size:1.1rem;text-transform:uppercase;line-height:1}.post-single-produk .gambar-produk .status-produk div:first-child{display:inline-block}.post-single-produk .gambar-produk .slider-indicator{position:absolute;bottom:0;left:0;right:0}.post-single-produk .gambar-produk .slider-indicator span.slider-nav{display:inline-block;width:8px;height:8px;border-radius:4px;padding:0;border:0;background:#fff;margin:0 3px;cursor:pointer;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}.post-single-produk .gambar-produk .slider-indicator span.slider-nav.active{background:#f26926}.post-single-produk .gambar-produk span.next-slide,.post-single-produk .gambar-produk span.prev-slide{display:none;position:absolute;top:50%;top:calc(50% + 10px);padding:0;border:0;background:transparent;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;height:20px;width:20px;-webkit-transform:translateY(-100%) rotate(45deg);transform:translateY(-100%) rotate(45deg);opacity:1}@media screen and (max-width:480px){.post-single-produk .gambar-produk span.next-slide,.post-single-produk .gambar-produk span.prev-slide{display:block}}.post-single-produk .gambar-produk span.next-slide{right:-25px;border-top:3px solid #f26926;border-right:3px solid #f26926}.post-single-produk .gambar-produk span.next-slide.is-last{opacity:0;right:0}.post-single-produk .gambar-produk span.prev-slide{left:-25px;border-bottom:3px solid #f26926;border-left:3px solid #f26926}.post-single-produk .gambar-produk span.prev-slide.is-first{opacity:0;left:0}.post-single-produk .post-title,.post-single-produk .deskripsi-produk,.post-single-produk .detail-produk{padding-left:30px;width:62%;float:right}@media screen and (max-width:768px){.post-single-produk .post-title,.post-single-produk .deskripsi-produk,.post-single-produk .detail-produk{padding-left:20px}}@media screen and (max-width:480px){.post-single-produk .post-title,.post-single-produk .deskripsi-produk,.post-single-produk .detail-produk{padding-left:0;float:none;width:100%;text-align:center}}@media screen and (max-width:480px){.post-single-produk .post-title{text-align:center;max-width:250px;margin:0 auto}}.post-single-produk .post-title h1{font-size:26px;font-size:2.6rem;margin:0;font-weight:700}@media screen and (max-width:480px){.post-single-produk .post-title h1{font-size:2rem}}.post-single-produk .post-title .produk-stokhabis,.post-single-produk .post-title .produk-pre-order{margin-top:15px;display:inline-block;padding:8px 12px;font-size:12px;text-transform:uppercase;line-height:1}.post-single-produk .post-title .produk-pre-order{background:#598d3b;color:#fff}.post-single-produk .post-title .produk-stokhabis{background:#727272;color:#fff}.post-single-produk .post-title.produk-stokhabis+.post-body .harga-produk{display:none}.post-single-produk .detail-produk .harga-produk{font-size:24px;font-size:2.4rem;line-height:1.2;font-weight:900;color: var(--linkC)}.post-single-produk .detail-produk .harga-produk s,.post-single-produk .detail-produk .harga-produk strike{font-size:16px;font-size:1.6rem;margin-bottom:2px;margin-bottom:.2rem;line-height:1;display:block;color:#b73d2b}@media screen and (max-width:480px){.post-single-produk .detail-produk .harga-produk{text-align:center;font-size:2rem;margin:20px 0 25px}.post-single-produk .detail-produk .harga-produk s,.post-single-produk .detail-produk .harga-produk strike{font-size:1.4rem}}.post-single-produk .detail-produk .opsi-produk{margin-top:25px;margin-top:2.5rem}.post-single-produk .detail-produk .opsi-produk select{display:block}.post-single-produk .deskripsi-produk{margin-top:25px;margin-bottom:30px}.post-single-produk .deskripsi-produk-panjang{border-radius:12px;position:relative;display:block;clear:both;margin-top:30px;padding:25px;border:2px dashed rgba(152,159,167,0.29);background:rgba(186,194,203,0.08)}@media screen and (max-width:480px){.post-single-produk .deskripsi-produk-panjang{padding:15px}}.post-single-produk .link-marketplace{display:none}.drK .produk-showcase .desk-produk span,.drK .produk-showcase .desk-produk .harga-produk{color: var(--darkT);}.produk-showcase{width:100%;height:auto;margin-bottom:25px;padding:0}.produk-showcase .produk-box{width:100%;height:auto;overflow-x:scroll;overflow-y:hidden;padding:10px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:block;white-space:nowrap}.produk-showcase .produk-box::-webkit-scrollbar{width:2px;height:8px}.produk-showcase .produk-box::-webkit-scrollbar-thumb{background-color:var(--themeC)}.produk-showcase .produk-header{background:var(--themeC);color:var(--darkT);font-family:Roboto,sans-serif;font-size:16px;font-weight:700;margin:0;padding:0 10px;display:block;text-align:left;height:30px;line-height:30px;text-transform:uppercase}.produk-showcase .produk{background:rgba(153,163,173,0.08);position:relative;margin-right:6px;width:150px;min-height:277px;height:auto;border:1px solid var(--themeC);border-radius:10px;overflow:hidden;display:inline-grid;white-space:normal}.produk-showcase .produk.last{margin-right:0}.produk-showcase .img-product{width:100%;height:auto;position:absolute;top:0;left:0}.produk-showcase .img-product img{width:100%;height:auto;display:block}.produk-showcase .desk-produk{margin-top:160px;position:relative;padding:10px 10px 10px}.produk-showcase .desk-produk span{width: 132px;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;color:#333;font-family:Roboto,sans-serif;font-size:14px;font-weight:600;margin-bottom:5px;line-height:1.1;display:block}.produk-showcase .desk-produk .harga-produk{color:var(--themeC)b0;font-family:Roboto,sans-serif;font-size:14px;font-weight:700;margin-bottom:5px;line-height:1.1;display:block}.produk-showcase .desk-produk a.link-produk{border-radius: 6px;background:var(--themeC);color:var(--darkT);font-family:Roboto,sans-serif;font-size:14px;font-weight:500;padding:8px 12px;display:block;text-align:center}.produk-showcase .google-auto-placed{display:none}
+</style>
+<!--[ Show only one grid column in Mobile ]-->
+<!--[ Enable tag below to change Mobile Menu style, try 'MN-2', 'MN-3' or 'MN-4' ]-->
+<!--[ Enable tag below to change Header style (Only Mobile) ]-->
+<!--<b:class name='HD-2'/>-->
+<!--[ Enable tag below to make some Elements floating ]-->
+<!--[ Enable tag below to minimize Navigation Menu in desktop ]-->
+<!--[ Change basic layout style in desktop, try 'LS-2' or 'LS-3' ]-->
+<!--<b:class name='LS-2'/>-->
+<!--[ Active function ]-->
+<input class='prfI hidden' id='offPrf' type='checkbox'/>
+<input class='navI hidden' id='offNav' type='checkbox'/>
+<input class='navM hidden' id='onMode' type='checkbox'/>
+<!--[ Preloader ]-->
+<!--[ Disable all the codes to remove preloader ]-->
+<!--<div class='pldW' id='preloader'> <div class='pldS'/> </div> <script>/*<![CDATA[*/ var preloader=document.querySelector('#preloader'); preloader.classList.add('e'); document.addEventListener('DOMContentLoaded', function(){setTimeout(function(){preloader.classList.add('h')},2000); neonLight(5000);}); /*]]>*/</script>-->
+<!--[ Toast Notif ]-->
+<div class='tNtf alt notranslate' id='toastNotif'></div>
+<!--[ Fixed Notif ]-->
+<div id='fixedNotif'></div>
+<!--[ Neon Lighting ]-->
+<div class='nLght' id='neonLight'></div>
+{% include UI-license.html %}
+<div class='mntnM'>
+<!--[ Maintenance Mode ]-->
+<div class='no-items section' id='maintenance-mode'>
+</div>
+</div>
+<div class='mainWrp'>
+<!--[ Header section ]-->
+{% include UI-header.html %}
+<!--[ Content section ]-->
+<div class='mainIn'>
+<!--[ Menu content ]-->
+<div class='blogMn'>
+<div class='mnBr'>
+<div class='mnBrs'>
+<div class='mnH'>
+<label aria-label='Close' class='c' data-text='Close' for='offNav'></label>
+</div>
+<!--[ Mobile additional menu(only shown in mobile view) ]-->
+<div class='mnMob section' id='nav-widget-1'>
+    <div class='widget PageList hidden' data-version='2' id='PageList002'>
+{% include UI-navpage.html %}
+    </div>
+    <div class='widget LinkList' data-version='2' id='LinkList002'>
+<div class='mNav'>
+<label class='tIc bIc' for='offNav'>
+<svg viewBox='0 0 512 512'><path d='M417.4,224H288V94.6c0-16.9-14.3-30.6-32-30.6c-17.7,0-32,13.7-32,30.6V224H94.6C77.7,224,64,238.3,64,256 c0,17.7,13.7,32,30.6,32H224v129.4c0,16.9,14.3,30.6,32,30.6c17.7,0,32-13.7,32-30.6V288h129.4c16.9,0,30.6-14.3,30.6-32 C448,238.3,434.3,224,417.4,224z'></path></svg>
+</label>
+</div>
+{% include UI-navsosmed.html %}
+</div></div>
+<div class='mnMen section' id='nav-widget-2'><div class='widget HTML' data-version='2' id='HTML000'>
+{% include UI-mainnav.html %}
+</div>
+</div>
+</div>
+</div>
+<label class='fCls' for='offNav'></label>
+</div>
+<!--[ Blog content ]-->
+<div class='blogCont'>
+<div class='secIn'>
+<div class='section' id='notif-widget'><div class='widget LinkList hidden' data-version='2' id='LinkList001'>
+{% include UI-navtag.html %}
+</div><div class='widget HTML' data-version='2' id='HTML0'>
+<input checked='checked' class='ntfI hidden' id='forNft' type='checkbox'/>
+<div class='ntfC'>
+<div class='ntfT'><!--[ Your content here, Lorem ipsum dolor sit amet, consectetur adipiscing elit. ]-->
+
+<!--[ Alternatif content with button link ]-->
+<div class='ntfA'>
+{% assign posta = site.artikel | sort: "date" | reverse %}{% for post in posta limit: 1 %}
+<span>New Post: {{ post.title }} </span> <a title="{{ post.title }}" href='{{ post.url | prepend: site.url }}' target='_blank'>Read</a>
+{% endfor %}
+</div></div>
+<label aria-label='Close Menu' class='c' for='forNft'></label>
+</div>
+<script>/*<![CDATA[*/ let notIn = qSel("#forNft"); if (Pu.gC("NOTIF_CLOSE") == undefined) {notIn.checked = !1; notIn.addEventListener("change", function(){if (this.checked == !0){Pu.sC("NOTIF_CLOSE", 1 , {secure: !0, "max-age": 1800})} });}; /*]]>*/</script>
+</div></div>
+<!--[ Ad content ]-->
+<div class='blogAd'>
+<div class='no-items section' id='horizontal-ad'>
+</div>
+</div>
+<div class='blogM'>
+<!--[ Main content ]-->
+<main class='blogItm mainbar'>
+<div class='section' id='main-widget'>
+<div class='widget Blog' data-version='2' id='Blog1'>
+<div class='blogPts'>
+<article class='ntry ps post'>
+<div class='pGV'>
+<span class='pGrt' data-text='Welcome!' id='greetings'>
+<svg viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' fill-rule='evenodd'></path><path class='svgC' d='M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683z'></path><path class='svgC' d='M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z'></path></svg>
+</span>
+<span class='pVws hidden pu-views' data-add='true' data-id='{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}'>
+<svg class='line' viewBox='0 0 24 24'><g transform='translate(2.000000, 4.000000)'><path class='svgC' d='M13.1643,8.0521 C13.1643,9.7981 11.7483,11.2141 10.0023,11.2141 C8.2563,11.2141 6.8403,9.7981 6.8403,8.0521 C6.8403,6.3051 8.2563,4.8901 10.0023,4.8901 C11.7483,4.8901 13.1643,6.3051 13.1643,8.0521 Z'></path><path d='M0.7503,8.0521 C0.7503,11.3321 4.8923,15.3541 10.0023,15.3541 C15.1113,15.3541 19.2543,11.3351 19.2543,8.0521 C19.2543,4.7691 15.1113,0.7501 10.0023,0.7501 C4.8923,0.7501 0.7503,4.7721 0.7503,8.0521 Z'></path></g></svg>
+</span>
+</div>
+<script>/*<![CDATA[*/ var welElem = document.querySelector("#greetings"); var curHr = new Date().getHours(); var welMes = ["Semoga Mimpi Indah!", "Selamat Pagi!", "Selamat Siang!", "Selamat Malam!", "Selamat Malam!", "Saatnya tidur!"]; let welText = ""; if (curHr < 4) welText = welMes[0]; else if (curHr < 12) welText = welMes[1]; else if (curHr < 17) welText = welMes[2]; else if (curHr < 19) welText = welMes[3]; else if (curHr < 22) welText = welMes[4]; else welText = welMes[5]; welElem.setAttribute('data-text', welText); /*]]>*/</script>
+
+  
+<div class='brdCmb' itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
+<div class='hm' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
+<a href='{{ site.url }}' itemprop='item'><span itemprop='name'>Home</span></a>
+<meta content='1' itemprop='position'/>
+</div>
+<div class='lb' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
+<a href='{{ "/artikel/" | prepend: site.url }}' itemprop='item'><span itemprop='name'>Artikel</span></a>
+<meta content='2' itemprop='position'/>
+</div>
+<div class='lb' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
+<a href='{{ page.url | prepend: site.url }}#{{ page.author }}' itemprop='item'><span itemprop='name'>{{ page.author }}</span></a>
+<meta content='3' itemprop='position'/>
+</div>
+</div> 
+<h1 class='pTtl aTtl sml itm'>
+<span>
+{{ page.title }}
+</span>
+</h1>
+<div class='pDesc'>{{ page.description }}</div>
+<div class='pInf pSml ps'>
+<div class='pIm'>
+<div class='im lazy lazy' data-style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'>
+</div>
+<noscript><div class='im' style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'></div></noscript>
+</div>
+<div class='pNm'>
+<a aria-label='{{ site.title }}' class='nm' data-text='{{ site.title }}' data-write='Published by' href='{{ site.url }}' rel='author noreferrer' target='_blank'>
+</a>
+<div class='pDr'>
+<bdi class='pDt pIn'>
+<time class='aTtmp pTtmp pbl' data-text='{{ page.date | date: "%B %d, %Y" }}' data-time='{{ page.date | date: "%b %d, %Y" }}' datetime='{{ page.date | date_to_xmlschema }}' title='Published: {{ page.date | date: "%B %d, %Y" }}'></time>
+</bdi>
+<div class='pRd pIn'><bdi id='rdTime'></bdi></div>
+</div>
+</div>
+<div class='pCm l'>
+<div class='pIc'>
+<label aria-label='Read later' bm-id='{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}' bm-img='{{ page.image }}?resize=240%2C240&ssl=1' bm-ttl='{{ page.title }}' bm-url='{{ page.url | prepend: site.url }}' class='bmPs tIc' data-added='Remove'>
+<svg class='line' viewBox='0 0 24 24'><g transform='translate(4.500000, 2.500000)'><path d='M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z'></path><line class='svgC v' transform='translate(-4.500000, -2.500000)' x1='12' x2='12' y1='6' y2='12'></line><line class='svgC h' transform='translate(-4.500000, -2.500000)' x1='15' x2='9' y1='9' y2='9'></line></g></svg>
+</label>
+<label data-LINK="{{ page.url | prepend: site.url }}" class='cmnt tIc DisCount' data-text='2' for='forComments'>
+<svg class='line' viewBox='0 0 24 24'><g transform='translate(2.000000, 2.000000)'><path d='M17.0710351,17.0698449 C14.0159481,20.1263505 9.48959549,20.7867004 5.78630747,19.074012 C5.23960769,18.8538953 1.70113357,19.8338667 0.933341969,19.0669763 C0.165550368,18.2990808 1.14639409,14.7601278 0.926307229,14.213354 C-0.787154393,10.5105699 -0.125888852,5.98259958 2.93020311,2.9270991 C6.83146881,-0.9756997 13.1697694,-0.9756997 17.0710351,2.9270991 C20.9803405,6.8359285 20.9723008,13.1680512 17.0710351,17.0698449 Z'></path></g></svg>
+</label>
+<label class='sh tIc' for='forShare'>
+<svg class='line' viewBox='0 0 24 24'><path d='M16.44 8.8999C20.04 9.2099 21.51 11.0599 21.51 15.1099V15.2399C21.51 19.7099 19.72 21.4999 15.25 21.4999H8.73998C4.26998 21.4999 2.47998 19.7099 2.47998 15.2399V15.1099C2.47998 11.0899 3.92998 9.2399 7.46998 8.9099'></path><path class='svgC' d='M12 15.0001V3.62012'></path><path class='svgC' d='M15.35 5.85L12 2.5L8.65002 5.85'></path></svg>
+</label>
+</div>
+</div>
+</div>
+<div class='pInr'>
+<div class='pAd'>
+</div>
+<div class='pEnt' id='postID-{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}'>
+<div class='pS post-body postBody' id='postBody'>
+<div class="post-container post-single post-single-produk">
+<div class="post-body">
+<div class="gambar-produk">
+<div class="gambar-slide">
+<div class="lbImg"><img loading="lazy" alt="{{ page.title }}" src="{{ page.image }}"></div>
+</div><div class="status-produk"></div></div><div class="detail-produk"><div class="harga-produk">{{ page.harga }}</div></div><div class="deskripsi-produk">
+<div class="databuku">
+Penulis: <b>{{ page.author }}</b><br>
+Bahasa: <b>Indonesia</b><br>
+Type: <b>Ebook [PDF]</b><br>
+<b class="product__warranty">EBOOK 100% ORIGINAL</b><br>
+<b class="product__warranty">PEMBAYARAN OTOMATIS</b>
+</div>
+<div class="call-to-action1"><button class="checkout-chat" onclick="lanjutBuy()"><span>Beli Sekarang</span></button></div></div>
+<div class="deskripsi-produk-panjang">
+<h2>Deskripsi Buku</h2>
+{{ content }}  
+<h2>Wajib Baca</h2><p>Cara Membeli:</p><ol><li>Klik tombol <b>Beli Sekarang</b></li><li>Kamu akan diarahkan ke halaman pembayaran</li><li>Klik tombol <b>Buy Now</b></li><li>Saat muncul Pop-up, klik lagi <b>Buy Now</b></li><li>Masukkan data diri kamu yang tepat berupa <b>Email</b>, No Hp, dan Nama kamu.</li><li>Pilih Metode Pembayaran</li><li>Lakukan pembayaran</li><li>Kamu Akan menerima Link Baca Ebook Ini di Kotak Masuk email kamu.</li><li>Always Happy To Read The Ebook</li></ol></div>
+<script>
+!function(){let e=JSON.stringify({domain:"buy.sabdaliterasi.shop",allowDuplicates:!1,originalURL:"{{ page.url | prepend: site.url }}",path:"{% if page.buy %}{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}{% else %}{{ page.url }}{% endif %}",title:"{{ page.title }}",redirectType:301}),t=new XMLHttpRequest;t.withCredentials=!0,t.addEventListener("readystatechange",function(){this.readyState===this.DONE&&console.log(this.responseText)}),t.open("POST","https://api.short.io/links/public"),t.setRequestHeader("accept","application/json"),t.setRequestHeader("content-type","application/json"),t.setRequestHeader("Authorization","pk_D9uOY0QQ1UkTpktw"),t.send(e)}();
+function lanjutBuy(){window.location.href = "{{ site.url }}/buy/?id={{ page.buy | replace:'https://lynk.id/sabdaliterasi/','' }}"}
+!function(B){var t=B.querySelector(".post-body .gambar-produk"),e=B.querySelector(".post .post-title");t||(e.style.float="none",e.style.paddingLeft="0")}(document);
+  </script>
+</div>
+</div>
+
+<script>/*<![CDATA[*/ document.addEventListener('DOMContentLoaded', function() {function checkChildren(nodes, elemId){for(i=0;i<nodes.length;i++){if(nodes[i].id==elemId){return nodes[i];}else{return checkChildren(nodes[i].children, elemId);}}} function isNumeric(value) {var type = typeof value; return (type === 'number' || type === 'string') && !Number.isNaN(value - Number.parseFloat(value));} var nodes = document.querySelector('div.postBody').children; var splitdong = checkChildren(nodes, 'postSplit').innerHTML; var content = splitdong.split('<p></p>'); var url = window.location.href; var url = url.split('?page='); var no = url[1] + '&m=4'; var no = no.split('m'); var no = no[0]; var no = no.replace('&', ''); var url = url[0]; var i = 1; if( !isNumeric(no) ){var no = 1;} document.getElementById('postSplit').innerHTML = content[no-1]; if( content.length > 1 ) {document.getElementById('postSplit').innerHTML += "<div class='blogPg' id='postPager'><span class='page current'>Pages :</span></div>";} if( no>1 ){document.getElementById('postPager').innerHTML += "<!-- <a href='"+url+"?page="+(no-1)+"' title='Previous Page'>Prev</a> -->";} content.forEach(function(item) { if( no == i ){document.getElementById('postPager').innerHTML += "<span class='current'>"+i+"</span>";} else {document.getElementById('postPager').innerHTML += "<a href='"+url+"?page="+i+"'>"+i+"</a>";} i++; }); if(content.length > no){ var nn = parseInt(no) + 1; document.getElementById('postPager').innerHTML += "<a href='"+url+"?page="+nn+"'>Next</a>";} }); /*]]>*/</script>
+<div id='aChp'></div>
+</div>
+</div>
+<div class='blog-admin qEdit' id='qEdit'><input class='qeMn hidden' id='offqeMn' type='checkbox'/><label class='qeBtn' for='offqeMn'><svg class='line svg-1' viewBox='0 0 24 24'><g transform='translate(3.500000, 2.500000)'><path class='svgC' d='M8.5,7 C9.88088012,7 11,8.11911988 11,9.5 C11,10.8808801 9.88088012,12 8.5,12 C7.11911988,12 6,10.8808801 6,9.5 C6,8.11911988 7.11911988,7 8.5,7 Z'></path><path d='M16.6680023,4.75024695 L16.6680023,4.75024695 C15.9844554,3.55799324 14.4712377,3.15003899 13.2885153,3.83852352 C12.2597626,4.43613205 10.9740669,3.68838056 10.9740669,2.49217572 C10.9740669,1.11619444 9.86587758,0 8.4997646,0 L8.4997646,0 C7.13365161,0 6.02546233,1.11619444 6.02546233,2.49217572 C6.02546233,3.68838056 4.73976662,4.43613205 3.71199461,3.83852352 C2.52829154,3.15003899 1.01507378,3.55799324 0.331526939,4.75024695 C-0.351039204,5.94250065 0.053989269,7.46664934 1.23769234,8.15414609 C2.26546435,8.7527424 2.26546435,10.2472576 1.23769234,10.8458539 C0.053989269,11.5343384 -0.351039204,13.0584871 0.331526939,14.2497531 C1.01507378,15.4420068 2.52829154,15.849961 3.71101391,15.1624643 L3.71199461,15.1624643 C4.73976662,14.5638679 6.02546233,15.3116194 6.02546233,16.5078243 L6.02546233,16.5078243 C6.02546233,17.8838056 7.13365161,19 8.4997646,19 L8.4997646,19 C9.86587758,19 10.9740669,17.8838056 10.9740669,16.5078243 L10.9740669,16.5078243 C10.9740669,15.3116194 12.2597626,14.5638679 13.2885153,15.1624643 C14.4712377,15.849961 15.9844554,15.4420068 16.6680023,14.2497531 C17.3515491,13.0584871 16.9455399,11.5343384 15.7628176,10.8458539 L15.7618369,10.8458539 C14.7340648,10.2472576 14.7340648,8.7527424 15.7628176,8.15414609 C16.9455399,7.46664934 17.3515491,5.94250065 16.6680023,4.75024695 Z'></path></g></svg><svg class='svg-2 line' viewbox='0 0 24 24'><line x1='18' x2='6' y1='6' y2='18'></line><line x1='6' x2='18' y1='6' y2='18'></line></svg></label><div class='qeBtns'><a class='qeBtn a' href='https://www.blogger.com/blog/settings/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Settings'><svg class='line svg-1' viewBox='0 0 24 24'><g transform='translate(3.500000, 2.500000)'><path class='svgC' d='M8.5,7 C9.88088012,7 11,8.11911988 11,9.5 C11,10.8808801 9.88088012,12 8.5,12 C7.11911988,12 6,10.8808801 6,9.5 C6,8.11911988 7.11911988,7 8.5,7 Z'></path><path d='M16.6680023,4.75024695 L16.6680023,4.75024695 C15.9844554,3.55799324 14.4712377,3.15003899 13.2885153,3.83852352 C12.2597626,4.43613205 10.9740669,3.68838056 10.9740669,2.49217572 C10.9740669,1.11619444 9.86587758,0 8.4997646,0 L8.4997646,0 C7.13365161,0 6.02546233,1.11619444 6.02546233,2.49217572 C6.02546233,3.68838056 4.73976662,4.43613205 3.71199461,3.83852352 C2.52829154,3.15003899 1.01507378,3.55799324 0.331526939,4.75024695 C-0.351039204,5.94250065 0.053989269,7.46664934 1.23769234,8.15414609 C2.26546435,8.7527424 2.26546435,10.2472576 1.23769234,10.8458539 C0.053989269,11.5343384 -0.351039204,13.0584871 0.331526939,14.2497531 C1.01507378,15.4420068 2.52829154,15.849961 3.71101391,15.1624643 L3.71199461,15.1624643 C4.73976662,14.5638679 6.02546233,15.3116194 6.02546233,16.5078243 L6.02546233,16.5078243 C6.02546233,17.8838056 7.13365161,19 8.4997646,19 L8.4997646,19 C9.86587758,19 10.9740669,17.8838056 10.9740669,16.5078243 L10.9740669,16.5078243 C10.9740669,15.3116194 12.2597626,14.5638679 13.2885153,15.1624643 C14.4712377,15.849961 15.9844554,15.4420068 16.6680023,14.2497531 C17.3515491,13.0584871 16.9455399,11.5343384 15.7628176,10.8458539 L15.7618369,10.8458539 C14.7340648,10.2472576 14.7340648,8.7527424 15.7628176,8.15414609 C16.9455399,7.46664934 17.3515491,5.94250065 16.6680023,4.75024695 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/comments/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Comments'><svg class='line' viewBox='0 0 24 24'><g transform='translate(2.000000, 2.000000)'><line class='svgC' x1='13.9394' x2='13.9484' y1='10.413' y2='10.413'></line><line class='svgC' x1='9.9304' x2='9.9394' y1='10.413' y2='10.413'></line><line class='svgC' x1='5.9214' x2='5.9304' y1='10.413' y2='10.413'></line><path d='M17.0710351,17.0698449 C14.0159481,20.1263505 9.48959549,20.7867004 5.78630747,19.074012 C5.23960769,18.8538953 1.70113357,19.8338667 0.933341969,19.0669763 C0.165550368,18.2990808 1.14639409,14.7601278 0.926307229,14.213354 C-0.787154393,10.5105699 -0.125888852,5.98259958 2.93020311,2.9270991 C6.83146881,-0.9756997 13.1697694,-0.9756997 17.0710351,2.9270991 C20.9803405,6.8359285 20.9723008,13.1680512 17.0710351,17.0698449 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/feeds/801953276432701327/archive' rel='nofollow noopener noreferrer' title='Backup content'><svg class='line' viewBox='0 0 24 24'><polyline class='svgC' points='8 17 12 21 16 17'></polyline><line class='svgC' x1='12' x2='12' y1='12' y2='21'></line><path d='M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29'></path></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/stats/week/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='7-days blog stats'><svg class='line' viewBox='0 0 24 24'><g transform='translate(2.300000, 2.300000)'><line class='svgC' x1='5.18305279' x2='5.18305279' y1='7.960947' y2='14.6546312'></line><line class='svgC' x1='9.73684179' x2='9.73684179' y1='4.757368' y2='14.6552627'></line><line class='svgC' x1='14.2156838' x2='14.2156838' y1='11.498211' y2='14.6550531'></line><path d='M-3.55271368e-14,9.73684211 C-3.55271368e-14,2.43473684 2.43473684,2.13162821e-14 9.73684211,2.13162821e-14 C17.0389474,2.13162821e-14 19.4736842,2.43473684 19.4736842,9.73684211 C19.4736842,17.0389474 17.0389474,19.4736842 9.73684211,19.4736842 C2.43473684,19.4736842 -3.55271368e-14,17.0389474 -3.55271368e-14,9.73684211 Z'></path></g></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/posts/801953276432701327' rel='nofollow noopener noreferrer' target='_blank' title='Dashboard'><svg class='line' viewBox='0 0 24 24'><line x1='8' x2='21' y1='6' y2='6'></line><line x1='8' x2='21' y1='12' y2='12'></line><line x1='8' x2='21' y1='18' y2='18'></line><line class='svgC' x1='3' x2='3.01' y1='6' y2='6'></line><line class='svgC' x1='3' x2='3.01' y1='12' y2='12'></line><line class='svgC' x1='3' x2='3.01' y1='18' y2='18'></line></svg></a><a class='qeBtn a' href='https://www.blogger.com/blog/post/edit/801953276432701327/{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}' rel='nofollow noopener noreferrer' target='_blank' title='Edit post'><svg class='line' viewBox='0 0 24 24'><path d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'></path><path class='svgC' d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'></path></svg></a></div><label class='fCls' for='offqeMn'></label></div>
+<div class='pAd'>
+</div>
+<script>/*<![CDATA[*/ function get_text(el) {ret = ''; var length = el.childNodes.length; for(var i = 0; i < length; i++) {var node = el.childNodes[i]; if(node.nodeType != 8) {ret += node.nodeType != 1 ? node.nodeValue : get_text(node);} } return ret;} var words = get_text(document.getElementById('postBody')); var count = words.split(' ').length; var avg = 200; var counted = count / avg; var maincount = Math.round(counted); document.getElementById('rdTime').innerHTML = 'Estimated read time: ' + maincount + ' min'; /*]]>*/</script>
+<div class='admAbt'>
+<h2 class='title dt'>About Us</h2>
+<div class='admPs'>
+<div class='admIm'>
+<div class='im lazy lazy' data-style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'>
+</div>
+<noscript><div class='im' style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'></div></noscript>
+</div>
+<div class='admI'>
+<bdi class='admN' data-text='{{ site.title }}' data-write='Posted by'></bdi>
+<div class='admA'>
+{{ site.description }}
+</div>
+</div>
+</div>
+</div>
+<div class='pSh'>
+<div class='lbHt'>
+{% for TAG in page.keyword %} 
+<a aria-label='{{ TAG }}' href='{{ page.url | prepend: site.url }}#{{ TAG }}'><strong>{{ TAG }}</strong></a>
+{% endfor %}    
+</div>
+<div class='pShc' data-text='Share:'>
+<a aria-label='Facebook' class='c fb' data-text='Share' href='https://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}' rel='noopener' role='button' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M20.1,36h3.4c0.3,0,0.6,0.3,0.6,0.6V58c0,1.1,0.9,2,2,2h7.8c1.1,0,2-0.9,2-2V36.6c0-0.3,0.3-0.6,0.6-0.6h5.6 c1,0,1.9-0.7,2-1.7l1.3-7.8c0.2-1.2-0.8-2.4-2-2.4h-6.6c-0.5,0-0.9-0.4-0.9-0.9v-5c0-1.3,0.7-2,2-2h5.9c1.1,0,2-0.9,2-2V6.2 c0-1.1-0.9-2-2-2h-7.1c-13,0-12.7,10.5-12.7,12v7.3c0,0.3-0.3,0.6-0.6,0.6h-3.4c-1.1,0-2,0.9-2,2v7.8C18.1,35.1,19,36,20.1,36z'></path></svg>
+</a>
+<a aria-label='Whatsapp' class='c wa' data-text='Share' href='https://api.whatsapp.com/send?text={{ page.url | prepend: site.url }}' rel='noopener' role='button' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M6.9,48.4c-0.4,1.5-0.8,3.3-1.3,5.2c-0.7,2.9,1.9,5.6,4.8,4.8l5.1-1.3c1.7-0.4,3.5-0.2,5.1,0.5 c4.7,2.1,10,3,15.6,2.1c12.3-1.9,22-11.9,23.5-24.2C62,17.3,46.7,2,28.5,4.2C16.2,5.7,6.2,15.5,4.3,27.8c-0.8,5.6,0,10.9,2.1,15.6 C7.1,44.9,7.3,46.7,6.9,48.4z M21.3,19.8c0.6-0.5,1.4-0.9,1.8-0.9s2.3-0.2,2.9,1.2c0.6,1.4,2,4.7,2.1,5.1c0.2,0.3,0.3,0.7,0.1,1.2 c-0.2,0.5-0.3,0.7-0.7,1.1c-0.3,0.4-0.7,0.9-1,1.2c-0.3,0.3-0.7,0.7-0.3,1.4c0.4,0.7,1.8,2.9,3.8,4.7c2.6,2.3,4.9,3,5.5,3.4 c0.7,0.3,1.1,0.3,1.5-0.2c0.4-0.5,1.7-2,2.2-2.7c0.5-0.7,0.9-0.6,1.6-0.3c0.6,0.2,4,1.9,4.7,2.2c0.7,0.3,1.1,0.5,1.3,0.8 c0.2,0.3,0.2,1.7-0.4,3.2c-0.6,1.6-2.1,3.1-3.2,3.5c-1.3,0.5-2.8,0.7-9.3-1.9c-7-2.8-11.8-9.8-12.1-10.3c-0.3-0.5-2.8-3.7-2.8-7.1 C18.9,22.1,20.7,20.4,21.3,19.8z'></path></svg>
+</a>
+<a aria-label='Twitter' class='c tw' data-text='Tweet' href='https://twitter.com/share?url={{ page.url | prepend: site.url }}' rel='noopener' role='button' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M11.4,26.6C11.5,26.6,11.5,26.6,11.4,26.6c-0.9,0-1.8-0.2-2.6-0.4c-1.3-0.4-2.5,0.8-2.1,2 c1.1,4.3,4.5,7.7,8.8,8.6c-1,0.3-2,0.4-3,0.4c-1,0-1.7,1.1-1.2,2c1.9,3.5,5.6,5.9,9.7,6h1c1.1,0,2,0.9,2,2c0,1.1-0.9,2-2,2 c-1.3,0-2.9-0.1-4.5-0.5c-1-0.2-2-0.2-2.9,0.1c-1.7,0.6-3.5,1.1-5.4,1.3C8.5,50.2,8,50.7,8,51.4v0c0,0.5,0.3,1,0.8,1.2 c3.9,1.7,8.3,2.7,12.9,2.7c21.1,0,32.7-17.9,32.7-33.5v0c0-0.9,0.4-1.8,1.1-2.4c1.2-1,2.3-2.1,3.3-3.4c0.4-0.5-0.1-1.2-0.7-1 c-1.2,0.4-2.4,0.7-3.7,0.9c-0.2,0-0.3-0.2-0.1-0.4c1.5-1.1,2.8-2.6,3.6-4.3c0.3-0.6-0.3-1.2-0.9-0.9c-1.1,0.6-2.3,1-3.5,1.4 c-1.2,0.4-2.6,0.1-3.6-0.7c-1.9-1.5-4.4-2.4-7-2.4c-5.3,0-9.8,3.7-11.1,8.8c-0.2,0.9,0.5,1.7,1.4,1.7c1.6-0.1,3.2-0.3,4.4-0.5 c1-0.2,2,0.3,2.4,1.2c0.5,1.2-0.2,2.4-1.3,2.7c-4.6,1.3-9.7,0.4-9.7,0.4l0,0C21.2,21.8,14.3,18,9.3,12.5C8.6,11.7,7.3,12,7,12.9 c-0.4,1.2-0.6,2.5-0.6,3.9C6.4,20.9,8.4,24.5,11.4,26.6z'></path></svg>
+</a>
+<label aria-label='Share to other apps' for='forShare'>
+<svg viewBox='0 0 512 512'><path d='M417.4,224H288V94.6c0-16.9-14.3-30.6-32-30.6c-17.7,0-32,13.7-32,30.6V224H94.6C77.7,224,64,238.3,64,256 c0,17.7,13.7,32,30.6,32H224v129.4c0,16.9,14.3,30.6,32,30.6c17.7,0,32-13.7,32-30.6V288h129.4c16.9,0,30.6-14.3,30.6-32 C448,238.3,434.3,224,417.4,224z'></path></svg>
+</label>
+</div>
+</div>
+</div>
+</article>
+<div class='pFoot'>
+<input class='shIn fixi hidden' id='forShare' type='checkbox'/>
+<div class='shBr fixL'>
+<div class='shBri fixLi'>
+<div class='shBrs fixLs'>
+<div class='shH fixH fixT' data-text='Share to other apps'>
+<label aria-label='Close' class='c cl' for='forShare'></label>
+</div>
+<div class='shC'>
+<div class='shL'>
+<div data-text='Facebook'>
+<a aria-label='Facebook' href='https://www.facebook.com/sharer.php?u={{ page.url | prepend: site.url }}' rel='noopener' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M20.1,36h3.4c0.3,0,0.6,0.3,0.6,0.6V58c0,1.1,0.9,2,2,2h7.8c1.1,0,2-0.9,2-2V36.6c0-0.3,0.3-0.6,0.6-0.6h5.6 c1,0,1.9-0.7,2-1.7l1.3-7.8c0.2-1.2-0.8-2.4-2-2.4h-6.6c-0.5,0-0.9-0.4-0.9-0.9v-5c0-1.3,0.7-2,2-2h5.9c1.1,0,2-0.9,2-2V6.2 c0-1.1-0.9-2-2-2h-7.1c-13,0-12.7,10.5-12.7,12v7.3c0,0.3-0.3,0.6-0.6,0.6h-3.4c-1.1,0-2,0.9-2,2v7.8C18.1,35.1,19,36,20.1,36z'></path></svg>
+</a>
+</div>
+<div data-text='WhatsApp'>
+<a aria-label='Whatsapp' href='https://api.whatsapp.com/send?text={{ page.url | prepend: site.url }}' rel='noopener' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M6.9,48.4c-0.4,1.5-0.8,3.3-1.3,5.2c-0.7,2.9,1.9,5.6,4.8,4.8l5.1-1.3c1.7-0.4,3.5-0.2,5.1,0.5 c4.7,2.1,10,3,15.6,2.1c12.3-1.9,22-11.9,23.5-24.2C62,17.3,46.7,2,28.5,4.2C16.2,5.7,6.2,15.5,4.3,27.8c-0.8,5.6,0,10.9,2.1,15.6 C7.1,44.9,7.3,46.7,6.9,48.4z M21.3,19.8c0.6-0.5,1.4-0.9,1.8-0.9s2.3-0.2,2.9,1.2c0.6,1.4,2,4.7,2.1,5.1c0.2,0.3,0.3,0.7,0.1,1.2 c-0.2,0.5-0.3,0.7-0.7,1.1c-0.3,0.4-0.7,0.9-1,1.2c-0.3,0.3-0.7,0.7-0.3,1.4c0.4,0.7,1.8,2.9,3.8,4.7c2.6,2.3,4.9,3,5.5,3.4 c0.7,0.3,1.1,0.3,1.5-0.2c0.4-0.5,1.7-2,2.2-2.7c0.5-0.7,0.9-0.6,1.6-0.3c0.6,0.2,4,1.9,4.7,2.2c0.7,0.3,1.1,0.5,1.3,0.8 c0.2,0.3,0.2,1.7-0.4,3.2c-0.6,1.6-2.1,3.1-3.2,3.5c-1.3,0.5-2.8,0.7-9.3-1.9c-7-2.8-11.8-9.8-12.1-10.3c-0.3-0.5-2.8-3.7-2.8-7.1 C18.9,22.1,20.7,20.4,21.3,19.8z'></path></svg>
+</a>
+</div>
+<div data-text='Twitter'>
+<a aria-label='Twitter' href='https://twitter.com/share?url={{ page.url | prepend: site.url }}' rel='noopener' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M11.4,26.6C11.5,26.6,11.5,26.6,11.4,26.6c-0.9,0-1.8-0.2-2.6-0.4c-1.3-0.4-2.5,0.8-2.1,2 c1.1,4.3,4.5,7.7,8.8,8.6c-1,0.3-2,0.4-3,0.4c-1,0-1.7,1.1-1.2,2c1.9,3.5,5.6,5.9,9.7,6h1c1.1,0,2,0.9,2,2c0,1.1-0.9,2-2,2 c-1.3,0-2.9-0.1-4.5-0.5c-1-0.2-2-0.2-2.9,0.1c-1.7,0.6-3.5,1.1-5.4,1.3C8.5,50.2,8,50.7,8,51.4v0c0,0.5,0.3,1,0.8,1.2 c3.9,1.7,8.3,2.7,12.9,2.7c21.1,0,32.7-17.9,32.7-33.5v0c0-0.9,0.4-1.8,1.1-2.4c1.2-1,2.3-2.1,3.3-3.4c0.4-0.5-0.1-1.2-0.7-1 c-1.2,0.4-2.4,0.7-3.7,0.9c-0.2,0-0.3-0.2-0.1-0.4c1.5-1.1,2.8-2.6,3.6-4.3c0.3-0.6-0.3-1.2-0.9-0.9c-1.1,0.6-2.3,1-3.5,1.4 c-1.2,0.4-2.6,0.1-3.6-0.7c-1.9-1.5-4.4-2.4-7-2.4c-5.3,0-9.8,3.7-11.1,8.8c-0.2,0.9,0.5,1.7,1.4,1.7c1.6-0.1,3.2-0.3,4.4-0.5 c1-0.2,2,0.3,2.4,1.2c0.5,1.2-0.2,2.4-1.3,2.7c-4.6,1.3-9.7,0.4-9.7,0.4l0,0C21.2,21.8,14.3,18,9.3,12.5C8.6,11.7,7.3,12,7,12.9 c-0.4,1.2-0.6,2.5-0.6,3.9C6.4,20.9,8.4,24.5,11.4,26.6z'></path></svg>
+</a>
+</div>
+<div data-text='Telegram'>
+<a aria-label='Telegram' href='https://t.me/share/url?url={{ page.url | prepend: site.url }}' rel='noopener' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z'></path></svg>
+</a>
+</div>
+<div data-text='Pinterest'>
+<a aria-label='Pinterest' data-pin-config='beside' href='https://pinterest.com/pin/create/button/?url={{ page.url | prepend: site.url }}&media=https://4.bp.blogspot.com/-h7L596y5eJE/YCn4vAO5mQI/AAAAAAAAQXY/iX-ptYVvnfcsNFe5DEhgLY9J_OAvy577wCNcBGAsYHQ/w1600/imagz-split.png' rel='noopener' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M14.4,53.8c2.4,2,6.1,0.6,6.8-2.4l0-0.1c0.4-1.8,2.4-10.2,3.2-13.7c0.2-0.9,0.2-1.8-0.1-2.7 C24.2,34,24,32.8,24,31.5c0-4.1,2.4-7.2,5.4-7.2c2.5,0,3.8,1.9,3.8,4.2c0,2.6-1.6,6.4-2.5,9.9c-0.7,3,1.5,5.4,4.4,5.4 c5.3,0,8.9-6.8,8.9-14.9c0-6.1-4.1-10.7-11.6-10.7c-8.5,0-13.8,6.3-13.8,13.4c0,2.4,0.7,4.2,1.8,5.5c0.5,0.6,0.6,0.9,0.4,1.6 c-0.1,0.5-0.4,1.8-0.6,2.2c-0.2,0.7-0.8,1-1.4,0.7c-3.9-1.6-5.7-5.9-5.7-10.7c0-8,6.7-17.5,20-17.5c10.7,0,17.7,7.7,17.7,16 c0,11-6.1,19.2-15.1,19.2c-1.9,0-3.8-0.7-5.2-1.6c-0.9-0.6-2.1-0.1-2.4,0.9c-0.5,1.9-1.1,4.3-1.3,4.9c-0.1,0.5-0.3,0.9-0.4,1.4 c-1,2.7,0.9,5.5,3.7,5.7c2.1,0.1,4.2,0,6.3-0.3c12.4-2,22.1-12.2,23.4-24.7C61.5,18.1,48.4,4,32,4C16.5,4,4,16.5,4,32 C4,40.8,8.1,48.6,14.4,53.8z'></path></svg>
+</a>
+</div>
+<div data-text='LinkedIn'>
+<a aria-label='Linkedin' href='https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | prepend: site.url }}' rel='noopener' target='_blank'>
+<svg viewBox='0 0 64 64'><path d='M8,54.7C8,55.4,8.6,56,9.3,56h9.3c0.7,0,1.3-0.6,1.3-1.3V23.9c0-0.7-0.6-1.3-1.3-1.3H9.3 c-0.7,0-1.3,0.6-1.3,1.3V54.7z'></path><path d='M46.6,22.3c-4.5,0-7.7,1.8-9.4,3.7c-0.4,0.4-1.1,0.1-1.1-0.5l0-1.6c0-0.7-0.6-1.3-1.3-1.3h-9.4 c-0.7,0-1.3,0.6-1.3,1.3c0.1,5.7,0,25.4,0,30.7c0,0.7,0.6,1.3,1.3,1.3h9.5c0.7,0,1.3-0.6,1.3-1.3V37.9c0-1,0-2,0.3-2.7 c0.8-2,2.6-4.1,5.7-4.1c4.1,0,6,3.1,6,7.6v15.9c0,0.7,0.6,1.3,1.3,1.3h9.3c0.7,0,1.3-0.6,1.3-1.3V37.4C60,27.1,54.1,22.3,46.6,22.3 z'></path><path d='M13.9,18.9L13.9,18.9c3.8,0,6.1-2.4,6.1-5.4C19.9,10.3,17.7,8,14,8c-3.7,0-6,2.3-6,5.4 C8,16.5,10.3,18.9,13.9,18.9z'></path></svg>
+</a>
+</div>
+<div data-text='Line'>
+<a aria-label='Line' href='https://timeline.line.me/social-plugin/share?url={{ page.url | prepend: site.url }}' rel='noopener' target='_blank'>
+<svg viewBox='0 0 24 24'><path d='M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314'></path></svg>
+</a>
+</div>
+<div data-text='Email'>
+<a aria-label='Email' href='mailto:?body={{ page.url | prepend: site.url }}' target='_blank'>
+<svg viewBox='0 0 500 500'><path d='M468.051,222.657c0-12.724-5.27-24.257-13.717-32.527 L282.253,45.304c-17.811-17.807-46.702-17.807-64.505,0L45.666,190.129c-8.448,8.271-13.717,19.803-13.717,32.527v209.054 c0,20.079,16.264,36.341,36.34,36.341h363.421c20.078,0,36.34-16.262,36.34-36.341V222.657z M124.621,186.402h250.758 c11.081,0,19.987,8.905,19.987,19.991v34.523c-0.088,4.359-1.818,8.631-5.181,11.997l-55.966,56.419l83.224,83.127 c6.904,6.904,6.904,18.081,0,24.985s-18.085,6.904-24.985,0l-85.676-85.672H193.034l-85.492,85.672 c-6.907,6.904-18.081,6.904-24.985,0c-6.906-6.904-6.906-18.081,0-24.985l83.131-83.127l-55.875-56.419 c-3.638-3.638-5.363-8.358-5.181-13.177v-33.343C104.632,195.307,113.537,186.402,124.621,186.402z'></path></svg>
+</a>
+</div>
+</div>
+<div class='cpL' data-message='Copy to clipboard' data-text='or copy link'>
+<div class='cpLb'>
+<svg class='line' viewBox='0 0 24 24'><path d='M13.0601 10.9399C15.3101 13.1899 15.3101 16.8299 13.0601 19.0699C10.8101 21.3099 7.17009 21.3199 4.93009 19.0699C2.69009 16.8199 2.68009 13.1799 4.93009 10.9399'></path><path class='svgC' d='M10.59 13.4099C8.24996 11.0699 8.24996 7.26988 10.59 4.91988C12.93 2.56988 16.73 2.57988 19.08 4.91988C21.43 7.25988 21.42 11.0599 19.08 13.4099'></path></svg>
+<input id='getlink' onClick='this.select()' readonly='readonly' value="{{ page.buy | replace:'https://lynk.id/sabdaliterasi/','http://buy.sabdaliterasi.shop/' }}"/>
+<label for='getlink' onclick='copyFunction()'>Copy</label>
+</div>
+<div class='cpLn' id='cpNotif'></div>
+<script>
+function copyFunction(){document.getElementById('getlink').select(),document.execCommand('copy'),toastNotif('<i class="copy"></i>Link copied to clipboard'); if('vibrate' in navigator){navigator.vibrate([50])};}</script>
+</div>
+</div>
+</div>
+</div>
+<label class='fCls' for='forShare'></label>
+</div>
+<div id='rPst'>
+<h2 class='title dt'>Produk Lainnya</h2>
+<div class="produk-showcase">
+  <div class="produk-box" id="EbookSI">
+    {% for post in site.posts limit: 10 %}
+    <div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Lihat</a><div class="Rate" data-id="{{ post.url }}"></div></div></div>
+    {% endfor %}
+ </div>
+</div>  
+</div>
+<!--<script>  
+            var TAGthis = "Agama"; 
+          var labelArray = ["Features.js",];
+          
+          // Auto Related Posts (Bottom)
+          var relatedPostConfig = {
+            homePage: "{{ site.url }}",
+            
+            // Replace You may like these posts to change Related Posts title
+            widgetTitle: "<h2 class='title dt'>You may like these posts</h2>",
+
+            numPosts: 6,
+            summaryLength: 180,
+            titleLength:"auto",
+            thumbnailSize: 300,
+            noImage: "data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+            containerId: "rPst",
+            newTabLink: false,
+            moreText: "Read more",
+            
+            // Change the related post style, there are 4 styles available
+            widgetStyle: 3,
+            callBack:function(){}
+          }
+
+          // Auto Related Posts (In-Article)
+          var autoRelatedConfig = {
+            homePage: "{{ site.url }}/",
+            numPosts: 10,
+            titleLength:"auto",
+            newTabLink: false,
+            callBack:function(){}
+          }
+          
+          // Auto Chapter
+          var autoChapterConfig = {
+            homePage: "{{ site.url }}/",
+            titleLength: "60",
+            newTabLink: false,
+            callBack:function(){}
+          }
+        </script>-->
+<div class='pCmnts' id='comment'>
+<input class='cmSh fixi hidden' id='forComments' type='checkbox' onclick='DisqusLoad()'/>
+<input class='cmAl hidden' id='forAllCm' type='checkbox'/>
+<div class='cmShw'>
+<label class='cmBtn button ln' for='forComments'>
+<span>Join the conversation</span>
+</label>
+</div>
+<section class='cm cmBr fixL' data-embed='true' data-num-comments='2' id='comments'>
+<div class='cmBri'>
+<div class='cmBrs fixLs'>
+<div class='cmH fixH'>
+<h3 class='title'>
+comments
+</h3>
+<div class='cmI cl'>
+<label aria-label='' class='s' data-new='Newest' data-text='Oldest' for='forAllCm'></label>
+<label aria-label='Close' class='c' for='forComments'></label>
+</div>
+</div>
+<div class='cmC'>
+<div class='cmCn'>
+  <div id="disqus_thread"></div>
+  
+  <script>
+  var disqus_shortname="sabda-literasi-palu", disqus_blogger_current_url="{{ site.url }}{{ page.url }}";disqus_blogger_current_url.length||(disqus_blogger_current_url="{{ site.url }}{{ page.url }}");var disqus_blogger_homepage_url="{{ site.url }}", disqus_blogger_canonical_homepage_url="{{ site.url }}";
+      function DisqusLoad() {
+  var checkBox = getid("forComments");
+  if (checkBox.checked == true){
+ var check= getid("DisqusComment"); 
+ if (check){}else{
+var t=document.createElement("script");t.id="DisqusComment",t.type="text/javascript",t.async=!0,t.src="//"+disqus_shortname+".disqus.com/embed.js";var r=document.getElementsByTagName("script")[0].parentNode.insertBefore(t,r);
+      }
+  } 
+}
+  </script>
+  </div>
+<div class='cmAd hidden' id='addCm'>
+<div aria-label='Berkomentar' class='cmBtn button ln' role='button'>
+Post a Comment
+</div>
+</div>
+<script>var comment = true;</script>
+<div class='cmFrm'>
+<div id='commentForm'>
+<div class='cmMs note'>
+🌟 Attention, Valued Community Members! 🌟<br /><br />We&#39;re delighted to have you engage in our vibrant discussions. To ensure a respectful and inclusive environment for everyone, we kindly request your cooperation with the following guidelines:<br /><br />1. <b>Respect Privacy</b>: Please refrain from sharing sensitive or private information in your comments.<br /><br />2. <b>Spread Positivity</b>: We uphold a zero-tolerance policy towards hate speech or abusive language. Let&#39;s keep our conversations respectful and friendly.<br /><br />3. <b>Language of Choice</b>: Feel free to express yourself in either English or Hindi. These two languages will help us maintain clear and coherent discussions.<br /><br />4. <b>Respect Diversity</b>: To foster an inclusive atmosphere, we kindly request that you avoid discussing religious matters in your comments.<br /><br />Remember, your contributions are valued, and we appreciate your commitment to making our community a welcoming place for everyone. Let&#39;s continue to learn and grow together through constructive and respectful discussions.<br /><br />Thank you for being a part of our vibrant community! 🌟
+</div>
+<!--<button class='iCmn' data-comment='https://draft.blogger.com/comment/frame/801953276432701327?po={{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}&hl=en-GB&skin=contempo&skin=contempo' data-text='Join the conversation (2)' id='iCmn'></button>
+<script>/*<![CDATA[*/ (function(){var tCom=getid('iCmn'),urlCom=tCom.getAttribute('data-comment'),ifCom=document.createElement('iframe');ifCom.width='100%';ifCom.height='296';ifCom.setAttribute('data-src',urlCom);ifCom.setAttribute('id','comment-editor');ifCom.setAttribute('class','blogger-iframe-colorize blogger-comment-from-post lazy');ifCom.setAttribute('name','comment-editor');ifCom.setAttribute('lazied','');tCom.addEventListener('click',function(){tCom.insertAdjacentElement('beforebegin',ifCom);this.remove();});})() /*]]>*/</script>-->
+</div>
+</div>
+</div>
+</div>
+</div>
+<label class='fCls' for='forComments'></label>
+</section>
+<script>/*<![CDATA[*/ var observerK=new MutationObserver(function(mutations,me){var cekkomen=getid('comment-editor');if(cekkomen){var b=getid("comment-editor"),d=b.getAttribute("data-src");if(b.setAttribute("src",d),1==comment){var f=getclass("rpTo"),c=getid("commentForm"),h=f.length,k=function(b,d,e,f){b.addEventListener("click",function(){var c=b.getAttribute("data-reply-to");getid("c"+c).appendChild(d);getid("commentForm").className='cmRbox';getid("addCm").className='commentsReply';e.src=f+"&parentID="+c})};for(i=0;i<h;i++)k(f[i],c,b,d);var l=getclass("cmFrm")[0];getid("addCm").addEventListener("click",function(){l.appendChild(c);getid("commentForm").className='comment-replybox-thread';getid("addCm").className='hidden';b.src=d})};me.disconnect();return}});observerK.observe(document,{childList:true,subtree:true}); var bscom=getid('forComments'),bskom=getid('iCmn');if(bscom!==null){bscom.addEventListener('click',function(){if(bscom.checked==true){if(bskom!==null){bskom.click()};}})}; /*]]>*/</script>
+<script>/*<![CDATA[*/ /* Comment tag, license: dte.web.id/teknis/paket-javascript-fitur-manipulasi */ function repText(id) {var a = document.getElementById(id); if (!a) return; var b = a.innerHTML; b = b.replace(/<i rel="image">(.*?)<\/i>/ig, "<img class='lazy' data-src='$1' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' alt='Image Comment' \/>"); a.innerHTML = b;} repText('cmHolder'); /*]]>*/</script>
+</div>
+</div>
+</div>
+</div>
+<!--<div class='widget HTML' data-version='2' id='HTML01'>
+<div class='widget-content'>
+<div class='adB h240' data-text='Ads go here (Middle Post Ad 01)'></div>
+</div>
+<script>/*<![CDATA[*/ middleAds('p',[['HTML01', 3]]) /*]]>*/</script>
+</div>
+<div class='widget HTML' data-version='2' id='HTML02'>
+<div class='widget-content'>
+<div class="produk-showcase">
+  <div class="produk-box" id="EbookSI">
+    {% for post in site.posts limit: 10 %}
+    <div class="produk"><div class="img-product"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><img class="lazy" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="{{ post.title }}" height="800" data-src="{{ post.image }}" title="{{ post.title }}" width="800"></a></div><div class="desk-produk"><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><span>{{ post.title }}</span></a><a href="{{ post.url }}"  target="_blank" title="{{ post.title }}"><div class="harga-produk">Rp{{ post.harga | replace: "Rp","" }}</div></a><a class="link-produk btn-link" href="{{ post.url }}"  target="_blank" title="{{ post.title }}">Lihat</a><div class="Rate" data-id="{{ post.url }}"></div></div></div>
+    {% endfor %}
+ </div>
+</div>
+</div>
+<script>/*<![CDATA[*/ middleAds('p',[['HTML02', 6]]) /*]]>*/</script>
+</div>
+<div class='widget HTML' data-version='2' id='HTML03'>
+<div class='widget-content'>
+<div class='adB h240' data-text='Ads go here (Middle Post Ad 03)'></div>
+</div>
+<script>/*<![CDATA[*/ middleAds('p',[['HTML03', 9]]) /*]]>*/</script>
+</div>
+<div class='widget HTML' data-version='2' id='HTML04'>
+<div class='widget-content'>
+<div class='adB h240' data-text='Ads go here (Recurring Post Ad)'></div>
+</div>
+<script>/*<![CDATA[*/ recurAds('p', {ads:'HTML04', every:4}) /*]]>*/</script>
+</div>-->
+</div>
+</main>
+<!--[ Sidebar content ]-->
+{% include UI-sidebar.html %}
+</div>
+<!--[ Mobile Menu ]-->
+<div class='mobMn section' id='mobile-menu'><div class='widget TextList' data-version='2' id='TextList99'>
+<ul>
+<li class='mH'>
+<a aria-label='Home' data-text='Home' href='https://plus-ui.fineshopdesign.com/' role='button'>
+<svg class='line' viewBox='0 0 24 24'><g transform='translate(2.400000, 2.000000)'><line class='svgC' x1='6.6787' x2='12.4937' y1='14.1354' y2='14.1354'></line><path d='M1.24344979e-14,11.713 C1.24344979e-14,6.082 0.614,6.475 3.919,3.41 C5.365,2.246 7.615,0 9.558,0 C11.5,0 13.795,2.235 15.254,3.41 C18.559,6.475 19.172,6.082 19.172,11.713 C19.172,20 17.213,20 9.586,20 C1.959,20 1.24344979e-14,20 1.24344979e-14,11.713 Z'></path></g></svg>
+</a>
+</li>
+<li class='mS'>
+<label aria-label='Search' data-text='Search' for='searchIn'>
+<svg class='line' viewBox='0 0 24 24'><g><circle cx='11.36167' cy='11.36167' r='9.36167'></circle><line class='svgC' x1='22' x2='19.9332' y1='22' y2='19.9332'></line></g></svg>
+</label>
+</li>
+<li class='mN'>
+<label aria-label='Menu' data-text='Menu' for='offNav'>
+<svg class='line' viewBox='0 0 24 24'><g transform='translate(3.000000, 3.000000)'><path class='fill' d='M18.00036,3.6738 C18.00036,5.7024 16.35516,7.3476 14.32656,7.3476 C12.29796,7.3476 10.65366,5.7024 10.65366,3.6738 C10.65366,1.6452 12.29796,-6.39488462e-15 14.32656,-6.39488462e-15 C16.35516,-6.39488462e-15 18.00036,1.6452 18.00036,3.6738 Z'></path><path class='fill svgC' d='M7.3467,3.6738 C7.3467,5.7024 5.7024,7.3476 3.6729,7.3476 C1.6452,7.3476 4.79616347e-15,5.7024 4.79616347e-15,3.6738 C4.79616347e-15,1.6452 1.6452,-6.39488462e-15 3.6729,-6.39488462e-15 C5.7024,-6.39488462e-15 7.3467,1.6452 7.3467,3.6738 Z'></path><path class='fill svgC' d='M18.00036,14.26194 C18.00036,16.29054 16.35516,17.93484 14.32656,17.93484 C12.29796,17.93484 10.65366,16.29054 10.65366,14.26194 C10.65366,12.23334 12.29796,10.58814 14.32656,10.58814 C16.35516,10.58814 18.00036,12.23334 18.00036,14.26194 Z'></path><path class='fill' d='M7.3467,14.26194 C7.3467,16.29054 5.7024,17.93484 3.6729,17.93484 C1.6452,17.93484 4.79616347e-15,16.29054 4.79616347e-15,14.26194 C4.79616347e-15,12.23334 1.6452,10.58814 3.6729,10.58814 C5.7024,10.58814 7.3467,12.23334 7.3467,14.26194 Z'></path></g></svg>
+</label>
+</li>
+<li class='mS'>
+<label aria-label='Share' data-text='Share' for='forShare'>
+<svg class='line' viewBox='0 0 24 24'><path d='M92.30583,264.72053a3.42745,3.42745,0,0,1-.37,1.57,3.51,3.51,0,1,1,0-3.13995A3.42751,3.42751,0,0,1,92.30583,264.72053Z' transform='translate(-83.28571 -252.73452)'></path><circle class='svgC' cx='18.48892' cy='5.49436' r='3.51099'></circle><circle class='svgC' cx='18.48892' cy='18.50564' r='3.51099'></circle><line class='cls-3' x1='12.53012' x2='8.65012' y1='8.476' y2='10.416'></line><line class='cls-3' x1='12.53012' x2='8.65012' y1='15.496' y2='13.556'></line></svg>
+</label>
+</li>
+<li class='mC'>
+<label aria-label='Comments' data-text='Comments' for='forComments'>
+<svg class='line' viewBox='0 0 24 24'><path d='M22 10V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H14'></path><path class='svgC' d='M19.5 7C20.8807 7 22 5.88071 22 4.5C22 3.11929 20.8807 2 19.5 2C18.1193 2 17 3.11929 17 4.5C17 5.88071 18.1193 7 19.5 7Z'></path></svg>
+</label>
+</li>
+</ul>
+</div></div>
+<!--[ Footer section ]-->
+{% include UI-footer.html %}
+</div>
+</div>
+</div>
+<!--[ Fixed Back to Top ]-->
+<div class='toTopB' id='backTop' onclick='window.scrollTo({top: 0});'>
+<svg viewBox='0 0 34 34'><circle class='b' cx='17' cy='17' r='15.92'></circle><circle class='c scrollProgress' cx='17' cy='17' r='15.92'></circle><path class='line d' d='M15.07,21.06,19.16,17l-4.09-4.06'></path></svg>
+</div>
+<!--[ Waves Animation ]-->
+<div class='wvC'><div class='wvS'><svg class='waves' preserveAspectRatio='none' shape-rendering='auto' viewBox='0 24 150 28'><defs><path d='M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z' id='wave-bg'></path></defs><g class='plx'><use x='48' xlink:href='#wave-bg' y='0'></use><use x='48' xlink:href='#wave-bg' y='3'></use><use x='48' xlink:href='#wave-bg' y='5'></use><use x='48' xlink:href='#wave-bg' y='7'></use></g></svg></div><div class='wvH'></div></div>
+<!--[ Delete 'or data:blog.isMobileRequest' if you want to show ad in both(desktop and mobile) ]-->
+</div>
+<!--[ Addons ]-->
+{% include UI-adons.html %}
+<!--[ Javascript disable condition ]-->
+<!--<noscript> <input class='nJs hidden' id='forNoJS' type='checkbox'/> <div class='noJs' expr:data-text='data:blog.title + &quot; works best with JavaScript enabled&quot;'> <label for='forNoJS'/> </div> </noscript>-->
+<!--[ Load More Pagination - Delete this section if you want to disable this feature ]-->
+<!--[ Numbered Pagination - Delete this section if you want to disable this feature ]-->
+<!--<b:include cond='!data:view.isSingleItem and !data:blog.isPrivateBlog' name='post-pagination2'/>-->
+{% include UI-mainJS.html %}
+</body>
+</html>
