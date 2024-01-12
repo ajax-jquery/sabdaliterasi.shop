@@ -47,7 +47,7 @@ permalink: /feeds/posts/default/-/Features/
                     "thr$total":{
                       "$t":"14"}
   
-  }
+  },
 {% endfor %} 
       {% assign poss = site.artikel | sort: "date" | reverse %}
   {% for post in poss %}
