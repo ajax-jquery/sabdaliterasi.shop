@@ -369,7 +369,10 @@ comments
       function DisqusLoad() {
   var checkBox = getid("forComments");
   if (checkBox.checked == true){
-var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="//"+disqus_shortname+".disqus.com/embed.js";var r=document.getElementsByTagName("script")[0].parentNode.insertBefore(t,r)
+ var check= getid("DisqusComment"); 
+ if (check){}else{
+var t=document.createElement("script");t.id="DisqusComment",t.type="text/javascript",t.async=!0,t.src="//"+disqus_shortname+".disqus.com/embed.js";var r=document.getElementsByTagName("script")[0].parentNode.insertBefore(t,r);
+      }
   } 
 }
   </script>
