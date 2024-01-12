@@ -16,7 +16,7 @@ showRelatedPost({
       {% assign poss = site.artikel | sort: "date" | reverse %}
   {% for post in poss %}
       {
-        "id":{"$t":"tag:blogger.com,1999:blog-801953276432701327.post-576615824737679485"},
+        "id":{"$t":"tag:blogger.com,1999:blog-801953276432701327.post-{{ post.content | size }}{{ post.date | date: "%Y%m%d%H%M" }}"},
         "published":{"$t":"{{ post.date | date_to_xmlschema }}"},"updated":{"$t":"{{ post.date | date_to_xmlschema }}"},
   "category":[
    
