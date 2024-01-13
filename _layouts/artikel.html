@@ -129,7 +129,10 @@ layout: null
 {{ page.title }}
 </span>
 </h1>
-<div class='pDesc'>{{ page.description }}</div>    
+<div class='pDesc'>{{ page.description }}</div>
+<div class="lbImg">
+        <img loading="lazy" alt="{{ page.title }}" width="1280" height="720" src="{{ page.image }}?resize=1280%2C720&ssl=1"/>
+        </div>    
 <div class='pInf pSml ps'>
 <div class='pIm'>
 <div class='im lazy lazy' data-style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'>
@@ -164,9 +167,6 @@ layout: null
 <div class='pAd'>
 </div>
 <div class='pEnt' id='postID-{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}'>
-<div class="lbImg">
-        <img loading="lazy" alt="{{ page.title }}" width="1280" height="720" src="{{ page.image }}?resize=1280%2C720&ssl=1"/>
-        </div>
 <div class='pS post-body postBody' id='postBody'>
 <div id='postSplit'>
 {{ content }} 
