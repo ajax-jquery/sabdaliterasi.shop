@@ -11,12 +11,12 @@ permalink: /test/
  <ul>
 {% assign post = site.posts | sort: "title" | reverse %}
 {% for p in post %}
-<li><strong><a title="{{ p.title }}" href="{{ site.url }}{{ p.permalink }}">ISBN: {{ p.ISBN }}</a></strong></li>
+<li><strong><a title="{{ p.title }}" href="{{ site.url }}{{ p.permalink }}">ISBN: {{ p.id }}</a></strong></li>
 {% endfor %}  
  </ul>   
 <p>{{ 10000000 | money: "IDR" }}</p>
-{% for p in site.artikel %}
-<strong><a title="{{ p.title }}" href="{{p.title }}">{{ p.title }}</a></strong>
+{% for p in site.posts %}
+<strong><a title="{{ p.title }}" href="{{p.title }}">{{ p.id }}</a></strong>
 {% endfor %}  
 <p>Click me too!</p>
 <p>If you click on me, I will disappear.</p>
