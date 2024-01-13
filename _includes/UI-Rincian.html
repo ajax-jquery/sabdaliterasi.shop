@@ -17,7 +17,7 @@
 <div class='pCm l'>
 <div class='pIc'>
 <input type="checkbox" class="hidden" id="Liked">  
-<label data-LINK="/artikel/keadilan-sosial-muhammad-dan-karl-marx/" id="liked" class="cmnt tIc" data-text="0" for="Liked">
+<label data-LINK="{{ page.url }}" id="liked" class="cmnt tIc" data-text="0" for="Liked">
 <svg class="line" viewBox="0 0 24 24"><path d="m12 5.72c-2.624-4.517-10-3.198-10 2.461 0 3.725 4.345 7.727 9.303 12.54.194.189.446.283.697.283s.503-.094.697-.283c4.977-4.831 9.303-8.814 9.303-12.54 0-5.678-7.396-6.944-10-2.461z"/></svg>
 </label>
 <label aria-label='Read later' bm-id='{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}' bm-img='{{ page.image }}?resize=240%2C240&ssl=1' bm-ttl='{{ page.title }}' bm-url='{{ page.url | prepend: site.url }}' class='bmPs tIc' data-added='Remove'>
