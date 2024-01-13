@@ -10,8 +10,8 @@
 <div class='pDr'>
 <bdi class='pDt pIn'>
 <time class='aTtmp pTtmp pbl' data-text='{{ page.date | date: "%B %d, %Y" }}' data-time='{{ page.date | date: "%b %d, %Y" }}' datetime='{{ page.date | date_to_xmlschema }}' title='Published: {{ page.date | date: "%B %d, %Y" }}'></time>
-</bdi>
-<div class='pRd pIn'><bdi id='rdTime'></bdi></div>
+</bdi>{% assign words = page.content | strip_html | number_of_words %}
+<div class='pRd pIn'><bdi id='rdTime'>{% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} mins{% endif %} Read</bdi></div>
 </div>
 </div>
 <div class='pCm l'>
