@@ -130,6 +130,19 @@ layout: null
 </span>
 </h1>
 <div class='pDesc'>{{ page.description }}</div>
+<table class='tr-caption-container'>
+    <tbody>
+      <tr>
+        <td>
+          <img class="lazy" alt="{{ page.title }}" width="1280" height="720" data-src="{{ page.image }}?resize=1280%2C720&ssl=1" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
+          <noscript><img alt="{{ page.title }}" width="1280" height="720" src="{{ page.image }}?resize=1280%2C720&ssl=1"/></noscript>
+        </td>
+      </tr>
+      <tr>
+        <td class='tr-caption'></td>
+      </tr>
+    </tbody>
+  </table>
 <div class='pInf pSml ps'>
 <div class='pIm'>
 <div class='im lazy lazy' data-style='background-image: url(https://sabdaliterasi.shop/media/apple-icon-57x57.png)'>
@@ -166,19 +179,7 @@ layout: null
 <div class='pEnt' id='postID-{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}'>
 <div class='pS post-body postBody' id='postBody'>
 <div id='postSplit'>
-  <table class='tr-caption-container'>
-    <tbody>
-      <tr>
-        <td>
-          <img class="lazy" alt="{{ page.title }}" width="1280" height="720" data-src="{{ page.image }}?resize=1280%2C720&ssl=1" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
-          <noscript><img alt="{{ page.title }}" width="1280" height="720" src="{{ page.image }}?resize=1280%2C720&ssl=1"/></noscript>
-        </td>
-      </tr>
-      <tr>
-        <td class='tr-caption'></td>
-      </tr>
-    </tbody>
-  </table>
+  
   
 {{ content }}
 
