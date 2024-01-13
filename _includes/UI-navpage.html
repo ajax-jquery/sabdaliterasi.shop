@@ -1,17 +1,17 @@
 <ul class='mMenu'>
 <li>
-<a href='/p/sitemap.html'>
+<a href='{{ "/sitemap_index" | prepend: site.url }}'>
 Sitemap
 </a>
 </li>
 <li>
-<a href='/p/disclaimer.html'>
-Disclaimer
+<a href='{{ "/post-rss" | prepend: site.url }}'>
+RSS Post
 </a>
 </li>
 <li>
-<a href='/p/privacy.html'>
-Privacy
+<a href='{{ "/product-rss" | prepend: site.url }}'>
+RSS Product
 </a>
 </li>
 </ul>
