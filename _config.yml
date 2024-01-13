@@ -154,7 +154,6 @@ collections:
     output: true
   posts:
     permalink: "/:title/"
-    kode: ":year:month:day:hours:second:minute"
     output: true
 
 # Default YAML values (more information on Jekyll's site)
