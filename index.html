@@ -105,11 +105,11 @@ permalink: /
 <svg class='line' viewBox='0 0 24 24'><g transform='translate(4.500000, 2.500000)'><path d='M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z'></path></g></svg>
 </label>
 </li>
-<li>
+<!--<li>
 <label aria-label='Profile' class='tPrfl tIc bIc' for='offPrf' onclick='vibRate(50)'>
 <svg class='line' viewBox='0 0 24 24'><path class='svgC' d='M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z'></path><path d='M20.5899 22C20.5899 18.13 16.7399 15 11.9999 15C7.25991 15 3.40991 18.13 3.40991 22'></path></svg>
 </label>
-</li>
+</li>-->
 <li class='isDrk'>
 <label aria-label='Mode' class='navM tDark tIc tDL bIc' for='onMode' role='button'>
 <svg class='line' viewBox='0 0 24 24'>
@@ -145,17 +145,10 @@ permalink: /
 </div>
 <div class='prfC'>
 <div class='t'>
-<div aria-label='Deo K.' class='prfL' data-text='Deo K.'>
-<div class='im lazy' data-style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiChUE7OjbGo__1CYWg2fF_4nuel7kwHuWwkkjkHfgIA6RdUoQ3-GgXJ68lVK00d7Z0B6nV5Tcps6GEst3E4d6-4URvrQnp-_GVVavEe_PYK2R251UzvoKp61uf8Sox4VnCm25BQ3e8CpF8-9T6ufn1LFgtOh-rAaeu89Evf6ApOR-OXwMtq95pkkduuMlL/w60/Deo_K.webp)'>
+<div aria-label='{{ site.title }}' class='prfL' data-text='{{ site.title }}'>
+<div class='im lazy' data-style='background-image: url({{ site.avatar | prepend: site.url }})'>
 </div>
-<noscript><div class='im' style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiChUE7OjbGo__1CYWg2fF_4nuel7kwHuWwkkjkHfgIA6RdUoQ3-GgXJ68lVK00d7Z0B6nV5Tcps6GEst3E4d6-4URvrQnp-_GVVavEe_PYK2R251UzvoKp61uf8Sox4VnCm25BQ3e8CpF8-9T6ufn1LFgtOh-rAaeu89Evf6ApOR-OXwMtq95pkkduuMlL/w60/Deo_K.webp)'></div></noscript>
-</div>
-</div>
-<div class='t'>
-<div aria-label='Sagar Vishnoi' class='prfL' data-text='Sagar Vishnoi'>
-<div class='im lazy' data-style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI3X7B085eU3PzOPVER4TK3SZt_uL1qeNgct9eFD01inSdH46Z_VPLeWutiDyQzi2sCoqGZuZ1BQLjrEh5mSX8gDIA5AcVcQMsphAvjSK5E195gCV25Klpbqk_F6cBHg/w60/profile-pic.png)'>
-</div>
-<noscript><div class='im' style='background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI3X7B085eU3PzOPVER4TK3SZt_uL1qeNgct9eFD01inSdH46Z_VPLeWutiDyQzi2sCoqGZuZ1BQLjrEh5mSX8gDIA5AcVcQMsphAvjSK5E195gCV25Klpbqk_F6cBHg/w60/profile-pic.png)'></div></noscript>
+<noscript><div class='im' style='background-image: url({{ site.avatar | prepend: site.url }})'></div></noscript>
 </div>
 </div>
 </div>
@@ -180,22 +173,23 @@ permalink: /
 <div class='mnMob section' id='nav-widget-1'><div class='widget PageList' data-version='2' id='PageList002'>
 <ul class='mMenu'>
 <li>
-<a href='/p/sitemap.html'>
+<a href='{{ "/sitemap_index" | prepend: site.url }}'>
 Sitemap
 </a>
 </li>
 <li>
-<a href='/p/disclaimer.html'>
-Disclaimer
+<a href='{{ "/post-rss" | prepend: site.url }}'>
+RSS Post
 </a>
 </li>
 <li>
-<a href='/p/privacy.html'>
-Privacy
+<a href='{{ "/product-rss" | prepend: site.url }}'>
+RSS Product
 </a>
 </li>
 </ul>
-</div><div class='widget LinkList' data-version='2' id='LinkList002'>
+</div>
+<div class='widget LinkList' data-version='2' id='LinkList002'>
 <div class='mNav'>
 <label class='tIc bIc' for='offNav'>
 <svg viewBox='0 0 512 512'><path d='M417.4,224H288V94.6c0-16.9-14.3-30.6-32-30.6c-17.7,0-32,13.7-32,30.6V224H94.6C77.7,224,64,238.3,64,256 c0,17.7,13.7,32,30.6,32H224v129.4c0,16.9,14.3,30.6,32,30.6c17.7,0,32-13.7,32-30.6V288h129.4c16.9,0,30.6-14.3,30.6-32 C448,238.3,434.3,224,417.4,224z'></path></svg>
