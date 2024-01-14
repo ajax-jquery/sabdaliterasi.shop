@@ -38,7 +38,7 @@ if (typeof Lazy !== "function") {
    */
   navigator.serviceWorker
     .register("/serviceworker.js", {
-      scope: "/"
+      scope: "/app/"
     })
     .then((registration) => {
       const logs = [];
