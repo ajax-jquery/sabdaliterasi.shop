@@ -37,7 +37,7 @@ if (typeof Lazy !== "function") {
    * Register Workbox Service Worker
    */
   navigator.serviceWorker
-    .register("/serviceworker.js", {
+    .register("/app/serviceworker.js", {
       scope: "/app/"
     })
     .then((registration) => {
