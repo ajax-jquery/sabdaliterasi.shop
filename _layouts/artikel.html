@@ -304,7 +304,7 @@ layout: null
           }
         </script>
 <div class='pCmnts' id='comment'>
-<input class='cmSh fixi hidden' id='forComments' type='checkbox' onclick='DisqusLoad()'/>
+<input class='cmSh fixi hidden' id='forComments' type='checkbox'/>
 <input class='cmAl hidden' id='forAllCm' type='checkbox'/>
 <div class='cmShw'>
 <label class='cmBtn button ln' for='forComments'>
@@ -328,17 +328,12 @@ comments
   <div id="disqus_thread"></div>
   
   <script>
-  var disqus_shortname="sabda-literasi-palu", disqus_blogger_current_url="{{ site.url }}{{ page.url }}";disqus_blogger_current_url.length||(disqus_blogger_current_url="{{ site.url }}{{ page.url }}");var disqus_blogger_homepage_url="{{ site.url }}", disqus_blogger_canonical_homepage_url="{{ site.url }}";
-      function DisqusLoad() {
-  var checkBox = getid("forComments");
-  if (checkBox.checked == true){
- var check= getid("DisqusComment"); 
- if (check){}else{
-var t=document.createElement("script");t.id="DisqusComment",t.type="text/javascript",t.async=!0,t.src="//"+disqus_shortname+".disqus.com/embed.js";var r=document.getElementsByTagName("script")[0].parentNode.insertBefore(t,r);
-      }
-  } 
-}
-  </script>
+ var disqus_config = function () {
+    this.page.url = "{{ page.url | prepend: site.url }}";  
+    this.page.identifier = "{{ page.url | replace: '/','' }}";
+};
+  </script><noscript>Please enable JavaScript to view the comments</noscript>
+
   </div>
 <div class='cmAd hidden' id='addCm'>
 <div aria-label='Berkomentar' class='cmBtn button ln' role='button'>
