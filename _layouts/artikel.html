@@ -126,16 +126,26 @@ layout: null
 {{ page.title }}
 </span>
 </h1>
-<div class='pDesc'>{{ page.description }}</div>
-<div class="lbImg">
-        <img loading="lazy" alt="{{ page.title }}" width="1280" height="720" src="{{ page.image }}?resize=1280%2C720&ssl=1"/>
-        </div>    
+<div class='pDesc'>{{ page.description }}</div>    
 {% include UI-Rincian.html %}
 <div class='pInr'>
 <div class='pAd'>
 </div>
 <div class='pEnt' id='postID-{{ page.content | size }}{{ page.date | date: "%Y%m%d%H%M" }}'>
 <div class='pS post-body postBody' id='postBody'>
+<table class='tr-caption-container'>
+  <tbody>
+    <tr>
+      <td>
+        <noscript><img alt="{{ page.title }}" height="720" src="{{ page.image }}?resize=1280%2C720&ssl=1" width="1280"/></noscript>
+        <img alt="{{ page.title }}" class="lazy" data-src="{{ page.image }}?resize=1280%2C720&ssl=1" height="720" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" width="1280"/>
+      </td>
+    </tr>
+    <tr>
+      <td class='tr-caption'>{{ site.title }} | {{ page.tag }}</td>
+    </tr>
+  </tbody>
+</table>
 <div id='postSplit'>
 {{ content }} 
 </div>
