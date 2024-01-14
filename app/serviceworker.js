@@ -13,7 +13,7 @@ const config = {
     precache: "install-time",
     runtime: "run-time",
   },
-  fallback: "/app/offline/",
+  fallback: "/app/fallback/",
   manifest: "/app/manifest.json",
   favicon: "/app/icons/favicon.ico",
 };
