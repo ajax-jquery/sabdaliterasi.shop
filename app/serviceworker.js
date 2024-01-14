@@ -14,7 +14,7 @@ const config = {
     runtime: "run-time",
   },
   fallback: "/app/fallback/",
-  manifest: "/app/manifest.json",
+  manifest: "/manifest.json",
   favicon: "/app/icons/favicon.ico",
 };
 
