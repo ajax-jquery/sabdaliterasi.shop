@@ -1,7 +1,6 @@
 ---
 layout: null
 ---
-// API callback
 related_results_labels({
   "version":"1.0","encoding":"UTF-8","feed":{
     "xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/georss","xmlns$gd":"http://schemas.google.com/g/2005","xmlns$thr":"http://purl.org/syndication/thread/1.0","id":{"$t":"tag:blogger.com,1999:blog-801953276432701327"},
