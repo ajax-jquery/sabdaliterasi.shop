@@ -6,16 +6,13 @@ permalink: /edit5/
 <html lang="id">
 <head><meta name="robots" content="noindex, nofollow" />
 <title>Artikel Editor</title>
-{% assign posting = site.artikel | map: 'tag' | uniq %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="dns-prefetch" href="//sabdaliterasi.shop" />
 <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
-
 <link rel="preload" href="https://sabdaliterasi.shop/assets/js/editartikel.min.js?m3s" as="script" />
 <link rel="preload" href="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js" as="script" />
 <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" as="style" />
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" crossorigin="anonymous">
 <script src="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js"></script>
 <script src="https://sabdaliterasi.shop/assets/js/editartikel.min.js?m3s"></script>
@@ -91,24 +88,19 @@ permalink: /edit5/
 </div>
 </div>
 </div>
-
 <div class="form-outline mb-2">
 <input type="text" name="judul" id="form7Example3" class="form-control" placeholder="Title" />
 </div>
-
 <div class="form-outline mb-2">
 <input type="text" name="image" id="form7Example4" class="form-control" placeholder="Image" />
 </div>
-
 <div class="form-outline mb-2 description">
 <textarea maxlength="160" name="description" class="form-control" id="form7Example7" rows="4" placeholder="Description"></textarea>
 <span id="count">0</span>
 </div>
-
 <div class="form-outline mb-2">
 <input name="keyword" type="text" id="form7Example5" class="form-control" data-role="tagsinput" placeholder="Keywords" />
 </div>
-
 <div class="form-outline mb-2">
 <textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
 </div>
@@ -122,8 +114,6 @@ permalink: /edit5/
 <div class="form-outline mb-2">
 <input type="text" name="karakter" value="ајіѕ" readonly class="form-control" />
 </div>
-
-
 <div class="row mb-2">
 <div class="col">
 <div class="form-outline button">
@@ -139,8 +129,6 @@ Reset
 </div>
 </div>
 </div>
-
-
 <div class="form-outline mb-2 hasil">
 <input type="text" name="hasilink" id="hasilink" readonly class="form-control" placeholder="xxxx-xx-xx-title.md" />
 <button id="copy_link" class="btn-primary btn">copy</button>
@@ -153,7 +141,7 @@ Reset
 </div></div></div>
 <script>
 function autocomplete(e,t){var n;function i(e){if(!e)return!1;(function e(t){for(var n=0;n<t.length;n++)t[n].classList.remove("autocomplete-active")})(e),n>=e.length&&(n=0),n<0&&(n=e.length-1),e[n].classList.add("autocomplete-active")}function s(t){for(var n=document.getElementsByClassName("autocomplete-items"),i=0;i<n.length;i++)t!=n[i]&&t!=e&&n[i].parentNode.removeChild(n[i])}e.addEventListener("input",function(i){var a,r,l,o=this.value;if(s(),!o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("focus",function(i){var a,r,l,o=this.value;if(s(),o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("keydown",function(e){var t=document.getElementById(this.id+"autocomplete-list");t&&(t=t.getElementsByTagName("div")),40==e.keyCode?(n++,i(t)):38==e.keyCode?(n--,i(t)):13==e.keyCode&&(e.preventDefault(),n>-1&&t&&t[n].click())}),document.addEventListener("click",function(e){s(e.target)})}
-var TagSite = [{% for po in posting %}"{{ po }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
+var TagSite = ["Filsafat","Refleksi","Tokoh","Film","Buku","Agama","Keluarga","Opini","Ulasan","Kebangsaan","Perempuan","Sosial","Feminis"];
 autocomplete(document.getElementById("myTag"), TagSite); 
 
 var Babi=JSON.parse(localStorage.getItem("Artikel"));
@@ -208,13 +196,13 @@ location.reload();window.location = window.location
   var p=$('.ck-content');
    $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
    $(p).find('a').removeAttr("class").attr("target","_blank").attr("rel", "nofollow noopener noreferrer");
-$(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAttr("contenteditable").attr("class","image_post");$(p).find('div').remove();$(p).find('img').attr("class","lazyload").removeAttr("style");
+$(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAttr("contenteditable").attr("class","image_post");
+$(p).find(".ck-horizontal-line").replaceWith($('<hr>'));
+$(p).find('div').remove();
+$(p).find('img').attr("class","lazyload").removeAttr("style");
   var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
   var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>").split('src=').join('src="data:," data-src=').split("</figure>").join('<div class="lazy-loading"></div></figure>');
-  var isitiga=isidua.split("&nbsp;").join(" ");
-  
-
-
+  var isitiga=isidua.split("&nbsp;").join(" ").split("<p></p>").join("");
   var hasilsatu=judul.toLowerCase();
   var hhh=hasilsatu.split(/[^a-z0-9\s]/gi).join('')
   var hasildua=hhh.split(/[_\s]/g).join('-');
