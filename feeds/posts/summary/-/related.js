@@ -41,7 +41,7 @@ related_results_labels({
               "author":[
                 {"name":{"$t":"{{ site.title }}"},"uri":{"$t":"{{ site.url }}"},"email":{"$t":"info@sabdaliterasi.shop"},"gd$image":{"rel":"http://schemas.google.com/g/2005#thumbnail","width":"32","height":"32","src":"{{ site.avatar | prepend: site.url }}"}}],
                 "media$thumbnail":{
-                  "xmlns$media":"http://search.yahoo.com/mrss/","url":"{{ post.image }}?resize=300%2C169&amp;ssl=1","height":"169","width":"300"},
+                  "xmlns$media":"http://search.yahoo.com/mrss/","url":"{{ post.image }}?width=300&height=169&amp;ssl=1","height":"169","width":"300"},
                     "thr$total":{
                       "$t":"14"}
   
