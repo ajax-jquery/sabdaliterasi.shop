@@ -24,7 +24,7 @@
 <meta property="article:tag" content="{{keywords}}">
 {% endfor %}
 <link rel="preload" as="image" href="{% if page.image %}{{ page.image }}{% endif %}">
-<meta property="og:image" content="{% if page.image %}{{ page.image }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:image" content="{% if page.image %}{{ page.image }}?width=1200&height=630&wat=1&wat_scale=80&wat_gravity=center&wat_opacity=0.1{% endif %}" class="yoast-seo-meta-tag" />
 <meta property="og:image:width" content="1200" class="yoast-seo-meta-tag" />
 <meta property="og:image:height" content="630" class="yoast-seo-meta-tag" />
 <meta property="og:image:type" content="image/png" class="yoast-seo-meta-tag" />
@@ -56,25 +56,31 @@
 <link rel="alternate" type="application/rss+xml" title="RSS - {{ site.title }}" href="{{ site.url }}/rss.xml" />
 <link rel="alternate" type="application/rss+xml" title="Feed - {{ site.title }}" href="{{ site.url }}/feed.xml" />
 
-<link rel="apple-touch-icon" sizes="57x57" href="/media/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/media/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/media/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/media/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/media/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/media/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/media/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/media/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/media/apple-icon-180x180.png">
-<link rel="shortcut icon" type="image/png" sizes="192x192"  href="/media/android-icon-192x192.png">
-<link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="shortcut icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#f26926">
-<meta name="msapplication-TileImage" content="/media/ms-icon-144x144.png">
-<meta name="theme-color" content="#f26926"> 
-<meta name="apple-itunes-app" content="app-id=1034231507">
+<link rel="apple-touch-icon" sizes="57x57" href="/app/icons/apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/app/icons/apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/app/icons/apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/app/icons/apple-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/app/icons/apple-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/app/icons/apple-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/app/icons/apple-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/app/icons/apple-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/app/icons/apple-icon-180x180.png" />
+<link rel="shortcut icon" type="image/png" sizes="16x16" href="/app/icons/favicon-16x16.png" />
+<link rel="shortcut icon" type="image/png" sizes="32x32" href="/app/icons/favicon-32x32.png" />
+<link rel="shortcut icon" type="image/png" sizes="96x96" href="/app/icons/favicon-96x96.png" />
+<link rel="shortcut icon" type="image/png" sizes="192x192" href="/app/icons/android-icon-192x192.png" />
+<link href="/favicon.ico" rel="shortcut icon" sizes="16x16" type="image/x-icon" />
+<link rel="manifest" href="/app/manifest.json" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="Sabda Literasi Palu" />
+<meta name="theme-color" content="#f26926" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Sabda Literasi Palu" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="msapplication-config" content="/app/browserconfig.xml" />
+<meta name="msapplication-TileImage" content="/app/icons/ms-icon-144x144.png" />
+<meta name="msapplication-TileColor" content="#ffffff" />
+
 <link rel='dns-prefetch' href='//sabdaliterasi.shop' />
 <link rel='dns-prefetch' href='//cdn.ampproject.org' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
