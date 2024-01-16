@@ -113,7 +113,7 @@ layout: null
     ],
     "media$thumbnail":{
       "xmlns$media":"http://search.yahoo.com/mrss/",
-      "url":"{{ p.image }}?resize=1080%2C607&ssl=1","height":"607","width":"1080"},"thr$total":{"$t":"6"}}{% if forloop.last == false %},{% endif %}
+      "url":"{{ p.image }}?width=1080&height=607&ssl=1","height":"607","width":"1080"},"thr$total":{"$t":"6"}}{% if forloop.last == false %},{% endif %}
   {% endfor %}
   
   ]}}
