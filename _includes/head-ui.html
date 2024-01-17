@@ -122,6 +122,7 @@ Lazy(function () {
 /* Insert After */ function insertAfter(e,n){var t;null!=e&&null!=n&&((t=n.parentNode).lastChild==n?t.appendChild(e):t.insertBefore(e,n.nextSibling))};
 /* Middle Ads */ function middleAds(e,n){for(var t=0;t<n.length;t++){var l=document.getElementById("postBody"),d=document.getElementById(n[t][0]),l=l.getElementsByTagName(e);0<l.length?insertAfter(d,l[n[t][1]]):null!=d&&(d.remove())}};
 /* Recurring Ads */ function recurAds(e,n){var t=document.getElementById("postBody"),l=n.ads?document.getElementById(n.ads):null,d=t.getElementsByTagName(e);if(0<d.length&&null!=l)for(var r,i=0;i<d.length;i++)i%n.every==0&&0!==i&&((r=document.createElement("div")).classList.add("recAd"),r.innerHTML=l?l.innerHTML:n.html||"",insertAfter(r,d[i])),i==d.length-1&&null!=l&&(l.remove());else null!=l&&(l.remove())};
+/* Setting Kutoko */ var themeSetting={};function themeOption(e){for(var t in themeSetting)"undefined"!=themeSetting[t]&&(e[t]=themeSetting[t])};
 /*]]>*/</script>
 <script id='polyfill-js'>'IntersectionObserver'in window||document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"><\/script>');</script>
 <!--[ Defer Adsense script use shinsenter/defer.js ]-->
