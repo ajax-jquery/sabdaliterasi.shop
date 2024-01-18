@@ -9,7 +9,7 @@ image: https://sabdaliterasi.shop/media/android-icon-512x512
 keyword: [result]
 ---
 <script>
-document.querySelector("#Blog1 > div > article > h1 > span").innerHTML="Mohon Tunggu";    
+document.querySelector("#Blog1 > div > article > h1 > span").innerHTML="Mohon Tunggu...";    
 </script>
 <script src="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js"></script>
 <script>function HasilCSE(){
