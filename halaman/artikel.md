@@ -1,5 +1,5 @@
 ---
-layout: halaman
+layout: halamanNon
 author: Sabda Literasi
 title: Artikel
 description: Menampilkan seluruh Artikel.
