@@ -1,0 +1,7 @@
+<div class="chpN">
+{% if page.previous.url %}
+<a title="{{page.previous.title}}" href="{{page.previous.url}}" data-text="{{page.previous.title}}"></a>
+{% endif %}{% if page.next.url %}
+<a title="{{page.next.title}}" href="{{page.next.url}}" data-text="{{page.next.title}}"></a>
+{% endif %}
+</div>
