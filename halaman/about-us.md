@@ -2,7 +2,7 @@
 layout: halaman
 author: Sabda Literasi
 title: Tentang Kami
-description: Menampilkan seluruh Artikel.
+description: "Sabda Literasi merupakan tempat penjualan Ebook Berbahasa Indonesia terlengkap dengan harga dua kali lebih murah dan tersedia dalam bentuk PDF."
 permalink: /about-us/
 image: https://sabdaliterasi.shop/media/android-icon-512x512
 keyword: [Tentang Kami]
