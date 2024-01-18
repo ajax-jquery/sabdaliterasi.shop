@@ -442,13 +442,15 @@ Post a Comment
 </div>
 <!--[ Addons ]-->
 {% include UI-adons.html %}
-<!--[ Javascript disable condition ]-->
-<!--<noscript> <input class='nJs hidden' id='forNoJS' type='checkbox'/> <div class='noJs' expr:data-text='data:blog.title + &quot; works best with JavaScript enabled&quot;'> <label for='forNoJS'/> </div> </noscript>-->
-<!--[ Load More Pagination - Delete this section if you want to disable this feature ]-->
-<!--[ Numbered Pagination - Delete this section if you want to disable this feature ]-->
-<!--<b:include cond='!data:view.isSingleItem and !data:blog.isPrivateBlog' name='post-pagination2'/>-->
+<!--
+[ Javascript disable condition ]
+<noscript> <input class='nJs hidden' id='forNoJS' type='checkbox'/> <div class='noJs' expr:data-text='data:blog.title + &quot; works best with JavaScript enabled&quot;'> <label for='forNoJS'/> </div> </noscript>
+[ Load More Pagination - Delete this section if you want to disable this feature ]
+[ Numbered Pagination - Delete this section if you want to disable this feature ]
+<b:include cond='!data:view.isSingleItem and !data:blog.isPrivateBlog' name='post-pagination2'/>
+!function(e,t){var n="getSelection",o="removeAllRanges",i="addRange",l="parentNode",a="firstChild",d="appendChild",r="removeChild",s="test",c="innerHTML";if(e[n]){var p,g,f,h,u,y;t.addEventListener("copy",function(C){for(g=C.target;3===g.nodeType;)g=g[l];if(h=t.createElement("div"),(p=e[n]())&&p.rangeCount&&(p=p.getRangeAt(0))&&(f=p.cloneRange(),p=p.cloneContents())){for(;u=p[a];)h[d](u);if(!/^(pre|code)$/i[s](g.nodeName||"")&&!/(^|\s)no-attribution(\s|$)/i[s](g.className||"")){var v=e.location.href;h[c]+="<br><br>Tulisan diatas berasal dari artikel yang berjudul: "+JUDUL+"<br>Diterbitkan di Website: Sabda Literasi Palu<br>&copy; Sabda Literasi Palu-"+JUDUL+'<br>Baca Selengkapnya: <a href="'+v+'">'+v+"</a>"}y=t.createRange(),t.body[d](h),y.selectNodeContents(h),p=e[n](),p[o](),p[i](y),setTimeout(function(){h[l][r](h),p[o](),p[i](f)})}},!1)}}(window,document);   
+-->
 <script>
-!function(e,t){var n="getSelection",o="removeAllRanges",i="addRange",l="parentNode",a="firstChild",d="appendChild",r="removeChild",s="test",c="innerHTML";if(e[n]){var p,g,f,h,u,y;t.addEventListener("copy",function(C){for(g=C.target;3===g.nodeType;)g=g[l];if(h=t.createElement("div"),(p=e[n]())&&p.rangeCount&&(p=p.getRangeAt(0))&&(f=p.cloneRange(),p=p.cloneContents())){for(;u=p[a];)h[d](u);if(!/^(pre|code)$/i[s](g.nodeName||"")&&!/(^|\s)no-attribution(\s|$)/i[s](g.className||"")){var v=e.location.href;h[c]+="<br><br>Tulisan diatas berasal dari artikel yang berjudul: "+JUDUL+"<br>Diterbitkan di Website: Sabda Literasi Palu<br>&copy; Sabda Literasi Palu-"+JUDUL+'<br>Baca Selengkapnya: <a href="'+v+'">'+v+"</a>"}y=t.createRange(),t.body[d](h),y.selectNodeContents(h),p=e[n](),p[o](),p[i](y),setTimeout(function(){h[l][r](h),p[o](),p[i](f)})}},!1)}}(window,document);
 function related_results_labels(e){!function(){let e=document.querySelectorAll(".post-body p"),t=e.length/4;c=Array.from({length:3},(e,t)=>t+1);for(let n=0;n<c.length;n++){let l=parseInt(t*c[n]),r=document.createElement("div");r.className="RlTd","P"==e[l].nodeName?e[l].parentNode.insertBefore(r,e[l]):e[l].parentNode.insertBefore(r,e[l].nextSibling)}}();for(var t=[],n=0,l=[],r=0;r<e.feed.entry.length;r++){var a=e.feed.entry[r];if(TAGthis==a.category[0].term){t[n]=a.title.$t;for(var o=0;o<a.link.length;o++)if("alternate"==a.link[o].rel){l[n]=a.link[o].href,n++;break}}}function i(){for(var e=[],n=[],r=0;r<l.length;r++)f(e,l[r])||(e.length+=1,e[e.length-1]=l[r],n.length+=1,n[n.length-1]=t[r]);t=n,l=e}function f(e,t){for(var n=0;n<e.length;n++)if(e[n]==t)return!0;return!1}!function e(){let n=Math.floor((t.length-1)*Math.random()),r=0,a=document.querySelectorAll(".RlTd");for(;r<t.length&&r<a.length;)for(let o=0;o<a.length;o++)a[o].innerHTML='<a class="BJG" href="'+l[n]+'" title="'+t[n]+'"><span>Baca Juga: </span><strong>'+t[n]+'</strong></a>',n<t.length-1?n++:n=0,r++}()};LazyScript("https://sabdaliterasi.shop/feeds/posts/summary/-/related.js")
 </script>
 {% include UI-mainJS.html %}
