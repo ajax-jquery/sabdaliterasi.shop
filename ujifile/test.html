@@ -10,8 +10,8 @@ permalink: /test/
 <body>
  <ul>
 {% assign post = site.posts | sort: "title" | reverse %}
-{% for p in site.tags %}
-<li><strong><a title="" href="">ISBN: {{ p }}</a></strong></li>
+{% for p in site.tag.Filsafat %}
+<li><strong><a title="" href="">ISBN: {{ p.title }}</a></strong></li>
 {% endfor %}  
  </ul>   
 <p>{{ 10000000 | money: "IDR" }}</p>
