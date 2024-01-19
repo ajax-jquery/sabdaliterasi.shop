@@ -1,34 +1,12 @@
 <nav class='navS scrlH'>
 <div class='secIn'>
 <ul>
+{% for tag in site.tags %}  
 <li>
-<a aria-label='Art' class='l' data-text='Art' href='/search/label/Art'>
+<a aria-label='{{ tag[0] }}' class='l' data-text='{{ tag[0] }}' href='{{ "/category/" | prepend: site.url | append: tag[0] | downcase }}/'>
 </a>
 </li>
-<li>
-<a aria-label='Travel' class='l' data-text='Travel' href='/search/label/Travel'>
-</a>
-</li>
-<li>
-<a aria-label='Life Style' class='l' data-text='Life Style' href='/search/label/Life%20Style'>
-</a>
-</li>
-<li>
-<a aria-label='Photography' class='l' data-text='Photography' href='/search/label/Photography'>
-</a>
-</li>
-<li>
-<a aria-label='Nature' class='l' data-text='Nature' href='/search/label/Nature'>
-</a>
-</li>
-<li>
-<a aria-label='Food' class='l' data-text='Food' href='/search/label/Food'>
-</a>
-</li>
-<li>
-<a aria-label='Adventure' class='l' data-text='Adventure' href='/search/label/Adventure'>
-</a>
-</li>
+{% endfor %}
 </ul>
 </div>
 </nav>
