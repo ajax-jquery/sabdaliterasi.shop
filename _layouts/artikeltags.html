@@ -160,7 +160,7 @@ layout: null
 <div class='pLbls' data-text='in'>
 <a aria-label='Artikel' data-text='Artikel' href='{{ "/artikel/" | prepend: site.url }}' rel='tag'>
 </a>
-<a aria-label='{{ p.tag }}' data-text='{{ p.tag }}' href='{{ page.url }}' rel='tag'>
+<a aria-label='{{ p.tag }}' data-text='{{ p.tag }}' href='{{ "/tag/" | prepend: site.url | append: p.tag | downcase }}/' rel='tag'>
 </a>
 </div>
 </div>
