@@ -155,8 +155,8 @@ collections:
   posts:
     permalink: "/:title/"
     output: true
-  tags:
-    permalink: "/tags/:title/"
+  tag:
+    permalink: "/tag/:title/"
     output: true
 
 # Default YAML values (more information on Jekyll's site)
@@ -195,7 +195,7 @@ defaults:
   -
     scope:
       path: ""
-      type: "tags"
+      type: "tag"
     values:
       layout: "artikeltags"
 
