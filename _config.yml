@@ -155,6 +155,9 @@ collections:
   posts:
     permalink: "/:title/"
     output: true
+  tags:
+    permalink: "/tags/:title/"
+    output: true
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
@@ -189,6 +192,12 @@ defaults:
       type: "postsamp"
     values:
       layout: "page"
+  -
+    scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: "artikeltags"
 
 
 # Exclude these files from production site
