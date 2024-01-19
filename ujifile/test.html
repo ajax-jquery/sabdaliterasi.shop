@@ -8,12 +8,14 @@ permalink: /test/
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
- <ul>
-{% assign post = site.posts | sort: "title" | reverse %}
-{% for p in site.tag.Filsafat %}
-<li><strong><a title="" href="">ISBN: {{ p.title }}</a></strong></li>
-{% endfor %}  
- </ul>   
+{% for tag in site.tags %}
+  <h3>{{ tag[0] }}</h3>
+  <ul>
+    {% for post in tag[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}   
 <p>{{ 10000000 | money: "IDR" }}</p>
 {% for p in site.artikel.Tokoh %}
 <strong><a title="{{ p.title }}" href="{{p.title }}">{{ p.kode }}</a></strong>
