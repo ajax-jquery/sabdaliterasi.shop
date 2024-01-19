@@ -13,5 +13,6 @@ group :jekyll_plugins do
   gem 'jekyll-redirect-from'
   gem "jekyll-last-modified-at"
   gem 'jekyll-json-feed'
+  gem 'jekyll-tagories'
 end
 gem 'cucumber'
