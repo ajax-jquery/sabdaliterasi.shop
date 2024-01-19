@@ -220,4 +220,5 @@ plugins:
   - jekyll-timeago
   - jekyll-last-modified-at
   - jekyll-json-feed
+  - jekyll-tagories
 
