@@ -156,7 +156,7 @@ collections:
     permalink: "/:title/"
     output: true
   tag:
-    permalink: "/artikel/:title/"
+    permalink: "/category/:title/"
     output: true
 
 # Default YAML values (more information on Jekyll's site)
