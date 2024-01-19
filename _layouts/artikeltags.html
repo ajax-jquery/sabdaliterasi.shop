@@ -107,8 +107,8 @@ layout: null
 <div class='search-area'><div class='codehim-ss-bar'> <form id="CariProduk"><input onkeyup="cariproduk()" type='text' id="SerNOw" autocomplete="off" placeholder="Cari Artikel Di Sini..."/><button type="submit" class="codehim-circle-search-button" disabled> </button> </form> </div> </div>
 <h3 id="hasilo">All Article</h3>
 {% endif %} 
-<div class='blogPts'>
-{% for p in site.artikel %}  
+<div class='blogPts'>{% assign ARTIKEL = site.artikel | sort: "date" | reverse %}
+{% for p in ARTIKEL %}  
 {% if page.title == "Artikel" %}
 <article data-search-term="{{ p.tag }}{{ p.title | replace: ' ','' | downcase }}{{ p.description | replace: ' ','' | replace: '"','' | downcase }}" class='ntry searproduk'>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[ 
@@ -160,7 +160,7 @@ layout: null
 <div class='pLbls' data-text='in'>
 <a aria-label='Artikel' data-text='Artikel' href='{{ "/artikel/" | prepend: site.url }}' rel='tag'>
 </a>
-<a aria-label='{{ p.tag }}' data-text='{{ p.tag }}' href='{{ "/tag/" | prepend: site.url | append: p.tag | downcase }}/' rel='tag'>
+<a aria-label='{{ p.tag }}' data-text='{{ p.tag }}' href='{{ "/artikel/" | prepend: site.url | append: p.tag | downcase }}/' rel='tag'>
 </a>
 </div>
 </div>
