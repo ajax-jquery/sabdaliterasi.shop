@@ -15,14 +15,25 @@
 <!--[ Header widget ]-->
 <div class='headN section' id='header-title'><div class='widget Header' data-version='2' id='Header1'>
 <div class='headInnr'>
+{% if page.layout == "artikeltags" %}
+<h1 class='headH notranslate hasSub'>
+<bdi>
+<a class='headTtl' href='{{ site.url }}'>
+{{ site.title }}
+</a>
+</bdi>
+<span class='headSub hidden' data-text='{{ site.subjudul }}'></span>
+</h1>
+{% else %}
 <h2 class='headH notranslate hasSub'>
 <bdi>
 <a class='headTtl' href='{{ site.url }}'>
 {{ site.title }}
 </a>
 </bdi>
-<span class='headSub' data-text=''></span>
+<span class='headSub hidden' data-text='{{ site.subjudul }}'></span>
 </h2>
+{% endif %}    
 </div>
 <div class='headDsc hidden'>{{ site.description }}</div>
 </div></div>
