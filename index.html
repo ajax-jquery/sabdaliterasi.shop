@@ -397,5 +397,9 @@ All New Typography and Writing Formats in the lastest Plus UI v2.6
 <!--<b:include cond='!data:view.isSingleItem and !data:blog.isPrivateBlog' name='post-pagination2'/>-->
 <!--[ additional javascript ]-->
 {% include UI-mainJS.html %}
+<div id="ErrorPage"></div>
+<script>
+!function(e){if("404"==getUrlParameter("code")){var s=e.createElement("script");s.type="text/javascript",s.async=!0,s.src="{{ '/assets/js/plusui/js/error404.js?id=' | prepend: site.url }}"+makeid(5);var t=e.getElementsByTagName("body")[0].parentNode.insertBefore(s,t)}}(document);
+</script>
   </body>
 </html>
