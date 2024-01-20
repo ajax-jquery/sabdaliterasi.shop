@@ -12,7 +12,13 @@
 <input class='navM hidden' id='onMode' type='checkbox'/>
 <!--[ Preloader ]-->
 <!--[ Disable all the codes to remove preloader ]-->
-<!--<div class='pldW' id='preloader'> <div class='pldS'/> </div> <script>/*<![CDATA[*/ var preloader=document.querySelector('#preloader'); preloader.classList.add('e'); document.addEventListener('DOMContentLoaded', function(){setTimeout(function(){preloader.classList.add('h')},2000); neonLight(5000);}); /*]]>*/</script>-->
+<div class='pldW e' id='preloader'><div class='pldS'></div></div> 
+<script>/*<![CDATA[*/ 
+function loadhalaman(){
+var preloader=document.querySelector('#preloader'); 
+document.addEventListener('DOMContentLoaded', function(){setTimeout(function(){preloader.classList.add('h')},2000); neonLight(5000);});
+}
+/*]]>*/</script>
 <!--[ Toast Notif ]-->
 <div class='tNtf alt notranslate' id='toastNotif'></div>
 <!--[ Fixed Notif ]-->
