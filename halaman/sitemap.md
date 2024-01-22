@@ -8,7 +8,8 @@ image: https://sabdaliterasi.shop/media/android-icon-512x512
 keyword: [sitemap]
 ---
 <div class="sitemaps" id="sitemaps">
-  {% for tag in site.tags %}
+{% assign TAG = site.tags | map: 'title' | uniq %}
+  {% for tag in TAG %}
   <div class="sMaps">
   <h4 class="sMapsT">{{ tag[0] }}</h4>
   
