@@ -8,13 +8,13 @@ image: https://sabdaliterasi.shop/media/android-icon-512x512
 keyword: [sitemap]
 ---
 <div class="sitemaps" id="sitemaps">
-{% assign TAG = site.tags | map: 'title' | uniq %}
-  {% for tag in TAG %}
+
+  {% for tag in site.tags %}
   <div class="sMaps">
   <h4 class="sMapsT">{{ tag[0] }}</h4>
-  
+  {% assign TAG = tag | map: 'title' | uniq %}
     <ul>
-      {% for go in tag[1] %}
+      {% for go in TAG[1] %}
       <li><div class="iF"><div class="pThmb"><a class="thmb" aria-label="{{ go.title }}" href="{{ go.url | prepend: site.url }}" title="{{ go.title }}"><div style="background-image:url({{ go.image }}?width=360&height=202)"></div></a></div><div class="pCtnt"><div class="pInr"><div class="iTtl aTtl"><a href="{{ go.url | prepend: site.url }}">{{ go.title }}</a></div><div class="pSnpt"> {{ go.description }}</div><div class="pInf pSml" data-date='{{ go.date | date: "%b %d, %y" }}'></div></div></div></div></li>
       {% endfor %}
     </ul>
