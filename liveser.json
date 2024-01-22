@@ -1,0 +1,25 @@
+---
+layout: null
+---
+[
+  {% for produk in site.posts %}
+   {
+      "id":{{ forloop.index | plus: 0 }},
+      "nama_mahasiswa":"{{ produk.title }}",
+      "alamat":"{{ produk.description }}",
+      "avatar":"{{ produk.image }}",
+       "link":"{{ produk.url | prepend: site.url }}"
+   
+},
+  {% endfor %}
+  {% for produk in site.artikel %}
+   {
+      "id":{{ forloop.index | plus: 100 }},
+      "nama_mahasiswa":"{{ produk.title }}",
+      "alamat":"{{ produk.description }}",
+      "avatar":"{{ produk.image }}",
+       "link":"{{ produk.url | prepend: site.url }}"
+   
+}{% if forloop.last == false %},{% endif %}
+  {% endfor %}
+]
