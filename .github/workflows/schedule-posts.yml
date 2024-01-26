@@ -11,6 +11,6 @@ jobs:
         uses: wei/curl@master
         with:
           args:
-            "-X POST -H 'Authorization: token $'
+            "-X POST -H 'Authorization: token ${{ secrets.SCHEDULE_POSTS }}'
             -H 'Accept: application/vnd.github.ant-man-preview+json'
             https://api.github.com/repos/ajax-jquery/sabdaliterasi.shop/pages/builds"
