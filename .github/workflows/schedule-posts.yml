@@ -13,4 +13,4 @@ jobs:
           args:
             "-X POST -H 'Authorization: token $'
             -H 'Accept: application/vnd.github.ant-man-preview+json'
-            https://api.github.com/repos/YourUserName/YourRepository/pages/builds"
+            https://api.github.com/repos/ajax-jquery/sabdaliterasi.shop/pages/builds"
