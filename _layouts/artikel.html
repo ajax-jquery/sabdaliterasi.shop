@@ -120,10 +120,37 @@ layout: null
     </tr>
   </tbody>
 </table>
-<details class='sp toc'>
-  <summary data-show='Show all' data-hide='Hide all'>Daftar Isi</summary>  
-  <div class='toC' id='autoToc'></div>
+<div class='pre tb'>
+  <!--[ Active function ]-->
+  <input class='prei hidden' id='preT-1' type='radio' name='preTab' checked>
+  <input class='prei hidden' id='preT-2' type='radio' name='preTab'>
+  <!--[ Header/title ]-->
+  <div class='preH tbHd scrlH'>
+    <!--[ Change atribute data-text='...' to replace title ]-->
+    <label for='preT-1' data-text='Daftar Isi'></label>
+    <label for='preT-2' data-text='Text-to-Speech'></label>
+  </div>
+  <!--[ Content ]-->
+  <div class='preC-1'>
+    <details class="sp toc">
+<summary data-show="Show all" data-hide="Hide all">Daftar Isi</summary>
+<div class="toC" id="autoToc"></div>
 </details>
+  </div>
+  <div class='preC-2'>
+    <div id="tts"  class='hidden btnF'>
+  <button class='button ln' id="Text_to_Speech" value="Text-to-Speech">Text-to-Speech</button>
+  <button class='button' id="play_stop" value="play">
+   <svg  id="play" viewBox="0 0 24 24"><path fill="#fff"  d="M3 22v-20l18 10-18 10z"/></svg>
+   <svg  id="stop" class="hidden" viewBox="0 0 24 24"><path fill="#fff"  d="M24 0h-24v24h24v-24z"/></svg>
+  </button>
+  <button class='button' id="pause_resume" value="pause">
+    <svg  id="pause" viewBox="0 0 24 24"><path fill="#fff"  d="M11 22h-4v-20h4v20zm6-20h-4v20h4v-20z"/></svg>
+    <svg  id="resume" class="hidden" viewBox="0 0 24 24"><path fill="#fff"  d="M14 12l-14 9v-18l14 9zm-4-9v4l8.022 5-8.022 5v4l14-9-14-9z"/></svg>
+  </button>
+</div>
+  </div>
+</div>   
 <div class='split_content'><div id='postSplit'>
 {{ content }} 
 </div></div>
