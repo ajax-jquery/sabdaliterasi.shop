@@ -5,9 +5,10 @@
 <script>
 /* Get Parameter */ var getUrlParameter = function getUrlParameter(sParam) {var sPageURL = window.location.search.substring(1), sURLVariables = sPageURL.split('&'), sParameterName, i; for (i = 0; i < sURLVariables.length; i++) { sParameterName = sURLVariables[i].split('='); if (sParameterName[0] === sParam) { return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]); } } return false; };document.documentElement.lang=getUrlParameter("lang")
 </script>
+    <style>.ra-button {padding: .3em .9em; border-radius: .25em; background: linear-gradient(#fff, #efefef); box-shadow: 0 1px .2em gray; display: inline-flex; align-items: center; cursor: pointer;} .ra-button svg {height: 1em; margin: 0 .5em 0 0;}</style>
 </head>
 <body>
-<div id="tts_article"><div id="ra-player" data-skin="https://assets.sitespeaker.link/embed/skins/default"><div class="ra-button" onclick="go()"> Dengarkan artikel ini</div></div><audio id="ra-audio" data-lang="" data-voice="" data-key="afs537fsjdkr846ta241f263sfad25"></audio></div>
+<div id="tts_article"><div id="ra-player" data-skin="https://assets.sitespeaker.link/embed/skins/default"><div class="ra-button" onclick="go()"> <svg viewBox="0 0 80 100"><polygon points="80,50 0,100 0,0 80,50" fill="#484848"/></svg> Listen to this article</div></div><audio id="ra-audio" data-lang="" data-voice="" data-key="afs537fsjdkr846ta241f263sfad25"></audio></div>
 
 <div id="postSplit"></div>
 <script>
