@@ -58,9 +58,9 @@ function ReadAloudWebSpeech(){var r,i,a,s=this,u=new function(){var o;this.speak
 return r.src=e,r.play()
 
 }}});var n,o}function v(){var e,t=o.getAttribute("data-skin");return Promise.all([m(t+"/template.html"),(t=t+"/styles.css",e=document.createElement("LINK"),document.head.appendChild(e),e.setAttribute("type","text/css"),e.setAttribute("rel","stylesheet"),void e.setAttribute("href",t))]).then(function(e){o.innerHTML=e[0]})}function m(o){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("GET",o,!0),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)))},n.send(null)})}}
- function babi(){     readAloudInit(document.getElementById('ra-audio'),document.getElementById('ra-player'));
-function K(){
-document.getElementById("postSplit").style.display='none'}setTimeout(K, 1000);
+ function babi(){     
+     readAloudInit(document.getElementById('ra-audio'),document.getElementById('ra-player'));
+
    
    }
    setTimeout(babi, 1000);
