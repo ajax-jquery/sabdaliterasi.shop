@@ -71,7 +71,8 @@ go()
   var ifr = document.createElement("iframe");
   ifr.setAttribute("frameborder", "0");
   ifr.setAttribute("scrolling", "no");
-  ifr.setAttribute("id", "iframeResult");  
+  ifr.setAttribute("id", "iframeResult");
+  ifr.setAttribute("height", "103");
   document.getElementById("iframewrapper").innerHTML = "";
   document.getElementById("iframewrapper").appendChild(ifr);
   var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
