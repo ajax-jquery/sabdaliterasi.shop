@@ -34,6 +34,10 @@ const A=document.getElementById("postSplit");
 }
 #ra-player .ra-menu-item:first-child {
     width: 1px!important;
+}#ra-player > div:nth-child(4) > div.ra-overlay.ra-menu-overlay > div:nth-child(2) {
+    display: none !important;
+}#ra-player .ra-overlay.ra-menu-overlay {
+    width: 100% !important;
 }</style>
 </head>
 <body>
