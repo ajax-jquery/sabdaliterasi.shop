@@ -14,7 +14,17 @@ const A=document.getElementById("postSplit");
   <!DOCTYPE html>
 <html lang="`+artikel+`">
 <head>
-<style>.ra-button {padding: .3em .9em; border-radius: .25em; background: linear-gradient(#fff, #efefef); box-shadow: 0 1px .2em gray; display: inline-flex; align-items: center; cursor: pointer;} .ra-button svg {height: 1em; margin: 0 .5em 0 0;}p.read-aloud { font-size: 1px; margin:0px;color: #fff0!important}div#postSplit{line-height: 0px; width: 100%;margin: 0; }#ra-player .ra-overlay {
+<style>.ra-button {
+    width: 99%;
+    margin: 0px 0px 0 -5px;
+    padding: 0.3em 0px 0.3em 10px;
+    border-radius: 0.25em;
+    background: linear-gradient(#fff, #efefef);
+    box-shadow: 0 1px 0.2em grey;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+} .ra-button svg {height: 1em; margin: 0 .5em 0 0;}p.read-aloud { font-size: 1px; margin:0px;color: #fff0!important}div#postSplit{line-height: 0px; width: 100%;margin: 0; }#ra-player .ra-overlay {
     right: 0;
     display: none;
     position: absolute;
@@ -38,15 +48,23 @@ const A=document.getElementById("postSplit");
     display: none !important;
 }#ra-player .ra-overlay.ra-menu-overlay {
     width: 100% !important;
+}body{position: relative;
+    overflow: hidden;}div#ra-player {
+    max-width: 99% !important;
 }</style>
 </head>
 <body>
-<div id="tts_article"><div id="ra-player" data-skin="https://assets.sitespeaker.link/embed/skins/default"><div class="ra-button" onclick="go()"> <svg viewBox="0 0 80 100"><polygon points="80,50 0,100 0,0 80,50" fill="#484848"/></svg> Listen to this article</div></div><audio id="ra-audio" data-lang="" data-voice="" data-key="afs537fsjdkr846ta241f263sfad25"></audio></div>
+<div id="tts_article"><div id="ra-player" data-skin="https://assets.sitespeaker.link/embed/skins/default"><div id="dengar" class="ra-button" onclick="dengar()"> <svg viewBox="0 0 80 100"><polygon points="80,50 0,100 0,0 80,50" fill="#484848"/></svg> Listen to this article</div></div><audio id="ra-audio" data-lang="" data-voice="" data-key="afs537fsjdkr846ta241f263sfad25"></audio></div>
 <div id="postSplit">`+Q.replaceAll('undefined','')+`</div>
 <script>
 const Path="`+Path+`"
+
+function dengar(){
+document.getElementById("dengar").innerHTML = "Loading";
+go()
+}
 </\script>
-<script src="https://sabdaliterasi.shop/assets/html/voice.js?=v1"><\/script>
+<script  src="https://sabdaliterasi.shop/assets/html/voice.js?=v1"><\/script>
 </body>
 </html>
   `;
