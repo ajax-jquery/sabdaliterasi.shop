@@ -1,6 +1,3 @@
-function tinggi() {
-document.getElementById("iframewrapper").setAttribute('height',document.getElementById("iframewrapper").contentWindow.document.body.scrollHeight)
-}
 function submitTryit() {
   const Path=PathThis;
 const A=document.getElementById("postSplit");
@@ -51,7 +48,7 @@ const Path="`+Path+`"
   `;
   var ifr = document.createElement("iframe");
   ifr.setAttribute("frameborder", "0");
-  ifr.setAttribute("onload", "tinggi()");
+  ifr.setAttribute("scrolling", "no");
   ifr.setAttribute("id", "iframeResult");  
   document.getElementById("iframewrapper").innerHTML = "";
   document.getElementById("iframewrapper").appendChild(ifr);
