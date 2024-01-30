@@ -34,7 +34,7 @@ document.getElementById("dengar").innerHTML = "Loading";
 go()
 }
 </\script>
-<script src="https://sabdaliterasi.shop/assets/html/voice.js?=v1"><\/script>
+<script src="https://sabdaliterasi.shop/assets/html/tts.js"><\/script>
 </body>
 </html>
   `;
