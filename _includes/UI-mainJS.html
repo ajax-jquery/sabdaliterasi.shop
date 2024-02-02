@@ -107,9 +107,9 @@ const PuSet = {
 <script onload="loadhalaman()" src="https://sabdaliterasi.shop/assets/js/plusui/decode.min.js"></script>
 {% if page.layout == "artikel" %}
 {% capture isi %}{{ page.content }}{% endcapture %}<script>
-let isi_content=`<h1>{{page.title}}</h1><h2>Karya {% if page.author %}{{ page.author }}{% else %}Admin {{ site.title }}{% endif %}. Media Penerbit {{ site.title }}.</h2>{{ isi | strip_newlines }}<p>Terimakasih telah membaca artikel dengan judul "{{ page.title }}" yang di terbitkan oleh media {{ site.title }}. Silahkan share pengetahuan ini agar bermanfaat bagi orang lain.</p>`,
+let isi_content=`<h1>{{page.title}}</h1><p>Karya {% if page.author %}{{ page.author }}{% else %}Admin {{ site.title }}{% endif %}. Media Penerbit {{ site.title }}.</p>{{ isi | strip_newlines }}<p>Terimakasih telah membaca artikel dengan judul "{{ page.title }}" yang di terbitkan oleh media {{ site.title }}. Silahkan share pengetahuan ini agar bermanfaat bagi orang lain.</p>`,
 isi_tts=isi_content.replaceAll('а','a').replaceAll('ј','j').replaceAll('і','i').replaceAll('ѕ','s');
-var PathThis="{{ page.url }}tts-v5/";function Voice(){document.getElementById("Tts").classList.remove('hidden')}
-LazyScript("{{ site.url }}/assets/js/plusui/tts.min.js?versi=10","Voice()");
+var PathThis="{{ page.url }}tts-v11/";function Voice(){document.getElementById("Tts").classList.remove('hidden')}
+LazyScript("{{ site.url }}/assets/js/plusui/tts.min.js?versi=11","Voice()");
 </script>
 {% endif %}
