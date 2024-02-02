@@ -23,9 +23,9 @@
 <meta property="article:section" content="Business">
 {% for keywords in page.keyword limit:10 %}<meta property="article:tag" content="{{ keywords }}">{% endfor %}{% if page.tag %}<meta property="article:tag" content="{{ page.tag }}">{% endif %}
 {% if page.image %}
-<meta content="{{ page.image }}?width=1200&height=630&wat=1&wat_scale=80&wat_gravity=center&wat_opacity=0.3" property="og:image"/>
-<meta content="{{ page.image }}?width=1280&height=720&wat=1&wat_scale=80&wat_gravity=center&wat_opacity=0.3" name="twitter:image" />
-<link href="{{ page.image }}?width=1280&height=720&wat=1&wat_scale=80&wat_gravity=center&wat_opacity=0.3" rel="image_src" />
+<meta content="{{ page.image }}?width=1200&height=630&share=1" property="og:image"/>
+<meta content="{{ page.image }}?width=1280&height=720&share=1" name="twitter:image" />
+<link href="{{ page.image }}?width=1280&height=720&share=1" rel="image_src" />
 {% endif %}
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
