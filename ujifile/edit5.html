@@ -230,7 +230,7 @@ location.reload();window.location = window.location
  var gambar =$('input[name=image]').val()
   var img_fix;
 if(gambar.indexOf("github.com") > 0 ){
-img_fix=gambar.replace('github.com','cdn.jsdelivr.net/gh').replace('/blob/','@')
+    img_fix=gambar.replace('github.com','cdn.jsdelivr.net/gh').replace('/blob/','@')
 }else{
 img_fix=gambar
 }
