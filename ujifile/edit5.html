@@ -227,7 +227,14 @@ location.reload();window.location = window.location
 
   var judul=$('input[name=judul]').val()
   var tag=lo($('input[name=tag]').val());
-  var image=$('input[name=image]').val().replace("http://","").replace("https://","")
+ var gambar =$('input[name=image]').val()
+  var img_fix;
+if(gambar.indexOf("github.com") > 0 ){
+img_fix=gambar.replace('github.com','rawcdn.githack.com').replace('/blob/','/')
+}else{
+img_fix=gambar
+}
+ var image=img_fix.replace("http://","").replace("https://","")
   var description=$('textarea[name=description]').val()
   var keyword=$('input[name=keyword]').val().split(",").join("','")
   var p=$('.ck-content');
