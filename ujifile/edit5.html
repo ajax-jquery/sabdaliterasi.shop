@@ -331,7 +331,7 @@ var k=JSON.stringify(b),
       callback.apply(context, args);
     }, ms || 0);
   };
-};$('form').keyup(delay(function (e) {formSubmit()}, 500));$("#reset").click(function(){
+};$('form').keyup(delay(function (e) {formSubmit()}, 650));$("#reset").click(function(){
 $('form')[0].reset();
 if(localStorage.getItem("Artikel")){
 localStorage.removeItem("Artikel")
