@@ -298,6 +298,12 @@ var k=JSON.stringify(b);
 formSubmit()
 
 
+});$("#reset").click(function(){
+$('form')[0].reset();
+if(localStorage.getItem("Artikel")){
+localStorage.removeItem("Artikel")
+};formremove();
+window.location.href = "https://"+location.host+location.pathname
 });
   </script>
 
@@ -314,13 +320,6 @@ $('textarea[name=description]').keyup(function(){
 var a = $(this).val();
  $("#count").html(a.length)
 })
-$("#reset").click(function(){
-$('form')[0].reset();
-if(localStorage.getItem("Artikel")){
-localStorage.removeItem("Artikel")
-};formremove();
-window.location.href = "https://"+location.host+location.pathname
-});
 $("#load_data").click(function(){
 window.location.href = "https://"+location.host+location.pathname+"?load=1"
 });
