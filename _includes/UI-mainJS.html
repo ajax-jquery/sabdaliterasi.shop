@@ -108,7 +108,7 @@ const PuSet = {
 {% if page.layout == "artikel" %}
 {% capture isi %}{{ page.content }}{% endcapture %}<script>
 let isi_content=`<h1>{{page.title}}</h1><p>Media Penerbit "{{ site.title }}" ({{ site.url }}).</p>{{ isi | strip_newlines }}<p>Terimakasih telah membaca artikel dengan judul "{{ page.title }}" yang di terbitkan oleh media {{ site.title }}. Silahkan share pengetahuan ini agar bermanfaat bagi orang lain.</p>`,
-isi_tts=isi_content.replaceAll('а','a').replaceAll('ј','j').replaceAll('і','i').replaceAll('ѕ','s');
+isi_tts=netral(isi_content);
 var PathThis="{{ page.url }}tts-v14/";function Voice(){document.getElementById("Tts").classList.remove('hidden')}
 LazyScript("{{ site.url }}/assets/js/plusui/tts.min.js?versi=14","Voice()");
 </script>
