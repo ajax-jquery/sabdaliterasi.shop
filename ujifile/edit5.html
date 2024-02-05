@@ -316,11 +316,13 @@ var a = $(this).val();
 })
 $("#reset").click(function(){
 $('form')[0].reset();
-localStorage.removeItem("Artikel");formremove();
-location.reload();window.location = window.location
+if(localStorage.getItem("Artikel")){
+localStorage.removeItem("Artikel")
+};formremove();
+window.location.href = "https://"+location.host+location.pathname
 });
 $("#load_data").click(function(){
-window.location = window.location+"?load=1"
+window.location.href = "https://"+location.host+location.pathname+"?load=1"
 });
 
   $("#hasil").click(function(){
