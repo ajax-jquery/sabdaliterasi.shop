@@ -104,7 +104,27 @@ permalink: /edit5/
 }
 .bootstrap-tagsinput{background-color:#fff;border:1px solid #ccc;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);display:inline-block;padding:4px 6px;color:#555;vertical-align:middle;border-radius:4px;width:100%;line-height:22px;cursor:text}.bootstrap-tagsinput input,.bootstrap-tagsinput input:focus{border:none;box-shadow:none}.bootstrap-tagsinput input{outline:0;background-color:transparent;padding:0 6px;margin:0;width:auto;max-width:inherit}.bootstrap-tagsinput.form-control input::-moz-placeholder{color:#777;opacity:1}.bootstrap-tagsinput.form-control input:-ms-input-placeholder{color:#777}.bootstrap-tagsinput.form-control input::-webkit-input-placeholder{color:#777}.bootstrap-tagsinput .badge{margin-right:2px;color:#fff;background-color:#0275d8;padding:5px 8px;border-radius:3px;border:1px solid #01649e}.bootstrap-tagsinput .badge [data-role=remove]{margin-left:8px;cursor:pointer}.bootstrap-tagsinput .badge [data-role=remove]:after{content:"x";padding:0 4px;background-color:rgba(0,0,0,.1);border-radius:50%;font-size:13px}.bootstrap-tagsinput .badge [data-role=remove]:hover:after{background-color:rgba(0,0,0,.62)}.bootstrap-tagsinput .badge [data-role=remove]:hover:active{box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.form-outline.mb-2.button { margin-top: 12px; }textarea#hasilnya { min-height: 340px; }</style>
 </head>
-<body>
+<body><style>div#savesucces {
+    z-index: 1;
+    text-align: center;
+    text-align: -webkit-center;
+    height: 0px;
+    padding: 0 0px;
+    top: 50%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+}div#savesucces div {
+	display:none;
+    width: 100px;
+    text-align: center;
+    opacity: 0.7;
+    font-weight: 600;
+}</style>
+<div id="savesucces"><div class="alert alert-success" role="alert">
+Saved
+</div></div>
 <div class="card-header py-3">
 <h5 class="mb-0">Artikel</h5>
 </div>
@@ -256,7 +276,7 @@ function formremove() {
   isi: "" 
 };
 var k=JSON.stringify(b),
-    reload=true
+    reload="remove"
 
       //send message values(3)
       sendMessage(k,reload);
@@ -274,10 +294,11 @@ var k=JSON.stringify(b),
   tanggal: $('input[name=tanggal]').val(),
   isi: $('.ck-content').html() 
 };
-var k=JSON.stringify(b);
+var k=JSON.stringify(b),
+    jj="save";
 
       //send message values(3)
-      sendMessage(k);
+      sendMessage(k,jj);
     }
 
     //Send Message to Firebase(4)
@@ -287,21 +308,30 @@ var k=JSON.stringify(b);
       set(ref(database, 'editartikel/'), {
         json: name
       }).then(() => {
-      if(k){
+      if(k == "remove"){
     window.location.href = "https://"+location.host+location.pathname  
+      }else if(k == "save"){
+ var jo=$("#savesucces .alert.alert-success");
+      jo.fadeIn();
+      setTimeout(function(){jo.fadeOut()},1000)
+          
       }
       
       }).catch((error) => {
         alert(error)
       })
     };
-    $("form").keyup(function(){
-
-
-formSubmit()
-
-
-});$("#reset").click(function(){
+   
+     function delay(callback, ms) {
+  var timer = 0;
+  return function() {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+};$('form').keyup(delay(function (e) {formSubmit()}, 500));$("#reset").click(function(){
 $('form')[0].reset();
 if(localStorage.getItem("Artikel")){
 localStorage.removeItem("Artikel")
