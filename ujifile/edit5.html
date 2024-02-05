@@ -255,10 +255,11 @@ function formremove() {
   tanggal: "",
   isi: "" 
 };
-var k=JSON.stringify(b);
+var k=JSON.stringify(b),
+    reload=true
 
       //send message values(3)
-      sendMessage(k);
+      sendMessage(k,reload);
     }
 
      
@@ -280,13 +281,15 @@ var k=JSON.stringify(b);
     }
 
     //Send Message to Firebase(4)
-    function sendMessage(name) {
+    function sendMessage(name,k) {
       const database = getDatabase();
 
       set(ref(database, 'editartikel/'), {
         json: name
       }).then(() => {
-      
+      if(k){
+    window.location.href = "https://"+location.host+location.pathname  
+      }
       
       }).catch((error) => {
         alert(error)
@@ -303,7 +306,6 @@ $('form')[0].reset();
 if(localStorage.getItem("Artikel")){
 localStorage.removeItem("Artikel")
 };formremove();
-window.location.href = "https://"+location.host+location.pathname
 });
   </script>
 
