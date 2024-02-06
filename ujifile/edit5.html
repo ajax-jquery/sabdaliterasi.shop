@@ -211,33 +211,26 @@ function startCK(){
 ClassicEditor.create(document.getElementById("editor"), {
 heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
 });
-}
-var chekload=getpar("load")
-if(chekload){
-var i = new Firebase("https://sabda-562b1-default-rtdb.firebaseio.com/editartikel");
-        i.once("value", function(a) {
-            var n = a.val().json;
-            if(n){
-            var Babi=JSON.parse(n)
-           if(Babi){
- $('input[name=judul]').val(Babi.judul),
- $('input[name=tag]').val(Babi.tag),
- $('input[name=image]').val(Babi.image),
- $('textarea[name=description]').val(Babi.description),
- $('input[name=keyword]').val(Babi.keyword),
- $('input[name=tanggal]').val(Babi.tanggal),
- $('#editor').html(Babi.isi);
-
- };
- }
+};
+!function(){
+fetch('https://sabda-562b1-default-rtdb.firebaseio.com/editartikel.json').then(response => {return response.json(); 
+}).then(json => {
+var n=JSON.parse(json.json)
+   
+if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description.length > 0 || n.keyword.length > 0 || n.tanggal.length > 0 || n.isi.length > 0){
+ $('input[name=judul]').val(n.judul),
+ $('input[name=tag]').val(n.tag),
+ $('input[name=image]').val(n.image),
+ $('textarea[name=description]').val(n.description),
+ $('input[name=keyword]').val(n.keyword),
+ $('input[name=tanggal]').val(n.tanggal),
+ $('textarea#editor').html(n.isi);
  startCK();tagclas()
-
-        })
-        
-        
-        }else{
-        startCK();tagclas()
-        }
+ 
+ }else{
+ startCK();
+ tagclas()}});
+}()
         </script>
  <script type="module">
 
