@@ -247,7 +247,7 @@ heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-headi
    const dbRef = ref(getDatabase());
 get(child(dbRef, 'editartikel')).then((snapshot) => {
    let n = JSON.parse(snapshot.val().json);   
-if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description.length > 0 || n.keyword.length > 0 || n.tanggal.length > 0 || n.isi.length > 0){
+if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description.length > 0 || n.keyword.length > 0 || n.tanggal.length > 0 || n.isi.indexOf("ck-placeholder") < 0){
  $('input[name=judul]').val(n.judul),
  $('input[name=tag]').val(n.tag),
  $('input[name=image]').val(n.image),
