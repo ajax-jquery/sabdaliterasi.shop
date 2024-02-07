@@ -11,12 +11,11 @@ permalink: /edit5/
 <link rel="dns-prefetch" href="//sabdaliterasi.shop" />
 <link rel="dns-prefetch" href="//www.gstatic.com" />
 <link rel="dns-prefetch" href="//sabda-562b1-default-rtdb.firebaseio.com" />
-<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
 <link rel="preload" href="https://sabdaliterasi.shop/assets/js/editartikel.min.js?m3s" as="script" />
 <link rel="preload" href="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js" as="script" />
-<link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" as="style" />
-<link rel="preload" href="https://sabda-562b1-default-rtdb.firebaseio.com/editartikel.json" as="json" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="preload" href="https://sabdaliterasi.shop/assets/css/bootstrap/5.0.0-alpha2/style.min.css" as="style" />
+<link rel="preload" href="https://sabda-562b1-default-rtdb.firebaseio.com/editartikel" as="json" />
+<link rel="stylesheet" href="https://sabdaliterasi.shop/assets/css/bootstrap/5.0.0-alpha2/style.min.css">
 <script src="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js"></script>
 <script src="https://sabdaliterasi.shop/assets/js/editartikel.min.js?m3s"></script>
 <script>
@@ -344,25 +343,9 @@ var k=JSON.stringify(b),
    
     
    
-     function delay(callback, ms) {
-  var timer = 0;
-  return function() {
-    var context = this, args = arguments;
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      callback.apply(context, args);
-    }, ms || 0);
-  };
-};
+function delay(n,t){var a=0;return function(){var i=this,r=arguments;clearTimeout(a),a=setTimeout(function(){n.apply(i,r)},t||0)}}     
 $('form').on('propertychange click change keyup input paste',delay(function (e) {formSubmit()}, 1500));
-     
-     
-     $("#reset").click(function(){
-$('form')[0].reset();
-if(localStorage.getItem("Artikel")){
-localStorage.removeItem("Artikel")
-};formremove();$(".badge.badge-info").remove()
-});
+$("#reset").click(function(){if(confirm("Ingin hapus?")){formremove();$('form')[0].reset();$(".badge.badge-info").remove()}});
   </script>
 
     
