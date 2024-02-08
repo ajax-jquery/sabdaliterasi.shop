@@ -1841,8 +1841,10 @@ if(babi){document.getElementById("textareaCode").value=babi};
 submitTryit()
   
 function remsave(){
+if(confirm('hapus data?')){
 localStorage.removeItem("MyLab");
 location.href=location.href
+}
 }
 function save(e){
   window.editor&&window.editor.save();
@@ -1863,7 +1865,7 @@ function submitTryit(e){
   
   
   }function clickTab(e){return!1}function w3_getStyleValue(e,t){return window.getComputedStyle?window.getComputedStyle(e,null).getPropertyValue(t):e.currentStyle[t]}function openMenu(){var e=document.getElementById("navbarDropMenu"),t=document.getElementById("menuOverlay"),a=document.getElementById("menuButton");-1==a.className.indexOf("w3-text-gray")?a.className+=" w3-text-gray":a.className=a.className.replace(" w3-text-gray",""),-1==a.className.indexOf("w3-gray")?a.className+=" w3-gray":a.className=a.className.replace(" w3-gray",""),-1==e.className.indexOf("w3-show")?e.className+=" w3-show":e.className=e.className.replace(" w3-show",""),-1==t.className.indexOf("w3-show")?t.className+=" w3-show":t.className=t.className.replace(" w3-show","")}function setCodewindowHeight(){var e,t=w3_getStyleValue(document.getElementById("textareawrapper"),"height"),a=document.getElementsByClassName("codewindow");for(e=0;e<a.length;e++)a[e].style.height=t,a[e].style.setProperty("overflow","auto","important")}window.addEventListener&&(document.getElementById("dragbar").addEventListener("mousedown",function(e){dragstart(e)}),document.getElementById("dragbar").addEventListener("touchstart",function(e){dragstart(e)}),window.addEventListener("mousemove",function(e){dragmove(e)}),window.addEventListener("touchmove",function(e){dragmove(e)}),window.addEventListener("mouseup",dragend),window.addEventListener("touchend",dragend),window.addEventListener("load",fixDragBtn),window.addEventListener("load",showFrameSize)),"dark"==localStorage.getItem("preferredmode")&&(document.body.className+=" darktheme"),colorcoding(),window.onclick=function(e){e.target==document.getElementById("menuOverlay")&&openMenu()};
-uic_r_e();
+
 
 </script>
 </body>
