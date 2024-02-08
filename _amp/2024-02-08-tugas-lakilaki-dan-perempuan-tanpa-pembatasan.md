@@ -2,7 +2,7 @@
 date: '2024-02-08 10:02:37 +0800'
 tag: 'Feminis'
 title: 'Tugas Laki-laki dan Perempuan Tanpa Pembatasan'
-image: 'https://sabdaliterasi.shop/img/sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/images/2024-02-08-tugas-lakilaki-dan-perempuan-tanpa-pembatasan.jpg'
+image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/2024-02-08-tugas-lakilaki-dan-perempuan-tanpa-pembatasan.jpg'
 description: 'Dalam diskusi gender, peran laki-laki penting. Kesetaraan gender memperkuat hubungan keluarga dan menciptakan keseimbangan dalam kehidupan sehari-hari.'
 keyword: ['gender',' kesetaraan',' peran',' diskusi',' keluarga',' ilmu',' pendidikan']
 ---
