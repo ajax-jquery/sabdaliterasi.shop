@@ -481,18 +481,6 @@ var Judul=$('input[name=judul]'),
   Tanggal= $('input[name=tanggal]'),
   Isi= $('.ck-content');
   
-$('#dhe').click(function() {
-let hm=hasilkan();
-var gg=hm.hasil;
-if (gg.indexOf('ck-placeholder') > -1){
-    alert('kosong')
-    }else{
-    alert('ada isi')
-    }
-});
-
-
-
 Judul.keyup(function(){
   Judul.removeClass('kosong')
 });
@@ -553,7 +541,9 @@ return false
 }else if(GGG.indexOf('ck-placeholder') > -1){
 $(".CKeditnya").addClass('ckkosong');$("#MyArtikel > div.form-outline.mb-2.CKeditnya > div").focus();alert('isi konten')
 return false
-}else{
+}
+  else{
+    !function(){
 async function submitFormToGitHub(formData,folderName,linkpost) {
    const username = 'ajax-jquery'; // Ganti dengan username GitHub Anda
         const repository = 'sabdaliterasi.shop'; // Ganti dengan nama repositori GitHub Anda
@@ -607,7 +597,8 @@ const base64EncodedText = String.fromCharCode.apply(null, encodedArray);
     }
 
 
-}
+}()
+  }
 
 });
 
@@ -680,4 +671,3 @@ $(".imageform").removeClass('hidden'); $('img.img-fluid').attr("src",reader.resu
 </script>
 </body>
 </html>
-
