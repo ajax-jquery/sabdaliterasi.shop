@@ -290,9 +290,9 @@ if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description
  
  
  if(n.image.length > 0){
- var imageUrl = n.image;
+ var imageUrl = n.image.replaceAll('sabdaliterasi.shop/img/','');
  var base64=n.base64;
- $('input[name=image]').val(imageUrl);
+ $('input[name=image]').val(imageUrl)
  $('input[name=base64]').val(base64);
  $(".imageform").removeClass('hidden');
  $('img.img-fluid').attr("src",base64);
