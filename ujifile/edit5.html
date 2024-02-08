@@ -290,7 +290,7 @@ if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description
  
  
  if(n.image.length > 0){
- var imageUrl = n.image.replaceAll('sabdaliterasi.shop/img/','');
+ var imageUrl = n.image;
  var base64=n.base64;
  $('input[name=image]').val(imageUrl)
  $('input[name=base64]').val(base64);
@@ -411,7 +411,7 @@ function hasilkan(){
 function leftPad(t,e){for(var r=""+t;r.length<e;)r="0"+r;return r}function lo(t){let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
   var judul=$('input[name=judul]').val()
   var tag=lo($('input[name=tag]').val());
- var gambar =$('input[name=image]').val()
+ var gambar =$('input[name=image]').val().replaceAll('sabdaliterasi.shop/img/','');
   var img_fix;
 if(gambar.indexOf("github.com") > 0 ){
     img_fix=gambar.replace('github.com','cdn.jsdelivr.net/gh').replace('/blob/','@')
