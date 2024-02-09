@@ -279,7 +279,7 @@ function delay(n,t){
 var a=0;return function(){var i=this,r=arguments;clearTimeout(a),a=setTimeout(function(){n.apply(i,r)},t||0)}}     
 $('form').on('propertychange click change keyup input paste',delay(function (e) {formSubmit()}, 1000));
 $("#reset").click(function(){if(confirm("Ingin hapus?")){
-formremove();$('form')[0].reset();$(".badge.badge-info").remove();
+formremove();$('form')[0].reset();$("tag").remove();
 $('img.img-fluid').attr("src",'');
 $(".imageform").addClass('hidden');
 
