@@ -380,6 +380,7 @@ return false
 }
   else{
 
+if(confirm('Upload Tulisan ini?')){
 
  onAuthStateChanged(getAuth(), (user) => {
             if (!user) {
@@ -389,7 +390,7 @@ return false
             }
         });
 
-
+}
 
 
   }
