@@ -578,14 +578,16 @@ $('.inputfotourl').removeClass('hidden');
 }
 async function upplood(bbb,kk){
 const username = 'ajax-jquery';const repository = 'asset.sabdaliterasi.shop';const branch = 'main';const accessToken = Pu.de(Hm_Key);
-let nama = kk;
-if(kk.indexOf('/') > 0){
-const url = kk;
-const pathSegments = url.split('/');
-const lastSegment = pathSegments[pathSegments.length - 1]; 
-const lastSegmentWithoutQueryString = lastSegment.split('?')[0];
-nama=lastSegmentWithoutQueryString
-}
+
+const extension = kk.match(/\.([^.\/\?]+)(\?.*)?$/);
+let judul=$('input[name=judul]').val();
+const urlimage = judul
+    .toLowerCase() // Mengubah semua huruf menjadi huruf kecil
+    .replace(/[^a-zA-Z0-9]+/g, '-') // Menghapus karakter non-alfanumerik dan mengganti dengan '-'
+    .replace(/--+/g, '-') // Menghapus tanda '-' berlebihan
+    .replace(/^-+|-+$/g, ''); 
+let nama ='sabda-literasi-'+urlimage+'.'+extension[1];
+
 const url = `https://api.github.com/repos/${username}/${repository}/contents/images/${nama}`;
 function base(Gambar,aler){
 urlToBase64(Gambar).then(beb => {
