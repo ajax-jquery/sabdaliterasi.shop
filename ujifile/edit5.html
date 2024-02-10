@@ -645,7 +645,12 @@ async function urlToBase64(url) {
         reader.readAsDataURL(blob);
     });
 }    
+
 document.getElementById('submit').addEventListener('click', function (event) {
+if($('input[name=judul]').val() == ""){
+Judul.addClass('kosong');Judul.focus();
+return false
+}else{
         event.preventDefault(); // Mencegah pengiriman form secara default
 $('.spinner-border').removeClass('hidden');
         const photoInput = document.getElementById('photoInput');
@@ -656,8 +661,14 @@ $('.spinner-border').removeClass('hidden');
         } else {
            alert('Tidak ada file yang dipilih');
         }
+}
     });
+
 document.getElementById('submiturl').addEventListener('click', function(event) {
+if($('input[name=judul]').val() == ""){
+Judul.addClass('kosong');Judul.focus();
+return false
+}else{
         event.preventDefault();
 $('.spinner-border').removeClass('hidden');
 const photoInput = document.getElementById('photoInputurl').value;
@@ -668,6 +679,7 @@ urlToBase64(photoInput)
     .catch(error => {
         $('.spinner-border').addClass('hidden');alert('Gagal mengunggah');
     });
+}
     });   
 </script>
 </body>
