@@ -54,7 +54,9 @@ const Hm_Key="X0jzU8K3XFN3bT4TSYjKQT5GYqBEZRApSNfkLTjyZaYlKxN0VZiVdM==";
 </head>
 <body>
 <div id="savesucces"> <div class="alert alert-success Saved" role="alert"> Saved </div> <div class="alert alert-danger Remove" role="alert"> Remove </div> <div class="alert alert-primary Terupload" role="alert"> Terupload </div> <div class="alert alert-warning readyfile" role="alert"> File sudah ada </div> <div class="alert alert-success uploadfile" role="alert"> File berhasil di unggah sebagai: </div> <div class="alert alert-danger gagalfile" role="alert"> File Gagal di unggah sebagai: </div> </div>
-<script> function Alert(b){b.fadeIn();setTimeout(function(){b.fadeOut()},1000)}</script>
+<script>function Alert(b){b.fadeIn();setTimeout(function(){b.fadeOut()},1000)};  
+
+</script>
 <div class="card-header py-3">
 <h5 class="mb-0">Artikel</h5>
 </div>
@@ -79,15 +81,33 @@ const Hm_Key="X0jzU8K3XFN3bT4TSYjKQT5GYqBEZRApSNfkLTjyZaYlKxN0VZiVdM==";
 <div class="form-outline mb-2">
 <input type="text" name="judul" id="form7Example3" class="form-control" placeholder="Title" />
 </div>
+
+<div id="chekbox">
+<div class="form-check form-check-inline">
+<input onclick="fotofile()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="file" checked>
+  <label class="form-check-label" for="inlineRadio1">From File</label>
+</div>
+<div class="form-check form-check-inline">
+ <input onclick="fotourl()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="url">
+  <label class="form-check-label" for="inlineRadio2">From URL</label>
+</div>
+</div>
+
 <div class="form-outline mb-2 form-control inputfoto">
-<input type="file" name="photo" id="photoInput" accept="image/*">
-<input type="button" id="submit" value="Upload Foto">
+<input type="file" class="custom-file-input" name="photo" id="photoInput" accept="image/*">
+<input type="button" class="btn btn-primary" id="submit" value="Upload File">
+</div>
+<div class="form-outline mb-2 form-control inputfotourl hidden">
+<input type="text" name="photourl"  class="form-control" id="photoInputurl">
+<input type="button" class="btn btn-primary" id="submiturl" value="Upload Url">
 </div>
 <div class="form-outline mb-2 imageform hidden">
 <img id="hasilgambar" style="max-width:100%px;max-height:200px" class="img-fluid" src>
 <input type="text" name="image" id="form7Example4" class="form-control" placeholder="Image" readonly />
 <input type="text" name="base64" id="form7Example10" class="form-control hidden" placeholder="Image" readonly />
 </div>
+
+
 <div class="form-outline mb-2 description">
 <textarea maxlength="160" name="description" class="form-control" id="form7Example7" rows="4" placeholder="Description"></textarea>
 <span id="count">0</span>
@@ -281,10 +301,9 @@ $('form').on('propertychange click change keyup input paste',delay(function (e) 
 $("#reset").click(function(){if(confirm("Ingin hapus?")){
 formremove();$('form')[0].reset();$("tag").remove();
 $('img.img-fluid').attr("src",'');
-$(".imageform").addClass('hidden');
+$(".imageform").addClass('hidden');fotofile();
 
 }});
-
 function fadhel(){
 async function submitFormToGitHub(formData,folderName,linkpost) {
    const username = 'ajax-jquery'; // Ganti dengan username GitHub Anda
@@ -340,7 +359,6 @@ const base64EncodedText = String.fromCharCode.apply(null, encodedArray);
 
 
 }
-
 $("#upload_data").click(function(){
 var Judul=$('input[name=judul]'),
   Tag= $('input[name=tag]'),
@@ -369,7 +387,7 @@ return false
 Tanggal.addClass('kosong');Tanggal.focus();
 return false
 }else if(Image.val() == ""){
-$(".inputfoto").addClass('kosong');$("#photoInput").focus();
+$(".inputfoto").addClass('kosong');$("#photoInput").focus();$(".inputfotourl").addClass('kosong');$("#photoInputurl").focus();
 return false
 }else if(Keyword.val() == ""){
 $("tags").addClass('kosong');$("tags > div > span").focus();chekKey();
@@ -395,9 +413,6 @@ if(confirm('Upload Tulisan ini?')){
 
   }
 });
-
-
-
 $('#login_b').on('click',function() {
             // Ambil nilai email dan sandi
 let email= $('#email'),
@@ -432,7 +447,8 @@ return false
         })
   </script>
 <script>
-function chekKey(){let e=setInterval(function n(){$("input[name=keyword]").val().length>0&&($("tags").removeClass("kosong"),clearInterval(e))},500)}
+function chekKey(){
+let e=setInterval(function n(){$("input[name=keyword]").val().length>0&&($("tags").removeClass("kosong"),clearInterval(e))},500)}
 
 
 $('form').on('click',function() {
@@ -490,19 +506,15 @@ var n;function i(e){if(!e)return!1;(function e(t){for(var n=0;n<t.length;n++)t[n
 {% assign TAG = site.artikel | map: 'tag' | uniq %}
 var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
 autocomplete(document.getElementById("myTag"), TagSite); 
-  
 $(document).ready(function(){
 $('textarea[name=description]').keyup(function(){
 var a = $(this).val();
  $("#count").html(a.length)
 })
-
-
-
-
-  $("#copy_isi").click(function(){
+$("#copy_isi").click(function(){
     $("#hasilnya").select();document.execCommand("copy");
-  });  $("#copy_link").click(function(){
+  });  
+$("#copy_link").click(function(){
     $("#hasilink").select();document.execCommand("copy");
   });  
 });
@@ -543,10 +555,7 @@ Isi.click(function() {
     $("#validck").removeClass('ckkosong')
 });
 $("#photoInput").change(function() {
-    $(".inputfoto").removeClass('kosong')
-});
-$("#submit").click(function() {
-    $(".inputfoto").removeClass('kosong')
+    $(".inputfoto").removeClass('kosong');$(".inputfotourl").removeClass('kosong')
 });
 
 
@@ -564,19 +573,27 @@ $("#hasilink").val(hasilkanObj.link);
 
 });</script>
 <script>
-    !function(){
-    async function uploaD(photoFile) {
-        const username = 'ajax-jquery'; // Ganti dengan username GitHub Anda
-        const repository = 'asset.sabdaliterasi.shop'; // Ganti dengan nama repositori GitHub Anda
-        const branch = 'main'; // Ganti dengan nama cabang repositori Anda
-        const accessToken = Pu.de(Hm_Key); // Ganti dengan token akses pribadi GitHub Anda
+function fotofile(){
+$('.inputfoto').removeClass('hidden');
+$('.inputfotourl').addClass('hidden');
+}
+function fotourl(){
+$('.inputfoto').addClass('hidden');
+$('.inputfotourl').removeClass('hidden');
+}
+async function upplood(bbb,kk){
+const username = 'ajax-jquery';const repository = 'asset.sabdaliterasi.shop';const branch = 'main';const accessToken = Pu.de(Hm_Key);
+let nama = kk;
+if(kk.indexOf('/') > 0){
+const url = kk;
+const pathSegments = url.split('/');
+const lastSegment = pathSegments[pathSegments.length - 1]; 
+const lastSegmentWithoutQueryString = lastSegment.split('?')[0];
+nama=lastSegmentWithoutQueryString
+}
+const url = `https://api.github.com/repos/${username}/${repository}/contents/images/${nama}`;
 
-        const url = `https://api.github.com/repos/${username}/${repository}/contents/images/${photoFile.name}`;
-
-        const reader = new FileReader();
-        reader.readAsDataURL(photoFile);
-        reader.onload = async function () {
-            const content = reader.result.split(',')[1]; // Mengambil bagian data base64 saja
+            const content = bbb.split(',')[1]
 
             const requestData = {
                 message: 'Upload foto baru',
@@ -592,27 +609,46 @@ $("#hasilink").val(hasilkanObj.link);
                 },
                 body: JSON.stringify(requestData)
             });
-var gambar='https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/'+username+'/'+repository+'@'+branch+'/images/'+photoFile.name;
+var gambar='https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/'+username+'/'+repository+'@'+branch+'/images/'+nama;
             if (response.ok) {
                 console.log('Foto berhasil diunggah ke GitHub');
 $('input[name=image]').val(gambar)
-$(".imageform").removeClass('hidden'); $('img.img-fluid').attr("src",reader.result);$('input[name=base64]').val(reader.result);Alert($('.Terupload'))
+$(".imageform").removeClass('hidden'); $('img.img-fluid').attr("src",bbb);$('input[name=base64]').val(bbb);Alert($('.Terupload'));$(".inputfoto").removeClass('kosong');$(".inputfotourl").removeClass('kosong')
+
 
                 
-            } else {
+            } 
+            else {
                 console.error('Gagal mengunggah foto ke GitHub');
 $('input[name=image]').val(gambar)
-$(".imageform").removeClass('hidden'); $('img.img-fluid').attr("src",reader.result);$('input[name=base64]').val(reader.result);Alert($('.readyfile'))
-            }
-        };
+$(".imageform").removeClass('hidden'); $('img.img-fluid').attr("src",bbb);$('input[name=base64]').val(bbb);Alert($('.readyfile'));$(".inputfoto").removeClass('kosong');$(".inputfotourl").removeClass('kosong')
 
-        reader.onerror = function (error) {
+            }
+        
+
+}
+function uploaD(photoFile) {
+        const reader = new FileReader();
+        reader.readAsDataURL(photoFile);
+        reader.onload = async function () {
+        upplood(reader.result,photoFile.name)        
+        };
+		reader.onerror = function (error) {
         alert('Gagal Upload file')
             console.error('Error saat membaca file:', error);
         };
-    }
-    // Event listener untuk form submit
-    document.getElementById('submit').addEventListener('click', function (event) {
+    }    
+async function urlToBase64(url) {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+    });
+}    
+document.getElementById('submit').addEventListener('click', function (event) {
         event.preventDefault(); // Mencegah pengiriman form secara default
 
         const photoInput = document.getElementById('photoInput');
@@ -624,9 +660,18 @@ $(".imageform").removeClass('hidden'); $('img.img-fluid').attr("src",reader.resu
            alert('Tidak ada file yang dipilih');
         }
     });
+document.getElementById('submiturl').addEventListener('click', function(event) {
+        event.preventDefault();
 
-  
-    }()
+const photoInput = document.getElementById('photoInputurl').value;
+urlToBase64(photoInput)
+    .then(base64 => {
+    upplood(base64,photoInput)
+    })
+    .catch(error => {
+        alert('Gagal mengunggah');
+    });
+    });   
 </script>
 </body>
 </html>
