@@ -647,6 +647,8 @@ async function urlToBase64(url) {
         reader.readAsDataURL(blob);
     });
 }    
+!function(){
+let Judul=$('input[name=judul]');
 
 document.getElementById('submit').addEventListener('click', function (event) {
 if($('input[name=judul]').val() == ""){
@@ -683,6 +685,7 @@ urlToBase64(photoInput)
     });
 }
     });   
+}()
 </script>
 </body>
 </html>
