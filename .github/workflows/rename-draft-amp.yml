@@ -47,4 +47,4 @@ jobs:
           git config --global user.email 'fkansaz@gmail.com'
           git add .
           git commit -m "Published drafts AMP"
-          git push
+          git push 
