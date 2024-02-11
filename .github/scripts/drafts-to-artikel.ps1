@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$DraftsPath = '_drafts',
-    [string]$PostsPath = '_artikel',
+    [string]$PostsPath = '_data',
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
@@ -35,16 +35,16 @@ $ShouldPublish = $false
 
 #region Set TimeZone
 '::group::Set TimeZone'
-$TimeZone = (Get-TimeZone).Id
+$TimeZone = (Get-TimeZone).StandardName
 $DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
 try {
     if (Test-Path -Path $ResolvedConfigPath) {
         $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
         if (-Not [string]::IsNullOrEmpty($TimeZone)) {
-    "Setting TimeZone from $ConfigPath to '$TimeZone'."
-} else {
-    $DefaultTimeZoneMessage
-}
+            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
+        } else {
+            $DefaultTimeZoneMessage
+        }
     } else {
         $DefaultTimeZoneMessage
     }
@@ -52,9 +52,8 @@ try {
 catch {
     $DefaultTimeZoneMessage
 }
-$UtcCurrentDate = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
-$FormattedDate = Get-Date -Format 'yyyy-MM-dd' -TimeZone $TimeZone
-
+$CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
+$FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
 '::endgroup::'
 #endregion
 
@@ -86,16 +85,17 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date'], [System.Globalization.CultureInfo]::InvariantCulture)
-        $ArticleDate = [datetime]::SpecifyKind($ArticleDate, [System.DateTimeKind]::Utc)
-        $ArticleDate = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDate, [System.TimeZoneInfo]::FindSystemTimeZoneById($TimeZone))
-        $ArticleDate = $ArticleDate.Date
+        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -le $UtcCurrentDate.Date) {
+        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } else {
-            '::warning:: {0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
+            if ($ArticleDate.Ticks -lt [datetime]::Now.Ticks) {
+                '{0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
+            } else {
+                '::warning:: {0}: Article ''date'' is set in the past. Please update the ''date'' value to a future date. SKIPPED' -f $FrontMatter['title']
+            }
         }
     } else {
         '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
@@ -104,26 +104,49 @@ foreach ($Article in $DraftArticles) {
 '::endgroup::'
 #endregion
 
-#region Renaming and Moving Draft Articles with Valid Date
+#region Handling Multiple Draft Articles with Current Date
+'::group::Handling Multiple Draft Articles with Current Date'
+switch ($RenameArticleList.Count) {
+    0 {
+        'No articles matched the criteria to be renamed and published.'
+        OutputAction
+        return
+    }
+    1 {
+        'Found 1 article to rename.'
+    }
+    default {
+        '::warning::More than one draft article found with front matter date value of {0}.' -f $FormattedDate
+        $RenameArticleList = $RenameArticleList | Sort-Object -Property LastWriteTimeUtc
+        if ($AllowMultiplePostsPerDay.IsPresent) {
+            '::warning::Multiple draft articles will be published per day chronologically.'
+        } else {
+            '::warning::Multiple draft article with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
+            $RenameArticleList = $RenameArticleList | Select-Object -Last 1
+        }
+    }
+}
+'::endgroup::'
+#endregion
+
+#region Renaming Draft Articles with Valid Date
 if (-Not (Test-Path -Path $ResolvedPostsPath)) {
     '::error::The posts path ''{0}'' could not be found' -f $PostsPath
     OutputAction
     exit 1
 }
-'::group::Renaming and Moving Draft Articles with Valid Date'
+'::group::Renaming Draft Articles with Valid Date'
 foreach ($Article in $RenameArticleList) {
     $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
     if ($Article.BaseName -match $DateRegex) {
-    '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
-    if (-not $PreserveDateFileName.IsPresent) {
-        '::warning::''PreserveDateFileName'' is enabled. The existing filename will be preserved.'
-        $NewFileName = $Article.Name
-    } else {
-        '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
-        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
+        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
+        if ($PreserveDateFileName.IsPresent) {
+            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
+        } else {
+            '::warning::''PreserveDateFileName'' is not enabled. The exiting date {0} will be removed from the filename and it will be prepended with {1}.' -f $Matches[0],$FormattedDate
+            $NewFileName = '{0}{1}' -f $FormattedDate,$Article.Name.Replace($Matches[0],'')
+        }
     }
-}
-
     'Renaming {0} to {1}' -f $Article.Name,$NewFileName
     $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
     try {
