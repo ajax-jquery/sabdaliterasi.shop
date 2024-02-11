@@ -1,6 +1,6 @@
 name: Publish Scheduled Posts
 
-on: [push, pull_request]
+on: [push, pull_request] 
 
 jobs:
   publish_drafts_to_articles:
