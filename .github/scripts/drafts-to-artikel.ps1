@@ -41,10 +41,10 @@ try {
     if (Test-Path -Path $ResolvedConfigPath) {
         $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
         if (-Not [string]::IsNullOrEmpty($TimeZone)) {
-            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
-        } else {
-            $DefaultTimeZoneMessage
-        }
+    "Setting TimeZone from $ConfigPath to '$TimeZone'."
+} else {
+    $DefaultTimeZoneMessage
+}
     } else {
         $DefaultTimeZoneMessage
     }
