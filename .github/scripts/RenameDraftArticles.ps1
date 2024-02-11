@@ -95,21 +95,18 @@ if (-not (Test-Path -Path $ResolvedPostsPath)) {
     OutputAction
     exit 1
 }
+# Lakukan renaming dari _drafts ke _artikel
 foreach ($Article in $RenameArticleList) {
-    $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
-    if ($PreserveDateFileName.IsPresent) {
-        '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
-    } else {
-        $NewFileName = '{0}{1}' -f $FormattedDate, $Article.Name.Substring(11)
-    }
-    'Renaming {0} to {1}' -f $Article.Name, $NewFileName
-    $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
+    $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
+    $NewDraftPath = Join-Path -Path $ResolvedDraftsPath -ChildPath $Article.Name
+    $NewPostsPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
     try {
-        Move-Item -Path $Article.FullName -Destination $NewFullPath
-        $AddFilesToCommit += $NewFileName
-        $RemoveFilesFromCommit += $Article.Name
+        Move-Item -Path $NewDraftPath -Destination $NewPostsPath
+        $AddFilesToCommit.Add($NewFileName)
+        $RemoveFilesFromCommit.Add($Article.Name)
         $ShouldPublish = $true
-    } catch {
+    }
+    catch {
         OutputAction
     }
 }
