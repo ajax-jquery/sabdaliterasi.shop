@@ -21,66 +21,62 @@ function OutputAction {
     }
 }
 
-# Tentukan jalur lengkap untuk _drafts dan _artikel
-$BasePath = Get-Location
+# Set Variables
+$BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
 $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath
 $ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath
-
-# Cek apakah _drafts ada di jalur yang benar
-if (-not (Test-Path -Path $ResolvedDraftsPath)) {
-    Write-Error "The draft path '$ResolvedDraftsPath' could not be found"
-    exit 1
-}
+$ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
+$RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
+$AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
+$RemoveFilesFromCommit = [System.Collections.Generic.List[String]]::new()
 $DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
 $ShouldPublish = $false
-$TimeZone = 'Asia/Jakarta'  # Tetapkan zona waktu Anda di sini
 
-try {
-    $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
-}
-catch {
-    Write-Output "Gagal mengonversi zona waktu. Menggunakan waktu sistem."
-    $CurrentDate = Get-Date
-}
-
+# Set TimeZone
 '::group::Set TimeZone'
-$DefaultTimeZoneMessage = 'Setting TimeZone to default ''Coordinated Universal Time''.'
+$TimeZone = (Get-TimeZone).StandardName
+$DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
 try {
-    $configContent = Get-Content -Path $ResolvedConfigPath -Raw -ErrorAction Stop
-    $config = $configContent | ConvertFrom-Yaml
-    if ($config -and $config.timezone) {
-        $TimeZone = $config.timezone
-        'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
+    if (Test-Path -Path $ResolvedConfigPath) {
+        $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
+        if (-Not [string]::IsNullOrEmpty($TimeZone)) {
+            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
+        } else {
+            $DefaultTimeZoneMessage
+        }
     } else {
         $DefaultTimeZoneMessage
-        $TimeZone = 'UTC'  # Gunakan UTC sebagai default jika tidak ada zona waktu yang valid dalam konfigurasi
     }
 }
 catch {
     $DefaultTimeZoneMessage
-    $TimeZone = 'UTC'  # Gunakan UTC sebagai default jika terjadi kesalahan dalam membaca konfigurasi
 }
 $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
 $FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
 '::endgroup::'
 
+# Draft Article Discovery
 '::group::Draft Article Discovery'
-if (-not (Test-Path -Path $ResolvedDraftsPath)) {
+if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
     '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
     exit 1
 }
-$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Filter '*.md' | Where-Object { $_.BaseName -match $DateRegex }
-
+$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
 if ($DraftArticles.Count -gt 0) {
-    'Found {0} articles in {1}.' -f $DraftArticles.Count, $DraftsPath
-    $RenameArticleList = @()
-    foreach ($Article in $DraftArticles) {
-        $ArticleDateFromFileName = [datetime]::ParseExact($Article.BaseName.Substring(0, 10), 'yyyy-MM-dd', $null)
-        if ($ArticleDateFromFileName -le $CurrentDate) {
-            $RenameArticleList += $Article
-            'Article date is past or today. Including article to rename.'
-        } else {
-            '::warning::Article is scheduled for a future date according to filename. SKIPPED'
+    if ($DraftArticles.Count -eq 1) {
+        'Found 1 article in {0}.' -f $DraftsPath
+    } else {
+        'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
+    }
+    $DraftArticles | ForEach-Object {
+        if ($_.BaseName -match $DateRegex) {
+            $ArticleDateFromFileName = [datetime]::ParseExact($Matches[0], 'yyyy-MM-dd', $null)
+            if ($ArticleDateFromFileName -le $CurrentDate) {
+                $RenameArticleList.Add($_)
+                'Article date is past or today. Including article to rename.'
+            } else {
+                '::warning::Article is scheduled for a future date according to filename. SKIPPED'
+            }
         }
     }
 } else {
@@ -89,27 +85,31 @@ if ($DraftArticles.Count -gt 0) {
 }
 '::endgroup::'
 
-'::group::Renaming Draft Articles with Valid Date'
-if (-not (Test-Path -Path $ResolvedPostsPath)) {
+# Renaming Draft Articles with Valid Date
+if (-Not (Test-Path -Path $ResolvedPostsPath)) {
     '::error::The posts path ''{0}'' could not be found' -f $PostsPath
     OutputAction
     exit 1
 }
+'::group::Renaming Draft Articles with Valid Date'
 foreach ($Article in $RenameArticleList) {
-    $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
-    if ($PreserveDateFileName.IsPresent) {
-        '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
-    } else {
-        $NewFileName = '{0}{1}' -f $FormattedDate, $Article.Name.Substring(11)
+    $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
+    if ($Article.BaseName -match $DateRegex) {
+        if ($PreserveDateFileName.IsPresent) {
+            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
+        } else {
+            $NewFileName = '{0}{1}' -f $FormattedDate,$Article.Name.Replace($Matches[0],'')
+        }
     }
-    'Renaming {0} to {1}' -f $Article.Name, $NewFileName
+    'Renaming {0} to {1}' -f $Article.Name,$NewFileName
     $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
     try {
         Move-Item -Path $Article.FullName -Destination $NewFullPath
-        $AddFilesToCommit += $NewFileName
-        $RemoveFilesFromCommit += $Article.Name
+        $AddFilesToCommit.Add($NewFileName)
+        $RemoveFilesFromCommit.Add($Article.Name)
         $ShouldPublish = $true
-    } catch {
+    }
+    catch {
         OutputAction
     }
 }
