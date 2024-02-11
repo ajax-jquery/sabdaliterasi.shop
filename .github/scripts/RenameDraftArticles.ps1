@@ -1,8 +1,11 @@
-# Set path to drafts and articles directories
+# Ambil path dari direktori root proyek
+$BasePath = Split-Path -Parent -Path $PSScriptRoot
+
+# Set path ke direktori _drafts dan _artikel
 $DraftsPath = '_drafts'
-$ResolvedDraftsPath = Join-Path -Path $PSScriptRoot -ChildPath $DraftsPath -AdditionalChildPath '*'
+$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
 $ArticlesPath = '_artikel'
-$ResolvedArticlesPath = Join-Path -Path $PSScriptRoot -ChildPath $ArticlesPath
+$ResolvedArticlesPath = Join-Path -Path $BasePath -ChildPath $ArticlesPath
 
 # Get current date
 $CurrentDate = Get-Date -Format "yyyy-MM-dd"
