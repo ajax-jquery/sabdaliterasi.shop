@@ -3,7 +3,6 @@ param(
     [string]$DraftsPath = '_drafts',
     [string]$ArtikelPath = '_artikel',
     [string]$ConfigPath = '_config.yml',
-    [switch]$AllowMultiplePostsPerDay = $true,
     [switch]$PreserveDateFileName
 )
 
@@ -21,40 +20,134 @@ function OutputAction {
     }
 }
 
-# Set timezone
+#region Set Variables
+$BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
+$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath
+$ResolvedArtikelPath = Join-Path -Path $BasePath -ChildPath $ArtikelPath
+$ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
+$RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
+$AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
+$RemoveFilesFromCommit = [System.Collections.Generic.List[String]]::new()
+$DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
+$ShouldPublish = $false
+#endregion
+
+#region Set TimeZone
+'::group::Set TimeZone'
 $TimeZone = (Get-TimeZone).StandardName
+$DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
 try {
     if (Test-Path -Path $ResolvedConfigPath) {
         $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
+        if (-Not [string]::IsNullOrEmpty($TimeZone)) {
+            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
+        } else {
+            $DefaultTimeZoneMessage
+        }
+    } else {
+        $DefaultTimeZoneMessage
     }
 }
 catch {
-    Write-Host "Error occurred while setting timezone. Using default timezone."
+    $DefaultTimeZoneMessage
 }
-$CurrentDate = Get-Date -Format 'yyyy-MM-dd'
+$CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
+$FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
+'::endgroup::'
+#endregion
 
-# Discover draft articles
-$DraftArticles = Get-ChildItem -Path $DraftsPath -Filter "*.md"
+#region Draft Article Discovery
+'::group::Draft Article Discovery'
+if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
+    '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
+    exit 1
+}
+$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md
+if ($DraftArticles.Count -gt 0) {
+    if ($DraftArticles.Count -eq 1) {
+        'Found 1 article in {0}.' -f $DraftsPath
+    } else {
+        'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
+    }
+    $DraftArticles.Name | ForEach-Object {
+        '- {0}' -f $_
+    }
+} else {
+    'No markdown files found in {0}.' -f $DraftsPath
+    OutputAction
+}
+'::endgroup::'
+#endregion
 
-# Check draft article date and rename if necessary
+#region Checking Draft Article Date
+'::group::Checking Draft Article Date'
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter -and $FrontMatter.ContainsKey('date')) {
-        $ArticleDate = Get-Date $FrontMatter['date'] -Format 'yyyy-MM-dd'
-        if ($ArticleDate -lt $CurrentDate -or ($AllowMultiplePostsPerDay -and $ArticleDate -eq $CurrentDate)) {
-            $NewFileName = if ($PreserveDateFileName) {
-                "{0}-{1}" -f $ArticleDate, $Article.Name
+    if ($FrontMatter.ContainsKey('date')) {
+        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
+        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
+        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
+            $RenameArticleList.Add($Article)
+            '{0}: Including article to rename.' -f $FrontMatter['title']
+        } else {
+            if ($ArticleDate.Ticks -lt [datetime]::Now.Ticks) {
+                '{0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
             } else {
-                $Article.Name
+                '::warning:: {0}: Article ''date'' is set in the past. Please update the ''date'' value to a future date. SKIPPED' -f $FrontMatter['title']
             }
-            $NewArticlePath = Join-Path -Path $ArtikelPath -ChildPath $NewFileName
-            Move-Item -Path $Article.FullName -Destination $NewArticlePath
-            $AddFilesToCommit.Add($NewArticlePath)
-            $RemoveFilesFromCommit.Add($Article.FullName)
-            Write-Host "Article '$($Article.Name)' renamed and moved to '$NewArticlePath'."
-            $ShouldPublish = $true
         }
+    } else {
+        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
     }
 }
+'::endgroup::'
+#endregion
+
+#region Handling Multiple Draft Articles with Current Date
+'::group::Handling Multiple Draft Articles with Current Date'
+switch ($RenameArticleList.Count) {
+    0 {
+        'No articles matched the criteria to be renamed and published.'
+        OutputAction
+        return
+    }
+    1 {
+        'Found 1 article to rename.'
+    }
+    default {
+        '::warning::More than one draft article found with front matter date value of {0}.' -f $FormattedDate
+        $RenameArticleList = $RenameArticleList | Sort-Object -Property LastWriteTimeUtc
+        '::warning::Multiple draft articles will be published per day chronologically.'
+    }
+}
+'::endgroup::'
+#endregion
+
+#region Renaming Draft Articles with Valid Date
+if (-Not (Test-Path -Path $ResolvedArtikelPath)) {
+    '::error::The articles path ''{0}'' could not be found' -f $ArtikelPath
+    OutputAction
+    exit 1
+}
+'::group::Renaming Draft Articles with Valid Date'
+foreach ($Article in $RenameArticleList) {
+    $NewFileName = $Article.Name
+    if ($PreserveDateFileName.IsPresent) {
+        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
+    }
+    'Renaming {0} to {1}' -f $Article.Name,$NewFileName
+    $NewFullPath = Join-Path -Path $ResolvedArtikelPath -ChildPath $NewFileName
+    try {
+        Move-Item -Path $Article.FullName -Destination $NewFullPath
+        $AddFilesToCommit.Add($NewFileName)
+        $RemoveFilesFromCommit.Add($Article.Name)
+        $ShouldPublish = $true
+    }
+    catch {
+        OutputAction
+    }
+}
+'::endgroup::'
+#endregion
 
 OutputAction
