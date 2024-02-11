@@ -61,22 +61,18 @@ if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
     '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
     exit 1
 }
-$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
+$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Filter '*.md' | Where-Object { $_.BaseName -match $DateRegex }
+
 if ($DraftArticles.Count -gt 0) {
-    if ($DraftArticles.Count -eq 1) {
-        'Found 1 article in {0}.' -f $DraftsPath
-    } else {
-        'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
-    }
-    $DraftArticles | ForEach-Object {
-        if ($_.BaseName -match $DateRegex) {
-            $ArticleDateFromFileName = [datetime]::ParseExact($Matches[0], 'yyyy-MM-dd', $null)
-            if ($ArticleDateFromFileName -le $CurrentDate) {
-                $RenameArticleList.Add($_)
-                'Article date is past or today. Including article to rename.'
-            } else {
-                '::warning::Article is scheduled for a future date according to filename. SKIPPED'
-            }
+    'Found {0} articles in {1}.' -f $DraftArticles.Count, $DraftsPath
+    $RenameArticleList = @()
+    foreach ($Article in $DraftArticles) {
+        $ArticleDateFromFileName = [datetime]::ParseExact($Article.BaseName.Substring(0, 10), 'yyyy-MM-dd', $null)
+        if ($ArticleDateFromFileName -le $CurrentDate) {
+            $RenameArticleList += $Article
+            'Article date is past or today. Including article to rename.'
+        } else {
+            '::warning::Article is scheduled for a future date according to filename. SKIPPED'
         }
     }
 } else {
