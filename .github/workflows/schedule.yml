@@ -1,8 +1,6 @@
 name: Publish Scheduled Posts
 
-on:
-  schedule:
-    - cron: '17 2 * * *' # At 09:17 WIB every day
+on: [push, pull_request]
 
 jobs:
   publish_drafts_to_articles:
