@@ -41,7 +41,7 @@ foreach ($draftFile in $draftFiles) {
                 $env:DRAFTS_ARTICLES_RENAMED = "true"
             }
             catch {
-                Write-Host "Error renaming $($draftFile.FullName) to $newFileName: $_"
+                Write-Host "Error renaming $($draftFile.FullName) to $newFileName: $($_.Exception.Message)"
             }
         }
         else {
