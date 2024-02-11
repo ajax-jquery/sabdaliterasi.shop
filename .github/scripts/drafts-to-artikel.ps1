@@ -85,25 +85,25 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
-        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -eq $CurrentDate.ToShortDateString() -or ($AllowMultiplePostsPerDay -and $ArticleDate -lt $CurrentDate.ToShortDateString())) {
-            $RenameArticleList.Add($Article)
-            '{0}: Including article to rename.' -f $FrontMatter['title']
-        } else {
-            if ($ArticleDate -lt $CurrentDate.ToShortDateString()) {
-                $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath $Article.Name
-                if (Test-Path -Path $NewArticlePath) {
-                    $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath ("{0}-{1}" -f $FormattedDate, $Article.Name)
-                }
-                Move-Item -Path $Article.FullName -Destination $NewArticlePath
-                'Moved {0} to {1}.' -f $Article.FullName, $NewArticlePath
-                $ShouldPublish = $true
-            }
-        }
+    $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
+    '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
+    if ($ArticleDate -eq $CurrentDate.ToShortDateString() -or ($AllowMultiplePostsPerDay -and $ArticleDate -lt $CurrentDate.ToShortDateString())) {
+        $RenameArticleList.Add($Article)
+        '{0}: Including article to rename.' -f $FrontMatter['title']
     } else {
-        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+        if ($ArticleDate -lt $CurrentDate.ToShortDateString()) {
+            $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath $Article.Name
+            if (Test-Path -Path $NewArticlePath) {
+                $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath ("{0}-{1}" -f $FormattedDate, $Article.Name)
+            }
+            Move-Item -Path $Article.FullName -Destination $NewArticlePath
+            'Moved {0} to {1}.' -f $Article.FullName, $NewArticlePath
+            $ShouldPublish = $true
+        }
     }
+} else {
+    '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+}
 }
 '::endgroup::'
 #endregion
