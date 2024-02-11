@@ -83,6 +83,29 @@ if ($DraftArticles.Count -gt 0) {
 #region Checking Draft Article Date
 '::group::Checking Draft Article Date'
 foreach ($Article in $DraftArticles) {
+ $FileNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($Article.Name)
+    $DatePart = $FileNameWithoutExtension -split '-', 2 | Select-Object -First 1
+    if ($DatePart -match $DateRegex) {
+        $ArticleDateFromFileName = [datetime]::ParseExact($Matches[0], 'yyyy-MM-dd', $null)
+    }
+
+    # Memeriksa apakah tanggal yang diekstraksi sesuai dengan format yyyy-MM-dd
+    if ($ArticleDateFromFileName -eq [datetime]::MinValue) {
+        '::error::Failed to extract date from filename. Please ensure that the filename follows the format yyyy-MM-dd.'
+        exit 1
+    }
+
+    # Memeriksa apakah tanggal yang diekstraksi berada di masa lalu atau hari ini
+    if ($ArticleDateFromFileName -gt $CurrentDate) {
+        '::warning::Article is scheduled for a future date according to filename. SKIPPED'
+        continue
+    }
+
+    # Memeriksa apakah tanggal yang diekstraksi adalah tanggal hari ini
+    if ($ArticleDateFromFileName -ne $CurrentDate) {
+        '::warning::Article is not scheduled for today according to filename. SKIPPED'
+        continue
+    }
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
