@@ -63,7 +63,7 @@ if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
     '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
     exit 1
 }
-$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md
+$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
 if ($DraftArticles.Count -gt 0) {
     if ($DraftArticles.Count -eq 1) {
         'Found 1 article in {0}.' -f $DraftsPath
@@ -87,43 +87,14 @@ foreach ($Article in $DraftArticles) {
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
+        if ($ArticleDate -le $CurrentDate.ToShortDateString()) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } else {
-            if ($ArticleDate.Ticks -lt [datetime]::Now.Ticks) {
-                '{0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
-            } else {
-                '::warning:: {0}: Article ''date'' is set in the past. Please update the ''date'' value to a future date. SKIPPED' -f $FrontMatter['title']
-            }
+            '::warning:: {0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
         }
     } else {
         '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
-    }
-}
-'::endgroup::'
-#endregion
-
-#region Handling Multiple Draft Articles with Current Date
-'::group::Handling Multiple Draft Articles with Current Date'
-switch ($RenameArticleList.Count) {
-    0 {
-        'No articles matched the criteria to be renamed and published.'
-        OutputAction
-        return
-    }
-    1 {
-        'Found 1 article to rename.'
-    }
-    default {
-        '::warning::More than one draft article found with front matter date value of {0}.' -f $FormattedDate
-        $RenameArticleList = $RenameArticleList | Sort-Object -Property LastWriteTimeUtc
-        if ($AllowMultiplePostsPerDay.IsPresent) {
-            '::warning::Multiple draft articles will be published per day chronologically.'
-        } else {
-            '::warning::Multiple draft article with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
-            $RenameArticleList = $RenameArticleList | Select-Object -Last 1
-        }
     }
 }
 '::endgroup::'
