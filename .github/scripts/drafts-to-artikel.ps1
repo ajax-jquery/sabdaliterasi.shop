@@ -87,7 +87,7 @@ foreach ($Article in $DraftArticles) {
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
+        if ($ArticleDate -eq $CurrentDate.ToShortDateString() -or ($AllowMultiplePostsPerDay -and $ArticleDate -lt $CurrentDate.ToShortDateString())) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } else {
