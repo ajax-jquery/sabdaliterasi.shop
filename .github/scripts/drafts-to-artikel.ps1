@@ -35,7 +35,7 @@ $ShouldPublish = $false
 
 #region Set TimeZone
 '::group::Set TimeZone'
-$TimeZone = (Get-TimeZone).StandardName
+$TimeZone = (Get-TimeZone).Id
 $DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
 try {
     if (Test-Path -Path $ResolvedConfigPath) {
@@ -87,6 +87,7 @@ foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDate = [datetime]::Parse($FrontMatter['date'], [System.Globalization.CultureInfo]::InvariantCulture)
+        $ArticleDate = [datetime]::SpecifyKind($ArticleDate, [System.DateTimeKind]::Utc)
         $ArticleDate = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDate, [System.TimeZoneInfo]::FindSystemTimeZoneById($TimeZone))
         $ArticleDate = $ArticleDate.Date
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
