@@ -1,12 +1,10 @@
 name: Move Expired Posts
 
-
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
 
 jobs:
   move_expired_posts:
@@ -21,7 +19,7 @@ jobs:
           for file in _drafts/*.md; do
             post_date=$(grep "date:" "$file" | awk '{print $2}')
             post_date=${post_date:1:10} # extract yyyy-mm-dd from the date field
-            if [[ "$post_date" <= "$today" ]]; then
+            if [ "$post_date" \<= "$today" ]; then
               mv "$file" "_artikel/$(basename "$file")"
             fi
           done
