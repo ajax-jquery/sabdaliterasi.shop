@@ -2,6 +2,8 @@
 param(
     [string]$DraftsPath = '_drafts',
     [string]$ArtikelPath = '_artikel',
+    [string]$AmpPath = '_amp',
+    [string]$DraftsampPath = '_draftsamp',
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
@@ -25,6 +27,8 @@ function OutputAction {
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
 $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
 $ResolvedArtikelPath = Join-Path -Path $BasePath -ChildPath $ArtikelPath
+$ResolvedAmpPath = Join-Path -Path $BasePath -ChildPath $AmpPath
+$ResolvedDraftsampPath = Join-Path -Path $BasePath -ChildPath $DraftsampPath -AdditionalChildPath '*'
 $ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
 $RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
 $AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
@@ -70,8 +74,28 @@ if ($DraftArticles.Count -gt 0) {
     } else {
         'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
     }
-    $DraftArticles.Name | ForEach-Object {
-        '- {0}' -f $_
+    $DraftArticles | ForEach-Object {
+        $FrontMatter = Get-Content -Path $_.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
+        if ($FrontMatter.ContainsKey('date')) {
+            $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
+            '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
+            if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
+                $RenameArticleList.Add($_)
+                '{0}: Including article to rename.' -f $FrontMatter['title']
+            } else {
+                if ($ArticleDate -lt $CurrentDate.ToShortDateString()) {
+                    $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath $_.Name
+                    if (Test-Path -Path $NewArticlePath) {
+                        $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath ("{0}-{1}" -f $FormattedDate, $_.Name)
+                    }
+                    Move-Item -Path $_.FullName -Destination $NewArticlePath
+                    'Moved {0} to {1}.' -f $_.FullName, $NewArticlePath
+                    $ShouldPublish = $true
+                }
+            }
+        } else {
+            '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+        }
     }
 } else {
     'No markdown files found in {0}.' -f $DraftsPath
@@ -80,29 +104,29 @@ if ($DraftArticles.Count -gt 0) {
 '::endgroup::'
 #endregion
 
-#region Checking Draft Article Date
-'::group::Checking Draft Article Date'
-foreach ($Article in $DraftArticles) {
-    $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
-        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
-            $RenameArticleList.Add($Article)
-            '{0}: Including article to rename.' -f $FrontMatter['title']
+#region Moving Draft AMP Articles
+'::group::Moving Draft AMP Articles'
+if (-Not (Test-Path -Path $ResolvedDraftsampPath)) {
+    'No AMP draft articles found in {0}.' -f $DraftsampPath
+} else {
+    $DraftAmpArticles = Get-ChildItem -Path $ResolvedDraftsampPath -Include *.md -Exclude template.md
+    if ($DraftAmpArticles.Count -gt 0) {
+        if ($DraftAmpArticles.Count -eq 1) {
+            'Found 1 AMP draft article in {0}.' -f $DraftsampPath
         } else {
-            if ($ArticleDate -lt $CurrentDate.ToShortDateString()) {
-                $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath $Article.Name
-                if (Test-Path -Path $NewArticlePath) {
-                    $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath ("{0}-{1}" -f $FormattedDate, $Article.Name)
-                }
-                Move-Item -Path $Article.FullName -Destination $NewArticlePath
-                'Moved {0} to {1}.' -f $Article.FullName, $NewArticlePath
-                $ShouldPublish = $true
+            'Found {0} AMP draft articles in {1}.' -f $DraftAmpArticles.Count,$DraftsampPath
+        }
+        $DraftAmpArticles | ForEach-Object {
+            $NewAmpArticlePath = Join-Path -Path $ResolvedAmpPath -ChildPath $_.Name
+            if (Test-Path -Path $NewAmpArticlePath) {
+                $NewAmpArticlePath = Join-Path -Path $ResolvedAmpPath -ChildPath ("{0}-{1}" -f $FormattedDate, $_.Name)
             }
+            Move-Item -Path $_.FullName -Destination $NewAmpArticlePath
+            'Moved {0} to {1}.' -f $_.FullName, $NewAmpArticlePath
+            $ShouldPublish = $true
         }
     } else {
-        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+        'No AMP markdown files found in {0}.' -f $DraftsampPath
     }
 }
 '::endgroup::'
