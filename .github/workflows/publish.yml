@@ -1,8 +1,10 @@
 name: Rename Draft Articles
 
 on:
-  schedule:
-    - cron: '0 14 * * *'
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
   workflow_dispatch:
 
