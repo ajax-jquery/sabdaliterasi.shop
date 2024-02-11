@@ -3,7 +3,7 @@ $BasePath = Split-Path -Parent -Path $PSScriptRoot
 
 # Set path ke direktori _drafts dan _artikel
 $DraftsPath = '_drafts'
-$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
+$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath
 $ArticlesPath = '_artikel'
 $ResolvedArticlesPath = Join-Path -Path $BasePath -ChildPath $ArticlesPath
 
