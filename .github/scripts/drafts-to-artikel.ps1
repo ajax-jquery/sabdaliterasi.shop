@@ -85,9 +85,10 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
-        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -le $CurrentDate.ToShortDateString()) {
+        $ArticleDate = [datetime]::Parse($FrontMatter['date'])
+        $ArticleDateUtc = [System.TimeZoneInfo]::ConvertTimeToUtc($ArticleDate, $TimeZone)
+        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDateUtc.ToShortDateString()
+        if ($ArticleDateUtc -le $CurrentDate) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } else {
