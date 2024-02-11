@@ -36,7 +36,7 @@ try {
         'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
     } else {
         $DefaultTimeZoneMessage
-        $TimeZone = 'UTC'  # Jika tidak ada zona waktu yang valid dalam konfigurasi, kita gunakan UTC sebagai default
+        $TimeZone = 'Asia/Jakarta'  # Jika tidak ada zona waktu yang valid dalam konfigurasi, kita gunakan UTC sebagai default
     }
 }
 catch {
