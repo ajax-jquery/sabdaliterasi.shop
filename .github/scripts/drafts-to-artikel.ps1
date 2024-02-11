@@ -1,8 +1,9 @@
 [CmdletBinding()]
 param(
     [string]$DraftsPath = '_drafts',
-    [string]$ArtikelPath = '_artikel',
+    [string]$PostsPath = '_artikel',
     [string]$ConfigPath = '_config.yml',
+    [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
 )
 
@@ -22,8 +23,8 @@ function OutputAction {
 
 #region Set Variables
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
-$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath
-$ResolvedArtikelPath = Join-Path -Path $BasePath -ChildPath $ArtikelPath
+$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
+$ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath
 $ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
 $RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
 $AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
@@ -117,26 +118,37 @@ switch ($RenameArticleList.Count) {
     default {
         '::warning::More than one draft article found with front matter date value of {0}.' -f $FormattedDate
         $RenameArticleList = $RenameArticleList | Sort-Object -Property LastWriteTimeUtc
-        '::warning::Multiple draft articles will be published per day chronologically.'
+        if ($AllowMultiplePostsPerDay.IsPresent) {
+            '::warning::Multiple draft articles will be published per day chronologically.'
+        } else {
+            '::warning::Multiple draft article with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
+            $RenameArticleList = $RenameArticleList | Select-Object -Last 1
+        }
     }
 }
 '::endgroup::'
 #endregion
 
-#region Renaming Draft Articles with Valid Date
-if (-Not (Test-Path -Path $ResolvedArtikelPath)) {
-    '::error::The articles path ''{0}'' could not be found' -f $ArtikelPath
+#region Renaming and Moving Draft Articles with Valid Date
+if (-Not (Test-Path -Path $ResolvedPostsPath)) {
+    '::error::The posts path ''{0}'' could not be found' -f $PostsPath
     OutputAction
     exit 1
 }
-'::group::Renaming Draft Articles with Valid Date'
+'::group::Renaming and Moving Draft Articles with Valid Date'
 foreach ($Article in $RenameArticleList) {
-    $NewFileName = $Article.Name
-    if ($PreserveDateFileName.IsPresent) {
-        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
+    $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
+    if ($Article.BaseName -match $DateRegex) {
+        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
+        if ($PreserveDateFileName.IsPresent) {
+            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
+        } else {
+            '::warning::''PreserveDateFileName'' is not enabled. The exiting date {0} will be removed from the filename and it will be prepended with {1}.' -f $Matches[0],$FormattedDate
+            $NewFileName = '{0}{1}' -f $FormattedDate,$Article.Name.Replace($Matches[0],'')
+        }
     }
     'Renaming {0} to {1}' -f $Article.Name,$NewFileName
-    $NewFullPath = Join-Path -Path $ResolvedArtikelPath -ChildPath $NewFileName
+    $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
     try {
         Move-Item -Path $Article.FullName -Destination $NewFullPath
         $AddFilesToCommit.Add($NewFileName)
