@@ -21,92 +21,40 @@ function OutputAction {
     }
 }
 
-#region Set Variables
-$BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
-$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
-$ResolvedArtikelPath = Join-Path -Path $BasePath -ChildPath $ArtikelPath
-$ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
-$RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
-$AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
-$RemoveFilesFromCommit = [System.Collections.Generic.List[String]]::new()
-$DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
-$ShouldPublish = $false
-#endregion
-
-#region Set TimeZone
-'::group::Set TimeZone'
+# Set timezone
 $TimeZone = (Get-TimeZone).StandardName
-$DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
 try {
     if (Test-Path -Path $ResolvedConfigPath) {
         $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
-        if (-Not [string]::IsNullOrEmpty($TimeZone)) {
-            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
-        } else {
-            $DefaultTimeZoneMessage
-        }
-    } else {
-        $DefaultTimeZoneMessage
     }
 }
 catch {
-    $DefaultTimeZoneMessage
+    Write-Host "Error occurred while setting timezone. Using default timezone."
 }
-$CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
-$FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
-'::endgroup::'
-#endregion
+$CurrentDate = Get-Date -Format 'yyyy-MM-dd'
 
-#region Draft Article Discovery
-'::group::Draft Article Discovery'
-if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
-    '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
-    exit 1
-}
-$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
-if ($DraftArticles.Count -gt 0) {
-    if ($DraftArticles.Count -eq 1) {
-        'Found 1 article in {0}.' -f $DraftsPath
-    } else {
-        'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
-    }
-    $DraftArticles.Name | ForEach-Object {
-        '- {0}' -f $_
-    }
-} else {
-    'No markdown files found in {0}.' -f $DraftsPath
-    OutputAction
-}
-'::endgroup::'
-#endregion
+# Discover draft articles
+$DraftArticles = Get-ChildItem -Path $DraftsPath -Filter "*.md"
 
-#region Checking Draft Article Date
-'::group::Checking Draft Article Date'
+# Check draft article date and rename if necessary
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
-        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        '{0}: Current Date : {1}' -f $FrontMatter['title'],$CurrentDate.ToShortDateString()
-        if ($ArticleDate -eq $CurrentDate.ToShortDateString() -or ($AllowMultiplePostsPerDay -and $ArticleDate -lt $CurrentDate.ToShortDateString())) {
-            $RenameArticleList.Add($Article)
-            '{0}: Including article to rename.' -f $FrontMatter['title']
-        } else {
-            if ($ArticleDate -lt $CurrentDate.ToShortDateString()) {
-                $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath $Article.Name
-                if (Test-Path -Path $NewArticlePath) {
-                    $NewArticlePath = Join-Path -Path $ResolvedArtikelPath -ChildPath ("{0}-{1}" -f $FormattedDate, $Article.Name)
-                }
-                Move-Item -Path $Article.FullName -Destination $NewArticlePath
-                'Moved {0} to {1}.' -f $Article.FullName, $NewArticlePath
-                $ShouldPublish = $true
+    if ($FrontMatter -and $FrontMatter.ContainsKey('date')) {
+        $ArticleDate = Get-Date $FrontMatter['date'] -Format 'yyyy-MM-dd'
+        if ($ArticleDate -lt $CurrentDate -or ($AllowMultiplePostsPerDay -and $ArticleDate -eq $CurrentDate)) {
+            $NewFileName = if ($PreserveDateFileName) {
+                "{0}-{1}" -f $ArticleDate, $Article.Name
+            } else {
+                $Article.Name
             }
+            $NewArticlePath = Join-Path -Path $ArtikelPath -ChildPath $NewFileName
+            Move-Item -Path $Article.FullName -Destination $NewArticlePath
+            $AddFilesToCommit.Add($NewArticlePath)
+            $RemoveFilesFromCommit.Add($Article.FullName)
+            Write-Host "Article '$($Article.Name)' renamed and moved to '$NewArticlePath'."
+            $ShouldPublish = $true
         }
-    } else {
-        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
     }
 }
-'::endgroup::'
-#endregion
 
 OutputAction
