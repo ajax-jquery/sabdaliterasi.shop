@@ -21,88 +21,102 @@ function OutputAction {
     }
 }
 
-$BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
-$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
+# Resolve paths
+$BasePath = Join-Path -Path $PSScriptRoot -ChildPath ".."
+$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath
 $ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath
-$DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
-$ShouldPublish = $false
-'::group::Set TimeZone'
-$DefaultTimeZoneMessage = 'Setting TimeZone to default ''Coordinated Universal Time''.'
-try {
-    $configContent = Get-Content -Path $ResolvedConfigPath -Raw -ErrorAction Stop
-    $config = $configContent | ConvertFrom-Yaml
-    if ($config -and $config.timezone) {
-        $TimeZone = 'Asia/Jakarta'
-        'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
-    } else {
-        $DefaultTimeZoneMessage
-        $TimeZone = 'Asia/Jakarta'  # Jika tidak ada zona waktu yang valid dalam konfigurasi, kita gunakan UTC sebagai default
-    }
-}
-catch {
-    $DefaultTimeZoneMessage
-    $TimeZone = 'UTC'  # Jika terjadi kesalahan dalam membaca konfigurasi, kita gunakan UTC sebagai default
-}
-$CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
+
+# Get current date
+$CurrentDate = Get-Date
 $FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
-'::endgroup::'
 
-'::group::Draft Article Discovery'
-if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
-    '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
+# Set default time zone
+$TimeZone = 'Asia/Jakarta'
+
+# Try to get timezone from config if available
+try {
+    $ConfigContent = Get-Content -Path $ConfigPath -Raw -ErrorAction Stop
+    $Config = $ConfigContent | ConvertFrom-Yaml
+    if ($Config -and $Config.timezone) {
+        $TimeZone = $Config.timezone
+    }
+} catch {
+    Write-Host "Failed to get timezone from config. Using default timezone: $TimeZone"
+}
+
+try {
+    $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId($CurrentDate, $TimeZone)
+} catch {
+    Write-Host "Failed to convert timezone. Using system time."
+}
+
+# Initialize lists
+$RenameArticleList = @()
+$AddFilesToCommit = @()
+$RemoveFilesFromCommit = @()
+
+# Discover draft articles
+if (-not (Test-Path -Path $ResolvedDraftsPath)) {
+    Write-Host "The draft path '$DraftsPath' could not be found"
     exit 1
 }
-$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
-if ($DraftArticles.Count -gt 0) {
-    if ($DraftArticles.Count -eq 1) {
-        'Found 1 article in {0}.' -f $DraftsPath
-    } else {
-        'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
-    }
-    $DraftArticles | ForEach-Object {
-        if ($_.BaseName -match $DateRegex) {
-            $ArticleDateFromFileName = [datetime]::ParseExact($Matches[0], 'yyyy-MM-dd', $null)
-            if ($ArticleDateFromFileName -le $CurrentDate) {
-                $RenameArticleList.Add($_)
-                'Article date is past or today. Including article to rename.'
-            } else {
-                '::warning::Article is scheduled for a future date according to filename. SKIPPED'
-            }
-        }
-    }
-} else {
-    'No markdown files found in {0}.' -f $DraftsPath
-    OutputAction
-}
-'::endgroup::'
 
-'::group::Renaming Draft Articles with Valid Date'
-if (-Not (Test-Path -Path $ResolvedPostsPath)) {
-    '::error::The posts path ''{0}'' could not be found' -f $PostsPath
+$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Filter *.md | Where-Object { -not $_.Name.StartsWith("template") }
+
+if ($DraftArticles.Count -eq 0) {
+    Write-Host "No markdown files found in $DraftsPath."
     OutputAction
-    exit 1
+    exit
 }
-foreach ($Article in $RenameArticleList) {
-    $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
-    if ($Article.BaseName -match $DateRegex) {
-        if ($PreserveDateFileName.IsPresent) {
-            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
+
+Write-Host "Found $($DraftArticles.Count) articles in $DraftsPath."
+foreach ($Article in $DraftArticles) {
+    $FileNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($Article.Name)
+    $DatePart = $FileNameWithoutExtension -split '-', 2 | Select-Object -First 1
+
+    if ($DatePart -match '^\d{4}-\d{2}-\d{2}$') {
+        $ArticleDateFromFileName = [datetime]::ParseExact($DatePart, 'yyyy-MM-dd', $null)
+
+        if ($ArticleDateFromFileName -lt $CurrentDate -or $ArticleDateFromFileName -eq $CurrentDate) {
+            Write-Host "Article date is past or today. Proceeding with publishing."
+            $RenameArticleList.Add($Article)
         } else {
-            $NewFileName = '{0}{1}' -f $FormattedDate,$Article.Name.Replace($Matches[0],'')
+            Write-Host "$($Article.Name): Article is scheduled for a future date. SKIPPED"
         }
+    } else {
+        Write-Host "$($Article.Name): Failed to extract date from filename. SKIPPED"
     }
-    'Renaming {0} to {1}' -f $Article.Name,$NewFileName
+}
+
+# Handle renaming and moving of draft articles
+if (-not (Test-Path -Path $ResolvedPostsPath)) {
+    Write-Host "The posts path '$PostsPath' could not be found."
+    OutputAction
+    exit 1
+}
+
+foreach ($Article in $RenameArticleList) {
+    $NewFileName = "$FormattedDate-$($Article.Name)"
+    
+    if ($PreserveDateFileName) {
+        Write-Host "'PreserveDateFileName' is enabled. The existing filename will be preserved."
+    } else {
+        Write-Host "'PreserveDateFileName' is not enabled. Prepending $FormattedDate to filename."
+        $NewFileName = "$FormattedDate-$($Article.Name)"
+    }
+
+    Write-Host "Renaming $($Article.Name) to $NewFileName"
     $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
+
     try {
         Move-Item -Path $Article.FullName -Destination $NewFullPath
         $AddFilesToCommit.Add($NewFileName)
         $RemoveFilesFromCommit.Add($Article.Name)
         $ShouldPublish = $true
-    }
-    catch {
+    } catch {
+        Write-Host "Failed to move $($Article.Name) to $NewFullPath"
         OutputAction
     }
 }
-'::endgroup::'
 
 OutputAction
