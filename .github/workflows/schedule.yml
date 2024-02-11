@@ -21,11 +21,12 @@ jobs:
         run: |
           git config --global user.name 'ajax-jquery'
           git config --global user.email 'fkansaz@gmail.com'
+          git remote set-url origin https://ajax-jquery:$GITHUB_TOKEN@github.com/ajax-jquery/sabdaliterasi.shop.git
           git add .
           git commit -m "Published drafts to articles"
-          git push https://github.com/ajax-jquery/sabdaliterasi.shop.git HEAD:main -f
+          git push origin HEAD:main
         env:
-          GITHUB_TOKEN: ${{ secrets.SCHEDULE_POSTS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish_drafts_to_amp:
     runs-on: ubuntu-latest
@@ -45,8 +46,9 @@ jobs:
         run: |
           git config --global user.name 'ajax-jquery'
           git config --global user.email 'fkansaz@gmail.com'
+          git remote set-url origin https://ajax-jquery:$GITHUB_TOKEN@github.com/ajax-jquery/sabdaliterasi.shop.git
           git add .
           git commit -m "Published drafts AMP"
-          git push https://github.com/ajax-jquery/sabdaliterasi.shop.git HEAD:main -f
+          git push origin HEAD:main
         env:
-          GITHUB_TOKEN: ${{ secrets.SCHEDULE_POSTS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
