@@ -1,8 +1,9 @@
 name: Rename Draft Articles
 
 on:
-  schedule:
-    - cron: '0 14 * * *'
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
  
   workflow_dispatch:
 
