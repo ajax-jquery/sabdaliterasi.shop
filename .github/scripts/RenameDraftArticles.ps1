@@ -29,11 +29,19 @@ foreach ($draftFile in $draftFiles) {
         # Clean the file name to remove invalid characters
         $cleanedFileName = $fileName -replace '[\\/:*?"<>|]', ''
         
-        # Rename the draft file to move it to the articles directory
+        # Set the path to the new file in the articles directory
         $newFileName = Join-Path -Path $articlesDirectory -ChildPath $cleanedFileName
-        Rename-Item -Path $draftFile.FullName -NewName $newFileName -Force
-        Write-Host "Renamed $($draftFile.FullName) to $newFileName"
-        $env:DRAFTS_ARTICLES_RENAMED = "true"
+        
+        # Check if the file already exists in the articles directory
+        if (-not (Test-Path $newFileName)) {
+            # Rename the draft file to move it to the articles directory
+            Rename-Item -Path $draftFile.FullName -NewName $newFileName -Force
+            Write-Host "Renamed $($draftFile.FullName) to $newFileName"
+            $env:DRAFTS_ARTICLES_RENAMED = "true"
+        }
+        else {
+            Write-Host "File $newFileName already exists, skipping rename"
+        }
     }
 }
 
