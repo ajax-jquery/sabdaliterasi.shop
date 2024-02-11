@@ -18,6 +18,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      
+    - name: Start gpg-agent
+      run: gpgconf --launch gpg-agent
 
     - name: PowerShell Module Cache
       uses: potatoqualitee/psmodulecache@v5.2
