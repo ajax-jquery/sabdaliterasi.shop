@@ -1,6 +1,5 @@
 name: Build and deploy Jekyll site to GitHub Pages
 
-
 on:
   push:
     branches: [ "master" ]
@@ -22,6 +21,16 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+
+      # Setup Ruby
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+
+      # Install Bundler
+      - name: Install Bundler
+        run: gem install bundler -v '~> 2.0'
 
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.3.1
