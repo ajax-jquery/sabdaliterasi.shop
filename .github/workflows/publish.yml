@@ -1,6 +1,5 @@
 name: Rename Draft Articles
  
-
 on:
   push:
     branches: [ "master" ]
