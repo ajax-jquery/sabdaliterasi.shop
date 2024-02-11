@@ -4,7 +4,7 @@ param(
     [string]$PostsPath = '_artikel',
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
-    [switch]$PreserveDateFileName= $true
+    [switch]$PreserveDateFileName
 )
 
 function OutputAction {
