@@ -23,7 +23,7 @@ function OutputAction {
 
 #region Set Variables
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
-$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
+$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath
 $ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath
 $ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
 $RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
@@ -63,7 +63,7 @@ if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
     '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
     exit 1
 }
-$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
+$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md
 if ($DraftArticles.Count -gt 0) {
     if ($DraftArticles.Count -eq 1) {
         'Found 1 article in {0}.' -f $DraftsPath
@@ -82,42 +82,68 @@ if ($DraftArticles.Count -gt 0) {
 
 #region Checking Draft Article Date
 '::group::Checking Draft Article Date'
-foreach ($Article in $DraftArticles) {
-    $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
-        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -le $CurrentDate.ToShortDateString()) {
-            $RenameArticleList.Add($Article)
-            '{0}: Including article to rename.' -f $FrontMatter['title']
+if ($DraftArticles.Count -gt 0) {
+    foreach ($Article in $DraftArticles) {
+        $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
+        if ($FrontMatter.ContainsKey('date')) {
+            $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
+            '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
+            if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
+                $RenameArticleList.Add($Article)
+                '{0}: Including article to rename.' -f $FrontMatter['title']
+            } else {
+                if ($ArticleDate.Ticks -lt [datetime]::Now.Ticks) {
+                    '{0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
+                } else {
+                    '::warning:: {0}: Article ''date'' is set in the past. Please update the ''date'' value to a future date. SKIPPED' -f $FrontMatter['title']
+                }
+            }
         } else {
-            '::warning:: {0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
+            '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
         }
-    } else {
-        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+    }
+} else {
+    '::error::No markdown files found in {0}.' -f $DraftsPath
+    OutputAction
+    exit 1  # Add this line to exit if no articles found
+}
+'::endgroup::'
+#endregion
+
+#region Handling Multiple Draft Articles with Current Date
+'::group::Handling Multiple Draft Articles with Current Date'
+switch ($RenameArticleList.Count) {
+    0 {
+        'No articles matched the criteria to be renamed and published.'
+        OutputAction
+        return
+    }
+    1 {
+        'Found 1 article to rename.'
+    }
+    default {
+        '::warning::More than one draft article found with front matter date value of {0}.' -f $FormattedDate
+        $RenameArticleList = $RenameArticleList | Sort-Object -Property LastWriteTimeUtc
+        if ($AllowMultiplePostsPerDay.IsPresent) {
+            '::warning::Multiple draft articles will be published per day chronologically.'
+        } else {
+            '::warning::Multiple draft article with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
+            $RenameArticleList = $RenameArticleList | Select-Object -Last 1
+        }
     }
 }
 '::endgroup::'
 #endregion
 
-#region Renaming and Moving Draft Articles with Valid Date
+#region Renaming Draft Articles with Valid Date
 if (-Not (Test-Path -Path $ResolvedPostsPath)) {
     '::error::The posts path ''{0}'' could not be found' -f $PostsPath
     OutputAction
     exit 1
 }
-'::group::Renaming and Moving Draft Articles with Valid Date'
+'::group::Renaming Draft Articles with Valid Date'
 foreach ($Article in $RenameArticleList) {
     $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
-    if ($Article.BaseName -match $DateRegex) {
-        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
-        if ($PreserveDateFileName.IsPresent) {
-            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
-        } else {
-            '::warning::''PreserveDateFileName'' is not enabled. The exiting date {0} will be removed from the filename and it will be prepended with {1}.' -f $Matches[0],$FormattedDate
-            $NewFileName = '{0}{1}' -f $FormattedDate,$Article.Name.Replace($Matches[0],'')
-        }
-    }
     'Renaming {0} to {1}' -f $Article.Name,$NewFileName
     $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
     try {
