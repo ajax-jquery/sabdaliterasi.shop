@@ -21,9 +21,16 @@ function OutputAction {
     }
 }
 
-$BasePath = $PSScriptRoot
+# Tentukan jalur lengkap untuk _drafts dan _artikel
+$BasePath = Get-Location
 $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath
 $ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath
+
+# Cek apakah _drafts ada di jalur yang benar
+if (-not (Test-Path -Path $ResolvedDraftsPath)) {
+    Write-Error "The draft path '$ResolvedDraftsPath' could not be found"
+    exit 1
+}
 $DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
 $ShouldPublish = $false
 $TimeZone = 'Asia/Jakarta'  # Tetapkan zona waktu Anda di sini
