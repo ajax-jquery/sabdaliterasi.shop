@@ -28,7 +28,7 @@ jobs:
       id: rename_drafts
       run: |
         Set-Location -Path $env:GITHUB_WORKSPACE
-        RenameDraftArticles.ps1
+        .github/scripts/RenameDraftArticles.ps1
 
     - name: Check for New Articles to Publish
       id: check_articles_to_publish
