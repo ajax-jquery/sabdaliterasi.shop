@@ -53,8 +53,8 @@ catch {
     $DefaultTimeZoneMessage
 }
 $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
-$CurrentDateOnly = $CurrentDate.Date
-$FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
+$UtcCurrentDate = $CurrentDate.ToUniversalTime()
+$FormattedDate = $UtcCurrentDate.ToString('yyyy-MM-dd')
 '::endgroup::'
 #endregion
 
@@ -91,7 +91,7 @@ foreach ($Article in $DraftArticles) {
         $ArticleDate = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDate, [System.TimeZoneInfo]::FindSystemTimeZoneById($TimeZone))
         $ArticleDate = $ArticleDate.Date
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -le $CurrentDate) {
+        if ($ArticleDate -le $UtcCurrentDate.Date) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } else {
