@@ -28,5 +28,5 @@ jobs:
         with:
           provider: 'github'
           token: ${{ secrets.DRAFTS_ARTICLES_RENAMED }} 
-          branch: 'gh-pages'
-          cname: ''
+          branch: 'master'
+          cname: 'sabdaliterasi.shop'
