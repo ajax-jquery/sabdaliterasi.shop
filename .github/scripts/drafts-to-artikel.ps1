@@ -53,6 +53,7 @@ catch {
     $DefaultTimeZoneMessage
 }
 $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
+$CurrentDateOnly = $CurrentDate.Date
 $FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
 '::endgroup::'
 #endregion
@@ -85,9 +86,9 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
+        $ArticleDate = [datetime]::Parse($FrontMatter['date']).Date
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -le $CurrentDate.ToShortDateString()) {
+        if ($ArticleDate -le $CurrentDateOnly) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } else {
