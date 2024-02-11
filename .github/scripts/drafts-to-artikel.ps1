@@ -52,7 +52,7 @@ try {
 catch {
     $DefaultTimeZoneMessage
 }
-$UtcCurrentDate = Get-Date -Format s
+$UtcCurrentDate = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
 $FormattedDate = $UtcCurrentDate.ToString('yyyy-MM-dd')
 '::endgroup::'
 #endregion
