@@ -28,6 +28,12 @@ jobs:
         Set-Location -Path $env:GITHUB_WORKSPACE
         .github/scripts/drafts-to-artikel.ps1
 
+    - name: Rename Draft AMP
+      id: rename_draftsamp
+      run: |
+        Set-Location -Path $env:GITHUB_WORKSPACE
+        .github/scripts/draftsamp-to-amp.ps1
+
     - name: Check for New Articles to Publish
       id: check_articles_to_publish
       run: |
