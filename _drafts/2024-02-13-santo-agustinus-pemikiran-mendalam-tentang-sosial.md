@@ -1,5 +1,5 @@
 ---
-date: '2024-02-11 12:53:45 +0800'
+date: '2024-02-13 12:53:45 +0800'
 tag: 'Tokoh'
 title: 'Santo Agustinus: Pemikiran Mendalam tentang Sosial dan Politik'
 image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/images/1A58F1EF-E720-4E32-ACDB-81CE26E79F05.jpg'
