@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$DraftsPath = '_drafts',
-    [string]$DataPath = '_data', # Tambahkan variabel untuk path _data
+    [string]$DataPath = '_artikel', # Tambahkan variabel untuk path _data
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
