@@ -21,20 +21,18 @@ function OutputAction {
     }
 }
 
-#region Set Variables
+# Set Variables
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
 $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
 $ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath  # Mengubah path tujuan menjadi _artikel
 $ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
-$RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
-$AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
-$RemoveFilesFromCommit = [System.Collections.Generic.List[String]]::new()
+$RenameArticleList = @()
+$AddFilesToCommit = @()
+$RemoveFilesFromCommit = @()
 $DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
 $ShouldPublish = $false
-#endregion
 
-#region Set TimeZone
-'::group::Set TimeZone'
+# Set TimeZone
 $TimeZone = (Get-TimeZone).StandardName
 $DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
 try {
@@ -54,59 +52,48 @@ catch {
 }
 $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
 $FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
-'::endgroup::'
-#endregion
 
-#region Draft Article Discovery
-'::group::Draft Article Discovery'
+# Draft Article Discovery
 if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
-    '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
+    Write-Host "The draft path '$DraftsPath' could not be found" -ForegroundColor Red
     exit 1
 }
 $DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
 if ($DraftArticles.Count -gt 0) {
     if ($DraftArticles.Count -eq 1) {
-        'Found 1 article in {0}.' -f $DraftsPath
+        Write-Host "Found 1 article in $DraftsPath."
     } else {
-        'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
+        Write-Host "Found $($DraftArticles.Count) articles in $DraftsPath."
     }
     $DraftArticles.Name | ForEach-Object {
-        '- {0}' -f $_
+        Write-Host "- $_"
     }
 } else {
-    'No markdown files found in {0}.' -f $DraftsPath
+    Write-Host "No markdown files found in $DraftsPath."
     OutputAction
+    exit 1
 }
-'::endgroup::'
-#endregion
 
-#region Checking Draft Article Date
-'::group::Checking Draft Article Date'
+# Checking Draft Article Date
 foreach ($Article in $DraftArticles) {
- $FileNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($Article.Name)
+    $FileNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($Article.Name)
     $DatePart = $FileNameWithoutExtension -split '-', 2 | Select-Object -First 1
     if ($DatePart -match $DateRegex) {
         $ArticleDateFromFileName = [datetime]::ParseExact($Matches[0], 'yyyy-MM-dd', $null)
     }
 
-    # Memeriksa apakah tanggal yang diekstraksi sesuai dengan format yyyy-MM-dd
-    if ($ArticleDateFromFileName -eq [datetime]::MinValue) {
-        '::error::Failed to extract date from filename. Please ensure that the filename follows the format yyyy-MM-dd.'
-        exit 1
+    # Memeriksa apakah tanggal artikel yang diekstraksi sudah terlewatkan atau sesuai hari ini
+    if ($ArticleDateFromFileName -lt $CurrentDate -or $ArticleDateFromFileName -eq $CurrentDate) {
+        'Article date is past or today. Proceeding with publishing.'
+        $ShouldPublish = $true
     }
 
-# Memeriksa apakah tanggal artikel yang diekstraksi sudah terlewatkan atau sesuai hari ini
-if ($ArticleDateFromFileName -lt $CurrentDate -or $ArticleDateFromFileName -eq $CurrentDate) {
-    'Article date is past or today. Proceeding with publishing.'
-}
-
-    
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
         if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
-            $RenameArticleList.Add($Article)
+            $RenameArticleList += $Article
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } else {
             if ($ArticleDate.Ticks -lt [datetime]::Now.Ticks) {
@@ -119,11 +106,8 @@ if ($ArticleDateFromFileName -lt $CurrentDate -or $ArticleDateFromFileName -eq $
         '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
     }
 }
-'::endgroup::'
-#endregion
 
-#region Handling Multiple Draft Articles with Current Date
-'::group::Handling Multiple Draft Articles with Current Date'
+# Handling Multiple Draft Articles with Current Date
 switch ($RenameArticleList.Count) {
     0 {
         'No articles matched the criteria to be renamed and published.'
@@ -144,16 +128,13 @@ switch ($RenameArticleList.Count) {
         }
     }
 }
-'::endgroup::'
-#endregion
 
-#region Renaming Draft Articles with Valid Date
+# Renaming Draft Articles with Valid Date
 if (-Not (Test-Path -Path $ResolvedPostsPath)) {
-    '::error::The posts path ''{0}'' could not be found' -f $PostsPath
+    Write-Host "The posts path '$PostsPath' could not be found" -ForegroundColor Red
     OutputAction
     exit 1
 }
-'::group::Renaming Draft Articles with Valid Date'
 foreach ($Article in $RenameArticleList) {
     $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
     if ($Article.BaseName -match $DateRegex) {
@@ -169,15 +150,13 @@ foreach ($Article in $RenameArticleList) {
     $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
     try {
         Move-Item -Path $Article.FullName -Destination $NewFullPath
-        $AddFilesToCommit.Add($NewFileName)
-        $RemoveFilesFromCommit.Add($Article.Name)
+        $AddFilesToCommit += $NewFileName
+        $RemoveFilesFromCommit += $Article.Name
         $ShouldPublish = $true
     }
     catch {
         OutputAction
     }
 }
-'::endgroup::'
-#endregion
 
 OutputAction
