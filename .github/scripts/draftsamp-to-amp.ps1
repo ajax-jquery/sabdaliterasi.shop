@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$DraftsPath = '_draftsamp',
-    [string]$PostsPath = '_amp',
+    [string]$DataPath = '_amp', # Tambahkan variabel untuk path _data
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
@@ -24,7 +24,7 @@ function OutputAction {
 #region Set Variables
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
 $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
-$ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath
+$ResolvedDataPath = Join-Path -Path $BasePath -ChildPath $DataPath # Tambahkan resolved data path
 $ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
 $RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
 $AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
@@ -87,11 +87,14 @@ foreach ($Article in $DraftArticles) {
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -le $CurrentDate.ToShortDateString()) {
+        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
+        } elseif ($ArticleDate -lt $CurrentDate.ToShortDateString()) { # Tambahkan kondisi untuk memindahkan artikel yang sudah lewat
+            $RenameArticleList.Add($Article)
+            '{0}: Including article to move to data folder.' -f $FrontMatter['title']
         } else {
-            '::warning:: {0}: Article is scheduled for a future date. SKIPPED' -f $FrontMatter['title']
+            '::warning:: {0}: Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
         }
     } else {
         '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
@@ -100,28 +103,51 @@ foreach ($Article in $DraftArticles) {
 '::endgroup::'
 #endregion
 
-#region Renaming and Moving Draft Articles with Valid Date
-if (-Not (Test-Path -Path $ResolvedPostsPath)) {
-    '::error::The posts path ''{0}'' could not be found' -f $PostsPath
+#region Handling Multiple Draft Articles with Current Date
+'::group::Handling Multiple Draft Articles with Current Date'
+switch ($RenameArticleList.Count) {
+    0 {
+        'No articles matched the criteria to be renamed and published.'
+        OutputAction
+        return
+    }
+    1 {
+        'Found 1 article to rename.'
+    }
+    default {
+        '::warning::More than one draft article found with front matter date value of {0}.' -f $FormattedDate
+        $RenameArticleList = $RenameArticleList | Sort-Object -Property LastWriteTimeUtc
+        if ($AllowMultiplePostsPerDay.IsPresent) {
+            '::warning::Multiple draft articles will be published per day chronologically.'
+        } else {
+            '::warning::Multiple draft article with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
+            $RenameArticleList = $RenameArticleList | Select-Object -Last 1
+        }
+    }
+}
+'::endgroup::'
+#endregion
+
+#region Moving Draft Articles to Data folder
+if (-Not (Test-Path -Path $ResolvedDataPath)) {
+    '::error::The data path ''{0}'' could not be found' -f $DataPath
     OutputAction
     exit 1
 }
-'::group::Renaming and Moving Draft Articles with Valid Date'
+'::group::Moving Draft Articles to Data folder'
 foreach ($Article in $RenameArticleList) {
     $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
     if ($Article.BaseName -match $DateRegex) {
-    '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
-    if (-not $PreserveDateFileName.IsPresent) {
-        '::warning::''PreserveDateFileName'' is enabled. The existing filename will be preserved.'
-        $NewFileName = $Article.Name
-    } else {
-        '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
-        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
+        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
+        if ($PreserveDateFileName.IsPresent) {
+            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
+        } else {
+            '::warning::''PreserveDateFileName'' is not enabled. The existing date {0} will be removed from the filename and it will be prepended with {1}.' -f $Matches[0],$FormattedDate
+            $NewFileName = $Article.Name
+        }
     }
-}
-
-    'Renaming {0} to {1}' -f $Article.Name,$NewFileName
-    $NewFullPath = Join-Path -Path $ResolvedPostsPath -ChildPath $NewFileName
+    'Moving {0} to {1}' -f $Article.Name, $ResolvedDataPath
+    $NewFullPath = Join-Path -Path $ResolvedDataPath -ChildPath $NewFileName
     try {
         Move-Item -Path $Article.FullName -Destination $NewFullPath
         $AddFilesToCommit.Add($NewFileName)
