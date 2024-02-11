@@ -28,22 +28,21 @@ $DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
 $ShouldPublish = $false
 
 '::group::Set TimeZone'
-$TimeZone = (Get-TimeZone).StandardName
-$DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
+$DefaultTimeZoneMessage = 'Setting TimeZone to default ''Coordinated Universal Time''.'
 try {
-    if (Test-Path -Path $ResolvedConfigPath) {
-        $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
-        if (-Not [string]::IsNullOrEmpty($TimeZone)) {
-            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
-        } else {
-            $DefaultTimeZoneMessage
-        }
+    $configContent = Get-Content -Path $ResolvedConfigPath -Raw -ErrorAction Stop
+    $config = $configContent | ConvertFrom-Yaml
+    if ($config -and $config.timezone) {
+        $TimeZone = $config.timezone
+        'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
     } else {
         $DefaultTimeZoneMessage
+        $TimeZone = 'UTC'  # Jika tidak ada zona waktu yang valid dalam konfigurasi, kita gunakan UTC sebagai default
     }
 }
 catch {
     $DefaultTimeZoneMessage
+    $TimeZone = 'UTC'  # Jika terjadi kesalahan dalam membaca konfigurasi, kita gunakan UTC sebagai default
 }
 $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
 $FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
