@@ -5,7 +5,7 @@ param(
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
-)
+) 
 
 function OutputAction {
     if ($ShouldPublish) {
