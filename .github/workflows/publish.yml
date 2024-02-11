@@ -73,6 +73,6 @@ jobs:
       uses: juliangruber/merge-pull-request-action@v1.1.0
       if: steps.check_articles_to_publish.outputs.PUBLISH_ARTICLES == 'true'
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.DRAFTS_ARTICLES_RENAMED }}
         number: ${{ steps.find-pull-request.outputs.number }}
         method: merge
