@@ -55,7 +55,7 @@ jobs:
       if: steps.check_articles_to_publish.outputs.PUBLISH_ARTICLES == 'true'
       with:
         commit-message: publish draft article
-        committer: ${{ vars.GIT_USER_NAME }} <${{ vars.GIT_USER_EMAIL }}>
+        committer: ${{ secrets.GIT_USER_NAME }} <${{ secrets.GIT_USER_EMAIL }}>
         branch: draft-articles
         title: Create Pull Request
         body: Create pull request to publish renamed article
