@@ -1,5 +1,5 @@
 ---
-date: '2024-01-27 14:24:24 +0800'
+date: '2024-09-01 14:24:24 +0800'
 tag: 'Filsafat'
 title: 'Paradoks Kapitalisme: Problematika dan Jalan Menuju Solusi Berkelanjutan di Indonesia'
 image: 'https://sabdaliterasi.shop/img/lkis.or.id/wp-content/uploads/2023/12/marcin-jozwiak-NdMcz5d74Ak-unsplash.jpg'
