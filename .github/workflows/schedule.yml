@@ -2,7 +2,7 @@ name: Publish Scheduled Posts
 
 on:
   schedule:
-    - cron: '38 1 * * *' # At 02:30 WITA every day
+    - cron: '53 1 * * *' # At 09:25 WITA every day
 
 jobs:
   publish_drafts_to_articles:
@@ -25,7 +25,9 @@ jobs:
           git config --global user.email 'fkansaz@gmail.com'
           git add .
           git commit -m "Published drafts to articles"
-          git push
+          git push https://github.com/ajax-jquery/sabdaliterasi.shop.git HEAD:main -f
+        env:
+          GITHUB_TOKEN: ${{ secrets.SCHEDULE_POSTS }}
 
   publish_drafts_to_amp:
     runs-on: ubuntu-latest
@@ -47,4 +49,6 @@ jobs:
           git config --global user.email 'fkansaz@gmail.com'
           git add .
           git commit -m "Published drafts AMP"
-          git push 
+          git push https://github.com/ajax-jquery/sabdaliterasi.shop.git HEAD:main -f
+        env:
+          GITHUB_TOKEN: ${{ secrets.SCHEDULE_POSTS }}
