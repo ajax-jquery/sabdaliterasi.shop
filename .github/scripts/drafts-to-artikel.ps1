@@ -3,7 +3,7 @@ param(
     [string]$DraftsPath = '_drafts',
     [string]$ArtikelPath = '_artikel',
     [string]$ConfigPath = '_config.yml',
-    [switch]$AllowMultiplePostsPerDay,
+    [switch]$AllowMultiplePostsPerDay  = $true,
     [switch]$PreserveDateFileName
 )
 
