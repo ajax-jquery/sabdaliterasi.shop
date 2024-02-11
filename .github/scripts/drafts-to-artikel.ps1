@@ -136,7 +136,7 @@ if (-Not (Test-Path -Path $ResolvedDataPath)) {
 }
 '::group::Moving Draft Articles to Data folder'
 foreach ($Article in $RenameArticleList) {
-    $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
+    $NewFileName = $Article.Name
     if ($Article.BaseName -match $DateRegex) {
         '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
         if ($PreserveDateFileName.IsPresent) {
