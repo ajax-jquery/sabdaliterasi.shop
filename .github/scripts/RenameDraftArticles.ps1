@@ -26,22 +26,13 @@ $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -Addition
 $ResolvedPostsPath = Join-Path -Path $BasePath -ChildPath $PostsPath
 $DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
 $ShouldPublish = $false
-$TimeZone = 'Asia/Jakarta'  # Tentukan zona waktu Anda di sini
-
-try {
-    $CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
-}
-catch {
-    Write-Output "Gagal mengonversi zona waktu. Menggunakan waktu sistem."
-    $CurrentDate = Get-Date
-}
 '::group::Set TimeZone'
 $DefaultTimeZoneMessage = 'Setting TimeZone to default ''Coordinated Universal Time''.'
 try {
     $configContent = Get-Content -Path $ResolvedConfigPath -Raw -ErrorAction Stop
     $config = $configContent | ConvertFrom-Yaml
     if ($config -and $config.timezone) {
-        $TimeZone = $config.timezone
+        $TimeZone = 'Asia/Jakarta'
         'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
     } else {
         $DefaultTimeZoneMessage
