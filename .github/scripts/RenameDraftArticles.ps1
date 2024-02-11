@@ -95,17 +95,12 @@ foreach ($Article in $DraftArticles) {
         exit 1
     }
 
-    # Memeriksa apakah tanggal yang diekstraksi berada di masa lalu atau hari ini
-    if ($ArticleDateFromFileName -gt $CurrentDate) {
-        '::warning::Article is scheduled for a future date according to filename. SKIPPED'
-        continue
-    }
+# Memeriksa apakah tanggal artikel yang diekstraksi sudah terlewatkan atau sesuai hari ini
+if ($ArticleDateFromFileName -lt $CurrentDate -or $ArticleDateFromFileName -eq $CurrentDate) {
+    'Article date is past or today. Proceeding with publishing.'
+}
 
-    # Memeriksa apakah tanggal yang diekstraksi adalah tanggal hari ini
-    if ($ArticleDateFromFileName -ne $CurrentDate) {
-        '::warning::Article is not scheduled for today according to filename. SKIPPED'
-        continue
-    }
+    
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
