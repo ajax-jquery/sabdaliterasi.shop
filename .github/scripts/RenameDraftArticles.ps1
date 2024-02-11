@@ -34,10 +34,15 @@ foreach ($draftFile in $draftFiles) {
         
         # Check if the file already exists in the articles directory
         if (-not (Test-Path $newFileName)) {
-            # Rename the draft file to move it to the articles directory
-            Rename-Item -Path $draftFile.FullName -NewName $newFileName -Force
-            Write-Host "Renamed $($draftFile.FullName) to $newFileName"
-            $env:DRAFTS_ARTICLES_RENAMED = "true"
+            try {
+                # Rename the draft file to move it to the articles directory
+                Rename-Item -Path $draftFile.FullName -NewName $newFileName -Force -ErrorAction Stop
+                Write-Host "Renamed $($draftFile.FullName) to $newFileName"
+                $env:DRAFTS_ARTICLES_RENAMED = "true"
+            }
+            catch {
+                Write-Host "Error renaming $($draftFile.FullName) to $newFileName: $_"
+            }
         }
         else {
             Write-Host "File $newFileName already exists, skipping rename"
