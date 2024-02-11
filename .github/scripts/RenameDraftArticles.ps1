@@ -107,14 +107,12 @@ if (-Not (Test-Path -Path $ResolvedArtikelPath)) {
 }
 '::group::Renaming Draft Articles with Valid Date'
 foreach ($Article in $RenameArticleList) {
-    $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
+    $NewFileName = $Article.Name  # Menggunakan nama file yang sama
     if ($Article.BaseName -match $DateRegex) {
         '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
-        if ($PreserveDateFileName.IsPresent) {
-            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
-        } else {
+        if (-Not $PreserveDateFileName.IsPresent) {
             '::warning::''PreserveDateFileName'' is not enabled. The existing date {0} will be removed from the filename and it will be prepended with {1}.' -f $Matches[0],$FormattedDate
-            $NewFileName = '{0}{1}' -f $FormattedDate,$Article.Name.Replace($Matches[0],'')
+            $NewFileName = $Article.Name.Replace($Matches[0], $FormattedDate)
         }
     }
     'Renaming {0} to {1}' -f $Article.Name,$NewFileName
