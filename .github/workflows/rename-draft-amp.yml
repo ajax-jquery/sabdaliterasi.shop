@@ -2,7 +2,7 @@ name: Publish Scheduled Posts
 
 on:
   schedule:
-    - cron: '50 19 * * *' # At 02:30 WITA every day
+    - cron: '10 2 * * *' # At 02:30 WITA every day
 
 jobs:
   publish_drafts_to_articles:
