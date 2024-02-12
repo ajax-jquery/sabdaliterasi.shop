@@ -337,24 +337,37 @@ function hu(b){
         hu($('.alert.alert-danger.gagalfile').html('Gagal sebagai <br><b>'+folderName.replace('_','')+"/<b>"))
     }
 }
-
+function leftPad(t,e){
+for(var r=""+t;r.length<e;)r="0"+r;return r}
+function lo(t){
+let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
 let hasilkanObj=hasilkan();
-
-    const linkOb = hasilkanObj.link;
-    const hasilOb = hasilkanObj.hasil; // Mengambil nilai dari textarea
+let linkOb = hasilkanObj.link;
+const hasilOb = hasilkanObj.hasil; // Mengambil nilai dari textarea
 const encoder = new TextEncoder();
 const encodedArray = encoder.encode(hasilOb);
+var inputTanggal = $('input[name=tanggal]').val();
+var tanggalInput = new Date(inputTanggal);
+var tanggalHariIni = new Date();
+var datein = tanggalInput.getFullYear()+leftPad(tanggalInput.getMonth()+1,2)+leftPad(tanggalInput.getDate(),2);
+var date = tanggalHariIni.getFullYear()+leftPad(tanggalHariIni.getMonth()+1,2)+ leftPad(tanggalHariIni.getDate(),2);
+let artikel="_artikel",amp="_amp";
+if (datein > date) {
+        artikel="_drafts";amp="_draftsamp";
+    }
 
 // Mengonversi byte array ke dalam base64
 const base64EncodedText = String.fromCharCode.apply(null, encodedArray);
 
+if(confirm('Upload Tulisan ini ke'+artikel+'?')){
     if (linkOb.indexOf('NaN') < 0 || hasilOb.indexOf('<p class="ck-placeholder"></p>') < 0) {
-    submitFormToGitHub(base64EncodedText,'_artikel',linkOb);
-        setTimeout(function(){submitFormToGitHub(base64EncodedText,'_amp',linkOb)},4500)
-    } else {
+ submitFormToGitHub(base64EncodedText,artikel,linkOb);
+ setTimeout(function(){submitFormToGitHub(base64EncodedText,amp,linkOb)},4500)
+    } 
+    else {
         alert('Textarea kosong');
     }
-
+}
 
 }
 $("#upload_data").click(function(){
@@ -396,7 +409,7 @@ return false
 }
   else{
 
-if(confirm('Upload Tulisan ini?')){
+
 
  onAuthStateChanged(getAuth(), (user) => {
             if (!user) {
@@ -406,7 +419,7 @@ if(confirm('Upload Tulisan ini?')){
             }
         });
 
-}
+
 
 
   }
@@ -447,8 +460,6 @@ return false
 <script>
 function chekKey(){
 let e=setInterval(function n(){$("input[name=keyword]").val().length>0&&($("tags").removeClass("kosong"),clearInterval(e))},500)}
-
-
 $('form').on('click',function() {
 if($(".ckkosong")){
 $("#validck").removeClass('ckkosong')
