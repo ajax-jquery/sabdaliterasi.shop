@@ -15,7 +15,7 @@ permalink: /edit5/
 <link rel="preload" href="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js" as="script" />
 <link rel="preload" href="https://sabdaliterasi.shop/assets/css/bootstrap/4.6.2/style.min.css" as="style" />
 <link rel="preload" href="https://sabda-562b1-default-rtdb.firebaseio.com/editartikel" />
-<!-- Bootstrap core CSS -->
+
 <link href="https://sabdaliterasi.shop/assets/css/bootstrap/5.0.2/style.min.css" rel="stylesheet">
 <script src="https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js"></script>
 <script src="https://sabdaliterasi.shop/assets/js/editartikel.min.js?m3s"></script>
@@ -68,6 +68,12 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
 <div class="card mb-2">
 <div class="card-body">
 <form id="MyArtikel">
+<div class="form-outline mb-2">
+<select class="form-select" aria-label="Default select example" id="Folder">
+  <option value="_artikel" selected>Publish</option>
+  <option value="_drafts">Terjadwal</option>
+</select>
+</div>
 <div class="row mb-2">
 <div class="col">
 <div class="form-outline autocomplete">
@@ -93,8 +99,6 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
 <label class="form-check-label" for="inlineRadio2">From URL</label>
 </div>
 </div>
-
-
 <div class="input-group inputfoto">
 <input type="file" class="form-control" name="photo" id="photoInput" accept="image/*" onchange="updateFileName()">
 <button type="button" class="btn btn-secondary" id="submit" disabled>Upload</button>
@@ -104,11 +108,6 @@ function updateFileName() {
 }
 </script>
 </div>
-
-
-
-
-
 <div class="input-group inputfotourl hidden">
 <input placeholder="https://example.com/path/file.jpg" type="url" name="photourl" class="form-control" id="photoInputurl">
 <input type="button" class="btn btn-primary" id="submiturl" value="Upload Url">
@@ -362,20 +361,19 @@ let linkOb = hasilkanObj.link;
 const hasilOb = hasilkanObj.hasil; // Mengambil nilai dari textarea
 const encoder = new TextEncoder();
 const encodedArray = encoder.encode(hasilOb);
-var inputTanggal = $('input[name=tanggal]').val();
-var tanggalInput = new Date(inputTanggal);
-var tanggalHariIni = new Date();
-var datein = tanggalInput.getFullYear()+leftPad(tanggalInput.getMonth()+1,2)+leftPad(tanggalInput.getDate(),2);
-var date = tanggalHariIni.getFullYear()+leftPad(tanggalHariIni.getMonth()+1,2)+ leftPad(tanggalHariIni.getDate(),2);
-let artikel="_artikel",amp="_amp";
-if (datein > date) {
-        artikel="_drafts";amp="_draftsamp";
+let artikel=$('#Folder').val(),amp,tanya;
+if (artikel == "_drafts") {
+        amp="_draftsamp";
+        tanya="DRAFT"
+    }else{
+    amp="_amp";
+    tanya="PUBLISH"
     }
 
 // Mengonversi byte array ke dalam base64
 const base64EncodedText = String.fromCharCode.apply(null, encodedArray);
 
-if(confirm('Upload Tulisan ini ke'+artikel+'?')){
+if(confirm('Upload Tulisan ini ke '+tanya+'?')){
     if (linkOb.indexOf('NaN') < 0 || hasilOb.indexOf('<p class="ck-placeholder"></p>') < 0) {
  submitFormToGitHub(base64EncodedText,artikel,linkOb);
  setTimeout(function(){submitFormToGitHub(base64EncodedText,amp,linkOb)},4500)
@@ -539,8 +537,8 @@ keyword: ['${keywords}']
 function autocomplete(e,t){
 var n;function i(e){if(!e)return!1;(function e(t){for(var n=0;n<t.length;n++)t[n].classList.remove("autocomplete-active")})(e),n>=e.length&&(n=0),n<0&&(n=e.length-1),e[n].classList.add("autocomplete-active")}function s(t){for(var n=document.getElementsByClassName("autocomplete-items"),i=0;i<n.length;i++)t!=n[i]&&t!=e&&n[i].parentNode.removeChild(n[i])}e.addEventListener("input",function(i){var a,r,l,o=this.value;if(s(),!o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("focus",function(i){var a,r,l,o=this.value;if(s(),o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("keydown",function(e){var t=document.getElementById(this.id+"autocomplete-list");t&&(t=t.getElementsByTagName("div")),40==e.keyCode?(n++,i(t)):38==e.keyCode?(n--,i(t)):13==e.keyCode&&(e.preventDefault(),n>-1&&t&&t[n].click())}),document.addEventListener("click",function(e){s(e.target)})};
 
-  {% assign TAG = site.artikel | map: 'tag' | uniq %} var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
-  
+{% assign TAG = site.artikel | map: 'tag' | uniq %} var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
+                                                                                                                                         
   autocomplete(document.getElementById("myTag"), TagSite); 
 $(document).ready(function(){
 $('textarea[name=description]').keyup(function(){
