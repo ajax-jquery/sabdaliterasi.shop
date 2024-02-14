@@ -55,9 +55,7 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
 </head>
 <body>
 <div id="savesucces"> <div class="alert alert-success Saved" role="alert"> Saved </div> <div class="alert alert-danger Remove" role="alert"> Remove </div> <div class="alert alert-primary Terupload" role="alert"> Terupload </div> <div class="alert alert-warning readyfile" role="alert"> File sudah ada </div> <div class="alert alert-success uploadfile" role="alert"> File berhasil di unggah sebagai: </div> <div class="alert alert-danger gagalfile" role="alert"> File Gagal di unggah sebagai: </div> </div>
-<script>function Alert(b){b.fadeIn();setTimeout(function(){b.fadeOut()},1000)};  
-
-</script>
+<script>function Alert(b){b.fadeIn();setTimeout(function(){b.fadeOut()},1000)};  </script>
 <div class="card-header py-3">
 <h5 class="mb-0">Artikel</h5>
 </div>
@@ -67,6 +65,52 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
 <div class="card mb-2">
 <div class="card-body">
 <form id="MyArtikel">
+<style>
+  .placeholder::before{
+  content:attr(data-text)
+  }.editable {
+        border: none;
+        padding: 5px;
+        overflow: auto; 
+        outline: none; 
+    }
+
+    .editable.placeholder {
+        color: #888; /* Warna untuk teks placeholder */
+    }
+  
+</style>  
+  
+<div class="form-outline mb-2">
+<h3><div class="editable placeholder" contenteditable="true" id="editableDiv" name="judul" data-text="Judul...">
+ 
+</div></h3>
+  <script>
+    // Mendengarkan fokus pada div yang dapat diedit menggunakan jQuery
+    $('#editableDiv').on('focus', function() {
+        // Hapus teks placeholder jika ada
+        if ($(this).hasClass('placeholder')) {
+            $(this).removeClass('placeholder');
+        }
+    });
+
+    // Mendengarkan kehilangan fokus pada div yang dapat diedit menggunakan jQuery
+    $('#editableDiv').on('blur', function() {
+        // Tambahkan teks placeholder jika div kosong saat kehilangan fokus
+        if ($(this).text().trim() === '') {
+            $(this).addClass('placeholder')
+        }
+    });
+  </script>
+<input type="text" name="judul" id="form7Example3" class="form-control hidden" placeholder="Title" />
+</div>
+  
+<div id="validck" class="form-outline mb-2 CKeditnya">
+<textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
+</div>
+
+  
+<!-- bagian bawah -->
 <div class="form-outline mb-2">
 <select class="form-select" aria-label="Default select example" id="Folder">
 <option value="_artikel" selected>Publish</option>
@@ -84,9 +128,6 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
 <input type="datetime-local" name="tanggal" id="form7Example2" class="form-control" />
 </div>
 </div>
-</div>
-<div class="form-outline mb-2">
-<input type="text" name="judul" id="form7Example3" class="form-control" placeholder="Title" />
 </div>
 <div id="chekbox">
 <div class="form-check form-check-inline">
@@ -123,9 +164,6 @@ function updateFileName() {
 </div>
 <div class="form-outline mb-2">
 <input name="keyword" type="text" id="form7Example5" class="form-control" data-role="tagsinput" placeholder="Keywords" />
-</div>
-<div id="validck" class="form-outline mb-2 CKeditnya">
-<textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
 </div>
 </form>
 </div>
@@ -216,7 +254,12 @@ let u = document.querySelector('.ck-editor__editable'),
 get(child(dbRef, 'editartikel')).then((snapshot) => {
    let n = JSON.parse(snapshot.val().json);   
 if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description.length > 0 || n.keyword.length > 0 || n.tanggal.length > 0 || n.isi.indexOf("ck-placeholder") < 0){
- $('input[name=judul]').val(n.judul),
+
+if(n.judul.length > 0){
+ $('div[name=judul]').text(n.judul).removeClass('placeholder');
+ }
+ 
+ 
  $('input[name=tag]').val(n.tag);
  
  
@@ -227,7 +270,6 @@ if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description
  $('input[name=base64]').val(base64);
  $(".imageform").removeClass('hidden');
  $('img.img-fluid').attr("src",base64);
- 
 };
  
  $('textarea[name=description]').val(n.description),
@@ -273,7 +315,7 @@ var k=JSON.stringify(b),
 function formSubmit() {
       // Get Values from the DOM
      var b={
-  judul:$('input[name=judul]').val(),
+  judul:$('div[name=judul]').text().trim().trim(),
   tag: $('input[name=tag]').val(),
   image: $('input[name=image]').val(),
   base64: $('input[name=base64]').val(),
@@ -316,7 +358,7 @@ $('form').on('propertychange click change keyup input paste',delay(function (e) 
 $("#reset").click(function(){if(confirm("Ingin hapus?")){
 formremove();$('form')[0].reset();$("tag").remove();
 $('img.img-fluid').attr("src",'');
-$(".imageform").addClass('hidden');fotofile();$('#submit').attr('disabled','').attr('class',"btn btn-secondary")
+$(".imageform").addClass('hidden');fotofile();$('#submit').attr('disabled','').attr('class',"btn btn-secondary");$('#editableDiv').addClass('placeholder').text('')
 
 }});
 function fadhel(){
@@ -386,7 +428,7 @@ if(confirm('Upload Tulisan ini ke '+tanya+'?')){
 
 }
 $("#upload_data").click(function(){
-var Judul=$('input[name=judul]'),
+var Judul=$('div[name=judul]'),
   Tag= $('input[name=tag]'),
   Image= $('input[name=image]'),
   Base64= $('input[name=base64]'),
@@ -398,14 +440,17 @@ var Judul=$('input[name=judul]'),
   Isi= $('.ck-content'),
   GGG=CKdata(),
   ckedit= $('.ck-editor__editable');
-if(Tag.val() == ""){
+if(Judul.text().trim()==""){
+Judul.addClass('kosong');Judul.focus();
+return false
+}else if(GGG.length < 1000){
+ckedit.addClass('ckkosong');alert('isi kontent kurang dari 1000 karakter')
+return false
+}else if(Tag.val() == ""){
 Tag.addClass('kosong');Tag.focus();
 return false
 }else if(Tanggal.val() == ""){
 Tanggal.addClass('kosong');Tanggal.focus();
-return false
-}else if(Judul.val() == ""){
-Judul.addClass('kosong');Judul.focus();
 return false
 }else if(Description.val() == ""){
 Description.addClass('kosong');Description.focus();
@@ -418,9 +463,6 @@ $(".inputfoto").addClass('kosong');$("#photoInput").focus();$(".inputfotourl").a
 return false
 }else if(Keyword.val() == ""){
 $("tags").addClass('kosong');$("tags > div > span").focus();chekKey();
-return false
-}else if(GGG.length < 1000){
-ckedit.addClass('ckkosong');alert('isi kontent kurang dari 1000 karakter')
 return false
 }
   else{
@@ -480,7 +522,7 @@ for(var r=""+t;r.length<e;)r="0"+r;return r}
 function lo(t){
 let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
   
-  var judul=$('input[name=judul]').val(),
+  var judul=$('div[name=judul]').text().trim(),
   tag=lo($('input[name=tag]').val()),
   gambar =$('input[name=image]').val(),
   image=gambar,
@@ -538,8 +580,8 @@ keyword: ['${keywords}']
 function autocomplete(e,t){
 var n;function i(e){if(!e)return!1;(function e(t){for(var n=0;n<t.length;n++)t[n].classList.remove("autocomplete-active")})(e),n>=e.length&&(n=0),n<0&&(n=e.length-1),e[n].classList.add("autocomplete-active")}function s(t){for(var n=document.getElementsByClassName("autocomplete-items"),i=0;i<n.length;i++)t!=n[i]&&t!=e&&n[i].parentNode.removeChild(n[i])}e.addEventListener("input",function(i){var a,r,l,o=this.value;if(s(),!o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("focus",function(i){var a,r,l,o=this.value;if(s(),o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("keydown",function(e){var t=document.getElementById(this.id+"autocomplete-list");t&&(t=t.getElementsByTagName("div")),40==e.keyCode?(n++,i(t)):38==e.keyCode?(n--,i(t)):13==e.keyCode&&(e.preventDefault(),n>-1&&t&&t[n].click())}),document.addEventListener("click",function(e){s(e.target)})};
 
- {% assign TAG = site.artikel | map: 'tag' | uniq %} var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
-                                                                                                                                         
+  {% assign TAG = site.artikel | map: 'tag' | uniq %} var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
+                                                                                                                                           
   autocomplete(document.getElementById("myTag"), TagSite); 
 $(document).ready(function(){
 $('textarea[name=description]').keyup(function(){
@@ -555,7 +597,7 @@ $("#copy_link").click(function(){
 });
 </script>
 <script>$(document).ready(function(){
-var Judul=$('input[name=judul]'),
+var Judul=$('div[name=judul]'),
   Tag= $('input[name=tag]'),
   Image= $('input[name=image]'),
   Base64= $('input[name=base64]'),
@@ -569,12 +611,12 @@ var Judul=$('input[name=judul]'),
 email.keyup(function(){
   email.removeClass('kosong')
 });  
-pwd.keyup(function(){
+pwd.on('keyup',function(){
   pwd.removeClass('kosong')
 });Judul.keyup(function(){
   Judul.removeClass('kosong')
 });
-Tag.keyup(function(){
+Tag.on('keyup change input',function(){
   Tag.removeClass('kosong')
 });
 Description.keyup(function(){
@@ -620,7 +662,7 @@ async function upplood(bbb,kk){
 const username = 'sabdaliterasi';const repository = 'wp-conten';const branch = 'file';const accessToken = Pu.de(IMAGES_Key);
 
 const extension = kk.match(/\.([^.\/\?]+)(\?.*)?$/);
-let judul=$('input[name=judul]').val();
+let judul=$('div[name=judul]').text().trim();
 const urlimage = judul
     .toLowerCase() // Mengubah semua huruf menjadi huruf kecil
     .replace(/[^a-zA-Z0-9]+/g, '-') // Menghapus karakter non-alfanumerik dan mengganti dengan '-'
@@ -689,10 +731,10 @@ async function urlToBase64(url) {
     });
 }    
 !function(){
-let Judul=$('input[name=judul]');
+let Judul=$('div[name=judul]');
 
 document.getElementById('submit').addEventListener('click', function (event) {
-if($('input[name=judul]').val() == ""){
+if($('div[name=judul]').text().trim() == ""){
 Judul.addClass('kosong');Judul.focus();
 return false
 }else{
@@ -710,7 +752,7 @@ $('.spinner-border').removeClass('hidden');
     });
 
 document.getElementById('submiturl').addEventListener('click', function(event) {
-if($('input[name=judul]').val() == ""){
+if($('div[name=judul]').text().trim() == ""){
 Judul.addClass('kosong');Judul.focus();
 return false
 }else{
