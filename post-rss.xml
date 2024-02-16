@@ -40,7 +40,7 @@ layout: null
 	<guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
 	<comments>{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments</comments>
 	<dc:creator><![CDATA[{{ site.title }}]]></dc:creator>
-  <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Artikel dengan judul&nbsp;<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" rel="nofollow">{{ post.title }}</a> diterbitkan di <a href="{{ site.url }}" rel="nofollow">{{ site.title }} | {{ site.subjudul }}</a></p> ]]></description>
+  <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Artikel dengan judul&nbsp;<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" rel="nofollow">{{ post.title }}</a> diterbitkan di <a href="{{ site.url }}" rel="nofollow">{{ site.title }} | {{ site.subjudul }}.</a></p> <p>Baca selengkapnya: {{ post.url | prepend: site.baseurl | prepend: site.url }}</p>]]></description>
 	<content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
   <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 <media:thumbnail url="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" width="1080" height="607"/>
