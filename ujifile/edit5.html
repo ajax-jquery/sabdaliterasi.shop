@@ -60,7 +60,7 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
 <h5 class="mb-0">Artikel</h5>
 </div>
 <div class="container">
-<div class="">
+<div class>
 <div class="col">
 <div class="card mb-2">
 <div class="card-body">
@@ -79,13 +79,11 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
         color: #888; /* Warna untuk teks placeholder */
     }
   
-</style>  
-  
+</style>
 <div class="form-outline mb-2">
 <h3><div class="editable placeholder" contenteditable="true" id="editableDiv" name="judul" data-text="Judul...">
- 
 </div></h3>
-  <script>
+<script>
     // Mendengarkan fokus pada div yang dapat diedit menggunakan jQuery
     $('#editableDiv').on('focus', function() {
         // Hapus teks placeholder jika ada
@@ -104,13 +102,10 @@ const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
   </script>
 <input type="text" name="judul" id="form7Example3" class="form-control hidden" placeholder="Title" />
 </div>
-  
 <div id="validck" class="form-outline mb-2 CKeditnya">
 <textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
 </div>
 
-  
-<!-- bagian bawah -->
 <div class="form-outline mb-2">
 <select class="form-select" aria-label="Default select example" id="Folder">
 <option value="_artikel" selected>Publish</option>
@@ -192,6 +187,13 @@ function updateFileName() {
 <div class="form-outline">
 <button type="button" class="btn btn-danger btn-lg btn-block" id="reset">
 Reset
+</button>
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<button type="button" class="btn btn-secondary btn-lg btn-block" id="download">
+Download
 </button>
 </div>
 </div>
@@ -580,8 +582,8 @@ keyword: ['${keywords}']
 function autocomplete(e,t){
 var n;function i(e){if(!e)return!1;(function e(t){for(var n=0;n<t.length;n++)t[n].classList.remove("autocomplete-active")})(e),n>=e.length&&(n=0),n<0&&(n=e.length-1),e[n].classList.add("autocomplete-active")}function s(t){for(var n=document.getElementsByClassName("autocomplete-items"),i=0;i<n.length;i++)t!=n[i]&&t!=e&&n[i].parentNode.removeChild(n[i])}e.addEventListener("input",function(i){var a,r,l,o=this.value;if(s(),!o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("focus",function(i){var a,r,l,o=this.value;if(s(),o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("keydown",function(e){var t=document.getElementById(this.id+"autocomplete-list");t&&(t=t.getElementsByTagName("div")),40==e.keyCode?(n++,i(t)):38==e.keyCode?(n--,i(t)):13==e.keyCode&&(e.preventDefault(),n>-1&&t&&t[n].click())}),document.addEventListener("click",function(e){s(e.target)})};
 
-  {% assign TAG = site.artikel | map: 'tag' | uniq %} var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
-                                                                                                                                           
+{% assign TAG = site.artikel | map: 'tag' | uniq %} var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
+                                                                                                                                         
   autocomplete(document.getElementById("myTag"), TagSite); 
 $(document).ready(function(){
 $('textarea[name=description]').keyup(function(){
@@ -770,5 +772,140 @@ urlToBase64(photoInput)
     });   
 }()
 </script>
+
+<script>!function(){
+
+    document.addEventListener( 'DOMContentLoaded', () => {
+			const submitButton = document.getElementById( 'download' );
+
+			submitButton.addEventListener( 'click', event => {
+				event.preventDefault();
+
+				createAndDownloadDocx();
+			} );
+		} );
+        
+        
+    
+		const DEFAULT_HEADERS = {
+			'x-cs-app-id': 'cs-docx-demo'
+		};
+
+		
+let tokenEndpoint="";
+		function createAndDownloadDocx() {
+        function content(){ 
+ var p=$('.ck-content');
+   $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
+   $(p).find('a').removeAttr("class").attr("target","_blank").attr("rel", "nofollow noopener noreferrer");
+$(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAttr("contenteditable").attr("class","image_post");
+$(p).find(".ck-horizontal-line").replaceWith($('<hr>'));
+ $(p).find("blockquote").each(function(){
+   $(this).replaceWith(
+$('<blockquote>').html($(this).html().replaceAll('</p><p>','<br>').replaceAll('<p>','').replaceAll('</p>',''))
+)
+  });
+$(p).find('div').remove();
+$(p).find('img').attr("class","lazy").removeAttr("style");
+  var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
+  var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>").split('src=').join('src="data:," data-src=');
+  var isitiga=isidua.split("&nbsp;").join(" ").split("<p></p>").join("");
+  
+  return isitiga
+  }
+  
+			const formEl = document.getElementById( 'create-docx-form' );
+			const formData = [ ...new FormData( formEl ) ];
+             function mdfile(){ 
+ var coo=Judul;
+return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').replace(/^-+|-+$/g, '')
+};
+            
+            let isi=content(),Judul=$('div[name=judul]').text(),nama=mdfile();
+           
+ 
+
+			const request = {
+            "options":
+            {
+            "auto_pagination":true,
+            "header":[],
+            "footer":[],
+            "margin_top":"4cm",
+            "margin_right":"3cm",
+            "margin_bottom":"3cm",
+            "margin_left":"4cm",
+            "format":"A4",
+            "orientation":"portrait",
+            "base_url":""},
+            "html":`<h1>${Judul}</h1>${isi}
+            
+<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>Fadhel Fikri <br><br> <strong>Atribusi/Deskripsi:</strong><br> Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di <a href="https://sabdaliterasi.shop">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.shop">https://sabdaliterasi.shop</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/6283132302297 <br><br> <strong>Email:</strong><br><a href="mailto:fadhel98fikri@gmail.com">fadhel98fikri@gmail.com</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br> <i>(Jika Dibutuhkan)</i><strong> No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):</strong><br> 901409177061 
+`,
+            "css":"p{text-align:justify}h1{text-align: center;font-size: 16px;font-weight:bold}"
+            };
+
+			createHeaders( tokenEndpoint )
+				.then( headers => fetch( 'https://docx-converter.cke-cs.com/v1/convert', { method: 'POST', body: JSON.stringify( request ), headers } ) )
+				.then( res => {
+					if ( res.status === 400 ) {
+						alert( 'An error occurred during conversion. Please check all the inputs.' );
+
+						return null;
+					}
+
+					if ( res.status > 299 ) {
+						alert( 'An error occurred during conversion.' );
+
+						return null;
+					}
+					return res.blob();
+				} )
+				.then( blob => {
+					if ( !blob ) {
+						return;
+					}
+
+					const link = document.createElement( 'a' );
+					link.href = window.URL.createObjectURL( blob );
+					link.download = `${nama}.docx`;
+					link.click();
+				} );
+		}
+
+		function createHeaders( tokenEndpoint ) {
+			if ( tokenEndpoint ) {
+				return fetch( tokenEndpoint, { method: 'GET' } )
+					.then( res => res.text() )
+					.then( token => {
+						return { ...DEFAULT_HEADERS, Authorization: token }
+					} );
+			}
+
+			return Promise.resolve( DEFAULT_HEADERS );
+		}
+
+		function processMargin( request, fieldName, fieldValue ) {
+			if ( !fieldName.endsWith( '_unit' ) ) {
+				request.options[ fieldName ] = request.options[ fieldName ] ? fieldValue.concat( '', request.options[ fieldName ] ) : fieldValue;
+
+				return;
+			}
+
+			const marginField = fieldName.replace( '_unit', '' );
+
+			request.options[ marginField ] = request.options[ marginField ] ? request.options[ marginField ].concat( '', fieldValue ) : fieldValue;
+		}
+
+		function mapHeadersOrFootersToList( element ) {
+			return Object.keys( element ).filter( type => !!element[ type ].html ).map( type => ( {
+				type,
+				css: element[ type ].css,
+				html: element[ type ].html,
+			} ) )
+		}
+	}()</script>
+
+<form class="hidden" id="create-docx-form"></form>
 </body>
 </html>
