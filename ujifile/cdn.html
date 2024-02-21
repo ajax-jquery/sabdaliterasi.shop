@@ -1,0 +1,93 @@
+---
+layout: null
+permalink: /ujifile/cdn/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Converter</title>
+  <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="/assets/js/jquery-3.7.1.min.js"></script>
+    <style>
+        #convertedLinks div {
+            margin-bottom: 10px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="p-3">
+    <div class="container">
+        <h2 class="text-center mb-4">Link Converter</h2>
+        <form id="linkForm">
+            <div class="mb-3">
+                <label for="originalLink" class="form-label">Original Link:</label>
+                <input type="text" class="form-control" id="originalLink" name="originalLink" placeholder="Paste your link here...">
+            </div>
+        </form>
+        <div id="convertedLinks">
+            <strong>Converted Links:</strong>
+            <div class="d-flex justify-content-between">
+                <div id="convertedLink1"></div>
+                <button id="copyButton1" class="btn btn-primary" disabled>Copy</button>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div id="convertedLink2"></div>
+                <button id="copyButton2" class="btn btn-primary" disabled>Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#originalLink").on("input", function() {
+                var originalLink = $(this).val().trim();
+                if (originalLink.startsWith("https://github.com")) {
+                    $(this).removeClass("is-invalid");
+                    var convertedLinks = convertToNewLinks(originalLink);
+                    $("#convertedLink1").html(convertedLinks[0]);
+                    $("#convertedLink2").html(convertedLinks[1]);
+                    $("#copyButton1, #copyButton2").prop("disabled", false);
+                } else {
+                    $(this).addClass("is-invalid");
+                    $("#convertedLink1, #convertedLink2").empty();
+                    $("#copyButton1, #copyButton2").prop("disabled", true);
+                }
+            });
+
+            function convertToNewLinks(originalLink) {
+                var oldPrefix = "https://github.com/";
+                var newPrefix1 = "https://sabdaliterasi.shop/wp-conten/file/cdn/gh/";
+                var newPrefix2 = "https://sabdaliterasi.shop/wp-conten/file/doc/";
+
+                var modifiedLink1 = originalLink.replace("/blob/", "@");
+                var modifiedLink2 = originalLink.replace("/blob/", "/");
+
+                var newLink1 = modifiedLink1.replace(oldPrefix, newPrefix1);
+                var newLink2 = modifiedLink2.replace(oldPrefix, newPrefix2);
+                
+                return [newLink1, newLink2];
+            }
+
+            $("#copyButton1, #copyButton2").click(function() {
+                var index = $(this).attr("id").slice(-1);
+                var copiedText = $("#convertedLink" + index).text();
+                var tempInput = document.createElement("input");
+                tempInput.value = copiedText;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                $(this).text("Copied!");
+                setTimeout(function() {
+                    $("#copyButton" + index).text("Copy");
+                }, 2000);tempInput.remove()
+            });
+        });
+    </script>
+</body>
+</html>
