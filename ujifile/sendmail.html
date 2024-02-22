@@ -4,17 +4,11 @@ permalink: /ujifile/sendmail/
 ---
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="robots" content="noindex, nofollow" />
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send Mail</title>    
-    <!-- Bootstrap CSS -->
-<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script>
-let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
-</script>
-<script>
-const Hm_Key="X0jzU8K3XFN3bT4TSYjKQT5GYqBEZRApSNfkLTjyZaYlKxN0VZiVdM==";</script>
+    <title>Send Email Form</title>
+    <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Custom CSS */
         html,body {
@@ -31,136 +25,162 @@ const Hm_Key="X0jzU8K3XFN3bT4TSYjKQT5GYqBEZRApSNfkLTjyZaYlKxN0VZiVdM==";</script
     </style>
 </head>
 <body>
-    <div class="container">
-     <h2 class="text-center mb-4">Formulir Kontak</h2>
-        <form id="form">
-            <div class="mb-3 field">
-                <label for="judul" class="form-label">Judul</label>
-                <input type="text" class="form-control" id="judul" required>
-            </div>
-            <div class="mb-3 field">
-                <label for="my_file" class="form-label">Wordfile</label>
-                <input type="file" class="form-control" id="my_file" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Email</button>
-        </form>
-        <div class="mb-3 field"><ol id="hasil"></ol></div>
-    </div>
-    
-    <!-- Bootstrap JS (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container">
+    <h1 class="text-center mb-4">Send Email with Attachments</h1>
+    <form id="emailForm">
+       <div class="mb-3 field">
+        <label for="subject" class="form-label">Judul:</label>
+        <input type="text" id="subject" class="form-control" name="subject" required>
+        </div>
+        <div class="mb-3 field">
+        <label for="attachment1" class="form-label">Attachment 1:</label>
+        <input type="file" id="attachment1" class="form-control" name="attachment1" required>
+        </div>
+        <div class="mb-3 field">
+        <label for="attachment2" class="form-label">Attachment 2:</label>
+        <input type="file" id="attachment2" class="form-control" name="attachment2" required>
+        </div>
+        
+        <input type="submit" value="Send Email" class="btn btn-primary">
+    </form>
+<div class="mb-3 field"><ol id="hasil"></ol></div></div>
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', async function(event) {event.preventDefault();
+        var delay=10000;
+const tujuan =  JSON.stringify([
+{
+    "nama": "Fadhel Fikri",
+    "email": "achmadmarx@zohomail.com",
+    "website": "https://sabdaliterasi.shop"
+},
+{
+    "nama": "Fadhel Fikri",
+    "email": "erichmarx@zohomail.com",
+    "website": "https://sabdaliterasi.shop"
+} 
+]);       
 
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script type="text/javascript">
-  emailjs.init({
-  publicKey: 'Q-MaBUwpLY4Eu9w8P'
-  })
-</script>
-<script>
-document.getElementById('form').addEventListener('submit', function(event) {
-  event.preventDefault(); 
-  var fileInput = document.getElementById('my_file');
-  var file = fileInput.files[0]; 
-  var reader = new FileReader();
-  reader.readAsDataURL(file); 
-  reader.onload = function() {
-    var base64Data = reader.result.split(',')[1]; 
-    uploadFile(base64Data,file.name);
-  };
-  reader.onerror = function(error) {
-    console.error('Error:', error);
-    document.getElementById('hasil').innerText = 'Terjadi kesalahan saat membaca file.';
-  };
-});
-
-function uploadFile(base64Data,nama) {
-const username = 'ajax-jquery';const repository = 'asset.sabdaliterasi.shop';const branch = 'main';const accessToken = Pu.de(Hm_Key);
-
-const url = `https://api.github.com/repos/${username}/${repository}/contents/tulisan/${nama}`;
+        Delay(tujuan,delay)
+        
+        });
 
 
-  fetch(url, {
-    method: 'PUT',
-    body: JSON.stringify({
-      message: 'Menambahkan file baru',
-      content: base64Data,
-      branch: branch
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${accessToken}`
-    }
-  })
-  .then(response => {
-    if (response.ok) {
-     var judul = document.getElementById('judul').value,
-     delay=10000;
- const tujuan = JSON.stringify([ 
-   { "nama": "Magrib.id - Bertemu dan Bertukar Kisah", "email": "editormagrib@gmail.com", "website": "https://magrib.id" }, { "nama": "al-ibar.net - Mengenal Islam lebih dalam", "email": "alibardotnet@gmail.com", "website": "https://al-ibar.net" }, { "nama": "IslamRamah.co | Islam Ramah Bukan Islam Marah", "email": "Islamramahdotco@gmail.com", "website": "https://islamramah.co" }, {"nama": "Masjid Jenderal Sudirman","email": "redaksimjs@gmail.com","website": "https://mjscolombo.com"}, {"nama": "Asyikasyik.com","email": "asyik2dotcom@gmail.com","website": "https://asyikasyik.com/"},{ "nama":"Beritabaru.co - Berita Harian Terbaru Hari Ini di Indonesia dan Dunia", "email":"opini.beritabaru@gmail.com", "website":"https://beritabaru.co/" },{ "nama":"Harakatuna.com - Merawat Ideologi Bangsa","email":"redaksi@harakatuna.com","website":"https://www.harakatuna.com/" },{"nama":"HIDAYATUNA - Islam Rahmatan Lil Alamin","email":"redaksi@hidayatuna.com","website":"https://hidayatuna.com"},{"nama":"Hipotesa – Tajam dan Mencerahkan","email":"redaksihipotesa@gmail.com","website":"https://www.hipotesa.id/"},{"nama":"Islami[dot]co - Media Islam Ramah dan Mencerahkan","email":"redaksi@islami.co","website":"https://islami.co/"},{"nama":"JalaStoria.id - Menjala Cerita, Mengurai Makna","email":"jalastoria@gmail.com","website":"https://www.jalastoria.id/"},{"nama":"LP Maarif NU Jateng - Menuju Pendidikan Maarif Berkarakter Aswaja Nahdliyah","email":"asnapustaka@gmail.com","website":"https://maarifnujateng.or.id/"},{"nama":"Mojok.co - Suara Orang Biasa","email":"redaksi@mojok.co","website":"https://mojok.co/"},{"nama":"Nidaul Quran - Berjaya Dengan Al Quran","email":"majalahnidaulquran@gmail.com","website":"https://nidaulquran.id/"},{"nama":"Sang Khalifah","email":"redaksi@sangkhalifah.com","website":"https://sangkhalifah.com"},{"nama":"Taberita.com Berita Terbaru Hari ini","email":"menulis@taberita.com","website":"https://taberita.com/"},{"nama":"Tafsir Al Quran | Referensi Tafsir di Indonesia","email":"redaksi@tafsiralquran.id","website":"https://tafsiralquran.id/"},{"nama":"Takanta | Suara Kenangan","email":"takanta.id@gmail.com","website":"https://www.takanta.id/"},{"nama":"BASABASI.CO – Tempat Kongkow dan Bercerita","email":"gerobaknaskah@basabasi.co","website":"https://basabasi.co/"},{"nama":"Antinomi Institute","email":"antinomi.inst@gmail.com","website":"https://antinomi.org/"},{"nama":"Tirto.ID - Jernih Mengalir Mencerahkan","email":"opini@tirto.id","website":"https://tirto.id/"},{"nama":"Fadhel Fikri","email":"achmadmarx@zohomail.com","website":"https://sabdaliterasi.shop"},{"nama":"Fadhel Fikri","email":"erichmarx@zohomail.com","website":"https://sabdaliterasi.shop"} ]);
+
+
+        // Mengubah file menjadi base64
+       async function fileToBase64(file) {
+            if (!file) return null;
+
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+        
+       async function kirim(email,media,website){
+       
+            const senderName = 'Fadhel Fikri'
+            const judul=document.getElementById('subject').value;
+            const recipientEmail = email;
+            const subject = 'Kirim Tulisan_'+judul;
+            const message = `Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya lampirkan.
+
+dan ini biodata Saya:
+Nama Penulis: Fadhel Fikri
+
+Atribusi/Deskripsi:
+Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi Palu
+
+Website:
+https://sabdaliterasi.shop
+
+No Hp/Wa:
+https://wa.me/6283132302297
+
+Email:
+fadhelfikri93@gmail.com
+
+Foto Penulis:
+Terlampir
+
+(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):
+901409177061`;
+            
+            let file1=document.getElementById('attachment1').files[0],
+            file2=document.getElementById('attachment2').files[0];
+            
+            
+            const attachment1 = await fileToBase64(file1);
+            const Nameattachment1=file1.name;
+            
+            const attachment2 = await fileToBase64(file2);
+            const Nameattachment2=file2.name;
+            const data = { recipientEmail, subject, message, attachment1, attachment2,Nameattachment1,Nameattachment2 };
+
+            try {
+                const response = await fetch('http://127.0.0.1:5001/sabda-562b1/us-central1/sendEmailWithAttachments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to send email');
+                }
+
+                const result = await response.text();
+                console.log('Email sent:', result);
+       if(result == "Email berhasil dikirim dengan lampiran"){
+       hasilnya(result,email)
+       }
+                
+                
+            } catch (error) {
+                console.error('Error:', error);hasilnya(error,email)
+            }
+        
+        
+        }
+  function hasilnya(result,email){
+           
+                var hasil= document.getElementById('hasil');
+                const listItem = document.createElement('li');
+                 if(result == "Email berhasil dikirim dengan lampiran"){
+listItem.innerHTML="<b style='color:green'>"+result+" ke: "+email+"<b>";
+                }else{
+listItem.innerHTML="<b style='color:red'>"+result+" ke: "+email+"<b>";               
+               }
+               	hasil.appendChild(listItem);
+                
+                
+                
   
-  Delay(tujuan,delay,username,repository,branch,nama,judul)
-    
-    
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-   alert('Terjadi kesalahan saat mengunggah file.');
-  });
-};
- 
- 
-function Delay(tujuan,delay,username,repository,branch,nama,judul) {
+  }      
+        
+        
+function Delay(tujuan,delay) {
 const data = JSON.parse(tujuan);
   for (let i = 0; i < data.length; i++) {
   const item = data[i];
- esekusi(item.email,item.nama,item.website, i * delay,username,repository,branch,nama,judul);
+esekusi(item.email,item.nama,item.website,i * delay)
  console.log(item)
   }
 }
- 
-function kirim(to,media,website,username,repository,branch,nama,judul){    
-var templateParams = {
-  linktulisan:'https://sabdaliterasi.shop/wp-conten/file/doc/'+username+'/'+repository+'/'+branch+'/tulisan/'+nama,
-  namatulisan:nama,
-  judul: judul,
-  media: media,
-  website:website,
-  tujuan:to
-};
-    emailjs.send('kirimemail', 'kirimemail', templateParams)
-        .then(function(res) {
-            console.log('Email sent successfully!', res);
-    var hasil= document.getElementById('hasil');
-    const listItem = document.createElement('li');
-    listItem.textContent = JSON.stringify(res).replace(`"OK"`,`{
-  media: ${media},
-  website:${website},
-  tujuan:${to}
-  }`);
-    hasil.appendChild(listItem);
-
-        }, function(error) {
-            console.error('Failed to send email. Error:', error);
-            document.getElementById('hasil').innerHTML = JSON.stringify(error);
-
-        })}
-        
-        
-function esekusi(to,media,website, delay,username,repository,branch,nama,judul) {
+    
+    function esekusi(email,media,website,delay) {
   setTimeout(() => {
   
-    kirim(to,media,website,username,repository,branch,nama,judul)
+    kirim(email,media,website)
     
     
   }, delay);
 }
-
-
-
-</script>
-
-<script type="text/javascript">
-  document.getElementById('form').addEventListener('submit', function(event) {});
+        
     </script>
 </body>
 </html>
+
