@@ -44,7 +44,7 @@ permalink: /ujifile/sendmail/
         <input type="submit" value="Send Email" class="btn btn-primary">
     </form>
 <div class="mb-3 field"><ol id="hasil"></ol></div></div>
-    <script>
+  <script>
         document.getElementById('emailForm').addEventListener('submit', async function(event) {event.preventDefault();
         var delay=10000;
 const tujuan =  JSON.stringify([
@@ -164,13 +164,9 @@ const tujuan =  JSON.stringify([
     "website": "https://sabdaliterasi.shop"
 } 
 ]);       
-
         Delay(tujuan,delay)
         
         });
-
-
-
 
         // Mengubah file menjadi base64
        async function fileToBase64(file) {
@@ -190,7 +186,8 @@ const tujuan =  JSON.stringify([
             const judul=document.getElementById('subject').value;
             const recipientEmail = email;
             const subject = 'Kirim Tulisan_'+judul;
-            const message = `Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya lampirkan.
+ const message = `
+Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya lampirkan.
 
 dan ini biodata Saya:
 Nama Penulis: Fadhel Fikri
@@ -205,13 +202,13 @@ No Hp/Wa:
 https://wa.me/6283132302297
 
 Email:
-fadhelfikri93@gmail.com
+fadhelfikri98@gmail.com
 
 Foto Penulis:
 Terlampir
 
 (Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):
-901409177061`;
+901409177061 (an. Moh Fadhel Fikri)`;
             
             let file1=document.getElementById('attachment1').files[0],
             file2=document.getElementById('attachment2').files[0];
@@ -223,9 +220,10 @@ Terlampir
             const attachment2 = await fileToBase64(file2);
             const Nameattachment2=file2.name;
             const data = { recipientEmail, subject, message, attachment1, attachment2,Nameattachment1,Nameattachment2 };
-
+var hasil= document.getElementById('hasil');
+const listItem = document.createElement('li');
             try {
-                const response = await fetch('http://127.0.0.1:5001/sabda-562b1/us-central1/sendEmailWithAttachments', {
+                const response = await fetch('http://localhost:3000/send-email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -239,32 +237,17 @@ Terlampir
 
                 const result = await response.text();
                 console.log('Email sent:', result);
-       if(result == "Email berhasil dikirim dengan lampiran"){
-       hasilnya(result,email)
-       }
+      listItem.innerHTML="<b style='color:green'>"+result+"<b>";
                 
                 
             } catch (error) {
-                console.error('Error:', error);hasilnya(error,email)
+                console.error('Error:', error);listItem.innerHTML="<b style='color:red'>"+Error+"<b>";
             }
         
-        
+
+hasil.appendChild(listItem);   
         }
-  function hasilnya(result,email){
-           
-                var hasil= document.getElementById('hasil');
-                const listItem = document.createElement('li');
-                 if(result == "Email berhasil dikirim dengan lampiran"){
-listItem.innerHTML="<b style='color:green'>"+result+" ke: "+email+"<b>";
-                }else{
-listItem.innerHTML="<b style='color:red'>"+result+" ke: "+email+"<b>";               
-               }
-               	hasil.appendChild(listItem);
-                
-                
-                
-  
-  }      
+     
         
         
 function Delay(tujuan,delay) {
