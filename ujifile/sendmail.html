@@ -46,124 +46,148 @@ permalink: /ujifile/sendmail/
 <div class="mb-3 field"><ol id="hasil"></ol></div></div>
   <script>
         document.getElementById('emailForm').addEventListener('submit', async function(event) {event.preventDefault();
+        var judul=document.getElementById('subject').value;
         var delay=10000;
 const tujuan =  JSON.stringify([
 {
     "nama": "Fadhel Fikri",
     "email": "achmadmarx@zohomail.com",
-    "website": "https://sabdaliterasi.shop"
+    "website": "https://sabdaliterasi.shop",
+    "subyek": 'Kirim Tulisan_'+judul
 },
     {
      "nama":  "Magrib.id - Bertemu dan Bertukar Kisah",
      "email":  "editormagrib@gmail.com",
-     "website":  "https://magrib.id"
+     "website":  "https://magrib.id",
+     "subyek": 'Kirim Tulisan_'+judul
 },
  {
      "nama":  "al-ibar.net - Mengenal Islam lebih dalam",
      "email":  "alibardotnet@gmail.com",
-     "website":  "https://al-ibar.net"
+     "website":  "https://al-ibar.net",
+     "subyek": judul+"_Esai"
 },
  {
      "nama":  "IslamRamah.co | Islam Ramah Bukan Islam Marah",
      "email":  "Islamramahdotco@gmail.com",
-     "website":  "https://islamramah.co"
+     "website":  "https://islamramah.co",
+     "subyek": 'Kirim Tulisan_'+judul
 },
  {
     "nama":  "Masjid Jenderal Sudirman",
     "email":  "redaksimjs@gmail.com",
-    "website":  "https://mjscolombo.com"
+    "website":  "https://mjscolombo.com",
+     "subyek": 'Kirim Tulisan_'+judul
 },
  {
     "nama":  "Asyikasyik.com",
-    "email":  "asyik2dotcom@gmail.com",
-    "website":  "https://asyikasyik.com/"
+    "email":  "redaksiasyik@gmail.com",
+    "website":  "https://asyikasyik.com/",
+     "subyek": 'Kirim Naskah_'+judul
 },
 {
      "nama": "Beritabaru.co - Berita Harian Terbaru Hari Ini di Indonesia dan Dunia",
      "email": "opini.beritabaru@gmail.com",
-     "website": "https://beritabaru.co/"
+     "website": "https://beritabaru.co/",
+     "subyek": 'opini_'+judul
 },
 {
      "nama": "Harakatuna.com - Merawat Ideologi Bangsa",
     "email": "redaksi@harakatuna.com",
-    "website": "https://www.harakatuna.com/"
+    "website": "https://www.harakatuna.com/",
+     "subyek": 'Perspektif_'+judul
 },
 {
     "nama": "HIDAYATUNA - Islam Rahmatan Lil Alamin",
     "email": "redaksi@hidayatuna.com",
-    "website": "https://hidayatuna.com"
+    "website": "https://hidayatuna.com",
+     "subyek": judul+"_Kajian"
 },
 {
     "nama": "Hipotesa - Tajam dan Mencerahkan",
     "email": "redaksihipotesa@gmail.com",
-    "website": "https://www.hipotesa.id/"
+    "website": "https://www.hipotesa.id/",
+     "subyek": "[Opini]-"+judul+"-Fadhel Fikri-Pembisnis di Sabda Literasi Palu"
 },
 {
     "nama": "Islami[dot]co - Media Islam Ramah dan Mencerahkan",
     "email": "redaksi@islami.co",
-    "website": "https://islami.co/"
+    "website": "https://islami.co/",
+     "subyek": judul+"_Kajian"
 },
 {
     "nama": "JalaStoria.id - Menjala Cerita, Mengurai Makna",
     "email": "jalastoria@gmail.com",
-    "website": "https://www.jalastoria.id/"
+    "website": "https://www.jalastoria.id/",
+     "subyek": 'Kirim Tulisan_'+judul
 },
 {
     "nama": "LP Maarif NU Jateng - Menuju Pendidikan Maarif Berkarakter Aswaja Nahdliyah",
     "email": "asnapustaka@gmail.com",
-    "website": "https://maarifnujateng.or.id/"
+    "website": "https://maarifnujateng.or.id/",
+     "subyek": 'Kirim Artikel_'+judul
 },
 {
     "nama": "Mojok.co - Suara Orang Biasa",
     "email": "redaksi@mojok.co",
-    "website": "https://mojok.co/"
+    "website": "https://mojok.co/",
+     "subyek": 'Esai-'+judul
 },
 {
     "nama": "Nidaul Quran - Berjaya Dengan Al Quran",
     "email": "majalahnidaulquran@gmail.com",
-    "website": "https://nidaulquran.id/"
+    "website": "https://nidaulquran.id/",
+     "subyek": judul+"_Feature"
 },
 {
     "nama": "Sang Khalifah",
     "email": "redaksi@sangkhalifah.com",
-    "website": "https://sangkhalifah.com"
+    "website": "https://sangkhalifah.com",
+     "subyek": 'Kirim Opini-'+judul
 },
 {
     "nama": "Taberita.com Berita Terbaru Hari ini",
     "email": "menulis@taberita.com",
-    "website": "https://taberita.com/"
+    "website": "https://taberita.com/",
+     "subyek": 'Kirim Artikel_'+judul
 },
 {
     "nama": "Tafsir Al Quran | Referensi Tafsir di Indonesia",
     "email": "redaksi@tafsiralquran.id",
-    "website": "https://tafsiralquran.id/"
+    "website": "https://tafsiralquran.id/",
+     "subyek": judul
 },
 {
     "nama": "Takanta | Suara Kenangan",
     "email": "takanta.id@gmail.com",
-    "website": "https://www.takanta.id/"
+    "website": "https://www.takanta.id/",
+     "subyek": 'Kirim Artikel_'+judul
 },
 {
     "nama": "BASABASI.CO - Tempat Kongkow dan Bercerita",
     "email": "gerobaknaskah@basabasi.co",
-    "website": "https://basabasi.co/"
+    "website": "https://basabasi.co/",
+     "subyek": 'Esai'
 },
 {
     "nama": "Antinomi Institute",
     "email": "antinomi.inst@gmail.com",
-    "website": "https://antinomi.org/"
+    "website": "https://antinomi.org/",
+     "subyek": 'Kirim Artikel_'+judul
 },
 {
     "nama": "Tirto.ID - Jernih Mengalir Mencerahkan",
     "email": "opini@tirto.id",
-    "website": "https://tirto.id/"
+    "website": "https://tirto.id/",
+     "subyek": '[Mild Report] – '+judul+' – Fadhel Fikri'
 },
 {
     "nama": "Fadhel Fikri",
     "email": "erichmarx@zohomail.com",
-    "website": "https://sabdaliterasi.shop"
+    "website": "https://sabdaliterasi.shop",
+     "subyek": 'Kirim Artikel_'+judul
 } 
-]);       
+]);
         Delay(tujuan,delay)
         
         });
@@ -180,12 +204,12 @@ const tujuan =  JSON.stringify([
             });
         }
         
-       async function kirim(email,media,website){
+       async function kirim(email,media,website,subyek){
        
             const senderName = 'Fadhel Fikri'
             const judul=document.getElementById('subject').value;
             const recipientEmail = email;
-            const subject = 'Kirim Tulisan_'+judul;
+            const subject = subyek;
  const message = `
 Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya lampirkan.
 
@@ -223,7 +247,7 @@ Terlampir
 var hasil= document.getElementById('hasil');
 const listItem = document.createElement('li');
             try {
-                const response = await fetch('http://localhost:3000/send-email', {
+                const response = await fetch('https://wheat-pebble-porkpie.glitch.me/send-email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -237,11 +261,21 @@ const listItem = document.createElement('li');
 
                 const result = await response.text();
                 console.log('Email sent:', result);
-      listItem.innerHTML="<b style='color:green'>"+result+"<b>";
+      listItem.innerHTML=`<b style='color:green'>{
+    "nama": "${media}",
+    "email": "${recipientEmail}",
+    "website": "${website}",
+     "subyek": "${subject}"
+},<b>`;
                 
                 
             } catch (error) {
-                console.error('Error:', error);listItem.innerHTML="<b style='color:red'>"+Error+"<b>";
+                console.error('Error:', error);listItem.innerHTML=`<b style='color:red'>{
+    "nama": "${media}",
+    "email": "${recipientEmail}",
+    "website": "${website}",
+     "subyek": "${subject}"
+},<b>`;
             }
         
 
@@ -254,15 +288,15 @@ function Delay(tujuan,delay) {
 const data = JSON.parse(tujuan);
   for (let i = 0; i < data.length; i++) {
   const item = data[i];
-esekusi(item.email,item.nama,item.website,i * delay)
- console.log(item)
+esekusi(item.email,item.nama,item.website,item.subyek,i * delay)
+ 
   }
 }
     
-    function esekusi(email,media,website,delay) {
+    function esekusi(email,media,website,subyek,delay) {
   setTimeout(() => {
   
-    kirim(email,media,website)
+    kirim(email,media,website,subyek)
     
     
   }, delay);
@@ -271,4 +305,3 @@ esekusi(item.email,item.nama,item.website,i * delay)
     </script>
 </body>
 </html>
-
