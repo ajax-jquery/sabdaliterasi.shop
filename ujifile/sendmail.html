@@ -244,7 +244,22 @@ Terlampir
             
             const attachment2 = await fileToBase64(file2);
             const Nameattachment2=file2.name;
-            const data = { recipientEmail, subject, message, attachment1, attachment2,Nameattachment1,Nameattachment2 };
+           let server="gmail", 
+            mail="fadhel13fikri@gmail.com", 
+            password='nprqryudgsrhwlzo', 
+            nama="Fadhel Fikri";
+            const data = { 
+            server, 
+            mail, 
+            password, 
+            nama,
+            recipientEmail, 
+            subject, 
+            message, 
+            attachment1, 
+            attachment2,
+            Nameattachment1,
+            Nameattachment2 };
 var hasil= document.getElementById('hasil');
 const listItem = document.createElement('li');
             try {
