@@ -43,7 +43,8 @@ permalink: /ujifile/sendmail/
         
         <input type="submit" value="Send Email" class="btn btn-primary">
     </form>
-<div class="mb-3 field"><ol id="hasil"></ol></div></div>
+<div class="mb-3 field">Jumlah Target <span id="target"></span>:<ol id="hasil"></ol></div></div>
+    
   <script>
         document.getElementById('emailForm').addEventListener('submit', async function(event) {event.preventDefault();
         var judul=document.getElementById('subject').value;
@@ -289,8 +290,8 @@ const data = JSON.parse(tujuan);
   for (let i = 0; i < data.length; i++) {
   const item = data[i];
 esekusi(item.email,item.nama,item.website,item.subyek,i * delay)
- 
   }
+document.getElementById('target').innerHTML=data.length;
 }
     
     function esekusi(email,media,website,subyek,delay) {
