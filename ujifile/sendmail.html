@@ -8,7 +8,7 @@ permalink: /ujifile/sendmail/
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Send Email Form</title>
-<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
         /* Custom CSS */
@@ -34,10 +34,6 @@ permalink: /ujifile/sendmail/
 <input type="text" id="subject" class="form-control" name="subject" required>
 </div>
 <div class="mb-3 field">
-<label for="attachment1" class="form-label">Foto:</label>
-<input type="file" id="attachment1" accept="image/*" class="form-control" name="attachment1" required>
-</div>
-<div class="mb-3 field">
 <label for="attachment2" class="form-label">Tulisan:</label>
 <input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2" required>
 </div>
@@ -49,6 +45,7 @@ Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span>
 <div class="mb-3 field">
 <ol id="hasil"></ol></div>
 </div>
+<script src="https://sabdaliterasi.shop/wp-conten/file/cdn/npm/jszip@3.7.1/dist/jszip.min.js"></script>
 <script>
   let stopped = false;
 
@@ -291,13 +288,10 @@ async function kirim(email, media, website, subyek,body) {
     const recipientEmail = email;
     const subject = subyek.replace("JUDULNYA", judul);
    
-
-    let file1 = document.getElementById('attachment1').files[0];
     let file2 = document.getElementById('attachment2').files[0];
             
-    const attachment1 = await fileToBase64(file1);
-    const EKS= file1.name.split('.').pop()
-    const Nameattachment1 ="fadhel-fikri."+EKS;
+    const attachment1 = fotoku();
+    const Nameattachment1 ="fadhel-fikri.jpg";
             
     const attachment2 = await fileToBase64(file2);
     const Nameattachment2 = file2.name;
@@ -438,5 +432,6 @@ async function extractTextFromDocx(arrayBuffer) {
   return text.replace("BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)","");
 }
     </script>
+<script src="https://sabdaliterasi.shop/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
 </body>
 </html>
