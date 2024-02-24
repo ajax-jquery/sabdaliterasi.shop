@@ -296,12 +296,13 @@ async function kirim(email, media, website, subyek,body) {
     let file2 = document.getElementById('attachment2').files[0];
             
     const attachment1 = await fileToBase64(file1);
-    const Nameattachment1 = file1.name;
+    const EKS= file1.name.split('.').pop()
+    const Nameattachment1 ="fadhel-fikri."+EKS;
             
     const attachment2 = await fileToBase64(file2);
     const Nameattachment2 = file2.name;
     
-     let badan="",lampirkan="lampirkan",bb="";
+    let badan="",lampirkan="lampirkan",bb="";
     if(body==true){
     badan = await extractDocxContent(file2),lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
     }
