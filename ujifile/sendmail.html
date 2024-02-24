@@ -5,11 +5,12 @@ permalink: /ujifile/sendmail/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send Email Form</title>
-    <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send Email Form</title>
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+<style>
         /* Custom CSS */
         html,body {
             max-width: 100%;
@@ -26,25 +27,24 @@ permalink: /ujifile/sendmail/
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center mb-4">Send Email with Attachments</h1>
-    <form id="emailForm">
-       <div class="mb-3 field">
-        <label for="subject" class="form-label">Judul:</label>
-        <input type="text" id="subject" class="form-control" name="subject" required>
-        </div>
-        <div class="mb-3 field">
-        <label for="attachment1" class="form-label">Foto:</label>
-        <input type="file" id="attachment1" accept="image/*" class="form-control" name="attachment1" required>
-        </div>
-        <div class="mb-3 field">
-        <label for="attachment2" class="form-label">Tulisan:</label>
-        <input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2" required>
-        </div>
-        
-        <input type="submit" value="Send Email" class="btn btn-primary">
-    </form>
+<h1 class="text-center mb-4">Send Email with Attachments</h1>
+<form id="emailForm">
 <div class="mb-3 field">
-Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target"></span>
+<label for="subject" class="form-label">Judul:</label>
+<input type="text" id="subject" class="form-control" name="subject" required>
+</div>
+<div class="mb-3 field">
+<label for="attachment1" class="form-label">Foto:</label>
+<input type="file" id="attachment1" accept="image/*" class="form-control" name="attachment1" required>
+</div>
+<div class="mb-3 field">
+<label for="attachment2" class="form-label">Tulisan:</label>
+<input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2" required>
+</div>
+<input type="submit" value="Send Email" class="btn btn-primary">
+</form>
+<div class="mb-3 field">
+Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span>
 </div>
 <div class="mb-3 field">
 <ol id="hasil"></ol></div>
@@ -62,7 +62,8 @@ document.getElementById('emailForm').addEventListener('submit', async function(e
     "nama": "Fadhel Fikri",
     "email": "achmadmarx@zohomail.com",
     "website": "https://sabdaliterasi.shop",
-    "subyek": "Kirim Tulisan_JUDULNYA"
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "body":true
 },
     {
      "nama":  "Magrib.id - Bertemu dan Bertukar Kisah",
@@ -140,7 +141,8 @@ document.getElementById('emailForm').addEventListener('submit', async function(e
     "nama": "Mojok.co - Suara Orang Biasa",
     "email": "redaksi@mojok.co",
     "website": "https://mojok.co/",
-     "subyek": "Esai-JUDULNYA"
+     "subyek": "Esai-JUDULNYA",
+     "body":true
 },
 {
     "nama": "Nidaul Quran - Berjaya Dengan Al Quran",
@@ -215,14 +217,15 @@ document.getElementById('emailForm').addEventListener('submit', async function(e
   "nama": "Tebuireng Online | Media Informasi Pesantren",
   "email": "redaksi.tebuirengonline@gmail.com",
   "website": "https://tebuireng.online",
-  "subyek": "Opini"
+  "subyek": "Feature"
 },
 
 {
   "nama": "MEDIAJABAR.COM - Media Online Jawa Barat",
   "email": "redaksi@mediajabar.com",
   "website": "https://www.mediajabar.com/",
-  "subyek": "Opini"
+  "subyek": "Opini",
+  "body":true
 },
 
 {
@@ -262,7 +265,7 @@ async function kirimSemuaEmail(tujuan) {
     for (let i = 0; i < data.length; i++) {
         const item = data[i];
         try {
-            await kirim(item.email, item.nama, item.website, item.subyek);
+            await kirim(item.email, item.nama, item.website, item.subyek,item.body);
             if (stopped) {
                 break; // Hentikan pengiriman email jika terjadi kesalahan sebelumnya
             }
@@ -276,34 +279,12 @@ async function kirimSemuaEmail(tujuan) {
 }
 
 // Fungsi untuk mengirim email
-async function kirim(email, media, website, subyek) {
+async function kirim(email, media, website, subyek,body) {
     const senderName = 'Fadhel Fikri';
     const judul = document.getElementById('subject').value;
     const recipientEmail = email;
     const subject = subyek.replace("JUDULNYA", judul);
-    const message = `
-Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya lampirkan.
-
-dan ini biodata Saya:
-Nama Penulis: Fadhel Fikri
-
-Atribusi/Deskripsi:
-Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.shop)
-
-Website:
-https://sabdaliterasi.shop
-
-No Hp/Wa:
-https://wa.me/6283132302297
-
-Email:
-fadhel13fikri@gmail.com
-
-Foto Penulis:
-Terlampir
-
-(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):
-901409177061 (an. Moh Fadhel Fikri)`;
+   
 
     let file1 = document.getElementById('attachment1').files[0];
     let file2 = document.getElementById('attachment2').files[0];
@@ -313,6 +294,15 @@ Terlampir
             
     const attachment2 = await fileToBase64(file2);
     const Nameattachment2 = file2.name;
+    
+     let badan="",lampirkan="lampirkan",bb="";
+    if(body==true){
+    badan = await extractDocxContent(file2),lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
+    }
+    const message = `
+<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p><p>Dan ini biodata Saya:<br>Nama Penulis: Fadhel Fikri</p><p>Atribusi/Deskripsi:<br>Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.shop)</p><p>Website:<br>https://sabdaliterasi.shop</p><p>No Hp/Wa:<br>https://wa.me/6283132302297</p><p>Email:<br>fadhel13fikri@gmail.com</p><p>Foto Penulis:<br>Terlampir</p><p>(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):<br>901409177061 (an. Moh Fadhel Fikri)</p>${badan}`;
+    
+    
 
     const server = "gmail";
     const mail = "fadhel13fikri@gmail.com";
@@ -355,7 +345,7 @@ Terlampir
             "nama": "${media}",
             "email": "${recipientEmail}",
             "website": "${website}",
-            "subyek": "${subject}"
+            "subyek": "${subject}"${bb}
         },<b>`;var jumlahtarget=document.getElementById('targetsukses');
         jumlahtarget.innerText=parseInt(jumlahtarget.innerText)+1
     } catch (error) {
@@ -364,7 +354,7 @@ Terlampir
             "nama": "${media}",
             "email": "${recipientEmail}",
             "website": "${website}",
-            "subyek": "${subject}"
+            "subyek": "${subject}"${bb}
         },<b>`;
         stopped = true;
     }
@@ -384,6 +374,62 @@ async function fileToBase64(file) {
     });
 }
 
+function extractDocxContent(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = async function(event) {
+      const arrayBuffer = event.target.result;
+      const uint8Array = new Uint8Array(arrayBuffer);
+      const content = await extractTextFromDocx(uint8Array);
+      resolve(content);
+    };
+
+    reader.onerror = function(event) {
+      reject(new Error('Failed to read the file'));
+    };
+
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+async function extractTextFromDocx(arrayBuffer) {
+  const zip = await JSZip.loadAsync(arrayBuffer);
+  const contentXml = await zip.file('word/document.xml').async('string');
+  const parser = new DOMParser();
+  const xmlDoc = parser.parseFromString(contentXml, 'text/xml');
+
+  let text = '';
+
+  const paragraphs = xmlDoc.getElementsByTagName('w:p');
+  for (let i = 0; i < paragraphs.length; i++) {
+    const paragraph = paragraphs[i];
+    const textNodes = paragraph.getElementsByTagName('w:t');
+    let paragraphText = '';
+    for (let j = 0; j < textNodes.length; j++) {
+      paragraphText += textNodes[j].textContent;
+    }
+
+    const bold = paragraph.getElementsByTagName('w:b').length > 0;
+    const br = paragraph.getElementsByTagName('br').length > 0;
+    const italic = paragraph.getElementsByTagName('w:i').length > 0;
+    const underline = paragraph.getElementsByTagName('w:u').length > 0;
+    const heading1 = paragraph.getElementsByTagName('w:pStyle')[0]?.getAttribute('w:val') === 'Heading1';
+    const heading2 = paragraph.getElementsByTagName('w:pStyle')[0]?.getAttribute('w:val') === 'Heading2';
+
+    if (bold) paragraphText = '<strong>' + paragraphText + '</strong>';
+    if (br) paragraphText = paragraphText.replaceAll(br,"<br>");
+    if (italic) paragraphText = '<em>' + paragraphText + '</em>';
+    if (underline) paragraphText = '<u>' + paragraphText + '</u>';
+    if (heading1) paragraphText = '<h1>' + paragraphText + '</h1>';
+    if (heading2) paragraphText = '<h2>' + paragraphText + '</h2>';
+
+    // Menambahkan setiap paragraf dengan tag <p> HTML
+    text += '<p>' + paragraphText + '</p>';
+  }
+
+  return text.replace("BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)","");
+}
     </script>
 </body>
 </html>
