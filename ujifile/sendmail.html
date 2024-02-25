@@ -7,26 +7,31 @@ permalink: /ujifile/sendmail/
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Send Email Form</title>
-<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Formulir Penyimpanan Real-time Firebase</title>
+<!-- Tambahkan skrip Firebase -->
 
-<style>
-        /* Custom CSS */
-        html,body {
-            max-width: 100%;
-            padding: 0 5px;
-        }
-        .field {
-            margin: 9px 0;
-        }
-        label {
-            margin-bottom: 4px;
-            display: block;
-        }
-    </style>
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="/assets/js/jquery-3.7.1.min.js"></script>
+<style>.hidden{display:none}#lihatkontak svg,#tambah svg {
+    fill: #0d6efd;
+    width: 24px;
+}div#hasil {
+    width: 100%;
+    height: 150px;
+    background: #000;
+}div#hasil {
+    font-size: 14px;
+    padding: 13px 15px;
+    width: 100%;
+    height: auto;
+    background: #000;
+    font-family: monospace;
+    line-height: 0.9rem;
+}</style>
 </head>
 <body>
 <div class="container">
+
 <h1 class="text-center mb-4">Send Email with Attachments</h1>
 <form id="emailForm">
 <div class="mb-3 field">
@@ -40,230 +45,84 @@ permalink: /ujifile/sendmail/
 <input type="submit" value="Send Email" class="btn btn-primary">
 </form>
 <div class="mb-3 field">
-Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span>
+Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span> | Jumlah Cheked: <span id="jumlahcheked">0</span>
 </div>
 <div class="mb-3 field">
-<ol id="hasil"></ol></div>
+<div id="hasil" class="hidden"></div>
 </div>
-<script src="https://sabdaliterasi.shop/wp-conten/file/cdn/npm/jszip@3.7.1/dist/jszip.min.js"></script>
-<script>
-  let stopped = false;
+
+
+
+<div class="card-header py-3"><h5 class="mb-0">Contak(<span id="jumlahkontak">0</span>) 
+
+
+<span id="lihatkontak" role="button"><svg viewBox="0 0 24 24"><path d="m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z"/></svg></span>
+
+
+<span id="tambah" role="button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m21 3.998c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-9.75 7.252v-3.5c0-.414.336-.75.75-.75s.75.336.75.75v3.5h3.5c.414 0 .75.336.75.75s-.336.75-.75.75h-3.5v3.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-3.5h-3.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75z"/></svg></span>
+</h5> </div>
+<div class="mb-3 field"><form id="myForm" class="hidden">
+<div class="card-header"><h5 class="mb-0">tambah kontak</h5></div>
+<div class="input-group mb-3">
+ <input type="text" id="namaWebsite" name="namaWebsite" class="form-control" placeholder="Nama" required>
+<input  class="form-control" placeholder="Email" type="email" id="email" name="email" required>
+</div>
+
+<div class="input-group mb-3">
+ <input type="url" id="website" class="form-control" placeholder="Website" name="website" required>
+ 
+<input type="text" id="subyek" name="subyek" class="form-control" placeholder="Subyek" required>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" id="bodyCheckbox" name="body" value="true">
+  <label class="form-check-label" for="bodyCheckbox">
+   Body Email
+  </label>
+</div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form></div>
+<div id="Kontaksave" class="mb-3 field hidden"><ul id="websiteList" class="list-group"></ul></div>
+</div>
+
+
+<script src="/wp-conten/file/cdn/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/wp-conten/file/cdn/npm/jszip@3.7.1/dist/jszip.min.js"></script>
+<script type="module">
+  $("span#tambah").click(function(){
+  $("form#myForm").slideToggle();
+});$("span#lihatkontak").click(function(){
+  $("#Kontaksave").slideToggle();
+});
+
+  
+let stopped = false;
 
 document.getElementById('emailForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     stopped = false;
-    var judul = document.getElementById('subject').value;
- const tujuan =  JSON.stringify([ 
-
-{
-    "nama": "Fadhel Fikri",
-    "email": "achmadmarx@zohomail.com",
-    "website": "https://sabdaliterasi.shop",
-    "subyek": "Kirim Tulisan_JUDULNYA",
-    "body":true
-},
-    {
-     "nama":  "Magrib.id - Bertemu dan Bertukar Kisah",
-     "email":  "editormagrib@gmail.com",
-     "website":  "https://magrib.id",
-     "subyek": "Kirim Tulisan_JUDULNYA"
-},
- {
-     "nama":  "al-ibar.net - Mengenal Islam lebih dalam",
-     "email":  "alibardotnet@gmail.com",
-     "website":  "https://al-ibar.net",
-     "subyek": "JUDULNYA_Esai"
-},
- {
-     "nama":  "IslamRamah.co | Islam Ramah Bukan Islam Marah",
-     "email":  "Islamramahdotco@gmail.com",
-     "website":  "https://islamramah.co",
-     "subyek": "Kirim Tulisan_JUDULNYA"
-},
- {
-    "nama":  "Masjid Jenderal Sudirman",
-    "email":  "redaksimjs@gmail.com",
-    "website":  "https://mjscolombo.com",
-     "subyek": "Kirim Tulisan_JUDULNYA"
-},
- {
-    "nama":  "Asyikasyik.com",
-    "email":  "redaksiasyik@gmail.com",
-    "website":  "https://asyikasyik.com/",
-     "subyek": "Kirim Naskah_JUDULNYA"
-},
-{
-     "nama": "Beritabaru.co - Berita Harian Terbaru Hari Ini di Indonesia dan Dunia",
-     "email": "opini.beritabaru@gmail.com",
-     "website": "https://beritabaru.co/",
-     "subyek": "opini_JUDULNYA"
-},
-{
-     "nama": "Harakatuna.com - Merawat Ideologi Bangsa",
-    "email": "redaksi@harakatuna.com",
-    "website": "https://www.harakatuna.com/",
-     "subyek": "Perspektif_JUDULNYA"
-},
-{
-    "nama": "HIDAYATUNA - Islam Rahmatan Lil Alamin",
-    "email": "redaksi@hidayatuna.com",
-    "website": "https://hidayatuna.com",
-     "subyek": "JUDULNYA_Kajian"
-},
-{
-    "nama": "Hipotesa - Tajam dan Mencerahkan",
-    "email": "redaksihipotesa@gmail.com",
-    "website": "https://www.hipotesa.id/",
-     "subyek": "[Opini]-JUDULNYA-Fadhel Fikri-Pembisnis di Sabda Literasi Palu"
-},
-{
-    "nama": "Islami[dot]co - Media Islam Ramah dan Mencerahkan",
-    "email": "redaksi@islami.co",
-    "website": "https://islami.co/",
-     "subyek": "JUDULNYA_Kajian"
-},
-{
-    "nama": "JalaStoria.id - Menjala Cerita, Mengurai Makna",
-    "email": "jalastoria@gmail.com",
-    "website": "https://www.jalastoria.id/",
-     "subyek": "Kirim Tulisan_JUDULNYA"
-},
-{
-    "nama": "LP Maarif NU Jateng - Menuju Pendidikan Maarif Berkarakter Aswaja Nahdliyah",
-    "email": "asnapustaka@gmail.com",
-    "website": "https://maarifnujateng.or.id/",
-     "subyek": "Kirim Artikel_JUDULNYA"
-},
-{
-    "nama": "Mojok.co - Suara Orang Biasa",
-    "email": "redaksi@mojok.co",
-    "website": "https://mojok.co/",
-     "subyek": "Esai-JUDULNYA",
-     "body":true
-},
-{
-    "nama": "Nidaul Quran - Berjaya Dengan Al Quran",
-    "email": "majalahnidaulquran@gmail.com",
-    "website": "https://nidaulquran.id/",
-     "subyek": "JUDULNYA_Feature"
-},
-{
-    "nama": "Sang Khalifah",
-    "email": "redaksi@sangkhalifah.com",
-    "website": "https://sangkhalifah.com",
-     "subyek": "Kirim Opini-JUDULNYA"
-},
-{
-    "nama": "Taberita.com Berita Terbaru Hari ini",
-    "email": "menulis@taberita.com",
-    "website": "https://taberita.com/",
-     "subyek": "Kirim Artikel_JUDULNYA"
-},
-{
-    "nama": "Tafsir Al Quran | Referensi Tafsir di Indonesia",
-    "email": "redaksi@tafsiralquran.id",
-    "website": "https://tafsiralquran.id/",
-     "subyek": "JUDULNYA"
-},
-{
-    "nama": "Takanta | Suara Kenangan",
-    "email": "takanta.id@gmail.com",
-    "website": "https://www.takanta.id/",
-     "subyek": "Kirim Artikel_JUDULNYA"
-},
-{
-    "nama": "BASABASI.CO - Tempat Kongkow dan Bercerita",
-    "email": "gerobaknaskah@basabasi.co",
-    "website": "https://basabasi.co/",
-     "subyek": "Esai"
-},
-{
-    "nama": "Antinomi Institute",
-    "email": "antinomi.inst@gmail.com",
-    "website": "https://antinomi.org/",
-     "subyek": "Kirim Artikel_JUDULNYA"
-},
-{
-    "nama": "Tirto.ID - Jernih Mengalir Mencerahkan",
-    "email": "opini@tirto.id",
-    "website": "https://tirto.id/",
-     "subyek": "[Mild Report] – JUDULNYA – Fadhel Fikri"
-}, 
-{
-  "nama": "Majalah DIA - Untuk Dia yang Ingin Hidup di Dalam DIA",
-  "email": "redaksi@majalahdia.net",
-  "website": "https://majalahdia.net/",
-  "subyek": "Kirim Naskah_JUDULNYA"
-},
-
-{
-  "nama": "mnulis.com",
-  "email": "mnulisdotcom@gmail.com",
-  "website": "https://www.mnulis.com",
-  "subyek": "Kirim Artikel_JUDULNYA"
-},
-
-{
-  "nama": "Semilir.co - Dibaca Saat Santai",
-  "email": "semilirmedia@gmail.com",
-  "website": "https://www.semilir.co/",
-  "subyek": "Kolom_JUDULNYA"
-},
-
-{
-  "nama": "Tebuireng Online | Media Informasi Pesantren",
-  "email": "redaksi.tebuirengonline@gmail.com",
-  "website": "https://tebuireng.online",
-  "subyek": "Feature"
-},
-
-{
-  "nama": "MEDIAJABAR.COM - Media Online Jawa Barat",
-  "email": "redaksi@mediajabar.com",
-  "website": "https://www.mediajabar.com/",
-  "subyek": "Opini",
-  "body":true
-},
-
-{
-  "nama": "Akademi Komunitas Nusantara",
-  "email": "akademikomunitasnusantara@gmail.com",
-  "website": "https://akanusantara.com/",
-  "subyek": "Teras_JUDULNYA"
-},
-
-{
-  "nama": "LANGGAM PUSTAKA-Rumah Buku & Penulis",
-  "email": "media.langgampustaka@gmail.com",
-  "website": "https://www.langgampustaka.com/",
-  "subyek": "ESAI"
-},
-
-{
-  "nama": "Nongkrong - Tak Selalu Omong Kosong",
-  "email": "redaksinongkrong@gmail.com",
-  "website": "https://www.nongkrong.co/",
-  "subyek": "Kirim Artikel_JUDULNYA"
-},
-{
-  "nama": "NU Online Jawa Timur",
-  "email": "nuonline.jatim@gmail.com",
-  "website": "https://jatim.nu.or.id/",
-  "subyek": "Kirim Opini_JUDULNYA"
-},
-  {
-    "nama": "Fadhel Fikri",
-    "email": "erichmarx@zohomail.com",
-    "website": "https://sabdaliterasi.shop",
-     "subyek": "Kirim Artikel_JUDULNYA"
+var isValid = $('.mykontaksend:checked').length    
+if(isValid > 0){    
+$("#targetsukses").text("0");$("#target").text("0");$("#hasil").slideDown().html("");
+let tujuan =[]
+ $('input.mykontaksend').each(function () {
+      var checkbox = $(this);
+      var isChecked = checkbox.is(':checked');
+      
+      // Jika checkbox dicentang, tambahkan nilai dari value atribut ke array jsonArray
+      if (isChecked) {
+        var value =JSON.parse(checkbox.val());
+        tujuan.push(value);
+      }
+    });
+kirimSemuaEmail(tujuan);
+}else{
+alert("Anda harus memilih setidaknya satu item.");
 }
-]);
-    await kirimSemuaEmail(tujuan);
 });
-
-// Mengirim email kepada semua tujuan
 async function kirimSemuaEmail(tujuan) {
-    const data = JSON.parse(tujuan);
+    const data = tujuan;
     document.getElementById('target').innerHTML=data.length;
     for (let i = 0; i < data.length; i++) {
         const item = data[i];
@@ -280,8 +139,6 @@ async function kirimSemuaEmail(tujuan) {
     }
     
 }
-
-// Fungsi untuk mengirim email
 async function kirim(email, media, website, subyek,body) {
     const senderName = 'Fadhel Fikri';
     const judul = document.getElementById('subject').value;
@@ -305,10 +162,10 @@ async function kirim(email, media, website, subyek,body) {
     
     
 
-    const server = "gmail";
-    const mail = "fadhel13fikri@gmail.com";
-    const password = 'nprqryudgsrhwlzo';
-    const nama = "Fadhel Fikri";
+const server = "yahoo";
+const mail = "fadhelfikri@yahoo.com";
+const password = 'qfaeokubzwsnadkc';
+const nama = "Fadhel Fikri";
 
     const data = { 
         server, 
@@ -325,10 +182,17 @@ async function kirim(email, media, website, subyek,body) {
     };
 
     var hasil = document.getElementById('hasil');
-    const listItem = document.createElement('li');
+    let listItem="";
+     const js={
+            "nama": media,
+            "email": recipientEmail,
+            "website": website,
+            "subyek": subject,
+            "body":body
+        };
 
     try {
-        const response = await fetch('https://sabdaliterasi.glitch.me/send-email', {
+        const response = await fetch('http://localhos:3000/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -341,29 +205,17 @@ async function kirim(email, media, website, subyek,body) {
         }
 
         const result = await response.text();
-        console.log('Email sent:', result);
-        listItem.innerHTML = `<b style='color:green'>{
-            "nama": "${media}",
-            "email": "${recipientEmail}",
-            "website": "${website}",
-            "subyek": "${subject}"${bb}
-        },<b>`;var jumlahtarget=document.getElementById('targetsukses');
+        console.log('Email sent:', result);$("div#hasil").attr("style","color:#00ff14");
+        listItem+= `"SUKSES":${JSON.stringify(js,null,2)}`;var jumlahtarget=document.getElementById('targetsukses');
         jumlahtarget.innerText=parseInt(jumlahtarget.innerText)+1
     } catch (error) {
-        console.error('Error:', error);
-        listItem.innerHTML = `<b style='color:red'>{
-            "nama": "${media}",
-            "email": "${recipientEmail}",
-            "website": "${website}",
-            "subyek": "${subject}"${bb}
-        },<b>`;
+        console.error('Error:', error);$("div#hasil").attr("style","color:red");
+         listItem+= `"ERROR":${JSON.stringify(js,null,2)}`;
         stopped = true;
     }
-
-    hasil.appendChild(listItem);   
+$("div#hasil").slideDown();
+    hasil.innerText=listItem;   
 }
-
-// Mengubah file menjadi base64
 async function fileToBase64(file) {
     if (!file) return null;
 
@@ -374,7 +226,6 @@ async function fileToBase64(file) {
         reader.readAsDataURL(file);
     });
 }
-
 function extractDocxContent(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -393,7 +244,6 @@ function extractDocxContent(file) {
     reader.readAsArrayBuffer(file);
   });
 }
-
 async function extractTextFromDocx(arrayBuffer) {
   const zip = await JSZip.loadAsync(arrayBuffer);
   const contentXml = await zip.file('word/document.xml').async('string');
@@ -431,7 +281,185 @@ async function extractTextFromDocx(arrayBuffer) {
 
   return text.replace("BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)","");
 }
-    </script>
-<script src="https://sabdaliterasi.shop/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+  // Konfigurasi Firebase
+   const firebaseConfig = {
+  apiKey: "AIzaSyCadTwccMivBqDFHyrlAi2nB-xqbF0dD8U",
+  authDomain: "sabda-562b1.firebaseapp.com",
+  databaseURL: "https://sabda-562b1-default-rtdb.firebaseio.com",
+  projectId: "sabda-562b1",
+  storageBucket: "sabda-562b1.appspot.com",
+  messagingSenderId: "1000923972787",
+  appId: "1:1000923972787:web:13c1adcd69c2393a29dcc6",
+  measurementId: "G-DDKQWFF1H9"
+  };
+  // Inisialisasi Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Fungsi untuk mengambil data dari Firebase Realtime Database
+  function getDataFromFirebase() {
+    const websiteList = document.getElementById('websiteList');
+    // Bersihkan daftar sebelum mengisi ulang
+    websiteList.innerHTML = '';
+
+    // Gunakan fungsi get() untuk mengambil data dari Firebase
+    get(ref(database, 'MyContact'))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+        
+        let listItem=`<li class="list-group-item" id="checkAllList"><input type="checkbox" id="checkAll"> 
+        <label for="checkAll">Check All</label></li>`;
+        
+        let total = 0;
+          snapshot.forEach((childSnapshot) => {
+         
+            const website = childSnapshot.val();
+            
+            let namakontak=childSnapshot.key
+            // Buat elemen list untuk setiap website
+            
+            listItem+=`
+            <li class="list-group-item" id="${namakontak}">
+    
+      <div class="d-flex  justify-content-between align-items-center">
+      
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input mykontaksend" id="${namakontak}-chekbox" name="${namakontak}" value='${JSON.stringify(website)}'>
+          <label class="custom-control-label" for="${namakontak}-chekbox"></label>
+        </div>
+        <button class="btn" type="button" data-toggle="collapse" data-target="#${namakontak}-info" aria-expanded="false" aria-controls="collapseItem1">
+          ${namakontak.replaceAll("-",".")}
+        </button><button class="btn" id="removekontak" type="button" data-kontak="${namakontak}">X</button>
+      </div>
+      <div class="collapse" id="${namakontak}-info">
+        <div class="list-group-item">
+          <strong>Nama Website:</strong> ${website.nama}<br>
+              <strong>Email:</strong> ${website.email}<br>
+              <strong>Subyek:</strong> ${website.subyek}<br>
+              <strong>Website:</strong> <a href="${website.website}" target="_blank">${website.website}</a><br>
+              <strong>Body:</strong> ${website.body}<br>
+              <br>
+        </div>
+      </div>
+      
+    </li>
+    
+              
+            `;total++
+           
+          
+       }); $("#jumlahkontak").text(total);
+           websiteList.innerHTML=listItem;
+           
+           $("body").append(`<script type="module">
+           
+             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  import { getDatabase, ref, remove } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+  // Konfigurasi Firebase
+   const firebaseConfig = {
+  apiKey: "AIzaSyCadTwccMivBqDFHyrlAi2nB-xqbF0dD8U",
+  authDomain: "sabda-562b1.firebaseapp.com",
+  databaseURL: "https://sabda-562b1-default-rtdb.firebaseio.com",
+  projectId: "sabda-562b1",
+  storageBucket: "sabda-562b1.appspot.com",
+  messagingSenderId: "1000923972787",
+  appId: "1:1000923972787:web:13c1adcd69c2393a29dcc6",
+  measurementId: "G-DDKQWFF1H9"
+  };
+  // Inisialisasi Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+           
+           function deleteDataFromFirebase(websiteKey) {
+  
+  const dataRef = ref(database, "MyContact/"+websiteKey);
+  
+  // Gunakan metode remove() untuk menghapus data
+  remove(dataRef)
+    .then(() => {
+      alert("Data berhasil dihapus");$("#"+websiteKey).remove()
+    })
+    .catch((error) => {
+      console.error("Error removing data: ", error);
+    });
+}
+           $('button#removekontak').on('click', function () {  
+           
+           var k = $(this).attr("data-kontak");
+           if(confirm("ingin menghapu "+k.replaceAll('-','.')+"?")){
+           
+           deleteDataFromFirebase(k)
+           
+           }
+           
+           }); 
+           $(function(){$('#checkAll').change(function(){if($(this).is(':checked')){$('.mykontaksend').prop('checked',true);}else{$('.mykontaksend').prop('checked',false);}});});
+           
+           $('#websiteList li input[type=checkbox]').change(function() {
+setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaksend:checked').length;
+ $('span#jumlahcheked').text(jumlahTercentang);
+ },0)
+    });
+
+           <\/script>`)
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting data:", error);
+      });
+  }
+
+  // Panggil fungsi untuk pertama kali saat halaman dimuat
+  getDataFromFirebase();
+
+  // Event listener untuk menangani pengiriman formulir
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Hindari pengiriman formulir secara langsung
+    
+    // Dapatkan nilai-nilai input
+    const namaWebsite = document.getElementById("namaWebsite").value;
+    const email = document.getElementById("email").value;
+    const website = document.getElementById("website").value;
+    const subyek = document.getElementById("subyek").value;
+    const body = document.getElementById("bodyCheckbox").checked;
+    
+    // Simpan data ke Firebase Realtime Database dengan menggunakan set()
+     function namauri(url) {
+  // Ekspresi reguler untuk mencocokkan nama domain tanpa TLD
+  const regex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/g;
+  const match = regex.exec(url);
+  if (match && match[1]) {
+    return match[1];
+  } else {
+    return null; // Jika tidak ada kecocokan ditemukan
+  }
+} 
+    
+    set(ref(database, "MyContact/" +namauri(website.replaceAll(".","-"))), {
+      nama: namaWebsite,
+      email: email,
+      website: website,
+      subyek: subyek,
+      body: body
+    })
+    .then(() => {
+      document.getElementById("myForm").reset();
+      // Ambil data terbaru dari Firebase setelah disimpan
+      getDataFromFirebase();
+    })
+    .catch(error => {
+      console.error("Error menyimpan data: ", error);
+      alert("Terjadi kesalahan. Silakan coba lagi.");
+    });
+  });
+</script><script src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
 </body>
 </html>
+
