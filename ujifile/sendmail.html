@@ -27,7 +27,11 @@ permalink: /ujifile/sendmail/
     background: #000;
     font-family: monospace;
     line-height: 0.9rem;
-}</style>
+}button.btn[data-toggle=collapse] {
+    display: -webkit-inline-box;
+    width: 100%;
+    margin-right: auto;
+}input.mykontaksend{margin-right: 5px}</style>
 </head>
 <body>
 <div class="container">
@@ -327,10 +331,12 @@ async function extractTextFromDocx(arrayBuffer) {
     
       <div class="d-flex  justify-content-between align-items-center">
       
-        <div class="custom-control custom-checkbox">
+        
+        
           <input type="checkbox" class="custom-control-input mykontaksend" id="${namakontak}-chekbox" name="${namakontak}" value='${JSON.stringify(website)}'>
           <label class="custom-control-label" for="${namakontak}-chekbox"></label>
-        </div>
+          
+        
         <button class="btn" type="button" data-toggle="collapse" data-target="#${namakontak}-info" aria-expanded="false" aria-controls="collapseItem1">
           ${namakontak.replaceAll("-",".")}
         </button><button class="btn" id="removekontak" type="button" data-kontak="${namakontak}">X</button>
