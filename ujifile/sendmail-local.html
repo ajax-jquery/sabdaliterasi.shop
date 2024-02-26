@@ -12,30 +12,12 @@ permalink: "/ujifile/sendmail-local/"
 
 <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
-<style>.hidden{display:none}#lihatkontak svg,#tambah svg {
-    fill: #0d6efd;
-    width: 24px;
-}div#hasil {
-    width: 100%;
-    height: 150px;
-    background: #000;
-}div#hasil {
-    font-size: 14px;
-    padding: 13px 15px;
-    width: 100%;
-    height: auto;
-    background: #000;
-    font-family: monospace;
-    line-height: 0.9rem;
-}button.btn[data-toggle=collapse] {
-    display: -webkit-inline-box;
-    width: 100%;
-    margin-right: auto;
-}input.mykontaksend{margin-right: 5px}</style>
+<style>.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
+</style>
 </head>
 <body>
 <div class="container">
-<h1 class="text-center mb-4">Send Email via Local</h1>
+<h1 class="text-center mb-4">Send Email via API</h1>
 <form id="emailForm">
 <div class="mb-3 field">
 <label for="subject" class="form-label">Judul:</label>
@@ -44,6 +26,16 @@ permalink: "/ujifile/sendmail-local/"
 <div class="mb-3 field">
 <label for="attachment2" class="form-label">Tulisan:</label>
 <input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2" required>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="checkbox" id="uploadfotoku" name="uploadfotoku" value="true">
+<label class="form-check-label" for="uploadfotoku">
+Upload Foto
+</label>
+</div>
+<div class="mb-3 field uploadfotoku hidden">
+<label for="attachment1" class="form-label">Foto:</label>
+<input accept="image/*" type="file" id="attachment1" class="form-control" name="attachment1">
 </div>
 <input type="submit" value="Send Email" class="btn btn-primary">
 </form>
@@ -80,15 +72,32 @@ Body Email
 <script src="/wp-conten/file/cdn/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/wp-conten/file/cdn/npm/jszip@3.7.1/dist/jszip.min.js"></script>
 <script type="module">
-  $("span#tambah").click(function(){
-  $("form#myForm").slideToggle();
-});$("span#lihatkontak").click(function(){
-  $("#Kontaksave").slideToggle();
-});
-
-  
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  import { getDatabase, ref, set, get, remove } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+   const firebaseConfig = {
+    apiKey: "AIzaSyAFuoVF8LkEtVHtd33A0FJHIyIOhDzGbjA",
+    authDomain: "sabaliterasipalu.firebaseapp.com",
+    databaseURL: "https://sabaliterasipalu-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sabaliterasipalu",
+    storageBucket: "sabaliterasipalu.appspot.com",
+    messagingSenderId: "567229920099",
+    appId: "1:567229920099:web:636ca97b7ee332b342d956",
+    measurementId: "G-7W6SD9QBY7"
+  };
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 let stopped = false;
 
+
+$("input#uploadfotoku").on('change',function(){
+  $("div.uploadfotoku").slideToggle();
+});
+$("span#tambah").click(function(){
+  $("form#myForm").slideToggle();
+});
+$("span#lihatkontak").click(function(){
+  $("#Kontaksave").slideToggle();
+});  
 document.getElementById('emailForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     stopped = false;
@@ -130,15 +139,24 @@ async function kirimSemuaEmail(tujuan) {
     
 }
 async function kirim(email, media, website, subyek,body) {
-    const senderName = 'Fadhel Fikri';
+const server = "yahoo";
+const mail = "fadhelfikri@yahoo.com";
+const password = 'qfaeokubzwsnadkc';
+const nama = "Fadhel Fikri";
+const senderName = nama;
     const judul = document.getElementById('subject').value;
     const recipientEmail = email;
     const subject = subyek.replace("JUDULNYA", judul);
-   
+   let file1 = document.getElementById('attachment1').files[0];
     let file2 = document.getElementById('attachment2').files[0];
             
-    const attachment1 = fotoku();
-    const Nameattachment1 ="fadhel-fikri.jpg";
+    let attachment1 = fotoku();
+    let Nameattachment1 ="fadhel-fikri.jpg";
+    if(file1){
+var url = file1.name,parts = url.split("."),extension = parts[parts.length - 1];
+attachment1 = await fileToBase64(file1);
+Nameattachment1 ="fadhel-fikri."+extension;
+    }
             
     const attachment2 = await fileToBase64(file2);
     const Nameattachment2 = file2.name;
@@ -151,11 +169,6 @@ async function kirim(email, media, website, subyek,body) {
 <p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p><p>Dan ini biodata Saya:<br>Nama Penulis: Fadhel Fikri</p><p>Atribusi/Deskripsi:<br>Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.shop)</p><p>Website:<br>https://sabdaliterasi.shop</p><p>No Hp/Wa:<br>https://wa.me/6283132302297</p><p>Email:<br>fadhel13fikri@gmail.com</p><p>Foto Penulis:<br>Terlampir</p><p>(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):<br>901409177061 (an. Moh Fadhel Fikri)</p>${badan}`;
     
     
-
-const server = "yahoo";
-const mail = "fadhelfikri@yahoo.com";
-const password = 'qfaeokubzwsnadkc';
-const nama = "Fadhel Fikri";
 
     const data = { 
         server, 
@@ -271,29 +284,9 @@ async function extractTextFromDocx(arrayBuffer) {
 
   return text.replace("BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)","");
 }
-
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-  import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-
-  // Konfigurasi Firebase
-   const firebaseConfig = {
-  apiKey: "AIzaSyCadTwccMivBqDFHyrlAi2nB-xqbF0dD8U",
-  authDomain: "sabda-562b1.firebaseapp.com",
-  databaseURL: "https://sabda-562b1-default-rtdb.firebaseio.com",
-  projectId: "sabda-562b1",
-  storageBucket: "sabda-562b1.appspot.com",
-  messagingSenderId: "1000923972787",
-  appId: "1:1000923972787:web:13c1adcd69c2393a29dcc6",
-  measurementId: "G-DDKQWFF1H9"
-  };
-  // Inisialisasi Firebase
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
-
-  // Fungsi untuk mengambil data dari Firebase Realtime Database
-  function getDataFromFirebase() {
+function getDataFromFirebase() {
     const websiteList = document.getElementById('websiteList');
-    // Bersihkan daftar sebelum mengisi ulang
+    
     websiteList.innerHTML = '';
 
     // Gunakan fungsi get() untuk mengambil data dari Firebase
@@ -346,59 +339,7 @@ async function extractTextFromDocx(arrayBuffer) {
           
        }); $("#jumlahkontak").text(total);
            websiteList.innerHTML=listItem;
-           
-           $("body").append(`<script type="module">
-           
-             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-  import { getDatabase, ref, remove } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-
-  // Konfigurasi Firebase
-   const firebaseConfig = {
-  apiKey: "AIzaSyCadTwccMivBqDFHyrlAi2nB-xqbF0dD8U",
-  authDomain: "sabda-562b1.firebaseapp.com",
-  databaseURL: "https://sabda-562b1-default-rtdb.firebaseio.com",
-  projectId: "sabda-562b1",
-  storageBucket: "sabda-562b1.appspot.com",
-  messagingSenderId: "1000923972787",
-  appId: "1:1000923972787:web:13c1adcd69c2393a29dcc6",
-  measurementId: "G-DDKQWFF1H9"
-  };
-  // Inisialisasi Firebase
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
-           
-           function deleteDataFromFirebase(websiteKey) {
-  
-  const dataRef = ref(database, "MyContact/"+websiteKey);
-  
-  // Gunakan metode remove() untuk menghapus data
-  remove(dataRef)
-    .then(() => {
-      alert("Data berhasil dihapus");$("#"+websiteKey).remove()
-    })
-    .catch((error) => {
-      console.error("Error removing data: ", error);
-    });
-}
-           $('button#removekontak').on('click', function () {  
-           
-           var k = $(this).attr("data-kontak");
-           if(confirm("ingin menghapu "+k.replaceAll('-','.')+"?")){
-           
-           deleteDataFromFirebase(k)
-           
-           }
-           
-           }); 
-           $(function(){$('#checkAll').change(function(){if($(this).is(':checked')){$('.mykontaksend').prop('checked',true);}else{$('.mykontaksend').prop('checked',false);}});});
-           
-           $('#websiteList li input[type=checkbox]').change(function() {
-setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaksend:checked').length;
- $('span#jumlahcheked').text(jumlahTercentang);
- },0)
-    });
-
-           <\/script>`)
+          chekboxkui()
         } else {
           console.log("No data available");
         }
@@ -406,13 +347,8 @@ setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaks
       .catch((error) => {
         console.error("Error getting data:", error);
       });
-  }
-
-  // Panggil fungsi untuk pertama kali saat halaman dimuat
-  getDataFromFirebase();
-
-  // Event listener untuk menangani pengiriman formulir
-  document.getElementById("myForm").addEventListener("submit", function(event) {
+  }getDataFromFirebase();
+document.getElementById("myForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Hindari pengiriman formulir secara langsung
     
     // Dapatkan nilai-nilai input
@@ -451,6 +387,39 @@ setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaks
       alert("Terjadi kesalahan. Silakan coba lagi.");
     });
   });
+function chekboxkui(){
+         function deleteDataFromFirebase(websiteKey) {
+  
+  const dataRef = ref(database, "MyContact/"+websiteKey);
+  
+  // Gunakan metode remove() untuk menghapus data
+  remove(dataRef)
+    .then(() => {
+      alert("Data berhasil dihapus"); getDataFromFirebase();$("#"+websiteKey).remove()
+    })
+    .catch((error) => {
+      console.error("Error removing data: ", error);
+    });
+}
+           $('button#removekontak').on('click', function () {  
+           
+           var k = $(this).attr("data-kontak");
+           if(confirm("ingin menghapu "+k.replaceAll('-','.')+"?")){
+           
+           deleteDataFromFirebase(k)
+           
+           }
+           
+           }); 
+           $(function(){$('#checkAll').change(function(){if($(this).is(':checked')){$('.mykontaksend').prop('checked',true);}else{$('.mykontaksend').prop('checked',false);}});});
+           
+           $('#websiteList li input[type=checkbox]').change(function() {
+setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaksend:checked').length;
+ $('span#jumlahcheked').text(jumlahTercentang);
+ },0)
+    });
+           }
 </script><script src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
 </body>
 </html>
+
