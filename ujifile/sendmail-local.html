@@ -2,14 +2,12 @@
 layout: null
 permalink: "/ujifile/sendmail-local/"
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulir Penyimpanan Real-time Firebase</title>
-
 <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <style>.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
@@ -27,12 +25,26 @@ permalink: "/ujifile/sendmail-local/"
 <label for="attachment2" class="form-label">Tulisan:</label>
 <input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2" required>
 </div>
+
+<div class="mb-3 field">
+<label for="EmailSaya" class="form-label">Pengirim:</label>
+<select class="form-select" id="EmailSaya" aria-label="Example select with button addon">
+    <option value="fadhel13fikri@gmail.com" selected>fadhel13fikri@gmail.com</option>
+    <option value="fadhelfikri@yahoo.com">fadhelfikri@yahoo.com</option>
+    <option value="fadhelfikri98@gmail.com">fadhelfikri98@gmail.com</option>
+  </select>
+</div>
+
+
 <div class="form-check">
 <input class="form-check-input" type="checkbox" id="uploadfotoku" name="uploadfotoku" value="true">
 <label class="form-check-label" for="uploadfotoku">
 Upload Foto
 </label>
 </div>
+
+
+
 <div class="mb-3 field uploadfotoku hidden">
 <label for="attachment1" class="form-label">Foto:</label>
 <input accept="image/*" type="file" id="attachment1" class="form-control" name="attachment1">
@@ -139,9 +151,7 @@ async function kirimSemuaEmail(tujuan) {
     
 }
 async function kirim(email, media, website, subyek,body) {
-const server = "yahoo";
-const mail = "fadhelfikri@yahoo.com";
-const password = 'qfaeokubzwsnadkc';
+const mail = $("#EmailSaya").val();;
 const nama = "Fadhel Fikri";
 const senderName = nama;
     const judul = document.getElementById('subject').value;
@@ -171,9 +181,7 @@ Nameattachment1 ="fadhel-fikri."+extension;
     
 
     const data = { 
-        server, 
         mail, 
-        password, 
         nama,
         recipientEmail, 
         subject, 
@@ -187,6 +195,7 @@ Nameattachment1 ="fadhel-fikri."+extension;
     var hasil = document.getElementById('hasil');
     let listItem="";
      const js={
+     		"from":`"${nama}" <${mail}>`,
             "nama": media,
             "email": recipientEmail,
             "website": website,
@@ -419,6 +428,8 @@ setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaks
  },0)
     });
            }
+           
+           
 </script><script src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
 </body>
 </html>
