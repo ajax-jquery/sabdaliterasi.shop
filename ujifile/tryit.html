@@ -2,6 +2,7 @@
 layout: null
 permalink: /ujifile/tryit/
 ---
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -1056,7 +1057,7 @@ parserConfig.tags;var configScript=parserConfig&&parserConfig.scriptTypes;addTag
 state.localState);return{token:state.token,inTag:state.inTag,localMode:state.localMode,localState:local,htmlState:CodeMirror.copyState(htmlMode,state.htmlState)}},token:function(stream,state){return state.token(stream,state)},indent:function(state,textAfter,line){if(!state.localMode||/^\s*<\//.test(textAfter))return htmlMode.indent(state.htmlState,textAfter,line);else if(state.localMode.indent)return state.localMode.indent(state.localState,textAfter,line);else return CodeMirror.Pass},innerMode:function(state){return{state:state.localState||
 state.htmlState,mode:state.localMode||htmlMode}}}},"xml","javascript","css");CodeMirror.defineMIME("text/html","htmlmixed")});  
 </script>
- <!-- endmiror -->
+
 <style>
   .CodeMirror-guttermarker-subtle, .cm-s-default .cm-hr, body.darktheme .cm-s-default .cm-comment, body.darktheme .cm-s-default .cm-hr, body.darktheme .cm-s-default .cm-meta, body.newtheme .cm-s-default .cm-hr, body.newtheme .cm-s-default .cm-punctuation {
     color: #999;
@@ -1749,21 +1750,18 @@ body.darktheme ::-webkit-scrollbar-thumb:hover {background-color: #aaaaaa;backgr
 <![endif]-->
 </head>
 <body><div id="tryitLeaderboard">
-
-
 <div id="adngin-try_it_leaderboard-0"></div>
-
 </div>
 <div class="trytopnav">
 <div class="w3-bar" style="overflow:auto">
 <a href="javascript:void(0);" onclick="restack(currentStack)" title="Change Orientation" class="w3-button w3-bar-item w3-hide-small topnav-icons fa fa-sync-alt ga-tryit" style="margin-top:-2px;"></a>
-  
 <a href="javascript:void(0);" onclick="retheme()" title="Change Theme" class="w3-button w3-bar-item topnav-icons fa fa-adjust ga-tryit" style="margin-top:-2px;"></a>
-  
-<a href="javascript:void(0);" onclick="remsave()" title="Remove Save" class="w3-button w3-bar-item topnav-icons fa fa-trash-alt ga-tryit" style="margin-top:-2px;"></a>
 
-<a href="javascript:void(0);" onclick="save(1)" title="Remove Save" class="w3-button w3-bar-item topnav-icons fa fa-save ga-tryit" style="margin-top:-2px;"></a>
-  
+<a href="javascript:void(0);" id="removedata" title="Remove Save" class="w3-button w3-bar-item topnav-icons fa fa-trash-alt ga-tryit" style="margin-top:-2px;"></a>
+
+<a href="javascript:void(0);" id="savedata" title="Set Save" class="w3-button w3-bar-item topnav-icons fa fa-save ga-tryit" style="margin-top:-2px;"></a>
+
+
 <button id="runbtn" class="w3-button w3-bar-item w3-hover-white w3-hover-text-green ga-tryit" onclick="submitTryit(1);uic_r_p();">Run &#10095;</button>
 <span class="w3-right w3-hide-small" style="padding:8px 16px 8px 0;display:block;float:right;font-size:16px;margin-top:4px"><span id="framesize"></span></span>
 </div>
@@ -1790,7 +1788,8 @@ body.darktheme ::-webkit-scrollbar-thumb:hover {background-color: #aaaaaa;backgr
 <div id="textareacontainer">
 <div id="textarea">
 <div id="textareawrapper">
-<textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false"><!DOCTYPE html>
+<textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false">
+<!DOCTYPE html>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -1820,9 +1819,89 @@ document.getElementsByTagName("li")
 </body>
 </html>
 </textarea>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  import { getDatabase, ref, set, get, remove } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+   const firebaseConfig = {
+    apiKey: "AIzaSyAFuoVF8LkEtVHtd33A0FJHIyIOhDzGbjA",
+    authDomain: "sabaliterasipalu.firebaseapp.com",
+    databaseURL: "https://sabaliterasipalu-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sabaliterasipalu",
+    storageBucket: "sabaliterasipalu.appspot.com",
+    messagingSenderId: "567229920099",
+    appId: "1:567229920099:web:636ca97b7ee332b342d956",
+    measurementId: "G-7W6SD9QBY7"
+  };
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+document.getElementById('savedata').addEventListener('click', function() {
+
+var textareaCode=editor;
+
+set(ref(database, "textareaData"), textareaCode.getValue()).then(() => {
+    alert('Data berhasil disimpan ke Firebase.');
+  })
+  .catch((error) => {
+    console.error('Gagal menyimpan data:', error);
+  });
+})
+
+document.getElementById('removedata').addEventListener('click', function() {
+if(confirm('hapus data?')){
+var textareaCode=`<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"><\/script>
+<style>
+  
+  
+ </style>
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
 <script>
-var babi=localStorage.getItem("MyLab")
-if(babi){document.getElementById("textareaCode").value=babi};
+!function(){
+document.getElementById("demo");
+document.getElementsByClassName("example");
+document.querySelector("p");
+document.querySelectorAll("p");
+document.getElementsByTagName("li")
+}()
+<\/script>
+  
+  <script>
+    
+    <\/script>
+</body>
+</html>`;
+
+set(ref(database, "textareaData"), textareaCode).then(() => {
+    alert('Data berhasil disimpan ke Firebase.');location.href=location.href
+  })
+  .catch((error) => {
+    console.error('Gagal menyimpan data:', error);
+  });
+  }
+})
+
+
+function getDataFromFirebase() {
+get(ref(database, 'textareaData'))
+      .then((snapshot) => {
+      const data = snapshot.val();
+      
+      if (data !== null) {
+      document.getElementById('textareaCode').value = data;colorcoding();submitTryit()
+    } })
+    .catch((error) => {
+    console.error('Gagal mengambil data:', error);alert("gagal Load");colorcoding();submitTryit()
+  });
+      
+      }getDataFromFirebase()
 </script>
 <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
 <input type="hidden" name="code" id="code" />
@@ -1838,22 +1917,23 @@ if(babi){document.getElementById("textareaCode").value=babi};
 </div>
 </div>
 <script>
-submitTryit()
+
   
-function remsave(){
-if(confirm('hapus data?')){
-localStorage.removeItem("MyLab");
-location.href=location.href
-}
-}
-function save(e){
-  window.editor&&window.editor.save();
-  var t=document.getElementById("textareaCode").value;
-   localStorage.setItem("MyLab", t);alert("saved")
-}  
+
   
 function submitTryit(e){
-  window.editor&&window.editor.save();var t=document.getElementById("textareaCode").value,a=document.createElement("iframe");a.setAttribute("frameborder","0"),a.setAttribute("id","iframeResult"),a.setAttribute("name","iframeResult"),a.setAttribute("allowfullscreen","true"),document.getElementById("iframewrapper").innerHTML="",document.getElementById("iframewrapper").appendChild(a);var r=a.contentWindow?a.contentWindow:a.contentDocument.document?a.contentDocument.document:a.contentDocument;r.document.open(),r.document.write(t),r.document.close(),r.document.body&&!r.document.body.isContentEditable&&(r.document.body.contentEditable=!0,r.document.body.contentEditable=!1)}function hideSpinner(){document.getElementById("runloadercontainer").style.display="none"}function displaySpinner(){var e,t,a,r,n,l;a=w3_getStyleValue(e=document.getElementById("iframeResult"),"width"),r=w3_getStyleValue(e,"height"),(t=document.getElementById("runloadercontainer")).style.width=a,t.style.height=r,t.style.display="block",a=Number(a.replace("px",""))/5,(n=document.getElementById("runloader")).style.width=a+"px",n.style.height=a+"px",r=Number((r=w3_getStyleValue(n,"height")).replace("px",""))/2,l=Number((l=w3_getStyleValue(t,"height")).replace("px",""))/2,l-=r,n.style.top=l+"px"}var stack,currentStack=!0;function restack(e){var t,a,r,n,l,d,s,o;t=document.getElementById("textareacontainer"),a=document.getElementById("iframecontainer"),r=document.getElementById("textarea"),n=document.getElementById("iframe"),l=document.getElementById("container"),d=document.getElementById("stackV"),s=document.getElementById("stackH"),o=document.getElementsByClassName("localhostoutercontainer"),t.className=t.className.replace("horizontal",""),a.className=a.className.replace("horizontal",""),r.className=r.className.replace("horizontal",""),n.className=n.className.replace("horizontal",""),l.className=l.className.replace("horizontal",""),o[0]&&(o[0].className=o[0].className.replace("horizontal","")),d&&(d.className=d.className.replace("horizontal","")),d&&(s.className=s.className.replace("horizontal","")),stack="",e?(t.className=t.className+" horizontal",a.className=a.className+" horizontal",r.className=r.className+" horizontal",n.className=n.className+" horizontal",l.className=l.className+" horizontal",d&&(d.className=d.className+" horizontal"),d&&(s.className=s.className+" horizontal"),o[0]&&(o[0].className=o[0].className+" horizontal"),stack=" horizontal",document.getElementById("textareacontainer").style.height="50%",document.getElementById("iframecontainer").style.height="50%",document.getElementById("textareacontainer").style.width="100%",document.getElementById("iframecontainer").style.width="100%",currentStack=!1):(document.getElementById("textareacontainer").style.height="100%",document.getElementById("iframecontainer").style.height="100%",document.getElementById("textareacontainer").style.width="50%",document.getElementById("iframecontainer").style.width="50%",currentStack=!0),fixDragBtn(),showFrameSize()}function showFrameSize(){var e,t;e=Number(w3_getStyleValue(document.getElementById("iframeResult"),"width").replace("px","")).toFixed(),t=Number(w3_getStyleValue(document.getElementById("iframeResult"),"height").replace("px","")).toFixed(),document.getElementById("framesize").innerHTML="Result Size: <span>"+e+" x "+t+"</span>"}window.screen.availWidth<=768&&window.innerHeight>window.innerWidth&&restack(!0);var dragging=!1;function fixDragBtn(){var e,t,a,r,n,r=Number(w3_getStyleValue(document.getElementById("container"),"top").replace("px",""));" horizontal"!=stack?(document.getElementById("dragbar").style.width="5px",textareasize=Number(w3_getStyleValue(document.getElementById("textareawrapper"),"width").replace("px","")),t=Number(w3_getStyleValue(document.getElementById("textarea"),"padding-left").replace("px","")),n=Number(w3_getStyleValue(document.getElementById("dragbar"),"width").replace("px","")),textareaheight=w3_getStyleValue(document.getElementById("textareawrapper"),"height"),a=textareasize+t+t/2-n/2,document.getElementById("dragbar").style.top=r+"px",document.getElementById("dragbar").style.left=a+"px",document.getElementById("dragbar").style.height=textareaheight,document.getElementById("dragbar").style.cursor="col-resize"):(document.getElementById("dragbar").style.height="5px",window.getComputedStyle?(e=window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height"),textareaheight=window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width"),t=window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top"),n=window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height")):a=document.getElementById("textareawrapper").currentStyle.width,e=Number(e.replace("px","")),t=Number(t.replace("px","")),n=Number(n.replace("px","")),a=r+e+t+t/2,document.getElementById("dragbar").style.top=a+"px",document.getElementById("dragbar").style.left="5px",document.getElementById("dragbar").style.width=textareaheight,document.getElementById("dragbar").style.cursor="row-resize")}function dragstart(e){e.preventDefault(),dragging=!0,document.getElementById("iframecontainer")}function dragmove(e){if(dragging){if(document.getElementById("shield").style.display="block"," horizontal"!=stack){var t=e.pageX/window.innerWidth*100;if(t>5&&t<98){var a=100-t;document.getElementById("textareacontainer").style.width=t+"%",document.getElementById("iframecontainer").style.width=a+"%",fixDragBtn()}}else{var r=Number(w3_getStyleValue(document.getElementById("container"),"top").replace("px","")),t=(e.pageY-r+20)/(window.innerHeight-r+20)*100;if(t>5&&t<98){var a=100-t;document.getElementById("textareacontainer").style.height=t+"%",document.getElementById("iframecontainer").style.height=a+"%",fixDragBtn()}}showFrameSize()}}function dragend(){document.getElementById("shield").style.display="none",dragging=!1;var e=navigator.vendor;window.editor&&-1==e.indexOf("Apple")&&window.editor.refresh()}function retheme(){var e=document.body.className;e.indexOf("darktheme")>-1?(document.body.className=e.replace("darktheme",""),opener&&(opener.document.body.className=e.replace("darktheme","")),localStorage.setItem("preferredmode","light")):(document.body.className+=" darktheme",opener&&(opener.document.body.className+=" darktheme"),localStorage.setItem("preferredmode","dark"))}
+  window.editor&&window.editor.save();var t=document.getElementById("textareaCode").value,a=document.createElement("iframe");a.setAttribute("frameborder","0"),a.setAttribute("id","iframeResult"),a.setAttribute("name","iframeResult"),a.setAttribute("allowfullscreen","true"),document.getElementById("iframewrapper").innerHTML="",document.getElementById("iframewrapper").appendChild(a);var r=a.contentWindow?a.contentWindow:a.contentDocument.document?a.contentDocument.document:a.contentDocument;r.document.open(),r.document.write(t),r.document.close(),r.document.body&&!r.document.body.isContentEditable&&(r.document.body.contentEditable=!0,r.document.body.contentEditable=!1)}
+  function hideSpinner(){
+  document.getElementById("runloadercontainer").style.display="none"}
+  function displaySpinner(){
+  var e,t,a,r,n,l;a=w3_getStyleValue(e=document.getElementById("iframeResult"),"width"),r=w3_getStyleValue(e,"height"),(t=document.getElementById("runloadercontainer")).style.width=a,t.style.height=r,t.style.display="block",a=Number(a.replace("px",""))/5,(n=document.getElementById("runloader")).style.width=a+"px",n.style.height=a+"px",r=Number((r=w3_getStyleValue(n,"height")).replace("px",""))/2,l=Number((l=w3_getStyleValue(t,"height")).replace("px",""))/2,l-=r,n.style.top=l+"px"}var stack,currentStack=!0;
+  function restack(e){
+  var t,a,r,n,l,d,s,o;t=document.getElementById("textareacontainer"),a=document.getElementById("iframecontainer"),r=document.getElementById("textarea"),n=document.getElementById("iframe"),l=document.getElementById("container"),d=document.getElementById("stackV"),s=document.getElementById("stackH"),o=document.getElementsByClassName("localhostoutercontainer"),t.className=t.className.replace("horizontal",""),a.className=a.className.replace("horizontal",""),r.className=r.className.replace("horizontal",""),n.className=n.className.replace("horizontal",""),l.className=l.className.replace("horizontal",""),o[0]&&(o[0].className=o[0].className.replace("horizontal","")),d&&(d.className=d.className.replace("horizontal","")),d&&(s.className=s.className.replace("horizontal","")),stack="",e?(t.className=t.className+" horizontal",a.className=a.className+" horizontal",r.className=r.className+" horizontal",n.className=n.className+" horizontal",l.className=l.className+" horizontal",d&&(d.className=d.className+" horizontal"),d&&(s.className=s.className+" horizontal"),o[0]&&(o[0].className=o[0].className+" horizontal"),stack=" horizontal",document.getElementById("textareacontainer").style.height="50%",document.getElementById("iframecontainer").style.height="50%",document.getElementById("textareacontainer").style.width="100%",document.getElementById("iframecontainer").style.width="100%",currentStack=!1):(document.getElementById("textareacontainer").style.height="100%",document.getElementById("iframecontainer").style.height="100%",document.getElementById("textareacontainer").style.width="50%",document.getElementById("iframecontainer").style.width="50%",currentStack=!0),fixDragBtn(),showFrameSize()}
+  function showFrameSize(){
+  var e,t;e=Number(w3_getStyleValue(document.getElementById("iframeResult"),"width").replace("px","")).toFixed(),t=Number(w3_getStyleValue(document.getElementById("iframeResult"),"height").replace("px","")).toFixed(),document.getElementById("framesize").innerHTML="Result Size: <span>"+e+" x "+t+"</span>"}
+  window.screen.availWidth<=768&&window.innerHeight>window.innerWidth&&restack(!0);var dragging=!1;
+  function fixDragBtn(){
+  var e,t,a,r,n,r=Number(w3_getStyleValue(document.getElementById("container"),"top").replace("px",""));" horizontal"!=stack?(document.getElementById("dragbar").style.width="5px",textareasize=Number(w3_getStyleValue(document.getElementById("textareawrapper"),"width").replace("px","")),t=Number(w3_getStyleValue(document.getElementById("textarea"),"padding-left").replace("px","")),n=Number(w3_getStyleValue(document.getElementById("dragbar"),"width").replace("px","")),textareaheight=w3_getStyleValue(document.getElementById("textareawrapper"),"height"),a=textareasize+t+t/2-n/2,document.getElementById("dragbar").style.top=r+"px",document.getElementById("dragbar").style.left=a+"px",document.getElementById("dragbar").style.height=textareaheight,document.getElementById("dragbar").style.cursor="col-resize"):(document.getElementById("dragbar").style.height="5px",window.getComputedStyle?(e=window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height"),textareaheight=window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width"),t=window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top"),n=window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height")):a=document.getElementById("textareawrapper").currentStyle.width,e=Number(e.replace("px","")),t=Number(t.replace("px","")),n=Number(n.replace("px","")),a=r+e+t+t/2,document.getElementById("dragbar").style.top=a+"px",document.getElementById("dragbar").style.left="5px",document.getElementById("dragbar").style.width=textareaheight,document.getElementById("dragbar").style.cursor="row-resize")}function dragstart(e){e.preventDefault(),dragging=!0,document.getElementById("iframecontainer")}function dragmove(e){if(dragging){if(document.getElementById("shield").style.display="block"," horizontal"!=stack){var t=e.pageX/window.innerWidth*100;if(t>5&&t<98){var a=100-t;document.getElementById("textareacontainer").style.width=t+"%",document.getElementById("iframecontainer").style.width=a+"%",fixDragBtn()}}else{var r=Number(w3_getStyleValue(document.getElementById("container"),"top").replace("px","")),t=(e.pageY-r+20)/(window.innerHeight-r+20)*100;if(t>5&&t<98){var a=100-t;document.getElementById("textareacontainer").style.height=t+"%",document.getElementById("iframecontainer").style.height=a+"%",fixDragBtn()}}showFrameSize()}}function dragend(){document.getElementById("shield").style.display="none",dragging=!1;var e=navigator.vendor;window.editor&&-1==e.indexOf("Apple")&&window.editor.refresh()}function retheme(){var e=document.body.className;e.indexOf("darktheme")>-1?(document.body.className=e.replace("darktheme",""),opener&&(opener.document.body.className=e.replace("darktheme","")),localStorage.setItem("preferredmode","light")):(document.body.className+=" darktheme",opener&&(opener.document.body.className+=" darktheme"),localStorage.setItem("preferredmode","dark"))}
   function colorcoding(){
     
     
@@ -1864,7 +1944,10 @@ function submitTryit(e){
   
   
   
-  }function clickTab(e){return!1}function w3_getStyleValue(e,t){return window.getComputedStyle?window.getComputedStyle(e,null).getPropertyValue(t):e.currentStyle[t]}function openMenu(){var e=document.getElementById("navbarDropMenu"),t=document.getElementById("menuOverlay"),a=document.getElementById("menuButton");-1==a.className.indexOf("w3-text-gray")?a.className+=" w3-text-gray":a.className=a.className.replace(" w3-text-gray",""),-1==a.className.indexOf("w3-gray")?a.className+=" w3-gray":a.className=a.className.replace(" w3-gray",""),-1==e.className.indexOf("w3-show")?e.className+=" w3-show":e.className=e.className.replace(" w3-show",""),-1==t.className.indexOf("w3-show")?t.className+=" w3-show":t.className=t.className.replace(" w3-show","")}function setCodewindowHeight(){var e,t=w3_getStyleValue(document.getElementById("textareawrapper"),"height"),a=document.getElementsByClassName("codewindow");for(e=0;e<a.length;e++)a[e].style.height=t,a[e].style.setProperty("overflow","auto","important")}window.addEventListener&&(document.getElementById("dragbar").addEventListener("mousedown",function(e){dragstart(e)}),document.getElementById("dragbar").addEventListener("touchstart",function(e){dragstart(e)}),window.addEventListener("mousemove",function(e){dragmove(e)}),window.addEventListener("touchmove",function(e){dragmove(e)}),window.addEventListener("mouseup",dragend),window.addEventListener("touchend",dragend),window.addEventListener("load",fixDragBtn),window.addEventListener("load",showFrameSize)),"dark"==localStorage.getItem("preferredmode")&&(document.body.className+=" darktheme"),colorcoding(),window.onclick=function(e){e.target==document.getElementById("menuOverlay")&&openMenu()};
+  }
+  
+  function clickTab(e){
+  return!1}function w3_getStyleValue(e,t){return window.getComputedStyle?window.getComputedStyle(e,null).getPropertyValue(t):e.currentStyle[t]}function openMenu(){var e=document.getElementById("navbarDropMenu"),t=document.getElementById("menuOverlay"),a=document.getElementById("menuButton");-1==a.className.indexOf("w3-text-gray")?a.className+=" w3-text-gray":a.className=a.className.replace(" w3-text-gray",""),-1==a.className.indexOf("w3-gray")?a.className+=" w3-gray":a.className=a.className.replace(" w3-gray",""),-1==e.className.indexOf("w3-show")?e.className+=" w3-show":e.className=e.className.replace(" w3-show",""),-1==t.className.indexOf("w3-show")?t.className+=" w3-show":t.className=t.className.replace(" w3-show","")}function setCodewindowHeight(){var e,t=w3_getStyleValue(document.getElementById("textareawrapper"),"height"),a=document.getElementsByClassName("codewindow");for(e=0;e<a.length;e++)a[e].style.height=t,a[e].style.setProperty("overflow","auto","important")}window.addEventListener&&(document.getElementById("dragbar").addEventListener("mousedown",function(e){dragstart(e)}),document.getElementById("dragbar").addEventListener("touchstart",function(e){dragstart(e)}),window.addEventListener("mousemove",function(e){dragmove(e)}),window.addEventListener("touchmove",function(e){dragmove(e)}),window.addEventListener("mouseup",dragend),window.addEventListener("touchend",dragend),window.addEventListener("load",fixDragBtn),window.addEventListener("load",showFrameSize)),"dark"==localStorage.getItem("preferredmode")&&(document.body.className+=" darktheme"),window.onclick=function(e){e.target==document.getElementById("menuOverlay")&&openMenu()};
 
 
 </script>
