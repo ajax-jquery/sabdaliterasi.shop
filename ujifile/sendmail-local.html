@@ -8,8 +8,9 @@ permalink: "/ujifile/sendmail-local/"
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulir Penyimpanan Real-time Firebase</title>
-<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><script async src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/assets/js/editartikel.min.js"></script>
 <style>.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
 </style>
 </head>
@@ -21,6 +22,7 @@ permalink: "/ujifile/sendmail-local/"
 <label for="subject" class="form-label">Judul:</label>
 <input type="text" id="subject" class="form-control" name="subject" required>
 </div>
+
 <div class="mb-3 field">
 <label for="attachment2" class="form-label">Tulisan:</label>
 <input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2" required>
@@ -32,24 +34,40 @@ permalink: "/ujifile/sendmail-local/"
     <option value="fadhel13fikri@gmail.com" selected>fadhel13fikri@gmail.com</option>
     <option value="fadhelfikri@yahoo.com">fadhelfikri@yahoo.com</option>
     <option value="fadhelfikri98@gmail.com">fadhelfikri98@gmail.com</option>
+    <option value="martinamulia04@gmail.com">martinamulia04@gmail.com</option>
   </select>
 </div>
 
-
-<div class="form-check">
+<div class="form-check form-check-inline">
 <input class="form-check-input" type="checkbox" id="uploadfotoku" name="uploadfotoku" value="true">
 <label class="form-check-label" for="uploadfotoku">
 Upload Foto
 </label>
 </div>
 
+<div class="form-check form-check-inline">
+<input class="form-check-input" type="checkbox" id="Tulis_Konten" name="Tulis_Konten" value="true">
+<label class="form-check-label" for="Tulis_Konten">
+Tulis Konten
+</label>
+</div>
 
+<div id="tulis_konten" class="hidden">
+<div id="validck" class="form-outline mb-2 CKeditnya">
+<textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
+</div>
+<div class="mb-3 field">
+<button class="btn btn-primary" id="cetak">Download</button>
+</div>
+</div>
 
 <div class="mb-3 field uploadfotoku hidden">
 <label for="attachment1" class="form-label">Foto:</label>
 <input accept="image/*" type="file" id="attachment1" class="form-control" name="attachment1">
 </div>
+<div class="mb-3 field">
 <input type="submit" value="Send Email" class="btn btn-primary">
+</div>
 </form>
 <div class="mb-3 field">
 Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span> | Jumlah Cheked: <span id="jumlahcheked">0</span>
@@ -57,8 +75,8 @@ Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span> | J
 <div class="mb-3 field">
 <div id="hasil" class="hidden"></div>
 </div>
-<div class="card-header py-3"><h5 class="mb-0">Contak(<span id="jumlahkontak">0</span>)
-<span id="lihatkontak" role="button"><svg viewBox="0 0 24 24"><path d="m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z" /></svg></span>
+<div class="card-header py-3"><input class="hidden" type="checkbox" id="chekkon" name="chekkon"><h5 class="mb-0"><label role="button" for="chekkon">Contak(<span id="jumlahkontak">0</span>)
+<span id="lihatkontak"><svg viewBox="0 0 24 24"><path d="m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z" /></svg></span></label>
 <span id="tambah" role="button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m21 3.998c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-9.75 7.252v-3.5c0-.414.336-.75.75-.75s.75.336.75.75v3.5h3.5c.414 0 .75.336.75.75s-.336.75-.75.75h-3.5v3.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-3.5h-3.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75z" /></svg></span>
 </h5> </div>
 <div class="mb-3 field"><form id="myForm" class="hidden">
@@ -100,21 +118,49 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 let stopped = false;
 
-
 $("input#uploadfotoku").on('change',function(){
   $("div.uploadfotoku").slideToggle();
 });
 $("span#tambah").click(function(){
   $("form#myForm").slideToggle();
 });
-$("span#lihatkontak").click(function(){
+$("input#chekkon").click(function(){
   $("#Kontaksave").slideToggle();
-});  
+});
+$("input#Tulis_Konten").click(function(){
+  $("#tulis_konten").slideToggle();
+});
+function LinkToBase64(url, onSuccess) {
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64String = reader.result.split(",")[1];
+                onSuccess(base64String);
+            };
+            reader.readAsDataURL(blob);
+        })
+        .catch(error => {
+            console.error("Error converting image to base64:", error);
+            alert("gagal kirim gambar");
+        });
+}
+
+
+
+
 document.getElementById('emailForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     stopped = false;
-var isValid = $('.mykontaksend:checked').length    
-if(isValid > 0){    
+var isValid = $('.mykontaksend:checked').length;
+let mail = $("#EmailSaya").val(),imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/asset.sabdaliterasi.shop@main/img/Fadhel-Fikri.png";if(mail === "martinamulia04@gmail.com"){imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/asset.sabdaliterasi.shop@main/img/Martina-Mulia-Dewi.png"}
+
+
+if(isValid > 0){ 
+
+LinkToBase64(imageUrl, function(base64String) {
+
 $("#targetsukses").text("0");$("#target").text("0");$("#hasil").slideDown().html("");
 let tujuan =[]
  $('input.mykontaksend').each(function () {
@@ -127,20 +173,30 @@ let tujuan =[]
         tujuan.push(value);
       }
     });
-kirimSemuaEmail(tujuan);
-}else{
+kirimSemuaEmail(tujuan,base64String);
+
+
+});
+
+
+
+
+}
+else{
 alert("Anda harus memilih setidaknya satu item.");
 }
+
+
 });
-async function kirimSemuaEmail(tujuan) {
+async function kirimSemuaEmail(tujuan,myfotoku) {
     const data = tujuan;
     document.getElementById('target').innerHTML=data.length;
     for (let i = 0; i < data.length; i++) {
         const item = data[i];
         try {
-            await kirim(item.email, item.nama, item.website, item.subyek,item.body);
+            await kirim(item.email, item.nama, item.website, item.subyek,item.body,myfotoku);
             if (stopped) {
-                break; // Hentikan pengiriman email jika terjadi kesalahan sebelumnya
+                break;
             }
         } catch (error) {
             console.error('Error:', error);
@@ -150,22 +206,32 @@ async function kirimSemuaEmail(tujuan) {
     }
     
 }
-async function kirim(email, media, website, subyek,body) {
-const mail = $("#EmailSaya").val();;
-const nama = "Fadhel Fikri";
+async function kirim(email, media, website, subyek,body,myfotoku) {
+
+
+let mail = $("#EmailSaya").val(),
+nama = "Fadhel Fikri",
+atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek="(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):<br>901409177061 (an. Moh Fadhel Fikri)";
+if(mail === "martinamulia04@gmail.com"){
+nama="Martina Mulia Dewi",
+atribusi="Lifelong Learner, content writer, recipe writer, blogger, and feminist activist.",
+inforek=""
+}
+
+function replacename(n) {return n.toLowerCase().replaceAll(" ","-")}
 const senderName = nama;
-    const judul = document.getElementById('subject').value;
+    const judul = $('#subject').val();
     const recipientEmail = email;
-    const subject = subyek.replace("JUDULNYA", judul);
+    const subject = subyek.replaceAll("JUDULNYA", judul).replaceAll("NAMAKU", nama);
    let file1 = document.getElementById('attachment1').files[0];
     let file2 = document.getElementById('attachment2').files[0];
             
-    let attachment1 = fotoku();
-    let Nameattachment1 ="fadhel-fikri.jpg";
+    let attachment1 = myfotoku;
+    let Nameattachment1 = replacename(nama)+".png";
     if(file1){
 var url = file1.name,parts = url.split("."),extension = parts[parts.length - 1];
 attachment1 = await fileToBase64(file1);
-Nameattachment1 ="fadhel-fikri."+extension;
+Nameattachment1 =replacename(nama)+"."+extension;
     }
             
     const attachment2 = await fileToBase64(file2);
@@ -175,8 +241,7 @@ Nameattachment1 ="fadhel-fikri."+extension;
     if(body==true){
     badan = await extractDocxContent(file2),lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
     }
-    const message = `
-<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p><p>Dan ini biodata Saya:<br>Nama Penulis: Fadhel Fikri</p><p>Atribusi/Deskripsi:<br>Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.shop)</p><p>Website:<br>https://sabdaliterasi.shop</p><p>No Hp/Wa:<br>https://wa.me/6283132302297</p><p>Email:<br>fadhel13fikri@gmail.com</p><p>Foto Penulis:<br>Terlampir</p><p>(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):<br>901409177061 (an. Moh Fadhel Fikri)</p>${badan}`;
+    const message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.shop)</p><p>Website:<br>https://sabdaliterasi.shop</p><p>No Hp/Wa:<br>https://wa.me/6283132302297</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p>${badan}`;
     
     
 
@@ -289,9 +354,13 @@ async function extractTextFromDocx(arrayBuffer) {
 
     // Menambahkan setiap paragraf dengan tag <p> HTML
     text += '<p>' + paragraphText + '</p>';
-  }
+  };
+let mail = $("#EmailSaya").val(),
+mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)";
+if(mail === "martinamulia04@gmail.com"){
+mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
 
-  return text.replace("BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)","");
+  return text.replace(mybio,"");
 }
 function getDataFromFirebase() {
     const websiteList = document.getElementById('websiteList');
@@ -429,8 +498,139 @@ setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaks
     });
            }
            
+         function openCK(){ClassicEditor.create(document.getElementById("editor"), {
+heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
+});}openCK()
+
+function CKdata(){
+let u = document.querySelector('.ck-editor__editable'),
+   e = u.ckeditorInstance.getData().trim();
+   return e
+}  
+
+!function(){
+
+    document.addEventListener( 'DOMContentLoaded', () => {
+			const submitButton = document.getElementById( 'cetak' );
+
+			submitButton.addEventListener( 'click', event => {
+				event.preventDefault();
+if($('#subject').val()==""){
+$('#subject').focus();
+return false
+}else{createAndDownloadDocx()};
+			} );
+		
+        
+        } );
+        
+        
+    
+		const DEFAULT_HEADERS = {
+			'x-cs-app-id': 'cs-docx-demo'
+		};
+
+		
+let tokenEndpoint="";
+		function createAndDownloadDocx() {
+        
+  
+const formEl = document.getElementById( 'create-docx-form' );
+			const formData = [ ...new FormData( formEl ) ];
+             function mdfile(){ 
+ var coo=Judul;
+return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').replace(/^-+|-+$/g, '')
+};
+            
+            let isi=CKdata(),Judul=$('#subject').val(),nama=mdfile();
            
-</script><script src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
+ let mail = $("#EmailSaya").val(),
+namaku = "Fadhel Fikri",
+atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek="<i>(Jika Dibutuhkan)</i><strong> No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):</strong><br> 901409177061 (an. Moh Fadhel)";
+if(mail === "martinamulia04@gmail.com"){
+namaku="Martina Mulia Dewi",
+atribusi="Lifelong Learner, content writer, recipe writer, blogger, and feminist activist.",
+inforek=""
+}
+
+			const request = {
+            "options":
+            {
+            "auto_pagination":true,
+            "header":[],
+            "footer":[],
+            "margin_top":"4cm",
+            "margin_right":"3cm",
+            "margin_bottom":"3cm",
+            "margin_left":"4cm",
+            "format":"A4",
+            "orientation":"portrait",
+            "base_url":""},
+            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.shop">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.shop">https://sabdaliterasi.shop</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/6283132302297 <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
+`,
+            "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}"
+            };
+
+			createHeaders( tokenEndpoint )
+				.then( headers => fetch( 'https://docx-converter.cke-cs.com/v1/convert', { method: 'POST', body: JSON.stringify( request ), headers } ) )
+				.then( res => {
+					if ( res.status === 400 ) {
+						alert( 'An error occurred during conversion. Please check all the inputs.' );
+
+						return null;
+					}
+
+					if ( res.status > 299 ) {
+						alert( 'An error occurred during conversion.' );
+
+						return null;
+					}
+					return res.blob();
+				} )
+				.then( blob => {
+					if ( !blob ) {
+						return;
+					}
+
+					const link = document.createElement( 'a' );
+					link.href = window.URL.createObjectURL( blob );
+					link.download = `${namaku}-${nama}.docx`;
+					link.click();
+				} );
+		}
+
+		function createHeaders( tokenEndpoint ) {
+			if ( tokenEndpoint ) {
+				return fetch( tokenEndpoint, { method: 'GET' } )
+					.then( res => res.text() )
+					.then( token => {
+						return { ...DEFAULT_HEADERS, Authorization: token }
+					} );
+			}
+
+			return Promise.resolve( DEFAULT_HEADERS );
+		}
+
+		function processMargin( request, fieldName, fieldValue ) {
+			if ( !fieldName.endsWith( '_unit' ) ) {
+				request.options[ fieldName ] = request.options[ fieldName ] ? fieldValue.concat( '', request.options[ fieldName ] ) : fieldValue;
+
+				return;
+			}
+
+			const marginField = fieldName.replace( '_unit', '' );
+
+			request.options[ marginField ] = request.options[ marginField ] ? request.options[ marginField ].concat( '', fieldValue ) : fieldValue;
+		}
+
+		function mapHeadersOrFootersToList( element ) {
+			return Object.keys( element ).filter( type => !!element[ type ].html ).map( type => ( {
+				type,
+				css: element[ type ].css,
+				html: element[ type ].html,
+			} ) )
+		}
+	}()
+</script><form class="hidden" id="create-docx-form"></form>
 </body>
 </html>
-
