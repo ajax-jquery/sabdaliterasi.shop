@@ -8,7 +8,7 @@ permalink: /ujifile/sendmail/
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulir Penyimpanan Real-time Firebase</title>
-<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><script async src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/fotoku.min.js"></script>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <script src="/assets/js/editartikel.min.js"></script>
 <style>.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
@@ -222,7 +222,7 @@ function replacename(n) {return n.toLowerCase().replaceAll(" ","-")}
 const senderName = nama;
     const judul = $('#subject').val();
     const recipientEmail = email;
-    const subject = subyek.replace("JUDULNYA", judul);
+    const subject = subyek.replaceAll("JUDULNYA", judul).replaceAll("NAMAKU", nama);
    let file1 = document.getElementById('attachment1').files[0];
     let file2 = document.getElementById('attachment2').files[0];
             
@@ -354,9 +354,13 @@ async function extractTextFromDocx(arrayBuffer) {
 
     // Menambahkan setiap paragraf dengan tag <p> HTML
     text += '<p>' + paragraphText + '</p>';
-  }
+  };
+let mail = $("#EmailSaya").val(),
+mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)";
+if(mail === "martinamulia04@gmail.com"){
+mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
 
-  return text.replace("BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.shopNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)","");
+  return text.replace(mybio,"");
 }
 function getDataFromFirebase() {
     const websiteList = document.getElementById('websiteList');
@@ -494,9 +498,10 @@ setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaks
     });
            }
            
-!function(){ClassicEditor.create(document.getElementById("editor"), {
+         function openCK(){ClassicEditor.create(document.getElementById("editor"), {
 heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
-})}();
+});}openCK()
+
 function CKdata(){
 let u = document.querySelector('.ck-editor__editable'),
    e = u.ckeditorInstance.getData().trim();
