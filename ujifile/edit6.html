@@ -114,6 +114,10 @@ permalink: /edit6/
 </div>
 
 <div class="form-outline mb-2">
+<input name="isbn" type="text" id="isbn" class="form-control" data-role="tagsinput" placeholder="Keywords" />
+</div>  
+
+<div class="form-outline mb-2">
 <textarea name="editor" class="form-control" id="editor" rows="4"></textarea>
 </div>
 </form>
@@ -152,6 +156,7 @@ if(Babi){
  $('input[name=image]').val(Babi.image),
  $('textarea[name=description]').val(Babi.description),
  $('input[name=keyword]').val(Babi.keyword),
+ $('input[name=isbn]').val(Babi.isbn),     
  $('input[name=tanggal]').val(Babi.tanggal),
  $('textarea#editor').html(Babi.isi)
 
@@ -176,6 +181,7 @@ var b={
   image: $('input[name=image]').val(),
   description: $('textarea[name=description]').val(),
   keyword: $('input[name=keyword]').val(),
+  isbn: $('input[name=isbn]').val(),
   tanggal: $('input[name=tanggal]').val(),
   isi: $('.ck-content').html() 
 };
@@ -198,6 +204,7 @@ $(".image").removeClass("hidden")
   var harga=$('input[name=harga]').val().split(",").join(".").replace("IDR","Rp");
   var tag=lo($('input[name=author]').val());
   var image=$('input[name=image]').val();
+var isbn=$('input[name=isbn]').val();
   var description=$('textarea[name=description]').val()
   var keyword=$('input[name=keyword]').val().split(",").join("','")
   var p=$('.ck-content');
@@ -207,7 +214,7 @@ $(p).find('br').remove();
   var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
   var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>");
   var isitiga=isidua.split("&nbsp;").join(" ");
-  var hasil="---\nauthor: '"+tag+"'\ntitle: '"+judul+"'\nbuy: '"+buy+"'\nharga: '"+harga+"'\nimage: '"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
+  var hasil="---\nauthor: '"+tag+"'\ntitle: '"+judul+"'\nbuy: '"+buy+"'\nharga: '"+harga+"'\nimage: '"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\nisbn: '"+isbn+"'\n---\n"+isitiga;
 
 
   var hasilsatu=judul.toLowerCase();
