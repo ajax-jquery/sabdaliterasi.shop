@@ -114,7 +114,7 @@ permalink: /edit6/
 </div>
 
 <div class="form-outline mb-2">
-<input name="isbn" type="text" id="isbn" class="form-control" data-role="tagsinput" placeholder="Keywords" />
+<input name="isbn" type="text" id="isbn" class="form-control" placeholder="ISBN" />
 </div>  
 
 <div class="form-outline mb-2">
@@ -214,7 +214,7 @@ $(p).find('br').remove();
   var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
   var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>");
   var isitiga=isidua.split("&nbsp;").join(" ");
-  var hasil="---\nauthor: '"+tag+"'\ntitle: '"+judul+"'\nbuy: '"+buy+"'\nharga: '"+harga+"'\nimage: '"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\nisbn: '"+isbn+"'\n---\n"+isitiga;
+  var hasil="---\nauthor: '"+tag+"'\ntitle: '"+judul+"'\nbuy: '"+buy+"'\nharga: '"+harga+"'\nimage: '"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\nISBN: '"+isbn+"'\n---\n"+isitiga;
 
 
   var hasilsatu=judul.toLowerCase();
