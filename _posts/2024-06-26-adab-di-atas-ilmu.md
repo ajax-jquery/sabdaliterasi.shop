@@ -2,7 +2,7 @@
 author: 'Imam Nawawi'
 title: 'Adab di Atas Ilmu'
 buy: 'https://lynk.id/sabdaliterasi/E0MVnZr'
-harga: 'Rp25000'
+harga: 'Rp25.000'
 image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/26-06-2024/1719419856405_5346981'
 description: 'Sepintar apa pun seseorang, namun ia tidak memiliki adab, gugurlah nilai semua pengetahuannya; tak dapat dijadikan rujukan, takkan pula memproduksi kebaikan-kebaikan. '
 keyword: ['Imam Nawawi','Adab','Ilmu']
