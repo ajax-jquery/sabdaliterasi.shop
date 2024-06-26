@@ -233,7 +233,7 @@ $(p).find('br').remove();
   var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
   var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>");
   var isitiga=isidua.split("&nbsp;").join(" ");
-  var hasil="---\nauthor: '"+tag+"'\ntitle: '"+judul+"'\nbuy: '"+buy+"'\nharga: '"+harga+"'\nimage: '"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\nISBN: '"+isbn+"'\n---\n"+isitiga;
+  var hasil="---\nauthor: '"+tag+"'\ntitle: '"+judul+"'\nbuy: '"+buy+"'\nharga: '"+harga.replaceAll(",",".")+"'\nimage: '"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\nISBN: '"+isbn+"'\n---\n"+isitiga;
 
 
   var hasilsatu=judul.toLowerCase();
@@ -342,7 +342,7 @@ $('input[name=harga]').on('change click keyup input paste',(function (event) {
         return 'Rp' + value.replace(/(?!\.)\D/g, "")
                           .replace(/(?<=\..*)\./g, "")
                           .replace(/(?<=\.\d\d).*/g, "")
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     });
 }));
 </script>
