@@ -1,0 +1,11 @@
+---
+author: 'Frederick Copleston'
+title: 'Buku 9: Filsafat Libniz'
+buy: 'https://lynk.id/sabdaliterasi/1rKQBaZ'
+harga: 'Rp35.000'
+image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/01-07-2024/1719810127890_6463644.svg'
+description: 'GOTTFRIED WILHELM LEIBNIZ lahir di Leipzig pada 1646, ayahnya adalah profesor filsafat moral di universitas. '
+keyword: ['Libniz','Pengantar','Seri filsafat']
+ISBN: '9786233052276'
+---
+<p>GOTTFRIED WILHELM LEIBNIZ lahir di Leipzig pada 1646, ayahnya adalah profesor filsafat moral di universitas. Seorang anak laki-laki dewasa sebelum waktunya, Leibniz mempelajari filsafat Yunani dan Skolastik, dan dia memberitahu kita, berbicara tentang dirinya sendiri pada usia sekitar tiga belas, bahwa dia membaca Suarez dengan fasilitas sebanyak orang biasa membaca roman. Pengaruh studi awalnya tentang Aristotelianisme dan Skolastisisme terlihat jelas dalam tulisan-tulisannya selanjutnya; dan dari semua filsuf terkemuka dari periode modern; pra-Kantian, diyakini Leibnizlah yang memiliki pengetahuan paling luas tentang Skolastik.</p><p>Sulit untuk mendefinisikan Leibniz dalam satu kompartemen. Mungkin, memang, seperti yang dikatakan Russell, terdapat inkonsistensi dan bahkan kontradiksi dalam pemikiran Leibniz; tetapi ini tidak berarti bahwa kita berhak membuat perbedaan radikal antara pemikiran esoterik dan eksoteriknya.</p><p>Leibniz adalah salah satu orang paling terkemuka pada masanya, dan dia menikmati perlindungan dari banyak orang terkemuka. Copleston dalam buku ini menyajikan kepada pembaca suatu pendekatan yang terbuka sekaligus sistematis terhadap pemikiran-pemikiran Leibniz.</p><p>Buku Seri Tokoh Filsafat diterjemahkan dari karya termasyhur Frederick Charles Copleston, seorang pendeta Yesuit Inggris, yang sebelumnya diterbitkan dalam sembilan jilid antara tahun 1946 dan 1975. Sebagaimana dicatat oleh The Encyclopedia Britannica, karya ini adalah “teks dasar pengantar filsafat untuk ribuan siswa universitas, khususnya dalam edisi paperback AS-nya.”</p>
