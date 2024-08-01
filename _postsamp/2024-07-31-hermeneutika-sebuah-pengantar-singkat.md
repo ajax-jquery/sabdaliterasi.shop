@@ -1,0 +1,11 @@
+---
+author: 'Jens Zimmermann'
+title: 'Hermeneutika; Sebuah Pengantar Singkat'
+buy: 'https://lynk.id/sabdaliterasi/46B2Ybj'
+harga: 'Rp32.500'
+image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/02-08-2024/1722535129463_8819382'
+description: 'Hermeneutika adalah cabang pengetahuan yang berhubungan dengan interpretasi, suatu perilaku yang melekat pada kehidupan kita sehari-hari.'
+keyword: ['Hermeneutika','pengantar','Untuk pemula',' apa itu hermeneutika?']
+ISBN: '9786236166710'
+---
+<p>Hermeneutika adalah cabang pengetahuan yang berhubungan dengan interpretasi, suatu perilaku yang melekat pada kehidupan kita sehari-hari. Sebagai manusia, kita menguraikan makna artikel surat kabar, buku, masalah hukum, teks agama, pidato politik, surat elektronik, dan bahkan percakapan makan malam, pesan WhatsApp, atau apa pun setiap hari.</p><p>Namun, bagaimana pengetahuan dimediasi melalui bentuk-bentuk ini? Apa yang dimaksud dengan proses interpretasi? Dan, bagaimana kita menarik makna dari dunia di sekitar sehingga kita dapat memahami posisi kita di dalamnya?</p><p>Dalam pengantar singkat ini, Jens Zimmermann mendedahkan pengertian hermeneutika secara mendetail, menelusuri sejarah teori hermeneutika, dan menetapkan elemen-elemen kuncinya. Selebihnya, dan ini yang menjadi salah satu kekuatan dari buku ini, ia menunjukkan bagaimana hermeneutika dapat diterapkan dalam berbagai disiplin ilmu, seperti teologi, sastra, hukum, ilmu-ilmu alam, dan ilmu-ilmu sosial. </p><p>Dengan mendemonstrasikan kebutuhan interpretasi yang sudah berlangsung lama dan luas, ia mengungkapkan signifikansinya dalam lanskap sosial dan politik kita saat ini. </p><p><strong>Profil Penulis </strong></p><p>Jens Zimmermann (lahir 1965) adalah seorang filsuf dan teolog Kristen yang mengkhususkan diri dalam hermeneutika dan akar filosofis dan teologis humanisme. Saat ini ia adalah Ketua Teologi JI Packer di Regent College. Antara tahun 2006 dan 2020, beliau menjabat sebagai Profesor Riset Kanada di Trinity Western University, Langley, British Columbia, Kanada. Dia adalah peneliti tamu di Pusat Teologi dan Pemikiran Eropa Modern di Universitas Oxford, menjabat sebagai profesor tamu di Regent College (2017-2019), dianugerahi beasiswa penelitian di Trinity Hall (Cambridge, 2016– 2017), dan British Academy Visiting Fellowship (Gereja Kristus, Oxford , 2018–2019).</p>
