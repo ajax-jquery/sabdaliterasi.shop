@@ -2,7 +2,7 @@
 author: 'Raditya Panji Umbara Dan Sahda Halim'
 title: 'Panduan Resmi Tes CPNS CAT 2024/2025'
 buy: 'https://lynk.id/sabdaliterasi/qnDqvYE'
-harga: 'Rp130.000'
+harga: 'Rp199.000'
 image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/21-09-2024/1726901133874_4861773'
 description: 'Panduan Resmi Tes CPNS 2024/2025, berisi materi terbaru, paket soal, aplikasi simulasi CAT, dan tryout online untuk membantu Anda lolos seleksi dan menjadi ASN.'
 keyword: ['al faiz','buku paten cpns','cpns','cat','panduan resmi','2024','aplikasi cat cpns','simulasi cat cpns','Cpns dan pppk',' kisi-kisi skd cpns',' kisi-kisi skb cpns','Tes wawasan kebangsaan',' twk cpn',' tes intelegensi umum',' tiu cpns','Tes Karakteristik pribadi',' tkp cpns','Seleksi kompetensi bidang',' skd cpns',' seleksi kompetensi basic',' skb cpns','Panduan resmi cpns']
