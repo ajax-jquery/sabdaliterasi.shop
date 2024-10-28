@@ -1,7 +1,7 @@
 ---
 tag: 'Opini'
 title: 'Poin Kebijakan Energi untuk Milyaran Nyawa Masa Depan'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2022/08/12/18/34/save-energy-7382275_1280.png'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2022/08/12/18/34/save-energy-7382275_1280.png'
 description: 'Kita dapat menerapkan kebijakan progresif, seperti konservasi energi, mendorong energi terbarukan, dan mengelola limbah karbon.'
 keyword: ['Energi','kebijakan energi','energi alam','rumah kaca']
 ---

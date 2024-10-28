@@ -2,7 +2,7 @@
 date: '2024-02-11 23:53:45 +0700'
 tag: 'Tokoh'
 title: 'Santo Agustinus: Pemikiran Mendalam tentang Sosial dan Politik'
-image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/images/1A58F1EF-E720-4E32-ACDB-81CE26E79F05.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.xyz@main/images/1A58F1EF-E720-4E32-ACDB-81CE26E79F05.jpg'
 description: 'Analisis mendalam tentang pemikiran politik Santo Agustinus, menyoroti relevansinya dalam dinamika sosial-politik modern, memberikan wawasan dan inspirasi.'
 keyword: ['Filsafat','Santo Agustinus','relevansi modern','politik kontroversial','kota duniawi','kota surgawi','kebebasan sosial','ketertiban','kompleksitas manusia','paradigma baru','inspirasi perubahan']
 ---

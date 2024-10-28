@@ -2,7 +2,7 @@
 date: '2023-12-31 16:40:46 +0800'
 tag: 'Kebangsaan'
 title: 'Gaza: Darurat Kemanusiaan Semakin Parah'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2018/11/21/12/14/gaza-3829414_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2018/11/21/12/14/gaza-3829414_1280.jpg'
 description: 'Konflik Palestina-Israel belakangan ini menjadi sumber keprihatinan global. Mulai dari serangan militan Hamas terhadap Israel terjadi pada 7 Oktober 2023.'
 keyword: ['gaza','hamas','palestina','israel','kemanusiaan']
 ---

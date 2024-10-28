@@ -2,7 +2,7 @@
 date: '2024-01-09 13:41:34 +0800'
 tag: 'Perempuan'
 title: 'Female Breadwinner: Tantangan Norma Gender Tradisional.'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/female-breadwinner.jpg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/female-breadwinner.jpg'
 description: 'Fenomena female breadwinner semakin berkembang seiring dengan peningkatan jumlah perempuan yang terlibat dalam pasar tenaga kerja dan berhasil mendapatkan peker'
 keyword: ['perempuan','keluarga','female breadwinner']
 ---

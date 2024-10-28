@@ -1,7 +1,7 @@
 ---
 tag: 'Agama'
 title: 'Apakah Umat Islam Haram Memberikan Ucapan Selamat Hari Natal?'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2019/01/11/12/02/christmas-tree-3926970_640.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2019/01/11/12/02/christmas-tree-3926970_640.jpg'
 description: 'Dari ayat ini bisa dilihat bahwa pengucapan hari raya agama non-muslim diperbolehkan sebagai wujud saling menghormati, sebagaimana umat agama lain yang mengucapkan berbagai hari besar di dalam agama Islam'
 keyword: ['natal','islam','hukum islam tentang natal','natal dalam islam','hari natal']
 ---

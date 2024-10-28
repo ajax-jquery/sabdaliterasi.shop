@@ -1,7 +1,7 @@
 ---
 tag: Refleksi
 title: "Sistem Politik Islam: Konsep dan Adopsi Menuju Masyarakat Madani"
-image: https://sabdaliterasi.shop/img/lsfdiscourse.org/wp-content/uploads/2023/10/The-Carpet-Seller-karya-anonimous.jpg
+image: https://sabdaliterasi.xyz/img/lsfdiscourse.org/wp-content/uploads/2023/10/The-Carpet-Seller-karya-anonimous.jpg
 description: Politik Islam menawarkan panduan strategis untuk menciptakan kebijakan yang baik, menjamin keadilan sosial, dan mencapai masyarakat sipil.
 keyword: [islam, politik, agama, negara isam, filsafat islam]
 ---

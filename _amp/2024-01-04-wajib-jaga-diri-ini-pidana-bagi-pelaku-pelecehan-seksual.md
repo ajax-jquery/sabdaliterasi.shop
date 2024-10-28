@@ -2,7 +2,7 @@
 date: '2024-01-04 13:24:34 +0800'
 tag: 'Sosial'
 title: 'Wajib Jaga Diri: Ini Pidana Bagi Pelaku Pelecehan Seksual'
-image: 'https://sabdaliterasi.shop/img/static.promediateknologi.id/photo/2022/12/24/4130710302.jpg'
+image: 'https://sabdaliterasi.xyz/img/static.promediateknologi.id/photo/2022/12/24/4130710302.jpg'
 description: 'Komnas perempuan menemukan setidaknya ada sembilan bentuk kekerasan seksual, yakni: pelecehan seksual; eksploitasi seksual; pemaksaan kontrasepsi...'
 keyword: ['Perempuan','seksual','pelecehan','kekerasan seksual']
 ---

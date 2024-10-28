@@ -2,7 +2,7 @@
 date: '2024-01-02 12:09:43 +0800'
 tag: 'Tokoh'
 title: 'Memperingati Hari Atas Pemikiran Frans Seda dan Abdurahman Wahid'
-image: 'https://sabdaliterasi.shop/img/assets-a1.kompasiana.com/items/album/2018/12/31/gus-dur-5c29fafa12ae944c716c8bce.jpg'
+image: 'https://sabdaliterasi.xyz/img/assets-a1.kompasiana.com/items/album/2018/12/31/gus-dur-5c29fafa12ae944c716c8bce.jpg'
 description: 'Dari kedua pemikir tersebut kita memahami bahwa mayoritas dan minoritas hanyalah persoalan angka. Padahal, yang penting adalah nilai-nilai persatuan, toleransi.'
 keyword: ['gus dur','pemikiran tokoh','frans seda','toleransi','pluralis']
 ---

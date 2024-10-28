@@ -45,7 +45,7 @@ layout: null
           "uri":{
             "$t":"{{ site.url }}"},
           "email":{
-            "$t":"info@sabdaliterasi.shop"},
+            "$t":"info@sabdaliterasi.xyz"},
           "gd$image":{
             "rel":"http://schemas.google.com/g/2005#thumbnail",
             "width":"32","height":"32",
@@ -105,7 +105,7 @@ layout: null
         },
         "uri":{
           "$t":"{{ site.url }}"},
-        "email":{"$t":"info@sabdaliterasi.shop"},
+        "email":{"$t":"info@sabdaliterasi.xyz"},
         "gd$image":{
           "rel":"http://schemas.google.com/g/2005#thumbnail","width":"32","height":"32","src":"\/\/blogger.googleusercontent.com\/img\/b\/R29vZ2xl\/AVvXsEi72H4eO6pwTECxoVNhyxq5aKqRMWOy-l89BM2LFMLl2Z4yoNjvQHUQpQvoery8VZO0X4IOCOsUrk_KU3qQUizQoUwGQyzwgstRAL8KzYc2u79C4WXtP7zzTctxXURElw\/s113\/16998689_1416992091708885_6181724705663760479_n_e02ce5878bb75d555b9a0405730f5a5d+%281%29.png"
         }

@@ -2,7 +2,7 @@
 date: '2024-01-02 08:40:44 +0800'
 tag: 'Perempuan'
 title: 'Nenden: Tahun Politik dan Korban Digital Perempuan'
-image: 'https://sabdaliterasi.shop/img/www.konde.co/wp-content/uploads/2024/01/nenden3-768x384.webp'
+image: 'https://sabdaliterasi.xyz/img/www.konde.co/wp-content/uploads/2024/01/nenden3-768x384.webp'
 description: 'Perdebatan mengenai calon presiden terus berlanjut, namun isu hak-hak perempuan di ruang digital masih menjadi bahan perdebatan terbatas.'
 keyword: ['Perempuan aktivis',' kekerasan perempuan','politik 2024',' isu perempuan']
 ---

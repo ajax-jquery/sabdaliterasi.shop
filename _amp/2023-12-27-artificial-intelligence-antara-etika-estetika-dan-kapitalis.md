@@ -1,7 +1,7 @@
 ---
 tag: 'Opini'
 title: 'Artificial Intelligence: Antara Etika Estetika dan Kapitalis'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2018/03/26/13/48/artificial-intelligence-3262753_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2018/03/26/13/48/artificial-intelligence-3262753_1280.jpg'
 description: 'Permasalahan yang terjadi antara AI dan seniman, atau robot dan pekerja adalah masalah ekonomi.'
 keyword: ['AI','seni','estetika','etika','kapitalis']
 ---

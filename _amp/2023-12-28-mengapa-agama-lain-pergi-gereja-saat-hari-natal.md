@@ -1,7 +1,7 @@
 ---
 tag: 'Agama'
 title: 'Mengapa Agama Lain Pergi Gereja saat Hari Natal?'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2021/02/06/18/50/donnerskirchen-5989033_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2021/02/06/18/50/donnerskirchen-5989033_1280.jpg'
 description: 'Meski berkali-kali masuk ke tempat ibadah agama lain, namun tidak serta merta membuat kita langsung berpindah agama dari agama yang kita anut.'
 keyword: ['gereja','natal','tolerasi','etika']
 ---

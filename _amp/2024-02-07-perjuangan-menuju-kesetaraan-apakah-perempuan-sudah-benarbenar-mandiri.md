@@ -2,7 +2,7 @@
 date: '2024-02-07 21:07:01 +0800'
 tag: 'Feminis'
 title: 'Perjuangan Menuju Kesetaraan: Apakah Perempuan Sudah Benar-benar Mandiri?'
-image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/2024-02-06-perjuangan-menuju-kesetaraan-apakah-perempuan-sudah-benarbenar-mandiri.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.xyz@main/2024-02-06-perjuangan-menuju-kesetaraan-apakah-perempuan-sudah-benarbenar-mandiri.jpg'
 description: 'Perjuangan kemandirian perempuan menghadapi patriarki, budaya perkosaan, dan dinamika keluarga adalah inti dari perjalanan menuju kesetaraan gender.'
 keyword: ['Kemandirian perempuan',' budaya patriarki',' perjuangan hak perempuan',' dinamika keluarga',' budaya perkosaan',' kesetaraan gender',' peran gender biner',' tantangan feminisme',' hak-hak perempuan','perempuan']
 ---

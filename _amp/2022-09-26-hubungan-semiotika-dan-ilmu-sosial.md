@@ -1,7 +1,7 @@
 ---
 tag: Filsafat
 title: Hubungan Semiotika dan Ilmu Sosial
-image: https://sabdaliterasi.shop/img/antinomi.org/wp-content/uploads/2022/09/semiotics_WEB-696x281.webp
+image: https://sabdaliterasi.xyz/img/antinomi.org/wp-content/uploads/2022/09/semiotics_WEB-696x281.webp
 description: 'Apa yang saya ingin sampaikan hanyalah ungkapan kekhawatiran, bahkan dapat dikatakan sebagai peringatan, bahwa jika model-model analisis semiotik yang dilakukan oleh kedua penulis yang telah saya sebutkan dalam tulisan ini menjadi dominan, maka ilmu sosial akan mengalami masalah.'
 keyword: [ilmu sosial, semiotika]
 ---			

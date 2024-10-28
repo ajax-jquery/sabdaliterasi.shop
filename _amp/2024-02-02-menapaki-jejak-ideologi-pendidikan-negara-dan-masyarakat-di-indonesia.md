@@ -2,7 +2,7 @@
 date: '2024-02-02 10:38:13 +0800'
 tag: 'Filsafat'
 title: 'Menapaki Jejak Ideologi: Pendidikan, Negara, dan Masyarakat di Indonesia'
-image: 'https://sabdaliterasi.shop/img/raw.githubusercontent.com/ajax-jquery/asset.sabdaliterasi.shop/main/img/menapaki-jejak-ideologi-pendidikan-negara-dan-masyarakat-di-indonesia.jpg'
+image: 'https://sabdaliterasi.xyz/img/raw.githubusercontent.com/ajax-jquery/asset.sabdaliterasi.xyz/main/img/menapaki-jejak-ideologi-pendidikan-negara-dan-masyarakat-di-indonesia.jpg'
 description: 'Pendidikan sebagai alat ideologis negara, mengontrol pandangan, menantang kebebasan individu, dan memengaruhi masyarakat.'
 keyword: ['Pendidikan',' Negara',' dan Ideologi']
 ---

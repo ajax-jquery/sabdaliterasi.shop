@@ -2,7 +2,7 @@
 date: '2024-01-12 15:57:15 +0800'
 tag: 'Buku'
 title: 'Dua Barista: Bertahannya Budaya Patriarki'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/dua-barista-bertahannya-budaya-patriarki.jpg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/dua-barista-bertahannya-budaya-patriarki.jpg'
 description: 'Meskipun banyak novel yang mengeksplorasi cerita-cerita tentang poligami dengan latar belakang pondok pesantren, Dua Barista.'
 keyword: ['novel','dua barista','patriarki','feminis','gender']
 ---

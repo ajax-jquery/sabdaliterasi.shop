@@ -2,7 +2,7 @@
 date: '2024-01-25 15:16:20 +0800'
 tag: 'Tokoh'
 title: 'Baudrillard: Era Digital dan Konsumerisme'
-image: 'https://sabdaliterasi.shop/img/www.circulobellasartes.com/wp-content/uploads/2005/11/JEAN-BAUDRILLARD.jpg'
+image: 'https://sabdaliterasi.xyz/img/www.circulobellasartes.com/wp-content/uploads/2005/11/JEAN-BAUDRILLARD.jpg'
 description: 'Baudrillard menyatakan bahwa pada masa kini, individu cenderung hidup dipengaruhi oleh benda atau objek. Dalam pemenuhan kebutuhan, mereka tidak lagi didorong.'
 keyword: ['Baudrillard','media','simulakra','konsumerisme']
 ---

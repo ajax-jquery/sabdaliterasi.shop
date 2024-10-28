@@ -2,7 +2,7 @@
 date: '2024-01-08 16:47:50 +0800'
 tag: 'Agama'
 title: 'Amina Wadud: Penafsiran Kembali tentang Ayat-Ayat Larangan Homoseksual'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2023/08/29/11/36/ai-generated-8221032_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2023/08/29/11/36/ai-generated-8221032_1280.jpg'
 description: 'Namun, Amina Wadud, seorang cendekiawan Muslim kontemporer, menawarkan perspektif yang berbeda dalam membaca dan menafsirkan ayat-ayat tersebut.'
 keyword: ['Amina Wadud',' wadud',' homoseksual',"tafsir Qur'an",'orientasi seksual']
 ---

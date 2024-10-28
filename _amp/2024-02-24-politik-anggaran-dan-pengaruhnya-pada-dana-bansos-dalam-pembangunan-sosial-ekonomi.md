@@ -2,7 +2,7 @@
 date: '2024-02-24 17:02:04 +0800'
 tag: 'Kebangsaan'
 title: 'Politik Anggaran dan Pengaruhnya pada Dana Bansos dalam Pembangunan Sosial-Ekonomi'
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-politik-anggaran-dan-pengaruhnya-pada-dana-bansos-dalam-pembangunan-sosial-ekonomi.jpg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-politik-anggaran-dan-pengaruhnya-pada-dana-bansos-dalam-pembangunan-sosial-ekonomi.jpg'
 description: 'Politik uang dan rekayasa anggaran menghambat pembangunan sosial-ekonomi, merusak integritas demokrasi, dan mengabaikan kebutuhan masyarakat.'
 keyword: ['anggaran negara','politik anggaran','dana bantuan sosial','politik uang','biaya politik','bansos','pembangunan sosial-ekonomi','integritas demokrasi','alokasi anggaran','kesejahteraan rakyat']
 ---

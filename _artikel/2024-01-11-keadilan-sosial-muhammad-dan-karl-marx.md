@@ -2,7 +2,7 @@
 date: '2024-01-11 10:19:38 +0800'
 tag: 'Tokoh'
 title: 'Keadilan Sosial: Muhammad dan Karl Marx'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/keadilan-sosial-muhammad-dan-karl-marx.jpg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/keadilan-sosial-muhammad-dan-karl-marx.jpg'
 description: 'Dengan menganalisis ajaran dan teori keduanya, kita akan memahami bagaimana konsep keadilan telah mengambil bentuk yang beragam dan bagaimana prinsip-prinsip.'
 keyword: ['Keadilan','sosial','Marx',' muhammad','Islam','komunis']
 ---

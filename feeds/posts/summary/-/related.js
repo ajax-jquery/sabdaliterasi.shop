@@ -39,7 +39,7 @@ related_results_labels({
                 "title":"14 Comments"
               },{"rel":"edit","type":"application/atom+xml","href":"https:\/\/www.blogger.com\/feeds\/801953276432701327\/posts\/default\/576615824737679485"},{"rel":"self","type":"application/atom+xml","href":"https:\/\/www.blogger.com\/feeds\/801953276432701327\/posts\/default\/576615824737679485"},{"rel":"alternate","type":"text/html","href":"{{ post.url | prepend: site.url }}","title":"{{ post.title }}"}],
               "author":[
-                {"name":{"$t":"{{ site.title }}"},"uri":{"$t":"{{ site.url }}"},"email":{"$t":"info@sabdaliterasi.shop"},"gd$image":{"rel":"http://schemas.google.com/g/2005#thumbnail","width":"32","height":"32","src":"{{ site.avatar | prepend: site.url }}"}}],
+                {"name":{"$t":"{{ site.title }}"},"uri":{"$t":"{{ site.url }}"},"email":{"$t":"info@sabdaliterasi.xyz"},"gd$image":{"rel":"http://schemas.google.com/g/2005#thumbnail","width":"32","height":"32","src":"{{ site.avatar | prepend: site.url }}"}}],
                 "media$thumbnail":{
                   "xmlns$media":"http://search.yahoo.com/mrss/","url":"{{ post.image }}?width=300&height=169&amp;ssl=1","height":"169","width":"300"},
                     "thr$total":{

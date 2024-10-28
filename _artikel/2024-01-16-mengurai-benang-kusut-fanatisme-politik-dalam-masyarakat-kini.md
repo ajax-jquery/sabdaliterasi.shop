@@ -2,7 +2,7 @@
 date: '2024-01-16 14:10:49 +0800'
 tag: 'Sosial'
 title: 'Mengurai Benang Kusut Fanatisme Politik dalam Masyarakat Kini'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/mengurai-benang-kusut-fanatisme-politik-dalam-masyarakat-kini.jpg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/mengurai-benang-kusut-fanatisme-politik-dalam-masyarakat-kini.jpg'
 description: 'Fanatik politik kurang cenderung untuk berkolaborasi, berkompromi, atau bahkan berkomunikasi secara produktif dengan pihak yang berseberangan pendapat.'
 keyword: ['Politik','fanatisme','buta']
 ---

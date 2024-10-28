@@ -2,7 +2,7 @@
 date: '2024-01-31 18:25:55 +0800'
 tag: 'Ulasan'
 title: '8 Film Rekomendasi untuk Belajar Filsafat Tahun ini'
-image: 'https://sabdaliterasi.shop/img/cdn.idntimes.com/content-images/community/2019/09/the-lobster-movie-trailer-images-stills-colin-farrell-rachel-weisz-768x410-47e678dcf71f4f7250e9bdbf1750de9b.png'
+image: 'https://sabdaliterasi.xyz/img/cdn.idntimes.com/content-images/community/2019/09/the-lobster-movie-trailer-images-stills-colin-farrell-rachel-weisz-768x410-47e678dcf71f4f7250e9bdbf1750de9b.png'
 description: 'Anda bisa memulai perjalanan yang tidak hanya merangsang intelektual tetapi juga menggugah emosi. Berikut 8 Film Rekomendasi untuk Belajar Filsafat Tahun ini.'
 keyword: ['film',' filsafat',' belajar filsafat']
 ---

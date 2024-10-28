@@ -1,7 +1,7 @@
 ---
 tag: 'Filsafat'
 title: 'Sosiologi: Memperbaharui Kembali Aliran Neo-Kantian '
-image: 'https://sabdaliterasi.shop/img/antinomi.org/wp-content/uploads/2023/09/IMG_1354.jpeg'
+image: 'https://sabdaliterasi.xyz/img/antinomi.org/wp-content/uploads/2023/09/IMG_1354.jpeg'
 description: 'Rose tidak menjabarkan dengan sistematis bagaimana sebenarnya stuktur logis dan metodologis analisis Marx dalam menjelaskan transformasi nilai menjadi subjek absolut yang otonom dan dominan.'
 keyword: ['Hegelian','Marxisme','neo-kantianisme','sosiologi ','filsafat politik']
 ---

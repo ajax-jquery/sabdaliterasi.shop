@@ -2,7 +2,7 @@
 date: '2024-01-21 00:45:09 +0800'
 tag: 'Filsafat'
 title: 'Dekonstruksi Kekuasaan: Merinci Makna dan Konstruksi Sosial dalam Manusia Modern'
-image: 'https://sabdaliterasi.shop/img/www.pewartanusantara.com/wp-content/uploads/2021/02/Jacques-Derrida-Pewarta-Nusantara-scaled-scaled.jpg'
+image: 'https://sabdaliterasi.xyz/img/www.pewartanusantara.com/wp-content/uploads/2021/02/Jacques-Derrida-Pewarta-Nusantara-scaled-scaled.jpg'
 description: 'Menelusuri kontradiksi dalam kerangka nilai manusia melalui lensa Foucault dan Derrida, membebaskan pemikiran dari batasan biner dan norma konvensional.'
 keyword: ['dekonstruksi','kekuasaan','konstruksi','manusia']
 ---

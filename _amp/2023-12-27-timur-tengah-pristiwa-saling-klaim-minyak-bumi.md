@@ -1,7 +1,7 @@
 ---
 tag: 'Opini'
 title: 'Timur Tengah: Pristiwa Saling Klaim Minyak Bumi'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2020/01/28/17/14/refinery-4800320_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2020/01/28/17/14/refinery-4800320_1280.jpg'
 description: 'Dalam tawaran perdamaiannya McGregor membagi perdamaian itu ke dalam lima bentuk.'
 keyword: ['timur tengah','minyak bumi','tambang minyak','energi alam']
 ---

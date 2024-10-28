@@ -1,7 +1,7 @@
 ---
 tag: 'Kebangsaan'
 title: 'Tahun yang Absurd: Apa Peran Kaum Intelektual?'
-image: 'https://sabdaliterasi.shop/img/tracerstudy.uma.ac.id/assets/img/artikel/6267035851701494115.jpg'
+image: 'https://sabdaliterasi.xyz/img/tracerstudy.uma.ac.id/assets/img/artikel/6267035851701494115.jpg'
 description: 'Genosida di Gaza dan patgulipat demokrasi di Indonesia seolah dua hal yang terpisah di mana perhatian ditujukkan hanya pada salah satunya.'
 keyword: ['tahun 2023','akhir tahun',' tahun baru',' intelektual',' palestina',' kemanusiaan','Gaza']
 ---

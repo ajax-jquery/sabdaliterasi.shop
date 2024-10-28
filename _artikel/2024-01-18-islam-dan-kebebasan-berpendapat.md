@@ -2,7 +2,7 @@
 date: '2024-01-18 13:24:37 +0800'
 tag: 'Agama'
 title: 'Islam dan Kebebasan Berpendapat'
-image: 'https://sabdaliterasi.shop/img/www.batamnews.co.id/foto_berita/2022/07/2022-07-07-masyarakat-islam-perlu-diberikan-pemahaman-perbedaan-idul-adha.jpg'
+image: 'https://sabdaliterasi.xyz/img/www.batamnews.co.id/foto_berita/2022/07/2022-07-07-masyarakat-islam-perlu-diberikan-pemahaman-perbedaan-idul-adha.jpg'
 description: 'Dengan menjunjung tinggi prinsip keadilan dan pengetahuan, serta menjaga etika, kebebasan berpendapat menjadi pilar penting dalam membentuk masyarakat Muslim.'
 keyword: ['Kebebasan','Islam','hak']
 ---

@@ -2,7 +2,7 @@
 date: '2024-02-09 08:40:35 +0800'
 tag: 'Sosial'
 title: 'Pelecehan Seksual di Kampus: Dimana Peran Akademisi?'
-image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/images/3869A169-8B00-400B-827F08CA7CC11850_source.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.xyz@main/images/3869A169-8B00-400B-827F08CA7CC11850_source.jpg'
 description: 'Pelecehan seksual di kampus menyoroti pentingnya peran akademisi. Menciptakan lingkungan pendidikan yang aman adalah tanggung jawab bersama.'
 keyword: ['Pelecehan seksual',' kampus',' peran akademisi',' lingkungan pendidikan',' kesadaran',' data terbaru']
 ---

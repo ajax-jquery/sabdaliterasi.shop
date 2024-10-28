@@ -2,7 +2,7 @@
 date: '2024-02-12 09:17:13 +0800'
 tag: 'Tokoh'
 title: 'Seyyed Hossein: Tinjauan Kritis terhadap Era Modern dan Pemikiran Islam'
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-seyyed-hossein-tinjauan-kritis-terhadap-era-modern-dan-pemikiran-islam.jpg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-seyyed-hossein-tinjauan-kritis-terhadap-era-modern-dan-pemikiran-islam.jpg'
 description: 'Di era kemajuan ilmu pengetahuan, kritik terhadap kehilangan spiritualitas muncul. Solusi holistik Nasr menawarkan keseimbangan antara ilmu dan spiritualitas.'
 keyword: ['Nasr','keseimbangan antara ilmu dan spiritualitas.','Ilmu pengetahuan','kritik','spiritualitas','solusi holistik','keseimbanga']
 ---

@@ -2,7 +2,7 @@
 date: '2024-02-18 13:43:29 +0800'
 tag: 'Refleksi'
 title: 'Ketenangan di Tengah Kebisingan Politik dan Kesibukan Materi: Mengikuti Ajaran Spiritual'
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-ketenangan-di-tengah-kebisingan-politik-dan-kesibukan-materi-mengikuti-ajaran-spiritual.jpeg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-ketenangan-di-tengah-kebisingan-politik-dan-kesibukan-materi-mengikuti-ajaran-spiritual.jpeg'
 description: 'Politik dan kesibukan modern menghalangi ketenangan. Ajaran spiritual menawarkan solusi untuk menemukan kedamaian dalam kebisingan dan hiruk-pikuk.'
 keyword: ['politik','ketenangan','kesibukan','kebisingan','ajaran spiritual','solusi','modernitas','kehidupan sibuk','kedamaian batin','refleksi diri']
 ---

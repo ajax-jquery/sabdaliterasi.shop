@@ -2,7 +2,7 @@
 date: '2024-01-13 16:35:03 +0800'
 tag: 'Kebangsaan'
 title: 'Agama dan Identitas: Tantangan Politisasi di Indonesia'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/Agama-dan-politik-identitas.webp'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/Agama-dan-politik-identitas.webp'
 description: 'Analisis tajam tentang peran agama dan identitas dalam politik Indonesia, menyentuh realitas kontemporer dan tantangan politisasi identitas.'
 keyword: ['Agama',' Identitas',' Politisasi',' Marx',' Weber',' Nietzsche',' Indonesia',' Realitas Kontemporer',' Analisis',' Tantangan']
 ---

@@ -2,7 +2,7 @@
 date: '2024-01-10 03:40:13 +0800'
 tag: 'Tokoh'
 title: 'Agus Salim: Kesetaraan Kaum Perempuan'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/agus-salim-kesetaraan-kaum-perempuan.jpg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/agus-salim-kesetaraan-kaum-perempuan.jpg'
 description: 'Agus Salim menolak tawaran tersebut dengan kekecewaan, menyuarakan ketidaksetujuannya terhadap kenyataan bahwa Kartini, sebagai anak bangsawan Jawa.'
 keyword: ['agus salim','pendidikan','perempuan','kesetaraan gender']
 ---

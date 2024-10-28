@@ -2,7 +2,7 @@
 date: '2024-01-06 10:34:05 +0800'
 tag: 'Opini'
 title: 'Golput di Tengah Politik yang Absurd'
-image: 'https://sabdaliterasi.shop/img/static.promediateknologi.id/photo/p1/783/2023/10/05/berita_AparatKeamananPastikanKesiapanSukseskanPemilu2024-3773525499.png'
+image: 'https://sabdaliterasi.xyz/img/static.promediateknologi.id/photo/p1/783/2023/10/05/berita_AparatKeamananPastikanKesiapanSukseskanPemilu2024-3773525499.png'
 description: 'Selain itu, politik yang absurd juga menjadi alasan utama golput di Indonesia. Keputusan politik yang terkesan tidak masuk akal, adanya permainan kekuasaan.'
 keyword: ['Politik','golput','Politik absurd','solusi golput','Absurd']
 ---

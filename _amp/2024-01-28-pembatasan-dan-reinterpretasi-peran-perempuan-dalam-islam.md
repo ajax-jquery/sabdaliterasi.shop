@@ -2,7 +2,7 @@
 date: '2024-01-28 17:40:23 +0800'
 tag: 'Agama'
 title: 'Pembatasan dan Reinterpretasi Peran Perempuan dalam Islam'
-image: 'https://sabdaliterasi.shop/img/images.pexels.com/photos/8758524/pexels-photo-8758524.jpeg'
+image: 'https://sabdaliterasi.xyz/img/images.pexels.com/photos/8758524/pexels-photo-8758524.jpeg'
 description: 'Pandangan hadis membatasi peran perempuan, namun reinterpretasi dan kesetaraan memberi harapan pada kebebasan serta kesetaraan dalam masyarakat Islam.'
 keyword: ['Perempuan','aurat','hijab','hadis',' fiqih']
 ---

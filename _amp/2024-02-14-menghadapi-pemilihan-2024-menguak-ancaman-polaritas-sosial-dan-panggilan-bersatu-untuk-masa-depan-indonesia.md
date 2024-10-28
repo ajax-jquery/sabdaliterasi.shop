@@ -2,7 +2,7 @@
 date: '2024-02-14 18:55:10 +0800'
 tag: 'Kebangsaan'
 title: 'Menghadapi Pemilihan 2024: Menguak Ancaman Polaritas Sosial dan Panggilan Bersatu untuk Masa Depan Indonesia'
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-menghadapi-pemilihan-2024-menguak-ancaman-polaritas-sosial-dan-panggilan-bersatu-untuk-masa-depan-indonesia.jpg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-menghadapi-pemilihan-2024-menguak-ancaman-polaritas-sosial-dan-panggilan-bersatu-untuk-masa-depan-indonesia.jpg'
 description: 'Indonesia merayakan hasil Pemilihan dengan haru dan ketegangan. Ancaman polarisasi sosial mengintai, memerlukan panggilan bersatu untuk masa depan.'
 keyword: ['persatuan politik','radikalisme agama','toleransi multikultural','konflik horizontal','identitas individu','interaksi antar-etnis','politik damai','multikulturalisme indonesia','perbedaan politik','politik','pemilihan 2024','polaritas sosial','ancaman polaritas','bersatu','harmoni','demokrasi','quick count','kesatuan','pelajaran pemilihan 2019','partisipasi masyarakat']
 ---

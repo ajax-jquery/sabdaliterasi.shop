@@ -1,7 +1,7 @@
 ---
 tag: 'Opini'
 title: 'Problematika Kampus: Tantangan Bagi Etika Mahasiswa '
-image: 'https://sabdaliterasi.shop/img/geotimes.id/wp-content/uploads/2023/12/peoplewitheducationrelatedicons5387666207.jpg'
+image: 'https://sabdaliterasi.xyz/img/geotimes.id/wp-content/uploads/2023/12/peoplewitheducationrelatedicons5387666207.jpg'
 description: 'Semua yang saya tulis berdasarkan fakta yang terjadi di lapangan. Ini semua adalah budaya siswa yang masih diwariskan kepada generasi mendatang dan berlanjut hingga saat ini.'
 keyword: ['mahasiswa','kampus','antropologi kampus','etika mahasiswa']
 ---

@@ -2,7 +2,7 @@
 date: '2024-02-14 10:47:02 +0800'
 tag: 'Kebangsaan'
 title: 'Persatuan dalam Perbedaan: Membangun Politik Damai di Indonesia '
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-persatuan-dalam-perbedaan-membangun-politik-damai-di-indonesia.jpg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-persatuan-dalam-perbedaan-membangun-politik-damai-di-indonesia.jpg'
 description: 'Perbedaan politik dan identitas etnis menantang persatuan Indonesia. Toleransi, dialog, dan penghargaan terhadap keragaman kunci untuk membangun politik damai.'
 keyword: ['persatuan politik','radikalisme agama','toleransi multikultural','konflik horizontal','identitas individu','interaksi antar-etnis','politik damai','multikulturalisme indonesia','perbedaan politik','politik']
 ---

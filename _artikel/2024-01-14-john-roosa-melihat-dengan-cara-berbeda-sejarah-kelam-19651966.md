@@ -2,7 +2,7 @@
 date: '2024-01-14 20:33:59 +0800'
 tag: 'Kebangsaan'
 title: 'John Roosa: Melihat dengan Cara Berbeda Sejarah Kelam 1965-1966'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/john-roosa-melihat-dengan-cara-berbeda-sejarah-kelam-19651966.jpg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/john-roosa-melihat-dengan-cara-berbeda-sejarah-kelam-19651966.jpg'
 description: 'Salah satu sejarawan yang telah mengkaji genosida 1965-1966 secara mendalam adalah John Roosa. Dalam penelitiannya, Roosa menyoroti keterlibatan Orde Baru.'
 keyword: ['Sejarah Indonesia',' g30s',' pki',' orba',' pelanggaran ham','John roosa','Orde baru']
 ---

@@ -1,7 +1,7 @@
 ---
 tag: 'Agama'
 title: 'Akar Pemikiran Kaum Mu’tazilah sebagai Pembaharuan'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2020/02/22/15/02/book-4870737_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2020/02/22/15/02/book-4870737_1280.jpg'
 description: 'Seseorang bisa dikatakan pengikut Mu’tazilah apabila ia mengamalkan lima pokok ajaran tersebut.'
 keyword: ['Mutazilah','teologi','pemikiran islam','ilmu kalam']
 ---

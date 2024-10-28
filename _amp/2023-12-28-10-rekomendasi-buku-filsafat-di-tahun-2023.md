@@ -1,7 +1,7 @@
 ---
 tag: 'Ulasan'
 title: '10 Rekomendasi Buku Filsafat di Tahun 2023'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2017/03/23/16/23/book-2168778_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2017/03/23/16/23/book-2168778_1280.jpg'
 description: 'Buku-buku filsafat kini dikelompokkan ke dalam berbagai jenis genre. Ada yang telah ditulis sebagai buku fiksi, buku non-fiksi dan masih banyak lagi.'
 keyword: ['buku filsafat','buku filsafat 2023','buku rekomendasi filsafat',' buku recomended']
 ---

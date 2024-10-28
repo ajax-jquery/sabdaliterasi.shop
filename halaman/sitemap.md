@@ -4,7 +4,7 @@ author: Sabda Literasi
 title: Sitemap
 description: Sitemap untul website ini.
 permalink: /sitemap/
-image: https://sabdaliterasi.shop/media/android-icon-512x512
+image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [sitemap]
 ---
 <div class="sitemaps" id="sitemaps">

@@ -69,7 +69,7 @@ $(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAtt
  var link=coo.replace("-.",".");
 var ho=new Date();
 var timem =d.getFullYear()+"-"+leftPad(d.getMonth()+1,2)+"-"+leftPad(d.getDate(),2)+" "+leftPad(ho.getHours(),2)+":"+leftPad(ho.getMinutes(),2)+":"+leftPad(ho.getSeconds(),2)+" +0700";
-var hasil="---\ndate: '"+timem+"'\ntag: '"+tag+"'\ntitle: '"+judul+"'\nimage: 'https://sabdaliterasi.shop/img/"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
+var hasil="---\ndate: '"+timem+"'\ntag: '"+tag+"'\ntitle: '"+judul+"'\nimage: 'https://sabdaliterasi.xyz/img/"+image+"'\ndescription: '"+description+"'\nkeyword: ['"+keyword+"']\n---\n"+isitiga;
 
 $("#hasilnya").val(hasil);
 $("#hasilink").val(link);

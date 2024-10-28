@@ -2,7 +2,7 @@
 date: '2024-02-15 14:32:14 +0800'
 tag: 'Kebangsaan'
 title: 'Melangkah Maju: Membangun Persatuan Pasca-Pemilu 2024 di Indonesia'
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-melangkah-maju-membangun-persatuan-pasca-pemilu-2024-di-indonesia.png'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-melangkah-maju-membangun-persatuan-pasca-pemilu-2024-di-indonesia.png'
 description: 'Persatuan pasca-Pemilu 2024 penting untuk stabilitas Indonesia. Konsolidasi politik dan penegakan hukum yang adil diperlukan untuk memperkuat demokrasi.'
 keyword: ['pemilu 2024','persatuan','konsolidasi politik','penegakan hukum','stabilitas','demokrasi','perdamaian','perpecahan sosial','indonesia']
 ---

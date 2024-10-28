@@ -1,7 +1,7 @@
 ---
 tag: 'Tokoh'
 title: 'Giroux: Memahami Pendidikan Melalui Pedagogi Kritis'
-image: 'https://sabdaliterasi.shop/img/lsfdiscourse.org/wp-content/uploads/2023/11/The-Black-Stain-karya-Albert-Betannier.jpg'
+image: 'https://sabdaliterasi.xyz/img/lsfdiscourse.org/wp-content/uploads/2023/11/The-Black-Stain-karya-Albert-Betannier.jpg'
 description: 'Dalam tawaran perdamaiannya McGregor membagi perdamaian itu ke dalam lima bentuk.'
 keyword: ['Pendidikan','pedagoi','Giroux','pendidikan alternatif']
 ---

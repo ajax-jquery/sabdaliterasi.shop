@@ -2,7 +2,7 @@
 date: '2024-01-20 15:56:23 +0800'
 tag: 'Refleksi'
 title: 'Esensi Pendidikan dalam Al-Quran dan Filsafat Muslim'
-image: 'https://sabdaliterasi.shop/img/images.pexels.com/photos/12125962/pexels-photo-12125962.jpeg'
+image: 'https://sabdaliterasi.xyz/img/images.pexels.com/photos/12125962/pexels-photo-12125962.jpeg'
 description: 'Tulisan ini mencoba merenungkan kembali esensi hakiki dari pendidikan dalam menghadapi tantangan ini dengan berbagai perspektif filsafat.'
 keyword: ['Pendidikan','filsafat','esensi pendidkkan','kurikulum merdeka']
 ---

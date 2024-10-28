@@ -2,7 +2,7 @@
 date: '2024-01-19 09:19:41 +0800'
 tag: 'Tokoh'
 title: 'Bertrand Russell: Dasar Kebenaran dalam Teori Korespondensi'
-image: 'https://sabdaliterasi.shop/img/upload.wikimedia.org/wikipedia/commons/thumb/1/18/Bertrand_Russell_photo.jpg/610px-Bertrand_Russell_photo.jpg'
+image: 'https://sabdaliterasi.xyz/img/upload.wikimedia.org/wikipedia/commons/thumb/1/18/Bertrand_Russell_photo.jpg/610px-Bertrand_Russell_photo.jpg'
 description: 'Dalam menghadapi kompleksitas ini, penekanan pada pemahaman bersama, dialog, dan keterbukaan terhadap berbagai sudut pandang dapat menjadi langkah penting.'
 keyword: ['Bertrand Russell',' Empirisme',' Korespondensi Kebenaran',' Russell',' Pemisahan Sains dan Agam',' Hubungan Descartes dan Russell',' Pandangan Filosofis']
 ---

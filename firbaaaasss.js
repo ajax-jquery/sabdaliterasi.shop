@@ -88,7 +88,7 @@ function nzb0gv8xblkwn(id) {
 }
 
 	function zapierdolRatinga() {
-		let kodzik = document.querySelectorAll('script[src="https://sabdaliterasi.shop/firbaaaasss.js"]')[numer];
+		let kodzik = document.querySelectorAll('script[src="https://sabdaliterasi.xyz/firbaaaasss.js"]')[numer];
 		let stronaUrl = location.host.replace('www.', '').replace(/\./g, '_').replace(/\//g, '__');
 		let itemUrl = location.href.split('?')[0].split('#')[0].replace(location.protocol + '//', '').replace('www.', '');
 		if (itemUrl.substring(itemUrl.length-1) === '/' || itemUrl.substring(itemUrl.length-1) === '.') {

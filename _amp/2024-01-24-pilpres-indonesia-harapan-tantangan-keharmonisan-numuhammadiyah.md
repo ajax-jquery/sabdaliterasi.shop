@@ -2,7 +2,7 @@
 date: '2024-01-24 16:21:36 +0800'
 tag: 'Kebangsaan'
 title: 'Pilpres Indonesia: Harapan Tantangan Keharmonisan NU-Muhammadiyah'
-image: 'https://sabdaliterasi.shop/img/geotimes.id/wp-content/uploads/2017/06/antarafoto-aksi-bela-islam-iii-021216-agr-03-e1498257262677.jpg'
+image: 'https://sabdaliterasi.xyz/img/geotimes.id/wp-content/uploads/2017/06/antarafoto-aksi-bela-islam-iii-021216-agr-03-e1498257262677.jpg'
 description: 'Periode Pilpres seharusnya menjadi kesempatan untuk mempertebal pondasi negara menuju arah yang lebih baik. Apakah para pemimpin dapat menanamkan optimisme.'
 keyword: ['Pilpres','pemilu 2024',' ormas islam',' NU',' Muhammadiyah']
 ---

@@ -2,7 +2,7 @@
 date: '2024-01-15 19:08:47 +0800'
 tag: 'Feminis'
 title: 'Peran Perempuan dalam dalam Pemilu 2024'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/img/peran-perempuan-dalam-dalam-pemilu-2024.jpeg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/img/peran-perempuan-dalam-dalam-pemilu-2024.jpeg'
 description: 'Selain itu, perlu ada langkah-langkah konkret untuk mendorong partisipasi perempuan dalam pemilu. Ini bisa dilakukan dengan mengatur kuota perempuan.'
 keyword: ['perempuan','politik','pemilu 2024',' kesetaraan gender']
 ---

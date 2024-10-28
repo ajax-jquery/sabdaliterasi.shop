@@ -1,7 +1,7 @@
 ---
 tag: 'Opini'
 title: 'Sifat yang Harus Dimiliki Seorang Pemimpin dalam Pemilu 2024'
-image: 'https://sabdaliterasi.shop/img/www.um-surabaya.ac.id/uploads/home/gambar_konten/foto_konten-dosen-um-surabaya-beri-pesan-ini-untuk-cegah-isu-sara-jelang-pemilu-2024-uswah-GsUpPU.webp'
+image: 'https://sabdaliterasi.xyz/img/www.um-surabaya.ac.id/uploads/home/gambar_konten/foto_konten-dosen-um-surabaya-beri-pesan-ini-untuk-cegah-isu-sara-jelang-pemilu-2024-uswah-GsUpPU.webp'
 description: ' Setelah kita mengetahui berbagai sifat ideal yang harus dimiliki seorang pemimpin, kini masyarakat harus menentukan pemimpin yang tepat untuk kemajuan negara.'
 keyword: ['Pemilu','pemilu2024',' presiden Indonesia',' pemilihan dpr',' pesta demokrasi']
 ---

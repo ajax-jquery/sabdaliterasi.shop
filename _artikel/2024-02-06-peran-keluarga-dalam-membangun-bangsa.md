@@ -2,7 +2,7 @@
 date: '2024-02-06 05:02:07 +0800'
 tag: 'Keluarga'
 title: 'Peran Keluarga dalam Membangun Bangsa'
-image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/peran-keluarga-dalam-membangun-bangsa.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.xyz@main/peran-keluarga-dalam-membangun-bangsa.jpg'
 description: 'Peran keluarga sebagai fondasi masyarakat dan keterkaitannya dengan kepemimpinan negara, penting dalam membangun bangsa yang kuat dan harmonis.'
 keyword: ['Keluarga',' fondasi',' masyarakat',' kepemimpinan',' negara',' bangsa',' harmonis',' peran',' keterkaitan',' pembangunan.']
 ---

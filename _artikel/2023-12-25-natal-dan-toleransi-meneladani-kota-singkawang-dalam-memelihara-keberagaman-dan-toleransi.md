@@ -1,7 +1,7 @@
 ---
 tag: 'Agama'
 title: 'Natal dan Toleransi: Meneladani Kota Singkawang dalam Memelihara Keberagaman dan Toleransi'
-image: 'https://sabdaliterasi.shop/img/inimulti.com/wp-content/uploads/2018/12/singkawang_christmas_day.jpg'
+image: 'https://sabdaliterasi.xyz/img/inimulti.com/wp-content/uploads/2018/12/singkawang_christmas_day.jpg'
 description: 'Nilai-nilai seperti saling menghargai, kerjasama, dan persaudaraan tercermin dalam perayaan Natal di Singkawang'
 keyword: ['Hari Natal','hari raya','keberagaman','Kristiani','Nasrani','Selamat Hari Natal','Singkawang','toleransi']
 ---

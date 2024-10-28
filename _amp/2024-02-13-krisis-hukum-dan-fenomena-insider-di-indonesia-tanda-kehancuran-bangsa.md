@@ -2,7 +2,7 @@
 date: '2024-02-13 09:00:29 +0800'
 tag: 'Opini'
 title: 'Krisis Hukum dan Fenomena Insider di Indonesia: Tanda Kehancuran Bangsa'
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-krisis-hukum-dan-fenomena-insider-di-indonesia-tanda-kehancuran-bangsa.jpg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-krisis-hukum-dan-fenomena-insider-di-indonesia-tanda-kehancuran-bangsa.jpg'
 description: 'Fenomena insider dan krisis hukum mengancam Indonesia. Reformasi diperlukan untuk menjaga keadilan dan mencegah kehancuran bangsa.'
 keyword: ['indonesia','krisis hukum','insider','reformasi','keadilan','ancaman','bangsa','fenomena','penegakan hukum','kehancuran']
 ---

@@ -1,7 +1,7 @@
 ---
 tag: 'Tokoh'
 title: 'Al-Ghazali: Sisi Suram Sains'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2023/07/20/10/28/ai-generated-8139010_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2023/07/20/10/28/ai-generated-8139010_1280.jpg'
 description: 'Nilai tasawuf yang dihadirkan dalam tulisan-tulisan Al-Ghazali sangat sugestif. Kadang-kadang mereka bernada sarkastik, dan sering kali mereka juga langsung menyerang.'
 keyword: ['Sains','Ilmu pengetahuan',' filsafat islam',' pemikiran alghazali',' tasawuf']
 ---

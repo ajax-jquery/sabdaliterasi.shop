@@ -2,7 +2,7 @@
 date: '2024-01-03 12:25:08 +0800'
 tag: 'Kebangsaan'
 title: 'Palestina: Masalah Kemanusiaan dalam Pandangan Fikih'
-image: 'https://sabdaliterasi.shop/img/sabdaliterasi.shop/media/gaza-3829463_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/sabdaliterasi.xyz/media/gaza-3829463_1280.jpg'
 description: 'Namun, ini bukan soal mengangkat isu agama yang mengarah pada permusuhan, melainkan ihwal bagaimana salah satu khazanah pesantren, fikih, hendak berbicara soal.'
 keyword: ['Gaza','palestina','kemanusiaan','fikih','perang',' Israel-Palestina ']
 ---

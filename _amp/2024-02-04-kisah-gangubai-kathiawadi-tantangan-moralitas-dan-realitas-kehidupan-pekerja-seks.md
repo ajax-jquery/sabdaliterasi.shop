@@ -2,7 +2,7 @@
 date: '2024-02-04 02:11:36 +0800'
 tag: 'Ulasan'
 title: 'Kisah Gangubai Kathiawadi: Tantangan Moralitas dan Realitas Kehidupan Pekerja Seks'
-image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/kisah-gangubai-kathiawadi.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.xyz@main/kisah-gangubai-kathiawadi.jpg'
 description: 'Film "Gangubai Kathiawadi" memperjuangkan hak perempuan pekerja seks di Kamathipura, menyoroti solidaritas mereka dan pertarungan melawan stigma moral.'
 keyword: ['Gangubai Kathiawadi','perempuan','alia baat','alia bhatt','pelacur']
 ---

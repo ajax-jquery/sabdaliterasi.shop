@@ -2,7 +2,7 @@
 date: '2024-01-30 10:25:55 +0800'
 tag: 'Filsafat'
 title: 'Filosofi Toleransi: Politik dari Eropa hingga Kesultanan Utsmaniyah'
-image: 'https://sabdaliterasi.shop/img/alif.id/wp-content/uploads/2018/11/harmonimedia.jpg.webp'
+image: 'https://sabdaliterasi.xyz/img/alif.id/wp-content/uploads/2018/11/harmonimedia.jpg.webp'
 description: 'Filisofi toleransi dengan Analisis Barat dan Islam, khususnya di Kesultanan Ottoman, serta implikasinya bagi Indonesia dalam harmoni sosial. '
 keyword: ['toleransi',' filosofi',' ottoman',' barat']
 ---

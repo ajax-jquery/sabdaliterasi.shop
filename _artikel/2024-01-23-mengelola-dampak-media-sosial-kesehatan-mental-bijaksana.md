@@ -2,7 +2,7 @@
 date: '2024-01-23 16:31:03 +0800'
 tag: 'Refleksi'
 title: 'Mengelola Dampak Media Sosial: Kesehatan Mental Bijaksana'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737_1280.jpg'
 description: 'Analisis dampak media sosial pada kesehatan mental dan panduan bijak untuk mengelola tekanan sosial, menciptakan keseimbangan positif.'
 keyword: ['media','sosila','mental']
 ---

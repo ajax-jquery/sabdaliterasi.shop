@@ -1,7 +1,7 @@
 ---
 tag: 'Perempuan'
 title: 'Waithood: Perempuan yang Menunggu Kesiapan Diri untuk Menikah'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2021/05/17/18/26/hijab-6261552_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2021/05/17/18/26/hijab-6261552_1280.jpg'
 description: 'Masyarakat cenderung menilai perempuan berdasarkan standar tradisional yang menjadikan pernikahan sebagai pencapaian utama dalam hidup.'
 keyword: ['Perempuan','feminis','menikah','persiapan menikah']
 ---

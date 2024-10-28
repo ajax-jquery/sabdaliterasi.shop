@@ -2,7 +2,7 @@
 date: '2024-01-27 10:28:19 +0800'
 tag: 'Filsafat'
 title: 'Antara Agama dan Rasionalitas: Dinamika Perubahan dan Konflik di Abad Pertengahan Eropa'
-image: 'https://sabdaliterasi.shop/img/bakaba.co/wp-content/uploads/2019/11/galileo-4368208_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/bakaba.co/wp-content/uploads/2019/11/galileo-4368208_1280.jpg'
 description: 'Dinamika kompleks antara agama dan rasionalitas di Abad Pertengahan Eropa, menciptakan konflik dan transformasi menuju pemikiran modern dan ilmiah.'
 keyword: ['filsafat','agama','sains','rasionalitas']
 ---

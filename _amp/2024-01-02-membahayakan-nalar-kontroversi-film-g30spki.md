@@ -2,7 +2,7 @@
 date: '2024-01-02 19:58:46 +0800'
 tag: 'Ulasan'
 title: 'Membahayakan Nalar: Kontroversi Film G30S/PKI'
-image: 'https://sabdaliterasi.shop/img/upload.wikimedia.org/wikipedia/id/1/1c/Pengkhianatan_G_30_S-PKI.jpg'
+image: 'https://sabdaliterasi.xyz/img/upload.wikimedia.org/wikipedia/id/1/1c/Pengkhianatan_G_30_S-PKI.jpg'
 description: 'Orang menyukai kebohongan selama itu menguntungkan keadaan. Begitulah yang terjadi hari ini: upaya untuk memintai pertanggung jawaban atas pembunuhan massal.'
 keyword: ['g30s','film','partai komunis indonesia','orde baru','pki','tni']
 ---

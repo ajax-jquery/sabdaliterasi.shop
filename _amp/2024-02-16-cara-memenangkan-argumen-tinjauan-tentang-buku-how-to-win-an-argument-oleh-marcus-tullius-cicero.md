@@ -2,7 +2,7 @@
 date: '2024-02-16 16:00:25 +0800'
 tag: 'Ulasan'
 title: 'Cara Memenangkan Argumen: Tinjauan tentang Buku How To Win An Argument oleh Marcus Tullius Cicero'
-image: 'https://sabdaliterasi.shop/wp-conten/file/images/sabda-literasi-cara-memenangkan-argumen-tinjauan-tentang-buku-how-to-win-an-argument-oleh-marcus-tullius-cicero.jpg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-cara-memenangkan-argumen-tinjauan-tentang-buku-how-to-win-an-argument-oleh-marcus-tullius-cicero.jpg'
 description: 'Marcus Tullius Cicero membahas seni persuasi dan retorika klasik untuk memenangkan argumen. Tinjauan ini mengulas strategi efektif dalam menghadapi perdebatan.'
 keyword: ['marcus tullius cicero','seni persuasi','buku filsafat','argumen efektif','retorika klasik','keterampilan berbicara','pengaruh pidato','kunci persuasi','tinjauan buku','pemikiran kritis']
 ---

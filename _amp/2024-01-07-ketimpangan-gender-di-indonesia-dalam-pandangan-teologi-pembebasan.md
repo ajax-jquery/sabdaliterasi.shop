@@ -2,7 +2,7 @@
 date: '2024-01-07 13:25:09 +0800'
 tag: 'Feminis'
 title: 'Ketimpangan Gender di Indonesia dalam Pandangan Teologi Pembebasan'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2016/10/13/09/43/oil-pastel-1737210_960_720.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2016/10/13/09/43/oil-pastel-1737210_960_720.jpg'
 description: 'Dalam sejarah Islam, terdapat contoh-contoh tokoh perempuan yang memiliki peran penting dalam menyebarkan agama dan berkontribusi dalam masyarakat.'
 keyword: ['Gender',' ketimpangan gender',' teologi pembebasan']
 ---

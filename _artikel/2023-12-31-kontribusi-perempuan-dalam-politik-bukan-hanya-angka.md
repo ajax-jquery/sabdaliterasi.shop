@@ -2,7 +2,7 @@
 date: '2023-12-31 09:59:06 +0800'
 tag: 'Perempuan'
 title: 'Kontribusi Perempuan Dalam Politik Bukan Hanya Angka'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2023/03/29/15/25/women-7885757_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2023/03/29/15/25/women-7885757_1280.jpg'
 description: 'Pemilu 2024 akan tiba, caleg perempuan jangan cuma memenuhi kuota saja.'
 keyword: ['Caleg','perempuan','pemilu 2024','politik','pesta demokrasi']
 ---

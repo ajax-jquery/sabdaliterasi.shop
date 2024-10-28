@@ -2,7 +2,7 @@
 date: '2024-02-01 21:15:36 +0800'
 tag: 'Sosial'
 title: 'Problem Ketidakadilan dalam Masyarakat: Analisis dan Solusi Terbaik'
-image: 'https://sabdaliterasi.shop/img/asset.sabdaliterasi.shop/problem-ketidakadilan-dalam-masyarakat-analisis-dan-solusi-terbaik.jpg'
+image: 'https://sabdaliterasi.xyz/img/asset.sabdaliterasi.xyz/problem-ketidakadilan-dalam-masyarakat-analisis-dan-solusi-terbaik.jpg'
 description: 'Studi filosofis tentang ketidakadilan dalam masyarakat mengeksplorasi konsep keadilan dan mencari solusi untuk dampaknya terhadap stabilitas sosial.'
 keyword: ['keadilan','solusi','dampak ketidakadilan']
 ---

@@ -2,7 +2,7 @@
 date: '2024-01-22 06:57:16 +0800'
 tag: 'Filsafat'
 title: 'Kosmogenesis: Harmoni Spiritual dalam Evolusi Manusia'
-image: 'https://sabdaliterasi.shop/img/cdn.pixabay.com/photo/2023/01/21/07/37/cosmos-7733248_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.pixabay.com/photo/2023/01/21/07/37/cosmos-7733248_1280.jpg'
 description: 'narasi kosmogenesis yang mengungkap keharmonisan spiritual alam semesta, membimbing manusia dalam evolusi dinamis dan makna eksistensial.'
 keyword: ['alam','manusia','kosmologi']
 ---

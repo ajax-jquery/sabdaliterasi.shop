@@ -2,7 +2,7 @@
 date: '2024-01-05 16:21:49 +0800'
 tag: 'Kebangsaan'
 title: 'Pentingnya Berfikir Kiri'
-image: 'https://sabdaliterasi.shop/img/sabdaliterasi.shop/assets/img/demonstration-301529_1280.jpg'
+image: 'https://sabdaliterasi.xyz/img/sabdaliterasi.xyz/assets/img/demonstration-301529_1280.jpg'
 description: 'Membahas fenomena sosial kontemporer dengan analisis mendalam, mengajak pembaca untuk merenung dan berdialog secara kritis.'
 keyword: ['Kiri',' fenomena sosial',' masyarakat',' berfikir kiri','Orang kiri']
 ---

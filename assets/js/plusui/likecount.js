@@ -17,7 +17,7 @@ function BB(value) {
 
 
 !function(pp){
-var t=document.createElement("script");t.type="text/javascript",t.setAttribute("onload",pp),t.src="https://sabdaliterasi.shop/assets/js/firebase-2-4-2.min.js";var r=document.getElementsByTagName("script")[0].parentNode.insertBefore(t,r)}("likedCount()");
+var t=document.createElement("script");t.type="text/javascript",t.setAttribute("onload",pp),t.src="https://sabdaliterasi.xyz/assets/js/firebase-2-4-2.min.js";var r=document.getElementsByTagName("script")[0].parentNode.insertBefore(t,r)}("likedCount()");
 
 
 var URL_ID=document.getElementById("liked").getAttribute("data-link");

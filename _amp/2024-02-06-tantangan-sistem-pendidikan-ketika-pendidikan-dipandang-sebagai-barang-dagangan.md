@@ -2,7 +2,7 @@
 date: '2024-02-06 12:57:31 +0800'
 tag: 'Filsafat'
 title: 'Tantangan Sistem Pendidikan: Ketika Pendidikan Dipandang Sebagai Barang Dagangan'
-image: 'https://sabdaliterasi.shop/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.shop@main/2024-02-06-tantangan-sistem-pendidikan-ketika-pendidikan-dipandang-sebagai-barang-dagangan.jpg'
+image: 'https://sabdaliterasi.xyz/img/cdn.jsdelivr.net/gh/ajax-jquery/asset.sabdaliterasi.xyz@main/2024-02-06-tantangan-sistem-pendidikan-ketika-pendidikan-dipandang-sebagai-barang-dagangan.jpg'
 description: 'Komodifikasi pendidikan dalam konteks Marxisme strukturalis, menyoroti dampaknya terhadap ketidaksetaraan, otoritarianisme, dan privatisasi.'
 keyword: ['komodifikasi pendidikan',' Marxisme strukturalis',' ketidaksetaraan',' otoritarianisme',' privatisasi',' reformasi pendidikan',' keadilan sosial','pendidikan']
 ---
