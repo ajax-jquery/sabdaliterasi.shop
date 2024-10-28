@@ -123,7 +123,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
                 lang: n, 
                 voice: o, 
                 key: MyKey, 
-                referer: "https://"MyDomain+MyPath, 
+                referer: "https://"+MyDomain+MyPath, 
                 isNonCanonical: !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, [_msttexthash], [x-bergamot-translated]") 
             }));
         }
