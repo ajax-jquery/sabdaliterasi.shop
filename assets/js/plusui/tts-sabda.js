@@ -67,7 +67,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
 
     // Definisikan variabel untuk repository dan path
     const repo = "ajax-jquery/TTS-Sophia";
-    const path = "TTS" + MyPath;
+    const path = "TTS" + MyPath+".mp3";
     const branch = "main";
     const token = Pu.de(Hm_Key);
 
