@@ -11,7 +11,7 @@ layout: null
     },
    {
       "name": "{{ site.title }}",
-      "url": "sabdaliterasi.xyz",
+      "url": "{{ site.domain }}",
       "id": "801953276432701327",
       "code": "sabdaliterasi"
     }
