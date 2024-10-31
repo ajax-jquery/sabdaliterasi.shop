@@ -22,6 +22,6 @@ jobs:
 
       - name: Run script to move articles
         env:
-          TIMEZONE: Asia/Jakarta
+          TIMEZONE: Asia/Makassar
         run: |
           node .github/scripts/move-scheduled-articles.js
