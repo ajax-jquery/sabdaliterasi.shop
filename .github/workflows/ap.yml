@@ -74,11 +74,16 @@ jobs:
           # Menambahkan semua perubahan dan melakukan commit
           git add .
           git commit -m "Moved draft articles to publish directory"
-          git push origin draft-articles
+          git push origin draft-articles || {
+            Write-Host "Push failed. Attempting to pull and push again."
+            git pull --rebase origin draft-articles
+            git push origin draft-articles
+          }
         } else {
           Write-Host "No changes to commit."
         }
       shell: pwsh
+
 
 
 
