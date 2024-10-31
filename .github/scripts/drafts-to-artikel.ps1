@@ -85,7 +85,8 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDateTime = [datetime]::Parse($FrontMatter['date'])
+        # Mengambil tanggal dengan format yang tepat
+        $ArticleDateTime = [datetime]::ParseExact($FrontMatter['date'], 'yyyy-MM-dd HH:mm:ss zzz', $null)
         $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
         '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTime.ToString('HH:mm:ss')
 
@@ -110,9 +111,6 @@ foreach ($Article in $DraftArticles) {
 }
 '::endgroup::'
 #endregion
-
-
-
 
 
 #region Handling Multiple Draft Articles with Current Date
