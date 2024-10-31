@@ -55,16 +55,17 @@ jobs:
 
     - name: Commit Changes
       run: |
-        if [[ -n "$(git status --porcelain)" ]]; then
+        $status = git status --porcelain
+        if ($status) {
           git config --global user.name "${{ vars.GIT_USER_NAME }}"
           git config --global user.email "${{ vars.GIT_USER_EMAIL }}"
           git pull origin draft-articles --rebase # Tarik perubahan terbaru
           git add .
           git commit -m "Moved draft articles to publish directory"
           git push origin draft-articles
-        else
-          echo "No changes to commit."
-        fi
+        } else {
+          Write-Host "No changes to commit."
+        }
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4.2.4
