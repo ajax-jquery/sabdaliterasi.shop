@@ -1,4 +1,4 @@
-name: Articles Posts
+name: Articles Draft Posts
 
 on:
   schedule:
