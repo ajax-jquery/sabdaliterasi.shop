@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$DraftsPath = '_draftsamp',
-    [string]$DataPath = '_amp', # Tambahkan variabel untuk path _data
+    [string]$DataPath = '_amp',
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
@@ -24,7 +24,7 @@ function OutputAction {
 #region Set Variables
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
 $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
-$ResolvedDataPath = Join-Path -Path $BasePath -ChildPath $DataPath # Tambahkan resolved data path
+$ResolvedDataPath = Join-Path -Path $BasePath -ChildPath $DataPath
 $ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
 $RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
 $AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
@@ -41,18 +41,17 @@ try {
     if (Test-Path -Path $ResolvedConfigPath) {
         $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
         if (-Not [string]::IsNullOrEmpty($TimeZone)) {
-            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath,$TimeZone
+            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath, $TimeZone
         } else {
-            $DefaultTimeZoneMessage
+            Write-Output $DefaultTimeZoneMessage
         }
     } else {
-        $DefaultTimeZoneMessage
+        Write-Output $DefaultTimeZoneMessage
     }
+} catch {
+    Write-Output $DefaultTimeZoneMessage
 }
-catch {
-    $DefaultTimeZoneMessage
-}
-$CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date),$TimeZone)
+$CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), $TimeZone)
 $FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
 '::endgroup::'
 #endregion
@@ -68,7 +67,7 @@ if ($DraftArticles.Count -gt 0) {
     if ($DraftArticles.Count -eq 1) {
         'Found 1 article in {0}.' -f $DraftsPath
     } else {
-        'Found {0} articles in {1}.' -f $DraftArticles.Count,$DraftsPath
+        'Found {0} articles in {1}.' -f $DraftArticles.Count, $DraftsPath
     }
     $DraftArticles.Name | ForEach-Object {
         '- {0}' -f $_
@@ -85,12 +84,27 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
-        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
+        # Mengambil tanggal dari front matter
+        $ArticleDateTimeString = $FrontMatter['date']
+
+        # Mengonversi string menjadi objek DateTime dengan zona waktu yang benar
+        $ArticleDateTime = [datetime]::Parse($ArticleDateTimeString).ToUniversalTime()
+        $ArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
+
+        # Memformat tanggal dan waktu untuk output
+        $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
+        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTime.ToString('HH:mm:ss')
+
+        # Mendapatkan waktu saat ini dengan timezone Asia/Makassar
+        $CurrentDateTime = [System.TimeZoneInfo]::ConvertTime([DateTime]::Now, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
+        $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
+        '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
+
+        # Memeriksa apakah artikel tanggal sama dengan hari ini dan juga memeriksa waktu
+        if ($ArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $ArticleDateTime) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
-        } elseif ($ArticleDate -lt $CurrentDate.ToShortDateString()) { # Tambahkan kondisi untuk memindahkan artikel yang sudah lewat
+        } elseif ($ArticleDate -lt $CurrentDate) { 
             $RenameArticleList.Add($Article)
             '{0}: Including article to move to data folder.' -f $FrontMatter['title']
         } else {
@@ -102,6 +116,9 @@ foreach ($Article in $DraftArticles) {
 }
 '::endgroup::'
 #endregion
+
+
+
 
 #region Handling Multiple Draft Articles with Current Date
 '::group::Handling Multiple Draft Articles with Current Date'
@@ -120,7 +137,7 @@ switch ($RenameArticleList.Count) {
         if ($AllowMultiplePostsPerDay.IsPresent) {
             '::warning::Multiple draft articles will be published per day chronologically.'
         } else {
-            '::warning::Multiple draft article with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
+            '::warning::Multiple draft articles with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
             $RenameArticleList = $RenameArticleList | Select-Object -Last 1
         }
     }
@@ -136,26 +153,35 @@ if (-Not (Test-Path -Path $ResolvedDataPath)) {
 }
 '::group::Moving Draft Articles to Data folder'
 foreach ($Article in $RenameArticleList) {
-    $NewFileName = '{0}-{1}' -f $FormattedDate,$Article.Name
+    # Cek apakah nama file sudah dimulai dengan tanggal
     if ($Article.BaseName -match $DateRegex) {
         '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
+        
+        # Jika PreserveDateFileName aktif, gunakan nama asli
         if ($PreserveDateFileName.IsPresent) {
-            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be prepended with {0}.' -f $FormattedDate
+            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be retained as {0}.' -f $Article.Name
+            $NewFileName = $Article.Name  # Tetap menggunakan nama asli
         } else {
-            '::warning::''PreserveDateFileName'' is not enabled. The existing date {0} will be removed from the filename and it will be prepended with {1}.' -f $Matches[0],$FormattedDate
-            $NewFileName = $Article.Name
+            'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
+            # Hapus tanggal dari nama file lama dan tambahkan tanggal baru
+            $NewFileName = $Article.Name -replace $DateRegex, ''
+            $NewFileName = '{0}-{1}' -f $FormattedDate, $NewFileName.TrimStart('-')  # Trim untuk menghindari karakter '-'
         }
+    } else {
+        # Jika tidak ada tanggal, tambahkan tanggal ke nama file
+        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
+        'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
     }
-    'Moving {0} to {1}' -f $Article.Name, $ResolvedDataPath
-    $NewFullPath = Join-Path -Path $ResolvedDataPath -ChildPath $NewFileName
+
+    # Move the draft to the data path
     try {
-        Move-Item -Path $Article.FullName -Destination $NewFullPath
+        Move-Item -Path $Article.FullName -Destination (Join-Path -Path $ResolvedDataPath -ChildPath $NewFileName)
         $AddFilesToCommit.Add($NewFileName)
-        $RemoveFilesFromCommit.Add($Article.Name)
+        'Article {0} has been moved to {1}.' -f $Article.Name, $ResolvedDataPath
         $ShouldPublish = $true
-    }
-    catch {
-        OutputAction
+    } catch {
+        '::error::Failed to move {0}. Error: {1}' -f $Article.Name, $_.Exception.Message
+        $RemoveFilesFromCommit.Add($Article.Name)
     }
 }
 '::endgroup::'
