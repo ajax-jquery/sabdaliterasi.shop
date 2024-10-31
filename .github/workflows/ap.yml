@@ -63,8 +63,9 @@ jobs:
           # Menambahkan langkah untuk menghapus perubahan lokal jika ada
           git reset --hard
 
-          # Tarik perubahan terbaru dengan rebase
-          git pull origin draft-articles --rebase 
+          # Tarik perubahan terbaru tanpa rebase
+          git merge origin/draft-articles
+          
           git add .
           git commit -m "Moved draft articles to publish directory"
           git push origin draft-articles
