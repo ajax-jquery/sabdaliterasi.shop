@@ -87,15 +87,16 @@ foreach ($Article in $DraftArticles) {
     if ($FrontMatter.ContainsKey('date')) {
         # Mengambil tanggal dengan format yang tepat
         $ArticleDateTimeString = $FrontMatter['date']
-        # Parsing tanggal dengan format dan zona waktu yang benar
-        $ArticleDateTime = [datetime]::ParseExact($ArticleDateTimeString, 'yyyy-MM-dd HH:mm:ss zzz', $null)
+
+        # Mengonversi tanggal dan waktu ke objek DateTime
+        $ArticleDateTime = [datetime]::Parse($ArticleDateTimeString)
 
         # Memformat tanggal dan waktu untuk output
         $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
         '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTime.ToString('HH:mm:ss')
 
         # Mendapatkan waktu saat ini dalam timezone yang benar
-        $CurrentDateTime = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), 'Asia/Makassar')
+        $CurrentDateTime = [System.TimeZoneInfo]::ConvertTime((Get-Date), 'Asia/Makassar')
         $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
         '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
 
@@ -115,6 +116,7 @@ foreach ($Article in $DraftArticles) {
 }
 '::endgroup::'
 #endregion
+
 
 
 #region Handling Multiple Draft Articles with Current Date
