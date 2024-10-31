@@ -19,8 +19,8 @@ jobs:
     - name: Fetch Latest Changes
       run: |
         git fetch origin draft-articles
-        git config pull.rebase false  # Atau gunakan true jika Anda lebih suka rebase
-        git pull origin draft-articles
+        git config pull.rebase false
+        git pull origin draft-articles --allow-unrelated-histories
 
     - name: PowerShell Module Cache
       uses: potatoqualitee/psmodulecache@v5.2
@@ -90,8 +90,8 @@ jobs:
     - name: Fetch Latest Changes
       run: |
         git fetch origin draft-articles
-        git config pull.rebase false  # Atau gunakan true jika Anda lebih suka rebase
-        git pull origin draft-articles
+        git config pull.rebase false
+        git pull origin draft-articles --allow-unrelated-histories
 
     - name: PowerShell Module Cache
       uses: potatoqualitee/psmodulecache@v5.2
