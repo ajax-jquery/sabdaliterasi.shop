@@ -57,21 +57,22 @@ jobs:
       run: |
         $status = git status --porcelain
         if ($status) {
-          git config --global user.name "ajax-jquery"
-          git config --global user.email "fkansaz@gmail.com"
+          git config --global user.name "${{ vars.GIT_USER_NAME }}"
+          git config --global user.email "${{ vars.GIT_USER_EMAIL }}"
           
-          # Menambahkan langkah untuk menghapus perubahan lokal jika ada
+          # Menghapus perubahan lokal jika ada
           git reset --hard
 
-          # Tarik perubahan terbaru tanpa rebase
-          git merge origin/draft-articles
+          # Tarik perubahan terbaru dengan rebase
+          git pull --rebase origin draft-articles || exit 1
           
           git add .
-          git commit -m "Moved draft articles to publish directory"
-          git push origin draft-articles
+          git commit -m "Moved draft articles to publish directory" || exit 1
+          git push origin draft-articles || exit 1
         } else {
           Write-Host "No changes to commit."
         }
+
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4.2.4
