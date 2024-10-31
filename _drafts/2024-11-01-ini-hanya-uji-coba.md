@@ -1,5 +1,5 @@
 ---
-date: '2024-11-01 03:35:06 +0800'
+date: '2024-11-01 06:35:06 +0800'
 tag: 'Sains'
 title: 'Ini hanya Uji coba'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-harari-akankah-manusia-mengalahkan-kematian.jpg'
