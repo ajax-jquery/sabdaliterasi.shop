@@ -85,12 +85,15 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        $ArticleDate = [datetime]::Parse($FrontMatter['date']).ToShortDateString()
+        $ArticleDateTime = [datetime]::Parse($FrontMatter['date'])
+        $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
-        if ($ArticleDate -eq $CurrentDate.ToShortDateString()) {
+
+        # Perbandingan waktu juga diperhatikan di sini
+        if ($ArticleDate -eq $CurrentDate.ToString('yyyy-MM-dd') -and $ArticleDateTime.TimeOfDay -le $CurrentDate.TimeOfDay) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
-        } elseif ($ArticleDate -lt $CurrentDate.ToShortDateString()) { # Tambahkan kondisi untuk memindahkan artikel yang sudah lewat
+        } elseif ($ArticleDate -lt $CurrentDate.ToString('yyyy-MM-dd')) { 
             $RenameArticleList.Add($Article)
             '{0}: Including article to move to data folder.' -f $FrontMatter['title']
         } else {
@@ -102,6 +105,7 @@ foreach ($Article in $DraftArticles) {
 }
 '::endgroup::'
 #endregion
+
 
 #region Handling Multiple Draft Articles with Current Date
 '::group::Handling Multiple Draft Articles with Current Date'
