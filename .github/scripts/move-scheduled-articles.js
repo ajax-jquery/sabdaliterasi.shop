@@ -19,11 +19,21 @@ function moveFileIfPublished(draftDir, publishDir) {
       const publishDate = moment.tz(dateMatch[1], timezone);
       const currentDate = moment().tz(timezone);
 
+      // Tambahkan log untuk memastikan tanggal publish dan tanggal sekarang
+      console.log(`File: ${file}`);
+      console.log(`Publish Date: ${publishDate.format()}`);
+      console.log(`Current Date: ${currentDate.format()}`);
+
+      // Periksa apakah waktu publikasi sudah lewat
       if (currentDate.isAfter(publishDate)) {
         const targetPath = path.join(publishDir, file);
         fs.renameSync(filePath, targetPath);
         console.log(`Moved: ${file} to ${publishDir}`);
+      } else {
+        console.log(`Skipping: ${file} (not yet time to publish)`);
       }
+    } else {
+      console.log(`Date not found in: ${file}`);
     }
   });
 }
