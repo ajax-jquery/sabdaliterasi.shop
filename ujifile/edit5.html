@@ -20,6 +20,7 @@ permalink: /edit5/
 <script src="/assets/js/editartikel.min.js"></script>
 <script>
 let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+function DuplikatKey(t){let i=t.split(",").map(t=>t.trim()).filter(t=>t),e=new Set(i),n=Array.from(e);return n.join(", ")}
 </script>
 <script>
 const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
@@ -528,7 +529,10 @@ let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).
   tag=lo($('input[name=tag]').val()),
   gambar =$('input[name=image]').val(),
   image=gambar,
-  description=$('textarea[name=description]').val(), keyword=$('input[name=keyword]').val().split(",").join("','").toLowerCase(),
+  description=$('textarea[name=description]').val(), 
+       keydup=DuplikatKey($('input[name=keyword]').val()),
+      keyword=keydup.split(",").join("','").toLowerCase(),
+     
   keywords=keyword.replaceAll("' ","'").replaceAll(" '","'"),
   d = new Date($('input[name=tanggal]').val()),
   Second = new Date();
