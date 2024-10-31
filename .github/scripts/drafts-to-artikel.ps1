@@ -89,11 +89,14 @@ foreach ($Article in $DraftArticles) {
         $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
         '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
 
-        # Perbandingan waktu juga diperhatikan di sini
-        if ($ArticleDate -eq $CurrentDate.ToString('yyyy-MM-dd') -and $ArticleDateTime.TimeOfDay -le $CurrentDate.TimeOfDay) {
+        # Mengatur CurrentDate dengan zona waktu yang benar
+        $CurrentDateTime = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), 'Asia/Makassar')
+        $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
+        
+        if ($ArticleDate -eq $CurrentDate -and $ArticleDateTime.TimeOfDay -le $CurrentDateTime.TimeOfDay) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
-        } elseif ($ArticleDate -lt $CurrentDate.ToString('yyyy-MM-dd')) { 
+        } elseif ($ArticleDate -lt $CurrentDate) { 
             $RenameArticleList.Add($Article)
             '{0}: Including article to move to data folder.' -f $FrontMatter['title']
         } else {
@@ -105,6 +108,7 @@ foreach ($Article in $DraftArticles) {
 }
 '::endgroup::'
 #endregion
+
 
 
 #region Handling Multiple Draft Articles with Current Date
