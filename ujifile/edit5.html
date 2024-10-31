@@ -530,8 +530,8 @@ let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).
   gambar =$('input[name=image]').val(),
   image=gambar,
   description=$('textarea[name=description]').val(), 
-       keydup=DuplikatKey($('input[name=keyword]').val()),
-      keyword=keydup.split(",").join("','").toLowerCase(),
+       keydup=DuplikatKey($('input[name=keyword]').val().toLowerCase()),
+      keyword=keydup.split(",").join("','"),
      
   keywords=keyword.replaceAll("' ","'").replaceAll(" '","'"),
   d = new Date($('input[name=tanggal]').val()),
