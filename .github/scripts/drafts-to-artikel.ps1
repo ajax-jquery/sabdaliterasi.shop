@@ -84,22 +84,23 @@ if ($DraftArticles.Count -gt 0) {
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
+        # Parsing tanggal dan waktu dari front matter
         $ArticleDateTimeString = $FrontMatter['date']
         $ArticleDateTime = [datetime]::Parse($ArticleDateTimeString)
         
-        # Konversi waktu artikel ke UTC
-        $ArticleDateTimeUtc = [System.TimeZoneInfo]::ConvertTimeToUtc($ArticleDateTime)
+        # Konversi waktu artikel ke waktu lokal
+        $ArticleDateTimeLocal = [System.TimeZoneInfo]::ConvertTime($ArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById("Asia/Jakarta"))
         
         # Format tanggal untuk perbandingan
-        $ArticleDate = $ArticleDateTimeUtc.ToString('yyyy-MM-dd')
-        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTimeUtc.ToString('HH:mm:ss')
+        $ArticleDate = $ArticleDateTimeLocal.ToString('yyyy-MM-dd')
+        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTimeLocal.ToString('HH:mm:ss')
 
         $CurrentDateTime = [DateTime]::Now
         $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
         '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
 
         # Perbandingan antara waktu artikel dan waktu saat ini
-        if ($ArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $ArticleDateTimeUtc) {
+        if ($ArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $ArticleDateTimeLocal) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } elseif ($ArticleDate -lt $CurrentDate) { 
@@ -114,6 +115,7 @@ foreach ($Article in $DraftArticles) {
 }
 '::endgroup::'
 #endregion
+
 
 
 #region Handling Multiple Draft Articles with Current Date
