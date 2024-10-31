@@ -59,6 +59,7 @@ jobs:
         if ($status) {
           git config --global user.name "ajax-jquery"
           git config --global user.email "fkansaz@gmail.com"
+          git pull origin draft-articles --rebase # Ambil perubahan terbaru dengan rebase
           git add .
           git commit -m "Moved draft articles to publish directory"
           git push origin draft-articles
@@ -93,7 +94,6 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         number: ${{ steps.find-pull-request.outputs.number }}
         method: merge
-
         
   check_draft_amp:
     runs-on: ubuntu-latest
