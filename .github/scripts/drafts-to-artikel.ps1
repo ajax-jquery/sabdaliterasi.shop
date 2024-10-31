@@ -86,11 +86,15 @@ foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
         # Mengambil tanggal dengan format yang tepat
-        $ArticleDateTime = [datetime]::ParseExact($FrontMatter['date'], 'yyyy-MM-dd HH:mm:ss zzz', $null)
+        $ArticleDateTimeString = $FrontMatter['date']
+        # Parsing tanggal dengan format dan zona waktu yang benar
+        $ArticleDateTime = [datetime]::ParseExact($ArticleDateTimeString, 'yyyy-MM-dd HH:mm:ss zzz', $null)
+
+        # Memformat tanggal dan waktu untuk output
         $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
         '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTime.ToString('HH:mm:ss')
 
-        # Mengatur CurrentDate dengan zona waktu yang benar
+        # Mendapatkan waktu saat ini dalam timezone yang benar
         $CurrentDateTime = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), 'Asia/Makassar')
         $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
         '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
