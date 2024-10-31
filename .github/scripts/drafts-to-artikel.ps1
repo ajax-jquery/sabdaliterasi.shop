@@ -87,13 +87,14 @@ foreach ($Article in $DraftArticles) {
     if ($FrontMatter.ContainsKey('date')) {
         $ArticleDateTime = [datetime]::Parse($FrontMatter['date'])
         $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
-        '{0}: DATE : {1}' -f $FrontMatter['title'],$ArticleDate
+        '{0}: DATE : {1}' -f $FrontMatter['title'], $ArticleDate
 
         # Mengatur CurrentDate dengan zona waktu yang benar
         $CurrentDateTime = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), 'Asia/Makassar')
         $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
         
-        if ($ArticleDate -eq $CurrentDate -and $ArticleDateTime.TimeOfDay -le $CurrentDateTime.TimeOfDay) {
+        # Memeriksa jika artikel tanggal sama dengan hari ini dan juga memeriksa waktu
+        if ($ArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $ArticleDateTime) {
             $RenameArticleList.Add($Article)
             '{0}: Including article to rename.' -f $FrontMatter['title']
         } elseif ($ArticleDate -lt $CurrentDate) { 
@@ -108,6 +109,7 @@ foreach ($Article in $DraftArticles) {
 }
 '::endgroup::'
 #endregion
+
 
 
 
