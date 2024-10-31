@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const moment = require('moment-timezone');
 
-const timezone = process.env.TIMEZONE || 'Asia/Jakarta';
+const timezone = process.env.TIMEZONE || 'Asia/Makassar';
 const draftArtikelDir = '_drafartikel';
 const draftAmpDir = '_draftamp';
 const artikelDir = '_artikel';
