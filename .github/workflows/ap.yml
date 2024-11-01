@@ -3,7 +3,9 @@ name: Articles Posts
 on:
   schedule:
     - cron: '0 * * * *'
-
+  push: 
+    branches:
+      - master
   workflow_dispatch:
 
 defaults:
