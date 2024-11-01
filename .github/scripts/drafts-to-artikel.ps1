@@ -7,7 +7,7 @@ param(
     [string]$AMPDataPath = '_amp',
     [string]$AMPConfigPath = '_config.yml',
     [switch]$AMPAllowMultiplePostsPerDay,
-    [switch]$AMPPreserveDateFileName
+    [switch]$AMPPreserveDateFileName,
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
 )
