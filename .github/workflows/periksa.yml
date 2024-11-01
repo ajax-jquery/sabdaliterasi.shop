@@ -3,6 +3,9 @@ name: Periksa Artikel
 on:
   schedule:
     - cron: '0 * * * *'
+  push: 
+    branches:
+      - master    
   workflow_dispatch:
 
 defaults:
