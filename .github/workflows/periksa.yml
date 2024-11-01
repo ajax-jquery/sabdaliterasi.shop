@@ -3,9 +3,9 @@ name: Periksa Artikel
 on:
   schedule:
     - cron: '0 * * * *'
-  push: 
-    branches:
-      - master    
+  push:
+    paths:
+      - 'ajax-jquery/sabdaliterasi.shop/update.txt'
   workflow_dispatch:
 
 defaults:
