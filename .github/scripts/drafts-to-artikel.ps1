@@ -1,15 +1,21 @@
 [CmdletBinding()]
 param(
+    [string]$DraftsAmpPath = '_draftamp',
+    [string]$DataAmpPath = '_amp',
     [string]$DraftsPath = '_drafts',
     [string]$DataPath = '_artikel',
     [string]$ConfigPath = '_config.yml',
-    [string]$DraftsAmpPath = '_draftsamp',  # Parameter baru untuk AMP
-    [string]$AmpPath = '_amp',              # Parameter baru untuk tujuan AMP
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
 )
 
 function OutputAction {
+    param (
+        [bool]$ShouldPublish,
+        [string[]]$AddFilesToCommit,
+        [string[]]$RemoveFilesFromCommit
+    )
+    
     if ($ShouldPublish) {
         $AddFileList = $AddFilesToCommit -join ','
         $RemoveFileList = $RemoveFilesFromCommit -join ','
@@ -23,258 +29,83 @@ function OutputAction {
     }
 }
 
+function MoveDrafts {
+    param (
+        [string]$DraftsPath,
+        [string]$DataPath,
+        [string]$ShouldPublish,
+        [string[]]$AddFilesToCommit,
+        [string[]]$RemoveFilesFromCommit
+    )
+
+    $ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
+    $ResolvedDataPath = Join-Path -Path $BasePath -ChildPath $DataPath
+    $RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
+
+    # Code untuk discovery dan pemindahan artikel
+    if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
+        '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
+        OutputAction -ShouldPublish $ShouldPublish -AddFilesToCommit $AddFilesToCommit -RemoveFilesFromCommit $RemoveFilesFromCommit
+        exit 1
+    }
+
+    $DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
+    if ($DraftArticles.Count -gt 0) {
+        foreach ($DraftArticle in $DraftArticles) {
+            # Get the article's date from its filename or front matter
+            $FileDate = $null
+            if ($PreserveDateFileName) {
+                $FileNameParts = $DraftArticle.Name -split '-'
+                if ($FileNameParts.Count -gt 1) {
+                    $FileDate = $FileNameParts[0]
+                }
+            } else {
+                # Read front matter from the article to get the date
+                $FrontMatter = Get-Content $DraftArticle.FullName -Raw | Select-String -Pattern 'date:\s*(.+)'
+                if ($FrontMatter) {
+                    $FileDate = $FrontMatter.Matches.Groups[1].Value
+                }
+            }
+
+            if ($FileDate) {
+                $DateTime = [datetime]::Parse($FileDate)
+                $CurrentDateTime = Get-Date
+
+                if ($AllowMultiplePostsPerDay -or $DateTime.Date -eq $CurrentDateTime.Date) {
+                    # Construct the destination file path
+                    $DestinationFile = Join-Path -Path $ResolvedDataPath -ChildPath $DraftArticle.Name
+                    Move-Item -Path $DraftArticle.FullName -Destination $DestinationFile -Force
+                    $AddFilesToCommit += $DestinationFile
+                    $RenameArticleList.Add($DraftArticle)
+                } else {
+                    $RemoveFilesFromCommit += $DraftArticle.FullName
+                }
+            }
+        }
+        OutputAction -ShouldPublish $ShouldPublish -AddFilesToCommit $AddFilesToCommit -RemoveFilesFromCommit $RemoveFilesFromCommit
+    } else {
+        'No markdown files found in {0}.' -f $DraftsPath
+        OutputAction -ShouldPublish $ShouldPublish -AddFilesToCommit $AddFilesToCommit -RemoveFilesFromCommit $RemoveFilesFromCommit
+    }
+}
+
 #region Set Variables
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
-$ResolvedDraftsPath = Join-Path -Path $BasePath -ChildPath $DraftsPath -AdditionalChildPath '*'
-$ResolvedDataPath = Join-Path -Path $BasePath -ChildPath $DataPath
-$ResolvedConfigPath = Join-Path -Path $BasePath -ChildPath $ConfigPath
-$RenameArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
+
+$ShouldPublishAmp = $false
+$AddFilesToCommitAmp = [System.Collections.Generic.List[String]]::new()
+$RemoveFilesFromCommitAmp = [System.Collections.Generic.List[String]]::new()
+
+$ShouldPublish = $false
 $AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
 $RemoveFilesFromCommit = [System.Collections.Generic.List[String]]::new()
-$DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
-$ShouldPublish = $false
 #endregion
 
-#region Set TimeZone
-'::group::Set TimeZone'
-$TimeZone = (Get-TimeZone).StandardName
-$DefaultTimeZoneMessage = 'Setting TimeZone to default ''{0}''.' -f $TimeZone
-try {
-    if (Test-Path -Path $ResolvedConfigPath) {
-        $TimeZone = (Get-Content -Path $ResolvedConfigPath | ConvertFrom-Yaml).timezone
-        if (-Not [string]::IsNullOrEmpty($TimeZone)) {
-            'Setting TimeZone from {0} to ''{1}''.' -f $ConfigPath, $TimeZone
-        } else {
-            Write-Output $DefaultTimeZoneMessage
-        }
-    } else {
-        Write-Output $DefaultTimeZoneMessage
-    }
-} catch {
-    Write-Output $DefaultTimeZoneMessage
-}
-$CurrentDate = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), $TimeZone)
-$FormattedDate = $CurrentDate.ToString('yyyy-MM-dd')
-'::endgroup::'
-#endregion
+# Move from _draftamp to _amp
+MoveDrafts -DraftsPath $DraftsAmpPath -DataPath $DataAmpPath -ShouldPublish $ShouldPublishAmp -AddFilesToCommit $AddFilesToCommitAmp -RemoveFilesFromCommit $RemoveFilesFromCommitAmp
 
-#region Draft Article Discovery
-'::group::Draft Article Discovery'
-if (-Not (Test-Path -Path $ResolvedDraftsPath)) {
-    '::error::The draft path ''{0}'' could not be found' -f $DraftsPath
-    exit 1
-}
-$DraftArticles = Get-ChildItem -Path $ResolvedDraftsPath -Include *.md -Exclude template.md
-if ($DraftArticles.Count -gt 0) {
-    if ($DraftArticles.Count -eq 1) {
-        'Found 1 article in {0}.' -f $DraftsPath
-    } else {
-        'Found {0} articles in {1}.' -f $DraftArticles.Count, $DraftsPath
-    }
-    $DraftArticles.Name | ForEach-Object {
-        '- {0}' -f $_
-    }
-} else {
-    'No markdown files found in {0}.' -f $DraftsPath
-    OutputAction
-}
-'::endgroup::'
-#endregion
+# Move from _drafts to _artikel
+MoveDrafts -DraftsPath $DraftsPath -DataPath $DataPath -ShouldPublish $ShouldPublish -AddFilesToCommit $AddFilesToCommit -RemoveFilesFromCommit $RemoveFilesFromCommit
 
-#region Checking Draft Article Date
-'::group::Checking Draft Article Date'
-foreach ($Article in $DraftArticles) {
-    $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter.ContainsKey('date')) {
-        # Mengambil tanggal dari front matter
-        $ArticleDateTimeString = $FrontMatter['date']
-
-        # Mengonversi string menjadi objek DateTime dengan zona waktu yang benar
-        $ArticleDateTime = [datetime]::Parse($ArticleDateTimeString).ToUniversalTime()
-        $ArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
-
-        # Memformat tanggal dan waktu untuk output
-        $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
-        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTime.ToString('HH:mm:ss')
-
-        # Mendapatkan waktu saat ini dengan timezone Asia/Makassar
-        $CurrentDateTime = [System.TimeZoneInfo]::ConvertTime([DateTime]::Now, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
-        $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
-        '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
-
-        # Memeriksa apakah artikel tanggal sama dengan hari ini dan juga memeriksa waktu
-        if ($ArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $ArticleDateTime) {
-            $RenameArticleList.Add($Article)
-            '{0}: Including article to rename.' -f $FrontMatter['title']
-        } elseif ($ArticleDate -lt $CurrentDate) { 
-            $RenameArticleList.Add($Article)
-            '{0}: Including article to move to data folder.' -f $FrontMatter['title']
-        } else {
-            '::warning:: {0}: Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
-        }
-    } else {
-        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
-    }
-}
-'::endgroup::'
-#endregion
-
-#region Handling Multiple Draft Articles with Current Date
-'::group::Handling Multiple Draft Articles with Current Date'
-switch ($RenameArticleList.Count) {
-    0 {
-        'No articles matched the criteria to be renamed and published.'
-        OutputAction
-        return
-    }
-    1 {
-        'Found 1 article to rename.'
-    }
-    default {
-        '::warning::More than one draft article found with front matter date value of {0}.' -f $FormattedDate
-        $RenameArticleList = $RenameArticleList | Sort-Object -Property LastWriteTimeUtc
-        if ($AllowMultiplePostsPerDay.IsPresent) {
-            '::warning::Multiple draft articles will be published per day chronologically.'
-        } else {
-            '::warning::Multiple draft articles with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
-            $RenameArticleList = $RenameArticleList | Select-Object -Last 1
-        }
-    }
-}
-'::endgroup::'
-#endregion
-
-#region Moving Draft Articles to Data folder
-if (-Not (Test-Path -Path $ResolvedDataPath)) {
-    '::error::The data path ''{0}'' could not be found' -f $DataPath
-    OutputAction
-    exit 1
-}
-'::group::Moving Draft Articles to Data folder'
-foreach ($Article in $RenameArticleList) {
-    # Cek apakah nama file sudah dimulai dengan tanggal
-    if ($Article.BaseName -match $DateRegex) {
-        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
-        
-        # Jika PreserveDateFileName aktif, gunakan nama asli
-        if ($PreserveDateFileName.IsPresent) {
-            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be retained as {0}.' -f $Article.Name
-            $NewFileName = $Article.Name  # Tetap menggunakan nama asli
-        } else {
-            'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
-            # Hapus tanggal dari nama file lama dan tambahkan tanggal baru
-            $NewFileName = $Article.Name -replace $DateRegex, ''
-            $NewFileName = '{0}-{1}' -f $FormattedDate, $NewFileName.TrimStart('-')  # Trim untuk menghindari karakter '-'
-        }
-    } else {
-        # Jika tidak ada tanggal, tambahkan tanggal ke nama file
-        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
-        'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
-    }
-
-    # Move the draft to the data path
-    try {
-        Move-Item -Path $Article.FullName -Destination (Join-Path -Path $ResolvedDataPath -ChildPath $NewFileName)
-        $AddFilesToCommit.Add($NewFileName)
-        'Article {0} has been moved to {1}.' -f $Article.Name, $ResolvedDataPath
-        $ShouldPublish = $true
-    } catch {
-        '::error::Failed to move {0}. Error: {1}' -f $Article.Name, $_.Exception.Message
-        $RemoveFilesFromCommit.Add($Article.Name)
-    }
-}
-'::endgroup::'
-#endregion
-
-#region Draft AMP Article Discovery
-'::group::Draft AMP Article Discovery'
-$ResolvedDraftsAmpPath = Join-Path -Path $BasePath -ChildPath $DraftsAmpPath -AdditionalChildPath '*'
-$RenameAmpList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
-
-if (-Not (Test-Path -Path $ResolvedDraftsAmpPath)) {
-    '::error::The draft AMP path ''{0}'' could not be found' -f $DraftsAmpPath
-} else {
-    $DraftAmpArticles = Get-ChildItem -Path $ResolvedDraftsAmpPath -Include *.md -Exclude template.md
-    if ($DraftAmpArticles.Count -gt 0) {
-        'Found {0} AMP articles in {1}.' -f $DraftAmpArticles.Count, $DraftsAmpPath
-        $DraftAmpArticles.Name | ForEach-Object {
-            '- {0}' -f $_
-        }
-    } else {
-        'No AMP markdown files found in {0}.' -f $DraftsAmpPath
-    }
-}
-'::endgroup::'
-#endregion
-
-#region Checking Draft AMP Article Date
-'::group::Checking Draft AMP Article Date'
-foreach ($AmpArticle in $DraftAmpArticles) {
-    $FrontMatter = Get-Content -Path $AmpArticle.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter.ContainsKey('date')) {
-        # Mengambil tanggal dari front matter
-        $AmpArticleDateTimeString = $FrontMatter['date']
-
-        # Mengonversi string menjadi objek DateTime dengan zona waktu yang benar
-        $AmpArticleDateTime = [datetime]::Parse($AmpArticleDateTimeString).ToUniversalTime()
-        $AmpArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($AmpArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
-
-        # Memformat tanggal dan waktu untuk output
-        $AmpArticleDate = $AmpArticleDateTime.ToString('yyyy-MM-dd')
-        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $AmpArticleDate, $AmpArticleDateTime.ToString('HH:mm:ss')
-
-        # Mendapatkan waktu saat ini dengan timezone Asia/Makassar
-        $CurrentDateTime = [System.TimeZoneInfo]::ConvertTime([DateTime]::Now, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
-        $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
-        '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
-
-        # Memeriksa apakah artikel tanggal sama dengan hari ini dan juga memeriksa waktu
-        if ($AmpArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $AmpArticleDateTime) {
-            $RenameAmpList.Add($AmpArticle)
-            '{0}: Including AMP Article to rename.' -f $FrontMatter['title']
-        } elseif ($AmpArticleDate -lt $CurrentDate) { 
-            $RenameAmpList.Add($AmpArticle)
-            '{0}: Including AMP Article to move to data folder.' -f $FrontMatter['title']
-        } else {
-            '::warning:: {0}: AMP Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
-        }
-    } else {
-        '{0}: AMP Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
-    }
-}
-'::endgroup::'
-#endregion
-
-#region Moving Draft AMP Articles to Amp folder
-'::group::Moving Draft AMP Articles to Amp folder'
-$ResolvedAmpPath = Join-Path -Path $BasePath -ChildPath $AmpPath
-
-if (-Not (Test-Path -Path $ResolvedAmpPath)) {
-    '::error::The AMP data path ''{0}'' could not be found' -f $AmpPath
-} else {
-    foreach ($AmpArticle in $RenameAmpList) {
-        # Rename logic untuk AMP file
-        if ($AmpArticle.BaseName -match $DateRegex) {
-            if ($PreserveDateFileName.IsPresent) {
-                $NewAmpFileName = $AmpArticle.Name
-            } else {
-                $NewAmpFileName = '{0}-{1}' -f $FormattedDate, $AmpArticle.Name -replace $DateRegex, ''
-            }
-        } else {
-            $NewAmpFileName = '{0}-{1}' -f $FormattedDate, $AmpArticle.Name
-        }
-
-        # Memindahkan AMP file
-        try {
-            Move-Item -Path $AmpArticle.FullName -Destination (Join-Path -Path $ResolvedAmpPath -ChildPath $NewAmpFileName)
-            $AddFilesToCommit.Add($NewAmpFileName)
-            $ShouldPublish = $true
-        } catch {
-            $RemoveFilesFromCommit.Add($AmpArticle.Name)
-        }
-    }
-}
-'::endgroup::'
-#endregion
-
-OutputAction
+# Kode di bawah ini berfungsi untuk output akhir
+OutputAction -ShouldPublish $ShouldPublish -AddFilesToCommit $AddFilesToCommit -RemoveFilesFromCommit $RemoveFilesFromCommit
