@@ -6,8 +6,6 @@ param(
     [string]$AMPDraftsPath = '_draftsamp',
     [string]$AMPDataPath = '_amp',
     [string]$AMPConfigPath = '_config.yml',
-    [switch]$AMPAllowMultiplePostsPerDay,
-    [switch]$AMPPreserveDateFileName,
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
 )
@@ -311,7 +309,7 @@ switch ($AMPRenameArticleList.Count) {
     default {
         '::warning::More than one draft article found with front matter date value of {0}.' -f $AMPFormattedDate
         $AMPRenameArticleList = $AMPRenameArticleList | Sort-Object -Property LastWriteTimeUtc
-        if ($AMPAllowMultiplePostsPerDay.IsPresent) {
+        if ($AllowMultiplePostsPerDay.IsPresent) {
             '::warning::Multiple draft articles will be published per day chronologically.'
         } else {
             '::warning::Multiple draft articles with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
@@ -333,7 +331,7 @@ foreach ($AMPArticle in $AMPRenameArticleList) {
     if ($AMPArticle.BaseName -match $AMPDateRegex) {
         '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $AMPArticle.Name
         
-        if ($AMPPreserveDateFileName.IsPresent) {
+        if ($PreserveDateFileName.IsPresent) {
             '::warning::''PreserveDateFileName'' is enabled. The existing filename will be retained as {0}.' -f $AMPArticle.Name
             $AMPNewFileName = $AMPArticle.Name
         } else {
