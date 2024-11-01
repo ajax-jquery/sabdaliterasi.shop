@@ -1,29 +1,26 @@
 {
   "ipVersion": 4,
-  "ipAddress": "182.2.229.28",
-  "latitude": -0.8917,
-  "longitude": 119.870697,
-  "countryName": "Indonesia",
-  "countryCode": "ID",
-  "timeZone": "+08:00",
-  "zipCode": "94229",
-  "cityName": "Palu",
-  "regionName": "Sulawesi Tengah",
+  "ipAddress": "51.159.111.35",
+  "latitude": 48.859077,
+  "longitude": 2.293486,
+  "countryName": "France",
+  "countryCode": "FR",
+  "timeZone": "+02:00",
+  "zipCode": "75000",
+  "cityName": "Paris",
+  "regionName": "Ile-de-France",
   "isProxy": false,
-  "continent": "Asia",
-  "continentCode": "AS",
+  "continent": "Europe",
+  "continentCode": "EU",
   "currency": {
-    "code": "IDR",
-    "name": "Rupiah"
+    "code": "EUR",
+    "name": "Euro"
   },
-  "language": "Indonesian",
+  "language": "French",
   "timeZones": [
-    "Asia/Jakarta",
-    "Asia/Jayapura",
-    "Asia/Makassar",
-    "Asia/Pontianak"
+    "Europe/Paris"
   ],
   "tlds": [
-    ".id"
+    ".fr"
   ]
 }
