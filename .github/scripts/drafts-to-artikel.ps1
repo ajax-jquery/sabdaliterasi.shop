@@ -182,18 +182,22 @@ if (-Not (Test-Path -Path $ResolvedDraftAmpPath)) {
     exit 1
 }
 $DraftAmpArticles = Get-ChildItem -Path $ResolvedDraftAmpPath -Include *.md
+
+# Debugging output
+Write-Output "Draft AMP Path: $ResolvedDraftAmpPath"
+Write-Output "Draft AMP Articles Count: $($DraftAmpArticles.Count)"
+
 if ($DraftAmpArticles.Count -gt 0) {
     if ($DraftAmpArticles.Count -eq 1) {
         'Found 1 AMP article in {0}.' -f $DraftAmpPath
     } else {
-        'Found {0} AMP articles in {1}.' -f $DraftAmpPath
+        'Found {0} AMP articles in {1}.' -f $DraftAmpArticles.Count, $DraftAmpPath
     }
     $DraftAmpArticles.Name | ForEach-Object {
         '- {0}' -f $_
     }
 } else {
     'No markdown files found in {0}.' -f $DraftAmpPath
-    OutputAction
 }
 '::endgroup::'
 #endregion
