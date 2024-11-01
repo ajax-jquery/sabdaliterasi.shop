@@ -119,9 +119,6 @@ foreach ($Article in $DraftArticles) {
 '::endgroup::'
 #endregion
 
-
-
-
 #region Handling Multiple Draft Articles with Current Date
 '::group::Handling Multiple Draft Articles with Current Date'
 switch ($RenameArticleList.Count) {
@@ -210,41 +207,26 @@ if (-Not (Test-Path -Path $ResolvedDraftsAmpPath)) {
 '::endgroup::'
 #endregion
 
-#region Checking Draft AmpArticle Date
+#region Checking Draft AMP Article Date
 '::group::Checking Draft AMP Article Date'
-$RenameAmpArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
-
 foreach ($AmpArticle in $DraftAmpArticles) {
     $FrontMatter = Get-Content -Path $AmpArticle.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
-        # Mengambil tanggal dari front matter
         $AmpArticleDateTimeString = $FrontMatter['date']
-
-        # Mengonversi string menjadi objek DateTime dengan zona waktu yang benar
         $AmpArticleDateTime = [datetime]::Parse($AmpArticleDateTimeString).ToUniversalTime()
         $AmpArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($AmpArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
-
-        # Memformat tanggal dan waktu untuk output
+        
+        # Format output date and time
         $AmpArticleDate = $AmpArticleDateTime.ToString('yyyy-MM-dd')
-        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $AmpArticleDate, $AmpArticleDateTime.ToString('HH:mm:ss')
-
-        # Mendapatkan waktu saat ini dengan timezone Asia/Makassar
         $CurrentDateTime = [System.TimeZoneInfo]::ConvertTime([DateTime]::Now, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
         $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
-        '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
 
-        # Memeriksa apakah artikel tanggal sama dengan hari ini dan juga memeriksa waktu
+        # Cek tanggal untuk publikasi AMP
         if ($AmpArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $AmpArticleDateTime) {
-            $RenameAmpArticleList.Add($AmpArticle)
-            '{0}: Including AMP Article to rename.' -f $FrontMatter['title']
+            $RenameAmpList.Add($AmpArticle)
         } elseif ($AmpArticleDate -lt $CurrentDate) { 
-            $RenameAmpArticleList.Add($AmpArticle)
-            '{0}: Including AMP Article to move to data folder.' -f $FrontMatter['title']
-        } else {
-            '::warning:: {0}: AMP Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
+            $RenameAmpList.Add($AmpArticle)
         }
-    } else {
-        '::warning:: {0}: AMP Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
     }
 }
 '::endgroup::'
@@ -281,5 +263,7 @@ if (-Not (Test-Path -Path $ResolvedAmpPath)) {
 }
 '::endgroup::'
 #endregion
+
+OutputAction
 
 OutputAction
