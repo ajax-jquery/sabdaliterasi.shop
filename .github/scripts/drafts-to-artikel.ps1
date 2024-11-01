@@ -2,7 +2,7 @@
 param(
     [string]$DraftsPath = '_drafts',
     [string]$DataPath = '_artikel',
-    [string]$DraftAmpPath = '_draftamp',
+    [string]$DraftAmpPath = '_draftsamp',
     [string]$AmpPath = '_amp',
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
