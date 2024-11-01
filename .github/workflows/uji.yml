@@ -5,7 +5,7 @@ on:
     - cron: '0 * * * *'
   push:
     paths:
-      - 'ajax-jquery/sabdaliterasi.shop/update.txt'
+      - 'update.txt'
   workflow_dispatch:
 
 jobs:
