@@ -1,4 +1,4 @@
-name: Periksa Artikel
+name: Periksa Jadwal Artikel
 
 on:
   schedule:
