@@ -54,7 +54,7 @@ jobs:
       with:
         commit-message: publish draft article
         committer: ${{ vars.GIT_USER_NAME }} <${{ vars.GIT_USER_EMAIL }}>
-        branch: draft-articles
+        branch: jadwal-articles
         title: Create Pull Request
         body: Create pull request to publish renamed article
         delete-branch: true
@@ -64,7 +64,7 @@ jobs:
       if: steps.check_articles_to_publish.outputs.PUBLISH_ARTICLES == 'true'
       id: find-pull-request
       with:
-        branch: draft-articles
+        branch: jadwal-articles
 
     - name: Merge Pull Request
       id: merge-pull-request
@@ -118,7 +118,7 @@ jobs:
       with:
         commit-message: publish draft article
         committer: ${{ vars.GIT_USER_NAME }} <${{ vars.GIT_USER_EMAIL }}>
-        branch: draft-articles-amp
+        branch: jadwal-articles-amp
         title: Create Pull Request
         body: Create pull request to publish renamed article
         delete-branch: true
@@ -128,7 +128,7 @@ jobs:
       if: steps.check_articles_to_publish.outputs.PUBLISH_ARTICLES == 'true'
       id: find-pull-request
       with:
-        branch: draft-articles-amp
+        branch: jadwal-articles-amp
 
     - name: Merge Pull Request
       id: merge-pull-request
