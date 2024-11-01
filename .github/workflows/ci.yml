@@ -6,10 +6,6 @@ on:
   pull_request:
     branches:
       - master
-  workflow_run:
-    workflows: ["Periksa Artikel"]
-    types:
-      - completed
 
 jobs:
   build:
