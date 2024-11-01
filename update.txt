@@ -1,27 +1,29 @@
 {
   "ipVersion": 4,
-  "ipAddress": "146.70.250.10",
-  "latitude": 22.285521,
-  "longitude": 114.157692,
-  "countryName": "Hong Kong",
-  "countryCode": "HK",
+  "ipAddress": "182.2.229.28",
+  "latitude": -0.8917,
+  "longitude": 119.870697,
+  "countryName": "Indonesia",
+  "countryCode": "ID",
   "timeZone": "+08:00",
-  "zipCode": "-",
-  "cityName": "Hong Kong",
-  "regionName": "Hong Kong",
+  "zipCode": "94229",
+  "cityName": "Palu",
+  "regionName": "Sulawesi Tengah",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "HKD",
-    "name": "Hong Kong dollar"
+    "code": "IDR",
+    "name": "Rupiah"
   },
-  "language": "English",
+  "language": "Indonesian",
   "timeZones": [
-    "Asia/Hong_Kong"
+    "Asia/Jakarta",
+    "Asia/Jayapura",
+    "Asia/Makassar",
+    "Asia/Pontianak"
   ],
   "tlds": [
-    ".hk",
-    ".香港"
+    ".id"
   ]
 }
