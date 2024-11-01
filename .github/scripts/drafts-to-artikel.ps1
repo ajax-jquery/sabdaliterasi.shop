@@ -212,6 +212,8 @@ if (-Not (Test-Path -Path $ResolvedDraftsAmpPath)) {
 
 #region Checking Draft AmpArticle Date
 '::group::Checking Draft AMP Article Date'
+$RenameAmpArticleList = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
+
 foreach ($AmpArticle in $DraftAmpArticles) {
     $FrontMatter = Get-Content -Path $AmpArticle.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
@@ -242,12 +244,11 @@ foreach ($AmpArticle in $DraftAmpArticles) {
             '::warning:: {0}: AMP Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
         }
     } else {
-        '{0}: AMP Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+        '::warning:: {0}: AMP Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
     }
 }
 '::endgroup::'
 #endregion
-
 
 #region Moving Draft AMP Articles to Amp folder
 '::group::Moving Draft AMP Articles to Amp folder'
