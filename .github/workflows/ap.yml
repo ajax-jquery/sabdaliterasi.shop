@@ -79,7 +79,7 @@ jobs:
       if: steps.check_articles_to_publish.outputs.PUBLISH_ARTICLES == 'true'
       id: find-pull-request
       with:
-        branch: draft-articles
+        branch: master
 
     - name: Merge Pull Request
       id: merge-pull-request
@@ -160,7 +160,7 @@ jobs:
       if: steps.check_articles_to_publish.outputs.PUBLISH_ARTICLES == 'true'
       id: find-pull-request
       with:
-        branch: draft-articles
+        branch: master
 
     - name: Merge Pull Request
       id: merge-pull-request
