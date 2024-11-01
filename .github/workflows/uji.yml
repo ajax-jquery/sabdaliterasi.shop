@@ -1,4 +1,4 @@
-name: Periksa Artikel Uji
+name: Periksa Artikel
 
 on:
   schedule:
