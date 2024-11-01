@@ -27,13 +27,13 @@ jobs:
       id: rename_drafts_artikel
       run: |
         Set-Location -Path $env:GITHUB_WORKSPACE
-        .github/scripts/artikel.ps1
+        .github/scripts/artikel.ps1 -AllowMultiplePostsPerDay
         
     - name: Rename Draft AMP
       id: rename_drafts_amp
       run: |
         Set-Location -Path $env:GITHUB_WORKSPACE
-        .github/scripts/amp.ps1
+        .github/scripts/amp.ps1 -AllowMultiplePostsPerDay
 
     - name: Check for New Articles to Publish
       id: check_articles_to_publish
