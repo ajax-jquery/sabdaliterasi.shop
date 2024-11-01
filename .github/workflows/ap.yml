@@ -67,10 +67,10 @@ jobs:
       with:
         commit-message: publish draft article
         committer: ${{ env.GIT_USER_NAME }} <${{ env.GIT_USER_EMAIL }}>
-        branch: draft-articles
+        branch: master
         title: Create Pull Request
         body: Create pull request to publish renamed article
-        delete-branch: true
+        delete-branch: false
 
     - name: Find Pull Request
       uses: juliangruber/find-pull-request-action@v1.8.0
@@ -146,10 +146,10 @@ jobs:
       with:
         commit-message: publish draft article
         committer: ${{ env.GIT_USER_NAME }} <${{ env.GIT_USER_EMAIL }}>
-        branch: draft-articles
+        branch: master
         title: Create Pull Request
         body: Create pull request to publish renamed article
-        delete-branch: true
+        delete-branch: false
 
     - name: Find Pull Request
       uses: juliangruber/find-pull-request-action@v1.8.0
