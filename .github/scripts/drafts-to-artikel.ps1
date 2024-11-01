@@ -210,30 +210,44 @@ if (-Not (Test-Path -Path $ResolvedDraftsAmpPath)) {
 '::endgroup::'
 #endregion
 
-#region Checking Draft AMP Article Date
+#region Checking Draft AmpArticle Date
 '::group::Checking Draft AMP Article Date'
 foreach ($AmpArticle in $DraftAmpArticles) {
     $FrontMatter = Get-Content -Path $AmpArticle.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
     if ($FrontMatter.ContainsKey('date')) {
+        # Mengambil tanggal dari front matter
         $AmpArticleDateTimeString = $FrontMatter['date']
+
+        # Mengonversi string menjadi objek DateTime dengan zona waktu yang benar
         $AmpArticleDateTime = [datetime]::Parse($AmpArticleDateTimeString).ToUniversalTime()
         $AmpArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($AmpArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
-        
-        # Format output date and time
+
+        # Memformat tanggal dan waktu untuk output
         $AmpArticleDate = $AmpArticleDateTime.ToString('yyyy-MM-dd')
+        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $AmpArticleDate, $AmpArticleDateTime.ToString('HH:mm:ss')
+
+        # Mendapatkan waktu saat ini dengan timezone Asia/Makassar
         $CurrentDateTime = [System.TimeZoneInfo]::ConvertTime([DateTime]::Now, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
         $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
+        '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
 
-        # Cek tanggal untuk publikasi AMP
+        # Memeriksa apakah artikel tanggal sama dengan hari ini dan juga memeriksa waktu
         if ($AmpArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $AmpArticleDateTime) {
-            $RenameAmpList.Add($AmpArticle)
+            $RenameAmpArticleList.Add($AmpArticle)
+            '{0}: Including AMP Article to rename.' -f $FrontMatter['title']
         } elseif ($AmpArticleDate -lt $CurrentDate) { 
-            $RenameAmpList.Add($AmpArticle)
+            $RenameAmpArticleList.Add($AmpArticle)
+            '{0}: Including AMP Article to move to data folder.' -f $FrontMatter['title']
+        } else {
+            '::warning:: {0}: AMP Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
         }
+    } else {
+        '{0}: AMP Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
     }
 }
 '::endgroup::'
 #endregion
+
 
 #region Moving Draft AMP Articles to Amp folder
 '::group::Moving Draft AMP Articles to Amp folder'
