@@ -103,10 +103,10 @@ foreach ($Article in $DraftArticles) {
         # Memeriksa apakah artikel tanggal sama dengan hari ini dan juga memeriksa waktu
         if ($ArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $ArticleDateTime) {
             $RenameArticleList.Add($Article)
-            '{0}: Including article to rename.' -f $FrontMatter['title']
+            '::notice:: {0}: Including article to rename.' -f $FrontMatter['title']
         } elseif ($ArticleDate -lt $CurrentDate) { 
             $RenameArticleList.Add($Article)
-            '{0}: Including article to move to data folder.' -f $FrontMatter['title']
+            '::notice:: {0}: Including article to move to data folder.' -f $FrontMatter['title']
         } else {
             '::warning:: {0}: Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
         }
