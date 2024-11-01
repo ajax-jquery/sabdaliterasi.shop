@@ -39,7 +39,7 @@ jobs:
       id: rename_drafts
       run: |
         Set-Location -Path $env:GITHUB_WORKSPACE
-        .github/scripts/drafts-to-artikel.ps1
+        .github/scripts/draftsamp-to-amp.ps1
 
     - name: Check for New Articles to Publish
       id: check_articles_to_publish
@@ -88,8 +88,6 @@ jobs:
         number: ${{ steps.find-pull-request.outputs.number }}
         method: merge
 
-
-        
   check_draft_amp:
     runs-on: ubuntu-latest
     env:
@@ -98,6 +96,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+
+    - name: Set Git Config
+      run: |
+        git config --global user.email "${{ env.GIT_USER_EMAIL }}"
+        git config --global user.name "${{ env.GIT_USER_NAME }}"
 
     - name: Fetch Latest Changes
       run: |
@@ -114,7 +117,7 @@ jobs:
       id: rename_drafts
       run: |
         Set-Location -Path $env:GITHUB_WORKSPACE
-        .github/scripts/draftsamp-to-amp.ps1
+        .github/scripts/drafts-to-artikel.ps1
 
     - name: Check for New Articles to Publish
       id: check_articles_to_publish
@@ -141,7 +144,7 @@ jobs:
       if: steps.check_articles_to_publish.outputs.PUBLISH_ARTICLES == 'true'
       with:
         commit-message: publish draft article
-        committer: ${{ vars.GIT_USER_NAME }} <${{ vars.GIT_USER_EMAIL }}>
+        committer: ${{ env.GIT_USER_NAME }} <${{ env.GIT_USER_EMAIL }}>
         branch: draft-articles
         title: Create Pull Request
         body: Create pull request to publish renamed article
