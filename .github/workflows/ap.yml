@@ -1,4 +1,4 @@
-name: Articles Posts
+name: Periksa Jadwal
 
 on:
   schedule:
