@@ -194,6 +194,7 @@ foreach ($Article in $RenameArticleList) {
 
 OutputAction
 
+
 function AMPOutputAction {
     if ($AMPShouldPublish) {
         $AMPAddFileList = $AMPAddFilesToCommit -join ','
@@ -296,3 +297,64 @@ foreach ($AMPArticle in $AMPDraftArticles) {
 '::endgroup::'
 #endregion
 
+#region AMP Handling Multiple Draft Articles with Current Date
+'::group::AMP Handling Multiple Draft Articles with Current Date'
+switch ($AMPRenameArticleList.Count) {
+    0 {
+        'No articles matched the criteria to be renamed and published.'
+        AMPOutputAction
+        return
+    }
+    1 {
+        'Found 1 article to rename.'
+    }
+    default {
+        '::warning::More than one draft article found with front matter date value of {0}.' -f $AMPFormattedDate
+        $AMPRenameArticleList = $AMPRenameArticleList | Sort-Object -Property LastWriteTimeUtc
+        if ($AMPAllowMultiplePostsPerDay.IsPresent) {
+            '::warning::Multiple draft articles will be published per day chronologically.'
+        } else {
+            '::warning::Multiple draft articles with today''s date and ''AllowMultiplePostsPerDay'' is not enabled. The last edited file will be published.'
+            $AMPRenameArticleList = $AMPRenameArticleList | Select-Object -Last 1
+        }
+    }
+}
+'::endgroup::'
+#endregion
+
+#region AMP Moving Draft Articles to Data folder
+if (-Not (Test-Path -Path $AMPResolvedDataPath)) {
+    '::error::The data path ''{0}'' could not be found' -f $AMPDataPath
+    AMPOutputAction
+    exit 1
+}
+'::group::AMP Moving Draft Articles to Data folder'
+foreach ($AMPArticle in $AMPRenameArticleList) {
+    if ($AMPArticle.BaseName -match $AMPDateRegex) {
+        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $AMPArticle.Name
+        
+        if ($AMPPreserveDateFileName.IsPresent) {
+            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be retained as {0}.' -f $AMPArticle.Name
+            $AMPNewFileName = $AMPArticle.Name
+        } else {
+            $AMPNewFileName = $AMPArticle.Name -replace $AMPDateRegex, ''
+            $AMPNewFileName = '{0}-{1}' -f $AMPFormattedDate, $AMPNewFileName.TrimStart('-')
+        }
+    } else {
+        $AMPNewFileName = '{0}-{1}' -f $AMPFormattedDate, $AMPArticle.Name
+        'Renaming the article filename from {0} to {1}.' -f $AMPArticle.Name, $AMPNewFileName
+    }
+
+    try {
+        Move-Item -Path $AMPArticle.FullName -Destination (Join-Path -Path $AMPResolvedDataPath -ChildPath $AMPNewFileName) -Force
+        $AMPAddFilesToCommit.Add($AMPNewFileName)
+        $AMPRemoveFilesFromCommit.Add($AMPArticle.Name)
+        $AMPShouldPublish = $true
+    } catch {
+        '::error::Failed to rename article {0} to {1}' -f $AMPArticle.Name, $AMPNewFileName
+    }
+}
+'::endgroup::'
+#endregion
+
+AMPOutputAction
