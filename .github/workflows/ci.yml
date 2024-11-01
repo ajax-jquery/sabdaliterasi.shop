@@ -1,5 +1,16 @@
 name: Continuous Integration
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_run:
+    workflows: ["Periksa Artikel"]
+    types:
+      - completed
+
 jobs:
   build:
     name: Build Jekyll
