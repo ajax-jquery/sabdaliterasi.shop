@@ -26,11 +26,11 @@ jobs:
         git config --global user.email "${{ env.GIT_USER_EMAIL }}"
         git config --global user.name "${{ env.GIT_USER_NAME }}"
 
-    - name: Fetch Latest Changes
+    - name: Fetch Latest Changes from Master
       run: |
-        git fetch origin draft-articles
+        git fetch origin master
         git config pull.rebase false
-        git pull origin draft-articles --allow-unrelated-histories
+        git pull origin master --allow-unrelated-histories
 
     - name: PowerShell Module Cache
       uses: potatoqualitee/psmodulecache@v5.2
@@ -107,11 +107,11 @@ jobs:
         git config --global user.email "${{ env.GIT_USER_EMAIL }}"
         git config --global user.name "${{ env.GIT_USER_NAME }}"
 
-    - name: Fetch Latest Changes
+    - name: Fetch Latest Changes from Master
       run: |
-        git fetch origin draft-articles
+        git fetch origin master
         git config pull.rebase false
-        git pull origin draft-articles --allow-unrelated-histories
+        git pull origin master --allow-unrelated-histories
 
     - name: PowerShell Module Cache
       uses: potatoqualitee/psmodulecache@v5.2
