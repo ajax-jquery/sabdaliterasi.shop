@@ -12,6 +12,9 @@ defaults:
 jobs:
   check_draft_articles:
     runs-on: ubuntu-latest
+    env:
+      GIT_USER_NAME: "ajax-jquery"
+      GIT_USER_EMAIL: "fkansaz@gmail.com"
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -83,6 +86,9 @@ jobs:
         
   check_draft_amp:
     runs-on: ubuntu-latest
+    env:
+      GIT_USER_NAME: "ajax-jquery"
+      GIT_USER_EMAIL: "fkansaz@gmail.com"
     steps:
     - name: Checkout
       uses: actions/checkout@v3
