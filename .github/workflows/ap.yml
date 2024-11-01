@@ -87,6 +87,14 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         number: ${{ steps.find-pull-request.outputs.number }}
         method: merge
+    - name: Check for Merge Conflicts
+      run: |
+        if git diff --quiet HEAD origin/draft-articles; then
+        echo "No merge conflicts"
+        else
+        echo "Merge conflicts detected!"
+        exit 1
+        fi
 
   check_draft_amp:
     runs-on: ubuntu-latest
@@ -165,3 +173,11 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         number: ${{ steps.find-pull-request.outputs.number }}
         method: merge
+    - name: Check for Merge Conflicts
+      run: |
+        if git diff --quiet HEAD origin/draft-articles; then
+        echo "No merge conflicts"
+        else
+        echo "Merge conflicts detected!"
+        exit 1
+        fi
