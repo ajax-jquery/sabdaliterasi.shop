@@ -259,7 +259,8 @@ let u = document.querySelector('.ck-editor__editable'),
 !function() {
    const dbRef = ref(getDatabase());
 get(child(dbRef, 'editartikel')).then((snapshot) => {
-   let n = JSON.parse(snapshot.val().json);   
+   let n = JSON.parse(snapshot.val().json);
+$('#Folder').val(n.folder);   
 if(n.judul.length > 0 || n.tag.length > 0 || n.image.length > 0 || n.description.length > 0 || n.keyword.length > 0 || n.tanggal.length > 0 || n.isi.indexOf("ck-placeholder") < 0){
 
 if(n.judul.length > 0){
@@ -268,8 +269,8 @@ if(n.judul.length > 0){
  
  
  $('input[name=tag]').val(n.tag);
- $('#Folder').val(n.folder);
  
+
  if(n.image.length > 0){
  var imageUrl = n.image;
  var base64=n.base64;
