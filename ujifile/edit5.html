@@ -306,6 +306,7 @@ function formremove() {
   description: "",
   keyword: "",
   tanggal: "",
+  folder: "_artikel",
   isi: "" 
 };
 
@@ -329,6 +330,7 @@ function formSubmit() {
   description: $('textarea[name=description]').val(),
   keyword: $('input[name=keyword]').val(),
   tanggal: $('input[name=tanggal]').val(),
+  folder: $('#Folder').val(),
   isi: $('.ck-content').html() 
 };
 var k=JSON.stringify(b),
