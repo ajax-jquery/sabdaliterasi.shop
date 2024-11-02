@@ -1,14 +1,14 @@
 {
   "ipVersion": 4,
-  "ipAddress": "182.2.229.28",
-  "latitude": -0.8917,
-  "longitude": 119.870697,
+  "ipAddress": "140.213.217.45",
+  "latitude": -6.208678,
+  "longitude": 106.84549,
   "countryName": "Indonesia",
   "countryCode": "ID",
-  "timeZone": "+08:00",
-  "zipCode": "94229",
-  "cityName": "Palu",
-  "regionName": "Sulawesi Tengah",
+  "timeZone": "+07:00",
+  "zipCode": "12850",
+  "cityName": "Jakarta",
+  "regionName": "Jakarta Raya",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
@@ -27,4 +27,3 @@
     ".id"
   ]
 }
-
