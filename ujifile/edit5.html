@@ -212,7 +212,9 @@ Download
 </div>
 </div>
 <script>
-function Selectfolder(){$(document).ready(function(){function a(){let a=$('[name="tanggal"]'),n=$('#Folder'),e=a.val();if(e){let l=new Date(e),t=new Date;l>t?n.val("_drafts"):n.val("_artikel")}}a(),$('[name="tanggal"]').on("change",a)})}
+function updateFolderOption(){let a=$('[name="tanggal"]'),e=$("#Folder"),l=a.val();if(l){let t=new Date(l),n=new Date;t>n?e.val("_drafts"):e.val("_artikel")}}
+function Selectfolder(){
+updateFolderOption();$('[name="tanggal"]').on("change",updateFolderOption)}
 
 function startCK(){
 ClassicEditor.create(document.getElementById("editor"), {
