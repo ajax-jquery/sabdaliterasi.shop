@@ -939,7 +939,7 @@ return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').rep
 // Fungsi untuk mengatur visibilitas tombol berdasarkan posisi gulir
 window.addEventListener("scroll", function() {
   const scrollButton = document.getElementById("scrollButton");
-  if (window.scrollY < document.documentElement.clientHeight) {
+  if (window.scrollY > document.documentElement.clientHeight) {
     scrollButton.style.display = "none";
   } else {
     scrollButton.style.display = "block";
