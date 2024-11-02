@@ -212,7 +212,7 @@ Download
 </div>
 </div>
 <script>
-$(document).ready(function(){function a(){let a=$('[name="tanggal"]'),n=$('[name="Folder"]'),e=a.val();if(e){let l=new Date(e),t=new Date;l>t?n.val("_drafts"):n.val("_artikel")}}a(),$('[name="tanggal"]').on("change",a)});
+function Selectfolder(){$(document).ready(function(){function a(){let a=$('[name="tanggal"]'),n=$('[name="Folder"]'),e=a.val();if(e){let l=new Date(e),t=new Date;l>t?n.val("_drafts"):n.val("_artikel")}}a(),$('[name="tanggal"]').on("change",a)})}
 
 function startCK(){
 ClassicEditor.create(document.getElementById("editor"), {
@@ -284,12 +284,12 @@ if(n.judul.length > 0){
 startCK();$('input[name=keyword]').tagify();$('input[name=keyword]').addClass('hidden');
  
  }else{
- startCK();
+ startCK();Selectfolder();
  $('input[name=keyword]').tagify();$('input[name=keyword]').addClass('hidden');
  }
  
 }).catch((error) => {
-  alert(error);
+  alert(error);Selectfolder();
   startCK();
  $('input[name=keyword]').tagify();$('input[name=keyword]').addClass('hidden');
 });
@@ -656,7 +656,7 @@ $("#hasilink").val(hasilkanObj.link);
 
 
 
-});</script>
+});Selectfolder();</script>
 <script>
 function fotofile(){
 $('.inputfoto').removeClass('hidden');
