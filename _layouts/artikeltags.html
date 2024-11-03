@@ -52,7 +52,7 @@ layout: null
 
 <!--[ Alternatif content with button link ]-->
 <div class='ntfA'>
-{% assign posta = site.artikel | sort: "date" | reverse %}{% for post in posta limit: 1 %}
+{% assign posta = site.artikel | sort: "date_short" | reverse %}{% for post in posta limit: 1 %}
 <span>New Post: {{ post.title }} </span> <a title="{{ post.title }}" href='{{ post.url | prepend: site.url }}' target='_blank'>Read</a>
 {% endfor %}
 </div></div>
@@ -81,7 +81,7 @@ layout: null
 <div class='search-area'><div class='codehim-ss-bar'> <form id="CariProduk"><input onkeyup="cariproduk()" type='text' id="SerNOw" autocomplete="off" placeholder="Cari Artikel Di Sini..."/><button type="submit" class="codehim-circle-search-button" disabled> </button> </form> </div> </div>
 <h3 id="hasilo">All Article</h3>
 {% endif %} 
-<div class='blogPts'>{% assign ARTIKEL = site.artikel | sort: "date" | reverse %}
+<div class='blogPts'>{% assign ARTIKEL = site.artikel | sort: "date_short" | reverse %}
 {% for p in ARTIKEL %}  
 {% if page.title == "Artikel" %}
 <article data-search-term="{{ p.tag }}{{ p.title | replace: ' ','' | downcase }}{{ p.description | replace: ' ','' | replace: '"','' | downcase }}" class='ntry searproduk'>
