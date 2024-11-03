@@ -13,7 +13,7 @@ layout: null
     <link>{{ '/' | absolute_url }}</link>
     <atom:link href="{{ 'feed.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
     {% assign excerpt_length = site.excerpt_length | default: 50 %}
-{% assign poss = site.artikel | sort: "date" | reverse %}
+{% assign poss = site.artikel | sort: "date_short" | reverse %}
   {% for post in poss %}
       <item>
         <title>{{ post.title | strip_html | xml_escape }}</title>
