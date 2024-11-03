@@ -569,11 +569,13 @@ return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').rep
 };
  
 var waktu=$('input[name=tanggal]').val().replace('T',' ')+':'+leftPad(Second.getSeconds(),2)+" +0800";
+var waktu_short=$('input[name=tanggal]').val()+':'+leftPad(Second.getSeconds(),2)+"+08:00";
 
 
 var link=mdfile();
 var hasil=`---
 date: '${waktu}'
+date_short: '${waktu_short}'
 tag: '${tag}'
 title: '${judul}'
 image: '${image}'
