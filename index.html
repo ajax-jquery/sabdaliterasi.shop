@@ -195,7 +195,7 @@ RSS Product
 
 <!--[ Alternatif content with button link ]-->
 <div class='ntfA'>
-{% assign posta = site.artikel | sort: "date" | reverse %}{% for post in posta limit: 1 %}
+{% assign posta = site.artikel | sort: "date_short" | reverse %}{% for post in posta limit: 1 %}
 <span>New Post: {{ post.title }} </span> <a title="{{ post.title }}" href='{{ post.url | prepend: site.url }}' target='_blank'>Read</a>
 {% endfor %}
 </div></div>
@@ -285,7 +285,7 @@ All New Typography and Writing Formats in the lastest Plus UI v2.6
 <div class='blogTtl hm'>
 <h2 class='title dt'>Latest posts</h2>
 </div>
-<div class='blogPts'>{% assign puuu = site.artikel | sort: "date" | reverse %}{% for POST in puuu limit: 7 %}
+<div class='blogPts'>{% assign puuu = site.artikel | sort: "date_short" | reverse %}{% for POST in puuu limit: 7 %}
 <article class='ntry'>
 <div class='pThmb'>
 <a class='thmb' href='{{ POST.url | prepend: site.url }}'>
