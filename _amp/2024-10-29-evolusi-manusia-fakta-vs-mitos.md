@@ -1,5 +1,6 @@
 ---
 date: '2024-10-29 15:44:28 +0800'
+date_short: '2024-10-29T15:44:28+08:00'
 tag: 'Sains'
 title: 'Evolusi Manusia: Fakta vs Mitos'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-evolusi-manusia-fakta-vs-mitos.jpg'

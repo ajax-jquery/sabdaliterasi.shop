@@ -1,5 +1,6 @@
 ---
 date: '2024-11-02 15:00:01 +0800'
+date_short: '2024-11-02T15:00:01+08:00'
 tag: 'Filsafat'
 title: 'Demokrasi Ideal Menurut Aristoteles: Kritik dan Relevansi di Era Modern'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-demokrasi-ideal-menurut-aristoteles-kritik-dan-relevansi-di-era-modern.jpg'

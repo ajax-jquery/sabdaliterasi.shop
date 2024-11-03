@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 13:17:13 +0800'
+date_short: '2024-10-30T13:17:13+08:00'
 tag: 'Tokoh'
 title: 'Albert Camus dan Pemberontakan dalam Absurditas'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-albert-camus-dan-pemberontakan-dalam-absurditas.jpg'

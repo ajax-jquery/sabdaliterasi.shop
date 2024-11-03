@@ -1,5 +1,6 @@
 ---
 date: '2024-10-25 16:05:41 +0800'
+date_short: '2024-10-25T16:05:41+08:00'
 tag: 'Agama'
 title: 'Misteri Pengorbanan Ibrahim: Tafsir Ibn Arabi yang Mendalam'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-misteri-pengorbanan-ibrahim-tafsir-ibn-arabi-yang-mendalam.jpg'

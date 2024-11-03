@@ -1,5 +1,6 @@
 ---
 date: '2024-10-29 21:09:15 +0800'
+date_short: '2024-10-29T21:09:15+08:00'
 tag: 'Sains'
 title: 'Benarkah Kita Sendirian? Mencari Jejak Kehidupan di Luar Bumi'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-benarkah-kita-sendirian-mencari-jejak-kehidupan-di-luar-bumi.jpg'

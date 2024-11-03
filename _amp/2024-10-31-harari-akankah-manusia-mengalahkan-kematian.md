@@ -1,5 +1,6 @@
 ---
 date: '2024-10-31 02:34:47 +0800'
+date_short: '2024-10-31T02:34:47+08:00'
 tag: 'Sains'
 title: 'Harari: Akankah Manusia Mengalahkan Kematian?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-harari-akankah-manusia-mengalahkan-kematian.jpg'

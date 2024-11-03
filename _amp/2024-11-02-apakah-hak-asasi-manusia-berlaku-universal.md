@@ -1,5 +1,6 @@
 ---
 date: '2024-11-02 09:00:20 +0800'
+date_short: '2024-11-02T09:00:20+08:00'
 tag: 'Filsafat'
 title: 'Apakah Hak Asasi Manusia Berlaku Universal?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-apakah-hak-asasi-manusia-berlaku-universal.jpg'

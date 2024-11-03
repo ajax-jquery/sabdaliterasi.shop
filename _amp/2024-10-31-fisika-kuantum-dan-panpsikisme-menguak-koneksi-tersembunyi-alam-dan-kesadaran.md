@@ -1,5 +1,6 @@
 ---
 date: '2024-10-31 01:00:25 +0800'
+date_short: '2024-10-31T01:00:25+08:00'
 tag: 'Sains'
 title: 'Fisika Kuantum dan Panpsikisme: Menguak Koneksi Tersembunyi Alam dan Kesadaran'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-fisika-kuantum-dan-panpsikisme-menguak-koneksi-tersembunyi-alam-dan-kesadaran.jpg'

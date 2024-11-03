@@ -1,5 +1,6 @@
 ---
 date: '2024-10-29 06:44:51 +0800'
+date_short: '2024-10-29T06:44:51+08:00'
 tag: 'Agama'
 title: 'Agama di Era Modern: Relevansi & Tantangan'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-agama-di-era-modern-relevansi-tantangan.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-11-02 19:00:27 +0800'
+date_short: '2024-11-02T19:00:27+08:00'
 tag: 'Kebangsaan'
 title: 'Prabowo Tangkap Koruptor: Langkah Tegas atau Simbolis?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-prabowo-tangkap-koruptor-langkah-tegas-atau-simbolis.jpg'

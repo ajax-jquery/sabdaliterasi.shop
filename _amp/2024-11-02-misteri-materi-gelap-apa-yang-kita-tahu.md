@@ -1,5 +1,6 @@
 ---
 date: '2024-11-02 18:00:05 +0800'
+date_short: '2024-11-02T18:00:05+08:00'
 tag: 'Sains'
 title: 'Misteri Materi Gelap: Apa yang Kita Tahu?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-misteri-materi-gelap-apa-yang-kita-tahu.jpg'

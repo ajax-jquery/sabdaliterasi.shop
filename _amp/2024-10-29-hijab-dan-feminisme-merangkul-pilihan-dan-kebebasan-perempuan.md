@@ -1,5 +1,6 @@
 ---
 date: '2024-10-29 05:05:10 +0800'
+date_short: '2024-10-29T05:05:10+08:00'
 tag: 'Feminis'
 title: 'Hijab dan Feminisme: Merangkul Pilihan dan Kebebasan Perempuan'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-hijab-dan-feminisme-merangkul-pilihan-dan-kebebasan-perempuan.jpg'

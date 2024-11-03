@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 23:03:24 +0800'
+date_short: '2024-10-30T23:03:24+08:00'
 tag: 'Kebangsaan'
 title: 'Dominasi Militer dalam Politik Orde Baru'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-dominasi-militer-dalam-politik-orde-baru.jpg'
