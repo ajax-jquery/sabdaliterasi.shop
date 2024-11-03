@@ -56,7 +56,7 @@ layout: null
 
 <!--[ Alternatif content with button link ]-->
 <div class='ntfA'>
-{% assign posta = site.artikel | sort: "date" | reverse %}{% for post in posta limit: 1 %}
+{% assign posta = site.artikel | sort: "date_short" | reverse %}{% for post in posta limit: 1 %}
 <span>New Post: {{ post.title }} </span> <a title="{{ post.title }}" href='{{ post.url | prepend: site.url }}' target='_blank'>Read</a>
 {% endfor %}
 </div></div>
