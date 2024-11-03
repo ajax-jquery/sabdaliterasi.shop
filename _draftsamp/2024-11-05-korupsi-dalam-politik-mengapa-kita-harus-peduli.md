@@ -1,5 +1,6 @@
 ---
 date: '2024-11-05 09:00:45 +0800'
+date_short: '2024-11-05T09:00:45+08:00'
 tag: 'Kebangsaan'
 title: 'Korupsi dalam Politik: Mengapa Kita Harus Peduli?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-korupsi-dalam-politik-mengapa-kita-harus-peduli.jpg'

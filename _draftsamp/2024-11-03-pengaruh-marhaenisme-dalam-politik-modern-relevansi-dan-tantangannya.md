@@ -1,5 +1,6 @@
 ---
 date: '2024-11-03 09:00:47 +0800'
+date_short: '2024-11-03T09:00:47+08:00'
 tag: 'Kebangsaan'
 title: 'Pengaruh Marhaenisme dalam Politik Modern: Relevansi dan Tantangannya'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-pengaruh-marhaenisme-dalam-politik-modern-relevansi-dan-tantangannya.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-11-06 09:00:19 +0800'
+date_short: '2024-11-06T09:00:19+08:00'
 tag: 'Filsafat'
 title: 'Retreat Kabinet Merah Putih: Awal Otoritarianisme di Indonesia?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-retreat-kabinet-merah-putih-awal-otoritarianisme-di-indonesia.png'
