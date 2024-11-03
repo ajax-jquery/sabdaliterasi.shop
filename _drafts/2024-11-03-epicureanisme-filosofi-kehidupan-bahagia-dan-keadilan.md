@@ -1,5 +1,6 @@
 ---
 date: '2024-11-03 18:00:57 +0800'
+date_short: '2024-11-03T18:00:57+08:00'
 tag: 'Filsafat'
 title: 'Epicureanisme: Filosofi Kehidupan Bahagia dan Keadilan'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-epicureanisme-filosofi-kehidupan-bahagia-dan-keadilan.jpg'

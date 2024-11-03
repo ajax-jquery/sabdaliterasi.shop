@@ -1,5 +1,6 @@
 ---
 date: '2024-11-05 15:00:47 +0800'
+date_short: '2024-11-05T15:00:47+08:00'
 tag: 'Filsafat'
 title: 'Keadilan dan Perdamaian: Dilema Etis dalam Konflik Iran-Israel'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-keadilan-dan-perdamaian-dilema-etis-dalam-konflik-iran-israel.jpg'

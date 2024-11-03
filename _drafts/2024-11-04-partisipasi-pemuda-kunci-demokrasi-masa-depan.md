@@ -1,5 +1,6 @@
 ---
 date: '2024-11-04 09:00:34 +0800'
+date_short: '2024-11-04T09:00:34+08:00'
 tag: 'Kebangsaan'
 title: 'Partisipasi Pemuda: Kunci Demokrasi Masa Depan'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-partisipasi-pemuda-kunci-demokrasi-masa-depan.jpg'

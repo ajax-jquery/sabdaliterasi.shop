@@ -1,5 +1,6 @@
 ---
 date: '2024-11-04 15:00:29 +0800'
+date_short: '2024-11-04T15:00:29+08:00'
 tag: 'Feminis'
 title: 'Apakah Feminisme Masih Relevan di Era Kesetaraan Modern?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-apakah-feminisme-masih-relevan-di-era-kesetaraan-modern.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-11-04 18:00:45 +0800'
+date_short: '2024-11-04T18:00:45+08:00'
 tag: 'Sains'
 title: 'Kontroversi Deepfake: Seni Digital atau Ancaman?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-kontroversi-deepfake-seni-digital-atau-ancaman.jpg'

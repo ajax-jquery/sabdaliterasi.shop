@@ -1,5 +1,6 @@
 ---
 date: '2024-11-03 15:00:48 +0800'
+date_short: '2024-11-03T15:00:48+08:00'
 tag: 'Sains'
 title: 'Kesadaran dalam Fisika Kuantum: Realitas atau Ilusi?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-kesadaran-dalam-fisika-kuantum-realitas-atau-ilusi.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-11-05 18:00:44 +0800'
+date_short: '2024-11-05T18:00:44+08:00'
 tag: 'Kebangsaan'
 title: 'Analisis Kritis terhadap Gerakan Solidaritas Nasional (GSN)'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-analisis-kritis-terhadap-gerakan-solidaritas-nasional-gsn.jpg'
