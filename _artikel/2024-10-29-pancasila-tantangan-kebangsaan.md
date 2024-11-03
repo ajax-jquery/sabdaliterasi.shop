@@ -1,5 +1,6 @@
 ---
 date: '2024-10-29 09:54:09 +0800'
+date_short: '2024-10-29T09:54:09+08:00'
 tag: 'Kebangsaan'
 title: 'Pancasila & Tantangan Kebangsaan'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-pancasila-tantangan-kebangsaan.jpg'

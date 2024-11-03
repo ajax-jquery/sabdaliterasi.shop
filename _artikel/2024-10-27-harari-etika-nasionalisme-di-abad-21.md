@@ -1,5 +1,6 @@
 ---
 date: '2024-10-27 17:06:33 +0800'
+date_short: '2024-10-27T17:06:33+08:00'
 tag: 'Tokoh'
 title: 'Harari: Etika Nasionalisme di Abad 21'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-harari-etika-nasionalisme-di-abad-21.jpg'

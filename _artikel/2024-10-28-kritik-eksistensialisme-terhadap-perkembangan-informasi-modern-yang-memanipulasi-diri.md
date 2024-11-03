@@ -1,5 +1,6 @@
 ---
 date: '2024-10-28 06:32:31 +0800'
+date_short: '2024-10-28T06:32:31+08:00'
 tag: 'Filsafat'
 title: 'Kritik Eksistensialisme terhadap Perkembangan Informasi Modern yang Memanipulasi Diri'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-kritik-eksistensialisme-terhadap-perkembangan-informasi-modern-yang-memanipulasi-diri.jpg'

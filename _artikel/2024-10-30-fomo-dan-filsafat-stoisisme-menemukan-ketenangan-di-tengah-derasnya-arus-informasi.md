@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 02:20:24 +0800'
+date_short: '2024-10-30T02:20:24+08:00'
 tag: 'Filsafat'
 title: 'FOMO dan Filsafat Stoisisme: Menemukan Ketenangan di Tengah Derasnya Arus Informasi'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-fomo-dan-filsafat-stoisisme-menemukan-ketenangan-di-tengah-derasnya-arus-informasi.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 17:28:59 +0800'
+date_short: '2024-10-30T17:28:59+08:00'
 tag: 'Feminis'
 title: 'Pink Tax: Diskriminasi Gender dalam Harga Produk'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-pink-tax-diskriminasi-gender-dalam-harga-produk.png'

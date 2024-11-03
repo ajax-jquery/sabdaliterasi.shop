@@ -1,5 +1,6 @@
 ---
 date: '2024-10-26 06:18:38 +0800'
+date_short: '2024-10-26T06:18:38+08:00'
 tag: 'Sosial'
 title: 'Belajar dari Stoisisme: Menghadapi Konflik'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-belajar-dari-stoisisme-menghadapi-konflik.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-10-26 08:18:14 +0800'
+date_short: '2024-10-26T08:18:14+08:00'
 tag: 'Tokoh'
 title: 'Nietzsche: Sang Filsuf Palu'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-nietzsche-sang-filsuf-palu.jpg'

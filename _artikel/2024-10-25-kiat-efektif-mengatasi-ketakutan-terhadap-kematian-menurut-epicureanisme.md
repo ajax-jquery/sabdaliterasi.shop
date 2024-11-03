@@ -1,5 +1,6 @@
 ---
 date: '2024-10-25 14:30:12 +0800'
+date_short: '2024-10-25T14:30:12+08:00'
 tag: 'Filsafat'
 title: 'Kiat Efektif Mengatasi Ketakutan Terhadap Kematian Menurut Epicureanisme'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-kiat-efektif-mengatasi-ketakutan-terhadap-kematian-menurut-epicureanisme.png'

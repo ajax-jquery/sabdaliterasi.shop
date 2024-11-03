@@ -1,5 +1,6 @@
 ---
 date: '2024-10-27 08:02:36 +0800'
+date_short: '2024-10-27T08:02:36+08:00'
 tag: 'Feminis'
 title: 'Bukan Putri yang Menunggu Diselamatkan: Feminisme dan Perempuan Mandiri di Era Modern'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-bukan-putri-yang-menunggu-diselamatkan-feminisme-dan-perempuan-mandiri-di-era-modern.jpg'

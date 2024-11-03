@@ -1,5 +1,6 @@
 ---
 date: '2024-10-26 08:08:21 +0800'
+date_short: '2024-10-26T08:08:21+08:00'
 tag: 'Kebangsaan'
 title: 'Demokrasi: Ideal vs Realitas'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-demokrasi-ideal-vs-realitas.jpg'

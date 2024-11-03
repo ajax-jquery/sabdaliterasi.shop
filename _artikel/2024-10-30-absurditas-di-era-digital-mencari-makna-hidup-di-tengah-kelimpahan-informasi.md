@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 00:41:48 +0800'
+date_short: '2024-10-30T00:41:48+08:00'
 tag: 'Filsafat'
 title: 'Absurditas di Era Digital: Mencari Makna Hidup di Tengah Kelimpahan Informasi'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-absurditas-di-era-digital-mencari-makna-hidup-di-tengah-kelimpahan-informasi.jpg'

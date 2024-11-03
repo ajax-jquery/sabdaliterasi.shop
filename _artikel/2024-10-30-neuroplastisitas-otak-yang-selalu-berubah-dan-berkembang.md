@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 12:40:31 +0800'
+date_short: '2024-10-30T12:40:31+08:00'
 tag: 'Sains'
 title: 'Neuroplastisitas: Otak yang Selalu Berubah dan Berkembang'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-neuroplastisitas-otak-yang-selalu-berubah-dan-berkembang.jpg'

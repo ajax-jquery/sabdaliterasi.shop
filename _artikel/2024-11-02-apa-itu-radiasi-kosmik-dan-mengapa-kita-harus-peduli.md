@@ -1,5 +1,6 @@
 ---
 date: '2024-11-02 06:30:31 +0800'
+date_short: '2024-11-02T06:30:31+08:00'
 tag: 'Sains'
 title: 'Apa Itu Radiasi Kosmik dan Mengapa Kita Harus Peduli?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-apa-itu-radiasi-kosmik-dan-mengapa-kita-harus-peduli.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 12:54:14 +0800'
+date_short: '2024-10-30T12:54:14+08:00'
 tag: 'Sains'
 title: 'Dilema CRISPR: Etika Mengedit Gen Manusia'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-dilema-crispr-etika-mengedit-gen-manusia.jpg'

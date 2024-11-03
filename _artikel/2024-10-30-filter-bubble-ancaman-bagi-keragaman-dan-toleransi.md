@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 12:18:41 +0800'
+date_short: '2024-10-30T12:18:41+08:00'
 tag: 'Sosial'
 title: 'Filter Bubble: Ancaman bagi Keragaman dan Toleransi?'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-filter-bubble-ancaman-bagi-keragaman-dan-toleransi.jpg'

@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 21:58:56 +0800'
+date_short: '2024-10-30T21:58:56+08:00'
 tag: 'Filsafat'
 title: 'Panpsikisme: Dari Filsafat Kuno hingga Sains Modern'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-panpsikisme-dari-filsafat-kuno-hingga-sains-modern.jpg'

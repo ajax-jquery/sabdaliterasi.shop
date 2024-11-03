@@ -1,5 +1,6 @@
 ---
 date: '2024-10-30 11:54:01 +0800'
+date_short: '2024-10-30T11:54:01+08:00'
 tag: 'Agama'
 title: 'Etika Beragama di Era Konsumerisme: Menjaga Kesederhanaan dan Keikhlasan dalam Beribadah'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-etika-beragama-di-era-konsumerisme-menjaga-kesederhanaan-dan-keikhlasan-dalam-beribadah.jpg'
