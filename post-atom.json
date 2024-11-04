@@ -67,10 +67,17 @@ layout: null
     "updated":{
           "$t":"{{ akhirnyaaaaaaaaa }}"
               },
-    "category":{
-         "term":"{{ p.tag }}"
-               },
-    "title":{
+    "category":[
+      {
+        "scheme":"http://www.blogger.com/atom/ns#",
+        "term":"{{ p.tag }}"
+      },
+      {
+        "scheme":"http://www.blogger.com/atom/ns#",
+        "term":"Features"
+      }
+    ],
+  "title":{
          "type":"text",
          "$t":"{{ p.title }}"
             },
