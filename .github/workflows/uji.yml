@@ -2,9 +2,7 @@ name: Periksa Jadwal Artikel
 
 on:
   schedule:
-    - cron: '5 1 * * *'
-    - cron: '5 7 * * *'
-    - cron: '5 10 * * *'
+    - cron: '0 * * * *'
   push:
     paths:
       - 'update.txt'
