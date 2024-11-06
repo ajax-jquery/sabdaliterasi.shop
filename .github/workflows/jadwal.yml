@@ -1,4 +1,4 @@
-name: Scheduled Publish
+name: Jadwal Artikel
 
 on:
   schedule:
