@@ -145,6 +145,13 @@ switch ($RenameArticleList.Count) {
 '::endgroup::'
 #endregion
 
+if ($RenameArticleList.Count -eq 0) {
+    Write-Output "::warning:: Tidak ada artikel yang memenuhi syarat untuk dipindahkan. Menghentikan proses."
+    OutputAction  # Tetap panggil OutputAction jika Anda memerlukan variabel lingkungan di GitHub Actions
+    return
+}
+
+
 #region Moving Draft Articles to Data folder
 if (-Not (Test-Path -Path $ResolvedDataPath)) {
     '::error::The data path ''{0}'' could not be found' -f $DataPath
