@@ -10,6 +10,9 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
+    paths-ignore:
+      - 'update.txt'
+
 #  workflow_run:
 #    workflows: ["Periksa Artikel"]  # Nama workflow di j.yml
 #    types:
