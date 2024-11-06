@@ -1,4 +1,4 @@
-name: Scheduled Publish
+name: Scheduled All 
 
 on:
   schedule:
