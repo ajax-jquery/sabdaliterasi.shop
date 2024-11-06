@@ -2,7 +2,10 @@ name: Scheduled Publish
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Jalankan setiap jam
+    - cron: '5 * * * *'
+  push:
+    paths:
+      - 'update.txt'
   workflow_dispatch:
 
 jobs:
