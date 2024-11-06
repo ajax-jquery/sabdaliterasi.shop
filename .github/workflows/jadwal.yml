@@ -129,7 +129,7 @@ jobs:
 
   build:
     name: Build Jekyll
-    if: env.HAS_PUBLISHED_FILES == 'true'
+    if: needs.check_draft_articles.outputs.HAS_PUBLISHED_FILES == 'true'
     runs-on: ubuntu-latest
     needs: check_draft_articles
     steps:
@@ -143,7 +143,7 @@ jobs:
           jekyll/builder:$JEKYLL_VERSION /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
 
   apply:
-    if: env.HAS_PUBLISHED_FILES == 'true'
+    if: needs.check_draft_articles.outputs.HAS_PUBLISHED_FILES == 'true'
     runs-on: ubuntu-latest
     needs: build
     permissions:
@@ -178,7 +178,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
 
   deploy:
-    if: env.HAS_PUBLISHED_FILES == 'true'
+    if: needs.apply.outputs.HAS_PUBLISHED_FILES == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
