@@ -5,11 +5,13 @@ on:
       - master
     paths-ignore:
       - 'update.txt' 
+      - '.github/workflows/*'
   pull_request:
     branches:
       - master
     paths-ignore:
-      - update.txt' 
+      - 'update.txt' 
+      - '.github/workflows/*'
 
 jobs:
   build:
