@@ -29,6 +29,7 @@ jobs:
         # Warna untuk output (ANSI escape codes)
         GREEN='\033[0;32m'
         ORANGE='\033[0;33m'
+        RED='\033[0;31m'
         NC='\033[0m' # No Color (reset)
 
         # Waktu sekarang di zona Asia/Makassar
@@ -56,8 +57,14 @@ jobs:
             mkdir -p "_artikel"
             NEW_PATH="_artikel/$(basename "$FILE")"
             mv "$FILE" "$NEW_PATH"
-            echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
-            COUNT_READY_DRAFTS=$((COUNT_READY_DRAFTS + 1))
+            
+            # Verifikasi apakah file sudah dipindahkan
+            if [ -e "$NEW_PATH" ]; then
+              echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
+              COUNT_READY_DRAFTS=$((COUNT_READY_DRAFTS + 1))
+            else
+              echo -e "${RED}  Error: Gagal memindahkan $FILE ke $NEW_PATH${NC}"
+            fi
           else
             echo -e "${ORANGE}  Status: Dijadwalkan di masa mendatang${NC}"
             COUNT_FUTURE_DRAFTS=$((COUNT_FUTURE_DRAFTS + 1))
@@ -79,8 +86,14 @@ jobs:
             mkdir -p "_amp"
             NEW_PATH="_amp/$(basename "$FILE")"
             mv "$FILE" "$NEW_PATH"
-            echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
-            COUNT_READY_DRAFTSAMP=$((COUNT_READY_DRAFTSAMP + 1))
+            
+            # Verifikasi apakah file sudah dipindahkan
+            if [ -e "$NEW_PATH" ]; then
+              echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
+              COUNT_READY_DRAFTSAMP=$((COUNT_READY_DRAFTSAMP + 1))
+            else
+              echo -e "${RED}  Error: Gagal memindahkan $FILE ke $NEW_PATH${NC}"
+            fi
           else
             echo -e "${ORANGE}  Status: Dijadwalkan di masa mendatang${NC}"
             COUNT_FUTURE_DRAFTSAMP=$((COUNT_FUTURE_DRAFTSAMP + 1))
@@ -100,9 +113,9 @@ jobs:
 
     - name: Commit and Push Changes
       run: |
-        git config --global user.name "${{ vars.GIT_USER_NAME }}"
-        git config --global user.email "${{ vars.GIT_USER_EMAIL }}"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add -A
-        git commit -m "Auto-publish scheduled files"
-        git push
+        git commit -m "Auto-publish scheduled files" || echo "Tidak ada perubahan untuk dicommit"
+        git push || echo "Tidak ada perubahan untuk dipush"
       if: success() && steps.publish_drafts.outputs.changes
