@@ -12,7 +12,8 @@ on:
     branches: 
       - master
     paths-ignore:
-      - 'update.txt'
+      - 'update.txt' 
+      - '.github/workflows/*'
 
 #  workflow_run:
 #    workflows: ["Periksa Artikel"]  # Nama workflow di j.yml
