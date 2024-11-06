@@ -24,13 +24,16 @@ jobs:
 
     - name: Publish Scheduled Files
       env:
-        TZ: Asia/Makassar  # Mengatur zona waktu Asia/Makassar (+0800)
+        TZ: Asia/Makassar  # Set zona waktu Asia/Makassar (+0800)
       run: |
+        # Waktu sekarang di zona Asia/Makassar
         CURRENT_DATE=$(date '+%Y-%m-%d %H:%M:%S')
         
         # Inisialisasi counter untuk laporan
         COUNT_FUTURE=0
         COUNT_READY=0
+        
+        echo "Waktu sekarang: $CURRENT_DATE"
         
         # Loop untuk memeriksa setiap file di `_drafts` dan `_draftsamp`
         for DIR in "_drafts" "_draftsamp"; do
@@ -40,6 +43,10 @@ jobs:
             
             # Ambil `date` dari file
             SCHEDULED_DATE=$(grep "^date: " "$FILE" | sed "s/date: '\(.*\) +0800'/\1/")
+            
+            # Tampilkan waktu sekarang dan waktu dalam artikel
+            echo "Memeriksa file: $FILE"
+            echo "  Waktu dalam artikel: $SCHEDULED_DATE +0800"
             
             # Ubah tanggal ke timestamp untuk perbandingan
             SCHEDULED_TIMESTAMP=$(date -d "$SCHEDULED_DATE" +%s)
@@ -60,18 +67,20 @@ jobs:
               # Pindahkan file ke direktori baru
               NEW_PATH="${NEW_DIR}/$(basename "$FILE")"
               mv "$FILE" "$NEW_PATH"
-              echo "Published: $FILE -> $NEW_PATH"
+              echo "  Status: Dipublish -> $NEW_PATH"
               
               # Tambah counter untuk file yang siap dipublish
               COUNT_READY=$((COUNT_READY + 1))
             else
+              echo "  Status: Dijadwalkan di masa mendatang"
               # Tambah counter untuk file yang dijadwalkan di masa mendatang
               COUNT_FUTURE=$((COUNT_FUTURE + 1))
             fi
           done
         done
 
-        # Tampilkan laporan di log
+        # Tampilkan laporan akhir di log
+        echo ""
         echo "$COUNT_FUTURE file memiliki jadwal di masa mendatang."
         echo "$COUNT_READY file memiliki jadwal untuk segera dipublish."
 
