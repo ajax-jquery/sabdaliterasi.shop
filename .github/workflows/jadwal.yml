@@ -71,6 +71,13 @@ jobs:
           else
             echo "HAS_PUBLISHED_FILES=false" >> $GITHUB_ENV
           fi
+          
+      - name: Verify Folder Contents Before Upload
+        run: |
+            echo "Checking _artikel folder contents:"
+            ls -la ${{ github.workspace }}/_artikel || echo "_artikel folder not found or empty."
+            echo "Checking _amp folder contents:"
+            ls -la ${{ github.workspace }}/_amp || echo "_amp folder not found or empty."
 
       - name: Set Publish Status
         id: set_publish_status
@@ -93,13 +100,17 @@ jobs:
           else
             echo "Tidak ada perubahan yang perlu dipush."
           fi
+          
+      - name: List All Files in Workspace
+        run: ls -R ${{ github.workspace }}
 
       - name: Upload Renamed Articles Artifact
         if: env.HAS_PUBLISHED_FILES == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: renamed-articles
-          path: ${{ github.workspace }}/_artikel ${{ github.workspace }}/_amp
+          path: ${{ github.workspace }}/_artikel/** ${{ github.workspace }}/_amp/**
+          if-no-files-found: warn
 
   build:
     name: Build Jekyll
