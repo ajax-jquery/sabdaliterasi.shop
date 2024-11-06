@@ -3,6 +3,7 @@ name: Scheduled Publish
 on:
   schedule:
     - cron: '0 * * * *'  # Jalankan setiap jam
+  workflow_dispatch:
 
 jobs:
   publish:
