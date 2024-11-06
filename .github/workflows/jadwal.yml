@@ -27,7 +27,7 @@ jobs:
         run: |
           # Definisikan waktu saat ini
           CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S %z")
-          echo "Waktu sekarang: $CURRENT_DATE"
+          echo -e "\n\033[1;36mWaktu sekarang: $CURRENT_DATE\033[0m\n"
 
           # Fungsi untuk memeriksa dan memindahkan file jika waktu sesuai
           move_file_if_scheduled() {
@@ -38,33 +38,38 @@ jobs:
             # Bandingkan waktu dalam file dengan waktu saat ini
             if [[ "$date_in_file" < "$CURRENT_DATE" ]] || [[ "$date_in_file" == "$CURRENT_DATE" ]]; then
               # Pindahkan file ke folder tujuan
-              dest_file=$(echo "$src_file" | sed "s|_drafts|$dest_folder|; s|_draftsamp|$dest_folder|")
+              if [[ "$dest_folder" == "_artikel" ]]; then
+                dest_file=$(echo "$src_file" | sed "s|_drafts/|_artikel/|")
+              elif [[ "$dest_folder" == "_amp" ]]; then
+                dest_file=$(echo "$src_file" | sed "s|_draftsamp/|_amp/|")
+              fi
               mkdir -p "$(dirname "$dest_file")"
               mv "$src_file" "$dest_file"
-              echo "File $src_file dipindahkan ke $dest_file"
+              echo -e "\033[1;32mFile $src_file dipindahkan ke $dest_file (Terpublish)\033[0m"
             else
-              echo "File $src_file dijadwalkan untuk masa mendatang: $date_in_file"
+              echo -e "\033[1;33mFile $src_file dijadwalkan untuk masa mendatang: $date_in_file\033[0m"
             fi
           }
 
-          # Iterasi file di _drafts dan _draftsamp
-          echo "Memeriksa folder _drafts:"
+          # Laporan terpisah untuk folder _drafts
+          echo -e "\033[1;34mMemeriksa folder _drafts:\033[0m"
           for file in _drafts/*.md; do
             [ -e "$file" ] || continue
             move_file_if_scheduled "$file" "_artikel"
           done
 
-          echo "Memeriksa folder _draftsamp:"
+          # Laporan terpisah untuk folder _draftsamp
+          echo -e "\033[1;34mMemeriksa folder _draftsamp:\033[0m"
           for file in _draftsamp/*.md; do
             [ -e "$file" ] || continue
             move_file_if_scheduled "$file" "_amp"
           done
 
           # Memastikan isi folder tujuan setelah pemindahan
-          echo "Isi folder _artikel setelah pemindahan:"
+          echo -e "\033[1;36mIsi folder _artikel setelah pemindahan:\033[0m"
           ls -l _artikel || echo "_artikel folder is empty."
 
-          echo "Isi folder _amp setelah pemindahan:"
+          echo -e "\033[1;36mIsi folder _amp setelah pemindahan:\033[0m"
           ls -l _amp || echo "_amp folder is empty."
 
       - name: Commit and Push Changes
