@@ -104,13 +104,23 @@ jobs:
       - name: List All Files in Workspace
         run: ls -R ${{ github.workspace }}
 
+      - name: List Files in _artikel and _amp
+        run: |
+          echo "Files in _artikel:"
+          ls -R ${{ github.workspace }}/_artikel
+          echo "Files in _amp:"
+          ls -R ${{ github.workspace }}/_amp
+
       - name: Upload Renamed Articles Artifact
         if: env.HAS_PUBLISHED_FILES == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: renamed-articles
-          path: ${{ github.workspace }}/_artikel/* ${{ github.workspace }}/_amp/*
+          path: |
+            ${{ github.workspace }}/_artikel/*
+            ${{ github.workspace }}/_amp/*
           if-no-files-found: warn
+
 
   build:
     name: Build Jekyll
