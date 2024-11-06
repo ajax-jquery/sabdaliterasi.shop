@@ -99,7 +99,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: renamed-articles
-          path: ${{ github.workspace }}
+          path: _artikel _amp
 
   build:
     name: Build Jekyll
