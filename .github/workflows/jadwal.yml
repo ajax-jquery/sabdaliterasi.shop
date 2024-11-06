@@ -109,7 +109,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: renamed-articles
-          path: ${{ github.workspace }}/_artikel/** ${{ github.workspace }}/_amp/**
+          path: ${{ github.workspace }}/_artikel/* ${{ github.workspace }}/_amp/*
           if-no-files-found: warn
 
   build:
