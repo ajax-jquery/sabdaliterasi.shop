@@ -9,7 +9,8 @@ name: Terapkan Jekyll ke Situs
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: 
+      - master
     paths-ignore:
       - 'update.txt'
 
