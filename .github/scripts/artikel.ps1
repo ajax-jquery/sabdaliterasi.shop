@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-    [string]$DraftsPath = '_draftsamp',
-    [string]$DataPath = '_amp',
+    [string]$DraftsPath = '_drafts',
+    [string]$DataPath = '_artikel',
     [string]$ConfigPath = '_config.yml',
     [switch]$AllowMultiplePostsPerDay,
     [switch]$PreserveDateFileName
