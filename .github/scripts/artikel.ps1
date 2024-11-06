@@ -31,6 +31,11 @@ $AddFilesToCommit = [System.Collections.Generic.List[String]]::new()
 $RemoveFilesFromCommit = [System.Collections.Generic.List[String]]::new()
 $DateRegex = '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'
 $ShouldPublish = $false
+
+# Debugging pada tahap inisialisasi
+Write-Output "::debug::Checking RenameArticleList initialization: Count = $($RenameArticleList.Count)"
+Write-Output "::debug::Checking AddFilesToCommit initialization: Count = $($AddFilesToCommit.Count)"
+Write-Output "::debug::Checking RemoveFilesFromCommit initialization: Count = $($RemoveFilesFromCommit.Count)"
 #endregion
 
 #region Set TimeZone
@@ -83,40 +88,45 @@ if ($DraftArticles.Count -gt 0) {
 '::group::Checking Draft Article Date'
 foreach ($Article in $DraftArticles) {
     $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter.ContainsKey('date')) {
-        # Mengambil tanggal dari front matter
-        $ArticleDateTimeString = $FrontMatter['date']
+    Write-Output "::debug::FrontMatter for $($Article.FullName): $FrontMatter"
 
-        # Mengonversi string menjadi objek DateTime dengan zona waktu yang benar
+    if ($FrontMatter.ContainsKey('date')) {
+        $ArticleDateTimeString = $FrontMatter['date']
+        Write-Output "::debug::ArticleDateTimeString: $ArticleDateTimeString"
+        
+        # Mengonversi tanggal dari string ke DateTime
         $ArticleDateTime = [datetime]::Parse($ArticleDateTimeString).ToUniversalTime()
         $ArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
+        Write-Output "::debug::ArticleDateTime: $ArticleDateTime"
 
-        # Memformat tanggal dan waktu untuk output
-        $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
-        '{0}: DATE (from file): {1} - TIME: {2}' -f $FrontMatter['title'], $ArticleDate, $ArticleDateTime.ToString('HH:mm:ss')
-
-        # Mendapatkan waktu saat ini dengan timezone Asia/Makassar
+        # Mendapatkan waktu saat ini
         $CurrentDateTime = [System.TimeZoneInfo]::ConvertTime([DateTime]::Now, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
-        $CurrentDate = $CurrentDateTime.ToString('yyyy-MM-dd')
-        '{0}: CURRENT DATE: {1} - TIME: {2}' -f $FrontMatter['title'], $CurrentDate, $CurrentDateTime.ToString('HH:mm:ss')
+        Write-Output "::debug::CurrentDateTime: $CurrentDateTime"
 
-        # Memeriksa apakah artikel tanggal sama dengan hari ini dan juga memeriksa waktu
-        if ($ArticleDate -eq $CurrentDate -and $CurrentDateTime -ge $ArticleDateTime) {
+        # Memeriksa apakah artikel memenuhi syarat untuk dipindahkan
+        if ($ArticleDateTime.Date -eq $CurrentDateTime.Date -and $CurrentDateTime -ge $ArticleDateTime) {
             $RenameArticleList.Add($Article)
-            '{0}: Including article to rename.' -f $FrontMatter['title']
-        } elseif ($ArticleDate -lt $CurrentDate) { 
-            $RenameArticleList.Add($Article)
-            '{0}: Including article to move to data folder.' -f $FrontMatter['title']
+            Write-Output "::notice::Including article to rename: $($Article.Name)"
         } else {
-            '::warning:: {0}: Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
+            Write-Output "::warning::Article 'date' is set in the future. SKIPPED"
         }
     } else {
-        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+        Write-Output "::warning::Article does not contain a date value. SKIPPED"
     }
 }
 '::endgroup::'
 #endregion
 
+# ===> Tambahkan kode ini setelah pengecekan tanggal selesai <===
+Write-Output "::debug::Jumlah artikel untuk dipindahkan: $($RenameArticleList.Count)"
+Write-Output "::debug::Isi RenameArticleList: $RenameArticleList"
+
+# Jika tidak ada artikel yang memenuhi syarat, hentikan proses
+if ($RenameArticleList.Count -eq 0) {
+    Write-Output "::warning::Tidak ada artikel yang memenuhi syarat untuk dipindahkan. Menghentikan proses."
+    OutputAction  # Tetap panggil OutputAction untuk memperbarui status GitHub Actions
+    return
+}
 
 
 
@@ -152,39 +162,28 @@ if (-Not (Test-Path -Path $ResolvedDataPath)) {
     exit 1
 }
 '::group::Moving Draft Articles to Data folder'
+
 foreach ($Article in $RenameArticleList) {
-    # Cek apakah nama file sudah dimulai dengan tanggal
-    if ($Article.BaseName -match $DateRegex) {
-        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
-        
-        # Jika PreserveDateFileName aktif, gunakan nama asli
-        if ($PreserveDateFileName.IsPresent) {
-            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be retained as {0}.' -f $Article.Name
-            $NewFileName = $Article.Name  # Tetap menggunakan nama asli
-        } else {
-            'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
-            # Hapus tanggal dari nama file lama dan tambahkan tanggal baru
-            $NewFileName = $Article.Name -replace $DateRegex, ''
-            $NewFileName = '{0}-{1}' -f $FormattedDate, $NewFileName.TrimStart('-')  # Trim untuk menghindari karakter '-'
+    Write-Output "::debug::Attempting to move article: $($Article.FullName)"
+    Write-Output "::debug::NewFileName for move operation: $NewFileName"
+
+    # Pastikan artikel dan nama file baru tidak null sebelum operasi Move-Item
+    if ($Article -ne $null -and -not [string]::IsNullOrEmpty($NewFileName)) {
+        try {
+            Move-Item -Path $Article.FullName -Destination (Join-Path -Path $ResolvedDataPath -ChildPath $NewFileName)
+            $AddFilesToCommit.Add($NewFileName)
+            Write-Output "::notice::Article $($Article.Name) has been moved to $ResolvedDataPath"
+            $ShouldPublish = $true
+        } catch {
+            Write-Output "::error::Failed to move $($Article.Name). Error: $($_.Exception.Message)"
+            $RemoveFilesFromCommit.Add($Article.Name)
         }
     } else {
-        # Jika tidak ada tanggal, tambahkan tanggal ke nama file
-        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
-        'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
-    }
-
-    # Move the draft to the data path
-    try {
-        Move-Item -Path $Article.FullName -Destination (Join-Path -Path $ResolvedDataPath -ChildPath $NewFileName)
-        $AddFilesToCommit.Add($NewFileName)
-        'Article {0} has been moved to {1}.' -f $Article.Name, $ResolvedDataPath
-        $ShouldPublish = $true
-    } catch {
-        '::error::Failed to move {0}. Error: {1}' -f $Article.Name, $_.Exception.Message
-        $RemoveFilesFromCommit.Add($Article.Name)
+        Write-Output "::error::Skipping article because it is null or has an invalid file name."
     }
 }
 '::endgroup::'
 #endregion
+
 
 OutputAction
