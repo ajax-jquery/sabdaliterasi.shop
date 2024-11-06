@@ -12,14 +12,15 @@ function OutputAction {
         $AddFileList = $AddFilesToCommit -join ','
         $RemoveFileList = $RemoveFilesFromCommit -join ','
         'DRAFTS_ARTICLES_RENAMED=true' >> $env:GITHUB_ENV
-        'DRAFTS_COMMIT_RENAMED_FILES={0}' -f $AddFileList >> $env:GITHUB_ENV
-        'DRAFTS_COMMIT_REMOVED_FILES={0}' -f $RemoveFileList >> $env:GITHUB_ENV
+        'DRAFTS_COMMIT_RENAMED_FILES={0}' -f ($AddFileList -ne "" ? $AddFileList : "None") >> $env:GITHUB_ENV
+        'DRAFTS_COMMIT_REMOVED_FILES={0}' -f ($RemoveFileList -ne "" ? $RemoveFileList : "None") >> $env:GITHUB_ENV
     } else {
         'DRAFTS_ARTICLES_RENAMED=false' >> $env:GITHUB_ENV
         'DRAFTS_COMMIT_RENAMED_FILES=false' >> $env:GITHUB_ENV
         'DRAFTS_COMMIT_REMOVED_FILES=false' >> $env:GITHUB_ENV
     }
 }
+
 
 #region Set Variables
 $BasePath = ($PSScriptRoot.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast 2) -join [System.IO.Path]::DirectorySeparatorChar
