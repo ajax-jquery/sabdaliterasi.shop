@@ -25,19 +25,25 @@ jobs:
         env:
           TZ: Asia/Makassar  # Mengatur zona waktu ke Asia/Makassar
         run: |
+          # Definisikan waktu saat ini
           CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S %z")
           echo -e "\n\033[1;36mWaktu sekarang: $CURRENT_DATE\033[0m\n"
+
+          # Variabel untuk menyimpan jumlah file terpublish dan terjadwal
           drafts_publish_count=0
           drafts_schedule_count=0
           draftsamp_publish_count=0
           draftsamp_schedule_count=0
 
+          # Fungsi untuk memeriksa dan memindahkan file jika waktu sesuai
           move_file_if_scheduled() {
             local src_file="$1"
             local dest_folder="$2"
             local date_in_file=$(grep "date: '" "$src_file" | awk -F"'" '{print $2}')
             
+            # Bandingkan waktu dalam file dengan waktu saat ini
             if [[ "$date_in_file" < "$CURRENT_DATE" ]] || [[ "$date_in_file" == "$CURRENT_DATE" ]]; then
+              # Pindahkan file ke folder tujuan
               if [[ "$dest_folder" == "_artikel" ]]; then
                 dest_file=$(echo "$src_file" | sed "s|_drafts/|_artikel/|")
                 drafts_publish_count=$((drafts_publish_count + 1))
@@ -58,37 +64,54 @@ jobs:
             fi
           }
 
+          # Laporan terpisah untuk folder _drafts
           echo -e "\033[1;34mMemeriksa folder _drafts:\033[0m"
           for file in _drafts/*.md; do
             [ -e "$file" ] || continue
             move_file_if_scheduled "$file" "_artikel"
           done
 
+          # Laporan akhir untuk folder _drafts
           echo -e "\033[1;32mTotal file terpublish di _drafts: $drafts_publish_count\033[0m"
           echo -e "\033[1;33mTotal file terjadwal di masa depan di _drafts: $drafts_schedule_count\033[0m"
 
+          # Laporan terpisah untuk folder _draftsamp
           echo -e "\033[1;34mMemeriksa folder _draftsamp:\033[0m"
           for file in _draftsamp/*.md; do
             [ -e "$file" ] || continue
             move_file_if_scheduled "$file" "_amp"
           done
 
+          # Laporan akhir untuk folder _draftsamp
           echo -e "\033[1;32mTotal file terpublish di _draftsamp: $draftsamp_publish_count\033[0m"
           echo -e "\033[1;33mTotal file terjadwal di masa depan di _draftsamp: $draftsamp_schedule_count\033[0m"
+
+          # Memastikan isi folder tujuan setelah pemindahan
+          echo -e "\033[1;36mIsi folder _artikel setelah pemindahan:\033[0m"
+          ls -l _artikel || echo "_artikel folder is empty."
+
+          echo -e "\033[1;36mIsi folder _amp setelah pemindahan:\033[0m"
+          ls -l _amp || echo "_amp folder is empty."
 
       - name: Commit and Push Changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Cek status git untuk melihat apakah ada perubahan
           git status
+
+          # Jika ada perubahan, lakukan commit dan push
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add .
             git commit -m "Publish scheduled articles"
             git push
+            echo "Perubahan berhasil dicommit dan dipush."
           else
             echo "Tidak ada perubahan yang perlu dipush."
+          fi
+
 
       - name: Upload Renamed Articles Artifact
         uses: actions/upload-artifact@v3
