@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Publish Scheduled Files
+      - name: Periksa Jadwal
         id: publish_files
         env:
           TZ: Asia/Makassar
