@@ -151,39 +151,29 @@ if (-Not (Test-Path -Path $ResolvedDataPath)) {
     OutputAction
     exit 1
 }
-'::group::Moving Draft Articles to Data folder'
-foreach ($Article in $RenameArticleList) {
-    # Cek apakah nama file sudah dimulai dengan tanggal
-    if ($Article.BaseName -match $DateRegex) {
-        '::warning::Article filename {0} appears to start with a date format, YYYY-MM-dd.' -f $Article.Name
-        
-        # Jika PreserveDateFileName aktif, gunakan nama asli
-        if ($PreserveDateFileName.IsPresent) {
-            '::warning::''PreserveDateFileName'' is enabled. The existing filename will be retained as {0}.' -f $Article.Name
-            $NewFileName = $Article.Name  # Tetap menggunakan nama asli
-        } else {
-            'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
-            # Hapus tanggal dari nama file lama dan tambahkan tanggal baru
-            $NewFileName = $Article.Name -replace $DateRegex, ''
-            $NewFileName = '{0}-{1}' -f $FormattedDate, $NewFileName.TrimStart('-')  # Trim untuk menghindari karakter '-'
-        }
-    } else {
-        # Jika tidak ada tanggal, tambahkan tanggal ke nama file
-        $NewFileName = '{0}-{1}' -f $FormattedDate, $Article.Name
-        'Renaming the article filename from {0} to {1}.' -f $Article.Name, $NewFileName
-    }
 
-    # Move the draft to the data path
+'::group::Moving Draft Articles to Data folder'
+
+foreach ($Article in $RenameArticleList) {
+    # Menggunakan nama file asli dari artikel
+    $OriginalFileName = $Article.Name
+
+    # Tentukan path tujuan di folder _artikel dengan nama file asli
+    $DestinationPath = Join-Path -Path $ResolvedDataPath -ChildPath $OriginalFileName
+
     try {
-        Move-Item -Path $Article.FullName -Destination (Join-Path -Path $ResolvedDataPath -ChildPath $NewFileName)
-        $AddFilesToCommit.Add($NewFileName)
-        'Article {0} has been moved to {1}.' -f $Article.Name, $ResolvedDataPath
+        # Pindahkan artikel dari _drafts ke _artikel tanpa mengubah nama
+        Move-Item -Path $Article.FullName -Destination $DestinationPath
+        $AddFilesToCommit.Add($OriginalFileName)  # Menambahkan file ke daftar commit
+        'Article {0} has been moved to {1}.' -f $OriginalFileName, $ResolvedDataPath
         $ShouldPublish = $true
     } catch {
-        '::error::Failed to move {0}. Error: {1}' -f $Article.Name, $_.Exception.Message
-        $RemoveFilesFromCommit.Add($Article.Name)
+        # Jika ada error saat memindahkan, tambahkan log dan tambahkan ke daftar gagal
+        '::error::Failed to move {0}. Error: {1}' -f $OriginalFileName, $_.Exception.Message
+        $RemoveFilesFromCommit.Add($OriginalFileName)
     }
 }
+
 '::endgroup::'
 #endregion
 
