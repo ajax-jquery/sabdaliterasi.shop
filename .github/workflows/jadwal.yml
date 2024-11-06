@@ -26,63 +26,77 @@ jobs:
       env:
         TZ: Asia/Makassar  # Set zona waktu Asia/Makassar (+0800)
       run: |
+        # Warna untuk output (ANSI escape codes)
+        GREEN='\033[0;32m'
+        ORANGE='\033[0;33m'
+        NC='\033[0m' # No Color (reset)
+
         # Waktu sekarang di zona Asia/Makassar
         CURRENT_DATE=$(date '+%Y-%m-%d %H:%M:%S')
-        
-        # Inisialisasi counter untuk laporan
-        COUNT_FUTURE=0
-        COUNT_READY=0
-        
         echo "Waktu sekarang: $CURRENT_DATE"
         
-        # Loop untuk memeriksa setiap file di `_drafts` dan `_draftsamp`
-        for DIR in "_drafts" "_draftsamp"; do
-          for FILE in $DIR/*.md; do
-            # Lewati jika tidak ada file
-            [ -e "$FILE" ] || continue
-            
-            # Ambil `date` dari file
-            SCHEDULED_DATE=$(grep "^date: " "$FILE" | sed "s/date: '\(.*\) +0800'/\1/")
-            
-            # Tampilkan waktu sekarang dan waktu dalam artikel
-            echo "Memeriksa file: $FILE"
-            echo "  Waktu dalam artikel: $SCHEDULED_DATE +0800"
-            
-            # Ubah tanggal ke timestamp untuk perbandingan
-            SCHEDULED_TIMESTAMP=$(date -d "$SCHEDULED_DATE" +%s)
-            CURRENT_TIMESTAMP=$(date -d "$CURRENT_DATE" +%s)
-            
-            # Jika file sudah siap dipublish
-            if [ "$CURRENT_TIMESTAMP" -ge "$SCHEDULED_TIMESTAMP" ]; then
-              # Tentukan direktori tujuan
-              if [ "$DIR" == "_drafts" ]; then
-                NEW_DIR="_artikel"
-              elif [ "$DIR" == "_draftsamp" ]; then
-                NEW_DIR="_amp"
-              fi
-              
-              # Buat direktori baru jika belum ada
-              mkdir -p "$NEW_DIR"
-              
-              # Pindahkan file ke direktori baru
-              NEW_PATH="${NEW_DIR}/$(basename "$FILE")"
-              mv "$FILE" "$NEW_PATH"
-              echo "  Status: Dipublish -> $NEW_PATH"
-              
-              # Tambah counter untuk file yang siap dipublish
-              COUNT_READY=$((COUNT_READY + 1))
-            else
-              echo "  Status: Dijadwalkan di masa mendatang"
-              # Tambah counter untuk file yang dijadwalkan di masa mendatang
-              COUNT_FUTURE=$((COUNT_FUTURE + 1))
-            fi
-          done
+        # Inisialisasi counter untuk laporan per direktori
+        COUNT_FUTURE_DRAFTS=0
+        COUNT_READY_DRAFTS=0
+        COUNT_FUTURE_DRAFTSAMP=0
+        COUNT_READY_DRAFTSAMP=0
+        
+        # Loop untuk memeriksa file di `_drafts`
+        echo "Memeriksa folder: _drafts"
+        for FILE in _drafts/*.md; do
+          [ -e "$FILE" ] || continue
+          
+          SCHEDULED_DATE=$(grep "^date: " "$FILE" | sed "s/date: '\(.*\) +0800'/\1/")
+          echo "  Waktu dalam artikel: $SCHEDULED_DATE +0800"
+          
+          SCHEDULED_TIMESTAMP=$(date -d "$SCHEDULED_DATE" +%s)
+          CURRENT_TIMESTAMP=$(date -d "$CURRENT_DATE" +%s)
+          
+          if [ "$CURRENT_TIMESTAMP" -ge "$SCHEDULED_TIMESTAMP" ]; then
+            mkdir -p "_artikel"
+            NEW_PATH="_artikel/$(basename "$FILE")"
+            mv "$FILE" "$NEW_PATH"
+            echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
+            COUNT_READY_DRAFTS=$((COUNT_READY_DRAFTS + 1))
+          else
+            echo -e "${ORANGE}  Status: Dijadwalkan di masa mendatang${NC}"
+            COUNT_FUTURE_DRAFTS=$((COUNT_FUTURE_DRAFTS + 1))
+          fi
+        done
+
+        # Loop untuk memeriksa file di `_draftsamp`
+        echo "Memeriksa folder: _draftsamp"
+        for FILE in _draftsamp/*.md; do
+          [ -e "$FILE" ] || continue
+          
+          SCHEDULED_DATE=$(grep "^date: " "$FILE" | sed "s/date: '\(.*\) +0800'/\1/")
+          echo "  Waktu dalam artikel: $SCHEDULED_DATE +0800"
+          
+          SCHEDULED_TIMESTAMP=$(date -d "$SCHEDULED_DATE" +%s)
+          CURRENT_TIMESTAMP=$(date -d "$CURRENT_DATE" +%s)
+          
+          if [ "$CURRENT_TIMESTAMP" -ge "$SCHEDULED_TIMESTAMP" ]; then
+            mkdir -p "_amp"
+            NEW_PATH="_amp/$(basename "$FILE")"
+            mv "$FILE" "$NEW_PATH"
+            echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
+            COUNT_READY_DRAFTSAMP=$((COUNT_READY_DRAFTSAMP + 1))
+          else
+            echo -e "${ORANGE}  Status: Dijadwalkan di masa mendatang${NC}"
+            COUNT_FUTURE_DRAFTSAMP=$((COUNT_FUTURE_DRAFTSAMP + 1))
+          fi
         done
 
         # Tampilkan laporan akhir di log
         echo ""
-        echo "$COUNT_FUTURE file memiliki jadwal di masa mendatang."
-        echo "$COUNT_READY file memiliki jadwal untuk segera dipublish."
+        echo "Laporan Folder _drafts:"
+        echo "$COUNT_FUTURE_DRAFTS file memiliki jadwal di masa mendatang."
+        echo "$COUNT_READY_DRAFTS file memiliki jadwal untuk segera dipublish."
+        
+        echo ""
+        echo "Laporan Folder _draftsamp:"
+        echo "$COUNT_FUTURE_DRAFTSAMP file memiliki jadwal di masa mendatang."
+        echo "$COUNT_READY_DRAFTSAMP file memiliki jadwal untuk segera dipublish."
 
     - name: Commit and Push Changes
       run: |
@@ -91,5 +105,4 @@ jobs:
         git add -A
         git commit -m "Auto-publish scheduled files"
         git push
-      # Hanya push jika ada perubahan
       if: success() && steps.publish_drafts.outputs.changes
