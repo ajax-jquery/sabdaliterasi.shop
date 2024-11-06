@@ -1,121 +1,86 @@
-# .github/workflows/schedule_publish.yml
 name: Scheduled Publish
 
 on:
   schedule:
     - cron: '0 * * * *'  # Jalankan setiap jam
-  workflow_dispatch:  # Memungkinkan menjalankan secara manual
 
 jobs:
-  publish_drafts:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      run: npm install date-fns
+      - name: Install dependencies
+        run: npm install
 
-    - name: Publish Scheduled Files
-      env:
-        TZ: Asia/Makassar  # Set zona waktu Asia/Makassar (+0800)
-      run: |
-        # Warna untuk output (ANSI escape codes)
-        GREEN='\033[0;32m'
-        ORANGE='\033[0;33m'
-        RED='\033[0;31m'
-        NC='\033[0m' # No Color (reset)
+      - name: Publish Scheduled Files
+        env:
+          TZ: Asia/Makassar  # Mengatur zona waktu ke Asia/Makassar
+        run: |
+          # Definisikan waktu saat ini
+          CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S %z")
+          echo "Waktu sekarang: $CURRENT_DATE"
 
-        # Waktu sekarang di zona Asia/Makassar
-        CURRENT_DATE=$(date '+%Y-%m-%d %H:%M:%S')
-        echo "Waktu sekarang: $CURRENT_DATE"
-        
-        # Inisialisasi counter untuk laporan per direktori
-        COUNT_FUTURE_DRAFTS=0
-        COUNT_READY_DRAFTS=0
-        COUNT_FUTURE_DRAFTSAMP=0
-        COUNT_READY_DRAFTSAMP=0
-        
-        # Loop untuk memeriksa file di `_drafts`
-        echo "Memeriksa folder: _drafts"
-        for FILE in _drafts/*.md; do
-          [ -e "$FILE" ] || continue
-          
-          SCHEDULED_DATE=$(grep "^date: " "$FILE" | sed "s/date: '\(.*\) +0800'/\1/")
-          echo "  Waktu dalam artikel: $SCHEDULED_DATE +0800"
-          
-          SCHEDULED_TIMESTAMP=$(date -d "$SCHEDULED_DATE" +%s)
-          CURRENT_TIMESTAMP=$(date -d "$CURRENT_DATE" +%s)
-          
-          if [ "$CURRENT_TIMESTAMP" -ge "$SCHEDULED_TIMESTAMP" ]; then
-            mkdir -p "_artikel"
-            NEW_PATH="_artikel/$(basename "$FILE")"
-            mv "$FILE" "$NEW_PATH"
+          # Fungsi untuk memeriksa dan memindahkan file jika waktu sesuai
+          move_file_if_scheduled() {
+            local src_file="$1"
+            local dest_folder="$2"
+            local date_in_file=$(grep "date: '" "$src_file" | awk -F"'" '{print $2}')
             
-            # Verifikasi apakah file sudah dipindahkan
-            if [ -e "$NEW_PATH" ]; then
-              echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
-              COUNT_READY_DRAFTS=$((COUNT_READY_DRAFTS + 1))
+            # Bandingkan waktu dalam file dengan waktu saat ini
+            if [[ "$date_in_file" < "$CURRENT_DATE" ]] || [[ "$date_in_file" == "$CURRENT_DATE" ]]; then
+              # Pindahkan file ke folder tujuan
+              dest_file=$(echo "$src_file" | sed "s|_drafts|$dest_folder|; s|_draftsamp|$dest_folder|")
+              mkdir -p "$(dirname "$dest_file")"
+              mv "$src_file" "$dest_file"
+              echo "File $src_file dipindahkan ke $dest_file"
             else
-              echo -e "${RED}  Error: Gagal memindahkan $FILE ke $NEW_PATH${NC}"
+              echo "File $src_file dijadwalkan untuk masa mendatang: $date_in_file"
             fi
+          }
+
+          # Iterasi file di _drafts dan _draftsamp
+          echo "Memeriksa folder _drafts:"
+          for file in _drafts/*.md; do
+            [ -e "$file" ] || continue
+            move_file_if_scheduled "$file" "_artikel"
+          done
+
+          echo "Memeriksa folder _draftsamp:"
+          for file in _draftsamp/*.md; do
+            [ -e "$file" ] || continue
+            move_file_if_scheduled "$file" "_amp"
+          done
+
+          # Memastikan isi folder tujuan setelah pemindahan
+          echo "Isi folder _artikel setelah pemindahan:"
+          ls -l _artikel || echo "_artikel folder is empty."
+
+          echo "Isi folder _amp setelah pemindahan:"
+          ls -l _amp || echo "_amp folder is empty."
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Cek status git untuk melihat apakah ada perubahan
+          git status
+
+          # Jika ada perubahan, lakukan commit dan push
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "Publish scheduled articles"
+            git push
+            echo "Perubahan berhasil dicommit dan dipush."
           else
-            echo -e "${ORANGE}  Status: Dijadwalkan di masa mendatang${NC}"
-            COUNT_FUTURE_DRAFTS=$((COUNT_FUTURE_DRAFTS + 1))
+            echo "Tidak ada perubahan yang perlu dipush."
           fi
-        done
-
-        # Loop untuk memeriksa file di `_draftsamp`
-        echo "Memeriksa folder: _draftsamp"
-        for FILE in _draftsamp/*.md; do
-          [ -e "$FILE" ] || continue
-          
-          SCHEDULED_DATE=$(grep "^date: " "$FILE" | sed "s/date: '\(.*\) +0800'/\1/")
-          echo "  Waktu dalam artikel: $SCHEDULED_DATE +0800"
-          
-          SCHEDULED_TIMESTAMP=$(date -d "$SCHEDULED_DATE" +%s)
-          CURRENT_TIMESTAMP=$(date -d "$CURRENT_DATE" +%s)
-          
-          if [ "$CURRENT_TIMESTAMP" -ge "$SCHEDULED_TIMESTAMP" ]; then
-            mkdir -p "_amp"
-            NEW_PATH="_amp/$(basename "$FILE")"
-            mv "$FILE" "$NEW_PATH"
-            
-            # Verifikasi apakah file sudah dipindahkan
-            if [ -e "$NEW_PATH" ]; then
-              echo -e "${GREEN}  Status: Dipublish -> $NEW_PATH${NC}"
-              COUNT_READY_DRAFTSAMP=$((COUNT_READY_DRAFTSAMP + 1))
-            else
-              echo -e "${RED}  Error: Gagal memindahkan $FILE ke $NEW_PATH${NC}"
-            fi
-          else
-            echo -e "${ORANGE}  Status: Dijadwalkan di masa mendatang${NC}"
-            COUNT_FUTURE_DRAFTSAMP=$((COUNT_FUTURE_DRAFTSAMP + 1))
-          fi
-        done
-
-        # Tampilkan laporan akhir di log
-        echo ""
-        echo "Laporan Folder _drafts:"
-        echo "$COUNT_FUTURE_DRAFTS file memiliki jadwal di masa mendatang."
-        echo "$COUNT_READY_DRAFTS file memiliki jadwal untuk segera dipublish."
-        
-        echo ""
-        echo "Laporan Folder _draftsamp:"
-        echo "$COUNT_FUTURE_DRAFTSAMP file memiliki jadwal di masa mendatang."
-        echo "$COUNT_READY_DRAFTSAMP file memiliki jadwal untuk segera dipublish."
-
-    - name: Commit and Push Changes
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add -A
-        git commit -m "Auto-publish scheduled files" || echo "Tidak ada perubahan untuk dicommit"
-        git push || echo "Tidak ada perubahan untuk dipush"
-      if: success() && steps.publish_drafts.outputs.changes
