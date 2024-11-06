@@ -33,7 +33,7 @@ layout: null
     {% for post in posta %}
 <item>
         <title>{{ post.title | xml_escape }}</title>
-        <dc:creator><![CDATA[Redaksi]]></dc:creator>
+       
         <category><![CDATA[{{ post.tag }}]]></category>
 	{% for cat in post.keyword %}
         <category><![CDATA[{{ cat | xml_escape }}]]></category>
