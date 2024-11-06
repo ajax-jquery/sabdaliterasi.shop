@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - 'update.txt'
+      - '_drafts/*'
   workflow_dispatch:
 
 jobs:
