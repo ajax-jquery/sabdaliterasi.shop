@@ -33,6 +33,7 @@ layout: null
     {% for post in posta %}
 <item>
         <title>{{ post.title | xml_escape }}</title>
+<category><![CDATA[{{ post.tag }}]]></category>
 	{% for cat in post.keyword %}
         <category><![CDATA[{{ cat | xml_escape }}]]></category>
         {% endfor %}
