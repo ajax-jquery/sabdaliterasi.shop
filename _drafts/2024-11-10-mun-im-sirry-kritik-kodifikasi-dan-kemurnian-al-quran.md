@@ -2,7 +2,7 @@
 date: '2024-11-10 09:00:54 +0800'
 date_short: '2024-11-10T09:00:54+08:00'
 tag: 'Agama'
-title: 'Mun'im Sirry: Kritik Kodifikasi dan Kemurnian Al-Quran'
+title: "Mun'im Sirry: Kritik Kodifikasi dan Kemurnian Al-Quran"
 image: 'https://sabdaliterasi.xyz/wp-conten/file/images/sabda-literasi-mun-im-sirry-kritik-kodifikasi-dan-kemurnian-al-quran.jpg'
 description: 'Jelajahi pandangan Mun'im Sirry tentang kodifikasi Al-Quran, perdebatan teks, dan kritik terhadap kemurnian teks suci dalam kajian Islam yang mendalam.'
 keyword: ['kodifikasi al-quran','kemurnian al-quran','mun'im sirry','mushaf utsmani','sejarah al-quran','teks al-quran','asbabun nuzul','kajian islam kritis','hadis dan al-quran','penulisan al-quran','hafalan al-quran','pandangan tradisionalis','pandangan revisionis','ilmu tafsir','naskah al-quran','mun'im sirry tentang kodifikasi al-quran','sejarah pelestarian al-quran','asal-usul islam dan integritas teks','debat kodex utsmani','varian teks dalam manuskrip al-quran awal','tradisionalisme vs. revisi dalam studi al-quran','pendekatan historis-kritis terhadap al-quran','keaslian teks al-quran','proses kodifikasi islam awal','kontroversi dalam kompilasi al-quran','pengaruh politik terhadap kodifikasi al-quran','kritik teks al-quran','studi islam tentang sejarah al-quran','kepakaran islam mun'im sirry','perspektif akademis tentang keaslian al-quran']
