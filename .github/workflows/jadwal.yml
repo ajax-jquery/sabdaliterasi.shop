@@ -191,7 +191,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: renamed-articles
-          path: ${{ github.workspace }}  
+          path: |
+            ${{ github.workspace }}/_artikel/*
+            ${{ github.workspace }}/_amp/*  
       - name: Setup Ruby
         uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42
         with:
