@@ -100,8 +100,8 @@ jobs:
 
     - name: Commit and Push Changes
       run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "${{ vars.GIT_USER_NAME }}"
+        git config --global user.email "${{ vars.GIT_USER_EMAIL }}"
         git add -A
         git commit -m "Auto-publish scheduled files"
         git push
