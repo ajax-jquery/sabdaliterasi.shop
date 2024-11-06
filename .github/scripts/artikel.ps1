@@ -81,15 +81,41 @@ if ($DraftArticles.Count -gt 0) {
 
 #region Checking Draft Article Date
 '::group::Checking Draft Article Date'
+
+# Periksa apakah ada artikel draft
+if (-not $DraftArticles) {
+    Write-Output "::error::Tidak ada artikel draft yang ditemukan."
+    return
+}
+
 foreach ($Article in $DraftArticles) {
-    $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Ignore
-    if ($FrontMatter.ContainsKey('date')) {
+    # Periksa apakah file artikel valid
+    if (-not $Article.FullName) {
+        Write-Output "::warning:: Artikel tidak memiliki path yang valid. SKIPPED"
+        continue
+    }
+
+    # Mendapatkan front matter dari artikel
+    try {
+        $FrontMatter = Get-Content -Path $Article.FullName -Raw | ConvertFrom-Yaml -ErrorAction Stop
+    } catch {
+        Write-Output "::error:: Gagal membaca front matter dari artikel $($Article.FullName). SKIPPED"
+        continue
+    }
+
+    # Periksa apakah front matter memiliki kunci 'date'
+    if ($FrontMatter -and $FrontMatter.ContainsKey('date')) {
         # Mengambil tanggal dari front matter
         $ArticleDateTimeString = $FrontMatter['date']
 
-        # Mengonversi string menjadi objek DateTime dengan zona waktu yang benar
-        $ArticleDateTime = [datetime]::Parse($ArticleDateTimeString).ToUniversalTime()
-        $ArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
+        # Gunakan DateTimeOffset untuk parsing tanggal dengan zona waktu offset
+        try {
+            $ArticleDateTime = [System.DateTimeOffset]::Parse($ArticleDateTimeString).UtcDateTime
+            $ArticleDateTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($ArticleDateTime, [System.TimeZoneInfo]::FindSystemTimeZoneById('Asia/Makassar'))
+        } catch {
+            Write-Output "::error:: Format tanggal tidak valid pada artikel $($Article.FullName). SKIPPED"
+            continue
+        }
 
         # Memformat tanggal dan waktu untuk output
         $ArticleDate = $ArticleDateTime.ToString('yyyy-MM-dd')
@@ -111,7 +137,7 @@ foreach ($Article in $DraftArticles) {
             '::warning:: {0}: Article ''date'' is set in the future. SKIPPED' -f $FrontMatter['title']
         }
     } else {
-        '{0}: Article does not contain a date value. SKIPPED' -f $FrontMatter['title']
+        '{0}: Article does not contain a date value or front matter parsing failed. SKIPPED' -f ($FrontMatter['title'] -ne $null ? $FrontMatter['title'] : "Unknown title")
     }
 }
 '::endgroup::'
