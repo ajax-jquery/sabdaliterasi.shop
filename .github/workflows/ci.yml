@@ -3,9 +3,13 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - 'update.txt' 
   pull_request:
     branches:
       - master
+    paths-ignore:
+      - update.txt' 
 
 jobs:
   build:
