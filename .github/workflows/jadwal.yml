@@ -38,7 +38,7 @@ jobs:
           CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S %z")
           # Definisikan waktu saat ini
           CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S %z")
-          echo -e "\n\033[1;36mWaktu sekarang: $CURRENT_DATE\033[0m\n"
+          echo -e "\n\033[1;34mWaktu sekarang:\033[0m $CURRENT_DATE\n"
 
           # Variabel untuk menyimpan jumlah file terpublish dan terjadwal
           drafts_publish_count=0
