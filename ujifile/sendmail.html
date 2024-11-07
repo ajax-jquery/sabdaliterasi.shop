@@ -356,9 +356,9 @@ async function extractTextFromDocx(arrayBuffer) {
     text += '<p>' + paragraphText + '</p>';
   };
 let mail = $("#EmailSaya").val(),
-mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)";
+mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: {{ site.wa }} Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)";
 if(mail === "martinamulia04@gmail.com"){
-mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6283132302297 Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
+mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: {{ site.wa }} Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
 
   return text.replace(mybio,"");
 }
