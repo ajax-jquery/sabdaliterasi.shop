@@ -71,7 +71,7 @@ jobs:
               elif [[ "$dest_folder" == "_amp" ]]; then
                 draftsamp_schedule_count=$((draftsamp_schedule_count + 1))
               fi
-              echo -e "\033[1;33mFile $src_file dijadwalkan untuk masa mendatang: $date_in_file\033[0m"
+              echo -e "\033[38;2;214;0;0mFile $src_file dijadwalkan untuk masa mendatang: $date_in_file\033[0m"
             fi
           }
 
