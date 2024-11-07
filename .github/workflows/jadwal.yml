@@ -2,7 +2,9 @@ name: Jadwal Artikel
 
 on:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '10 1 * * *'  # 09.00 WITA
+    - cron: '10 7 * * *'  # 15.00 WITA
+    - cron: '10 10 * * *' # 18.00 WITA
   push:
     paths:
       - 'update.txt'
