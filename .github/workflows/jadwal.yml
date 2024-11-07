@@ -1,5 +1,5 @@
 name: Jadwal Artikel
-
+        
 on:
   schedule:
     - cron: '10 1 * * *'  # 09.00 WITA
@@ -32,11 +32,11 @@ jobs:
 
       # Beri izin eksekusi pada skrip move_files.sh
       - name: Berikan izin eksekusi pada move_files.sh
-        run: chmod +x ./move_files.sh
+        run: chmod +x .github/scripts/periksa_jadwal.sh
 
       # Jalankan skrip move_files.sh
       - name: Periksa Jadwal
-        run: ./move_files.sh
+        run: .github/scripts/periksa_jadwal.sh
 
       - name: Verify Folder Contents Before Upload
         run: |
