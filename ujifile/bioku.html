@@ -13,7 +13,10 @@ permalink: /ujifile/bioku/
 
 Co-Founder <a href="https://www.sophiainstitute.xyz/" title="Sophia Institute">Sophia Institute</a> Palu, serta pegiat filsafat dan sains.  <a href="{{ site.url }}" title="{{ site.title }}">Ebook Shop</a>
 <strong><a href="{{ site.url }}/sitemap_index.xml" title="{{ post.title }}"></a></strong>
-{% for post in site.artikel %}<strong><a href="{{ post.url | absolute_url }}" title="{{ post.title }}"></a></strong>{% endfor %}
+
+{% for post in site.artikel %}
+<a href="{{ post.url | absolute_url }}" title="{{ post.title }}"></a>
+{% endfor %}
   
   
 </body>
