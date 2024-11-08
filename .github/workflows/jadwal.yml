@@ -64,7 +64,7 @@ jobs:
               fi
               mkdir -p "$(dirname "$dest_file")"
               mv "$src_file" "$dest_file"
-              echo -e "\033[1;32mFile $src_file dipindahkan ke $dest_file (Terpublish)\033[0m"
+              echo -e "\033[1;32mFile $src_file dipindahkan ke $dest_file (Terpublish)\033[0m $date_in_file"
             else
               if [[ "$dest_folder" == "_artikel" ]]; then
                 drafts_schedule_count=$((drafts_schedule_count + 1))
