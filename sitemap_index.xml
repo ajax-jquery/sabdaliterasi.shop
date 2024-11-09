@@ -15,4 +15,8 @@ layout : null
 		<loc>{{ site.url }}/page-sitemap.xml</loc>
 		<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
 	</sitemap>
+<sitemap>
+		<loc>{{ site.url }}/category-sitemap.xml</loc>
+		<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+	</sitemap>
 </sitemapindex> 
