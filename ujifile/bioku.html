@@ -11,6 +11,14 @@ permalink: /ujifile/bioku/
 </head>
 <body>
 
+{% assign TAG = site.artikel | map: 'tag' | uniq %} 
+
+{% for p in TAG %}
+
+<p>{{ site.url }}/category/{{ p }}/</p>
+
+{% endfor %}
+
 Co-Founder <a href="https://www.sophiainstitute.xyz/" title="Sophia Institute">Sophia Institute</a> Palu, serta pegiat filsafat dan sains.  <a href="{{ site.url }}" title="{{ site.title }}">Ebook Shop</a>
 <strong><a href="{{ site.url }}/sitemap_index.xml" title="{{ post.title }}"></a></strong>
 
