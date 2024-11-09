@@ -3,7 +3,7 @@ layout: halaman
 author: Sabda Literasi
 title: Hubungi Kami
 harga: Rp0
-description: Kebijakan Pengembalian adalah ketentuan mengenai pengembalian uang ataupun barang oleh Penjual kepada Pembeli
+description: "Halaman untuk menghubungi tim kami"
 permalink: /contac-us/
 image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [contact us]
