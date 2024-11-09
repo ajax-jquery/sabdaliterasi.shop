@@ -29,7 +29,7 @@ keyword: [contact us]
 
 <input name="_captcha" type="hidden" value="false" />
 
-<input name="_next" type="hidden" value="{{ site.url }}/succes/" />
+<input name="_next" type="hidden" value="{{ site.url }}/success/" />
 
 <div class="formcolumn1">
 Nama:<span style="color: red;">*</span><br />
