@@ -4,7 +4,7 @@ author: Sabda Literasi
 title: Hubungi Kami
 harga: Rp0
 description: "Halaman untuk menghubungi tim kami"
-permalink: /contac-us/
+permalink: /contact-us/
 image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [contact us]
 ---
