@@ -3,6 +3,7 @@ layout: null
 ---
 User-agent: *
 Disallow: /test/
+Disallow: /success/
 Disallow: /uji-home/
 Disallow: /buy/
 Disallow: /offline/
