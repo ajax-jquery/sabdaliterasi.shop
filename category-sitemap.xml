@@ -8,10 +8,7 @@ layout : null
       {{ site.url }}/category/{{ p | downcase }}/
       </loc>
       <lastmod>{{ site.time | date_to_xmlschema }}
-      </lastmod>
-      <image:image>
-        <image:loc></image:loc>
-      </image:image>
+      </lastmod>     
     </url>
  {% endfor %}
 </urlset>
