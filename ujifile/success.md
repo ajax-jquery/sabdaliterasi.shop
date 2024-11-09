@@ -13,18 +13,4 @@ keyword: [contact us]
 <br /><div style="text-align: center;"><span style="color: #666666; font-size: large;">Anda akan dialihkan ke halaman utama dalam waktu <h2 style="text-align: center;"><i id="msg"></i></h2></span></div><div style="text-align: center;"><span style="color: #666666; font-size: large;"><br /></span></div>
 
 
-<script>
-            var url = "{{ site.url }}";
-            var count = 10;
-            function countDown() {
-                if (count > 0) {
-                    count--;
-                    var waktu = count + 1;
-                    $('#msg').html(waktu);
-                    setTimeout("countDown()", 1000);
-                } else {
-                    window.location.href = url;
-                }
-            }
-            countDown();
-        </script>
+<script src="data:text/javascript;base64,dmFyIHVybCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJNWV9Ib21lIikudmFsdWU7DQogICAgICAgICAgICB2YXIgY291bnQgPSAxMDsNCiAgICAgICAgICAgIGZ1bmN0aW9uIGNvdW50RG93bigpIHsNCiAgICAgICAgICAgICAgICBpZiAoY291bnQgPiAwKSB7DQogICAgICAgICAgICAgICAgICAgIGNvdW50LS07DQogICAgICAgICAgICAgICAgICAgIHZhciB3YWt0dSA9IGNvdW50ICsgMTsNCiAgICAgICAgICAgICAgICAgICAgJCgnI21zZycpLmh0bWwod2FrdHUpOw0KICAgICAgICAgICAgICAgICAgICBzZXRUaW1lb3V0KCJjb3VudERvd24oKSIsIDEwMDApOw0KICAgICAgICAgICAgICAgIH0gZWxzZSB7DQogICAgICAgICAgICAgICAgICAgIHdpbmRvdy5sb2NhdGlvbi5ocmVmID0gdXJsOw0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIGNvdW50RG93bigpOw=="></script>
