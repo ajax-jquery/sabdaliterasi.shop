@@ -9,7 +9,9 @@ permalink: /test/
 </head>
 <body>
 
-
+{% assign current_date = "now" | date: "%s" %}
+{% assign seven_days_ago = current_date | minus: 604800 %}
+<p>{{ seven_days_ago | date: "%d %B %Y" }}</p>
 
 
 {% for tag in site.tags %}
