@@ -15,7 +15,7 @@ permalink: /ujifile/bioku/
 
 {% for p in TAG %}
 
-<p>{{ site.url }}/category/{{ p }}/</p>
+<p>{{ site.url }}/category/{{ p | downcase }}/</p>
 
 {% endfor %}
 
