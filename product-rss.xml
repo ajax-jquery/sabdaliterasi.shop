@@ -45,7 +45,7 @@ layout: null
 {% assign first_four_paragraphs = paragraphs | slice: 0, 4 %} <!-- Ambil paragraf pertama hingga keempat -->
 {% capture snippet %}
   {% for paragraph in first_four_paragraphs  %}
-    <p>{{ paragraph }} </p>
+   {{ paragraph }}
   {% endfor %}
 {% endcapture %}
 
