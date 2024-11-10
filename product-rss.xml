@@ -41,13 +41,12 @@ layout: null
 	<dc:creator><![CDATA[{{ post.author }}]]></dc:creator>
   <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Produk ebook&nbsp;<a href="{{ site.url }}{{ post.permalink }}" rel="nofollow">{{ post.title }}</a> ini ditulis oleh {{ post.author }} dan pertama kali dijual dalam bentuk ebook di <a href="{{ site.url }}" rel="nofollow">{{ site.title }}</a></p><p><a href="{{ site.url }}" rel="nofollow">{{ site.title }}</a> - <a href="{{ site.url }}" rel="nofollow">{{ site.title }} | {{ site.subjudul }}</a></p> ]]></description>
 
-
 <summary><![CDATA[
-  {% assign paragraphs = post.content | split: '<p>' %}
+  {% assign paragraphs = post.content | split: '</p>' %}
   {% assign first_four_paragraphs = paragraphs[1..4] %}
   {% capture snippet %}
     {% for paragraph in first_four_paragraphs %}
-      <p>{{ paragraph }}</p>
+      <p>{{ paragraph }} </p>
     {% endfor %}
   {% endcapture %}
   {{ snippet | strip_newlines | truncatewords: 100 }}
