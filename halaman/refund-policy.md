@@ -1,11 +1,119 @@
 ---
 layout: halaman
 author: Sabda Literasi
-title: Kebijakan Pengembalian Dana
+title: Refund Policy
 harga: Rp0
 description: Kebijakan Pengembalian adalah ketentuan mengenai pengembalian uang ataupun barang oleh Penjual kepada Pembeli
 permalink: /refund-policy/
 image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [refund policy]
 ---
-<p>Kebijakan Pengembalian adalah ketentuan mengenai pengembalian uang ataupun barang oleh Penjual kepada Pembeli</p><h3>Penjual kepada Pembeli</h3><p>Terkait dengan permintaan pengembalian atau penukaran Produk, dan/atau pengembalian uang pembayaran (refund) Pembeli harap menghubungi Penjual secara langsung.</p><p>Pembeli dapat mengajukan permintaan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund) hanya dalam keadaan sebagai berikut:</p><ul><li><b>{{ site.title }}</b> tidak mengirim Produk sampai dengan batas waktu yang wajar;</li><li>Produk diterima oleh Pembeli dalam keadaan cacat dan/atau rusak; dan</li><li>Produk yang dikirimkan tidak sesuai dengan/berbeda dari yang dideskripsikan.</li></ul><p>Permintaan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund) dapat diajukan dalam jangka waktu 7 (tujuh) hari setelah Produk diterima oleh Pembeli dengan kondisi Produk sebagai berikut:</p><ul><li>belum digunakan ataupun dikonsumsi secara nyata;</li><li>label, kemasan dan/atau segel Produk tidak rusak; dan</li><li>barang harus dalam kondisi yang sama saat pertama kali diterima.</li></ul><p>Berikut adalah setiap jenis Produk yang tidak dapat diajukan permintaan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund) oleh Pembeli kepada <b>{{ site.title }}</b>:</p><ul><li>Seluruh Produk dalam bentuk digital;</li><li>Seluruh Produk yang akan dan/atau harus diambil oleh pelanggan di tempat tertentu; dan</li><li>Segala Produk yang mudah rusak atau mudah habis atau mudah mencair (seperti ice cream, coklat, kamper, dan lainnya).</li></ul><p>Dokumen dan bukti pendukung yang wajib dilampirkan oleh Pembeli dalam pengajuan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund) antara lain:</p><ul><li>Dokumen identitas diri Pembeli yang berlaku;</li><li>Detail transaksi atas Produk;</li><li>Video pada saat pembukaan kemasan Produk (unboxing); dan/atau</li><li>Kronologi dan latar belakang permintaan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund).</li></ul><p>Pembeli tidak dapat mengajukan permintaan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund) dengan alasan berubah pikiran atas Produk.</p><p><b>{{ site.title }}</b> akan menanggapi permintaan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund) dalam jangka waktu 14 (empat belas) hari setelah dokumen dan bukti pendukung sesuai dengan angka 5 di atas diterima oleh <b>{{ site.title }}</b>.</p><p><b>{{ site.title }}</b> dapat mengevaluasi kembali setiap permintaan pengembalian atau penukaran Produk, dan/atau pengembalian uang pembayaran (refund) oleh Pembeli sesuai dengan kondisi dan, atas kebijakannya sendiri, menentukan apakah permintaan Pembeli dapat diproses ataupun tidak.</p><p>Pembeli akan mengirimkan Produk kepada <b>{{ site.title }}</b> dalam jangka waktu 3 (tiga) hari setelah <b>{{ site.title }}</b> menyutujui untuk memproses permintaan pengembalian atau penukaran Produk, dan/atau pengembalian uang pembayaran (refund) kepada Pembeli.</p><p>Pembeli harus memastikan bahwa Produk yang diajukan untuk permintaan pengembalian atau penukaran Produk dan/atau pengembalian uang pembayaran (refund) dalam kondisi yang sama seperti saat Pembeli terima dan dikemas dengan baik.</p><p>Bahwa pertanggungan biaya pengiriman pengembalian Produk bergantung pada kesepakatan <b>{{ site.title }}</b> dan Pembeli.</p><p><b>{{ site.title }}</b> memerlukan waktu 14 (empat belas) hari kerja setelah menerima Produk dari Pembeli untuk memproses pengembalian atau penukaran Produk. Waktu yang diperlukan untuk memproses pengiriman atas pengembalian atau penukaran Produk dapat berbeda tergantung pada metode pengembalian yang dipilih, lokasi, tanggal pengiriman dan kecepatan kurir.</p><p>Apabila Produk pengganti tidak tersedia, <b>{{ site.title }}</b> akan melakukan pengembalian dana sesuai dengan jumlah pada pesanan.</p><p><b>{{ site.title }}</b> akan melakukan pengembalian uang pembayaran (refund) dalam jangka waktu 14 (empat belas) hari setelah <b>{{ site.title }}</b> menerima Produk dari Pembeli dengan metode transfer ke rekening yang ditunjuk oleh Pembeli.</p><p>Pengembalian uang pembayaran (refund) tidak meliputi biaya pengiriman atas Produk.</p>
+<p>
+    The Refund Policy is a provision regarding the return of money or goods by the Seller to the Buyer.
+</p>
+<h3>
+    Seller to Buyer
+</h3>
+<p>
+    Regarding the request for product returns or exchanges, and/or payment refunds, the Buyer is requested to contact us through:
+</p>
+<ul>
+    <li>
+        Email: <a href="mailto:info@{{ site.domain }}">info@{{ site.domain }}</a>
+    </li>
+    <li>
+        Whatsapp: <a href="{{ site.wa }}">{{ site.hp }}</a>
+    </li>
+    <li>
+        Website: <a href="/contact-us/">Contact Us</a>&nbsp;
+    </li>
+</ul>
+<p>
+    The Buyer may request a return or exchange of the product and/or refund only under the following circumstances:
+</p>
+<ul>
+    <li>
+        <strong>{{ site.title }}</strong> does not deliver the product within a reasonable timeframe;
+    </li>
+    <li>
+        The product received by the Buyer is defective and/or damaged; and
+    </li>
+    <li>
+        The product shipped does not match or is different from the description.
+    </li>
+</ul>
+<p>
+    Return or exchange requests and/or refunds can be submitted within 7 (seven) days after the product is received by the Buyer, under the following conditions:
+</p>
+<ul>
+    <li>
+        The product has not been used or consumed;
+    </li>
+    <li>
+        The product's label, packaging, and/or seal is undamaged; and
+    </li>
+    <li>
+        The product must be in the same condition as when it was first received.
+    </li>
+</ul>
+<p>
+    The following types of products cannot be returned or exchanged or refunded by the Buyer to <strong>{{ site.title }}</strong>:
+</p>
+<ul>
+    <li>
+        All digital products;
+    </li>
+    <li>
+        All products that must be collected by the customer at a specific location; and
+    </li>
+    <li>
+        All perishable or easily damaged products (such as ice cream, chocolate, camphor, etc.).
+    </li>
+</ul>
+<p>
+    The required documents and supporting evidence that must be provided by the Buyer when submitting a return or exchange request and/or refund include:
+</p>
+<ul>
+    <li>
+        A valid ID document of the Buyer;
+    </li>
+    <li>
+        Transaction details of the product;
+    </li>
+    <li>
+        A video showing the unboxing of the product;
+    </li>
+    <li>
+        The chronology and background of the return or exchange request and/or refund request.
+    </li>
+</ul>
+<p>
+    The Buyer cannot request a return or exchange or refund based on a change of mind regarding the product.
+</p>
+<p>
+    <strong>{{ site.title }}</strong> will respond to the return or exchange request and/or refund request within 14 (fourteen) days after receiving the documents and supporting evidence as described in point 5 above.
+</p>
+<p>
+    <strong>{{ site.title }}</strong> may review each return or exchange request and/or refund request based on the condition and, at its discretion, determine whether the request can be processed or not.
+</p>
+<p>
+    The Buyer must send the product to <strong>{{ site.title }}</strong> within 3 (three) days after <strong>{{ site.title }}</strong> agrees to process the return or exchange request and/or refund to the Buyer.
+</p>
+<p>
+    The Buyer must ensure that the product requested for return or exchange and/or refund is in the same condition as when it was received and properly packaged.
+</p>
+<p>
+    The cost of return shipping is subject to agreement between <strong>{{ site.title }}</strong> and the Buyer.
+</p>
+<p>
+    <strong>{{ site.title }}</strong> requires 14 (fourteen) working days after receiving the product from the Buyer to process the return or exchange. The processing time for shipping the return or exchange may vary depending on the return method selected, location, shipping date, and courier speed.
+</p>
+<p>
+    If a replacement product is unavailable, <strong>{{ site.title }}</strong> will refund the amount of the order.
+</p>
+<p>
+    <strong>{{ site.title }}</strong> will process the refund within 14 (fourteen) days after receiving the product from the Buyer via a bank transfer to the account designated by the Buyer.
+</p>
+<p>
+    The refund does not include shipping costs for the product.
+</p>
