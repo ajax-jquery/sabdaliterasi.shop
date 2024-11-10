@@ -50,10 +50,9 @@ layout: null
 {% endcapture %}
 
 
-<summary><![CDATA[
+<content:encoded><![CDATA[
     <figure> <img src="{{ post.image }}" alt="{{ post.title }} | {{ site.title }}"> </figure>
-    {{ snippet }} <blockquote> <p> Baca Selengkap: <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"Ebook {{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a> </p> </blockquote> ]]></summary>
-	<content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
+    {{ snippet }} <blockquote> <p> Baca Selengkap: <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"Ebook {{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a> </p> </blockquote> ]]></content:encoded>
    <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 <media:thumbnail url="{{ post.image }}" width="75" height="75"/>
 <media:content url="{{ post.image }}" medium="image"/>
