@@ -45,7 +45,12 @@ layout: null
 {% assign first_four_paragraphs = paragraphs | slice: 0, 4 %} <!-- Ambil paragraf pertama hingga keempat -->
 {% capture snippet %}
   {% for paragraph in first_four_paragraphs  %}
-   {{ paragraph }}{% if forloop.last == false %}</p>{% endif %} {% if forloop.last == true %}..</p>{% endif %}
+   {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}{% if forloop.last == true %}....</p>{% endif %}
+  <blockquote>
+    <p>
+       Baca Selengkap: <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a>
+    </p>
+</blockquote>
   {% endfor %}
 {% endcapture %}
 
