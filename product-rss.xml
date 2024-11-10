@@ -17,6 +17,16 @@ layout: null
 	<atom:link href="{{ "/rss.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
 	<link>{{ site.url }}{{ site.baseurl }}</link>
 	<description>{{ site.description | xml_escape }}</description>
+<summary><![CDATA[
+  {% assign paragraphs = post.content | split: '</p>' %}
+  {% assign first_four_paragraphs = paragraphs[0..3] %}
+  {% capture snippet %}
+    {% for paragraph in first_four_paragraphs %}
+      {{ paragraph }} </p>
+    {% endfor %}
+  {% endcapture %}
+  {{ snippet | strip_newlines | truncatewords: 100 }}
+]]></summary>
 	<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 	<language>id</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
