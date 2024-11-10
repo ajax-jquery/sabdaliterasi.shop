@@ -48,14 +48,9 @@ layout: null
 {% capture snippet %}
   {% for paragraph in first_four_paragraphs  %}
    {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}{% if forloop.last == true %}....</p>{% endif %}
-  <blockquote>
-    <p>
-       Baca Selengkap: Artikel <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a>
-    </p>
-</blockquote>
   {% endfor %}
 {% endcapture %}
-  <summary><![CDATA[{{ snippet }}]]></summary>
+  <summary><![CDATA[{{ snippet }} <blockquote> <p> Baca Selengkap: Artikel <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a> </p> </blockquote> ]]></summary>
   <content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
   <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 <media:thumbnail url="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" width="1080" height="607"/>
