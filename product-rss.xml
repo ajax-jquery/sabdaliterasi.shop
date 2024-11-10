@@ -48,7 +48,7 @@ layout: null
    {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}{% if forloop.last == true %}....</p>{% endif %}
   <blockquote>
     <p>
-       Baca Selengkap: <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a>
+       Baca Selengkap: Ebook <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a>
     </p>
 </blockquote>
   {% endfor %}
