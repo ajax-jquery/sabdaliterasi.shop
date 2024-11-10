@@ -41,9 +41,19 @@ layout: null
 	<dc:creator><![CDATA[{{ post.author }}]]></dc:creator>
   <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Produk ebook&nbsp;<a href="{{ site.url }}{{ post.permalink }}" rel="nofollow">{{ post.title }}</a> ini ditulis oleh {{ post.author }} dan pertama kali dijual dalam bentuk ebook di <a href="{{ site.url }}" rel="nofollow">{{ site.title }}</a></p><p><a href="{{ site.url }}" rel="nofollow">{{ site.title }}</a> - <a href="{{ site.url }}" rel="nofollow">{{ site.title }} | {{ site.subjudul }}</a></p> ]]></description>
 
+{% assign paragraphs = post.excerpt | split: '</p>' %}
+{% assign first_four_paragraphs = paragraphs[0..3] %}
+{% capture snippet %}
+  {% for paragraph in first_four_paragraphs %}
+    <p>{{ paragraph | strip_newlines }}</p>
+  {% endfor %}
+{% endcapture %}
+
+
 <summary><![CDATA[
-  {{ post.excerpt }}
+  {{ snippet | truncatewords: 100 }}
 ]]></summary>
+
 	<content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
    <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 <media:thumbnail url="{{ post.image }}" width="75" height="75"/>
