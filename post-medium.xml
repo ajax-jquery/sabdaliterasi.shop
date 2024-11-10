@@ -1,0 +1,63 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+  <channel>
+   <title>{{ site.title }} | Ebook Shop termurah dan terlengkap di Indonesia</title>
+	<atom:link href="{{ "/rss.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
+	<link>{{ site.url }}{{ site.baseurl }}</link>
+	<description>{{ site.description | xml_escape }}</description>
+	<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+	<language>id</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1	</sy:updateFrequency>
+	<generator>Jekyll v{{ jekyll.version }}</generator>
+<image>
+	<url>{{ site.url }}{{ site.avatar }}</url>
+	<title>{{ site.title }}</title>
+	<link>{{ site.url }}{{ site.baseurl }}</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+{% assign posta = site.artikel | sort: "date_short" | reverse %}
+    {% for post in posta %}
+<item>
+        <title>{{ post.title | xml_escape }}</title>
+       
+        <category><![CDATA[{{ post.tag }}]]></category>
+	{% for cat in post.keyword %}
+        <category><![CDATA[{{ cat | xml_escape }}]]></category>
+        {% endfor %}
+	<link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+	<guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+	<comments>{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments</comments>
+	<dc:creator><![CDATA[{{ site.title }}]]></dc:creator>
+  <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Artikel dengan judul <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a> diterbitkan di <a href="{{ site.url }}">{{ site.title }} | {{ site.subjudul }}.</a></p> <p>Baca selengkapnya: {{ post.url | prepend: site.baseurl | prepend: site.url }}</p>]]></description>
+	{% assign paragraphs = post.content | split: '</p>' %}
+{% assign first_four_paragraphs = paragraphs | slice: 0, 4 %}
+{% capture snippet %}
+  {% for paragraph in first_four_paragraphs  %}
+   {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}{% if forloop.last == true %}....</p>{% endif %}
+  {% endfor %}
+{% endcapture %}
+  <summary><![CDATA[
+    <figure> <img src="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" alt="{{ post.title }} | {{ site.title }}"> </figure>
+    {{ snippet }} <blockquote> <p> Baca Selengkap: Artikel <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a> </p> </blockquote> ]]></summary>
+  <content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
+  <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+<media:thumbnail url="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" width="1080" height="607"/>
+<media:content url="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" medium="image"/>
+</item>
+    {% endfor %}
+  </channel>
+</rss>
