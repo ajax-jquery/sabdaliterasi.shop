@@ -49,6 +49,9 @@ layout: null
     {% for paragraph in first_four_paragraphs %}
       {{ paragraph }} </p>
     {% endfor %}
+    {% if post.content contains '<h2>' %}
+      <h2>Bagian dengan Heading</h2>
+    {% endif %}
   {% endcapture %}
   {{ snippet | strip_newlines | truncatewords: 100 }}
 ]]></summary>
