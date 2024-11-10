@@ -44,7 +44,7 @@ layout: null
 {% assign paragraphs = post.content | split: '</p>' %}
 {% assign first_four_paragraphs = paragraphs[0..3] %} <!-- Ambil paragraf pertama hingga keempat -->
 {% capture snippet %}
-  {% for paragraph in first_four_paragraphs %}
+  {% for paragraph in paragraphs %}
     <p>{{ paragraph }} </p>
   {% endfor %}
 {% endcapture %}
