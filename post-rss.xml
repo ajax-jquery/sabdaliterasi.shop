@@ -43,16 +43,6 @@ layout: null
 	<comments>{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments</comments>
 	<dc:creator><![CDATA[{{ site.title }}]]></dc:creator>
   <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Artikel dengan judul <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a> diterbitkan di <a href="{{ site.url }}">{{ site.title }} | {{ site.subjudul }}.</a></p> <p>Baca selengkapnya: {{ post.url | prepend: site.baseurl | prepend: site.url }}</p>]]></description>
-	{% assign paragraphs = post.content | split: '</p>' %}
-{% assign first_four_paragraphs = paragraphs | slice: 0, 4 %}
-{% capture snippet %}
-  {% for paragraph in first_four_paragraphs  %}
-   {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}{% if forloop.last == true %}....</p>{% endif %}
-  {% endfor %}
-{% endcapture %}
-  <summary><![CDATA[
-    <figure> <img src="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" alt="{{ post.title }} | {{ site.title }}"> </figure>
-    {{ snippet }} <blockquote> <p> Baca Selengkap: Artikel <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a> </p> </blockquote> ]]></summary>
   <content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
   <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 <media:thumbnail url="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" width="1080" height="607"/>
