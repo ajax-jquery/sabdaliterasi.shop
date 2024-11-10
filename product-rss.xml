@@ -43,15 +43,12 @@ layout: null
 
 
 <summary><![CDATA[
-  {% assign paragraphs = post.content | split: '</p>' %}
-  {% assign first_four_paragraphs = paragraphs[0..3] %}
+  {% assign paragraphs = post.content | split: '<p>' %}
+  {% assign first_four_paragraphs = paragraphs[1..4] %}
   {% capture snippet %}
     {% for paragraph in first_four_paragraphs %}
-      {{ paragraph }} </p>
+      <p>{{ paragraph }}</p>
     {% endfor %}
-    {% if post.content contains '<h2>' %}
-      <h2>Bagian dengan Heading</h2>
-    {% endif %}
   {% endcapture %}
   {{ snippet | strip_newlines | truncatewords: 100 }}
 ]]></summary>
