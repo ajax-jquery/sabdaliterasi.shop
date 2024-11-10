@@ -50,10 +50,9 @@ layout: null
    {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}{% if forloop.last == true %}....</p>{% endif %}
   {% endfor %}
 {% endcapture %}
-  <summary><![CDATA[
+  <content:encoded><![CDATA[
     <figure> <img src="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" alt="{{ post.title }} | {{ site.title }}"> </figure>
-    {{ snippet }} <blockquote> <p> Baca Selengkap: Artikel <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a> </p> </blockquote> ]]></summary>
-  <content:encoded><![CDATA[{% capture string_with_newlines %}{{ post.content }}{% endcapture %}{{ string_with_newlines | strip_newlines }}]]></content:encoded>   
+    {{ snippet }} <blockquote> <p> Baca Selengkap: Artikel <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}"><i><strong>"{{ post.title }}" [{{ post.url | prepend: site.baseurl | prepend: site.url }}]&nbsp;</strong></i></a> </p> </blockquote> ]]></content:encoded> 
   <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 <media:thumbnail url="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" width="1080" height="607"/>
 <media:content url="{{ post.image }}?width=1080&amp;height=607&amp;ssl=1" medium="image"/>
