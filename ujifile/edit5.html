@@ -208,6 +208,19 @@ Download
 <textarea class="form-control" id="hasilnya" readonly rows="4" placeholder="markdwn"></textarea>
 <button id="copy_isi" class="btn-primary btn">copy</button>
 </div>
+    <div class="form-outline mb-2">
+<style>
+.preview{padding:15px;border:1px solid #ddd;border-radius:4px;background:#f9f9f9;overflow:auto;max-height:400px;font-size:16px}.preview table{border-collapse:collapse;width:100%;margin-bottom:1.5em}.preview td,.preview th{border:1px solid #ddd;padding:8px}.preview th{background-color:#f2f2f2;text-align:left}.preview hr{border:2px solid #3f3f3f}
+</style>
+<div id="output" class="preview"></div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-yaml@4.0.0/dist/js-yaml.min.js"></script>
+<script>
+const inputArea = document.getElementById('hasilnya');
+const outputArea = document.getElementById('output');
+marked.use({renderer:{heading:(h,e)=>2===e?`<hr><h2>${h}</h2>`:`<h${e}>${h}</h${e}>`}});
+function renderOutput(e){let r=e,t=r;t=(t=t.replace(/---\n([\s\S]*?)\n---/g,(e,r)=>{try{let t=jsyaml.load(r),o="<table><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>";for(let[n,l]of Object.entries(t))o+=`<tr><td>${n}</td><td>${Array.isArray(l)?l.join(", "):l}</td></tr>`;return o+="</tbody></table>"}catch(a){return`<pre style="color: red;">YAML Error: ${a.message}</pre>`}})).replace(/```markdown([\s\S]*?)```/g,(e,r)=>marked(r.trim()));try{let o=new DOMParser,n=o.parseFromString(t,"text/html"),l=n.querySelector("parsererror");if(l)throw Error(l.textContent);n.querySelectorAll("h2").forEach(e=>{let r=document.createElement("hr");e.parentNode.insertBefore(r,e)}),outputArea.innerHTML=n.body.innerHTML}catch(a){outputArea.innerHTML=`<pre style="color: red;">HTML Error: ${a.message}</pre>`}}
+</script>
+</div>
 </div></div>
 </div>
 </div>
@@ -663,7 +676,7 @@ let hasilkanObj=hasilkan();
 var Hasil= hasilkanObj.hasil;
 $("#hasilnya").val(Hasil);
 $("#hasilink").val(hasilkanObj.link);
-
+renderOutput(Hasil)
   });
 
 
