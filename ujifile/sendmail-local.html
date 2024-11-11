@@ -8,7 +8,7 @@ permalink: "/ujifile/sendmail-local/"
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulir Penyimpanan Real-time Firebase</title>
-<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><script async src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.xyz@master/ujifile/fotoku.min.js"></script>
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><script async src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/MyFoto.min.js"></script>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <script src="/assets/js/editartikel.min.js"></script>
 <style>.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
@@ -22,7 +22,10 @@ permalink: "/ujifile/sendmail-local/"
 <label for="subject" class="form-label">Judul:</label>
 <input type="text" id="subject" class="form-control" name="subject" required>
 </div>
-
+<div class="mb-3 field">
+<label for="DeskripsiArtikel" class="form-label">Deskripsi:</label>
+<textarea id="DeskripsiArtikel" class="form-control" name="DeskripsiArtikel" required></textarea>
+</div>
 <div class="mb-3 field">
 <label for="attachment2" class="form-label">Tulisan:</label>
 <input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2" required>
@@ -31,6 +34,7 @@ permalink: "/ujifile/sendmail-local/"
 <div class="mb-3 field">
 <label for="EmailSaya" class="form-label">Pengirim:</label>
 <select class="form-select" id="EmailSaya" aria-label="Example select with button addon">
+    <option value="fadhelfikri93@gmail.com" selected>fadhelfikri93@gmail.com</option>
     <option value="fadhel13fikri@gmail.com" selected>fadhel13fikri@gmail.com</option>
     <option value="fadhelfikri@yahoo.com">fadhelfikri@yahoo.com</option>
     <option value="fadhelfikri98@gmail.com">fadhelfikri98@gmail.com</option>
@@ -221,6 +225,8 @@ inforek=""
 function replacename(n) {return n.toLowerCase().replaceAll(" ","-")}
 const senderName = nama;
     const judul = $('#subject').val();
+    let Dede = $('#DeskripsiArtikel').val(),
+    Deskripsi=`<p>Terkait artikel, ${Dede}</p>`;
     const recipientEmail = email;
     const subject = subyek.replaceAll("JUDULNYA", judul).replaceAll("NAMAKU", nama);
    let file1 = document.getElementById('attachment1').files[0];
@@ -241,7 +247,7 @@ Nameattachment1 =replacename(nama)+"."+extension;
     if(body==true){
     badan = await extractDocxContent(file2),lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
     }
-    const message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/6283132302297</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p>${badan}`;
+    const message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/6285186664889</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p>${badan}`;
     
     
 
@@ -356,9 +362,9 @@ async function extractTextFromDocx(arrayBuffer) {
     text += '<p>' + paragraphText + '</p>';
   };
 let mail = $("#EmailSaya").val(),
-mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6283132302297 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)";
+mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: {{ site.wa }} Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)";
 if(mail === "martinamulia04@gmail.com"){
-mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6283132302297 Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
+mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: {{ site.wa }} Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
 
   return text.replace(mybio,"");
 }
@@ -566,7 +572,7 @@ inforek=""
             "format":"A4",
             "orientation":"portrait",
             "base_url":""},
-            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/6283132302297 <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
+            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> {{ site.wa }} <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
 `,
             "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}"
             };
