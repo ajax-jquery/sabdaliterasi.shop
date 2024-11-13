@@ -1,4 +1,4 @@
-require('dotenv').config({ path: 'app/sendmail/.env' });
+require('dotenv').config();
 const Parser = require("rss-parser");
 const fetch = require("node-fetch");
 const nodemailer = require("nodemailer");
