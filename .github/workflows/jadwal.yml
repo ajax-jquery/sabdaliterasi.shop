@@ -130,11 +130,19 @@ jobs:
         run: |
           git status
           if [ -n "$(git status --porcelain)" ]; then
+            # Konfigurasi Git untuk commit menggunakan GitHub Actions bot
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
+            
+            # Ambil perubahan terbaru dari remote dan lakukan merge otomatis
+            git pull --rebase origin master || { echo "Gagal menarik perubahan dari remote"; exit 1; }
+
+            # Tambahkan dan commit perubahan
             git add .
             git commit -m "Publish scheduled articles"
-            git push
+            
+            # Push perubahan ke remote
+            git push origin master || { echo "Gagal melakukan push"; exit 1; }
             echo "Perubahan berhasil dicommit dan dipush."
           else
             echo "Tidak ada perubahan yang perlu dipush."
