@@ -134,8 +134,11 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             
-            # Ambil perubahan terbaru dari remote dan lakukan merge otomatis
-            git pull --rebase origin master || { echo "Gagal menarik perubahan dari remote"; exit 1; }
+            # Menarik perubahan terbaru tanpa menggabungkannya (fetch)
+            git fetch origin master
+            
+            # Mencoba untuk merge perubahan terbaru ke dalam branch lokal
+            git merge origin/master || { echo "Gagal melakukan merge"; exit 1; }
 
             # Tambahkan dan commit perubahan
             git add .
@@ -147,6 +150,7 @@ jobs:
           else
             echo "Tidak ada perubahan yang perlu dipush."
           fi
+
           
       - name: List All Files in Workspace
         run: ls -R ${{ github.workspace }}
