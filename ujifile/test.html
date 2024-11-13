@@ -34,7 +34,9 @@ permalink: /test/
   <ul>
     {% assign unique_posts = tag[1] | maps: "url" | uniq %}
     {% for post in unique_posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% unless post.url contains '/amp/' %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endunless %}
     {% endfor %}
   </ul>
 {% endfor %}
