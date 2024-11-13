@@ -13,8 +13,8 @@ permalink: /test/
 {% assign seven_days_ago = current_date | minus: 604800 %}
 <p>{{ seven_days_ago | date: "%d %B %Y" }}</p>
 
-{% assign TAG = site.tags | map: 'title' | uniq %}
-{% for tag in TAG %}
+
+{% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
 
 
