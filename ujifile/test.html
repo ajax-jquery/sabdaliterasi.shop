@@ -32,7 +32,7 @@ permalink: /test/
   <h3>{{ tag[0] }}</h3>
 
   <ul>
-    {% assign unique_posts = tag[1] | maps: "baseurl" | uniq %}
+    {% assign unique_posts = tag[1] | maps: "url" | uniq %}
     {% for post in unique_posts %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
