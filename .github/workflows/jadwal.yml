@@ -28,7 +28,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        working-directory: ./app/jadwal
+        working-directory: app/jadwal
         run: npm install
 
       - name: Periksa Jadwal
