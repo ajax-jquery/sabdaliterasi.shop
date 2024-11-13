@@ -228,3 +228,60 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
+        
+  SendMail:
+    if: needs.check_draft_articles.outputs.has_published_files == 'true'
+    needs: deploy
+    runs-on: ubuntu-latest  # Menjalankan workflow di sistem operasi Ubuntu
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Mengambil kode dari repositori
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Menggunakan versi Node.js 16, Anda bisa sesuaikan dengan versi yang diinginkan
+
+      - name: Install dependencies
+        working-directory: ./app/sendmail
+        run: |
+          npm install  # Menginstal dependensi yang ada di package.json
+
+      - name: Create .env file
+        run: |
+          echo SERVICE=${{ secrets.SERVICE }} >> .env
+          echo EMAIL_USER=${{ secrets.EMAIL_USER }} >> .env
+          echo EMAIL_PASS=${{ secrets.EMAIL_PASS }} >> .env
+          echo GITHUB_TOKEN=${{ secrets.GH_TOKEN }} >> .env
+          echo GITHUB_REPO=${{ secrets.GH_REPO }} >> .env
+          echo GITHUB_FILE_PATH=${{ secrets.GH_FILE_PATH }} >> .env
+          echo GITHUB_BRANCH=${{ secrets.GH_BRANCH }} >> .env
+          echo FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }} >> .env
+          echo FIREBASE_AUTH_DOMAIN=${{ secrets.EMAIL_FIREBASE_AUTH_DOMAIN }} >> .env
+          echo FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }} >> .env
+          echo FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }} >> .env
+          echo FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }} >> .env
+          echo FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }} >> .env
+          echo FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }} >> .env
+          echo FIREBASE_PRIVATE_KEY=${{ secrets.FIREBASE_PRIVATE_KEY }} >> .env
+          echo FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }} >> .env
+          echo FIREBASE_AUTH_URI=${{ secrets.FIREBASE_AUTH_URI }} >> .env
+          echo FIREBASE_TOKEN_URI=${{ secrets.FIREBASE_TOKEN_URI }} >> .env
+          echo FIREBASE_PRIVATE_KEY_ID=${{ secrets.FIREBASE_PRIVATE_KEY_ID }} >> .env
+          echo FIREBASE_CLIENT_ID=${{ secrets.FIREBASE_CLIENT_ID }} >> .env
+          echo FIREBASE_AUTH_PROVIDER_X509_CERT_URL=${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }} >> .env
+          echo FIREBASE_CLIENT_X509_CERT_URL=${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }} >> .env
+          
+      - name: Run the Node.js script
+        working-directory: ./app/sendmail
+        run: |
+          node server.js  # Menjalankan skrip utama Node.js Anda (sesuaikan dengan path file skrip)
+        env:
+          SERVICE: ${{ secrets.SERVICE }}  # Menyediakan variabel lingkungan yang dibutuhkan
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          GITHUB_REPO: ${{ secrets.GH_REPO }}
+          GITHUB_FILE_PATH: ${{ secrets.GH_FILE_PATH }}
+          GITHUB_BRANCH: ${{ secrets.GH_BRANCH }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        
