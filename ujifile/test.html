@@ -28,7 +28,20 @@ permalink: /test/
 
 
 
+{% assign displayed_posts = "" %}
 
+{% for tag in site.tags %}
+  <h3>{{ tag[0] }}</h3>
+
+  <ul>
+    {% for post in tag[1] %}
+      {% unless displayed_posts contains post.url %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% assign displayed_posts = displayed_posts | append: post.url | append: "," %}
+      {% endunless %}
+    {% endfor %}
+  </ul>
+{% endfor %}
     
 <p>{{ 10000000 | money: "IDR" }}</p>
 {% for p in site.artikel.Tokoh %}
