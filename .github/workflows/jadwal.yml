@@ -244,7 +244,7 @@ jobs:
           node-version: '16'  # Menggunakan versi Node.js 16, Anda bisa sesuaikan dengan versi yang diinginkan
 
       - name: Install dependencies
-        working-directory: ./app/sendmail
+        working-directory: app/sendmail
         run: |
           npm install  # Menginstal dependensi yang ada di package.json
 
