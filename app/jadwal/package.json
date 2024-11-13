@@ -2,9 +2,9 @@
   "name": "sabdaliterasi",
   "version": "1.0.0",
   "description": "Workflow untuk mempublikasikan artikel terjadwal di GitHub Pages",
-  "main": "index.js",
+  "main": "publish.js",
   "scripts": {
-    "publish": "node script/publish.js"
+    "publish": "node publish.js"
   },
   "author": "Sabda Literasi Palu",
   "license": "MIT",
