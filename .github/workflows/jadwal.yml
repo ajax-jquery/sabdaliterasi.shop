@@ -286,7 +286,7 @@ jobs:
           echo FIREBASE_CLIENT_X509_CERT_URL=${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }} >> .env
           
       - name: Run the Node.js script
-        working-directory: ./app/sendmail
+        working-directory: app/sendmail
         run: |
           node server.js  # Menjalankan skrip utama Node.js Anda (sesuaikan dengan path file skrip)
         env:
