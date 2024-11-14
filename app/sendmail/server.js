@@ -27,8 +27,8 @@ firebaseAdmin.initializeApp({
 
 // Konstanta URL
 const RSS_URL = "https://sabdaliterasi.xyz/rss-mail.xml";
-const SUBSCRIBER_URL = "https://subscribesabda-default-rtdb.firebaseio.com/subscribers.json";
-const LAST_SENT_URL = "https://subscribesabda-default-rtdb.firebaseio.com/lastsent.json";
+const SUBSCRIBER_URL = process.env.FIREBASE_SUBSCRIBER;
+const LAST_SENT_URL = process.env.FIREBASE_LASTSENT;
 const TEMPLATE_URL = "https://sabdaliterasi.xyz/templatemail.html";
 
 // Konfigurasi nodemailer
