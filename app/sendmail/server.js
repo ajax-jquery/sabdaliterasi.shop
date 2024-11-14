@@ -121,7 +121,7 @@ async function main() {
           link: article.link,
           fullContent: article.fullContent,
           surat: subscriber.email,
-          nama: Pu.en(subscriber.nama)
+          nama: Pu.en(subscriber.email)
         });
 
         const mailOptions = {
