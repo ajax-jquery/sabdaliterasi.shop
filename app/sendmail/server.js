@@ -31,13 +31,16 @@ const SUBSCRIBER_URL = process.env.FIREBASE_SUBSCRIBER;
 const LAST_SENT_URL = process.env.FIREBASE_LASTSENT;
 const TEMPLATE_URL = "https://sabdaliterasi.xyz/templatemail.html";
 
-// Konfigurasi nodemailer
+require('dotenv').config();
+
 const transporter = nodemailer.createTransport({
-  service: process.env.SERVICE,
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  secure: process.env.EMAIL_SECURE,
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
+    pass: process.env.EMAIL_PASS
+  }
 });
 
 // Fungsi utilitas
