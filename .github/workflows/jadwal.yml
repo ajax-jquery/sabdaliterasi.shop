@@ -284,6 +284,8 @@ jobs:
           echo FIREBASE_CLIENT_ID=${{ secrets.FIREBASE_CLIENT_ID }} >> app/sendmail/.env
           echo FIREBASE_AUTH_PROVIDER_X509_CERT_URL=${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }} >> app/sendmail/.env
           echo FIREBASE_CLIENT_X509_CERT_URL=${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }} >> app/sendmail/.env
+          FIREBASE_LASTSENT=${{ secrets.FIREBASE_LASTSENT }} >> app/sendmail/.env
+          echo FIREBASE_SUBSCRIBER=${{ secrets.FIREBASE_SUBSCRIBER }} >> app/sendmail/.env
           
       - name: Run the Node.js script
         working-directory: app/sendmail
