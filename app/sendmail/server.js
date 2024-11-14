@@ -119,7 +119,8 @@ async function main() {
           title: article.title,
           Thumbnail: article.thumbnail ? article.thumbnail.$.url : "",
           link: article.link,
-          fullContent: article.fullContent
+          fullContent: article.fullContent,
+          nama: subscriber.nama
         });
 
         const mailOptions = {
