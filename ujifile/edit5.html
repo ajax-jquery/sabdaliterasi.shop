@@ -370,7 +370,8 @@ function sendMessage(name,k) {
       
       if(k == "remove"){
    var jo=$("#savesucces .alert.alert-danger.Remove");
-     Alert(jo)
+     Alert(jo);
+    setTimeout(function(){location.reload()},1000);
       }else if(k == "save"){
  var jo=$("#savesucces .alert.alert-success.Saved");
      Alert(jo)
@@ -387,8 +388,7 @@ $('form').on('propertychange click change keyup input paste',delay(function (e) 
 $("#reset").click(function(){if(confirm("Ingin hapus?")){
 formremove();$('form')[0].reset();$("tag").remove();
 $('img.img-fluid').attr("src",'');
-$(".imageform").addClass('hidden');fotofile();$('#submit').attr('disabled','').attr('class',"btn btn-secondary");$('#editableDiv').addClass('placeholder').text('')
-
+$(".imageform").addClass('hidden');fotofile();$('#submit').attr('disabled','').attr('class',"btn btn-secondary");$('#editableDiv').addClass('placeholder').text('');
 }});
 function fadhel(){
 async function submitFormToGitHub(formData,folderName,linkpost) {
