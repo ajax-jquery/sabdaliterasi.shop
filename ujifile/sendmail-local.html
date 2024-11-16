@@ -2,13 +2,14 @@
 layout: null
 permalink: "/ujifile/sendmail-local/"
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulir Penyimpanan Real-time Firebase</title>
-<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><script async src="/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/ujifile/MyFoto.min.js"></script>
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <script src="/assets/js/editartikel.min.js"></script>
 <style>.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
@@ -33,13 +34,7 @@ permalink: "/ujifile/sendmail-local/"
 
 <div class="mb-3 field">
 <label for="EmailSaya" class="form-label">Pengirim:</label>
-<select class="form-select" id="EmailSaya" aria-label="Example select with button addon">
-    <option value="fadhelfikri93@gmail.com" selected>fadhelfikri93@gmail.com</option>
-    <option value="fadhel13fikri@gmail.com" selected>fadhel13fikri@gmail.com</option>
-    <option value="fadhelfikri@yahoo.com">fadhelfikri@yahoo.com</option>
-    <option value="fadhelfikri98@gmail.com">fadhelfikri98@gmail.com</option>
-    <option value="martinamulia04@gmail.com">martinamulia04@gmail.com</option>
-  </select>
+<input type="email" id="EmailSaya" class="form-control" name="EmailSaya" required>
 </div>
 
 <div class="form-check form-check-inline">
@@ -93,12 +88,23 @@ Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span> | J
 <input type="url" id="website" class="form-control" placeholder="Website" name="website" required>
 <input type="text" id="subyek" name="subyek" class="form-control" placeholder="Subyek" required>
 </div>
+
+
 <div class="form-check">
 <input class="form-check-input" type="checkbox" id="bodyCheckbox" name="body" value="true">
 <label class="form-check-label" for="bodyCheckbox">
 Body Email
 </label>
 </div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" id="datakuCheckbox" name="dataku" value="true">
+<label class="form-check-label" for="datakuCheckbox">
+Dataku Email
+</label>
+</div>
+
+
 <button type="submit" class="btn btn-primary">Submit</button>
 </form></div>
 <div id="Kontaksave" class="mb-3 field hidden"><ul id="websiteList" class="list-group"></ul></div>
@@ -106,6 +112,7 @@ Body Email
 <script src="/wp-conten/file/cdn/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/wp-conten/file/cdn/npm/jszip@3.7.1/dist/jszip.min.js"></script>
 <script type="module">
+  let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
   import { getDatabase, ref, set, get, remove } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
    const firebaseConfig = {
@@ -158,7 +165,7 @@ document.getElementById('emailForm').addEventListener('submit', async function(e
     event.preventDefault();
     stopped = false;
 var isValid = $('.mykontaksend:checked').length;
-let mail = $("#EmailSaya").val(),imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/asset.sabdaliterasi.shop@main/img/Fadhel-Fikri.png";if(mail === "martinamulia04@gmail.com"){imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/asset.sabdaliterasi.shop@main/img/Martina-Mulia-Dewi.png"}
+let mail = $("#EmailSaya").val(),imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/assets/image/fadhel-fikri.png";if(mail === "martinamulia04@gmail.com"){imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/asset.sabdaliterasi.shop@main/img/Martina-Mulia-Dewi.png"}
 
 
 if(isValid > 0){ 
@@ -198,7 +205,7 @@ async function kirimSemuaEmail(tujuan,myfotoku) {
     for (let i = 0; i < data.length; i++) {
         const item = data[i];
         try {
-            await kirim(item.email, item.nama, item.website, item.subyek,item.body,myfotoku);
+            await kirim(item.email, item.nama, item.website, item.subyek,item.body,item.dataku,myfotoku);
             if (stopped) {
                 break;
             }
@@ -210,12 +217,12 @@ async function kirimSemuaEmail(tujuan,myfotoku) {
     }
     
 }
-async function kirim(email, media, website, subyek,body,myfotoku) {
+async function kirim(email, media, website, subyek,body,dataku,myfotoku) {
 
 
 let mail = $("#EmailSaya").val(),
 nama = "Fadhel Fikri",
-atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek="(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):<br>901409177061 (an. Moh Fadhel Fikri)";
+atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek=Pu.de("PTiim0TfWFocrUW5mFhjbcpfHs1fVpYOCNQoKVAjbslyGsNvmkBOXUQomsNerFYkKZNvCTYwb04ybZpfPTAOWLp9IFAkIapzSHGzEHT8QxM0SLMeKZ7vCT5ymDBFKZWeXZzfWsowdspi");
 if(mail === "martinamulia04@gmail.com"){
 nama="Martina Mulia Dewi",
 atribusi="Lifelong Learner, content writer, recipe writer, blogger, and feminist activist.",
@@ -247,7 +254,14 @@ Nameattachment1 =replacename(nama)+"."+extension;
     if(body==true){
     badan = await extractDocxContent(file2),lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
     }
-    const message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/6285186664889</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p>${badan}`;
+    
+    
+    let message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/6285186664889</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p><p>---</p>${badan}`;
+  
+  
+  if(dataku==true){
+  message=`<p> Assalamualaikum.. saya mau kirim tulisan lagi kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya kali ini yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: SEPERTI BIASA, TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br> Nama Penulis: ${nama} </p> <p> Untuk biodata lainnya, sudah saya kirim saat pengiriman artikel pertama kali kepada kaka.</p><p>---</p>${badan}`
+  }
     
     
 
@@ -271,7 +285,8 @@ Nameattachment1 =replacename(nama)+"."+extension;
             "email": recipientEmail,
             "website": website,
             "subyek": subject,
-            "body":body
+            "body":body,
+            "dataku":dataku
         };
 
     try {
@@ -362,9 +377,9 @@ async function extractTextFromDocx(arrayBuffer) {
     text += '<p>' + paragraphText + '</p>';
   };
 let mail = $("#EmailSaya").val(),
-mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: {{ site.wa }} Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir(Jika Dibutuhkan) No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE): 901409177061 (an. Moh Fadhel Fikri)";
+mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6285186664889 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir"+Pu.de("PTiim0TfWFocrUW5mFhjbcpfHs1fVpYOCNQoKVAjbslyGsNvmkBOXUQomsNerFYkKZNvCTYwb04ybZpfPTAOWLp9CRpzSHGzEHT8QxM0SLMeKZ7vCT5ymDBFKZWeXZzfWsowdspi");
 if(mail === "martinamulia04@gmail.com"){
-mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: {{ site.wa }} Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
+mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6285186664889 Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
 
   return text.replace(mybio,"");
 }
@@ -410,7 +425,8 @@ function getDataFromFirebase() {
               <strong>Email:</strong> ${website.email}<br>
               <strong>Subyek:</strong> ${website.subyek}<br>
               <strong>Website:</strong> <a href="${website.website}" target="_blank">${website.website}</a><br>
-              <strong>Body:</strong> ${website.body}<br>
+              <strong>Body:</strong> ${website.body}<br>	    
+              <strong>Dataku:</strong> ${website.dataku}<br>
               <br>
         </div>
       </div>
@@ -441,6 +457,7 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
     const website = document.getElementById("website").value;
     const subyek = document.getElementById("subyek").value;
     const body = document.getElementById("bodyCheckbox").checked;
+  	const dataku = document.getElementById("datakuCheckbox").checked;
     
     // Simpan data ke Firebase Realtime Database dengan menggunakan set()
      function namauri(url) {
@@ -459,7 +476,8 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
       email: email,
       website: website,
       subyek: subyek,
-      body: body
+      body: body,
+      dataku: dataku
     })
     .then(() => {
       document.getElementById("myForm").reset();
@@ -502,18 +520,16 @@ setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaks
  $('span#jumlahcheked').text(jumlahTercentang);
  },0)
     });
-           }
-           
-         function openCK(){ClassicEditor.create(document.getElementById("editor"), {
+           }           
+function openCK(){
+ClassicEditor.create(document.getElementById("editor"), {
 heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
 });}openCK()
-
 function CKdata(){
 let u = document.querySelector('.ck-editor__editable'),
    e = u.ckeditorInstance.getData().trim();
    return e
 }  
-
 !function(){
 
     document.addEventListener( 'DOMContentLoaded', () => {
@@ -552,7 +568,7 @@ return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').rep
            
  let mail = $("#EmailSaya").val(),
 namaku = "Fadhel Fikri",
-atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek="<i>(Jika Dibutuhkan)</i><strong> No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):</strong><br> 901409177061 (an. Moh Fadhel)";
+atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek=Pu.de("IFp+PTiim0TfWFocrUW5mFhjbcp1O0p+IJQ3ds6vXx7fHs1fVpYOCNQoKVAjbslyGsNvmkBOXUQomsNerFYkKZNvCTYwb04ybZpfPTAOWLp9ID6xrJAybsd+IFAkIcM4SRT3SRpuQxdzQaTfPFNvOcBQb0ffWsNpmFYlPG==");
 if(mail === "martinamulia04@gmail.com"){
 namaku="Martina Mulia Dewi",
 atribusi="Lifelong Learner, content writer, recipe writer, blogger, and feminist activist.",
@@ -572,7 +588,7 @@ inforek=""
             "format":"A4",
             "orientation":"portrait",
             "base_url":""},
-            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> {{ site.wa }} <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
+            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/6285186664889 <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
 `,
             "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}"
             };
@@ -640,3 +656,4 @@ inforek=""
 </script><form class="hidden" id="create-docx-form"></form>
 </body>
 </html>
+
