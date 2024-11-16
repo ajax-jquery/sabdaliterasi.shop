@@ -1,0 +1,299 @@
+<script>
+  {
+  "akanusantara-com": {
+    "body": false,
+    "email": "akademikomunitasnusantara@gmail.com",
+    "nama": "Akademi Komunitas Nusantara",
+    "subyek": "Teras_JUDULNYA",
+    "website": "https://akanusantara.com/",
+    "dataku" : false
+  },
+  "al-ibar-net": {
+    "body": false,
+    "email": "alibardotnet@gmail.com",
+    "nama": "al-ibar.net - Mengenal Islam lebih dalam",
+    "subyek": "JUDULNYA_Esai",
+    "website": "https://al-ibar.net",
+    "dataku" : false
+  },
+  "antinomi-org": {
+    "body": false,
+    "email": "antinomi.inst@gmail.com",
+    "nama": "Antinomi Institute",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://antinomi.org/",
+    "dataku" : false
+  },
+  "asyikasyik-com": {
+    "body": false,
+    "email": "redaksiasyik@gmail.com",
+    "nama": "Asyikasyik.com",
+    "subyek": "Kirim Naskah_JUDULNYA",
+    "website": "https://asyikasyik.com/",
+    "dataku" : false
+  },
+  "basabasi-co": {
+    "body": false,
+    "email": "gerobaknaskah@basabasi.co",
+    "nama": "BASABASI.CO - Tempat Kongkow dan Bercerita",
+    "subyek": "Esai",
+    "website": "https://basabasi.co/",
+    "dataku" : false
+  },
+  "beritabaru-co": {
+    "body": false,
+    "email": "opini.beritabaru@gmail.com",
+    "nama": "Beritabaru.co - Berita Harian Terbaru Hari Ini di Indonesia dan Dunia",
+    "subyek": "opini_JUDULNYA",
+    "website": "https://beritabaru.co/",
+    "dataku" : false
+  },
+  "hidayatuna-com": {
+    "body": false,
+    "email": "redaksi@hidayatuna.com",
+    "nama": "HIDAYATUNA - Islam Rahmatan Lil Alamin",
+    "subyek": "JUDULNYA_Kajian",
+    "website": "https://hidayatuna.com",
+    "dataku" : false
+  },
+  "islami-co": {
+    "body": true,
+    "email": "redaksi@islami.co",
+    "nama": "Islami[dot]co - Media Islam Ramah dan Mencerahkan",
+    "subyek": "JUDULNYA_Kajian",
+    "website": "https://islami.co/",
+    "dataku" : true
+  },
+  "islamramah-co": {
+    "body": false,
+    "email": "Islamramahdotco@gmail.com",
+    "nama": "IslamRamah.co | Islam Ramah Bukan Islam Marah",
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "website": "https://islamramah.co",
+    "dataku" : false
+  },
+  "kaderhijaumu-id": {
+    "body": false,
+    "email": "kaderhijaumu@gmail.com",
+    "nama": "Kader Hijau Muhammadiyah",
+    "subyek": "Kirim Tulisan_NAMAKU_JUDULNYA",
+    "website": "https://kaderhijaumu.id/",
+    "dataku" : false
+  },
+  "lensasastra-id": {
+    "body": false,
+    "email": "lensasastra21@gmail.com",
+    "nama": "Lensasastra.id – Mengulik Jiwa Peradaban",
+    "subyek": "ESAI",
+    "website": "https://lensasastra.id/",
+    "dataku" : false
+  },
+  "maarifnujateng-or-id": {
+    "body": false,
+    "email": "asnapustaka@gmail.com",
+    "nama": "LP Maarif NU Jateng - Menuju Pendidikan Maarif Berkarakter Aswaja Nahdliyah",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://maarifnujateng.or.id/",
+    "dataku" : true
+  },
+  "magrib-id": {
+    "body": false,
+    "email": "editormagrib@gmail.com",
+    "nama": "Magrib.id - Bertemu dan Bertukar Kisah",
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "website": "https://magrib.id",
+    "dataku" : true
+  },
+  "majalahdia-net": {
+    "body": false,
+    "email": "redaksi@majalahdia.net",
+    "nama": "Majalah DIA - Untuk Dia yang Ingin Hidup di Dalam DIA",
+    "subyek": "Kirim Naskah_JUDULNYA",
+    "website": "https://majalahdia.net/",
+    "dataku" : false
+  },
+  "mjscolombo-com": {
+    "body": false,
+    "email": "redaksimjs@gmail.com",
+    "nama": "Masjid Jenderal Sudirman",
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "website": "https://mjscolombo.com",
+    "dataku" : true
+  },
+  "alif-id": {
+    "body": false,
+    "email": "alif.sosial@gmail.com",
+    "nama": "Alif.ID",
+    "subyek": "Tarikh",
+    "website": "https://alif.id/",
+    "dataku" : true
+  },
+  "mojok-co": {
+    "body": true,
+    "email": "redaksi@mojok.co",
+    "nama": "Mojok.co - Suara Orang Biasa",
+    "subyek": "Esai-JUDULNYA",
+    "website": "https://mojok.co/",
+    "dataku" : false
+  },
+  "nasehat-id": {
+    "body": false,
+    "email": "business@maxsol.id",
+    "nama": "Nasehat.id",
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "website": "https://nasehat.id",
+    "dataku" : false
+  },
+  "sabdaliterasi-shop": {
+    "body": true,
+    "email": "achmadmarx@zohomail.com",
+    "nama": "Fadhel Fikri",
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "website": "https://sabdaliterasi.shop",
+    "dataku" : false
+  },
+  "sabdaliterasi-xyz": {
+    "body": true,
+    "email": "fadhel98fikri@gmail.com",
+    "nama": "Fadhel Fikri XYZ",
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "website": "https://sabdaliterasi.xyz",
+    "dataku" : true
+  },
+  "taberita-com": {
+    "body": false,
+    "email": "menulis@taberita.com",
+    "nama": "Taberita.com Berita Terbaru Hari ini",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://taberita.com/",
+    "dataku" : false
+  },
+  "tawazun-id": {
+    "body": false,
+    "email": "redaksi@tawazun.id",
+    "nama": "Tawazun ID",
+    "subyek": "Kirim OPINI - JUDULNYA",
+    "website": "https://tawazun.id/",
+    "dataku" : false
+  },
+  "tebuireng-online": {
+    "body": false,
+    "email": "redaksi.tebuirengonline@gmail.com",
+    "nama": "Tebuireng Online | Media Informasi Pesantren",
+    "subyek": "Feature",
+    "website": "https://tebuireng.online",
+    "dataku" : true
+  },
+  "tirto-id": {
+    "body": false,
+    "email": "opini@tirto.id",
+    "nama": "Tirto.ID - Jernih Mengalir Mencerahkan",
+    "subyek": "[Mild Report] - JUDULNYA - NAMAKU",
+    "website": "https://tirto.id/",
+    "dataku" : false
+  },
+  "www-harakatuna-com": {
+    "body": false,
+    "email": "redaksi@harakatuna.com",
+    "nama": "Harakatuna.com - Merawat Ideologi Bangsa",
+    "subyek": "Perspektif_JUDULNYA",
+    "website": "https://www.harakatuna.com/",
+    "dataku" : true
+  },
+  "www-hipotesa-id": {
+    "body": false,
+    "email": "redaksihipotesa@gmail.com",
+    "nama": "Hipotesa - Tajam dan Mencerahkan",
+    "subyek": "[Opini]-JUDULNYA-NAMAKU-Pembisnis di Sabda Literasi Palu",
+    "website": "https://www.hipotesa.id/",
+    "dataku" : false
+  },
+  "www-jalastoria-id": {
+    "body": false,
+    "email": "jalastoria@gmail.com",
+    "nama": "JalaStoria.id - Menjala Cerita, Mengurai Makna",
+    "subyek": "Kirim Tulisan_JUDULNYA",
+    "website": "https://www.jalastoria.id/",
+    "dataku" : false
+  },
+  "www-kurungbuka-com": {
+    "body": false,
+    "email": "redaksi@kurungbuka.com",
+    "nama": "Kurungbuka.com – Media Literasi & Sastra Masa Kini",
+    "subyek": "ESAI",
+    "website": "https://www.kurungbuka.com",
+    "dataku" : false
+  },
+  "www-langgampustaka-com": {
+    "body": false,
+    "email": "media.langgampustaka@gmail.com",
+    "nama": "LANGGAM PUSTAKA-Rumah Buku & Penulis",
+    "subyek": "ESAI",
+    "website": "https://www.langgampustaka.com/",
+    "dataku" : false
+  },
+  "www-mediajabar-com": {
+    "body": true,
+    "email": "redaksi@mediajabar.com",
+    "nama": "MEDIAJABAR.COM - Media Online Jawa Barat",
+    "subyek": "Opini",
+    "website": "https://www.mediajabar.com/",
+    "dataku" : false
+  },
+  "www-mnulis-com": {
+    "body": false,
+    "email": "mnulisdotcom@gmail.com",
+    "nama": "mnulis.com",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://www.mnulis.com",
+    "dataku" : false
+  },
+  "www-mudabicara-id": {
+    "body": false,
+    "email": "Mudabicara.info@gmail.com",
+    "nama": "Muda Bicara",
+    "subyek": "Suara Muda Bicara",
+    "website": "https://www.mudabicara.id/",
+    "dataku" : true
+  },
+  "www-nongkrong-co": {
+    "body": false,
+    "email": "redaksinongkrong@gmail.com",
+    "nama": "Nongkrong - Tak Selalu Omong Kosong",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://www.nongkrong.co/",
+    "dataku" : false
+  },
+  "www-semilir-co": {
+    "body": false,
+    "email": "semilirmedia@gmail.com",
+    "nama": "Semilir.co - Dibaca Saat Santai",
+    "subyek": "Kolom_JUDULNYA",
+    "website": "https://www.semilir.co/",
+    "dataku" : false
+  },
+  "www-sophiainstitute-id": {
+    "body": false,
+    "email": "erichmarx@zohomail.com",
+    "nama": "Sophia Institute",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://www.sophiainstitute.id",
+    "dataku" : true
+  },"www-sophiainstitute-xyz": {
+    "body": false,
+    "email": "fkansaz@gmail.com,
+    "nama": "Sophia Institute XYZ",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://www.sophiainstitute.xyz",
+    "dataku" : false
+  },
+  "www-takanta-id": {
+    "body": false,
+    "email": "takanta.id@gmail.com",
+    "nama": "Takanta | Suara Kenangan",
+    "subyek": "Kirim Artikel_JUDULNYA",
+    "website": "https://www.takanta.id/",
+    "dataku" : true
+
+  }
+}
