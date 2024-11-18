@@ -1,26 +1,29 @@
 {
-  "ipVersion": 4,
-  "ipAddress": "185.232.20.90",
-  "latitude": 52.378502,
-  "longitude": 4.89998,
-  "countryName": "Netherlands (Kingdom of the)",
-  "countryCode": "NL",
-  "timeZone": "+02:00",
-  "zipCode": "1101",
-  "cityName": "Amsterdam",
-  "regionName": "Noord-Holland",
+  "ipVersion": 6,
+  "ipAddress": "2400:9800:b01:5b58:60aa:e6d5:de77:f4cb",
+  "latitude": -6.208678,
+  "longitude": 106.84549,
+  "countryName": "Indonesia",
+  "countryCode": "ID",
+  "timeZone": "+07:00",
+  "zipCode": "12850",
+  "cityName": "Jakarta",
+  "regionName": "Jakarta Raya",
   "isProxy": false,
-  "continent": "Europe",
-  "continentCode": "EU",
+  "continent": "Asia",
+  "continentCode": "AS",
   "currency": {
-    "code": "EUR",
-    "name": "Euro"
+    "code": "IDR",
+    "name": "Rupiah"
   },
-  "language": "Dutch",
+  "language": "Indonesian",
   "timeZones": [
-    "Europe/Amsterdam"
+    "Asia/Jakarta",
+    "Asia/Jayapura",
+    "Asia/Makassar",
+    "Asia/Pontianak"
   ],
   "tlds": [
-    ".nl"
+    ".id"
   ]
 }
