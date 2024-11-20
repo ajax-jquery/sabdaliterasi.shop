@@ -566,7 +566,7 @@ function content(){
  var p=$('.ck-content');
    $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
    $(p).find('a').removeAttr("class").attr("target","_blank").attr("rel", "nofollow noopener noreferrer");
-$(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAttr("contenteditable").attr("class","image_post");
+$(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure.image').removeAttr("contenteditable").attr("class","image_post");$(p).find("figure.media").each(function(){let e=$(this).find(".ck-media__wrapper").data("oembed-url"),t=new URLSearchParams(new URL(e).search),a=t.get("v");if(a){let i=$(this).prev("h2, h3, h4, h5, h6").text().trim(),r=`<figure class="media_post"><p class="trailer" data-title="Trailer ${i.replaceAll('"',"")}" data-url="https://www.youtube.com/watch?v=${a}">https://www.youtube.com/watch?v=${a}</p></figure>`;$(this).replaceWith(r)}});
 $(p).find(".ck-horizontal-line").replaceWith($('<hr>'));
  $(p).find("blockquote").each(function(){
    $(this).replaceWith(
