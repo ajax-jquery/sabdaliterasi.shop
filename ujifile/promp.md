@@ -1,5 +1,5 @@
 <p>
-    Baik, Camus. Selanjutnya, Saya ingin Anda menganalisis dan mengadopsi semua yang telah saya berikan secara satu persatu. Mulai dari instruksi utama, penggunaan frasa yang dilarang, dan contoh artikel 1 hingga 7 yang sudah saya berikan kemudian menyimpan ke dalam "personalisasi memori saya" agar menjadi acuan dan pedoman Anda dalam membuat artikel nantinya.
+    Baik, Camus. Selanjutnya, Saya ingin Anda menganalisis dan mengadopsi semua yang telah saya berikan secara satu persatu. Mulai dari instruksi utama, penggunaan frasa yang dilarang, dan contoh artikel 1 hingga 7 yang sudah saya berikan kemudian menyimpan ke dalam personalisasi memori saya agar menjadi acuan dan pedoman Anda dalam membuat artikel nantinya.
 </p>
 <p>
     <strong>Langkah-langkahnya:</strong>
@@ -38,13 +38,13 @@
         </ul>
     </li>
     <li>
-        Simpan dan adopsi &nbsp;hasil analisis <strong>instruksi utama</strong> ke dalam memori atau ingatan Anda sebagai Panduan dasar dalam membuat Artikel di masa mendatang.
+        Simpan dan adopsi &nbsp;hasil analisis <strong>instruksi utama</strong> ke dalam personalisasi memori saya atau ingatan Anda sebagai Panduan dasar dalam membuat Artikel di masa mendatang.
     </li>
     <li>
         Analisis dan adopsi poin penting pada instruksi "Anda dilarang menggunakan Frasa dibawah ini atau yang mirip seperti frasa di bawah ini".
     </li>
     <li>
-        Simpan hasil analisis dan pengadopsian tentang <strong>frasa yang dilarang </strong>kedalam memori ingatan untuk jadi acuan dalam pembuatan artikel alami.
+        Simpan hasil analisis dan pengadopsian tentang <strong>frasa yang dilarang </strong>kedalam personalisasi memori saya untuk jadi acuan dalam pembuatan artikel alami.
     </li>
     <li>
         Analisis Contoh Artikel 1
@@ -105,7 +105,7 @@
         </ul>
     </li>
     <li>
-        Simpan Hasil Analisis Contoh Artikel 1 ke dalam memori agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
+        Simpan Hasil Analisis Contoh Artikel 1 ke dalam personalisasi memori saya agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
     </li>
     <li>
         Analisis Contoh Artikel 2
@@ -166,7 +166,7 @@
         </ul>
     </li>
     <li>
-        Simpan Hasil Analisis Contoh Artikel 2 ke dalam memori agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
+        Simpan Hasil Analisis Contoh Artikel 2 ke dalam personalisasi memori saya agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
     </li>
     <li>
         Analisis Contoh Artikel 3
@@ -227,7 +227,7 @@
         </ul>
     </li>
     <li>
-        Simpan Hasil Analisis Contoh Artikel 3 ke dalam memori agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
+        Simpan Hasil Analisis Contoh Artikel 3 ke dalam personalisasi memori saya agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
     </li>
     <li>
         Analisis Contoh Artikel 4
@@ -288,7 +288,7 @@
         </ul>
     </li>
     <li>
-        Simpan Hasil Analisis Contoh Artikel 4 ke dalam memori agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
+        Simpan Hasil Analisis Contoh Artikel 4 ke dalam personalisasi memori saya agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
     </li>
     <li>
         Analisis Contoh Artikel 5
@@ -349,7 +349,7 @@
         </ul>
     </li>
     <li>
-        Simpan Hasil Analisis Contoh Artikel 5 ke dalam memori agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
+        Simpan Hasil Analisis Contoh Artikel 5 ke dalam personalisasi memori saya agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
     </li>
     <li>
         Analisis Contoh Artikel 6
@@ -410,7 +410,7 @@
         </ul>
     </li>
     <li>
-        Simpan Hasil Analisis Contoh Artikel 6 ke dalam memori agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
+        Simpan Hasil Analisis Contoh Artikel 6 ke dalam personalisasi memori saya agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
     </li>
     <li>
         Analisis Contoh Artikel 7
@@ -471,9 +471,9 @@
         </ul>
     </li>
     <li>
-        Simpan Hasil Analisis Contoh Artikel 7 ke dalam memori agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
+        Simpan Hasil Analisis Contoh Artikel 7 ke dalam personalisasi memori saya agar menjadi acuan untuk membuat artikel yang sama seperti manusia agar mampu melewati pendeteksi AI pada artikel buatan Anda di masa mendatang.
     </li>
 </ol>
 <p>
-    Jika Anda mengerti maka lakukan analisis untuk memahami dan mengadopsi serta penyimpanannya ke dalam memori Anda secara otomatis dengan semua <strong>Langkah-langkah</strong> di atas agar saya hanya perlu menunggu hasilnya. Lakukanlah hingga memori Anda penuh.
+    Jika Anda mengerti maka lakukan analisis untuk memahami dan mengadopsi serta penyimpanannya ke dalam personalisasi memori saya Anda secara otomatis dengan semua <strong>Langkah-langkah</strong> di atas agar saya hanya perlu menunggu hasilnya. Lakukanlah hingga personalisasi memori saya Anda penuh.
 </p>
