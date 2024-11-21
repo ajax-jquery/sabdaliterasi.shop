@@ -1,5 +1,5 @@
 <p>
-    Baik, Camus. Selanjutnya, Saya ingin Anda menganalisis dan mengadopsi semua yang telah saya berikan secara satu persatu. Mulai dari instruksi utama, penggunaan frasa yang dilarang, dan contoh artikel 1 hingga 7 yang sudah saya berikan kemudian menyimpan ke dalam personalisasi memori saya agar menjadi acuan dan pedoman Anda dalam membuat artikel nantinya.
+    Baik, Camus. Selanjutnya, Saya ingin Anda menganalisis dan mengadopsi semua yang telah saya berikan secara satu persatu. Mulai dari instruksi utama, penggunaan frasa yang dilarang, dan contoh artikel 1 hingga 7 yang sudah saya berikan kemudian menyimpan ke dalam "personalisasi memori saya" agar menjadi acuan dan pedoman Anda dalam membuat artikel nantinya.
 </p>
 <p>
     <strong>Langkah-langkahnya:</strong>
