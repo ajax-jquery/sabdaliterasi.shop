@@ -1,5 +1,5 @@
 <p>
-    Baik, Camus. Selanjutnya, Saya ingin Anda mempelajari dan mengadopsi semua yang telah saya berikan secara satu persatu. Mulai dari instruksi utama, penggunaan frasa yang dilarang, dan contoh artikel 1 hingga 7 yang sudah saya berikan kemudian menyimpan/mengimportnya ke dalam memori atau ingatan Anda agar menjadi acuan dan pedoman Anda dalam membuat artikel nantinya.
+    Baik, Camus. Selanjutnya, Saya ingin Anda mempelajari dan mengadopsi semua yang telah saya berikan secara satu persatu, mulai dari instruksi utama, penggunaan frasa yang dilarang, dan contoh artikel 1 hingga 7 yang sudah saya berikan kemudian menyimpan/mengimportnya ke dalam <b>Pengaturan > Personalisasi > Memori</b> atau ingatan Anda agar menjadi acuan dan pedoman Anda dalam membuat artikel nantinya.
 </p>
 <h3>
     Langkah-langkahnya:
