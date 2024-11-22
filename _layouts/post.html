@@ -186,7 +186,8 @@ function lanjutBuy(){
 </div>
 <div class='pSh'>
 <div class='lbHt'>
-{% for TAG in page.keyword %} 
+{% assign limited_tags = page.keyword | slice: 0, 5 %}
+{% for TAG in limited_tags %} 
 <a aria-label='{{ TAG }}' href='{{ page.url | prepend: site.url }}#{{ TAG }}'><strong>{{ TAG }}</strong></a>
 {% endfor %}    
 </div>
