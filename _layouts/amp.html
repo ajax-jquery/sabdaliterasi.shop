@@ -758,7 +758,8 @@ fill="#ED2227" />
 Topik:
 </div>
 <div class="topic-hastags__list">
-{% for key in page.keyword %}
+{% assign limited_tags = page.keyword | slice: 0, 5 %}
+{% for key in limited_tags %}
 <div class="topic-hastags__item">
 <a href="#{{ key }}" class="btn btn--hashtag btn-topic">
 {{ key }}
