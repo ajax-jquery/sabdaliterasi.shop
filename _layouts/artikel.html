@@ -172,7 +172,10 @@ if(cheksplit){document.addEventListener('DOMContentLoaded', function() {function
 </div>
 <div class='pSh'>
 <div class='lbHt'>
-{% for TAG in page.keyword %} 
+
+{% assign limited_tags = page.keyword | slice: 0, 5 %}
+
+{% for TAG in limited_tags %} 
 <a aria-label='{{ TAG }}' href='{{ page.url | prepend: site.url }}#{{ TAG | repclace: "","" }}' id="{{ TAG | repclace: '','' }}"><strong>{{ TAG }}</strong></a>
 {% endfor %}    
 </div>
