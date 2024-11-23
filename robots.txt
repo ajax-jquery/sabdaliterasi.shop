@@ -11,7 +11,7 @@ Disallow: /search/
 Disallow: /404/
 Disallow: /ujifile/*
 Disallow: /edit5/
-Disallow: /form-testimoni/
+Disallow: /form-bukti/
 Disallow: /templatemail.html
 
 Sitemap: {{ site.url }}/sitemap_index.xml
