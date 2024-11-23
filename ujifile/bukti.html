@@ -1,20 +1,19 @@
 ---
 layou: null
-permalink: /form-bukti/
+permalink: /konfirmasi/
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Bukti</title>
+    <title>Form Konfiirmasi</title>
     <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container mt-5">
-    <h2 class="text-center">Form Bukti</h2>
+    <h2 class="text-center">Form Konfirmasi</h2>
     <form id="testimoniForm" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="name" class="form-label">Nama</label>
@@ -150,8 +149,7 @@ document.getElementById('image').addEventListener('change', (event) => {
 document.getElementById('resultFooter').innerHTML = `<button class="btn btn-success" id="confirmBtn">Konfirmasi</button>`;
 document.getElementById('confirmBtn').addEventListener('click', () => {
     const phoneNumber = '{{ site.hp }}'; // Ganti dengan nomor WhatsApp Anda
-    const message = encodeURIComponent(`Halo, saya telah mengirim bukti pembayaran. Berikut link bukti pembayaran saya:
-    
+    const message = encodeURIComponent(`Halo, saya sudah mengkonfirmasi pembayaran. Berikut link konfirmasi saya:
 ${githubImageUrl}    
     `);
 
