@@ -8,13 +8,13 @@ permalink: /form-testimoni/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Testimoni</title>
+    <title>Form Pembayaran</title>
     <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container mt-5">
-    <h2 class="text-center">Form Testimoni</h2>
+    <h2 class="text-center">Form Pembayaran</h2>
     <form id="testimoniForm" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="name" class="form-label">Nama</label>
@@ -29,7 +29,7 @@ permalink: /form-testimoni/
             <input type="text" class="form-control" id="whatsapp" required>
         </div>
         <div class="mb-3">
-    <label for="image" class="form-label">Upload Gambar</label>
+    <label for="image" class="form-label">Upload Bukti Pembayaran</label>
     <input type="file" class="form-control" id="image" accept="image/*" required>
     <div class="mt-3">
         <img id="imagePreview" src="" alt="Pratinjau Gambar" class="img-fluid d-none" style="max-height: 300px;"/>
@@ -150,7 +150,7 @@ document.getElementById('image').addEventListener('change', (event) => {
 document.getElementById('resultFooter').innerHTML = `<button class="btn btn-success" id="confirmBtn">Konfirmasi</button>`;
 document.getElementById('confirmBtn').addEventListener('click', () => {
     const phoneNumber = '{{ site.hp }}'; // Ganti dengan nomor WhatsApp Anda
-    const message = encodeURIComponent(`Halo, saya telah mengirim testimoni. berikut link testimoni saya:
+    const message = encodeURIComponent(`Halo, saya telah mengirim bukti pembayaran. berikut link bukti pembayaran saya:
     
 ${githubImageUrl}    
     `);
