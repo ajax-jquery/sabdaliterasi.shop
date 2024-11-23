@@ -135,7 +135,7 @@ document.getElementById('image').addEventListener('change', (event) => {
                 if (!response.ok) throw new Error("Gagal mengupload gambar ke GitHub.");
 
                 const githubData = await response.json();
-                const githubImageUrl = `https://sabdaliterasi.xyz/wp-conten/file/cdn/gh/ajax-jquery/asset.sabdaliterasi.shop@main/testimoni/${imageName}`;
+                const githubImageUrl = `https://sabdaliterasi.xyz/wp-conten/file/bukti/${imageName}`;
 
                 await set(ref(db, 'testimoni/' + new Date().getTime()), {
                     name,
