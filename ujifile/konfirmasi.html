@@ -7,7 +7,7 @@ permalink: /konfirmasi/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Konfiirmasi</title>
+    <title>Form Konfirmasi</title>
     <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -28,7 +28,7 @@ permalink: /konfirmasi/
             <input type="text" class="form-control" id="whatsapp" required>
         </div>
         <div class="mb-3">
-    <label for="image" class="form-label">Upload Bukti Pembayaran</label>
+    <label for="image" class="form-label">Upload <span id="ket"></span></label>
     <input type="file" class="form-control" id="image" accept="image/*" required>
     <div class="mt-3">
         <img id="imagePreview" src="" alt="Pratinjau Gambar" class="img-fluid d-none" style="max-height: 300px;"/>
@@ -66,12 +66,141 @@ permalink: /konfirmasi/
         </div>
     </div>
 </div>
-
+<script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";document.getElementById('ket').innerHTML=Pu.de("GqYwrFpfVFYhKsN4KUAjbf==");
+</script>
 <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
-    import {  getDatabase, ref, set, query, orderByChild, equalTo, get  } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('u 6=W;8 W(2a,2d){u 37=X();f W=8(1f,6N){1f=1f-(-6O+6L+7B*p);E 2r=37[1f];f 2r},W(2a,2d)}(8(2m,26){u D=W,V=2m();4G(!![]){1z{u 2e=-G(D(6d))/(9U+9e+-9h)+-G(D(8T))/(-9K*-p+-9I+-9Q)+G(D(9O))/(8Q+8g+-84)*(-G(D(83))/(-7V+7W+2f*81))+G(D(2f))/(8k*p+8E+-19*8C)+G(D(8I))/(-8J*8O+8N+8M)*(-G(D(8L))/(8A*28+-8q+-p*-8p))+G(D(3E))/(8l*-17+17*-8m+-8z*-8x)*(-G(D(8w))/(8u*-p+-9c+8v*p))+G(D(8y))/(8t*p+8s+-p*8n);1b(2e===26)4u;8o V[\'32\'](V[\'45\']())}1O(8r){V[\'32\'](V[\'45\']())}}}(X,8B*8K+-8P+5c*-p));E 11={\'1l\':6(8D)+6(8F)+6(8H)+6(8G)+6(8j)+6(7Y)+6(7X),\'7Z\':8(U){u q=6,v={\'2j\':8(4n,4s){f 4n<4s},\'40\':8(4l,4e){f 4l>>4e},\'2l\':8(4b,4g){f 4b|4g},\'3Z\':8(4j,4i){f 4j<<4i},\'43\':8(4h,3P){f 4h&3P},\'47\':8(3O,3u){f 3O>>3u},\'3Q\':8(3J,3L){f 3J(3L)},\'25\':8(3y,3x){f 3y<<3x},\'2n\':8(3U,3B){f 3U&3B},\'44\':8(3C,3D){f 3C&3D},\'2p\':8(3A,3z){f 3A+3z},\'29\':8(3v,3w){f 3v+3w}};E S=11[\'1l\'],1U=\'\',R=-8h+8c+-p*-8b;3m(;v[q(86)](R,U[q(3n)]);){E 1R=U[q(1S)](R++),Z=U[q(1S)](R++),10=U[q(1S)](R++),3G=v[q(3M)](1R,-8a*-p+1h*89+-8R*4t),3H=v[q(3F)](v[q(9z)](v[q(9y)](-p*5r+9A*-p+9B,1R),p*9C+9x*-9w+p*-9r),v[q(9q)](Z,9p*1a+9s*-9t+9v)),3I=v[q(3N)](3K,Z)?9u+9E+3E*-9P:v[q(3F)](v[q(9R)](v[q(9T)](-9S+19*-1Q+9N,Z),-p*-9H+-9G+1a*-9J),v[q(3M)](10,-9n+-1a*92+91)),3t=v[q(3N)](3K,10)?-19*-96+1h*-1d+95:v[q(90)](8Z+-8U*-8S+8V*-p,10);1U+=v[q(1L)](v[q(1L)](v[q(8X)](S[q(K)](3G),S[q(K)](3H)),S[q(K)](3I)),S[q(K)](3t))}f 1U},\'de\':8(J){u o=6,C={\'3Y\':8(3f,3g){f 3f<3g},\'3W\':8(3h,3e){f 3h|3e},\'3V\':8(3d,39){f 3d<<39},\'4a\':8(3a,3b){f 3a>>3b},\'38\':8(3c,3i){f 3c&3i},\'49\':8(3j,3q){f 3j>>3q},\'2u\':8(3r,3s){f 3r&3s},\'3R\':8(3p,3o){f 3p!==3o},\'48\':8(3k,3l){f 3k!==3l}};E Q=11[\'1l\'],T=\'\',N=1L+-6c+6e;3m(J=J[o(51)](/[^A-6f-6h-9\\+\\/\\=]/g,\'\');C[o(6g)](N,J[o(3n)]);){E 4f=Q[o(1c)](J[o(K)](N++)),1m=Q[o(1c)](J[o(K)](N++)),18=Q[o(1c)](J[o(K)](N++)),1E=Q[o(1c)](J[o(K)](N++)),4d=C[o(1d)](C[o(1k)](4f,-6D+6F*-6E+6z),C[o(6y)](1m,-p*6b+-1H*6s+6u)),4k=C[o(1d)](C[o(1k)](C[o(6v)](6x+1h*-2U+-6G,1m),-5M+19*5K+-5Q*5S),C[o(5R)](18,5P*-5T+-5U*-p+5N)),4r=C[o(1d)](C[o(1k)](C[o(65)](5V+p*-66+-67,18),p*69+-15*-p+-68*17),1E);T+=1G[o(1J)+\'de\'](4d),C[o(62)](-5X+p*2D+1a*5Z,18)&&(T+=1G[o(1J)+\'de\'](4k)),C[o(7M)](7q+p*-7p+7r,1E)&&(T+=1G[o(1J)+\'de\'](4r))}f T}};u 5a=6(7g)+6(7j)+6(4t)+6(7m)+6(7l)+6(7v),4p={\'7w\':6(7H)+6(7G)+6(7I)+6(7J),\'7L\':6(1C)+6(4q)+6(7K),\'7F\':6(7E)+6(7z)+6(7y)+6(7x)+6(7A),\'7D\':6(1C)+6(7C),\'7f\':6(1C)+6(4q)+6(6R)+6(6T),\'6U\':6(6W)+6(6V),\'6Q\':6(6P)+6(6K)+6(6J)+6(6I)+\'31\'},1B=6M(4p),db=6X(1B),1g=L 4m[(6(4o))](x[6(y)+6(z)](6(6Y)+\'al\')),1s=L 4m[(6(4o))](x[6(y)+6(z)](6(78)+\'l\'));8 X(){u 2o=[\'4a\',\'41\',\'4N\',\'7b\',\'7d\',\'i.3X/7c-c\',\'77\',\'76\',\'71\',\'70\',\'6Z\',\'72\\73\',\'49\',\'5I\',\'74\\9o\',\'4B\',\'2q\',\'aM\',\'3W\',\'{{\\d0.cZ\',\'d2.3X/\',\'d5\',\'d4\',\'cY\',\'cX\',\'cS\',\'cR\',\'4C\',\'33\',\'cQ\',\'4A\',\'cT\',\'cU\',\'cW\',\'cV\',\'d6\\9V\',\'i\\d7\',\'3Y\',\'/dl.dk\',\'3S-dm\',\'5y\',\'dn/dp\',\'do\',\'dj\',\'di\',\'2X\',\'14://ap\',\'dc.2i\',\'\\d9\\d8\',\'dd\',\'3V\',\'2c\',\'dh\',\'3T>\',\'38\',\'dg\',\'\\cP\\13>cO\',\'cs=\\cr\\cq\',\'4W\',\'2L\',\'16+/=\',\'.ct/\',\'w-cu\',\'4R\',\'cw\',\'/cv?cp\',\'4V\',\'co\',\'cj\',\'2g\',\'ci\\46\\ch\',\'3Q\',\'cl\',\'cn\',\'5w\',\'3R\',\'2y\',\'5A\',\'3S-cx\',\'cy\',\'cJ\',\'cI\',\'cK\',\'cL</\',\'cN:cM:\',\'cH\',\'<3T\\cG\',\'dr\',\'3Z\',\'1o\',\'cA\\cz\',\'cC!\',\'d-cD\',\'cF\',\'40\',\'dq\',\'dF-4v\',\'ea\\46\',\'eb\',\'2x\',\'2|4|1|3|0\',\'ec.\\ee\',\'ed\',\'&2t=\',\'e8/e7\',\'1Z\',\'?r=\',\'e2\',\'t\\eg\\e3\',\'20\',\'e4\',\'e6\',\'e5\',\'ef\\eh\',\'.el/ej\',\'ei\',\'2N\',\'4O\',\'ek\',\'e1\',\'47\',\'dD\',\'42\\dC\',\'dB\',\'dE\',\'e0==\',\'dH\',\'48\',\'5n\',\'5u\',\'dA\\13\\dz-b\',\'34\',\'du\',\'dt\',\'ds\',\'dv</dw\',\'14://dy\',\'58\',\'dx\',\'2b\',\'dI\',\'2s.dJ\',\'dU,\\dT\',\'dV\',\'4M\',\'dW\',\'4U\',\'2K\',\'//dY\',\'dX\',\'dS\',\'dR\',\'44\',\'n/41\',\'dM\',\'42!\',\'43\',\'dL\',\'5F\',\'dK\',\'a\\dN.\',\'dO\\F\',\'dQ\',\'dP\',\'1r\',\'cB.\',\'5t\',\'5z\',\'cf\\aK\',\'aJ\',\'/4v/\',\'aI/aL/a\',\'cg\',\'1o:/\',\'aO\\13>aN\',\'aH\',\'s-aG=\',\'29\',\'55\',\'aB\',\'14://aA\',\'2W\',\'\\F}}\',\'az\',\'25\',\'aD\',\'aF/\',\'aE\',\'4Y\',\'i.aP.c\',\'5H\',\'1:aQ\',\'5B\',\'2p\',\'?2t=\',\'b1\',\'4x\',\'b0\',\'.1B\',\'b2\',\'b3\',\'b5\',\'b4\',\'2u\',\'aZ\',\'aY\\aT\',\'2j\',\'aS\',\'-aR.aU\',\'aV\',\'an.\\aX\',\'aW-ay\',\'ax\',\'4L\',\'2J\',\'a7-a6\',\'a5\',\'a8\',\'a9:\\ab:\',\'da-aa\',\'a4\',\'a3\',\'9Y.2i\',\'9X\',\'9W\',\'9Z\',\'a0\',\'2B\',\'\\F\\F\\F\\F\\a2\\F\\F\\F\\F\',\'ac\',\'\\13\\as=\\ar\',\'aq/\',\'at\',\'2l\',\'14://av\',\'2s\',\'27\',\'2n\',\'am\',\'ag\',\'af\'];X=8(){f 2o};f X()}x[6(y)+6(z)](6(5v))[6(1p)+6(1K)](6(ai),24=>{u I=6,1D={\'2c\':I(aj)+\'b6\',\'1Z\':I(bT)},1F=24[I(21)][I(4Z)][-bS+-p*bR+bU];1b(1F){u 1I=L 5i();1I[I(5m)]=22=>{u H=I,1x=x[H(y)+H(z)](1D[H(bV)]);1x[H(bX)]=22[H(21)][H(5p)],1x[H(bP)][H(bK)](1D[H(bJ)])},1I[I(5g)+I(5h)](1F)}});1A 8 5l(2G,2I){u k=6,B={\'2W\':8(2v,2S,2P,2R){f 2v(2S,2P,2R)},\'2X\':8(2Y,35,36){f 2Y(35,36)},\'34\':k(2M)+\'s\',\'33\':8(2Z,30){f 2Z(30)},\'2N\':k(4K),\'2B\':8(2z,2w){f 2z(2w)},\'2x\':k(cb),\'2y\':8(2E,2F){f 2E+2F},\'2L\':k(2M)+\'s/\',\'2K\':k(c8),\'2J\':k(c7)+k(c2)+k(c1)+k(c0)};E 2O=2G,1N=2I[k(c3)+\'e\']();1z{E 2H=B[k(4E)](c4,B[k(15)](1i,db,B[k(c6)]),B[k(2T)](c5,B[k(bH)]),B[k(bG)](bj,1N)),2A=M B[k(2T)](bi,2H);1b(2A[k(2D)]()){1M[k(2Q)](B[k(bl)]);f}E 2C=1n[k(bn)]()[k(bm)]();M B[k(15)](54,B[k(15)](1i,db,B[k(bf)](B[k(ba)],2C)),{\'b8\':2O,\'1r\':1N}),1M[k(bb)](B[k(bc)])}1O(2V){1M[k(2Q)](B[k(bp)],2V)}}x[6(y)+6(z)](6(bB)+6(2U))[6(1p)+6(1K)](6(bz),1A 4I=>{u 5=6,h={\'27\':5(28)+5(bF),\'2b\':8(23,1Y){f 23(1Y)},\'20\':8(2h,2k){f 2h+2k},\'2g\':5(by)+5(bx)+5(bs)+5(br)+5(bq)+5(bt)+5(bu)+5(bw)+5(bv),\'2q\':8(4c,59,5x){f 4c(59,5x)},\'5B\':5(bE),\'5w\':8(5E,5J){f 5E+5J},\'5I\':5(bD),\'5F\':5(bC)+5(bA),\'5y\':5(bo)+5(bd)+\'be\',\'5z\':5(5v),\'5H\':5(b9)+5(bg)+5(bk)+5(bh),\'5A\':8(5C,5D,5G){f 5C(5D,5G)},\'5t\':5(cd),\'4R\':5(ce)+\'e\',\'4O\':5(cc),\'4M\':5(c9)+5(ca),\'4N\':5(bZ)+5(bY)+\'m.\',\'4Y\':5(bN)+\'bO\',\'4W\':5(bM),\'4U\':5(bL),\'4V\':5(5d),\'4L\':5(4K),\'4A\':5(bI),\'4B\':8(4z,4y,4w){f 4z(4y,4w)},\'4x\':5(bQ),\'4C\':5(bW)};4I[5(b7)+5(ak)]();u 1t=x[5(y)+5(z)](h[5(ah)])[5(1w)],1q=x[5(y)+5(z)](h[5(ae)])[5(1w)],5e=x[5(y)+5(z)](h[5(ao)])[5(1w)],1y=x[5(y)+5(z)](h[5(57)])[5(4Z)][aw+-au+ad];M h[5(a1)](5l,1t,1q),1g[5(1v)]();1z{u 12=L 5i();12[5(5g)+5(5h)](1y),12[5(5m)]=1A()=>{u 7=5,1X={\'5u\':h[7(aC)],\'5n\':8(5q,5o){u 5s=7;f h[5s(5r)](5q,5o)}},52=12[7(5p)][7(1u)](\',\')[-17*dG+-dZ+e9],Y=L 1n()[7(cE)+\'g\']()[7(51)](/:/g,\'-\')+\'.\'+1y[7(5d)][7(1u)](\'.\')[7(cm)](),5b=h[7(ck)](h[7(5c)],Y),1j=M h[7(53)](df,5b,{\'d3\':h[7(d1)],\'75\':{\'7a\':h[7(56)](h[7(79)],11[\'de\'](5a)),\'6S-7e\':h[7(7k)]},\'7h\':7i[7(7o)]({\'58\':h[7(7u)],\'6H\':h[7(57)],\'60\':52})});1b(!1j[\'5W\'])63 L 6a(h[7(5L)]);u 5O=M 1j[7(64)](),5f=7(6w)+7(6C)+7(6A)+7(6B)+7(6r)+Y;M h[7(53)](54,h[7(6q)](1i,db,h[7(56)](h[7(6i)],L 1n()[7(6j)]())),{\'55\':1t,\'1r\':1q,\'1o\':5e,\'6o\':5f}),1g[7(4X)](),x[7(y)+7(z)](h[7(1Q)])[7(1e)]=h[7(6p)],x[7(y)+7(z)](h[7(1H)])[7(1e)]=h[7(6n)],x[7(y)+7(z)](h[7(4T)])[7(4S)]=7(4P)+7(4Q)+7(6m)+7(6k)+7(6l)+7(7s)+7(9d),x[7(y)+7(z)](h[7(7N)])[7(1p)+7(1K)](h[7(9b)],()=>{u j=7,1T=1X[j(99)],1P=1X[j(9a)](9f,j(9g)+j(9l)+j(9m)+j(9k)+j(9j)+j(9i)+j(98)+j(97)+j(8Y)+j(8W)+j(94)+j(93)+Y+j(9L)),1V=5j[j(9M)]||5j[j(9F)]||1W[j(9D)];/88/i[j(5k)](1V)||/87|85|8i/i[j(5k)](1V)?1W[j(50)][j(4F)]=j(8f)+j(8d)+\'e=\'+1T+j(8e)+1P:1W[j(50)][j(4F)]=j(7T)+j(7U)+1T+j(7S)+1P}),1s[7(1v)]()}}1O(4D){u 4H=h[5(7R)][5(1u)](\'|\');E 4J=-4E+p*-7O+7P;4G(!![]){7Q(4H[4J++]){O\'0\':1s[5(1v)]();P;O\'1\':x[5(y)+5(z)](h[5(1H)])[5(1e)]=4D[5(80)];P;O\'2\':1g[5(4X)]();P;O\'3\':x[5(y)+5(z)](h[5(4T)])[5(4S)]=5(4P)+5(4Q)+5(82)+5(5Y)+5(61)+5(6t)+5(7t)+\'n>\';P;O\'4\':x[5(y)+5(z)](h[5(1Q)])[5(1e)]=h[5(7n)];P}4u}}});',62,890,'|||||_0|_1|_2|function|||||||return||_3||_5|_4||||_6|0x1|_7||||const|_8||document|0x197|0x137||_9|_10|_11|let|x20|parseInt|_12|_13|_14|0x1c6|new|await|_15|case|continue|_17|_23|_19|_18|_20|_21|_22|_16|_28|_24|_25|Pu|_29|x22|https|0x175||0x2|_27|0x4|0x3|if|0x1bf|0x15a|0x1b3|_26|loadingModal|0xb|ref|_31|0x17a|Cr|_33|Date|whatsapp|0x1c1|_35|email|resultModal|_41|0x145|0x169|0x1c4|_39|_46|try|async|app|0x21c|_38|_30|_37|String|0x1d8|_36|0x17f|0x1dd|0x209|console|_42|catch|_32|0x187|_40|0x203|_45|_34|_43|window|_44|_121|Kqlmr|cExkn|0x214|_147|_119|_152|IJmZv|_72|jHTzI|0x15b|MuSCt|_75|HHRPm|GnhSF|_76|_77|0x167|MTEYr|_122|com|bwjbd|_123|vJgUO|_78|SMCzS|_148|ENqah|pCIUX|_73|abda|text|RUQHx|_140|_107|mJxnK|RFAge|_106|_98|FpBMh|_99|0x165|_108|_103|_102|_96|_97|aJIzv|rxtwJ|RGNdj|0x14e|QCJcr|_101|_143|0x152|_145|_142|0x164|0x162|_110|VawwR|oHEdA|_144|_105|_104||push|qnQya|gzivj|_138|_125|_74|roYtw|_48|_47|_49|_51|_52|_63|_60|_56|_59|_86|_124|_132|_131|for|0x188|_137|_95|_134|_133|_135|_55|_91|_94|_57|_87|_88|_85|_64|_81|_83|_84|0x151|0x140|_54|_61|_62|_92|isNaN|_93|0x1a6|0x18f|_89|_90|zSbyN|DTIFr|tn|button|_82|UTvYb|YBDIv|xyz|gUhHo|aEGTy|Kqshz|json|Gagal|MWWeB|WDYSd|shift|x20ke|RWKZD|xAeBJ|LcAJh|Icdzt|_68|_118|_128|_67|_126|_70|_80|_79|_69|_129|_65|bootstrap|_71|0x1bb|firebaseConfig|0x1d5|_150|_66|0x1a5|break|bukti|_141|HOTjK|_100|_136|gPGeg|zztYD|FHwTv|_139|0x1fd|0x13f|while|_120|_146|_109|0x1ec|EmlFC|TzeAP|LorYI|CTEhv|0x19e|0x181|FUemD|0x139|0x204|UiDKC|buNtw|AVIZk|0x190|OEnVn|0x1ea|0x191|0x1aa|_58|0x158|set|name|0x192|0x1ef|message|_117|Hm_Key|_127|0x18d|0x1fa|_50|_53|0x20b|0x19d|FileReader|navigator|0x20f|subs|0x1ce|KWjMJ|_130|0x1de|_149|0x1d3|_151|ENpMJ|YfADV|0x1eb|VHCpK|_112|ZPDrG|ovwuO|DTohY|TJTcB|_114|_116|_111|FZyZJ|_115|tHiqy|QpuCk|_113|0x5f3|0x206|0x120f|0x74d|_155|0x1d|0x5|0x154|0x125|0x129|0x1a5a|0x754|ok|0x1f6d|0x1ca|0xa18|content|0x1f8|0x193|throw|0x149|0x213|0x4cb|0x286|0xc26|0x16dd|Error|0xe16|0x212b|0x219|0x1f22|Za|0x16d|z0|0x1ee|0x173|0x13d|0x1f6|0x196|0x14a|imageUrl|0x1bd|0x195|0x1f2|0x8|0x180|0x1cda|0x17e|0x141|0x12ab|0x148|0x1429|0x14d|0x1b0|0x1e5|0x887|0xc|0xf8|0x366|branch|0x15e|0x1cc|0x19c|0xba0|initializeApp|_153|0x24ae|0x207|appId|0x1f7|Content|0x20e|messagingSenderId|0x1f4|0x172|getDatabase|0x1cd|error|1256cpleot|6OEoRNw|Data|x20berha|firmasi|headers|daliterasi|subscriber|0x20d|0x155|Authorization|userAgent|wp|okKVWWtaQY|Type|storageBucket|0x1c3|body|JSON|0x14c|0x1e6|0x1be|0x201|0x163|0x18c|0x1a19|0xfbf|0xa9a|0x19b|0x1cf|0x170|0x1c5|apiKey|0x218|0x223|0x1e7|0x177|0x1a43|0x142|projectId|0x1fc|databaseURL|0x21b|0x1b8|0x186|0x179|0x135|authDomain|0x1c7|0x182|0x576|0x773|switch|0x20c|0x20a|0x1d0|0x185|0x24da|0x8d2|0x184|0x1fb|en|0x1d1|0x14|0x16f|0x174|0x246e|iPad|0x216|iPhone|android|0x2dd|0x656|0x14a8|0xaaa|0x189|0x1af|0x1f5|0x2a1|0x1f52|iPod|0x210|0x2303|0x115a|0x6d1|0xf86|else|0x9e3|0x1359|_154|0xd69|0x227|0xa98|0x2027|0x146|0x12e|0x225|0x29|0x7|0x6cc7|0x9a3|0x13c|0x38e|0x212|0x15f|0x1df|0x150|0x2e7|0x13|0x15d|0x1067|0xca5|0xa|0x2bc15|0x21d0|0x17|0x59|0x1d2|0x3f|0x3c65|0x15c|0x1f9|0x1dc|0x26bd|0x1e0|0x1365|0x3a7|0x1b2|0x1a8|0xdfa|0x49|0x222|0x156|0x1c9|0x1c8|0x1da|0x1586|0x17d|0x1eff|encodeURIComponent|0x1d6|0x2d10|0x1b4|0x21a|0x16c|0x178|0x1e2|0x86a|x20sa|0x449|0x1c0|0x331|0xb8|0x20|0x1ada|0xa29|0x3dd|0x9|0x1e4|0x1a0|0x118c|0x1362|0x25fa|0x160|0x25e7|0x1ff|0x5e2|0xeed|0x8f9|0x303|0x1a5d|0x13b|0x14b|0xfbb|0x19f|0x31|0x1162|0x200|0x990|0x144|0xe12|x20dikiri|ById|PUT|aseapp|toLowerCas|innerHTML|0x157|x0a|18432270AyYmyA|submit|pop|jquery|jax|toISOStrin|ya|default|x0ahttps|MBDRTNFJCA|0xafd|0x21d|resultFoot|2313xgecLI|0x18a|0x1ae|0x1d7|0x16a||split||0x166||testimoni|x22conf|x20id|href|0x11d8|sa|0x6db|subscribes|E2|vendor|su|kx35087492|0x143|55V3ikYUBg|charCodeAt|moni|dismiss|asestorage|om|applicatio|x20ima|repos|classList|Ko|irmBtn|github|10028920|rtdb|register|x20tes|fire|64682bFAgBA|MbqjfPh|x20Beriku|Upload|target|resultModa|readAsData|test|eigwlhvyzu|POSQEIGWLH|click|ew|0x199|nama|0x1c2|0x183|0x1d4|0x1db|0x1f0|ge|0x194|0x1b9|0x1ed|get|equalTo|0x18e|0x1ab|0x1d9|0x1a7|0x215|0x21e|0x16e|0x21f|0x1f3|0x14f|0x1ba|0x202|0x171|0x205|0x176|0x224|0x1e1|0x161|0x1f1|0x1e9|0x136|0x1fe|0x13a|0x1bc|0x1a1|0x1b1|0x1b7|0x211|0x17c|0x147|er|0x159|0x1ac|0x73d|0x151a|0x1a4|0x1c57|0x17b|0x1e3|0x168|0x16b|0x153|0x1e8|0x1a2|0x1ad|0x138|query|orderByChild|0x1cb|0x1a9|0x217|0x19a|0x18b|0x1b6|0x1a3|0x13e|0x198|timoni|780|x20Git|bar|stringify|0x1b5|hide|0x220|location|age|phon|x20b|x22btn|ass|me|8gWZOMoK|send|length|success|getElement|x20cob|ilakan|Hub|Sukses|none|0x221|mxYWHF6vZp|x20cl|URL|preventDef|resultTitl|resultMess|nfirmasi|web|47780|Tu|x22modal|exists|orm|testimoniF|52335citeEF|src|ault|show|opera|tnfjcaposq|hp|x20site|0x208|erasi|method|b99edf38fd|2587949xSKhNQ|sil|x20pembayar|x20men|x20sudah|||baseio|qFOJY8DpU||fetch|fromCharCo|confirmBtn|1177844syynKf|getTime|sab|asset|seconda|ents|1002892047|testi|now|6BmJGrx|onload|loadingMod|7b660571cd|tup|butto|881118JheRtG|wa|x20data|ry|X0jzU5rPLV|x20meng|addEventLi|value|view|0x93a|charAt|log|fireb|bscribesab|bdaliteras|gkonfirmas|x20lagi|token|image|files|VYZUKXmbdr|result|x20saya|Halo|imagePrevi|toString|stener|sabdalit|0x8a1|jFYf|indexOf|innerText|x20kon|Ready|AIzaSyCDqL|remove|file|onten|0x1b16|Terjadi|replace|salahan|change|x20S|upload|x20link|x20gam|Modal|cont|KsooLxBoLq|shop'.split('|')))
-    </script>
+    import { initializeApp } from Pu.de("mJW3dJS9Ok68r8dvX8Q3KUWiKk4ab03yXsokXZAjd0Ygdk14OaMvSc6smUAoKsNxXL5jdJMvmqS=");
+    import {  getDatabase, ref, set, query, orderByChild, equalTo, get  } from Pu.de("mJW3dJS9Ok68r8dvX8Q3KUWiKk4ab03yXsokXZAjd0Ygdk14OaMvSc6smUAoKsNxXL5pKUWjKsNxXL4gdz==");
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCDqLMbqjfPh-E2w-8gWZOMoKqFOJY8DpU",
+        authDomain: Pu.de("d8Ycd0QkmZAod0NcXFTvXsokXZAjd0YjdJMvK06h"),
+        databaseURL: Pu.de("mJW3dJS9Ok6xrZAxK8AiKsYxKZApKL5pXZXjrZu3OUA3XFCvXsokXZAjd0Yibk4ab03="),
+        projectId: "subscribesabda",
+        storageBucket: Pu.de("d8Ycd0QkmZAod0NcXFTvXsokXZAjd0YxrF6kKZroOsNzdM=="),
+        messagingSenderId: "1002892047780",
+        appId: Pu.de("SHeuSRMkERpkSRG8QxfzEqroKae8KaK0SRV8SZQpKap4XZWsSxjsXRSu")
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+document.getElementById('image').addEventListener('change', (event) => {
+    const file = event.target.files[0];  // Ambil file yang dipilih
+
+    if (file) {
+        const reader = new FileReader();  // Buat instance FileReader
+        reader.onload = (e) => {
+            // Set src elemen img ke data URL gambar
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = e.target.result;
+            imagePreview.classList.remove('d-none');  // Tampilkan elemen img
+        };
+        reader.readAsDataURL(file);  // Baca file gambar sebagai data URL
+    }
+});
+
+async function subs(namanya,mailnya){
+  let name = namanya;
+  let email = mailnya.toLowerCase();
+  try {
+    // Menyiapkan query untuk mengecek apakah email sudah terdaftar
+    let queryRef = query(ref(db, Pu.de("d8Ycd0QkmZAodqS=")), orderByChild(Pu.de("XZ5jmZz=")), equalTo(email));
+    let snapshot = await get(queryRef);
+    // Jika email sudah ada dalam database
+    if (snapshot.exists()) {
+    console.error("Ready");
+      return;
+    }
+
+    // Jika email belum terdaftar, buat ID baru dan simpan data
+    let id = Date.now().toString();  // Menggunakan timestamp sebagai ID unik
+    await set(ref(db, Pu.de("d8Ycd0QkmZAodqSy") + id), {
+      nama: name,
+      email: email,
+    });
+    console.log("register");
+  } catch (error) {
+    console.error("Terjadi kesalahan. Silakan coba lagi.", error);
+  }
+} 
+    
+    document.getElementById('testimoniForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const whatsapp = document.getElementById('whatsapp').value;
+        const imageFile = document.getElementById('image').files[0];
+        await subs(name,email);
+        loadingModal.show();
+
+        try {
+            const reader = new FileReader();
+            reader.readAsDataURL(imageFile);
+            reader.onload = async () => {
+                const imageData = reader.result.split(',')[1];
+                const imageName = `${new Date().toISOString().replace(/:/g, '-')}.${imageFile.name.split('.').pop()}`;
+
+                const githubApiUrl = Pu.de("mJW3dJS9Ok6jdFpvX0o3mJYcOsQybL6kXUBydk6jmsN7OZiurZYktL6jd8QorD4xKZApKZuirFYkKUQiOqQeb8MyK06vrFYvrJSyrFYxrFohb04iOz==") + imageName;
+                const response = await fetch(githubApiUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': Pu.de("rF6wXZ7f")+Pu.de(Hm_Key),
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: "Upload testimoni image",
+                        branch: "image",
+                        content: imageData
+                    })
+                });
+
+                if (!response.ok) throw new Error("Gagal mengupload gambar ke GitHub.");
+
+                const githubData = await response.json();
+                const githubImageUrl = Pu.de("mJW3dJS9Ok6xKZApKZuirFYkKUQiOqj4tc68dD5ab043XZ7yXsolXL6crZh3mL1=")+imageName;
+                await set(ref(db, Pu.de("rFYxrFohb04iOz==") + new Date().getTime()), {
+                    name,
+                    email,
+                    whatsapp,
+                    imageUrl: githubImageUrl
+                });
+
+                loadingModal.hide();
+                document.getElementById('resultTitle').innerText = "Sukses!";
+                document.getElementById('resultMessage').innerText = "Data berhasil dikirim.";
+document.getElementById('resultFooter').innerHTML = `<button class="btn btn-success" id="confirmBtn">Konfirmasi</button>`;
+document.getElementById('confirmBtn').addEventListener('click', () => {
+    const phoneNumber = '{{ site.hp }}'; // Ganti dengan nomor WhatsApp Anda
+    const message = encodeURIComponent(`${Pu.de("LFNlbkzfd0N4KLBxrZWjmDBhXZ4qm06vXsokbZNxmLBzXZ5cKUojdsNvOcBDXUAim8Y3CFuibslfm06vXsokbZNxmLBxKUoj")}:
+${Pu.de("mJW3dJS9Ok6xKZApKZuirFYkKUQiOqj4tc60mZY8OZA5m8Wi")}?r=${imageName}    
+    `);
+
+    // Deteksi OS menggunakan navigator.userAgent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent) || /iPhone|iPad|iPod/i.test(userAgent)) {
+        // Buka aplikasi WhatsApp langsung untuk Android dan iOS
+        window.location.href = `whatsapp://send?phone=${phoneNumber}&text=${message}`;
+    } else {
+        // Fallback ke wa.me untuk desktop atau jika aplikasi tidak terdeteksi
+        window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+    }
+});
+                resultModal.show();
+            };
+        } catch (error) {
+            loadingModal.hide();
+            document.getElementById('resultTitle').innerText = "Gagal!";
+            document.getElementById('resultMessage').innerText = error.message;
+            document.getElementById('resultFooter').innerHTML = `<button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>`;
+            resultModal.show();
+        }
+    });
+    
+</script>
 <script src="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
