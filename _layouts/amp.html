@@ -48,7 +48,8 @@ content="sha384-cx26UTwZj7X5zOEg7iBSDRBD4HJL-RRcv8e05PiGTVpO1qT2BZ2VAawP-y85JQSk
 <script async custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>
 <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
 <script async custom-element='amp-install-serviceworker' src='https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js'></script>
-
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    
 <!--<script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
  <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script> --> 
 <title>{% if page.title %}{{ page.title }}{% endif %}</title>
@@ -471,6 +472,14 @@ display: none;
 <body>
 <!-- Start Sidebar -->
 <amp-sidebar id="header-sidebar" class="ampstart-sidebar" layout="nodisplay" side="right">
+<amp-ad width="100vw" height="320"
+     type="adsense"
+     data-ad-client="ca-pub-7167027688009938"
+     data-ad-slot="2745817379"
+     data-auto-format="rspv"
+     data-full-width="">
+  <div overflow=""></div>
+</amp-ad>
 <header class="sticky-header">
 <div class="main-header">
 <a href="{{ site.url }}" class="main-header__logo">
