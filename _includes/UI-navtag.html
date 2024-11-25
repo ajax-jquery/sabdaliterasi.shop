@@ -12,7 +12,7 @@
 <div class='secIn'>
 <ul>
 {% for tag in site.tags %}  
-<li {% if page.tag == tag[0] %}style="font-weight:600"{% endif %}>
+<li {% if page.tag == tag[0] or page.title == tag[0] %}style="font-weight:600"{% endif %}>
 <a aria-label='{{ tag[0] }}' class='l' data-text='{{ tag[0] }}' href='{{ "/category/" | prepend: site.url | append: tag[0] | downcase }}/'>
 </a>
 </li>
