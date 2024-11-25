@@ -21,7 +21,7 @@
 <meta property="article:published_time" content="{{ page.date }}" />
 <meta property="article:modified_time" content="{{ page.date }}" />
 {% endif %}
-<meta property="article:section" content="Business">
+<meta property="article:section" content="{% if page.tag %}{{ page.tag }}{% elsif page.author %}{{ page.author }}{% endif %}">
 {% for keywords in page.keyword limit:10 %}<meta property="article:tag" content="{{ keywords }}">{% endfor %}{% if page.tag %}<meta property="article:tag" content="{{ page.tag }}">{% endif %}
 {% if page.image %}
 <meta content="{{ page.image }}?width=1200&height=630&share=1" property="og:image"/>
