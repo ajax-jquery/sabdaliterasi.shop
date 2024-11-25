@@ -10,11 +10,12 @@
 {% endif %}
 <meta property="og:locale" content="id_ID" />
 <meta property="og:type" content="article" />
-<meta name="title" property="og:title" content="{% if page.buy %}{{ page.title }} | Ebook Shop | {% else %}{{ page.title }} |{% endif %} {{ site.title }}" />
+<meta property="og:title" content="{% if page.buy %}{{ page.title }} | Ebook Shop | {% else %}{{ page.title }} |{% endif %} {{ site.title }}" />
+<meta name="title" content="{% if page.buy %}{{ page.title }} | Ebook Shop | {% else %}{{ page.title }} |{% endif %} {{ site.title }}" />
 <meta property="og:description" content="{{ site.title }} - {% if page.description %}{{ page.description }}{% endif %}" />
 <meta property="og:url" content="{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}" />
 <meta property="og:site_name" content="{{ site.title }} - {{ site.subjudul }}" />
-<meta property="article:publisher" content="https://www.facebook.com/sabdaliterasi.xyz" />
+<meta property="article:publisher" content="{{ site.fb }}" />
 <meta property="article:author" content="{{ site.fb }}" />
 {% if page.date %}
 <meta property="article:published_time" content="{{ page.date }}" />
@@ -24,7 +25,8 @@
 {% for keywords in page.keyword limit:10 %}<meta property="article:tag" content="{{ keywords }}">{% endfor %}{% if page.tag %}<meta property="article:tag" content="{{ page.tag }}">{% endif %}
 {% if page.image %}
 <meta content="{{ page.image }}?width=1200&height=630&share=1" property="og:image" name="image"/>
-<meta name="twitter:image:alt" property="og:image:alt" content="{% if page.buy %}{{ page.title }} | Ebook Shop | {% else %}{{ page.title }} |{% endif %} {{ site.title }}" />
+<meta name="twitter:image:alt" content="{% if page.buy %}{{ page.title }} | Ebook Shop | {% else %}{{ page.title }} |{% endif %} {{ site.title }}" />
+<meta property="og:image:alt" content="{% if page.buy %}{{ page.title }} | Ebook Shop | {% else %}{{ page.title }} |{% endif %} {{ site.title }}" />
 <meta content="{{ page.image }}?width=1280&height=720&share=1" name="twitter:image" />
 <link href="{{ page.image }}?width=1280&height=720&share=1" rel="image_src" />
 {% endif %}
