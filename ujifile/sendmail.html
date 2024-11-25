@@ -255,7 +255,7 @@ Nameattachment1 =replacename(nama)+"."+extension;
     }
     
     
-    let message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/6285186664889</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p><p>---</p>${badan}`;
+    let message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me{{ site.hp }}</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p><p>---</p>${badan}`;
   
   
   if(dataku==true){
@@ -376,9 +376,9 @@ async function extractTextFromDocx(arrayBuffer) {
     text += '<p>' + paragraphText + '</p>';
   };
 let mail = $("#EmailSaya").val(),
-mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6285186664889 Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir"+Pu.de("PTiim0TfWFocrUW5mFhjbcpfHs1fVpYOCNQoKVAjbslyGsNvmkBOXUQomsNerFYkKZNvCTYwb04ybZpfPTAOWLp9CRpzSHGzEHT8QxM0SLMeKZ7vCT5ymDBFKZWeXZzfWsowdspi");
+mybio="BIO SAYA:Nama Penulis: Fadhel Fikri Atribusi/Deskripsi: Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me{{ site.hp }} Email:fadhel13fikri@gmail.comFoto Penulis:Terlampir"+Pu.de("PTiim0TfWFocrUW5mFhjbcpfHs1fVpYOCNQoKVAjbslyGsNvmkBOXUQomsNerFYkKZNvCTYwb04ybZpfPTAOWLp9CRpzSHGzEHT8QxM0SLMeKZ7vCT5ymDBFKZWeXZzfWsowdspi");
 if(mail === "martinamulia04@gmail.com"){
-mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me/6285186664889 Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
+mybio="BIO SAYA:Nama Penulis: Martina Mulia DewiAtribusi/Deskripsi: Lifelong Learner, content writer, recipe writer, blogger, and feminist activist. Dan pembisnis di Sabda Literasi PaluWebsite:https://sabdaliterasi.xyzNo Hp/Wa: https://wa.me{{ site.hp }} Email:martinamulia04@gmail.comFoto Penulis:Terlampir"}
 
   return text.replace(mybio,"");
 }
@@ -587,7 +587,7 @@ inforek=""
             "format":"A4",
             "orientation":"portrait",
             "base_url":""},
-            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/6285186664889 <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
+            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me{{ site.hp }} <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
 `,
             "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}"
             };
