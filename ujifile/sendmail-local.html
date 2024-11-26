@@ -587,7 +587,7 @@ inforek=""
             "format":"A4",
             "orientation":"portrait",
             "base_url":""},
-            "html":`<h1>${Judul}</h1>${isi}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/{{ site.hp }} <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
+            "html":`<h1>${Judul}</h1>${isi.replaceAll("h2>","strong>")}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/{{ site.hp }} <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
 `,
             "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}"
             };
