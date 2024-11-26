@@ -18,6 +18,15 @@ permalink: /ujifile/sendmail/
 <div class="container">
 <h1 class="text-center mb-4">Send Email via API</h1>
 <form id="emailForm">
+<div class="mb-3">
+                <label for="pilihan" class="form-label">Pilih Jenis Kirim:</label>
+                <select id="pilihan" class="form-select" required>
+                    <option value="" disabled selected>Pilih salah satu...</option>
+                    <option value="Eksternal">Eksternal</option>
+                    <option value="Local">Local</option>
+                </select>
+                <div class="invalid-feedback">Harap pilih salah satu opsi.</div>
+            </div>
 <div class="mb-3 field">
 <label for="subject" class="form-label">Judul:</label>
 <input type="text" id="subject" class="form-control" name="subject" required>
@@ -44,15 +53,15 @@ Upload Foto
 </div>
 
 <div class="form-check form-check-inline">
-<input class="form-check-input" type="checkbox" id="Tulis_Konten" name="Tulis_Konten" value="true">
+<input class="form-check-input" type="checkbox" id="Tulis_Konten" name="Tulis_Konten" value="true" checked>
 <label class="form-check-label" for="Tulis_Konten">
 Tulis Konten
 </label>
 </div>
 
-<div id="tulis_konten" class="hidden">
+<div id="tulis_konten" class="">
 <div id="validck" class="form-outline mb-2 CKeditnya">
-<textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
+<textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor" required></textarea>
 </div>
 <div class="mb-3 field">
 <button class="btn btn-primary" id="cetak">Download</button>
@@ -248,15 +257,15 @@ Nameattachment1 =replacename(nama)+"."+extension;
     
     let badan="",lampirkan="lampirkan",bb="";
     if(body==true){
-    badan = `<h1 style="text-align:center;">${judul}</h1>${await CKdata()}`,lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
+    badan = `<hr><h1 style="text-align:center;">${judul}</h1>${await CKdata()}`,lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
     }
     
     
-    let message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/{{ site.hp }}</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p><hr>${badan}`;
+    let message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/{{ site.hp }}</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p>${badan}`;
   
   
   if(dataku==true){
-  message=`<p> Assalamualaikum.. saya mau kirim tulisan lagi kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya kali ini yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: SEPERTI BIASA, TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br> Nama Penulis: ${nama} </p> <p> Untuk biodata lainnya, sudah saya kirim saat pengiriman artikel pertama kali kepada kaka.</p><hr>${badan}`
+  message=`<p> Assalamualaikum.. saya mau kirim tulisan lagi kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya kali ini yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: SEPERTI BIASA, TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br> Nama Penulis: ${nama} </p> <p> Untuk biodata lainnya, sudah saya kirim saat pengiriman artikel pertama kali kepada kaka.</p>${badan}`
   }
     
     
@@ -284,9 +293,12 @@ Nameattachment1 =replacename(nama)+"."+extension;
             "body":body,
             "dataku":dataku
         };
+let pilihan = document.getElementById('pilihan').value,
+MyFetc='http://localhost:3000/send-email';
+if (pilihan == "Eksternal"){MyFetc='/wp-conten/api/v1/send-email'}
 
     try {
-        const response = await fetch('/wp-conten/api/v1/send-email', {
+        const response = await fetch(MyFetc, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
