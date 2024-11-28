@@ -128,7 +128,7 @@ async function main() {
         });
 
         const mailOptions = {
-          from: `New Articles Sabda Literasi <newarticles@sabdaliterasi.xyz>`,
+          from: `New Product Sabda Literasi <newarticles@sabdaliterasi.xyz>`,
           to: subscriber.email,
           subject: `Ebook Untuk Anda: ${article.title}`,
           html: emailContent,
