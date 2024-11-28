@@ -2,15 +2,12 @@
 layout: null
 ---
 User-agent: *
-Disallow: /test/
+Disallow: /wp-admin/*
 Disallow: /success/
 Disallow: /uji-home/
 Disallow: /buy/
 Disallow: /offline/
 Disallow: /search/
-Disallow: /404/
-Disallow: /ujifile/*
-Disallow: /edit5/
 Disallow: /konfirmasi/
 Disallow: /templatemail.html
 
