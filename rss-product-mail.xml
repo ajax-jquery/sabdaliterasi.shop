@@ -40,7 +40,7 @@ layout: null
 	<comments>{{ post.url | prepend: site.baseurl | prepend: site.url }}#comments</comments>
 	<dc:creator><![CDATA[{{ post.author }}]]></dc:creator>
 <dc:identifier><![CDATA[{{ post.ISBN }}]]></dc:identifier>
-<g:price><![CDATA[{{ post.harga }}]]></g:price>
+<dc:price><![CDATA[{{ post.harga }}]]></dc:price>
   <description><![CDATA[<p>{{ post.description | xml_escape }}</p><p>Produk ebook&nbsp;<a href="{{ site.url }}{{ post.permalink }}" >{{ post.title }}</a> ini ditulis oleh {{ post.author }} dan pertama kali dijual dalam bentuk ebook di <a href="{{ site.url }}" >{{ site.title }}</a></p><p><a href="{{ site.url }}" >{{ site.title }}</a> - <a href="{{ site.url }}" >{{ site.title }} | {{ site.subjudul }}</a></p> ]]></description>
 
 {% assign paragraphs = post.content | split: '</p>' %}
