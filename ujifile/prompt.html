@@ -1,0 +1,125 @@
+---
+layout: null
+permalink: /wp-admin/prompt/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Information Formatter</title>
+    <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Book Information Formatter</h1>
+    <form id="bookForm">
+        <div class="mb-3">
+            <label for="title" class="form-label">Judul Buku</label>
+            <input type="text" class="form-control" id="title" placeholder="Masukkan judul buku" required>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Pengarang</label>
+            <input type="text" class="form-control" id="author" placeholder="Masukkan nama pengarang" required>
+        </div>
+        <div class="mb-3">
+            <label for="publisher" class="form-label">Penerbit</label>
+            <input type="text" class="form-control" id="publisher" placeholder="Masukkan penerbit" required>
+        </div>
+        <div class="mb-3">
+            <label for="year" class="form-label">Tahun Terbit</label>
+            <input type="number" class="form-control" id="year" placeholder="Masukkan tahun terbit" required>
+        </div>
+        <div class="mb-3">
+            <label for="isbn" class="form-label">ISBN</label>
+            <input type="text" class="form-control" id="isbn" placeholder="Masukkan ISBN">
+        </div>
+        <div class="mb-3">
+            <label for="translator" class="form-label">Penerjemah (Opsional)</label>
+            <input type="text" class="form-control" id="translator" placeholder="Masukkan penerjemah jika ada">
+        </div>
+        <div class="mb-3">
+            <label for="translatedTitle" class="form-label">Judul Buku Hasil Terjemahan (Opsional)</label>
+            <input type="text" class="form-control" id="translatedTitle" placeholder="Masukkan judul terjemahan jika ada">
+        </div>
+        <button type="submit" class="btn btn-primary">Generate</button>
+    </form>
+    
+    <h2 class="mt-4">Formatted Text</h2>
+    <div class="mb-3">
+        <textarea id="outputText" class="form-control" rows="6" readonly></textarea>
+    </div>
+    <button id="copyButton" class="btn btn-secondary">Copy to Clipboard</button>
+</div>
+
+<script>
+document.getElementById("bookForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const title = document.getElementById("title").value.trim();
+    const author = document.getElementById("author").value.trim();
+    const publisher = document.getElementById("publisher").value.trim();
+    const year = document.getElementById("year").value.trim();
+    const isbn = document.getElementById("isbn").value.trim();
+    const translator = document.getElementById("translator").value.trim();
+    const translatedTitle = document.getElementById("translatedTitle").value.trim();
+
+    // Create the formatted text
+    let formattedText = `Judul Buku: **${title}**\nPengarang: **${author}**\nPenerbit: **${publisher}**\nTahun Terbit: **${year}**`;
+    if (isbn) formattedText += `\nISBN: **${isbn}**`;
+    if (translator) formattedText += `\nPenerjemah: **${translator}**`;
+    if (translatedTitle) formattedText += `\nJudul Asli: **${translatedTitle}**`;
+
+    // Display in the textarea
+    document.getElementById("outputText").value =`**Prompt untuk Anda:**
+
+Tugas Anda:  
+Tulis artikel SEO-friendly dengan panjang 400 kata yang membahas sinopsis buku **${title}**, yang akan dijual di website. Artikel ini harus memiliki struktur yang baik untuk SEO, dengan menggunakan kata kunci yang relevan secara natural dan menarik perhatian pembaca. Artikel ini juga harus ditulis dengan gaya yang ringkas, mudah dipahami, dan menggugah minat pembaca untuk membeli buku tersebut.
+
+**Detail Buku:**
+
+${formattedText}
+
+**Detail Artikel:**
+
+1. **Judul:** Gunakan judul buku yang dijual, misalnya "Sinopsis Buku ${title}" atau "Mengenal Lebih Dekat ${title}".
+   
+2. **Paragraf Pembuka:**  
+   - Mulai dengan kalimat yang menarik pembaca untuk mengetahui lebih lanjut tentang buku ini.  
+   - Sertakan sedikit pengantar yang mencakup genre buku dan siapa target audiens yang cocok untuk membacanya.
+
+3. **Sinopsis Utama:**  
+   - Ringkas cerita utama buku tanpa memberikan spoiler yang terlalu mendalam.
+   - Highlight tema-tema besar yang dibahas dalam buku dan mengapa buku ini layak dibaca.
+
+4. **Mengapa Membaca Buku Ini:**  
+   - Tulis beberapa alasan mengapa pembaca harus membeli dan membaca buku ini.
+   - Bisa berupa ulasan tentang gaya penulisan penulis, karakter yang kuat, atau ide-ide unik dalam buku.
+
+5. **Penutupan dan Call-to-Action:**  
+   - Akhiri artikel dengan ajakan untuk membeli buku ini atau menjelajahi lebih banyak buku serupa di website.
+   - Sertakan kalimat yang memotivasi pembaca untuk mengambil tindakan setelah membaca artikel.
+
+**SEO dan Monetisasi:**
+- Gunakan kata kunci yang relevan dengan judul buku dan genre buku tersebut.
+- Sisipkan kata kunci dengan natural dalam artikel, seperti “buku ${title}”, “sinopsis ${title}”, dan “beli ${title}”.
+- Pastikan artikel mudah dipahami dan tidak terlalu panjang agar sesuai dengan pembaca yang mencari informasi cepat.
+- Gunakan subjudul yang sesuai dan bantu pembaca menavigasi artikel dengan mudah.
+
+**Tingkatkan Keterlibatan Pembaca:**  
+Pastikan artikel ini tidak hanya menarik dari sisi SEO tetapi juga membuat pembaca merasa tertarik dan ingin membeli buku yang dibahas. Hindari penulisan yang terlalu promosi atau terkesan iklan, namun tetap menggugah minat pembaca untuk membeli.`;
+});
+
+// Copy to Clipboard
+document.getElementById("copyButton").addEventListener("click", function() {
+    const outputText = document.getElementById("outputText");
+    outputText.select();
+    document.execCommand("copy");
+    alert("Text copied to clipboard!");
+});
+</script>
+
+<script src="/wp-conten/file/cdn/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
