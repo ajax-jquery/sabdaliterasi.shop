@@ -45,7 +45,7 @@ layout: null
 {% assign first_four_paragraphs = paragraphs %}
 {% capture snippet %}
   {% for paragraph in first_four_paragraphs  %}
-   {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}{% if forloop.last == true %}....</p>{% endif %}
+   {{ paragraph }}{% if forloop.last == false %}</p>{% endif %}
   {% endfor %}
 {% endcapture %}
 
