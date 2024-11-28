@@ -54,8 +54,8 @@ layout: null
 
 <content:encoded><![CDATA[{{ snippet }}]]></content:encoded>
    <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-<media:thumbnail url="{{ post.image }}?width=720&amp;height=720&amp;ssl=1" width="720" height="720"/>
-<media:content url="{{ post.image }}?width=720&amp;height=720&amp;ssl=1" medium="image"/>
+<media:thumbnail url="{{ post.image }}?width=480&amp;height=480&amp;ssl=1" width="480" height="480"/>
+<media:content url="{{ post.image }}?width=480&amp;height=480&amp;ssl=1" medium="image"/>
 </item>
     {% endfor %}
   </channel>
