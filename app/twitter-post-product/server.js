@@ -123,7 +123,7 @@ async function processRSSFeed() {
     const categories = article.categories || [];
     const hashtags = categories.slice(0, 3).map(cat => `#${cat.replace(/\s+/g, '')}`).join(' ');
 
-   const tweetContent = `${article.title}\n${configu.populertag} ${hashtags}\n${article.link}`;
+   const tweetContent = `${article.title}\n#ebook #buku ${configu.populertag} ${hashtags}\n${article.link}`;
    await postToTwitter(tweetContent);
 
     // Tambahkan link artikel ke file
