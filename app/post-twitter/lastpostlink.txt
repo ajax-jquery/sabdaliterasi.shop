@@ -35,6 +35,7 @@
     "https://sabdaliterasi.xyz/epistemologi-kiri-seri-pemikiran-tokoh/",
     "https://sabdaliterasi.xyz/filsafat-di-masa-kini/",
     "https://sabdaliterasi.xyz/fundamentalisme-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/marx-dan-freud-marxisme-dan-psikoanalisis/"
+    "https://sabdaliterasi.xyz/marx-dan-freud-marxisme-dan-psikoanalisis/",
+    "https://sabdaliterasi.xyz/diskursus-teori-teori-kritis/"
   ]
 }
