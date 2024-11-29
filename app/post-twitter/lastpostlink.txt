@@ -33,6 +33,7 @@
     "https://sabdaliterasi.xyz/filsafat-periode-plato/",
     "https://sabdaliterasi.xyz/filsafat-periode-aristoteles/",
     "https://sabdaliterasi.xyz/epistemologi-kiri-seri-pemikiran-tokoh/",
-    "https://sabdaliterasi.xyz/filsafat-di-masa-kini/"
+    "https://sabdaliterasi.xyz/filsafat-di-masa-kini/",
+    "https://sabdaliterasi.xyz/fundamentalisme-sebuah-pengantar-singkat/"
   ]
 }
