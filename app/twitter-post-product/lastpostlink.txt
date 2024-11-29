@@ -1,0 +1,12 @@
+{
+  "link": [
+    "https://sabdaliterasi.xyz/artikel/teori-keputusan-epistemik-memahami-taruhan-keyakinan/",
+    "https://sabdaliterasi.xyz/artikel/mukjizat-konspirasi-dan-kecenderungan-manusia-terhadap-hal-hal-luar-biasa-sebuah-tinjauan-humean/",
+    "https://sabdaliterasi.xyz/artikel/memahami-pikiran-hewan-rahasia-evolusi-kecerdasan/",
+    "https://sabdaliterasi.xyz/artikel/rekomendasi-13-film-biografi-tokoh-filsafat-dan-sains-terbaik-tahun-ini/",
+    "https://sabdaliterasi.xyz/artikel/13-buku-filsafat-terbaik-tahun-ini-panduan-memulai-perjalanan-intelektual-bagi-pemula/",
+    "https://sabdaliterasi.xyz/artikel/kiat-efektif-mengatasi-ketakutan-terhadap-kematian-menurut-epicureanisme/",
+    "https://sabdaliterasi.xyz/artikel/manusia-satu-dimensi-kritik-marcuse-terhadap-konsumerisme-dan-teknologi/",
+    "https://sabdaliterasi.xyz/artikel/gerakan-metoo-di-indonesia-tantangan-budaya-dan-masa-depan-advokasi/"
+  ]
+}
