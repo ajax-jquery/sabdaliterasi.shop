@@ -61,6 +61,7 @@
     "https://sabdaliterasi.xyz/ateisme-sigmund-freud/",
     "https://sabdaliterasi.xyz/filsuf-filsuf-besar-tentang-manusia/",
     "https://sabdaliterasi.xyz/kearifan-hidup/",
-    "https://sabdaliterasi.xyz/adab-di-atas-ilmu/"
+    "https://sabdaliterasi.xyz/adab-di-atas-ilmu/",
+    "https://sabdaliterasi.xyz/kapitalisme-sebuah-pengantar-singkat/"
   ]
 }
