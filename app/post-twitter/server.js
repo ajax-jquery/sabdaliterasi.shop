@@ -3,7 +3,11 @@
 const { TwitterApi } = require('twitter-api-v2');
 const RSSParser = require('rss-parser');
 const { Octokit } = require('@octokit/rest');
+const fs = require('fs'); // Built-in Node.js module untuk membaca file
+const yaml = require('js-yaml'); // Library untuk parsing YAML
 require('dotenv').config();
+
+const configu = yaml.load(fs.readFileSync('_config.yml', 'utf8'));
 
 // GitHub API Token dan konfigurasi
 const octokit = new Octokit({
@@ -106,7 +110,7 @@ async function processRSSFeed() {
 const categories = article.categories || []; // Pastikan categories ada dalam RSS
 const hashtags = categories.slice(0, 3).map(cat => `#${cat.replace(/\s+/g, '')}`).join(' ');
     
-    const tweetContent = `${article.title}\n${article.link}\n${hashtags}`;
+    const tweetContent = `${configu.title}-${article.title}\n${article.link}\n${hashtags}`;
     await postToTwitter(tweetContent);
 
     // Update link artikel terakhir yang diposting
