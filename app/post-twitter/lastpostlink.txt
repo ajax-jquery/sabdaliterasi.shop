@@ -53,6 +53,7 @@
     "https://sabdaliterasi.xyz/islam-sontoloyo/",
     "https://sabdaliterasi.xyz/kebahagiaan-komunisme-vs-kapitalisme/",
     "https://sabdaliterasi.xyz/tuhan-tidak-perlu-dibela/",
-    "https://sabdaliterasi.xyz/simposium-hakikat-eros-cinta-dan-manusia/"
+    "https://sabdaliterasi.xyz/simposium-hakikat-eros-cinta-dan-manusia/",
+    "https://sabdaliterasi.xyz/friedrich-engels-sebuah-pengantar-singkat/"
   ]
 }
