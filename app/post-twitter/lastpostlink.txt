@@ -8,6 +8,7 @@
     "https://sabdaliterasi.xyz/artikel/kiat-efektif-mengatasi-ketakutan-terhadap-kematian-menurut-epicureanisme/",
     "https://sabdaliterasi.xyz/artikel/manusia-satu-dimensi-kritik-marcuse-terhadap-konsumerisme-dan-teknologi/",
     "https://sabdaliterasi.xyz/artikel/gerakan-metoo-di-indonesia-tantangan-budaya-dan-masa-depan-advokasi/",
-    "https://sabdaliterasi.xyz/biografi-lengkap-umar-bin-khathab-ra/"
+    "https://sabdaliterasi.xyz/biografi-lengkap-umar-bin-khathab-ra/",
+    "https://sabdaliterasi.xyz/biografi-lengkap-utsman-bin-affan-ra/"
   ]
 }
