@@ -1,29 +1,26 @@
 {
   "ipVersion": 4,
-  "ipAddress": "182.1.132.72",
-  "latitude": 0.8,
-  "longitude": 127.400002,
-  "countryName": "Indonesia",
-  "countryCode": "ID",
+  "ipAddress": "45.115.73.228",
+  "latitude": -8.55861,
+  "longitude": 125.573608,
+  "countryName": "Timor-Leste",
+  "countryCode": "TL",
   "timeZone": "+09:00",
-  "zipCode": "97726",
-  "cityName": "Ternate",
-  "regionName": "Maluku Utara",
+  "zipCode": "-",
+  "cityName": "Dili",
+  "regionName": "Dili",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "IDR",
-    "name": "Rupiah"
+    "code": "USD",
+    "name": "US Dollar"
   },
-  "language": "Indonesian",
+  "language": "Portuguese",
   "timeZones": [
-    "Asia/Jakarta",
-    "Asia/Jayapura",
-    "Asia/Makassar",
-    "Asia/Pontianak"
+    "Asia/Dili"
   ],
   "tlds": [
-    ".id"
+    ".tl"
   ]
 }
