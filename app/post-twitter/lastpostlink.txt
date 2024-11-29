@@ -49,6 +49,7 @@
     "https://sabdaliterasi.xyz/tentang-hidup-yang-singkat/",
     "https://sabdaliterasi.xyz/che-guevara-paulo-freire-dan-politik-harapan/",
     "https://sabdaliterasi.xyz/discourse-on-the-method/",
-    "https://sabdaliterasi.xyz/feminisme-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/feminisme-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/islam-sontoloyo/"
   ]
 }
