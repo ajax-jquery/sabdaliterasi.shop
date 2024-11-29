@@ -7,7 +7,7 @@ const fs = require('fs'); // Built-in Node.js module untuk membaca file
 const yaml = require('js-yaml'); // Library untuk parsing YAML
 require('dotenv').config();
 
-const configu = yaml.load(fs.readFileSync('_config.yml', 'utf8'));
+const configu = yaml.load(fs.readFileSync('../../_config.yml', 'utf8'));
 
 // GitHub API Token dan konfigurasi
 const octokit = new Octokit({
