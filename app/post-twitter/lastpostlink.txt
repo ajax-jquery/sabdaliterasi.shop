@@ -70,6 +70,7 @@
     "https://sabdaliterasi.xyz/psikoanalisis-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/globalisasi-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/modernisme-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/pascamodernisme-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/pascamodernisme-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/buku-9-filsafat-libniz/"
   ]
 }
