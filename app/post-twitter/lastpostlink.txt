@@ -47,6 +47,7 @@
     "https://sabdaliterasi.xyz/seni-mencintai-erich-fromm/",
     "https://sabdaliterasi.xyz/sejarah-filsafat-timur/",
     "https://sabdaliterasi.xyz/tentang-hidup-yang-singkat/",
-    "https://sabdaliterasi.xyz/che-guevara-paulo-freire-dan-politik-harapan/"
+    "https://sabdaliterasi.xyz/che-guevara-paulo-freire-dan-politik-harapan/",
+    "https://sabdaliterasi.xyz/discourse-on-the-method/"
   ]
 }
