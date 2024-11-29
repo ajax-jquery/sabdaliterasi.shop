@@ -23,6 +23,7 @@
     "https://sabdaliterasi.xyz/pengantar-filsafat-dari-klasik-hingga-postmodernisme/",
     "https://sabdaliterasi.xyz/etika-nikomakea/",
     "https://sabdaliterasi.xyz/metafisika-aristoteles/",
-    "https://sabdaliterasi.xyz/demokrasi-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/demokrasi-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/"
   ]
 }
