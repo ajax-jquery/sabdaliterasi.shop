@@ -24,8 +24,9 @@ jobs:
           npm install  # Menginstal dependensi yang ada di package.json
           
       - name: Run server.js to post on Twitter
+        working-directory: app/post-twitter
         run: |
-          node app/post-twitter/server.js
+          node server.js
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub Token untuk akses API
           TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
