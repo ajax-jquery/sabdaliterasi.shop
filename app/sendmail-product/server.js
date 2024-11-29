@@ -102,7 +102,7 @@ async function main() {
 
     const newArticles = feed.items.filter((item) => !sentLinks.has(item.link));
     if (newArticles.length === 0) {
-      console.log("Tidak ada artikel baru.");
+      console.log("Tidak ada produk baru.");
       return;
     }
 
@@ -146,7 +146,7 @@ async function main() {
 
     console.log("Email selesai dikirim.");
 
-    // 7. Perbarui 'lastsent.json' dengan artikel yang baru saja dikirim
+    // 7. Perbarui 'lastsent.json' dengan produk yang baru saja dikirim
     const updatedLinks = [...sentLinks, ...newArticles.map((item) => item.link)];
     await updateLastSentInFirebase(updatedLinks);
 
