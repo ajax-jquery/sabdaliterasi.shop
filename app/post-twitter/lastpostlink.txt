@@ -75,6 +75,7 @@
     "https://sabdaliterasi.xyz/filsafat-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/hermeneutika-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/biografi-lengkap-abu-bakar-ashshiddiq-ra/",
-    "https://sabdaliterasi.xyz/biografi-lengkap-ali-bin-abi-thalib-ra/"
+    "https://sabdaliterasi.xyz/biografi-lengkap-ali-bin-abi-thalib-ra/",
+    "https://sabdaliterasi.xyz/artikel/bagaimana-industri-kecantikan-membentuk-standar-sosial-untuk-perempuan/"
   ]
 }
