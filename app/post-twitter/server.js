@@ -103,8 +103,10 @@ async function processRSSFeed() {
       break;
     }
 
-    // Posting artikel baru ke Twitter
-    const tweetContent = `${article.title}\n${article.link}`;
+const categories = article.categories || []; // Pastikan categories ada dalam RSS
+const hashtags = categories.slice(0, 3).map(cat => `#${cat.replace(/\s+/g, '')}`).join(' ');
+    
+    const tweetContent = `${article.title}\n${article.link}\n${hashtags}`;
     await postToTwitter(tweetContent);
 
     // Update link artikel terakhir yang diposting
