@@ -17,6 +17,7 @@
     "https://sabdaliterasi.xyz/agnostisisme-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/how-to-win-an-argument/",
     "https://sabdaliterasi.xyz/how-to-keep-your-cool/",
-    "https://sabdaliterasi.xyz/dasar-dasar-filsafat-barat/"
+    "https://sabdaliterasi.xyz/dasar-dasar-filsafat-barat/",
+    "https://sabdaliterasi.xyz/world-history-sejarah-dunia-lengkap/"
   ]
 }
