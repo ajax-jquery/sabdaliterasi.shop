@@ -66,6 +66,7 @@
     "https://sabdaliterasi.xyz/psikologi-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/sosialisme-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/liberalisme-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/neoliberalisme-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/neoliberalisme-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/psikoanalisis-sebuah-pengantar-singkat/"
   ]
 }
