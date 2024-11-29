@@ -42,6 +42,7 @@
     "https://sabdaliterasi.xyz/sejarah-para-filsuf-dunia/",
     "https://sabdaliterasi.xyz/karl-marx-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/makna-cinta-menurut-soren-kierkegaard/",
-    "https://sabdaliterasi.xyz/nasionalisme-islamisme-marxisme-pikiran-pikiran-soekarno-muda/"
+    "https://sabdaliterasi.xyz/nasionalisme-islamisme-marxisme-pikiran-pikiran-soekarno-muda/",
+    "https://sabdaliterasi.xyz/psikoanalisis-dan-agama/"
   ]
 }
