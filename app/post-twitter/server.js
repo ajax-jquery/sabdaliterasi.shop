@@ -1,5 +1,3 @@
-// path: server.js
-
 const { TwitterApi } = require('twitter-api-v2');
 const RSSParser = require('rss-parser');
 const { Octokit } = require('@octokit/rest');
@@ -30,24 +28,29 @@ const FILE_PATH = 'app/post-twitter/lastpostlink.txt'; // Path ke file lastpostl
 const rssParser = new RSSParser();
 
 // Fungsi untuk membaca lastpostlink.txt dari repository GitHub
-async function getLastPostLink() {
+async function getLastPostLinks() {
   try {
     const { data } = await octokit.repos.getContent({
       owner: REPO_OWNER,
       repo: REPO_NAME,
       path: FILE_PATH,
     });
+
     // Konten file base64 decoding
     const content = Buffer.from(data.content, 'base64').toString('utf-8');
-    return content.trim();
+
+    // Parse konten sebagai JSON
+    const links = JSON.parse(content);
+    return links.link || [];
   } catch (error) {
     console.error('Error saat membaca file lastpostlink.txt:', error);
-    return null;
+    return [];
   }
 }
 
+
 // Fungsi untuk menulis lastpostlink.txt ke repository GitHub
-async function updateLastPostLink(postLink) {
+async function updateLastPostLinks(newLink) {
   try {
     // Membaca file yang ada
     const { data: currentFile } = await octokit.repos.getContent({
@@ -57,14 +60,23 @@ async function updateLastPostLink(postLink) {
     });
 
     const sha = currentFile.sha; // SHA dari file yang ada
-    const encodedContent = Buffer.from(postLink).toString('base64'); // Encoding konten baru
+    const content = Buffer.from(currentFile.content, 'base64').toString('utf-8');
+    const links = JSON.parse(content).link || [];
 
-    // Update file dengan konten baru
+    // Tambahkan link baru jika belum ada
+    if (!links.includes(newLink)) {
+      links.push(newLink);
+    }
+
+    // Simpan kembali file dalam format JSON
+    const updatedContent = JSON.stringify({ link: links }, null, 2);
+    const encodedContent = Buffer.from(updatedContent).toString('base64');
+
     await octokit.repos.createOrUpdateFileContents({
       owner: REPO_OWNER,
       repo: REPO_NAME,
       path: FILE_PATH,
-      message: 'Update last post link',
+      message: 'Update last post links',
       content: encodedContent,
       sha: sha,
     });
@@ -74,6 +86,7 @@ async function updateLastPostLink(postLink) {
     console.error('Error saat memperbarui file lastpostlink.txt:', error);
   }
 }
+
 
 // Fungsi untuk mendapatkan artikel terbaru dari RSS feed
 async function fetchLatestArticles() {
@@ -98,25 +111,26 @@ async function postToTwitter(content) {
 
 // Fungsi utama untuk memproses RSS feed dan memposting artikel terbaru
 async function processRSSFeed() {
-  const lastPostLink = await getLastPostLink(); // Membaca artikel terakhir yang diposting
+  const lastPostLinks = await getLastPostLinks(); // Membaca semua link yang sudah dikirim
   const articles = await fetchLatestArticles(); // Mendapatkan artikel terbaru dari RSS feed
 
   for (const article of articles.reverse()) {
-    if (article.link === lastPostLink) {
-      console.log('Tidak ada artikel baru untuk diposting.');
-      break;
+    if (lastPostLinks.includes(article.link)) {
+      console.log(`Artikel sudah pernah diposting: ${article.link}`);
+      continue;
     }
 
-const categories = article.categories || []; // Pastikan categories ada dalam RSS
-const hashtags = categories.slice(0, 3).map(cat => `#${cat.replace(/\s+/g, '')}`).join(' ');
-    
-    const tweetContent = `${article.title}\n${configu.populertag} ${hashtags}\n${article.link}`;
-    await postToTwitter(tweetContent);
+    const categories = article.categories || [];
+    const hashtags = categories.slice(0, 3).map(cat => `#${cat.replace(/\s+/g, '')}`).join(' ');
 
-    // Update link artikel terakhir yang diposting
-    await updateLastPostLink(article.link);
+   const tweetContent = `${article.title}\n${configu.populertag} ${hashtags}\n${article.link}`;
+   await postToTwitter(tweetContent);
+
+    // Tambahkan link artikel ke file
+    await updateLastPostLinks(article.link);
   }
 }
+
 
 // Memanggil fungsi utama
 processRSSFeed();
