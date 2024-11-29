@@ -25,6 +25,7 @@
     "https://sabdaliterasi.xyz/metafisika-aristoteles/",
     "https://sabdaliterasi.xyz/demokrasi-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/",
-    "https://sabdaliterasi.xyz/prinsip-prinsip-filsafat/"
+    "https://sabdaliterasi.xyz/prinsip-prinsip-filsafat/",
+    "https://sabdaliterasi.xyz/seni-berbahagia/"
   ]
 }
