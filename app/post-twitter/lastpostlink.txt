@@ -11,6 +11,7 @@
     "https://sabdaliterasi.xyz/biografi-lengkap-umar-bin-khathab-ra/",
     "https://sabdaliterasi.xyz/biografi-lengkap-utsman-bin-affan-ra/",
     "https://sabdaliterasi.xyz/panduan-resmi-tes-cpns-cat-20242025/",
-    "https://sabdaliterasi.xyz/sejarah-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/sejarah-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/revolusi-prancis-sebuah-pengantar-singkat/"
   ]
 }
