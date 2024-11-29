@@ -60,6 +60,7 @@
     "https://sabdaliterasi.xyz/filsafat-abad-pertengahan/",
     "https://sabdaliterasi.xyz/ateisme-sigmund-freud/",
     "https://sabdaliterasi.xyz/filsuf-filsuf-besar-tentang-manusia/",
-    "https://sabdaliterasi.xyz/kearifan-hidup/"
+    "https://sabdaliterasi.xyz/kearifan-hidup/",
+    "https://sabdaliterasi.xyz/adab-di-atas-ilmu/"
   ]
 }
