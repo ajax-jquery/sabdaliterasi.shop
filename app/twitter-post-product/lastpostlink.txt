@@ -5,6 +5,7 @@
     "https://sabdaliterasi.xyz/panduan-resmi-tes-cpns-cat-20242025/",
     "https://sabdaliterasi.xyz/sejarah-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/revolusi-prancis-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/biografi-lengkap-abu-bakar-ashshiddiq-ra/"
+    "https://sabdaliterasi.xyz/biografi-lengkap-abu-bakar-ashshiddiq-ra/",
+    "https://sabdaliterasi.xyz/biografi-lengkap-ali-bin-abi-thalib-ra/"
   ]
 }
