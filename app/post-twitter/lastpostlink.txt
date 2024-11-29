@@ -64,6 +64,7 @@
     "https://sabdaliterasi.xyz/adab-di-atas-ilmu/",
     "https://sabdaliterasi.xyz/kapitalisme-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/psikologi-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/sosialisme-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/sosialisme-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/liberalisme-sebuah-pengantar-singkat/"
   ]
 }
