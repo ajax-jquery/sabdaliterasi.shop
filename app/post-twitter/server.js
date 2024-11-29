@@ -18,7 +18,7 @@ const twitterClient = new TwitterApi({
 });
 
 // URL RSS feed
-const RSS_FEED_URL = 'https://example.com/rss'; // Ganti dengan RSS Feed Anda
+const RSS_FEED_URL = 'https://sabdaliterasi.xyz/rss-mail.xml'; // Ganti dengan RSS Feed Anda
 const REPO_OWNER = 'ajax-jquery'; // Ganti dengan username GitHub Anda
 const REPO_NAME = 'sabdaliterasi.shop'; // Nama repository Anda
 const FILE_PATH = 'app/post-twitter/lastpostlink.txt'; // Path ke file lastpostlink.txt di repo
