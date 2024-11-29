@@ -30,7 +30,7 @@ layout: null
 	<height>32</height>
 </image> 
   
-    {% for post in site.posts | slice: 66, 67 %}
+    {% for post in site.posts limit: 7 %}
 <item>
         <title>{{ post.title | xml_escape }}</title>
 	{% for cat in post.keyword %}
