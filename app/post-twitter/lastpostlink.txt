@@ -21,6 +21,7 @@
     "https://sabdaliterasi.xyz/world-history-sejarah-dunia-lengkap/",
     "https://sabdaliterasi.xyz/retorika-seni-berbicara/",
     "https://sabdaliterasi.xyz/pengantar-filsafat-dari-klasik-hingga-postmodernisme/",
-    "https://sabdaliterasi.xyz/etika-nikomakea/"
+    "https://sabdaliterasi.xyz/etika-nikomakea/",
+    "https://sabdaliterasi.xyz/metafisika-aristoteles/"
   ]
 }
