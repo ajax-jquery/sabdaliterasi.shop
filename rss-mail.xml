@@ -30,7 +30,7 @@ layout: null
 	<height>32</height>
 </image> 
 {% assign posta = site.artikel | sort: "date_short" | reverse %}
-    {% for post in posta limit: 3 %}
+    {% for post in posta limit: 4 %}
 <item>
         <title>{{ post.title | xml_escape }}</title>
        
