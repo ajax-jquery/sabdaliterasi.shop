@@ -45,6 +45,7 @@
     "https://sabdaliterasi.xyz/nasionalisme-islamisme-marxisme-pikiran-pikiran-soekarno-muda/",
     "https://sabdaliterasi.xyz/psikoanalisis-dan-agama/",
     "https://sabdaliterasi.xyz/seni-mencintai-erich-fromm/",
-    "https://sabdaliterasi.xyz/sejarah-filsafat-timur/"
+    "https://sabdaliterasi.xyz/sejarah-filsafat-timur/",
+    "https://sabdaliterasi.xyz/tentang-hidup-yang-singkat/"
   ]
 }
