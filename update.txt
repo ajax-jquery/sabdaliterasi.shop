@@ -1,26 +1,29 @@
 {
   "ipVersion": 4,
-  "ipAddress": "45.115.73.170",
-  "latitude": -8.55861,
-  "longitude": 125.573608,
-  "countryName": "Timor-Leste",
-  "countryCode": "TL",
-  "timeZone": "+09:00",
-  "zipCode": "-",
-  "cityName": "Dili",
-  "regionName": "Dili",
+  "ipAddress": "114.10.134.244",
+  "latitude": -5.139977,
+  "longitude": 119.422234,
+  "countryName": "Indonesia",
+  "countryCode": "ID",
+  "timeZone": "+08:00",
+  "zipCode": "90215",
+  "cityName": "Makassar",
+  "regionName": "Sulawesi Selatan",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "USD",
-    "name": "US Dollar"
+    "code": "IDR",
+    "name": "Rupiah"
   },
-  "language": "Portuguese",
+  "language": "Indonesian",
   "timeZones": [
-    "Asia/Dili"
+    "Asia/Jakarta",
+    "Asia/Jayapura",
+    "Asia/Makassar",
+    "Asia/Pontianak"
   ],
   "tlds": [
-    ".tl"
+    ".id"
   ]
 }
