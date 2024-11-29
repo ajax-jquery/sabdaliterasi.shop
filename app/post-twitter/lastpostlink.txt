@@ -57,6 +57,7 @@
     "https://sabdaliterasi.xyz/friedrich-engels-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/the-agony-of-power/",
     "https://sabdaliterasi.xyz/filsafat-modern-barat/",
-    "https://sabdaliterasi.xyz/filsafat-abad-pertengahan/"
+    "https://sabdaliterasi.xyz/filsafat-abad-pertengahan/",
+    "https://sabdaliterasi.xyz/ateisme-sigmund-freud/"
   ]
 }
