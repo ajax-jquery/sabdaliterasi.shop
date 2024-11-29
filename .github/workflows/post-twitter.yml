@@ -19,9 +19,10 @@ jobs:
           node-version: '16' # Sesuaikan dengan versi Node.js yang Anda gunakan
 
       - name: Install dependencies
+        working-directory: app/post-twitter
         run: |
-          npm install
-
+          npm install  # Menginstal dependensi yang ada di package.json
+          
       - name: Run server.js to post on Twitter
         run: |
           node app/post-twitter/server.js
