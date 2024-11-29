@@ -88,7 +88,7 @@ async function updateLastPostLinks(newLink) {
 }
 
 
-// Fungsi untuk mendapatkan artikel terbaru dari RSS feed
+// Fungsi untuk mendapatkan Produk terbaru dari RSS feed
 async function fetchLatestArticles() {
   try {
     const feed = await rssParser.parseURL(RSS_FEED_URL);
@@ -109,14 +109,14 @@ async function postToTwitter(content) {
   }
 }
 
-// Fungsi utama untuk memproses RSS feed dan memposting artikel terbaru
+// Fungsi utama untuk memproses RSS feed dan memposting Produk terbaru
 async function processRSSFeed() {
   const lastPostLinks = await getLastPostLinks(); // Membaca semua link yang sudah dikirim
-  const articles = await fetchLatestArticles(); // Mendapatkan artikel terbaru dari RSS feed
+  const articles = await fetchLatestArticles(); // Mendapatkan Produk terbaru dari RSS feed
 
   for (const article of articles.reverse()) {
     if (lastPostLinks.includes(article.link)) {
-      console.log(`Artikel sudah pernah diposting: ${article.link}`);
+      console.log(`Produk sudah pernah diposting: ${article.link}`);
       continue;
     }
 
@@ -126,7 +126,7 @@ async function processRSSFeed() {
    const tweetContent = `Ebook ${article.title}\n#ebook #buku ${configu.populertag} ${hashtags}\n${article.link}`;
    await postToTwitter(tweetContent);
 
-    // Tambahkan link artikel ke file
+    // Tambahkan link Produk ke file
     await updateLastPostLinks(article.link);
   }
 }
