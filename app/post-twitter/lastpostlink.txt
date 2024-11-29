@@ -24,6 +24,7 @@
     "https://sabdaliterasi.xyz/etika-nikomakea/",
     "https://sabdaliterasi.xyz/metafisika-aristoteles/",
     "https://sabdaliterasi.xyz/demokrasi-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/"
+    "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/",
+    "https://sabdaliterasi.xyz/prinsip-prinsip-filsafat/"
   ]
 }
