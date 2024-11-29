@@ -51,6 +51,7 @@
     "https://sabdaliterasi.xyz/discourse-on-the-method/",
     "https://sabdaliterasi.xyz/feminisme-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/islam-sontoloyo/",
-    "https://sabdaliterasi.xyz/kebahagiaan-komunisme-vs-kapitalisme/"
+    "https://sabdaliterasi.xyz/kebahagiaan-komunisme-vs-kapitalisme/",
+    "https://sabdaliterasi.xyz/tuhan-tidak-perlu-dibela/"
   ]
 }
