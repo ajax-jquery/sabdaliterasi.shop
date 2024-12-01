@@ -1,29 +1,26 @@
 {
-  "ipVersion": 4,
-  "ipAddress": "114.10.135.231",
-  "latitude": -5.139977,
-  "longitude": 119.422234,
-  "countryName": "Indonesia",
-  "countryCode": "ID",
-  "timeZone": "+08:00",
-  "zipCode": "90215",
-  "cityName": "Makassar",
-  "regionName": "Sulawesi Selatan",
+  "ipVersion": 6,
+  "ipAddress": "2401:fa00:a6:200:1cb6:3f0b:7336:d677",
+  "latitude": 19.075975,
+  "longitude": 72.87738,
+  "countryName": "India",
+  "countryCode": "IN",
+  "timeZone": "+05:30",
+  "zipCode": "400099",
+  "cityName": "Mumbai",
+  "regionName": "Maharashtra",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "IDR",
-    "name": "Rupiah"
+    "code": "INR",
+    "name": "Indian Rupee"
   },
-  "language": "Indonesian",
+  "language": "English",
   "timeZones": [
-    "Asia/Jakarta",
-    "Asia/Jayapura",
-    "Asia/Makassar",
-    "Asia/Pontianak"
+    "Asia/Kolkata"
   ],
   "tlds": [
-    ".id"
+    ".in"
   ]
 }
