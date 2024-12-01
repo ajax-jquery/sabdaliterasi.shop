@@ -1,26 +1,29 @@
 {
-  "ipVersion": 6,
-  "ipAddress": "2a00:79e1:abe:1c01:9c40:c956:3d40:148c",
-  "latitude": 19.075975,
-  "longitude": 72.87738,
-  "countryName": "India",
-  "countryCode": "IN",
-  "timeZone": "+05:30",
-  "zipCode": "400099",
-  "cityName": "Mumbai",
-  "regionName": "Maharashtra",
+  "ipVersion": 4,
+  "ipAddress": "182.1.218.150",
+  "latitude": -2.0779,
+  "longitude": 119.198601,
+  "countryName": "Indonesia",
+  "countryCode": "ID",
+  "timeZone": "+08:00",
+  "zipCode": "91512",
+  "cityName": "Babana",
+  "regionName": "Sulawesi Barat",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "INR",
-    "name": "Indian Rupee"
+    "code": "IDR",
+    "name": "Rupiah"
   },
-  "language": "English",
+  "language": "Indonesian",
   "timeZones": [
-    "Asia/Kolkata"
+    "Asia/Jakarta",
+    "Asia/Jayapura",
+    "Asia/Makassar",
+    "Asia/Pontianak"
   ],
   "tlds": [
-    ".in"
+    ".id"
   ]
 }
