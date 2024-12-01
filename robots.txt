@@ -3,6 +3,7 @@ layout: null
 ---
 User-agent: *
 Disallow: /wp-admin/*
+Disallow: /api/*
 Disallow: /success/
 Disallow: /uji-home/
 Disallow: /buy/
