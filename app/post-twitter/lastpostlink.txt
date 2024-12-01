@@ -77,6 +77,7 @@
     "https://sabdaliterasi.xyz/biografi-lengkap-abu-bakar-ashshiddiq-ra/",
     "https://sabdaliterasi.xyz/biografi-lengkap-ali-bin-abi-thalib-ra/",
     "https://sabdaliterasi.xyz/artikel/bagaimana-industri-kecantikan-membentuk-standar-sosial-untuk-perempuan/",
-    "https://sabdaliterasi.xyz/artikel/membaca-untuk-hidup-atau-hidup-untuk-membaca/"
+    "https://sabdaliterasi.xyz/artikel/membaca-untuk-hidup-atau-hidup-untuk-membaca/",
+    "https://sabdaliterasi.xyz/artikel/apakah-john-stuart-mill-benar-benar-pembela-kebebasan-individu/"
   ]
 }
