@@ -1,29 +1,26 @@
 {
-  "ipVersion": 4,
-  "ipAddress": "180.247.47.108",
-  "latitude": 1.0392,
-  "longitude": 120.816902,
-  "countryName": "Indonesia",
-  "countryCode": "ID",
-  "timeZone": "+08:00",
-  "zipCode": "94515",
-  "cityName": "Tolitoli",
-  "regionName": "Sulawesi Tengah",
+  "ipVersion": 6,
+  "ipAddress": "2401:fa00:86:200:a92a:11a1:62d4:675e",
+  "latitude": 19.075975,
+  "longitude": 72.87738,
+  "countryName": "India",
+  "countryCode": "IN",
+  "timeZone": "+05:30",
+  "zipCode": "400099",
+  "cityName": "Mumbai",
+  "regionName": "Maharashtra",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "IDR",
-    "name": "Rupiah"
+    "code": "INR",
+    "name": "Indian Rupee"
   },
-  "language": "Indonesian",
+  "language": "English",
   "timeZones": [
-    "Asia/Jakarta",
-    "Asia/Jayapura",
-    "Asia/Makassar",
-    "Asia/Pontianak"
+    "Asia/Kolkata"
   ],
   "tlds": [
-    ".id"
+    ".in"
   ]
 }
