@@ -1,6 +1,6 @@
 {
   "ipVersion": 4,
-  "ipAddress": "114.10.135.180",
+  "ipAddress": "140.213.1.161",
   "latitude": -5.139977,
   "longitude": 119.422234,
   "countryName": "Indonesia",
