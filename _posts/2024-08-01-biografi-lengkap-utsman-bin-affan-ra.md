@@ -3,7 +3,7 @@ author: 'Abdul Syukur Al-azizi'
 title: 'Biografi Lengkap: Utsman Bin Affan Ra.'
 buy: 'https://lynk.id/sabdaliterasi/E538wMb'
 harga: 'Rp50.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/04-08-2024/1722765405658_2011856'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/biografi-lengkap-utsman-bin-affan-ra.jpg'
 description: 'Buku Biografi Lengkap Utsman Bin Affan Ra ini membahas secara lengkap dari Nasabnya, kepindahannya masuk ke dalam agama Islam, kehidupannya, masa jabatannya dan masih banyak lagi.'
 keyword: ['Utsman bin affan',' biografi lengkap utsman',' sahabat nabi']
 ISBN: '9786023919536'
