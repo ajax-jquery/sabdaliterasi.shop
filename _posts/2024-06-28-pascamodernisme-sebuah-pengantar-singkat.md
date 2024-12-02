@@ -3,7 +3,7 @@ author: 'Christopher Butler'
 title: 'Pascamodernisme: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/knxQDXP'
 harga: 'Rp46.500'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/29-06-2024/1719595642796_8520320'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/pascamodernisme-sebuah-pengantar-singkat.jpg'
 description: 'Pascamodernisme menjadi suatu kata  khusus dalam masyarakat kontemporer kita selama beberapa dasawarsa.'
 keyword: ['Pascamodern','Pascamodernisme','Pengantar']
 ISBN: '9786237378556'
