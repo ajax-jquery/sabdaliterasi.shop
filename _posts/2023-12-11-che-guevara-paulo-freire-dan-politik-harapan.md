@@ -4,7 +4,7 @@ author: A. Asnawi
 title: Che Guevara, Paulo Freire Dan Politik Harapan
 buy: https://lynk.id/sabdaliterasi/wLdmQwQ
 harga: Rp35.000
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701289125823_8405124
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/che-guevara-paulo-freire-dan-politik-harapan.jpg
 description: Mengapa Che? Mengapa Freire? Jawaban paling pokok untuk ini adalah karena kita sudah kekurangan tokoh yang bisa diidolakan, sehingga kita mencari pahl
 permalink: /che-guevara-paulo-freire-dan-politik-harapan/
 keyword: [che, freire,che guevara, paulo freire, buku filsafat pendidikan, ebook pendidikan alternatif, politik, filsafat politik, politik barat]
