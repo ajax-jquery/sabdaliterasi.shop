@@ -6,7 +6,7 @@ harga: Rp25.000
 buy: https://lynk.id/sabdaliterasi/YrQbWp5
 description: Apakah agnostisisme adalah sekadar mengangkat bahu atas pertanyaan seputar Tuhan? Le Poidevin menjelaskan bahwa agnostisisme tidak sesederhana itu.
 permalink: /agnostisisme-sebuah-pengantar-singkat/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/02-04-2023/1680417079432_4598636
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/agnostisisme-sebuah-pengantar-singkat.jpg
 keyword: [Robin Le Poidevin, Agnostisisme, Agnostisisme ebook, Ateis, teis]
 ISBN: "9786236699232"
 ---
