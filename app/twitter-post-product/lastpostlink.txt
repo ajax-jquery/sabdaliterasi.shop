@@ -34,6 +34,7 @@
     "https://sabdaliterasi.xyz/sejarah-para-filsuf-dunia/",
     "https://sabdaliterasi.xyz/how-to-die-sebuah-panduan-klasik-menjelang-ajal/",
     "https://sabdaliterasi.xyz/filsafat-untuk-para-profesional/",
-    "https://sabdaliterasi.xyz/diskursus-teori-teori-kritis/"
+    "https://sabdaliterasi.xyz/diskursus-teori-teori-kritis/",
+    "https://sabdaliterasi.xyz/marx-dan-freud-marxisme-dan-psikoanalisis/"
   ]
 }
