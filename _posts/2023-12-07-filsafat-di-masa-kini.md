@@ -6,7 +6,7 @@ harga: Rp25.000
 buy: https://lynk.id/sabdaliterasi/pKkMqP2
 description: Jawaban-jawaban yang diberikan filsuf Paris Alain Badiou dan filsuf serta psikoanalis Slovenia Slavoj Žižek dalam diskusi mereka tentang tema ini di Wina.
 permalink: /filsafat-di-masa-kini/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677981337687_4092085
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-di-masa-kini.jpg
 keyword: [ebook filsafat terbaru, ebook filsafat hari ini, teori-teori filsafat terbaru, Alain Badiou, Slavoj Zizek]
 ISBN: "9786025783555"
 ---
