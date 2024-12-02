@@ -6,7 +6,7 @@ harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/ePlWR2g
 description: Dari Plato muncul gema pertama tentang Atlantis. Dari Plato pula berkembang doktrin Platonik. Dia adalah salah satu filsuf yang karya-karyanya tak per
 permalink: /filsafat-periode-plato/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677949950117_6801384.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-periode-plato-2.svg
 keyword: [plato, buku tentang plato, buku filsafat plato, siapa itu plato, biografi plato, pemikiran plato]
 ISBN: "9786233050005"
 ---
