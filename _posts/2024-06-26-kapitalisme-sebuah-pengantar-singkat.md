@@ -3,7 +3,7 @@ author: 'James Fulcher'
 title: 'Kapitalisme: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/Y5pjMYy'
 harga: 'Rp30.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/26-06-2024/1719344812839_2034671'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/kapitalisme-sebuah-pengantar-singkat.jpg'
 description: 'Apa itu kapitalisme? Apakah kapitalisme di mana-mana sama saja? Apakah terdapat alternatif terhadap sistem kapitalisme?'
 keyword: ['Kapitalisme','Pengantar','Apa itu kapitalisme']
 ISBN: '9786237378532'
