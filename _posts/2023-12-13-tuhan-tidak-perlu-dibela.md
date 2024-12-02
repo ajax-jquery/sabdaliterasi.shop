@@ -4,7 +4,7 @@ author: Abdurrahman Wahid
 title: Tuhan Tidak Perlu Dibela
 buy: https://lynk.id/sabdaliterasi/KGvREg6
 harga: Rp42.500
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/12-03-2023/1678626844202_5083048
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/tuhan-tidak-perlu-dibela.jpg
 description: Buku Tuhan Tidak Perlu Dibela merupakan kumpulan dari kolom-kolom Gus Dur yang dimuat (alm) Majalah Tempo lama, pada kurun waktu 1970-an dan 1980-an.
 permalink: /tuhan-tidak-perlu-dibela/
 keyword: [gus dur, tuhan, agama, buku islam, karya gus dur, tempo, majalah tempo, bela agama]
