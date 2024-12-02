@@ -32,6 +32,7 @@
     "https://sabdaliterasi.xyz/makna-cinta-menurut-soren-kierkegaard/",
     "https://sabdaliterasi.xyz/karl-marx-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/sejarah-para-filsuf-dunia/",
-    "https://sabdaliterasi.xyz/how-to-die-sebuah-panduan-klasik-menjelang-ajal/"
+    "https://sabdaliterasi.xyz/how-to-die-sebuah-panduan-klasik-menjelang-ajal/",
+    "https://sabdaliterasi.xyz/filsafat-untuk-para-profesional/"
   ]
 }
