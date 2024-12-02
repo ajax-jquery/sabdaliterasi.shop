@@ -4,7 +4,7 @@ author: Rene Descartes
 title: Prinsip-Prinsip Filsafat
 harga: Rp22.000
 buy: https://lynk.id/sabdaliterasi/ZOzBZMb
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/18-03-2023/1679118076385_9137511.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/prinsip-prinsip-filsafat.svg
 description: Buku Prinsip-Prinsip Filsafat yаng dikarаng oleh Rene Descartes ini berisi mengenai wacаna-wacаna pilihan perihal prinsip-prinsip Filsafat oleh Rene Descartes.
 permalink: /prinsip-prinsip-filsafat/
 keyword: [dasar filsafat, prinsip, filsafat, ebook filsafat, ebook descartes indonesia, pengantar filsafat, pengantar epistemologi, rasionalisme]
