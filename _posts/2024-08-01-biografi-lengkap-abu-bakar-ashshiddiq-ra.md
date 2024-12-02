@@ -3,7 +3,7 @@ author: 'Abdul Syukur Al-azizi'
 title: 'Biografi Lengkap: Abu Bakar Ash-Shiddiq Ra.'
 buy: 'https://lynk.id/sabdaliterasi/7gZa3W4'
 harga: 'Rp50.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/04-08-2024/1722765066417_1660835'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/biografi-lengkap-abu-bakar-ash-shiddiq-ra.jpg'
 description: 'Abu Bakar ash-Shiddiq Ra. dikenal oleh umat Islam dengan ketaatannya, kedekatannya dengan Rasulullah Saw., kelembutannya, ketakwaannya kepada Allah Swt'
 keyword: ['Kisah sahabat',' abu bakar',' biografi abu bakar']
 ISBN: '9786023919512'
