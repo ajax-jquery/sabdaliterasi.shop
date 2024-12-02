@@ -4,7 +4,7 @@ author: Erich Fromm
 title: Psikoanalisis dan Agama
 buy: https://lynk.id/sabdaliterasi/w6NwwKQ
 harga: Rp27.500
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701286848124_8659633
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/psikoanalisis-dan-agama.jpg
 description: Buku Psikoanalisis dan Agama merupakan kelanjutan dari pemikiran yang diungkapkannya dalam bukunya tahun 1947. Ia menyatakan bahwa ia tidak menegaskan
 permalink: /psikoanalisis-dan-agama/
 keyword: [psikologi, psikoanalisis, fromm, download buku psikologi, psikoanalisis pdf, ebook agama, agama, freud]
