@@ -3,5 +3,5 @@ layout: null
 permalink: /wp-admin/pin_bulk.csv
 ---
 Title,Media URL,Pinterest board,Thumbnail,Description,Link,Publish date,Keywords{% for post in site.artikel %}
-"{{ post.title }}","{{ post.image }}","Artikel Sabda Literasi",,"{{ post.description }}","{{ post.url | absolute_url }}",,"{{ post.keyword | join: ', ' }}"{% endfor %}{% for post in site.posts %}
-"{{ post.title }}","{{ post.image }}","Ebook Sabda Literasi",,"{{ post.harga }} - {{ post.description }}","{{ post.url | absolute_url }}",,"{{ post.keyword | join: ', ' }}"{% endfor %}
+"{{ post.title }}","{{ post.image }}","Artikel Sabda Literasi",,"{{ post.description }}","{{ post.url | absolute_url }}",,"{{ post.keyword | join: ', ' }}"{% endfor %}{% for posta in site.posts %}
+"{{ posta.title }}","{{ posta.image }}","Ebook Sabda Literasi",,"{{ posta.harga }} - {{ posta.description }}","{{ posta.url | absolute_url }}",,"{{ posta.keyword | join: ', ' }}"{% endfor %}
