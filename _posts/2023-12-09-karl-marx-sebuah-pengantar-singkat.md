@@ -4,7 +4,7 @@ author: Peter Singer
 title: Karl Marx; Sebuah Pengantar Singkat
 buy: https://lynk.id/sabdaliterasi/vb0wo2A
 harga: Rp23.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/25-03-2023/1679687101613_7420129
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/karl-marx-sebuah-pengantar-singkat.jpg
 description: Dalam buku pengantar Karl Marx; Sebuah Pengantar Singkat, Peter Singer menjelaskan pandangan inti yang menyatukan pemikiran Marx sehingga kita bisa me.
 permalink: /karl-marx-sebuah-pengantar-singkat/
 keyword: [pengantar pemikiran marx, siapa itu karl marx, mengenal marx, marx, karl marx, buku tentang marx]
