@@ -4,7 +4,7 @@ author: Cicero
 title: Tentang Hidup yang Bajik
 buy: https://lynk.id/sabdaliterasi/vjnJxlM
 harga: Rp40.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/14-03-2023/1678811303382_2489294.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/tentang-hidup-yang-bajik.svg
 description: Buku Tentang Hidup yang Bajik menawarkan refleksi abadi terhadap kondisi manusia dan wawasan yang menarik dari salah satu pemikir terbesar Roma Kuno.
 permalink: /tentang-hidup-yang-bajik/
 keyword: [romawi,buku stoik, buku self improvement, memperbaiki diri, pemikiran stoik, filsafat stoik, cara berpikir stoik, buku tentang stoik]
