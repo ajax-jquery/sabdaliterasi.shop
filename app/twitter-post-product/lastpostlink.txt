@@ -23,6 +23,7 @@
     "https://sabdaliterasi.xyz/filsafat-periode-plato/",
     "https://sabdaliterasi.xyz/tujuh-teori-agama-paling-berpengaruh/",
     "https://sabdaliterasi.xyz/tentang-hidup-yang-bajik/",
-    "https://sabdaliterasi.xyz/teori-asal-usul-manusia-the-origin-of-species/"
+    "https://sabdaliterasi.xyz/teori-asal-usul-manusia-the-origin-of-species/",
+    "https://sabdaliterasi.xyz/seni-berbahagia/"
   ]
 }
