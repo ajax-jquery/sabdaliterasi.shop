@@ -3,7 +3,7 @@ author: 'Arthur Schopenhauer'
 title: 'Kearifan Hidup'
 buy: 'https://lynk.id/sabdaliterasi/r1Q48Q9'
 harga: 'Rp30.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/28-12-2023/1703740660749_1866944'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/kearifan-hidup.jpg'
 description: 'Dalam Buku Kearifan Hidup, sang filsuf mengunggulkan kekuatan individu dan kemandirian.'
 keyword: ['Eksistensialisme',' filsafat hidup',' pengantar eksistensialisme']
 ISBN: "9786237290384"
