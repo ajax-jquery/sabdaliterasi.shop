@@ -1,0 +1,8 @@
+---
+layout: null
+permalink: /wp-admin/bulk_pins.csv
+---
+Title,Description,Image_url,Link,Board_name,Alt_text
+{% for post in site.posts %}
+"{{ post.title }}","{{ post.harga }} - {{ post.description }}","{{ post.image }}","{{ post.url | absolute_url }}","Ebook","{{ post.title }}"
+{% endfor %}
