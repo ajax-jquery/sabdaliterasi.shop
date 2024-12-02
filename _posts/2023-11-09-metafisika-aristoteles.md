@@ -4,7 +4,7 @@ author: Aristoteles
 title: Metafisika
 buy: https://lynk.id/sabdaliterasi/WMwPX3v
 harga: Rp37.500
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/18-03-2023/1679117539036_8816123
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/metafisika-aristoteles.jpg
 description: Aristoteles adalah salah satu filsuf awal yang membahas metafisika. Oleh karena itu, buku Metafisika menjadi salah satu karya penting dalam sejarah fi
 permalink: /metafisika-aristoteles/
 keyword: [metafisika, Aristoteles tentang metafisika, pemikiran Aristoteles, karya-karya Aristoteles, filsafat metafisika, pengantar metafisika]
