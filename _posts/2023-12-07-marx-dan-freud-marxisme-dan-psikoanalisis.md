@@ -6,7 +6,7 @@ harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/Dr87P1o
 description: Karl Marx dan Sigmund Freud memang adalah dua tokoh dengan background keilmuan yang berbeda. Sigmund Freud sebagai seorang ahli Psikologi dengan teori psikoanalisis.
 permalink: /marx-dan-freud-marxisme-dan-psikoanalisis/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/25-03-2023/1679686903021_9069424.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/marx-dan-freud-marxisme-dan-psikoanalisis.svg
 keyword: [karl marx, marx, freud, sigmund freud, psikoanalisis, marxisme, buku psikoanalisis, ebook marx]
 ISBN: "978-623-7378-84-6"
 ---
