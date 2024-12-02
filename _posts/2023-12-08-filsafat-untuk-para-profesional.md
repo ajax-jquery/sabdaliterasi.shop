@@ -6,7 +6,7 @@ harga: Rp35.000
 buy: https://lynk.id/sabdaliterasi/aKYg9MA
 description: Jawaban-jawaban yang diberikan filsuf Paris Alain Badiou dan filsuf serta psikoanalis Slovenia Slavoj Žižek dalam diskusi mereka tentang tema ini di Wina.
 permalink: /filsafat-untuk-para-profesional/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677981588035_5594123
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-untuk-para-profesional.jpg
 keyword: [buku filsafat lanjutan, pemikiran filsafat terbaik, filsafat profesional, buku filsafat basabasi]
 ISBN: "9786024126711"
 ---
