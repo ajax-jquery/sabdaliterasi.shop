@@ -4,7 +4,7 @@ author: Sigmund Freud
 title: Pengantar Umum Psikoanalisis
 buy: https://lynk.id/sabdaliterasi/EmJLEjm
 harga: Rp42.500
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/25-03-2023/1679686634992_3206291
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/pengantar-umum-psikoanalisis.jpg
 description: Buku Pengantar Umum Psikoanalisis terdiri dari 28 pelajaran yang diberikan oleh Sigmund Freud (1856-1939), pendiri psikoanalisis, selama Perang Dunia...
 permalink: /pengantar-Umum-Psikoanalisis/
 keyword: [pengantar psikologi, psikoanalisis, belajar psikologi, konseling, karya freud, pengantar pemikiran freud, freud]
