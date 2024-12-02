@@ -4,7 +4,7 @@ author: Charles Darwin
 title: Teori Asal Usul Manusia (The Origin of Species)
 buy: https://lynk.id/sabdaliterasi/d2jXKxe
 harga: Rp90.000
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701287192585_2528722
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/teori-asal-usul-manusia-the-origin-of-species.jpg
 description: Buku Teori Asal Usul Manusia (The Origin of Species) adalah dokumentasi lengkap hasil penelitian panjang Charles Darwin tentang asal-usul makhluk hidup.
 permalink: /teori-asal-usul-manusia-the-origin-of-species/
 keyword: [darwin, manusia dari kera, penemu teori manusia dari kera, buku sejarah manusia, buku evolusi manusia, buku biologi terbaik]
