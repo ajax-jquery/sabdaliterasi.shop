@@ -4,7 +4,7 @@ author: Rene Descartes
 title: Diskursus dan Metode (Discourse on the Method)
 buy: https://lynk.id/sabdaliterasi/m38womW
 harga: Rp29.500
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/18-03-2023/1679111731336_8736946.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/diskursus-dan-metode-discourse-on-the-method.svg
 description: Discourse on the Method atau Diskursus dan Metode adalah buku yang ditulis oleh Rene Descartes dalam bahasa Prancis. 
 permalink: /discourse-on-the-method/
 keyword: [buku Descartes, filsafat, resionalis, buku terbaik Descartes, filsafat resionalis, pemikiran Descartes, cogito ergo sum]
