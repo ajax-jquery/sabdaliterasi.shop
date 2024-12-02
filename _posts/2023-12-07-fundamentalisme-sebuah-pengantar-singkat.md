@@ -6,7 +6,7 @@ harga: Rp32.500
 buy: https://lynk.id/sabdaliterasi/DGLRQ8D
 description: Fundamentalisme dipandang sebagai ancaman utama bagi perdamaian dunia saat ini, kesimpulan yang mustahil diabaikan sejak peristiwa di New York pada 11.
 permalink: /fundamentalisme-sebuah-pengantar-singkat/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/02-04-2023/1680418091982_5514840
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/fundamentalisme-sebuah-pengantar-singkat.jpg
 keyword: [fundamentalis, pengantar fundamentalis, fundamentalisme, apa itu fundamentalis, ideologi fundamental]
 ISBN: "978-623-7378-60-0"
 ---
