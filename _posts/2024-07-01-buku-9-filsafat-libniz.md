@@ -3,7 +3,7 @@ author: 'Frederick Copleston'
 title: 'Buku 9: Filsafat Libniz'
 buy: 'https://lynk.id/sabdaliterasi/1rKQBaZ'
 harga: 'Rp35.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/01-07-2024/1719810127890_6463644.svg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/buku-9-filsafat-libniz.svg'
 description: 'GOTTFRIED WILHELM LEIBNIZ lahir di Leipzig pada 1646, ayahnya adalah profesor filsafat moral di universitas. '
 keyword: ['Libniz','Pengantar','Seri filsafat']
 ISBN: '9786233052276'
