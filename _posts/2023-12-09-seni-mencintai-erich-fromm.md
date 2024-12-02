@@ -6,7 +6,7 @@ harga: Rp35.000
 buy: https://lynk.id/sabdaliterasi/Lbkg2XL
 description: Membaca buku Seni Mencintai ini akan menjadi pengalaman mengecewakan bagi siapa pun yang mengharapkan petunjuk mudah dalam seni mencintai.
 permalink: /seni-mencintai-erich-fromm/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677997864866_9050822
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/seni-mencintai.jpg
 keyword: [filsafat cinta, apa itu cinta, buku teori tentang cinta, cinta dalam psikologi, psikologi, ebook basabasi, cinta erich fromm]
 ISBN: "978-602-6651-69-3"
 ---
