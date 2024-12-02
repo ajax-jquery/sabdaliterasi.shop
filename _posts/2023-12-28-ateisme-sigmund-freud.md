@@ -3,7 +3,7 @@ author: 'Hans Küng'
 title: 'Ateisme Sigmund Freud'
 buy: 'https://lynk.id/sabdaliterasi/O4Op5yK'
 harga: 'Rp35.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/28-12-2023/1703740263293_6852026'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/ateisme-sigmund-freud.jpg'
 description: 'Dengan hipotesisnya yang, boleh disebut, ateistik-brutal, Sigmund Freud berlabuh pada kesimpulan ekstrem bahwa simbol-simbol dan ritual-ritual agama.'
 keyword: ['Freud',' psikoanalisi',' freud ateis',' ateis',' psikologi',' psikologi ateis']
 ISBN: "9786026651006"
