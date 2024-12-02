@@ -3,7 +3,7 @@ author: 'Abdul Syukur Al-azizi'
 title: 'Biografi Lengkap: Ali bin Abi Thalib Ra.'
 buy: 'https://lynk.id/sabdaliterasi/rBLw7BR'
 harga: 'Rp50.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/04-08-2024/1722765544664_8739428'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/biografi-lengkap-ali-bin-abi-thalib-ra.jpg'
 description: 'Biografi dan teladan hidup Ali bin Abi Thalib, sang penggenggam panji Nabi Saw., ini, mulai lahir hingga wafatnya, dikupas secara apik oleh Abdul Syukur al-Azizi, penulis buku ini.'
 keyword: ['Ali bin Abi Thalib','Biografi lengkap ali',' seri sahabat nabi']
 ISBN: '9786023919550'
