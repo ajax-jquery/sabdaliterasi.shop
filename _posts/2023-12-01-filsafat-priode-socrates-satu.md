@@ -6,7 +6,7 @@ harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/Awvmo4v
 description: Pada periode Socrates, kehidupan politik Yunani sedang tumbuh intensif, khususnya di Athena yang demokratis. Warga bebas memainkan peran apa pun.
 permalink: /filsafat-priode-socrates-satu/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677980733095_1194911
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-priode-socrates-1.jpg
 keyword: [ebook filsafat, ebook pengantar filsafat, buku filsafat untuk pemula, buku filsafat terbaik, jual buku filsafat murah, rekomendasi bacaan filsafat, ebook socrates, siapa itu socrates, filsafat di masa socrates]
 ISBN: "9786233050029"
 ---
