@@ -6,7 +6,7 @@ harga: Rp49.900
 buy: https://lynk.id/sabdaliterasi/qV90DZm
 description: Buku Diskursus Teori-Teori Kritis ini perlu dibaca untuk memperkaya pemikiran dan analisis untuk menemukan terobosan-terobosan intelektual bagi pengem
 permalink: /diskursus-teori-teori-kritis/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/11-03-2023/1678518195233_1812256
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/diskursus-teori-teori-kritis-kritik-atas-kapitalisme-klasik-modern-dan-kontemporer.jpg
 keyword: [jerman, filsuf jerman, mazhab frankfurt, teori kritis, pengantar teori kritis, cara untuk kritis, kritis, teori filsafat, filsafat kritis]
 ISBN: "978-602-412-155-6"
 ---
