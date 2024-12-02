@@ -4,7 +4,7 @@ author: Hutton Webster Phd
 title: World History Sejarah Dunia Lengkap
 harga: Rp51.900
 buy: https://lynk.id/sabdaliterasi/lo86BLa
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/24-03-2023/1679591641660_4627784
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/world-history-sejarah-dunia-lengkap.jpg
 description: Buku World History atau Sejarah Dunia Lengkap merupakan warisan klasik yang lengkap. Buku ini memberikan gambaran yang begitu jelas tentang sejarah dunia.
 permalink: /world-history-sejarah-dunia-lengkap/
 keyword: [buku sejarah, sejarah lengkap, sejarah dunia, sejarah, ebook sejarah, sejarah dunia, dunia masa lampau]
