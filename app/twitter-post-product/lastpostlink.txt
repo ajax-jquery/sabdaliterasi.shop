@@ -18,6 +18,7 @@
     "https://sabdaliterasi.xyz/retorika-seni-berbicara/",
     "https://sabdaliterasi.xyz/world-history-sejarah-dunia-lengkap/",
     "https://sabdaliterasi.xyz/dasar-dasar-filsafat-barat/",
-    "https://sabdaliterasi.xyz/epistemologi-kiri-seri-pemikiran-tokoh/"
+    "https://sabdaliterasi.xyz/epistemologi-kiri-seri-pemikiran-tokoh/",
+    "https://sabdaliterasi.xyz/filsafat-periode-aristoteles/"
   ]
 }
