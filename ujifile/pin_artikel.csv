@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /wp-admin/pin_bulk.csv
+permalink: /wp-admin/pin_artikel.csv
 ---
 Title,Media URL,Pinterest board,Thumbnail,Description,Link,Publish date,Keywords{% for post in site.artikel %}
 "{{ post.title }}","{{ post.image }}","Artikel Sabda Literasi",,"{{ post.description }}","{{ post.url | absolute_url }}",,"{{ post.keyword | join: ', ' }}"{% endfor %}
