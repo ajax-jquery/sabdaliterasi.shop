@@ -4,7 +4,7 @@ author: Seneca
 title: Tentang Hidup yang Singkat
 buy: https://lynk.id/sabdaliterasi/2JwQqy2
 harga: Rp37.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/14-03-2023/1678811146347_6471408
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/tentang-hidup-yang-singkat.jpg
 description: Buku Tentang Hidup yang Singkat adalah sebuah karya dari Seneca dengan judul aslinya De Brevitate Vitae yang dipublikasi pertama kali pada 49 Masehi.
 permalink: /tentang-hidup-yang-singkat/
 keyword: [stoik, self improvement, filsafat kebahagiaan, arti kehidupan, kebahagiaan, memperbaiki pola pikir, ebook basabasi]
