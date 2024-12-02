@@ -3,7 +3,7 @@ author: 'Edward Craig'
 title: 'Filsafat; Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/LnWGDEv'
 harga: 'Rp32.500'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/02-08-2024/1722534946271_2536105.svg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-sebuah-pengantar-singkat.svg'
 description: 'Buku ini memperlihatkan bahwa filsafat bisa  sangat menarik, berpikiran luas, dan penuh  kejutan.'
 keyword: ['Filsafat ','Pengantar ','Apa itu filsafat','Filsafat untuk pemula']
 ISBN: '9786237378617'
