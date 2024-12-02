@@ -13,6 +13,7 @@
     "https://sabdaliterasi.xyz/how-to-keep-your-cool/",
     "https://sabdaliterasi.xyz/how-to-win-an-argument/",
     "https://sabdaliterasi.xyz/metafisika-aristoteles/",
-    "https://sabdaliterasi.xyz/etika-nikomakea/"
+    "https://sabdaliterasi.xyz/etika-nikomakea/",
+    "https://sabdaliterasi.xyz/pengantar-filsafat-dari-klasik-hingga-postmodernisme/"
   ]
 }
