@@ -6,7 +6,7 @@ harga: Rp45.000
 buy: https://lynk.id/sabdaliterasi/yoePzrx
 description: Dasar-dasar Filsafat Barat ini adalah pengantar kepada filsafat bagi siapa pun yang baru pertama kali mengenal filsafat.
 permalink: /dasar-dasar-filsafat-barat/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/11-03-2023/1678518506847_1567528
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/dasar-dasar-filsafat-barat-tuhan-benar-dan-salah-politik-dunia-eksternal-sains-pikiran-seni.jpg
 keyword: [Tuhan, Benar dan Salah, Politik, Dunia Eksternal, Sains, Pikiran, Seni, pengantar filsafat, dasar filsafat,ebook pengantar filsafat, buku rekomendasi filsafat, filaafat untuk pemula]
 ISBN: "978-602-350-182-3"
 ---
