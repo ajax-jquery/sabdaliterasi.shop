@@ -4,7 +4,7 @@ author: Aristoteles
 title: Retorika; Seni Berbicara
 buy: https://lynk.id/sabdaliterasi/8p4NK4Z
 harga: Rp35.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677997368242_6118875
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/retorika-seni-berbicara.jpg
 description: Aristoteles, melalui buku Retorika, memberikan dasar-dasar sistem retorika yang berfungsi sebagai batu pijakan bagi perkembangan teori retorika dari z...
 permalink: /retorika-seni-berbicara/
 keyword: [retorika, cara pidato, pidato filsuf, seni berbicara, bicara itu ada seninya, bagus bicara, pidato]
