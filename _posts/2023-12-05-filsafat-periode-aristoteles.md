@@ -6,7 +6,7 @@ harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/Wrz4ejY
 description: Aristoteles adalah putra Nikomakus, seorang tabib raja Makedonia, Amyntas II. Ketika berusia tujuh belas tahun, ia pergi ke Athena dan akhirnya menjad
 permalink: /filsafat-periode-aristoteles/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677950160761_8050167
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-periode-aristoteles-3.jpg
 keyword: [aristoteles, buku tentang aristoteles, buku filsafat aristoteles, siapa itu aristoteles, biografi aristoteles, pemikiran aristoteles]
 ISBN: "978-623-305-001-2"
 ---
