@@ -6,7 +6,7 @@ harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/RE3a1Nx
 description: Seneca, sama seperti para pemimpin Romawi pada masanya, menemukan kerangka moral dalam Stoisisme, mazhab pemikiran Yunani yang dibawa ke Roma. Kaum St
 permalink: /how-to-die-sebuah-panduan-klasik-menjelang-ajal/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/14-03-2023/1678810947852_9333805
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/how-to-die-sebuah-panduan-klasik-menjelang-ajal.jpg
 keyword: [cara untuk mati, filsafat stoik, buku seneca, kematian, filsafat kematian, apakah mati itu sakit]
 ISBN: "9786024812423"
 ---
