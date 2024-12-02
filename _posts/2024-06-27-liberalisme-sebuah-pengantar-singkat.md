@@ -3,7 +3,7 @@ author: 'Michael Freeden'
 title: 'Liberalisme: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/npJXm4l'
 harga: 'Rp35.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/27-06-2024/1719502854229_5486900'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/liberalisme-sebuah-pengantar-singkat.jpg'
 description: 'Liberalisme adalah salah satu dari teori­ teori dan ideologi politis yang paling utama dan  meresap, namun tunduk pada tafsiran-tafsiran  serta penyalahgunaan-penyalahgunaan yang  berbeda-beda.'
 keyword: ['Liberalisme','Pengantar','Liberal']
 ISBN: '9786237378563'
