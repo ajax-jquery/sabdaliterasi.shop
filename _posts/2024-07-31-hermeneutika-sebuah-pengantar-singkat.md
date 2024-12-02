@@ -3,7 +3,7 @@ author: 'Jens Zimmermann'
 title: 'Hermeneutika; Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/46B2Ybj'
 harga: 'Rp32.500'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/02-08-2024/1722535129463_8819382'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/hermeneutika-sebuah-pengantar-singkat.jpg'
 description: 'Hermeneutika adalah cabang pengetahuan yang berhubungan dengan interpretasi, suatu perilaku yang melekat pada kehidupan kita sehari-hari.'
 keyword: ['Hermeneutika','pengantar','Untuk pemula',' apa itu hermeneutika?']
 ISBN: '9786236166710'
