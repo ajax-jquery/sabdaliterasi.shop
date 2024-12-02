@@ -3,7 +3,7 @@ author: 'Michael Newman'
 title: 'Sosialisme: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/yvJ0mNd'
 harga: 'Rp30.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/27-06-2024/1719427455513_9730266.svg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sosialisme-sebuah-pengantar-singkat.svg'
 description: 'Karakteristik sosialisme yang paling mendasar adalah komitmennya untuk menciptakan masyarakat yang egaliter. '
 keyword: ['Sosialisme','Pengantar','Pengantar singkat']
 ISBN: '9786237378549'
