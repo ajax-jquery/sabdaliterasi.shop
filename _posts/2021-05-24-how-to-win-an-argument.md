@@ -4,7 +4,7 @@ author: Cicero
 title: How to Win an Argument; Sebuah Panduan Klasik tentang Seni Persuasi
 buy: https://lynk.id/sabdaliterasi/p2d5gDP
 harga: Rp49.500
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701360483183_9484929
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/how-to-win-an-argument-sebuah-panduan-klasik-tentang-seni-persuasi.jpg
 description: How to Win an Argument; Sebuah Panduan Klasik tentang Seni Persuasi merupakan salah satu buku filosofi karangan Marcus Tullius Cicero. Buku ini akan m
 permalink: /how-to-win-an-argument/
 keyword: [seni berdebat, retorika,cara depat, debat, menang debat, filsuf berdebat, debat filsafat]
