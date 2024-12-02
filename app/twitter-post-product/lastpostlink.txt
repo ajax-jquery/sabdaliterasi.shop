@@ -10,6 +10,7 @@
     "https://sabdaliterasi.xyz/niccolo-machiavelli-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/pengantar-Umum-Psikoanalisis/",
     "https://sabdaliterasi.xyz/agnostisisme-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/how-to-keep-your-cool/"
+    "https://sabdaliterasi.xyz/how-to-keep-your-cool/",
+    "https://sabdaliterasi.xyz/how-to-win-an-argument/"
   ]
 }
