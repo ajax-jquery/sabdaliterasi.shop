@@ -3,7 +3,7 @@ author: 'Christopher Butler'
 title: 'Modernisme: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/LwPK6Bw'
 harga: 'Rp35.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/29-06-2024/1719595338029_6638717'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/modernisme-sebuah-pengantar-singkat.jpg'
 description: 'Modernisme mengantarkan beberapa inovasi  paling menarik dalam seni dan sastra, dari  Fauvisme, Kubisme, dan Dada, ke novel-novel  James Joyce dan Franz Kafka, hingga karya-karya  provokatif, seperti Fountain Marcel Duchamp.  '
 keyword: ['Modernis','Modernisme','Pengantar']
 ISBN: '9786237378525'
