@@ -30,7 +30,7 @@ layout: null
 	<height>32</height>
 </image> 
   {% assign posta = site.posts | reverse | slice: 10, 20 %}
-    {% for post in posta %}
+    {% for post in posta limit: 10 %}
 <item>
         <title>{{ post.title | xml_escape }}</title>
 	{% for cat in post.keyword %}
