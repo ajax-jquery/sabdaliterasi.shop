@@ -8,6 +8,7 @@
     "https://sabdaliterasi.xyz/biografi-lengkap-abu-bakar-ashshiddiq-ra/",
     "https://sabdaliterasi.xyz/biografi-lengkap-ali-bin-abi-thalib-ra/",
     "https://sabdaliterasi.xyz/niccolo-machiavelli-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/pengantar-Umum-Psikoanalisis/"
+    "https://sabdaliterasi.xyz/pengantar-Umum-Psikoanalisis/",
+    "https://sabdaliterasi.xyz/agnostisisme-sebuah-pengantar-singkat/"
   ]
 }
