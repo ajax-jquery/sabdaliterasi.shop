@@ -4,7 +4,7 @@ author: Plato
 title: Simposium; Hakikat Eros, Cinta, dan Manusia
 buy: https://lynk.id/sabdaliterasi/Zez62gO
 harga: Rp25.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/09-03-2023/1678363960258_1066786
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/simposium-hakikat-eros-cinta-dan-manusia.jpg
 description: Simposium merupakan salah satu karya Plato yang paling banyak dibaca dan dipelajari. Di dalamnya, hakikat Eros, cinta, dan manusia ditelusuri melalui.
 permalink: /simposium-hakikat-eros-cinta-dan-manusia/
 keyword: [Simposium, Hakikat Eros, Cinta, Manusia, filsafat cinta, plato tentang cinta]
