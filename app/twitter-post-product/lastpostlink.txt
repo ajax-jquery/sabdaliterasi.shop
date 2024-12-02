@@ -21,6 +21,7 @@
     "https://sabdaliterasi.xyz/epistemologi-kiri-seri-pemikiran-tokoh/",
     "https://sabdaliterasi.xyz/filsafat-periode-aristoteles/",
     "https://sabdaliterasi.xyz/filsafat-periode-plato/",
-    "https://sabdaliterasi.xyz/tujuh-teori-agama-paling-berpengaruh/"
+    "https://sabdaliterasi.xyz/tujuh-teori-agama-paling-berpengaruh/",
+    "https://sabdaliterasi.xyz/tentang-hidup-yang-bajik/"
   ]
 }
