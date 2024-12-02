@@ -26,6 +26,7 @@
     "https://sabdaliterasi.xyz/teori-asal-usul-manusia-the-origin-of-species/",
     "https://sabdaliterasi.xyz/seni-berbahagia/",
     "https://sabdaliterasi.xyz/prinsip-prinsip-filsafat/",
-    "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/"
+    "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/",
+    "https://sabdaliterasi.xyz/demokrasi-sebuah-pengantar-singkat/"
   ]
 }
