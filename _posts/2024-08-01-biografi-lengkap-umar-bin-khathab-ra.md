@@ -3,7 +3,7 @@ author: 'Abdul Syukur Al-azizi'
 title: 'Biografi Lengkap: Umar bin Khathab Ra.'
 buy: 'https://lynk.id/sabdaliterasi/3z5GXX7'
 harga: 'Rp50.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/04-08-2024/1722765214043_5542139.svg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/biografi-lengkap-umar-bin-khathab-ra.svg'
 description: 'Umar bin Khattab termasuk sahabat yang zuhud. Dia mengambil alih kekhalifahan Islam setelah kematian Abu Bakar Ash-Shiddiq.'
 keyword: ['Umar bin Khattab',' biografi lengkap umar bin khattab',' sahabat nabi']
 ISBN: '9786023919529'
