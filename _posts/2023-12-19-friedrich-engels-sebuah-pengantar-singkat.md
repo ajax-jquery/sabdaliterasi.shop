@@ -4,7 +4,7 @@ author: Terrell Caver
 title: "Friedrich Engels: Sebuah Pengantar Singkat"
 buy: https://lynk.id/sabdaliterasi/YPGo15E
 harga: Rp25.000
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/24-12-2023/1703409010483_8735555
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/friedrich-engels-sebuah-pengantar-singkat.jpg
 description: Absurd sekali jika kita mengatakan bahwa Engels telah menghadirkan Marxisme. Pemikiran Engels lebih berjasa daripada pemikiran Marx dalam menarik.
 permalink: /friedrich-engels-sebuah-pengantar-singkat/
 keyword: [engels, pengantar engels, pemikiran engels, siapa itu engels, pengantar marxisme, marxis]
