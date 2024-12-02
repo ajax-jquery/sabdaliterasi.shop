@@ -4,7 +4,7 @@ author: Ir. Soekarno
 title: Islam Sontoloyo
 buy: https://lynk.id/sabdaliterasi/Mqdm9xv
 harga: Rp45.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/12-03-2023/1678627125268_3815102
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/islam-sontoloyo.jpg
 description: Buku Islam Sontoloyo merupakan hasil buah dari pemikiran Soekarno tentang problematika agama yang ada Indonesia saat itu. banyak kutipan yang perlu di.
 permalink: /islam-sontoloyo/
 keyword: [islam, fanatik, fundamental, kritik islam, islam indonesia, arabisme, khilafah, politik islam, bung karno]
