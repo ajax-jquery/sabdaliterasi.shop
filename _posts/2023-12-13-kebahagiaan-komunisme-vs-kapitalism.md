@@ -4,7 +4,7 @@ author: Slavoj Zizek, Jordan Peterson
 title: Kebahagiaan; Komunisme vs Kapitalisme
 buy: https://lynk.id/sabdaliterasi/PV0o4qD
 harga: Rp25.500
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/09-03-2023/1678363605613_8007937
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/kebahagiaan-komunisme-vs-kapitalisme.jpg
 description: Buku Kebahagiaan; Komunisme vs Kapitalisme merupakan hasil perdebatan antara Slavoj Zizek, Jordan Peterson mengenai tentang ideologi masing-masing ant.
 permalink: /kebahagiaan-komunisme-vs-kapitalisme/
 keyword: [komunis, kapitalis, marx, marxis, zizek, jordan, basabasi, bahagia]
