@@ -12,6 +12,7 @@
     "https://sabdaliterasi.xyz/agnostisisme-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/how-to-keep-your-cool/",
     "https://sabdaliterasi.xyz/how-to-win-an-argument/",
-    "https://sabdaliterasi.xyz/metafisika-aristoteles/"
+    "https://sabdaliterasi.xyz/metafisika-aristoteles/",
+    "https://sabdaliterasi.xyz/etika-nikomakea/"
   ]
 }
