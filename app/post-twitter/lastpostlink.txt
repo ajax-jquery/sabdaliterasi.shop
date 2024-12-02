@@ -85,6 +85,7 @@
     "https://sabdaliterasi.xyz/artikel/misteri-pengorbanan-ibrahim-tafsir-ibn-arabi-yang-mendalam/",
     "https://sabdaliterasi.xyz/artikel/agama-di-era-modern-relevansi-tantangan/",
     "https://sabdaliterasi.xyz/artikel/hijab-dan-feminisme-merangkul-pilihan-dan-kebebasan-perempuan/",
-    "https://sabdaliterasi.xyz/artikel/kritik-eksistensialisme-terhadap-perkembangan-informasi-modern-yang-memanipulasi-diri/"
+    "https://sabdaliterasi.xyz/artikel/kritik-eksistensialisme-terhadap-perkembangan-informasi-modern-yang-memanipulasi-diri/",
+    "https://sabdaliterasi.xyz/artikel/harari-etika-nasionalisme-di-abad-21/"
   ]
 }
