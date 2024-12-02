@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /wp-admin/bulk_pins.csv
+permalink: /wp-admin/bulk_pins_Artikel.csv
 ---
-Title,Media URL,Pinterest board,Thumbnail,Description,Link,Publish date,Keywords{% for post in site.posts %}
-"{{ post.title }}","{{ post.image }}","Ebook",,"{{ post.harga }} - {{ post.description }}","{{ post.url | absolute_url }}",,"{{ post.keyword | join: ', ' }}"{% endfor %}
+Title,Media URL,Pinterest board,Thumbnail,Description,Link,Publish date,Keywords{% for post in site.artikel %}
+"{{ post.title }}","{{ post.image }}","Ebook",,"{{ post.description }}","{{ post.url | absolute_url }}",,"{{ post.keyword | join: ', ' }}"{% endfor %}
