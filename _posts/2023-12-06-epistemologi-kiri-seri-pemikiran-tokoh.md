@@ -6,7 +6,7 @@ harga: Rp40.000
 buy: https://lynk.id/sabdaliterasi/OR5jMvz
 description: Buku Epistemologi Kiri ini menawarkan sebuah tematisasi pemikiran para filsuf yang dicap KIRI oleh zaman.
 permalink: /epistemologi-kiri-seri-pemikiran-tokoh/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677979681664_5282506
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/epistemologi-kiri-seri-pemikiran-tokoh.jpg
 keyword: [buku kiri, buku tokoh-tokoh kiri, pemikiran kiri, kiri, ebook kiri, buku kiri original murah]
 ISBN: "978-602-313-038-2"
 ---
