@@ -27,6 +27,7 @@
     "https://sabdaliterasi.xyz/seni-berbahagia/",
     "https://sabdaliterasi.xyz/prinsip-prinsip-filsafat/",
     "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/",
-    "https://sabdaliterasi.xyz/demokrasi-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/demokrasi-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/nasionalisme-islamisme-marxisme-pikiran-pikiran-soekarno-muda/"
   ]
 }
