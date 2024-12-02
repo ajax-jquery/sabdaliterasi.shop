@@ -6,7 +6,7 @@ harga: Rp39.000
 buy: https://lynk.id/sabdaliterasi/Nk2yXkW
 description: Dalam buku Etika Nikomakea ini, Aristoteles mengungkap bahwa kebahagiaan terletak pada aktivitas jiwa yang terkait dengan kebajikan.
 permalink: /etika-nikomakea/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/29-05-2023/1685352507709_8689083.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/etika-nikomakea.svg
 keyword: [etika nikomakea, ebook etika nikomakea, ebook Aristoteles, etika nikomakea pdf, download ebook Aristoteles]
 ISBN: "9786233050036"
 ---
