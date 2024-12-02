@@ -81,6 +81,7 @@
     "https://sabdaliterasi.xyz/artikel/apakah-john-stuart-mill-benar-benar-pembela-kebebasan-individu/",
     "https://sabdaliterasi.xyz/artikel/nietzsche-sang-filsuf-palu/",
     "https://sabdaliterasi.xyz/artikel/demokrasi-ideal-vs-realitas/",
-    "https://sabdaliterasi.xyz/artikel/belajar-dari-stoisisme-menghadapi-konflik/"
+    "https://sabdaliterasi.xyz/artikel/belajar-dari-stoisisme-menghadapi-konflik/",
+    "https://sabdaliterasi.xyz/artikel/misteri-pengorbanan-ibrahim-tafsir-ibn-arabi-yang-mendalam/"
   ]
 }
