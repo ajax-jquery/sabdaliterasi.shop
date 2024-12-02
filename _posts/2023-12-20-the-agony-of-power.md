@@ -4,7 +4,7 @@ author: Jean Baudrillard
 title: "The Agony of Power: Dominasi, Hegemoni, Teror"
 buy: https://lynk.id/sabdaliterasi/vXvgeqL
 harga: Rp35.000
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/24-12-2023/1703408899393_3574844
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/the-agony-of-power-dominasi-hegemoni-teror.jpg
 permalink: /the-agony-of-power/
 keyword: [simulakra, Baudrillard, power, filsafa media, Dominasi, Hegemoni, Teror]
 description: "Buku The Agony of Power: Dominasi, Hegemoni, Teror menghimpun makalah-makalah yang sebelumnya tidak diterbitkan yang ditulis pada 2005, dua tahun sebe..."
