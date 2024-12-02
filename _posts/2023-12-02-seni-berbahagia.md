@@ -4,7 +4,7 @@ author: Epicurus
 title: Seni Berbahagia
 buy: https://lynk.id/sabdaliterasi/41JwBq8
 harga: Rp38.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/09-03-2023/1678363356411_9855344
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/seni-berbahagia.jpg
 description: Di meja Taman Epicurus, kaum wanita dan pria mendengarkan Sang Master dengan saksama. Mereka semua sepakat bahwa Epicurus adalah guru terbaik yang per
 permalink: /seni-berbahagia/
 keyword: [self improvement, bahagia, cara untuk bahagia, filsafat tentang kebahagiaan, kebahagiaan epicurus, ebook epicureanisme, basabasi]
