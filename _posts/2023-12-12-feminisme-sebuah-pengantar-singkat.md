@@ -4,7 +4,7 @@ author: Margaret Walters
 title: Feminisme; Sebuah Pengantar Singkat
 buy: https://lynk.id/sabdaliterasi/lqNV3Ql
 harga: Rp30.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/11-03-2023/1678518806263_2937489.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/feminisme-sebuah-pengantar-singkat.svg
 description: Buku Feminisme; Sebuah Pengantar Singkat adalah perenungan historis yang membedah akar-akar feminisme, hak suara, pembebasan di tahun 1960-an.
 permalink: /feminisme-sebuah-pengantar-singkat/
 keyword: [feminis, pengantar feminis, feminis untuk pemula, apa itu feminis, ebook feminis, ideologi feminis, perempuan]
