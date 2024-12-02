@@ -6,7 +6,7 @@ harga: Rp55.000
 buy: https://lynk.id/sabdaliterasi/yXoV2KQ
 description: Karya ini merupakan buku pokok (the source book) dalam studi agama yang sangat patut dijadikan rujukan utama oleh akademisi sosiologi agama.
 permalink: /tujuh-teori-agama-paling-berpengaruh/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/02-05-2023/1683038665766_8919357
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/seven-theories-of-religion-tujuh-teori-agama-paling-berpengaruh.jpg
 keyword: [buku tentang agama, buku teori agama, buku sosiologi agama, ebook sosiologi agama]
 ISBN: "9786027696563"
 ---
