@@ -4,7 +4,7 @@ author: Seneca
 title: How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah
 buy: https://lynk.id/sabdaliterasi/Ay8P09K
 harga: Rp45.000
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701360238702_6156973
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/how-to-keep-your-cool-sebuah-panduan-klasik-mengelola-amarah.jpg
 description: Dalam buku How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah, Seneca mengajarkan berbagai prinsip dan strategi untuk mengelola emosi, khus
 permalink: /how-to-keep-your-cool/
 keyword: [stoik, kebahagiaan, self improvment, cara tidak marah, marah, agar tidak gampang marah]
