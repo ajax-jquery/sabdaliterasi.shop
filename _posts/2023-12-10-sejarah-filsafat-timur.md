@@ -4,7 +4,7 @@ author: L. Adams Beck
 title: Sejarah Filsafat Timur
 buy: https://lynk.id/sabdaliterasi/xxBpE3w
 harga: Rp50.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/24-03-2023/1679591449907_9091638
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/sejarah-filsafat-timur.jpg
 description: Buku Sejarah Filsafat Timur ini merupakan buku pengantar filsafat yang lebih berfokus ke perkembangan filsafat di belahan timur.
 permalink: /sejarah-filsafat-timur/
 keyword: [timur, filsafat timur, sejarah filsafat, fisafat hindu, filsafat cina, filsafat jepang, lao-tzu]
