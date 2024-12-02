@@ -6,7 +6,7 @@ harga: Rp37.500
 buy: https://lynk.id/sabdaliterasi/zYQJB5N
 description: Buku Sejarah Para Filsuf Dunia ini berisi 90 tokoh filsafat baik kuno maupun modern yang akan memperkaya khasanah pengetahuan Anda.
 permalink: /sejarah-para-filsuf-dunia/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/24-03-2023/1679591819391_1795884
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/sejarah-para-filsuf-dunia.jpg
 keyword: [tokoh filsuf, siapa saja fisuf dunia, filsuf, tokoh filsafat, pemikiran tokoh filsafat, pemikiran tokoh]
 ISBN: "978-602-1129-15-9"
 ---
