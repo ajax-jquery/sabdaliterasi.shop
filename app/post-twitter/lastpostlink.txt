@@ -86,6 +86,7 @@
     "https://sabdaliterasi.xyz/artikel/agama-di-era-modern-relevansi-tantangan/",
     "https://sabdaliterasi.xyz/artikel/hijab-dan-feminisme-merangkul-pilihan-dan-kebebasan-perempuan/",
     "https://sabdaliterasi.xyz/artikel/kritik-eksistensialisme-terhadap-perkembangan-informasi-modern-yang-memanipulasi-diri/",
-    "https://sabdaliterasi.xyz/artikel/harari-etika-nasionalisme-di-abad-21/"
+    "https://sabdaliterasi.xyz/artikel/harari-etika-nasionalisme-di-abad-21/",
+    "https://sabdaliterasi.xyz/artikel/bukan-putri-yang-menunggu-diselamatkan-feminisme-dan-perempuan-mandiri-di-era-modern/"
   ]
 }
