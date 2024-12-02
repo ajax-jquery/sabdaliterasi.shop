@@ -4,7 +4,7 @@ author: "Frederick Denison Maurice, M.A."
 title: "Filsafat Abad Pertengahan"
 buy: https://lynk.id/sabdaliterasi/P9QpwqE
 harga: Rp45.500
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/24-12-2023/1703408611053_5917883
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-abad-pertengahan.jpg
 permalink: /filsafat-abad-pertengahan/
 keyword: [sejarah filsafat, filsafat pertengahan, pengantar fisafat]
 description: "Filsafat Abad pertengahan adalah filsafat di era yang dikenal sebagai abad pertengahan (medieval atau Middle Ages), periode sejarah yang membentang da..."
