@@ -25,6 +25,7 @@
     "https://sabdaliterasi.xyz/tentang-hidup-yang-bajik/",
     "https://sabdaliterasi.xyz/teori-asal-usul-manusia-the-origin-of-species/",
     "https://sabdaliterasi.xyz/seni-berbahagia/",
-    "https://sabdaliterasi.xyz/prinsip-prinsip-filsafat/"
+    "https://sabdaliterasi.xyz/prinsip-prinsip-filsafat/",
+    "https://sabdaliterasi.xyz/filsafat-priode-socrates-satu/"
   ]
 }
