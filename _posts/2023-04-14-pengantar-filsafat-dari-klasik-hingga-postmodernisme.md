@@ -6,7 +6,7 @@ harga: Rp60.000
 buy: https://lynk.id/sabdaliterasi/WLP2EMy
 description: Buku Pengantar Filsafat Dari Klasik Hingga Postmodernisme ini akan membahas hal-hal dasar yang penting dalam filsafat seperti sejarah, dan lain-lain.
 permalink: /pengantar-filsafat-dari-klasik-hingga-postmodernisme/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/25-05-2023/1684998184616_1203350.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/pengantar-filsafat-dari-klasik-hingga-postmodernisme.svg
 keyword: [ebook filsafat, ebook pengantar filsafat, buku filsafat untuk pemula, buku filsafat terbaik, jual buku filsafat murah, rekomendasi bacaan filsafat, ali maksum]
 ISBN: "9786023130580"
 ---
