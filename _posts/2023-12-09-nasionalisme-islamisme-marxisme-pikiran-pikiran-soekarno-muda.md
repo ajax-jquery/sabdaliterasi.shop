@@ -6,7 +6,7 @@ harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/z01NLar
 description: Buku ini berisi pemikiran-pemikiran orisinil Soekarno tentang berbagai hal, terutama menyangkut ideologi, nasionalisme, dan kemerdekaan.
 permalink: /nasionalisme-islamisme-marxisme-pikiran-pikiran-soekarno-muda/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/12-03-2023/1678627332951_4127905.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/nasionalisme-islamisme-marxisme-pikiran-pikiran-soekarno-muda.svg
 keyword: [buku nasakom, buku soekarno, apa itu nasakom, asal mula pancasila, filsafat pancasila, soekarno muda, marxisme indonesia, marhenisme]
 ISBN: "9786236699638"
 ---
