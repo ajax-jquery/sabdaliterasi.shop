@@ -6,7 +6,7 @@ harga: Rp40.000
 buy: https://lynk.id/sabdaliterasi/WR407mD
 description: Apa artinya “menjadi autentik”? Mengapa itu penting untuk hidup kita sebagai manusia? Apa kaitannya dengan “mencintai tanpa syarat”? Buku yang mengambil.
 permalink: /makna-cinta-menurut-soren-kierkegaard/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/06-03-2023/1678111677995_2113268
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/makna-cinta-menjadi-autentik-dengan-mencintai-tanpa-syarat-menurut-soren-kierkegaard.jpg
 keyword: [autentik, cinta, eksistensialisme, filsafat cinta, kierkegaard, religiusitas, filsafat eksistensialis, cinta dan eksistensi]
 ISBN: "9789792149159"
 ---
