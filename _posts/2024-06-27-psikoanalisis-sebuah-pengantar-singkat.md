@@ -3,7 +3,7 @@ author: 'Daniel Pick'
 title: 'Psikoanalisis: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/GyrAzVR'
 harga: 'Rp30.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/27-06-2024/1719501708920_3677540.svg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/psikoanalisis-sebuah-pengantar-singkat.svg'
 description: 'Sejak awal, psikoanalisis sudah disebut-sebut sebagai teori yang revolusioner tentang bagaimana pikiran bekerja.'
 keyword: ['Psikoanalisis','Sigmund freud','Pengantar ']
 ISBN: '9786236166680'
