@@ -3,7 +3,7 @@ author: 'K. Bartens'
 title: 'Filsuf-Filsuf Besar Tentang Manusia'
 buy: 'https://lynk.id/sabdaliterasi/oAWnNAr'
 harga: 'Rp50.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/28-12-2023/1703740494589_6143540.svg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/filsuf-filsuf-besar-tentang-manusia.svg'
 description: 'Ada dua pertanyaan pokok yang akan kita hadapi selama kita membaca serangkaian pemikiran filsuf-filsuf besar tentang manusia ini.'
 keyword: ['Filsafat manusia',' tokoh filsafat',' pemikiran filsafat','Pengantar filsafat ']
 ISBN: "9786020367699"
