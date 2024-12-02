@@ -3,7 +3,7 @@ author: 'Manfred B. Steger Dan Ravi K. Roy'
 title: 'Neoliberalisme: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/re7dd6M'
 harga: 'Rp37.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/27-06-2024/1719503047023_1061397'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/neoliberalisme-sebuah-pengantar-singkat.jpg'
 description: 'Berlandaskan prinsip-prinsip ilmu ekonomi pasar-bebas, neoliberalisme kerap dipertalikan dengan para pemimpin politik, seperti Ronald Reagan, Margaret Thatcher, Bill Clinton, Tony Blair, Augusto Pinochet, dan Junichiro Koizumi. '
 keyword: ['Pengantar','Liberal','Neoliberalis','Neoliberalisme']
 ISBN: '9786237378594'
