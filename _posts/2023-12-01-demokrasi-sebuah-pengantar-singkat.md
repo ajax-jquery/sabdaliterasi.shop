@@ -4,7 +4,7 @@ author: Bernard Crick
 title: Demokrasi; Sebuah Pengantar Singkat
 buy: https://lynk.id/sabdaliterasi/nNdyXLl
 harga: Rp32.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/02-04-2023/1680417585615_1885740
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/demokrasi-sebuah-pengantar-singkat.jpg
 description: Buku Demokrasi; Sebuah Pengantar Singkat adalah uraian pendek tentang sejarah doktrin dan praktik demokrasi
 permalink: /demokrasi-sebuah-pengantar-singkat/
 keyword: [pengantar demokrasi, demokrasi, sejarah demokrasi, sistem demokrasi, penerapan demokrasi, buku tentang demokrasi]
