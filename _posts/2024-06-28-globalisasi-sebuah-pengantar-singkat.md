@@ -3,7 +3,7 @@ author: 'Manfred B. Steger'
 title: 'Globalisasi: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/RK6xgbg'
 harga: 'Rp37.000'
-image: 'https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/29-06-2024/1719594528783_5324049'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/globalisasi-sebuah-pengantar-singkat.jpg'
 description: 'Globalisasi telah menjadi salah satu jargon  utama di zaman kita - sebuah istilah yang  menjelaskan berbagai kekuatan ekonomi, politik,  kebudayaan, ideologis, dan lingkungan kompleks  yang mengubah pemahaman kita mengenai dunia dengan cepat.'
 keyword: ['Globalisasi','Pengantar singkat','Global']
 ISBN: '978-623-7378-57-0'
