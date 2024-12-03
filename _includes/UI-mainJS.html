@@ -5,7 +5,6 @@
 </div>
 </div>
 <script>var MYfire="{{ site.firebase }}";
-function RanString(n){let t="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",r="";for(let e=0;e<n;e++){let l=Math.floor(Math.random()*t.length);r+=t[l]}return r}
 function Like(){function e(e){var t=e;if(e>=1e3){for(var a=Math.floor((""+e).length/3),l="",i=2;i>=1&&!(((l=parseFloat((0!=a?e/Math.pow(1e3,a):e).toPrecision(i)))+"").replace(/[^a-zA-Z 0-9]+/g,"").length<=2);i--);l%1!=0&&(l=l.toFixed(1)),t=l+["","K","M","B","T"][a]}return t}var t,BB=document.getElementById("liked").getAttribute("data-link").replace("artikel","").split("/").join(""),l=document.getElementById("Liked");(t=new Firebase(MYfire+"/Like/"+BB)).once("value",function(q){var i=q.val(),n=!1;null==i&&((i={}).value=0,n=!0),document.getElementById("liked").setAttribute("data-text",e(i.value)),localStorage.getItem("like_"+BB)?l.checked=!0:l.checked=!1,"/"!=window.location.pathname&&(n?t.set(i):t.child("value").set(i.value))}),l.addEventListener("change",function(){var t,i;!0==l.checked?(localStorage.setItem("like_"+BB,"true"),(t=new Firebase(MYfire+"/Like/"+BB)).once("value",function(i){var n=i.val(),u=!1;null==n&&((n={}).value=0,u=!0),document.getElementById("liked").setAttribute("data-text",e(n.value+1)),n.value++,l.checked=!0,"/"!=window.location.pathname&&(u?t.set(n):t.child("value").set(n.value))})):(localStorage.removeItem("like_"+BB),(i=new Firebase(MYfire+"/Like/"+BB)).once("value",function(t){var n=t.val(),u=!1;null==n&&((n={}).value=0,u=!0),document.getElementById("liked").setAttribute("data-text",e(n.value-1)),n.value--,l.checked=!1,"/"!=window.location.pathname&&(u?i.set(n):i.child("value").set(n.value))}))})};
 LazyScript("{{ site.url }}/assets/js/plusui/js/countComment.min.js");
 {% if page.layout == "artikel" or page.layout == "post" %}
@@ -13,7 +12,7 @@ LazyScript("{{ site.url }}/assets/js/disqus.min.js");
 LazyScript("{{ site.url }}/assets/js/firebase-2-4-2.min.js","Like()");
 {% endif %}
 LazyScript("//www.instagram.com/embed.js")
-LazyScript("{{ site.url }}/assets/js/plusui/subscribe.min.js?v="+RanString(50),null,"module");
+LazyScript("{{ site.url }}/assets/js/plusui/subscribe.min.js?v=12.06.98",null,"module");
 LazyScript("{{ site.url }}/assets/js/plusui/popupbox.min.js");
 LazyScript("{{ site.url }}/assets/js/plusui/js/livesearchbox.js");
 </script>
