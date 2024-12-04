@@ -178,7 +178,7 @@ function processImagesForAMP(htmlContent) {
 }
 async function loadFile(filePath) {
     try {
-        const apiUrl = `${GITHUB_API_BASE}/${filePath}`;
+        const apiUrl = `${GITHUB_API_BASE}/${filePath}?id=${Date.now()}`;
         console.log('Fetching file from:', apiUrl);
 
         // Fetch file menggunakan GitHub API
@@ -314,7 +314,7 @@ async function updateFile(filePath, payload) {
 }
 async function getFileSha(filePath) {
     try {
-        const response = await fetch(`${GITHUB_API_BASE}/${filePath}`, {
+        const response = await fetch(`${GITHUB_API_BASE}/${filePath}?id=${Date.now()}`, {
             headers: { Authorization: `token ${TOKEN}` }
         });
 
