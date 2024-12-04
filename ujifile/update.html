@@ -1,0 +1,327 @@
+---
+layout: null
+permalink: /wp-admin/update/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/js/editartikel.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>File Editor - Sabdaliterasi</h1>
+        <ul id="file-list" class="list-group mt-3"></ul>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editorModal" tabindex="-1" aria-labelledby="editorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editorModalLabel">Edit File</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="editor" name="editor"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="save-btn" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/editartikel.min.js"></script>
+    <script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+    const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
+
+// GitHub API Configuration
+const GITHUB_API_BASE = 'https://api.github.com/repos/ajax-jquery/sabdaliterasi.shop/contents';
+const DIRECTORY_ARTIKEL = '_artikel';
+const DIRECTORY_AMP = '_amp';
+const TOKEN = Pu.de(Hm_Key); // Replace with your GitHub API key
+
+// Elemen DOM
+const fileListEl = document.getElementById('file-list');
+const editorModal = new bootstrap.Modal(document.getElementById('editorModal'));
+const editorTextarea = document.getElementById('editor');
+let currentFilePath = '';
+let currentYaml = '';
+
+// Inisialisasi CKEditor
+let editorInstance;
+ClassicEditor
+    .create(editorTextarea)
+    .then(editor => {
+        editorInstance = editor;
+    })
+    .catch(error => console.error('CKEditor Error:', error));
+
+// Fungsi untuk memisahkan YAML front matter dan konten Markdown
+function parseMarkdown(content) {
+    const match = content.match(/^---\n([\s\S]+?)\n---\n([\s\S]*)$/);
+    if (match) {
+        return {
+            yaml: match[1],    // Bagian YAML
+            markdown: match[2] // Bagian Markdown
+        };
+    }
+    return { yaml: '', markdown: content };
+}
+function stringifyMarkdown(yaml, markdown) {
+    return `---\n${yaml}\n---\n${markdown}`;
+}
+async function fetchFiles() {
+    try {
+        const response = await fetch(`${GITHUB_API_BASE}/${DIRECTORY_ARTIKEL}`, {
+            headers: { Authorization: `token ${TOKEN}` }
+        });
+
+        if (!response.ok) throw new Error('Gagal mengambil daftar file.');
+
+        const files = await response.json();
+
+        // Tampilkan file ke dalam daftar
+        fileListEl.innerHTML = files.map(file => `
+            <li class="list-group-item">
+                <a href="#" class="file-link" data-path="${file.path}">${file.name}</a>
+            </li>
+        `).join('');
+    } catch (error) {
+        console.error('Error fetching files:', error);
+        alert('Gagal mengambil daftar file dari GitHub.');
+    }
+}
+function processLinks(htmlContent) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+    doc.querySelectorAll('a').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'nofollow noopener noreferrer');
+    });
+    return doc.body.innerHTML;
+}
+function processMedia(htmlContent) {
+    return htmlContent.replace(
+        /<figure class="media_post">.*?<p class="trailer".*?data-url="(.*?)".*?>(.*?)<\/p>.*?<\/figure>/gs,
+        `<figure class="media"><oembed url="$1"></oembed></figure>`
+    );
+}
+function restoreMedia(htmlContent) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+
+    doc.querySelectorAll('figure.media oembed').forEach(oembed => {
+        const url = oembed.getAttribute('url');
+        const parent = oembed.closest('figure');
+        const heading = parent.previousElementSibling?.textContent || '';
+        const restoredFigure = `
+            <figure class="media_post">
+                <p class="trailer" data-title="${heading}" data-url="${url}">${url}</p>
+            </figure>
+        `;
+        parent.outerHTML = restoredFigure;
+    });
+
+    return doc.body.innerHTML;
+}
+function processImages(htmlContent) {
+    return htmlContent.replace(
+        /<figure class="image_post">.*?<img.*?data-src="(.*?)".*?width="(.*?)".*?height="(.*?)".*?alt="(.*?)".*?<\/figure>/gs,
+        `<figure class="image"><img style="aspect-ratio:$2/$3;" src="$1" width="$2" height="$3"></figure>`
+    );
+}
+function fixImageSrc(htmlContent) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+
+    doc.querySelectorAll('img').forEach(img => {
+        if (img.getAttribute('src') === 'data:,') {
+            const dataSrc = img.getAttribute('data-src');
+            if (dataSrc) {
+                img.setAttribute('src', dataSrc); // Gunakan data-src sebagai src
+            }
+        }
+    });
+
+    return doc.body.innerHTML;
+}
+function restoreImages(htmlContent) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+
+    doc.querySelectorAll('figure.image img').forEach(img => {
+        const src = img.getAttribute('src');
+        const width = img.getAttribute('width');
+        const height = img.getAttribute('height');
+        const heading = img.closest('figure').previousElementSibling?.textContent || '';
+        const restoredFigure = `
+            <figure class="image_post">
+                <img src="data:," data-src="${src}" width="${width}" height="${height}" class="lazy" alt="${heading}">
+            </figure>
+        `;
+        img.closest('figure').outerHTML = restoredFigure;
+    });
+
+    return doc.body.innerHTML;
+}
+function processImagesForAMP(htmlContent) {
+    return htmlContent.replace(
+        /<figure class="image">.*?<img.*?src="(.*?)".*?width="(.*?)".*?height="(.*?)".*?<\/figure>/gs,
+        `<figure class="image"><amp-img src="$1" width="$2" height="$3" layout="responsive"></amp-img></figure>`
+    );
+}
+async function loadFile(filePath) {
+    try {
+        const response = await fetch(`https://raw.githubusercontent.com/ajax-jquery/sabdaliterasi.shop/master/${filePath}`);
+        if (!response.ok) throw new Error('Gagal memuat file.');
+
+        const content = await response.text();
+        const { yaml, markdown } = parseMarkdown(content);
+
+        // Proses Markdown untuk CKEditor
+        let processedMarkdown = processLinks(markdown);
+        processedMarkdown = processMedia(processedMarkdown);
+        processedMarkdown = processImages(processedMarkdown);
+        processedMarkdown = fixImageSrc(processedMarkdown); // Tambahkan langkah ini
+
+        // Muat Markdown ke CKEditor dan simpan YAML
+        editorInstance.setData(processedMarkdown);
+        currentFilePath = filePath;
+        currentYaml = yaml;
+
+        editorModal.show();
+    } catch (error) {
+        console.error('Error loading file:', error);
+        alert('Gagal memuat file.');
+    }
+}
+function replaceITagWithEm(htmlContent) {
+    return htmlContent.replace(/<i\b[^>]*>(.*?)<\/i>/g, '<em>$1</em>');
+}
+async function saveFile() {
+    try {
+        let markdown = editorInstance.getData();
+
+        // Proses Markdown untuk disimpan kembali
+        markdown = replaceITagWithEm(markdown); // Ubah <i> menjadi <em>
+        let restoredMarkdown = restoreMedia(markdown);
+        restoredMarkdown = restoreImages(restoredMarkdown);
+
+        // Gabungkan kembali YAML dan Markdown
+        const content = stringifyMarkdown(currentYaml, restoredMarkdown);
+        const encodedContent = btoa(unescape(encodeURIComponent(content))); // Encode ke Base64
+
+        // Payload untuk API GitHub
+        const payloadArtikel = {
+            message: `Update file: ${currentFilePath}`,
+            content: encodedContent,
+            sha: await getFileSha(`${DIRECTORY_ARTIKEL}/${getFileName(currentFilePath)}`)
+        };
+
+        // Simpan ke direktori _artikel
+        await updateFile(`${DIRECTORY_ARTIKEL}/${getFileName(currentFilePath)}`, payloadArtikel);
+
+        // Proses untuk AMP
+        let ampContent = replaceITagWithEm(markdown); // Pastikan <i> diubah menjadi <em> untuk AMP
+        ampContent = processLinks(ampContent);
+        ampContent = processMedia(ampContent);
+        ampContent = processImagesForAMP(ampContent);
+
+        const ampPayload = {
+            message: `Update file: ${currentFilePath} (AMP)`,
+            content: btoa(unescape(encodeURIComponent(stringifyMarkdown(currentYaml, ampContent)))),
+            sha: await getFileSha(`${DIRECTORY_AMP}/${getFileName(currentFilePath)}`)
+        };
+
+        // Simpan ke direktori _amp
+        await updateFile(`${DIRECTORY_AMP}/${getFileName(currentFilePath)}`, ampPayload);
+
+        alert('File berhasil disimpan.');
+        editorModal.hide();
+    } catch (error) {
+        console.error('Error saving file:', error);
+        alert('Gagal menyimpan file.');
+    }
+}
+async function updateFile(filePath, payload) {
+    console.log('Updating file:', filePath, 'with payload:', payload);
+    const response = await fetch(`${GITHUB_API_BASE}/${filePath}`, {
+        method: 'PUT',
+        headers: {
+            Authorization: `token ${TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+        const errorDetails = await response.json();
+        console.error('GitHub API Error:', errorDetails);
+        throw new Error(`Gagal mengupdate file: ${filePath}`);
+    }
+
+    console.log('File updated successfully:', filePath);
+}
+async function getFileSha(filePath) {
+    try {
+        const response = await fetch(`${GITHUB_API_BASE}/${filePath}`, {
+            headers: { Authorization: `token ${TOKEN}` }
+        });
+
+        if (!response.ok) throw new Error('Gagal mendapatkan SHA file.');
+
+        const fileData = await response.json();
+        return fileData.sha;
+    } catch (error) {
+        console.error('Error getting file SHA:', error);
+        throw error;
+    }
+}
+
+
+
+async function checkFileExists(filePath) {
+    const response = await fetch(`${GITHUB_API_BASE}/${filePath}`, {
+        headers: { Authorization: `token ${TOKEN}` }
+    });
+
+    if (response.ok) {
+        const fileData = await response.json();
+        return fileData.sha; // Kembalikan SHA jika file ada
+    } else {
+        console.warn(`File tidak ditemukan: ${filePath}`);
+        return null;
+    }
+}
+
+
+// Ambil nama file dari path
+function getFileName(filePath) {
+    return filePath.split('/').pop();
+}
+
+// Event Listener untuk klik file di daftar
+fileListEl.addEventListener('click', event => {
+    if (event.target.classList.contains('file-link')) {
+        event.preventDefault();
+        const filePath = event.target.dataset.path;
+        loadFile(filePath);
+    }
+});
+
+// Event Listener untuk tombol simpan di modal
+document.getElementById('save-btn').addEventListener('click', saveFile);
+
+// Inisialisasi aplikasi
+fetchFiles();
+
+</script>
+</body>
+</html>
