@@ -1,29 +1,26 @@
 {
   "ipVersion": 4,
-  "ipAddress": "203.153.20.216",
-  "latitude": 1.68333,
-  "longitude": 101.449997,
-  "countryName": "Indonesia",
-  "countryCode": "ID",
-  "timeZone": "+07:00",
-  "zipCode": "28826",
-  "cityName": "Dumai",
-  "regionName": "Riau",
+  "ipAddress": "45.115.73.214",
+  "latitude": -8.55861,
+  "longitude": 125.573608,
+  "countryName": "Timor-Leste",
+  "countryCode": "TL",
+  "timeZone": "+09:00",
+  "zipCode": "-",
+  "cityName": "Dili",
+  "regionName": "Dili",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "IDR",
-    "name": "Rupiah"
+    "code": "USD",
+    "name": "US Dollar"
   },
-  "language": "Indonesian",
+  "language": "Portuguese",
   "timeZones": [
-    "Asia/Jakarta",
-    "Asia/Jayapura",
-    "Asia/Makassar",
-    "Asia/Pontianak"
+    "Asia/Dili"
   ],
   "tlds": [
-    ".id"
+    ".tl"
   ]
 }
