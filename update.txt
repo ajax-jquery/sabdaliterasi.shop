@@ -1,28 +1,29 @@
 {
   "ipVersion": 4,
-  "ipAddress": "141.0.8.238",
-  "latitude": 1.289987,
-  "longitude": 103.850281,
-  "countryName": "Singapore",
-  "countryCode": "SG",
+  "ipAddress": "140.213.1.8",
+  "latitude": -5.139977,
+  "longitude": 119.422234,
+  "countryName": "Indonesia",
+  "countryCode": "ID",
   "timeZone": "+08:00",
-  "zipCode": "178958",
-  "cityName": "Singapore",
-  "regionName": "Singapore",
+  "zipCode": "90215",
+  "cityName": "Makassar",
+  "regionName": "Sulawesi Selatan",
   "isProxy": false,
   "continent": "Asia",
   "continentCode": "AS",
   "currency": {
-    "code": "SGD",
-    "name": "Singapore Dollar"
+    "code": "IDR",
+    "name": "Rupiah"
   },
-  "language": "Mandarin",
+  "language": "Indonesian",
   "timeZones": [
-    "Asia/Singapore"
+    "Asia/Jakarta",
+    "Asia/Jayapura",
+    "Asia/Makassar",
+    "Asia/Pontianak"
   ],
   "tlds": [
-    ".sg",
-    ".新加坡",
-    ".சிங்கப்பூர்"
+    ".id"
   ]
 }
