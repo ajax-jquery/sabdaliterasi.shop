@@ -34,7 +34,7 @@ layout: null
 <item>
         <title>{{ post.title | xml_escape }}</title>
 
-        <category><![CDATA[{{ post.tag }}]]></category>
+        <category><![CDATA[#{{ post.tag }}]]></category>
         {% for cat in post.keyword %}
         <category><![CDATA[#{{ cat | xml_escape | replace: " ",""}}]]></category>
         {% endfor %}
