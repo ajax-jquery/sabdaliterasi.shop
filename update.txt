@@ -1,29 +1,48 @@
 {
   "ipVersion": 4,
-  "ipAddress": "182.2.234.52",
-  "latitude": -0.8917,
-  "longitude": 119.870697,
-  "countryName": "Indonesia",
-  "countryCode": "ID",
-  "timeZone": "+08:00",
-  "zipCode": "94229",
-  "cityName": "Palu",
-  "regionName": "Sulawesi Tengah",
+  "ipAddress": "5.181.233.162",
+  "latitude": 45.508839,
+  "longitude": -73.587807,
+  "countryName": "Canada",
+  "countryCode": "CA",
+  "timeZone": "-04:00",
+  "zipCode": "H1A 0A1",
+  "cityName": "Montreal",
+  "regionName": "Quebec",
   "isProxy": false,
-  "continent": "Asia",
-  "continentCode": "AS",
+  "continent": "Americas",
+  "continentCode": "AM",
   "currency": {
-    "code": "IDR",
-    "name": "Rupiah"
+    "code": "CAD",
+    "name": "Canadian Dollar"
   },
-  "language": "Indonesian",
+  "language": "English",
   "timeZones": [
-    "Asia/Jakarta",
-    "Asia/Jayapura",
-    "Asia/Makassar",
-    "Asia/Pontianak"
+    "America/Atikokan",
+    "America/Blanc-Sablon",
+    "America/Cambridge_Bay",
+    "America/Creston",
+    "America/Dawson",
+    "America/Dawson_Creek",
+    "America/Edmonton",
+    "America/Fort_Nelson",
+    "America/Glace_Bay",
+    "America/Goose_Bay",
+    "America/Halifax",
+    "America/Inuvik",
+    "America/Iqaluit",
+    "America/Moncton",
+    "America/Rankin_Inlet",
+    "America/Regina",
+    "America/Resolute",
+    "America/St_Johns",
+    "America/Swift_Current",
+    "America/Toronto",
+    "America/Vancouver",
+    "America/Whitehorse",
+    "America/Winnipeg"
   ],
   "tlds": [
-    ".id"
+    ".ca"
   ]
 }
