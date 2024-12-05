@@ -52,3 +52,32 @@
     ".us"
   ]
 }
+{
+  "ipVersion": 4,
+  "ipAddress": "182.2.234.52",
+  "latitude": -0.8917,
+  "longitude": 119.870697,
+  "countryName": "Indonesia",
+  "countryCode": "ID",
+  "timeZone": "+08:00",
+  "zipCode": "94229",
+  "cityName": "Palu",
+  "regionName": "Sulawesi Tengah",
+  "isProxy": false,
+  "continent": "Asia",
+  "continentCode": "AS",
+  "currency": {
+    "code": "IDR",
+    "name": "Rupiah"
+  },
+  "language": "Indonesian",
+  "timeZones": [
+    "Asia/Jakarta",
+    "Asia/Jayapura",
+    "Asia/Makassar",
+    "Asia/Pontianak"
+  ],
+  "tlds": [
+    ".id"
+  ]
+}
