@@ -39,6 +39,7 @@
     "https://sabdaliterasi.xyz/fundamentalisme-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/filsafat-di-masa-kini/",
     "https://sabdaliterasi.xyz/filsafat-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/hermeneutika-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/hermeneutika-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/john-locke-sebuah-pengantar-singkat/"
   ]
 }
