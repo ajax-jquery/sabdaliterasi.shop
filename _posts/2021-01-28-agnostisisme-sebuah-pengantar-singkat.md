@@ -1,13 +1,14 @@
 ---
-layout: post
 author: Robin Le Poidevin
 title: Agnostisisme; Sebuah Pengantar Singkat
 harga: Rp25.000
 buy: https://lynk.id/sabdaliterasi/YrQbWp5
 description: Apakah agnostisisme adalah sekadar mengangkat bahu atas pertanyaan seputar Tuhan? Le Poidevin menjelaskan bahwa agnostisisme tidak sesederhana itu.
-permalink: /agnostisisme-sebuah-pengantar-singkat/
 image: https://sabdaliterasi.xyz/wp-conten/file/produk/agnostisisme-sebuah-pengantar-singkat.jpg
 keyword: [Robin Le Poidevin, Agnostisisme, Agnostisisme ebook, Ateis, teis]
 ISBN: "9786236699232"
+penerbit: "IRCiSoD"
 ---
 <p>Pernahkah kamu mempertanyakan keberadaan Tuhan? Atau merasa ragu dengan konsep ketuhanan yang diajarkan agama? Jika iya, kamu mungkin seorang agnostik. Tapi apa sebenarnya agnostisisme itu? Apakah hanya sekedar mengangkat bahu dan berkata "Entahlah" saat ditanya tentang Tuhan?</p><p>Buku "Agnostisisme; Sebuah Pengantar Singkat" karya Robin Le Poidevin ini akan membawamu menyelami lebih dalam dunia agnostisisme. Dengan bahasa yang mudah dipahami, buku ini mengupas tuntas seluk-beluk agnostisisme, mulai dari definisi, sejarah, hingga argumen-argumen kunci yang mendasarinya.</p><p>Penulis dengan apik membedah perdebatan klasik antara teisme (keyakinan akan Tuhan) dan ateisme (keyakinan bahwa Tuhan tidak ada), memberikan perspektif baru yang menarik. Le Poidevin mengajak kita untuk melihat agnostisisme bukan sekedar posisi netral di antara keduanya, melainkan sebuah sikap kritis yang menguji klaim-klaim kebenaran tentang Tuhan.</p><p>Lebih dari itu, buku ini juga menunjukkan bahwa agnostisisme tidak hanya terbatas pada ranah agama. Prinsip-prinsip agnostisisme, seperti mengakui keterbatasan pengetahuan manusia dan menjunjung tinggi sikap skeptis yang sehat, dapat diterapkan dalam berbagai aspek kehidupan, mulai dari sains, moral, hingga kehidupan sehari-hari.</p><p>Melalui buku ini, kamu akan diajak untuk:</p><ul><li><strong>Memahami berbagai jenis agnostisisme</strong>, mulai dari agnostisisme etis, epistemologis, hingga agnostisisme metafisik.</li><li><strong>Menelusuri akar sejarah agnostisisme</strong>, dari pemikir Yunani Kuno seperti Sextus Empiricus hingga Thomas Huxley, sosok yang pertama kali mencetuskan istilah "agnostisisme".</li><li><strong>Mendalami argumen-argumen kunci dalam filsafat agnostisisme</strong>, seperti argumen dari kejahatan, argumen kosmologis, dan argumen ontologis.</li><li><strong>Menerapkan prinsip-prinsip agnostisisme dalam kehidupan sehari-hari</strong>, misalnya dalam menyikapi perbedaan pendapat, mencari kebenaran, dan membangun toleransi.</li></ul><p>"Agnostisisme; Sebuah Pengantar Singkat" adalah bacaan wajib bagi siapapun yang tertarik untuk memperdalam pemahaman tentang agnostisisme, filsafat, dan agama. Buku ini menawarkan pandangan yang jernih, objektif, dan mencerahkan tentang salah satu aliran pemikiran paling relevan di era modern ini.</p><p>Dengan membaca buku ini, kamu tidak hanya akan memahami apa itu agnostisisme, tetapi juga akan diajak untuk berpikir kritis, menghormati perbedaan, dan menjalani hidup dengan lebih bijaksana.</p>
+
+

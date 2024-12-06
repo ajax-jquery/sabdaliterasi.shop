@@ -1,13 +1,14 @@
 ---
-layout: post
 author: A. Asnawi
 title: Che Guevara, Paulo Freire Dan Politik Harapan
 buy: https://lynk.id/sabdaliterasi/wLdmQwQ
 harga: Rp35.000
 image: https://sabdaliterasi.xyz/wp-conten/file/produk/che-guevara-paulo-freire-dan-politik-harapan.jpg
 description: Mengapa Che? Mengapa Freire? Jawaban paling pokok untuk ini adalah karena kita sudah kekurangan tokoh yang bisa diidolakan, sehingga kita mencari pahl
-permalink: /che-guevara-paulo-freire-dan-politik-harapan/
 keyword: [che, freire,che guevara, paulo freire, buku filsafat pendidikan, ebook pendidikan alternatif, politik, filsafat politik, politik barat]
 ISBN: "978-602-6559-33-3"
+penerbit: "Indoliterasi"
 ---
 <p>Dalam dunia yang dipenuhi ketidakpastian dan ketidakadilan, <strong>harapan</strong> menjadi lentera yang menerangi jalan menuju perubahan. Buku "<em><strong>Che Guevara, Paulo Freire Dan Politik Harapan</strong></em>" karya <em><strong>A. Asnawi</strong></em> mengajak kita menyelami pemikiran dua tokoh revolusioner, <em><strong>Che Guevara</strong></em> dan <em><strong>Paulo Freire</strong></em>, yang mewariskan semangat perjuangan dan pembebasan bagi umat manusia.</p><p>Melalui analisis mendalam terhadap pemikiran <em><strong>Che Guevara</strong></em>, kita diajak memahami konsep <em><strong>revolusi</strong></em> bukan hanya sebagai perubahan politik, tetapi juga transformasi sosial yang membebaskan masyarakat dari belenggu penindasan. <em><strong>Guevara</strong></em>, sang gerilyawan humanis, mengajarkan pentingnya keberpihakan pada kaum tertindas dan menentang segala bentuk ketidakadilan.</p><p>Di sisi lain, <em><strong>Paulo Freire</strong></em>, seorang pendidik revolusioner, menawarkan pendekatan <em><strong>pendidikan kritis</strong></em> yang membebaskan manusia dari kungkungan kebodohan dan penindasan. <em><strong>Freire</strong></em> mengajarkan bahwa pendidikan sejati adalah proses dialogis yang membangun kesadaran kritis dan mendorong partisipasi aktif dalam mewujudkan masyarakat yang adil dan bermartabat.</p><p>Buku ini dengan apik menjalin benang merah antara pemikiran <em><strong>Guevara</strong></em> dan <em><strong>Freire</strong></em>, menunjukkan relevansi gagasan mereka dalam konteks perjuangan kontemporer. <em><strong>Politik harapan</strong></em> yang digaungkan kedua tokoh ini bukanlah utopia, melainkan sebuah pandangan yang berakar pada keyakinan akan kemampuan manusia untuk mengubah nasibnya.</p><p>Dengan bahasa yang lugas dan mudah dipahami, buku ini menawarkan bacaan berharga bagi siapapun yang mendambakan perubahan sosial. Mahasiswa, aktivis, pendidik, dan semua pihak yang tertarik pada isu-isu <em><strong>keadilan sosial</strong></em>, <em><strong>pembebasan</strong></em>, dan <em><strong>revolusi</strong></em> akan menemukan inspirasi dan pencerahan dalam buku ini.</p><p>Lebih dari sekadar biografi, buku "<em><strong>Che Guevara, Paulo Freire Dan Politik Harapan</strong></em>" merupakan sebuah ajakan untuk merefleksikan kondisi dunia saat ini dan berperan aktif dalam mewujudkan masa depan yang lebih baik. Buku ini mengingatkan kita bahwa <em><strong>harapan</strong></em> bukanlah sebuah kemewahan, melainkan kekuatan yang mampu menggerakkan perubahan.</p>
+
+

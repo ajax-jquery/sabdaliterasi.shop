@@ -1,13 +1,14 @@
 ---
-layout: post
 author: Seneca
 title: How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah
 buy: https://lynk.id/sabdaliterasi/Ay8P09K
 harga: Rp45.000
 image: https://sabdaliterasi.xyz/wp-conten/file/produk/how-to-keep-your-cool-sebuah-panduan-klasik-mengelola-amarah.jpg
 description: Dalam buku How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah, Seneca mengajarkan berbagai prinsip dan strategi untuk mengelola emosi, khus
-permalink: /how-to-keep-your-cool/
 keyword: [stoik, kebahagiaan, self improvment, cara tidak marah, marah, agar tidak gampang marah]
 ISBN: "9786024815882"
+penerbit: "Kepustakaan Populer Gramedia"
 ---
 <p>Pernahkah kamu merasa amarah menguasai diri, membuatmu berkata atau bertindak di luar kendali? Rasanya seperti api yang membakar, menghanguskan akal sehat dan merusak hubunganmu dengan orang lain. Tenang, kamu tidak sendiri! Seneca, filsuf Stoa Romawi yang hidup di abad pertama Masehi, telah merumuskan panduan klasik untuk mengelola amarah dalam bukunya yang abadi, <strong>"How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah"</strong>.</p><p>Buku ini, diterbitkan oleh Kepustakaan Populer Gramedia (2021), bukan sekadar kumpulan kutipan bijak, melainkan sebuah peta jalan menuju ketenangan jiwa. Seneca, dengan gaya bahasa yang lugas dan mudah dipahami, membedah anatomi amarah, mengungkap akar penyebabnya, dan yang terpenting, menawarkan strategi praktis untuk menjinakkannya.</p><p>Bayangkan, kamu akan diajak menyelami pemikiran Stoa yang mendalam, belajar mengenali pemicu amarah, mengantisipasi gejolak emosi, dan merespons situasi sulit dengan kepala dingin. Seneca dengan cerdas menunjukkan bahwa amarah bukanlah solusi, melainkan bentuk kegilaan yang membutakan dan merugikan.</p><p><strong>"How to Keep Your Cool"</strong> memberikan nilai plus dengan menghubungkan filosofi Stoa dengan kehidupan modern. Kamu akan menemukan kiat-kiat yang relevan untuk mengatasi berbagai situasi pemicu amarah, mulai dari kemacetan lalu lintas, konflik di tempat kerja, hingga pertengkaran dengan orang tercinta.</p><p>Lebih dari sekadar mengendalikan amarah, buku ini membantumu mengembangkan <strong>kecerdasan emosional</strong> dan <strong>ketangguhan mental</strong>. Kamu akan belajar menerima kenyataan dengan lapang dada, memaafkan diri sendiri dan orang lain, serta menemukan kebahagiaan sejati yang bebas dari belenggu emosi negatif.</p><p>Membaca <strong>"How to Keep Your Cool"</strong> adalah investasi berharga bagi diri sendiri. Dengan menguasai amarah, kamu akan mengalami transformasi hidup yang luar biasa:</p><ul><li><strong>Hubungan yang lebih harmonis:</strong> Komunikasi yang efektif, mengurangi konflik, dan meningkatkan keintiman dengan orang-orang terdekat.</li><li><strong>Produktivitas meningkat:</strong> Fokus dan konsentrasi yang lebih baik, meningkatkan kinerja di tempat kerja dan mencapai tujuan hidup.</li><li><strong>Kesehatan mental yang lebih baik:</strong> Mengurangi stres, kecemasan, dan depresi, menciptakan kedamaian batin dan meningkatkan kualitas hidup.</li></ul><p>Jadi, tunggu apa lagi? Segera dapatkan buku <strong>"How to Keep Your Cool; Sebuah Panduan Klasik Mengelola Amarah"</strong> dan mulailah perjalananmu menuju kehidupan yang lebih tenang, bahagia, dan bermakna. Kunci kebahagiaan ada di tanganmu!</p>
+
+

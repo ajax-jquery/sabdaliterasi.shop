@@ -1,14 +1,15 @@
 ---
-layout: post
 author: Reuben Osborn
 title: Marx dan Freud; Marxisme dan Psikoanalisis
 harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/Dr87P1o
 description: Karl Marx dan Sigmund Freud memang adalah dua tokoh dengan background keilmuan yang berbeda. Sigmund Freud sebagai seorang ahli Psikologi dengan teori psikoanalisis.
-permalink: /marx-dan-freud-marxisme-dan-psikoanalisis/
 image: https://sabdaliterasi.xyz/wp-conten/file/produk/marx-dan-freud-marxisme-dan-psikoanalisis.svg
 keyword: [karl marx, marx, freud, sigmund freud, psikoanalisis, marxisme, buku psikoanalisis, ebook marx]
 ISBN: "978-623-7378-84-6"
+penerbit: "IRCiSoD"
 ---
 
 <p>Dalam dunia yang terus berubah, di mana ideologi dan pemahaman manusia menjadi sorotan utama, sebuah buku hadir untuk menjembatani dua pemikiran raksasa yang telah mengguncang dunia: Marxisme dan Psikoanalisis. Reuben Osborn, dalam mahakaryanya "Marx dan Freud; Marxisme dan Psikoanalisis", dengan cermat menelusuri benang merah antara pemikiran Karl Marx dan Sigmund Freud, dua tokoh yang telah mengubah cara kita memandang masyarakat dan diri kita sendiri.</p><p>Buku ini bukanlah sekadar perbandingan teori kering yang memusingkan. Osborn dengan piawai menjabarkan bagaimana Marxisme, dengan fokusnya pada struktur masyarakat dan perjuangan kelas, beresonansi dengan Psikoanalisis yang menyelami kedalaman pikiran dan alam bawah sadar manusia. Ia mengungkap bagaimana kedua pemikiran ini, meskipun lahir dari disiplin ilmu yang berbeda, saling melengkapi dalam memahami kompleksitas manusia dan peradaban.</p><p>Osborn dengan fasih menjelaskan konsep-konsep kunci dalam Marxisme, seperti materialisme historis, alienasi, dan perjuangan kelas, serta pilar-pilar Psikoanalisis seperti id, ego, superego, dan kompleks Oedipus. Ia menunjukkan bagaimana kedua perspektif ini dapat digunakan untuk menganalisis fenomena sosial, budaya, dan politik, dari revolusi sosial hingga dinamika keluarga.</p><p>Lebih dari sekadar kajian akademis, "Marx dan Freud; Marxisme dan Psikoanalisis" menawarkan perspektif baru dalam memahami diri kita sendiri dan dunia di sekitar kita. Buku ini mengajak kita untuk merenungkan pertanyaan-pertanyaan mendasar tentang eksistensi manusia, seperti: Apa yang mendorong tindakan kita? Bagaimana masyarakat membentuk kepribadian kita? Bagaimana kita bisa mencapai pembebasan sejati, baik secara individual maupun kolektif?</p><p>Dengan bahasa yang lugas dan mudah dipahami, buku ini menjadi jembatan bagi siapa pun yang ingin menjelajahi dunia pemikiran Marx dan Freud. Baik Anda seorang mahasiswa, akademisi, atau pembaca umum yang tertarik pada filsafat, psikologi, dan ilmu sosial, buku ini akan memperkaya wawasan Anda dan membuka cakrawala baru dalam memahami diri sendiri dan dunia.</p><p>"Marx dan Freud; Marxisme dan Psikoanalisis" adalah sebuah karya yang wajib dibaca bagi mereka yang ingin memahami akar permasalahan sosial dan individu, serta mencari solusi untuk menciptakan dunia yang lebih adil dan manusiawi. Melalui buku ini, Reuben Osborn telah memberikan kontribusi penting dalam memperkaya khazanah intelektual dan mendorong dialog kritis antara dua pemikiran besar yang terus relevan hingga saat ini.</p>
+
+

@@ -1,13 +1,14 @@
 ---
-layout: post
 author: Ahmad Asnawi
 title: Sejarah Para Filsuf Dunia
 harga: Rp37.500
 buy: https://lynk.id/sabdaliterasi/zYQJB5N
 description: Buku Sejarah Para Filsuf Dunia ini berisi 90 tokoh filsafat baik kuno maupun modern yang akan memperkaya khasanah pengetahuan Anda.
-permalink: /sejarah-para-filsuf-dunia/
 image: https://sabdaliterasi.xyz/wp-conten/file/produk/sejarah-para-filsuf-dunia.jpg
 keyword: [tokoh filsuf, siapa saja fisuf dunia, filsuf, tokoh filsafat, pemikiran tokoh filsafat, pemikiran tokoh]
 ISBN: "978-602-1129-15-9"
+penerbit: "Indoliterasi"
 ---
 <p>Pernahkah Anda bertanya-tanya, dari mana datangnya ide-ide besar yang membentuk peradaban manusia? <em><strong>Sejarah Para Filsuf Dunia</strong></em>, karya <em><strong>Ahmad Asnawi</strong></em>, akan membawa Anda menelusuri perjalanan pemikiran 90 <em>filsuf</em> terhebat sepanjang masa. Buku ini merupakan pintu gerbang untuk memahami sejarah <em>filsafat</em> dunia, dari zaman Yunani Kuno hingga era kontemporer.</p><p><em><strong>Sejarah Para Filsuf Dunia</strong></em> menyajikan biografi dan pemikiran para <em>filsuf</em> secara ringkas, padat, dan mudah dipahami. Anda akan bertemu dengan tokoh-tokoh legendaris seperti <em>Socrates</em>, <em>Plato</em>, <em>Aristoteles</em>, <em>Descartes</em>, <em>Kant</em>, <em>Nietzsche</em>, dan masih banyak lagi. Setiap <em>filsuf</em> diperkenalkan dengan gaya bercerita yang menarik, mengungkap kisah hidup, perjalanan intelektual, dan kontribusi mereka bagi perkembangan pemikiran manusia.</p><p>Buku ini tidak hanya menyajikan <em>sejarah filsafat</em> secara kronologis, tetapi juga mengelompokkan para <em>filsuf</em> berdasarkan aliran dan mazhab <em>filsafat</em> yang mereka anut, seperti <em>idealisme</em>, <em>realisme</em>, <em>empirisme</em>, <em>rasionalisme</em>, <em>eksistensialisme</em>, dan lain-lain. Dengan demikian, Anda dapat memahami perkembangan pemikiran <em>filsafat</em> secara sistematis dan komprehensif.</p><p><em><strong>Sejarah Para Filsuf Dunia</strong></em> menawarkan berbagai nilai plus, di antaranya:</p><ul><li><em><strong>Lengkap</strong></em>: Membahas 90 <em>filsuf</em> terhebat dari berbagai zaman dan aliran.</li><li><em><strong>Ringkas dan Padat</strong></em>: Menyajikan informasi secara efisien dan mudah dicerna.</li><li><em><strong>Bahasa yang Mudah Dipahami</strong></em>: Ditulis dengan gaya bahasa yang populer dan menarik.</li><li><em><strong>Dilengkapi Gambar</strong></em>: Memuat foto para <em>filsuf</em> dan ilustrasi yang menarik.</li></ul><p>Membaca <em><strong>Sejarah Para Filsuf Dunia</strong></em> sangat penting karena:</p><ul><li>Memperluas wawasan dan pengetahuan tentang <em>sejarah filsafat</em>.</li><li>Memahami perkembangan pemikiran manusia dari masa ke masa.</li><li>Mempelajari ide-ide besar yang telah membentuk peradaban.</li><li>Meningkatkan kemampuan berpikir kritis dan analitis.</li><li>Menginspirasi dan memotivasi untuk mengembangkan potensi diri.</li></ul><p>Buku ini cocok dibaca oleh siapa pun yang tertarik dengan dunia <em>filsafat</em>, baik <em>mahasiswa</em>, <em>akademisi</em>, maupun masyarakat umum. Jadikan <em><strong>Sejarah Para Filsuf Dunia</strong></em> sebagai teman setia Anda dalam menjelajahi khazanah pemikiran manusia dan menemukan jawaban atas pertanyaan-pertanyaan besar kehidupan.</p>
+
+
