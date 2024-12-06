@@ -1,13 +1,14 @@
 ---
-layout: page
 author: Aristoteles
 title: Metafisika
 buy: https://lynk.id/sabdaliterasi/WMwPX3v
 harga: Rp37.500
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/18-03-2023/1679117539036_8816123
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/metafisika-aristoteles.jpg
 description: Aristoteles adalah salah satu filsuf awal yang membahas metafisika. Oleh karena itu, buku Metafisika menjadi salah satu karya penting dalam sejarah fi
-permalink: /amp/metafisika-aristoteles/
-permalink1: /metafisika-aristoteles/
 keyword: [metafisika, Aristoteles tentang metafisika, pemikiran Aristoteles, karya-karya Aristoteles, filsafat metafisika, pengantar metafisika]
+ISBN: "978-623-7290-65-0"
+penerbit: "Basabasi"
 ---
 <p>Apa itu realitas? Apa penyebab segala sesuatu yang ada di dunia ini? Bagaimana hubungan antara materi dan bentuk? Jika pertanyaan-pertanyaan ini pernah terlintas di benakmu, maka kamu sedang bersentuhan dengan ranah <strong>metafisika</strong>.</p><p>Aristoteles, filsuf Yunani kuno yang brilian, menjelajahi pertanyaan-pertanyaan mendasar tentang hakikat realitas dalam karya monumentalnya yang berjudul <strong>"Metafisika"</strong>. Diterbitkan oleh <strong>Penerbit Basa Basi pada tahun 2020</strong>, buku ini mengajak kita untuk menyelami pemikiran Aristoteles tentang prinsip-prinsip pertama yang mendasari segala sesuatu.</p><p>Dalam <strong>"Metafisika"</strong>, Aristoteles membahas berbagai topik penting, di antaranya:</p><ul><li><strong>Hakikat keberadaan:</strong> Aristoteles menganalisis apa artinya "ada" dan bagaimana sesuatu dapat dikatakan eksis. Ia membedakan antara keberadaan potensial dan keberadaan aktual.</li><li><strong>Substansi dan aksiden:</strong> Aristoteles menjelaskan perbedaan antara substansi (inti dari sesuatu) dan aksiden (sifat-sifat yang melekat pada substansi).</li><li><strong>Sebab-sebab keberadaan:</strong> Aristoteles mengidentifikasi empat sebab yang menjelaskan mengapa sesuatu ada, yaitu sebab material, sebab formal, sebab efisien, dan sebab final.</li><li><strong>Tuhan sebagai Penggerak Pertama:</strong> Aristoteles mengemukakan argumen tentang adanya Tuhan sebagai sumber utama dari segala gerakan dan perubahan di alam semesta.</li></ul><p><strong>Nilai plus</strong> buku ini terletak pada kedalaman analisis Aristoteles dan pengaruhnya yang besar terhadap sejarah pemikiran Barat. <strong>"Metafisika"</strong> merupakan fondasi bagi banyak disiplin ilmu dan masih relevan untuk dipelajari hingga saat ini.</p><p><strong>Mengapa kamu harus membaca buku ini?</strong></p><ul><li><strong>Memahami hakikat realitas:</strong> Aristoteles memberikan kerangka berpikir yang sistematis untuk memahami struktur dasar dari alam semesta.</li><li><strong>Mengembangkan kemampuan berpikir kritis:</strong> Buku ini melatih kamu untuk bertanya, menganalisis, dan mengevaluasi gagasan-gagasan tentang realitas.</li><li><strong>Memperluas wawasan filosofis:</strong> <strong>"Metafisika"</strong> merupakan karya klasik yang membuka cakrawala pemikiran kamu tentang dunia dan eksistensi.</li><li><strong>Menjadi pribadi yang lebih bijaksana:</strong> Mempelajari pemikiran Aristoteles akan membantu kamu dalam merenungkan pertanyaan-pertanyaan besar tentang hidup dan alam semesta.</li></ul><p>Buku <strong>"Metafisika"</strong> sangat penting dibaca oleh siapapun yang ingin:</p><ul><li><strong>Mempelajari filsafat klasik.</strong></li><li><strong>Mendalami pemikiran Aristoteles.</strong></li><li><strong>Memahami hakikat realitas.</strong></li><li><strong>Mengembangkan kemampuan berpikir filosofis.</strong></li></ul><p>Jadi, tunggu apa lagi? Segera dapatkan buku <strong>"Metafisika"</strong> dan mulailah perjalananmu menjelajahi kedalaman pemikiran Aristoteles!</p>
+
+

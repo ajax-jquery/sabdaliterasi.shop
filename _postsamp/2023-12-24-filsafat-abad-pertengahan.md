@@ -1,14 +1,14 @@
 ---
-layout: page
 author: "Frederick Denison Maurice, M.A."
 title: "Filsafat Abad Pertengahan"
 buy: https://lynk.id/sabdaliterasi/P9QpwqE
 harga: Rp45.500
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/24-12-2023/1703408611053_5917883
-permalink: /amp/filsafat-abad-pertengahan/
-permalink1: /filsafat-abad-pertengahan/
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/filsafat-abad-pertengahan.jpg
 keyword: [sejarah filsafat, filsafat pertengahan, pengantar fisafat]
 description: "Filsafat Abad pertengahan adalah filsafat di era yang dikenal sebagai abad pertengahan (medieval atau Middle Ages), periode sejarah yang membentang da..."
+ISBN: "9786025644139"
+penerbit: "Indoliterasi"
 ---
-
 <p>Bayangkan sebuah perjalanan menelusuri lorong waktu, kembali ke masa di mana peradaban Barat dibentuk oleh pergumulan antara iman dan akal, antara wahyu Tuhan dan filsafat Yunani kuno. Inilah yang ditawarkan oleh buku <em><strong>Filsafat Abad Pertengahan</strong></em> karya <strong>Frederick Denison Maurice</strong>.</p><p>Maurice, seorang teolog dan sejarawan terkemuka, dengan apik menuntun kita memahami <em><strong>filsafat skolastik</strong></em> yang berkembang dari abad ke-9 hingga ke-15. Ia mengupas tuntas pemikiran para filsuf dan teolog besar seperti <em><strong>John Scotus Erigena</strong></em>, <em><strong>Anselmus</strong></em>, <em><strong>Thomas Aquinas</strong></em>, <em><strong>Duns Scotus</strong></em>, hingga <em><strong>William of Ockham</strong></em>.</p><p>Buku ini bukanlah sekadar katalog pemikiran para filsuf. Maurice menghidupkan kembali perdebatan intelektual yang menjadi landasan <em><strong>teologi Kristen</strong></em> di Eropa. Bagaimana para pemikir ini bergulat dengan pertanyaan-pertanyaan mendasar tentang keberadaan Tuhan, hakikat manusia, dan hubungan antara iman dan akal? Bagaimana mereka mencoba merangkul <em><strong>filsafat Aristoteles</strong></em> dan <em><strong>Plato</strong></em> ke dalam kerangka <em><strong>ajaran Kristen</strong></em>?</p><p>Dengan bahasa yang jernih dan mudah dipahami, Maurice menjabarkan <em><strong>sejarah filsafat abad pertengahan</strong></em> secara runut dan sistematis. Ia menunjukkan bagaimana <em><strong>filsafat skolastik</strong></em> bukanlah periode stagnansi intelektual, melainkan masa perkembangan pemikiran yang dinamis dan berpengaruh besar terhadap peradaban Barat.</p><p>Lebih dari sekadar <em><strong>sejarah filsafat</strong></em>, buku ini menawarkan wawasan tentang <em><strong>perkembangan intelektual</strong></em> manusia. Kita diajak untuk merenungkan pertanyaan-pertanyaan abadi yang masih relevan hingga saat ini. Bagaimana kita memahami dunia di sekitar kita? Apa arti menjadi manusia? Bagaimana kita mencari kebenaran?</p><p>Membaca <em><strong>Filsafat Abad Pertengahan</strong></em> adalah menyelami kedalaman pemikiran para tokoh intelektual yang telah membentuk peradaban kita. Buku ini penting bagi siapa pun yang ingin memahami akar <em><strong>budaya Barat</strong></em> dan <em><strong>pemikiran Kristen</strong></em>, serta bagi mereka yang tertarik pada <em><strong>sejarah intelektual</strong></em> dan <em><strong>filsafat</strong></em>.</p><p>Melalui buku ini, Anda tidak hanya akan memahami sejarah <em><strong>filsafat abad pertengahan</strong></em>, tetapi juga diperkaya dengan <em><strong>wawasan</strong></em> yang memperluas cakrawala pemikiran Anda.</p>
+
+

@@ -1,13 +1,14 @@
 ---
-layout: page
 author: Poe spowardojo, T.M. Soerjanto, Seran, Alexander
 title: Diskursus Teori-Teori Kritis; Kritik atas kapitalisme klasik, modern, dan kontemporer
 harga: Rp49.900
 buy: https://lynk.id/sabdaliterasi/qV90DZm
 description: Buku Diskursus Teori-Teori Kritis ini perlu dibaca untuk memperkaya pemikiran dan analisis untuk menemukan terobosan-terobosan intelektual bagi pengem
-permalink: /amp/diskursus-teori-teori-kritis/
-permalink1: /diskursus-teori-teori-kritis/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/11-03-2023/1678518195233_1812256
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/diskursus-teori-teori-kritis-kritik-atas-kapitalisme-klasik-modern-dan-kontemporer.jpg
 keyword: [jerman, filsuf jerman, mazhab frankfurt, teori kritis, pengantar teori kritis, cara untuk kritis, kritis, teori filsafat, filsafat kritis]
+ISBN: "978-602-412-155-6"
+penerbit: "Kompas Media Nusantara"
 ---
 <p>Di tengah arus deras <em>kapitalisme</em> yang mendominasi dunia, <strong>Diskursus Teori-Teori Kritis; Kritik atas Kapitalisme Klasik, Modern, dan Kontemporer</strong> hadir sebagai suar penerang. Ditulis oleh cendekiawan terkemuka, Poe Spowardojo, T.M. Soerjanto, Seran, dan Alexander, buku ini mengajak kita menyelami lautan <em>pemikiran kritis</em> untuk membedah <em>kapitalisme</em> secara komprehensif.</p><p><strong>Diskursus Teori-Teori Kritis</strong> menawarkan analisis tajam tentang bagaimana <em>kapitalisme</em>, dalam berbagai fase evolusinya, mempengaruhi setiap aspek kehidupan kita. Dengan menelusuri jejak <em>kapitalisme klasik</em>, <em>kapitalisme modern</em>, dan <em>kapitalisme kontemporer</em>, para penulis mengungkap wajah sebenarnya sistem ini, termasuk kontradiksi, ketidakadilan, dan dampak destruktifnya.</p><p>Para penulis menganalisis berbagai <em>teori kritis</em> yang telah lama menjadi landasan dalam memahami <em>kapitalisme</em>, seperti <em>Marxisme</em>, <em>Teori Kritis Mazhab Frankfurt</em>, <em>Poststrukturalisme</em>, dan <em>Pascakolonialisme</em>. Mereka menunjukkan bagaimana <em>teori-teori</em> ini memberikan kerangka analitis yang kuat untuk membongkar mekanisme dan dampak <em>kapitalisme</em>.</p><p><strong>Diskursus Teori-Teori Kritis</strong> tidak hanya menawarkan <em>kritik</em> tajam terhadap <em>kapitalisme</em>, tetapi juga membuka ruang bagi pembaca untuk mengembangkan <em>pemikiran kritis</em> dan mencari alternatif yang lebih adil dan berkelanjutan. Buku ini mengajak kita untuk bertanya: Apakah ada jalan keluar dari cengkeraman <em>kapitalisme</em>? Bagaimana kita bisa membangun sistem yang lebih manusiawi?</p><p>Dengan bahasa yang jernih dan sistematis, buku ini dapat dipahami oleh siapa pun. Baik <em>mahasiswa</em>, <em>akademisi</em>, <em>aktivis</em>, maupun masyarakat umum yang ingin memahami dinamika <em>kapitalisme</em>, <strong>Diskursus Teori-Teori Kritis</strong> adalah bacaan esensial bagi mereka yang merindukan perubahan sosial.</p><p>Membaca buku ini bukan hanya sekadar menambah pengetahuan, tetapi juga sebuah aksi pembebasan. Ia membebaskan kita dari belenggu pemikiran tunggal dan membuka mata kita terhadap realitas yang lebih luas. <strong>Diskursus Teori-Teori Kritis</strong> adalah investasi intelektual yang akan memberdayakan Anda untuk menjadi agen perubahan dan berkontribusi dalam mewujudkan masyarakat yang lebih adil.</p>
+
+

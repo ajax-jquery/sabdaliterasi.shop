@@ -1,13 +1,15 @@
 ---
-layout: page
 author: Margaret Walters
 title: Feminisme; Sebuah Pengantar Singkat
 buy: https://lynk.id/sabdaliterasi/lqNV3Ql
 harga: Rp30.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/11-03-2023/1678518806263_2937489.svg
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/feminisme-sebuah-pengantar-singkat.svg
 description: Buku Feminisme; Sebuah Pengantar Singkat adalah perenungan historis yang membedah akar-akar feminisme, hak suara, pembebasan di tahun 1960-an.
-permalink: /amp/feminisme-sebuah-pengantar-singkat/
-permalink1: /feminisme-sebuah-pengantar-singkat/
 keyword: [feminis, pengantar feminis, feminis untuk pemula, apa itu feminis, ebook feminis, ideologi feminis, perempuan]
+ISBN: "9786236699256"
+penerbit: "IRCiSoD"
 ---
+
 <p>Pernahkah kamu merasa geram dengan <strong>ketidakadilan gender</strong> yang masih merajalela di sekitar kita? Atau mungkin kamu penasaran dengan <strong>sejarah feminisme</strong> dan ingin memahami lebih dalam tentang perjuangan perempuan untuk <strong>kesetaraan hak</strong>?</p><p>Buku "Feminisme: Sebuah Pengantar Singkat" karya Margaret Walters hadir untuk menjawab semua pertanyaanmu! Dalam buku ini, Margaret Walters, seorang penulis dan kritikus feminis ternama, mengajak kita menyelami <strong>perjalanan panjang feminisme</strong>, mulai dari akar sejarahnya, gerakan hak suara, hingga <strong>gelombang feminisme</strong> di era modern.</p><p>Dengan bahasa yang mudah dipahami, buku ini mengupas tuntas berbagai isu penting seputar feminisme, seperti:</p><ul><li><strong>Diskriminasi gender</strong> di berbagai bidang, mulai dari ranah domestik hingga dunia kerja.</li><li><strong>Peran perempuan</strong> dalam masyarakat dan tantangan yang dihadapi dalam menggabungkan peran sebagai ibu, istri, dan pekerja.</li><li><strong>Kesetaraan gender</strong> dalam berbagai budaya dan agama, termasuk di negara-negara Dunia Ketiga.</li><li><strong>Strategi</strong> untuk mencapai kesetaraan gender dan menciptakan dunia yang lebih adil bagi semua.</li></ul><p>Tak hanya menyajikan <strong>analisis mendalam</strong>, buku ini juga menawarkan <strong>perspektif global</strong> dengan membahas situasi perempuan di berbagai belahan dunia, termasuk Eropa, Amerika Serikat, dan negara-negara berkembang. Kamu akan diajak untuk melihat bagaimana <strong>perempuan di berbagai budaya</strong> berjuang melawan ketidakadilan dan memperjuangkan hak-hak mereka.</p><p><strong>Nilai plus</strong> buku ini terletak pada gaya penulisan Margaret Walters yang lugas dan mudah dicerna, sehingga cocok dibaca oleh siapa saja, baik yang baru mengenal feminisme maupun yang sudah lama berkecimpung di dalamnya. Buku ini juga dilengkapi dengan <strong>referensi</strong> yang lengkap, sehingga kamu dapat memperdalam pengetahuanmu tentang feminisme.</p><p>Membaca buku "Feminisme: Sebuah Pengantar Singkat" akan membuka matamu tentang <strong>realitas sosial</strong> yang selama ini mungkin luput dari perhatian. Kamu akan menyadari bahwa perjuangan untuk <strong>emansipasi perempuan</strong> masih jauh dari selesai, dan bahwa kita semua memiliki peran untuk menciptakan dunia yang lebih adil dan setara.</p><p>Jadi, tunggu apa lagi? Segera dapatkan buku "Feminisme: Sebuah Pengantar Singkat" dan jadilah bagian dari <strong>gerakan perubahan</strong>!</p>
+
+

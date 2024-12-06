@@ -1,14 +1,14 @@
 ---
-layout: page
 author: Seneca
 title: How To Die; Sebuah Panduan Klasik Menjelang Ajal
 harga: Rp30.000
 buy: https://lynk.id/sabdaliterasi/RE3a1Nx
 description: Seneca, sama seperti para pemimpin Romawi pada masanya, menemukan kerangka moral dalam Stoisisme, mazhab pemikiran Yunani yang dibawa ke Roma. Kaum St
-permalink: /amp/how-to-die-sebuah-panduan-klasik-menjelang-ajal/
-permalink1: /how-to-die-sebuah-panduan-klasik-menjelang-ajal/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/14-03-2023/1678810947852_9333805
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/how-to-die-sebuah-panduan-klasik-menjelang-ajal.jpg
 keyword: [cara untuk mati, filsafat stoik, buku seneca, kematian, filsafat kematian, apakah mati itu sakit]
+ISBN: "9786024812423"
+penerbit: "Kepustakaan Populer Gramedia"
 ---
-
 <p>Kematian. Sebuah kata yang seringkali dihindari, ditakuti, bahkan tabu untuk dibicarakan. Namun, <em><strong>How To Die; Sebuah Panduan Klasik Menjelang Ajal</strong></em> justru mengajak kita untuk merenungkannya dengan cara yang berbeda. Ditulis oleh filsuf <em>Stoa</em> terkemuka, <em><strong>Seneca</strong></em>, buku ini bukanlah panduan praktis untuk mengakhiri hidup, melainkan sebuah <em>filsafat hidup</em> yang mengajarkan kita bagaimana menghadapi kematian dengan bijaksana dan bermartabat.</p><p>Dalam <em><strong>How To Die</strong></em>, <em>Seneca</em> menawarkan pandangan <em>Stoisisme</em> tentang kematian. Ia mengingatkan kita bahwa <em>kematian</em> adalah bagian tak terpisahkan dari kehidupan, sebuah keniscayaan yang akan menjemput setiap makhluk hidup. Oleh karena itu, menghindari atau menakuti <em>kematian</em> hanyalah kesia-siaan. Sebaliknya, kita seharusnya mempersiapkan diri menghadapinya dengan tenang dan menerimanya dengan lapang dada.</p><p><em>Seneca</em> dengan brilian menjelaskan bagaimana <em>filsafat</em> <em>Stoa</em> dapat membantu kita mengatasi ketakutan akan <em>kematian</em>. Ia mengajarkan kita untuk fokus pada hal-hal yang dapat kita kendalikan, seperti pikiran dan tindakan kita, dan melepaskan kegelisahan terhadap hal-hal yang berada di luar kendali kita, termasuk <em>kematian</em>. Dengan demikian, kita dapat mencapai <em>ketenangan batin</em> dan hidup dengan lebih bermakna.</p><p><em><strong>How To Die</strong></em> bukanlah sekadar buku <em>filsafat</em> teoretis. <em>Seneca</em> juga memberikan nasihat praktis tentang bagaimana menyiapkan diri menghadapi <em>kematian</em>, seperti menerima <em>kematian</em> dengan ikhlas, menjalani hidup dengan bijaksana, dan meninggalkan warisan yang baik bagi dunia.</p><p>Membaca <em><strong>How To Die</strong></em> adalah sebuah perjalanan introspeksi yang mendalam. Buku ini akan membantu Anda:</p><ul><li>Memahami hakikat <em>kematian</em> dan menghilangkan ketakutan akan <em>kematian</em>.</li><li>Menemukan <em>ketenangan batin</em> dan hidup dengan lebih tenang dan bermakna.</li><li>Mempersiapkan diri menghadapi <em>kematian</em> dengan bijaksana dan bermartabat.</li><li>Menjalani hidup dengan lebih penuh dan menghargai setiap momen.</li></ul><p><em><strong>How To Die; Sebuah Panduan Klasik Menjelang Ajal</strong></em> adalah bacaan esensial bagi siapa pun yang ingin menjalani hidup dengan lebih bermakna dan menghadapi <em>kematian</em> dengan keberanian dan ketenangan. Buku ini layak dibaca oleh semua kalangan, terlepas dari latar belakang <em>filsafat</em> atau agama mereka.</p>
+
+

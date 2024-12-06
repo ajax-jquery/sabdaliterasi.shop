@@ -1,14 +1,15 @@
 ---
-layout: page
 author: Peter Singer
 title: Karl Marx; Sebuah Pengantar Singkat
 buy: https://lynk.id/sabdaliterasi/vb0wo2A
 harga: Rp23.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/25-03-2023/1679687101613_7420129
-description: Dalam buku pengantar Karl Marx; Sebuah Pengantar Singkat, Peter Singer menjelaskan pandangan inti yang menyatukan pemikiran Marx sehingga kita bisa me
-permalink: /amp/karl-marx-sebuah-pengantar-singkat/
-permalink1: /karl-marx-sebuah-pengantar-singkat/
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/karl-marx-sebuah-pengantar-singkat.jpg
+description: Dalam buku pengantar Karl Marx; Sebuah Pengantar Singkat, Peter Singer menjelaskan pandangan inti yang menyatukan pemikiran Marx sehingga kita bisa me.
 keyword: [pengantar pemikiran marx, siapa itu karl marx, mengenal marx, marx, karl marx, buku tentang marx]
+ISBN: "9786236699591"
+penerbit: "IRCiSoD"
 ---
 
 <p><em><strong>Karl Marx; Sebuah Pengantar Singkat</strong></em> adalah jalan pintas Anda untuk memahami pemikiran salah satu tokoh paling berpengaruh dalam sejarah. Ditulis oleh filsuf kontemporer terkemuka, <em><strong>Peter Singer</strong></em>, buku ini menawarkan penjelasan yang lugas dan jernih tentang ide-ide kunci <em>Karl Marx</em> yang telah membentuk dunia modern.</p><p>Siapa sebenarnya <em>Karl Marx</em>? Apa itu <em>materialisme historis</em> dan <em>alienasi</em>? Bagaimana <em>teori nilai lebih</em> menjelaskan eksploitasi kaum buruh? Dan apa visi <em>komunisme</em> yang diimpikan <em>Marx</em>? Semua pertanyaan ini akan dijawab dengan tuntas dalam buku ini.</p><p><em><strong>Peter Singer</strong></em>, dengan ketajaman analisisnya, menguraikan pemikiran <em>Marx</em> secara sistematis dan mudah dicerna. Ia menghindari jargon-jargon akademis yang rumit dan menyajikan ide-ide <em>Marx</em> dengan bahasa yang mudah dipahami oleh siapa pun, bahkan oleh mereka yang baru mengenal <em>filsafat Marxisme</em>.</p><p>Buku ini tidak hanya menjabarkan <em>teori-teori</em> <em>Marx</em>, tetapi juga menganalisis relevansi dan pengaruhnya terhadap perkembangan dunia kontemporer. <em><strong>Peter Singer</strong></em> menunjukkan bagaimana pemikiran <em>Marx</em> masih aktual dan bermanfaat untuk memahami berbagai fenomena sosial, politik, dan ekonomi di sekitar kita.</p><p><em><strong>Karl Marx; Sebuah Pengantar Singkat</strong></em> menawarkan sejumlah keunggulan, di antaranya:</p><ul><li><em><strong>Ringkas dan Padat</strong></em>: Menyajikan inti pemikiran <em>Marx</em> secara efisien tanpa bertele-tele.</li><li><em><strong>Jernih dan Mudah Dipahami</strong></em>: Menggunakan bahasa yang aksesibel bagi semua kalangan.</li><li><em><strong>Analisis yang Tajam</strong></em>: Memberikan pemahaman yang mendalam tentang pemikiran <em>Marx</em>.</li><li><em><strong>Relevan dengan Konteks Kontemporer</strong></em>: Menunjukkan aktualitas pemikiran <em>Marx</em> di dunia modern.</li></ul><p>Membaca buku ini penting bagi Anda karena:</p><ul><li>Memberikan pemahaman yang komprehensif tentang <em>Karl Marx</em> dan <em>filsafat Marxisme</em>.</li><li>Meningkatkan kemampuan berpikir kritis dan analitis dalam melihat realitas sosial.</li><li>Membantu memahami akar permasalahan sosial dan ekonomi di dunia.</li><li>Memberikan perspektif baru dalam menganalisis perkembangan dunia kontemporer.</li></ul><p><em><strong>Karl Marx; Sebuah Pengantar Singkat</strong></em> adalah bacaan wajib bagi siapa pun yang ingin memahami pemikiran salah satu tokoh paling berpengaruh dalam sejarah dan relevansi pemikirannya bagi dunia modern. Buku ini cocok untuk <em>mahasiswa</em>, <em>akademisi</em>, aktivis, dan siapa pun yang tertarik dengan <em>filsafat</em>, politik, dan ekonomi.</p>
+
+

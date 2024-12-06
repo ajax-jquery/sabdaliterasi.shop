@@ -1,13 +1,15 @@
 ---
-layout: page
 author: Zaprulkhan
-title: Filsafat Modern Barat; Sebuah Kajian  Tematik
+title: Filsafat Modern Barat; Sebuah Kajian Tematik
 buy: https://lynk.id/sabdaliterasi/4OqbYOv
 harga: Rp41.000
-image: https://s3.ap-southeast-1.amazonaws.com/assets.lynk.id/products/30-11-2023/1701287548200_5564102
-description: Buku Filsafat Modern Barat; Sebuah Kajian Tematik tetap berupaya membahas sebagian besar dari aliran-aliran epistemologi filsafat modern Barat yang tu...
-permalink: /amp/filsafat-modern-barat/
-permalink1: /filsafat-modern-barat/
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/httpss3ap-southeast-1amazonawscomassetslynkidproducts30-11-20231701287548200_5564102.jpg
+description: Buku Filsafat Modern Barat; Sebuah Kajian Tematik tetap berupaya membahas sebagian besar dari aliran-aliran epistemologi filsafat modern Barat yang tu.
 keyword: [pengantar filsafat, filsafat barat, filsafat modern, buku ajar filsafat, filsafat untuk pemula, epistemologi]
+ISBN: "9786027696747"
+penerbit: "IRCiSoD"
 ---
+
 <p><strong>Filsafat modern Barat</strong> seringkali dianggap sebagai ranah pemikiran yang rumit dan sulit dipahami. Namun, buku "Filsafat Modern Barat; Sebuah Kajian Tematik" karya Zaprulkhan hadir untuk mengubah pandangan tersebut. Melalui pendekatan <em>tematik</em> yang menarik, buku ini mengajak pembaca untuk menyelami <strong>pemikiran-pemikiran besar</strong> yang membentuk peradaban Barat modern.</p><p>Penulis dengan piawai menuntun pembaca menyusuri berbagai <strong>tema kunci</strong> dalam filsafat modern Barat, seperti <strong>rasionalisme</strong>, <strong>empirisme</strong>, <strong>idealisme</strong>, dan <strong>eksistensialisme</strong>. Setiap tema diuraikan secara sistematis dan <em>mudah dicerna</em>, dilengkapi dengan contoh-contoh konkret dan relevan dengan kehidupan sehari-hari.</p><p>Buku ini tidak hanya menyajikan <em>sejarah</em> <strong>filsafat modern Barat</strong>, tetapi juga <em>menganalisis</em> secara kritis <strong>gagasan-gagasan penting</strong> dari para filsuf terkemuka seperti <strong>Descartes</strong>, <strong>Locke</strong>, <strong>Hume</strong>, <strong>Kant</strong>, <strong>Hegel</strong>, <strong>Marx</strong>, <strong>Nietzsche</strong>, dan <strong>Sartre</strong>.</p><p><strong>Kelebihan</strong> buku ini terletak pada kemampuannya untuk menjembatani kesenjangan antara <strong>teori filsafat</strong> yang abstrak dengan <strong>realitas</strong> yang dihadapi manusia modern. Penulis berhasil <em>menerjemahkan</em> <strong>konsep-konsep filsafat</strong> yang kompleks menjadi bahasa yang <em>mudah dipahami</em> oleh siapa pun, terlepas dari latar belakang pendidikan mereka.</p><p>Membaca buku ini <em>memberikan</em> beberapa <strong>manfaat penting</strong>, antara lain:</p><ul><li><strong>Memahami</strong> <strong>perkembangan pemikiran Barat</strong> dari <strong>Renaisans</strong> hingga <strong>abad ke-20</strong>.</li><li><strong>Mengenal</strong> <strong>tokoh-tokoh penting</strong> dalam <strong>filsafat modern Barat</strong> dan <strong>kontribusi</strong> mereka bagi peradaban.</li><li><strong>Menguasai</strong> <strong>konsep-konsep kunci</strong> dalam <strong>filsafat modern Barat</strong> dan <strong>menerapkannya</strong> dalam kehidupan sehari-hari.</li><li><strong>Mengembangkan</strong> <strong>kemampuan berpikir kritis</strong> dan <strong>analitis</strong> dalam menghadapi berbagai persoalan.</li><li><strong>Menjadi</strong> individu yang lebih <strong>bijaksana</strong> dan <strong>berwawasan luas</strong>.</li></ul><p>"Filsafat Modern Barat; Sebuah Kajian Tematik" merupakan bacaan <em>esensial</em> bagi siapa pun yang ingin <em>memperdalam pengetahuan</em> tentang <strong>filsafat Barat</strong> dan <em>memahami</em> <strong>akar</strong> dari <strong>peradaban modern</strong>. Buku ini <em>cocok</em> untuk <strong>mahasiswa</strong>, <strong>dosen</strong>, <strong>peneliti</strong>, dan <strong>masyarakat umum</strong> yang tertarik untuk <em>mengeksplorasi</em> <strong>dunia filsafat</strong>.</p>
+
+

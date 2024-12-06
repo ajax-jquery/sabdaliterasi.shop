@@ -1,13 +1,14 @@
 ---
-layout: page
 author: Plato
 title: Simposium; Hakikat Eros, Cinta, dan Manusia
 buy: https://lynk.id/sabdaliterasi/Zez62gO
 harga: Rp25.000
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/09-03-2023/1678363960258_1066786
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/simposium-hakikat-eros-cinta-dan-manusia.jpg
 description: Simposium merupakan salah satu karya Plato yang paling banyak dibaca dan dipelajari. Di dalamnya, hakikat Eros, cinta, dan manusia ditelusuri melalui.
-permalink: /amp/simposium-hakikat-eros-cinta-dan-manusia/
-permalink1: /simposium-hakikat-eros-cinta-dan-manusia/
 keyword: [Simposium, Hakikat Eros, Cinta, Manusia, filsafat cinta, plato tentang cinta]
+ISBN: "9786026651334"
+penerbit: "Basabasi"
 ---
 <p>Bayangkan sebuah pesta di Athena kuno, di mana para pemikir terkemuka berkumpul untuk merayakan kemenangan seorang penulis drama. Di tengah suasana riuh perjamuan, <em>cinta</em> menjadi topik utama diskusi.</p><p>Inilah premis dari <strong>Simposium</strong>, sebuah mahakarya filosofis karya <strong>Plato</strong> yang menelusuri <strong>hakikat cinta</strong> melalui dialog-dialog yang memukau. Buku ini mengajak kita untuk merenungkan makna cinta sejati, melampaui hasrat fisik dan nafsu duniawi.</p><p>Melalui tokoh-tokoh seperti <strong>Phaedrus</strong>, <strong>Pausanias</strong>, dan <strong>Eryximachus</strong>, Plato mengeksplorasi berbagai perspektif tentang cinta. Phaedrus menggambarkan cinta sebagai kekuatan ilahi yang menginspirasi keberanian dan pengorbanan. Pausanias membedakan antara cinta yang luhur dan cinta yang rendah, sementara Eryximachus mengaitkan cinta dengan harmoni dan keseimbangan dalam alam semesta.</p><p>Puncak dari Simposium adalah pidato <strong>Socrates</strong>, yang mengungkap pandangan agung tentang cinta sebagai sebuah perjalanan spiritual. Socrates berpendapat bahwa cinta adalah kerinduan akan keindahan abadi, yang mendorong jiwa manusia untuk naik menuju pengetahuan dan kebijaksanaan tertinggi.</p><p>Simposium tidak hanya menawarkan <strong>filsafat cinta</strong> yang mendalam, tetapi juga memberikan wawasan tentang <strong>manusia</strong> dan pencariannya akan makna hidup. Buku ini menantang kita untuk mempertanyakan asumsi-asumsi kita tentang cinta dan mendorong kita untuk mengejar cinta yang sejati, yang melampaui batas-batas fisik dan egoisme.</p><p>Dengan bahasa yang puitis dan argumentasi yang tajam, Simposium tetap relevan hingga saat ini. Buku ini menjadi bacaan penting bagi siapa pun yang ingin memahami <strong>kompleksitas cinta</strong> dan mendalami makna kehidupan. Melalui Simposium, Plato mengajak kita untuk merenungkan pertanyaan-pertanyaan abadi tentang cinta, keindahan, dan <strong>kebaikan</strong>.</p><p><strong>Nilai plus</strong> buku ini terletak pada kemampuannya untuk merangsang pemikiran kritis dan introspeksi diri. Simposium bukan sekadar buku tentang cinta, tetapi juga tentang <strong>pencarian jati diri</strong> dan <strong>pengembangan diri</strong>.</p><p>Membaca Simposium adalah sebuah perjalanan intelektual yang mengasyikkan, yang akan memperkaya pemahaman Anda tentang cinta, manusia, dan dunia di sekitar Anda.</p>
+
+

@@ -1,13 +1,14 @@
 ---
-layout: page
 author: Erich Fromm
 title: Seni Mencintai
 harga: Rp35.000
 buy: https://lynk.id/sabdaliterasi/Lbkg2XL
 description: Membaca buku Seni Mencintai ini akan menjadi pengalaman mengecewakan bagi siapa pun yang mengharapkan petunjuk mudah dalam seni mencintai.
-permalink: /amp/seni-mencintai-erich-fromm/
-permalink1: /seni-mencintai-erich-fromm/
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/05-03-2023/1677997864866_9050822
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/seni-mencintai.jpg
 keyword: [filsafat cinta, apa itu cinta, buku teori tentang cinta, cinta dalam psikologi, psikologi, ebook basabasi, cinta erich fromm]
+ISBN: "978-602-6651-69-3"
+penerbit: "Basabasi"
 ---
 <p>Di dunia yang semakin individualistis ini, <em>cinta</em> seringkali terasa seperti komoditas langka. Kita mengejarnya, merindukannya, namun seringkali terjebak dalam hubungan yang hampa dan menyakitkan. Apakah cinta sejati hanya sebuah mitos? Erich Fromm, psikolog humanis ternama, dalam mahakaryanya <em><strong>Seni Mencinta</strong></em>, mengajak kita untuk memahami cinta bukan sekedar perasaan, melainkan sebuah <em><strong>keterampilan</strong></em> yang perlu dipelajari dan diasah.</p><p><em><strong>Seni Mencinta</strong></em> bukanlah buku romantis picisan yang menawarkan tips-tips instan untuk mendapatkan pasangan. Fromm justru mengajak kita menyelami kedalaman <em><strong>hakikat cinta</strong></em> itu sendiri. Ia membedah berbagai bentuk cinta, mulai dari cinta erotis, cinta persaudaraan, hingga cinta kepada Tuhan, serta mengungkap <em><strong>faktor-faktor</strong></em> yang mempengaruhi kemampuan kita mencintai.</p><p>Salah satu poin penting yang diangkat Fromm adalah <em><strong>kedewasaan</strong></em> dalam mencintai. Ia menegaskan bahwa cinta sejati bukanlah ketergantungan atau kepemilikan, melainkan <em><strong>pemberian</strong></em> yang tulus dan <em><strong>kebebasan</strong></em> bagi kedua belah pihak untuk tumbuh dan berkembang. Fromm juga menyingkap <em><strong>hambatan-hambatan</strong></em> dalam mencintai, seperti narsisme, ketakutan akan <em><strong>komitmen</strong></em>, dan <em><strong>ketidakmampuan</strong></em> untuk <em><strong>berkomunikasi</strong></em> secara efektif.</p><p>Melalui <em><strong>Seni Mencinta</strong></em>, Fromm memberikan <em><strong>panduan</strong></em> berharga untuk mencapai <em><strong>kebahagiaan</strong></em> dalam <em><strong>hubungan</strong></em> cinta. Ia mengajarkan <em><strong>pentingnya</strong></em> <em><strong>disiplin diri</strong></em>, <em><strong>konsentrasi</strong></em>, <em><strong>kesabaran</strong></em>, dan <em><strong>keberanian</strong></em> dalam menjalin <em><strong>hubungan</strong></em> yang <em><strong>sehat</strong></em> dan <em><strong>bermakna</strong></em>. Buku ini juga mengungkap <em><strong>koneksi</strong></em> antara <em><strong>cinta</strong></em> dan <em><strong>kebebasan</strong></em>, serta peran <em><strong>cinta</strong></em> dalam mengatasi <em><strong>keterasingan</strong></em> dan menemukan <em><strong>makna hidup</strong></em>.</p><p><em><strong>Seni Mencinta</strong></em> lebih dari sekadar buku, ia adalah <em><strong>investasi</strong></em> untuk <em><strong>kehidupan</strong></em> cinta Anda. Buku ini cocok bagi siapapun yang ingin memahami <em><strong>hakikat cinta</strong></em> secara mendalam, menjalin <em><strong>hubungan</strong></em> yang lebih <em><strong>berkualitas</strong></em>, dan menemukan <em><strong>kebahagiaan</strong></em> sejati dalam mencintai dan dicintai. Jadi, tunggu apa lagi? Segera dapatkan <em><strong>Seni Mencinta</strong></em> dan mulailah perjalanan Anda menuju <em><strong>cinta</strong></em> yang sejati!</p>
+
+

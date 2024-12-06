@@ -1,13 +1,14 @@
 ---
-layout: page
 author: Slavoj Zizek, Jordan Peterson
 title: Kebahagiaan; Komunisme vs Kapitalisme
 buy: https://lynk.id/sabdaliterasi/PV0o4qD
 harga: Rp25.500
-image: https://s3.us-west-1.wasabisys.com/lynk.id/products/09-03-2023/1678363605613_8007937
+image: https://sabdaliterasi.xyz/wp-conten/file/produk/kebahagiaan-komunisme-vs-kapitalisme.jpg
 description: Buku Kebahagiaan; Komunisme vs Kapitalisme merupakan hasil perdebatan antara Slavoj Zizek, Jordan Peterson mengenai tentang ideologi masing-masing ant.
-permalink: /amp/kebahagiaan-komunisme-vs-kapitalisme/
-permalink1: /kebahagiaan-komunisme-vs-kapitalisme/
 keyword: [komunis, kapitalis, marx, marxis, zizek, jordan, basabasi, bahagia]
+ISBN: "9786233052375"
+penerbit: "Basabasi"
 ---
 <p>Bayangkan sebuah perdebatan sengit antara dua pemikir besar di era modern ini: <strong>Slavoj Žižek</strong>, seorang filsuf <em>Komunis</em> dan Hegelian dari Slovenia, melawan <strong>Jordan Peterson</strong>, seorang psikolog Kanada yang dikenal sebagai kritikus <em>Marxisme Kultural</em>. Keduanya beradu argumen di hadapan 3.000 orang di Meridian Hall, Toronto, mempertanyakan sistem politik-ekonomi mana yang menawarkan <strong>kebahagiaan</strong> bagi manusia: <strong>Kapitalisme</strong> atau <strong>Komunisme</strong>?</p><p>Buku "<strong>Kebahagiaan; Komunisme vs Kapitalisme</strong>" menawarkan ringkasan perdebatan yang <em>thought-provoking</em> ini. Peterson, dengan analisis tajamnya, mengkritik <em>Manifesto Komunis</em> dan menegaskan bahwa sejarah tidak melulu tentang <strong>perjuangan kelas</strong>. Ia menantang gagasan tentang <em>proletariat</em> yang "baik" versus <em>borjuis</em> yang "buruk", menganggapnya sebagai bentuk politik identitas yang rawan manipulasi. Peterson berpendapat bahwa <strong>kapitalisme</strong>, meskipun menghasilkan ketidaksetaraan, tetap mampu menciptakan kesejahteraan bagi banyak orang, terbukti dari data pertumbuhan ekonomi dan penurunan kemiskinan global.</p><p>Di sisi lain, Žižek mengajak kita merenungkan berbagai isu, mulai dari <em>liberalisme budaya</em>, Nazisme, hingga xenophobia. Ia menyetujui sebagian analisis Peterson, namun menyerukan perlunya regulasi dan pembatasan pasar <strong>kapitalisme</strong> untuk mencegah bencana. Žižek juga mengkritik <em>multikulturalisme</em> yang dinilainya menutupi kebohongan politik identitas.</p><p>Yang menarik, di tengah perdebatan yang penuh tantangan ini, kedua tokoh menemukan titik temu dalam konsep <strong>kebahagiaan</strong>. Mereka sepakat bahwa <strong>kebahagiaan</strong> adalah harapan terbesar umat manusia. Buku ini menawarkan wawasan mendalam tentang dua ideologi besar yang telah membentuk dunia modern. Melalui argumen kedua tokoh, kita diajak untuk berpikir kritis tentang sistem politik dan ekonomi yang berlaku, serta implikasinya terhadap <strong>kebahagiaan</strong> manusia.</p><p>"<strong>Kebahagiaan; Komunisme vs Kapitalisme</strong>" bukan sekadar buku <em>filsafat</em>, tetapi juga sebuah refleksi tentang kondisi manusia di era kontemporer. Buku ini penting dibaca oleh siapa pun yang ingin memahami perdebatan ideologis yang terus berlangsung, serta mencari makna <strong>kebahagiaan</strong> dalam kehidupan pribadi dan bermasyarakat.</p>
+
+
