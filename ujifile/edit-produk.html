@@ -1,0 +1,1080 @@
+---
+layout: null
+permalink: /wp-admin/edit-produk/
+---
+<!DOCTYPE html>
+<html lang="id">
+<head><meta name="robots" content="noindex, nofollow" />
+<title>Produk Editor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="dns-prefetch preload" href="//sabdaliterasi.xyz" />
+<link rel="dns-prefetch preload" href="//www.gstatic.com" />
+<link rel="dns-prefetch preload" href="//sabda-562b1-default-rtdb.firebaseio.com" />
+<link rel="preload" href="/assets/js/editartikel.min.js?m3s" as="script" />
+<link rel="preload" href="/assets/js/jquery-3.7.1.min.js" as="script" />
+<link rel="preload" href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" as="style" />
+<link rel="preload" href="https://sabda-562b1-default-rtdb.firebaseio.com/editartikel" />
+<link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/assets/js/editartikel.min.js"></script>
+<script>
+let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+function DuplikatKey(t){let i=t.split(",").map(t=>t.trim()).filter(t=>t),e=new Set(i),n=Array.from(e);return n.join(", ")}
+</script>
+<script>
+const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
+const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
+!function(t){function e(t,e){this.settings=Object.assign({duplicates:!1},e),this.value=[],this.build(t),this.events()}t.fn.tagify=function(t){var i;return this.data("tagify")||(i=new e(this[0],t),this.data("tagify",i)),this},e.prototype={build:function(t){var e=t.value;this.DOM={},this.DOM.originalInput=t,this.DOM.scope=document.createElement("tags"),this.DOM.scope.innerHTML='<div><span class="input placeholder" data-placeholder="'+t.placeholder+'" contenteditable></span></div>',this.DOM.input=this.DOM.scope.querySelector("span"),t.parentNode.insertBefore(this.DOM.scope,t),this.DOM.scope.appendChild(t),e&&this.addTag(e).forEach(function(t){t&&t.classList.add("tagify--noAnim")})},events:function(){this.DOM.input.addEventListener("focus",this.callbacks.onFocusBlur.bind(this)),this.DOM.input.addEventListener("blur",this.callbacks.onFocusBlur.bind(this)),this.DOM.input.addEventListener("input",this.callbacks.onInput.bind(this)),this.DOM.input.addEventListener("keydown",this.callbacks.onKeydown.bind(this)),this.DOM.scope.addEventListener("click",this.callbacks.onClickScope.bind(this))},callbacks:{onFocusBlur:function(t){var e=t.target.textContent.replace(/\u200B/g,"").trim();"focus"==t.type?t.target.className="input":"blur"==t.type&&""==e&&(t.target.className="input placeholder")},onKeydown:function(t){var e=t.target.textContent;if("Backspace"==t.key&&(""==e||8203==e.charCodeAt(0))&&this.removeTag(this.DOM.scope.querySelectorAll("tag:not(.tagify--hide)").length-1),"Escape"==t.key&&(t.target.textContent="",t.target.blur()),"Enter"==t.key||","==t.key)return t.preventDefault(),this.addTag(e)&&(t.target.innerHTML=""),!1},onInput:function(t){var e=t.target.textContent;e[e.length-1],-1!=e.indexOf(",")&&(this.addTag(e),t.target.textContent="")},onClickScope:function(t){"TAGS"==t.target.tagName&&this.DOM.input.focus(),"X"==t.target.tagName&&this.removeTag(this.getNodeindex(t.target.parentNode))}},getNodeindex:function(t){for(var e=0;t=t.previousSibling;)(3!=t.nodeType||!/^\s*$/.test(t.data))&&e++;return e},markTagByValue(t){var e=this.value.indexOf(t),i=this.DOM.scope.querySelectorAll("tag")[e];return!!i&&(i.classList.add("tagify--mark"),setTimeout(()=>{i.classList.remove("tagify--mark")},2e3),!0)},addTag:function(t){var e=this;if(t=t.replace(/\u200B/g,""))return t.split(",").filter(function(t){return!!t}).map(function(t){var i=document.createElement("tag");return t=t.trim(),!(!e.settings.duplicates&&e.markTagByValue(t))&&(i.innerHTML="<x></x><span>"+t+" </span>",e.DOM.scope.insertBefore(i,e.DOM.input.parentNode),e.value.push(t),e.update(),i)})},removeTag:function(t){var e=this.DOM.scope.children[t];e&&(e.style.width=parseFloat(window.getComputedStyle(e).width)+"px",document.body.clientTop,e.classList.add("tagify--hide"),setTimeout(function(){e.parentNode.removeChild(e)},400),this.value.splice(t,1),this.update())},update:function(){this.DOM.originalInput.value=this.value.join(", ")}}}(jQuery);</script>
+<link rel="apple-touch-icon" sizes="57x57" href="/app/icons/apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/app/icons/apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/app/icons/apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/app/icons/apple-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/app/icons/apple-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/app/icons/apple-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/app/icons/apple-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/app/icons/apple-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/app/icons/apple-icon-180x180.png" />
+<link rel="shortcut icon" type="image/png" sizes="16x16" href="/app/icons/favicon-16x16.png" />
+<link rel="shortcut icon" type="image/png" sizes="32x32" href="/app/icons/favicon-32x32.png" />
+<link rel="shortcut icon" type="image/png" sizes="96x96" href="/app/icons/favicon-96x96.png" />
+<link rel="shortcut icon" type="image/png" sizes="192x192" href="/app/icons/android-icon-192x192.png" />
+<link href="/favicon.ico" rel="shortcut icon" sizes="16x16" type="image/x-icon" />
+<link rel="manifest" href="/app/manifest.json" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="Sabda Literasi Palu" />
+<meta name="theme-color" content="#f26926" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Sabda Literasi Palu" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="msapplication-config" content="/app/browserconfig.xml" />
+<meta name="msapplication-TileImage" content="/app/icons/ms-icon-144x144.png" />
+<meta name="msapplication-TileColor" content="#ffffff" />
+<script async="async" defer="defer" src="/app/pw.js" type="module"></script>
+<style>div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:4px solid #9b26af;box-shadow:2px 2px 2px hsla(0,0%,0%,.1)}div#word-count *{margin-right:1.5em;display:inline-block}
+tags tag,tags tag>span{display:inline-block;transition:.13s ease-out}tags .input,tags tag{white-space:nowrap;position:relative}.autocomplete,tags .input,tags tag{position:relative}div#Loginform,div#savesucces{z-index:1;text-align:center;height:0;padding:0;bottom:0;right:0;left:0;position:fixed}tags{width:100%;display:inline-block;border:1px solid #ddd;padding-right:.3em .5em;overflow:hidden;cursor:text}tags:hover{border-color:#ccc}@keyframes tags--bump{30%{box-shadow:0 0 0 4px #e5e5e5}}tags tag{vertical-align:top;margin:5px 0 5px 5px;cursor:default;animation:.3s ease-out tags--bump}tags tag>span{padding:.3em 1.5em .3em .5em;border-radius:3px;color:#000;background:#e5e5e5}tags tag:hover span{box-shadow:0 0 0 2px #7ac3ff inset;transition:50ms}tags tag.tagify--noAnim{animation:none}tags tag.tagify--hide{pointer-events:none;width:0!important;padding-left:0;padding-right:0;margin-left:0;margin-right:0;opacity:0;transform:scale(0);transition:.3s}@keyframes tagify--pulse{50%{box-shadow:0 0 0 2px #7ac3ff inset}}tags tag.tagify--mark span{animation:.4s ease-out 3 tagify--pulse}tags tag x{font:14px/15px Serif;width:14px;height:14px;text-align:center;border-radius:50px;position:absolute;right:calc(.5em - 2px);top:50%;cursor:pointer;transform:translateY(-50%);transition:.2s}tags tag x::after{content:"\00D7"}tags tag x:hover{color:#fff;background:#cc8282}tags tag x:hover+span{box-shadow:0 0 0 2px #d39494 inset;transition:.2s}tags input,tags textarea{border:0;display:none}.autocomplete,.bootstrap-tagsinput,tags .input::after,tags div{display:inline-block}tags div{min-width:10px;margin:5px;padding:.3em .5em}tags .input{display:block}tags .input.placeholder{color:#999}tags .input.placeholder::after{opacity:1;transform:none;max-width:200px}tags .input::after{content:attr(data-placeholder);opacity:0;max-width:0;transform:translatex(6px);transition:.15s ease-out}tags .input::before{content:'\200B'}tags .input:focus{outline:0}body{font-family:Times New Roman,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}.autocomplete-items div{padding:10px;cursor:pointer;background-color:#fff;border-bottom:1px solid #d4d4d4}.h2,h2{font-size:1.4rem!important}.h3,h3{font-size:1.2rem!important}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-weight:600!important}.autocomplete-items div:hover{background-color:#e9e9e9}.autocomplete-active{background-color:#1e90ff!important;color:#fff}.autocomplete-items{position:absolute;border:1px solid #d4d4d4;border-bottom:none;border-top:none;z-index:99;top:100%;left:0;right:0}.description,.hasil{position:relative;overflow:hidden}button#copy_isi,button#copy_link{top:0;right:0;position:absolute}span#count{position:absolute;bottom:0;right:0;padding:0 5px}.bootstrap-tagsinput{background-color:#fff;border:1px solid #ccc;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);padding:4px 6px;color:#555;vertical-align:middle;border-radius:4px;width:100%;line-height:22px;cursor:text}.btn-block {display: block;width:100%}.bootstrap-tagsinput input,.bootstrap-tagsinput input:focus{border:none;box-shadow:none}.bootstrap-tagsinput input{outline:0;background-color:transparent;padding:0 6px;margin:0;width:auto;max-width:inherit}.bootstrap-tagsinput.form-control input::-moz-placeholder{color:#777;opacity:1}.bootstrap-tagsinput.form-control input:-ms-input-placeholder{color:#777}.bootstrap-tagsinput.form-control input::-webkit-input-placeholder{color:#777}.bootstrap-tagsinput .badge{margin-right:2px;color:#fff;background-color:#0275d8;padding:5px 8px;border-radius:3px;border:1px solid #01649e}.bootstrap-tagsinput .badge [data-role=remove]{margin-left:8px;cursor:pointer}.bootstrap-tagsinput .badge [data-role=remove]:after{content:"x";padding:0 4px;background-color:rgba(0,0,0,.1);border-radius:50%;font-size:13px}.bootstrap-tagsinput .badge [data-role=remove]:hover:after{background-color:rgba(0,0,0,.62)}.bootstrap-tagsinput .badge [data-role=remove]:hover:active{box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.form-outline.mb-2.button{margin-top:12px}textarea#hasilnya{min-height:340px}.kosong{border-color:#dc3545!important;padding-right:calc(1.5em + .75rem)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right calc(.375em + .1875rem) center;background-size:calc(.75em + .375rem) calc(.75em + .375rem)}div#savesucces{text-align:-webkit-center;top:50%}div#savesucces div{display:none;width:100px;text-align:center;opacity:.7;font-weight:600}.hidden{display:none!important}div#Loginform{text-align:-webkit-center;top:13%}.loginform{display:none;margin:0 25px;border-radius:10px;color:#fff;background:#00000085;padding:9px 14px}.form-outline.mb-2.imageform {text-align:center}img#hasilgambar{border-radius: 9px; margin-bottom: 8px}.ckkosong {background: #ff000005!important; border: 1px solid red !important;}.input-group{margin-bottom: 10px; }.custom-file-input:lang(id)~.custom-file-label:after { content: attr(data-text) !important; }
+</style>
+</head>
+<body>
+  <script>
+    function hasilkan(){
+function leftPad(t,e){
+for(var r=""+t;r.length<e;)r="0"+r;return r}
+function lo(t){
+let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
+  
+  var judul=$('div[name=judul]').text().trim(),
+  tag=lo($('input[name=tag]').val()),
+  gambar =$('input[name=image]').val(),
+  image=gambar,
+  description=$('textarea[name=description]').val(), 
+       keydup=DuplikatKey($('input[name=keyword]').val().toLowerCase()),
+      keyword=keydup.split(",").join("','"),
+     
+  keywords=keyword.replaceAll("' ","'").replaceAll(" '","'"),
+  d = new Date($('input[name=tanggal]').val()),
+  Second = new Date();
+function content(){ 
+  let u = document.querySelector('.ck-editor__editable'),
+   e = u.ckeditorInstance.getData();
+  const newElement = document.createElement('div');newElement.innerHTML=e;
+ var p=newElement;
+   $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
+   $(p).find('a').removeAttr("class").attr("target","_blank").attr("rel", "nofollow noopener noreferrer");
+$(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure.image').removeAttr("contenteditable").attr("class","image_post");$(p).find("figure.media").each(function(){let e=$(this).find(".ck-media__wrapper").data("oembed-url"),t=new URLSearchParams(new URL(e).search),a=t.get("v");if(a){let i=$(this).prev("h2, h3, h4, h5, h6").text().trim(),r=`<figure class="media_post"><p class="trailer" data-title="Trailer ${i.replaceAll('"',"")}" data-url="https://www.youtube.com/watch?v=${a}">https://www.youtube.com/watch?v=${a}</p></figure>`;$(this).replaceWith(r)}});
+$(p).find(".ck-horizontal-line").replaceWith($('<hr>'));
+ $(p).find("blockquote").each(function(){
+   $(this).replaceWith(
+$('<blockquote>').html($(this).html().replaceAll('</p><p>','<br>').replaceAll('<p>','').replaceAll('</p>',''))
+)
+  });
+$(p).find('div').remove();
+$(p).find('img').attr("class","lazy").removeAttr("style");
+  var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
+  var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>").split('src=').join('src="data:," data-src=');
+  var isitiga=isidua.split("&nbsp;").join(" ").split("<p></p>").join("");
+  
+  return isitiga
+  }
+function mdfile(){  
+var hasilsatu=judul;
+ var coo=d.getFullYear()+"-"+leftPad(d.getMonth()+1,2)+"-"+leftPad(d.getDate(),2)+"-"+hasilsatu;
+return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').replace(/^-+|-+$/g, '')+".md"
+};
+ 
+var waktu=$('input[name=tanggal]').val().replace('T',' ')+':'+leftPad(Second.getSeconds(),2)+" +0800";
+var waktu_short=$('input[name=tanggal]').val()+':'+leftPad(Second.getSeconds(),2)+"+08:00";
+ let buy=$("input[name=buy]").val(),
+     harga=$("input[name=harga]").val(),
+     isbn=$("input[name=isbn]").val(),
+     penerbit=$("input[name=penerbit]").val();
+
+var link=mdfile();
+var hasil=`---
+date: '${waktu}'
+date_short: '${waktu_short}'
+author: '${tag}'
+title: '${judul}'
+buy: '${buy}'
+harga: '${harga}'
+image: '${image}'
+description: '${description}'
+keyword: ['${keywords}']
+penerbit: '${penerbit}'
+ISBN: '${isbn}'
+---
+`
++content();
+
+
+  return {
+    hasil: hasil,
+    link: link
+  };
+  
+    }  </script>
+<div id="savesucces"> <div class="alert alert-success Saved" role="alert"> Saved </div> <div class="alert alert-danger Remove" role="alert"> Remove </div> <div class="alert alert-primary Terupload" role="alert"> Terupload </div> <div class="alert alert-warning readyfile" role="alert"> File sudah ada </div> <div class="alert alert-success uploadfile" role="alert"> File berhasil di unggah sebagai: </div> <div class="alert alert-danger gagalfile" role="alert"> File Gagal di unggah sebagai: </div> </div>
+<script>function Alert(b){b.fadeIn();setTimeout(function(){b.fadeOut()},1000)};  </script><style>
+  .placeholder::before{
+  content:attr(data-text)
+  }.editable {
+        border: none;
+        padding: 5px;
+        overflow: auto; 
+        outline: none; 
+    }
+
+    .editable.placeholder {
+        color: #888; /* Warna untuk teks placeholder */
+    }
+  
+</style>
+<div class="card-header py-3">
+<h5 class="mb-0">PRODUK</h5>
+</div>
+<div class="container">
+<div class>
+<div class="col">
+<div class="card mb-2">
+<div class="card-body">
+<form id="MyArtikel">
+
+<div class="form-outline mb-2">
+<h3><div class="editable placeholder" contenteditable="true" id="editableDiv" name="judul" data-text="Judul...">
+</div></h3>
+<script>
+    // Mendengarkan fokus pada div yang dapat diedit menggunakan jQuery
+    $('#editableDiv').on('focus', function() {
+        // Hapus teks placeholder jika ada
+        if ($(this).hasClass('placeholder')) {
+            $(this).removeClass('placeholder');
+        }
+    });
+
+    // Mendengarkan kehilangan fokus pada div yang dapat diedit menggunakan jQuery
+    $('#editableDiv').on('blur', function() {
+        // Tambahkan teks placeholder jika div kosong saat kehilangan fokus
+        if ($(this).text().trim() === '') {
+            $(this).addClass('placeholder')
+        }
+    });
+  </script>
+<input type="text" name="judul" id="form7Example3" class="form-control hidden" placeholder="Title" />
+</div>
+<div id="validck" class="form-outline mb-2 CKeditnya">
+<textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
+</div>
+<div id="word-count"></div>
+<div class="form-outline mb-2">
+<select class="form-select" aria-label="Default select example" id="Folder">
+<option value="_posts" selected>Publish</option>
+<option value="_draftsproduk">Terjadwal</option>
+</select>
+</div>
+<div class="row mb-2">
+<div class="col">
+<div class="form-outline autocomplete">
+<input type="text" id="myTag" name="tag" class="form-control" placeholder="Penulis" />
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<input type="datetime-local" name="tanggal" id="form7Example2" class="form-control" />
+</div>
+</div>
+</div>
+<div id="chekbox">
+<div class="form-check form-check-inline">
+<input onclick="fotofile()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="file" checked>
+<label class="form-check-label" for="inlineRadio1">From File</label>
+</div>
+<div class="form-check form-check-inline">
+<input onclick="fotourl()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="url">
+<label class="form-check-label" for="inlineRadio2">From URL</label>
+</div>
+</div>
+<div class="input-group inputfoto">
+<input type="file" class="form-control" name="photo" id="photoInput" accept="image/*" onchange="updateFileName()">
+<button type="button" class="btn btn-secondary" id="submit" disabled>Upload</button>
+<script>
+function updateFileName() {
+    $('#submit').removeAttr('disabled').attr('class',"btn btn-primary")
+}
+</script>
+</div>
+<div class="input-group inputfotourl hidden">
+<input placeholder="https://example.com/path/file.jpg" type="url" name="photourl" class="form-control" id="photoInputurl">
+<input type="button" class="btn btn-primary" id="submiturl" value="Upload Url">
+</div>
+<div class="spinner-border text-primary hidden" role="status"></div>
+<div class="form-outline mb-2 imageform hidden">
+<img id="hasilgambar" style="max-width:100%px;max-height:200px" class="img-fluid" src>
+<input type="text" name="image" id="form7Example4" class="form-control" placeholder="Image" readonly />
+<input type="text" name="base64" id="form7Example10" class="form-control hidden" placeholder="Image" readonly />
+</div>
+<div class="form-outline mb-2 description">
+<textarea name="description" class="form-control" id="form7Example7" rows="4" placeholder="Description"></textarea>
+<span id="count">0</span>
+</div>
+<div class="form-outline mb-2">
+<input name="keyword" type="text" id="form7Example5" class="form-control" data-role="tagsinput" placeholder="Keywords" />
+</div>
+<div class="row mb-2">
+<div class="col">
+<div class="form-outline">
+<input type="text" id="form7Example1" name="buy" class="form-control" placeholder="https://lynk.id/" />
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<input type="text" name="harga" id="form7Example2" class="form-control" placeholder="Harga"/>
+</div>
+</div>
+</div>
+  
+<div class="row mb-2">
+<div class="col">
+<div class="form-outline">
+<input name="isbn" type="text" id="isbn" class="form-control" placeholder="ISBN" />
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<input name="penerbit" type="text" id="penerbit" class="form-control" placeholder="Penerbit" />
+</div>
+</div>
+</div>
+  
+    
+</form>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card mb-2">
+<div class="card-body">
+<div class="form-outline mb-2">
+<input type="text" name="karakter" value="ајіѕ" readonly class="form-control" />
+</div>
+<div class="row mb-2">
+<div class="col">
+<div class="form-outline button">
+<button type="button" class="btn btn-primary btn-lg btn-block" id="upload_data">Upload
+</button>
+</div>
+</div>
+<div class="col">
+<div class="form-outline button">
+<button type="submit" class="btn btn-success btn-lg btn-block" id="hasil">Send
+</button>
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<button type="button" class="btn btn-danger btn-lg btn-block" id="reset">
+Reset
+</button>
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<button type="button" class="btn btn-secondary btn-lg btn-block" id="download">
+Download
+</button>
+</div>
+</div>
+</div>
+<div class="form-outline mb-2 hasil">
+<input type="text" name="hasilink" id="hasilink" readonly class="form-control" placeholder="xxxx-xx-xx-title.md" />
+<button id="copy_link" class="btn-primary btn">copy</button>
+</div>
+<div class="form-outline mb-2 hasil">
+<textarea class="form-control" id="hasilnya" readonly rows="4" placeholder="markdwn"></textarea>
+<button id="copy_isi" class="btn-primary btn">copy</button>
+</div>
+    <div class="form-outline mb-2">
+<style>
+.preview{padding:15px;border:1px solid #ddd;border-radius:4px;background:#f9f9f9;overflow:auto;max-height:400px;font-size:16px}.preview table{border-collapse:collapse;width:100%;margin-bottom:1.5em}.preview td,.preview th{border:1px solid #ddd;padding:8px}.preview th{background-color:#f2f2f2;text-align:left}.preview hr{border:2px solid #3f3f3f}.preview p{text-align: justify;}
+</style>
+<div id="output" class="preview"></div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-yaml@4.0.0/dist/js-yaml.min.js"></script>
+<script>
+const inputArea = document.getElementById('hasilnya');
+const outputArea = document.getElementById('output');
+marked.use({renderer:{heading:(h,e)=>2===e?`<hr><h2>${h}</h2>`:`<h${e}>${h}</h${e}>`}});
+function renderOutput(e){let r=e,t=r;t=(t=t.replace(/---\n([\s\S]*?)\n---/g,(e,r)=>{try{let t=jsyaml.load(r),o="<table><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>";for(let[n,l]of Object.entries(t))o+=`<tr><td>${n}</td><td>${Array.isArray(l)?l.join(", "):l}</td></tr>`;return o+="</tbody></table>"}catch(a){return`<pre style="color: red;">YAML Error: ${a.message}</pre>`}})).replace(/```markdown([\s\S]*?)```/g,(e,r)=>marked(r.trim()));try{let o=new DOMParser,n=o.parseFromString(t,"text/html"),l=n.querySelector("parsererror");if(l)throw Error(l.textContent);n.querySelectorAll("h2").forEach(e=>{let r=document.createElement("hr");e.parentNode.insertBefore(r,e)}),outputArea.innerHTML=n.body.innerHTML}catch(a){outputArea.innerHTML=`<pre style="color: red;">HTML Error: ${a.message}</pre>`}}
+</script>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<script>
+function updateFolderOption(){let a=$('[name="tanggal"]'),e=$("#Folder"),l=a.val();if(l){let t=new Date(l),n=new Date;t>n?e.val("_draftsproduk"):e.val("_posts")}}
+function Selectfolder(){
+updateFolderOption();$('[name="tanggal"]').on("change",updateFolderOption)}
+
+function startCK(){
+ClassicEditor.create(document.getElementById("editor"), {
+heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
+}).then( editor => {
+        const i = editor.plugins.get( 'WordCount' );
+        const a = document.getElementById( 'word-count' );
+
+        a.appendChild( i.wordCountContainer );
+    } );
+};function CKdata(){
+let u = document.querySelector('.ck-editor__editable'),
+   e = u.ckeditorInstance.getData().trim();
+   return e
+}
+        </script>
+<div id="Loginform">
+<div class="loginform">
+<h3>Login</h3>
+<div class="form-group">
+<input type="email" class="form-control" placeholder="Enter email" id="email">
+</div>
+<div class="form-group">
+<input type="password" class="form-control" placeholder="Enter password" id="pwd">
+</div>
+<button type="submit" class="btn btn-primary" id="login_b">Submit</button>
+</div>
+</div>
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+      const firebaseConfig = {
+  apiKey: "AIzaSyCadTwccMivBqDFHyrlAi2nB-xqbF0dD8U",
+  authDomain: "sabda-562b1.firebaseapp.com",
+  databaseURL: "https://sabda-562b1-default-rtdb.firebaseio.com",
+  projectId: "sabda-562b1",
+  storageBucket: "sabda-562b1.appspot.com",
+  messagingSenderId: "1000923972787",
+  appId: "1:1000923972787:web:13c1adcd69c2393a29dcc6",
+  measurementId: "G-DDKQWFF1H9"
+};
+    const app = initializeApp(firebaseConfig);
+    const firebaseApp = initializeApp(firebaseConfig);
+    import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+
+!function() {
+   const dbRef = ref(getDatabase());
+get(child(dbRef, 'editproduk')).then((snapshot) => {
+   let n = JSON.parse(snapshot.val().json);
+$('#Folder').val(n.folder);   
+  
+  
+  
+if(n.penerbit.length > 0 || 
+   n.isbn.length > 0 || 
+   n.harga.length > 0 || 
+   n.buy.length > 0 || 
+   n.judul.length > 0 || 
+   n.judul.length > 0 || 
+   n.tag.length > 0 || 
+   n.image.length > 0 || 
+   n.description.length > 0 || 
+   n.keyword.length > 0 || 
+   n.tanggal.length > 0 || 
+   n.isi.indexOf("ck-placeholder") < 0
+  ){
+
+if(n.judul.length > 0){
+ $('div[name=judul]').text(n.judul).removeClass('placeholder');
+ }
+ $('input[name=tag]').val(n.tag);
+if(n.image.length > 0){
+ var imageUrl = n.image;
+ var base64=n.base64;
+ $('input[name=image]').val(imageUrl)
+ $('input[name=base64]').val(base64);
+ $(".imageform").removeClass('hidden');
+ $('img.img-fluid').attr("src",base64);
+};
+ 
+ $('textarea[name=description]').val(n.description),
+ $('input[name=keyword]').val(n.keyword),
+ $('input[name=tanggal]').val(n.tanggal),
+ $("input[name=buy]").val(n.buy),
+ $("input[name=harga]").val(n.harga),
+ $("input[name=isbn]").val(n.isbn),
+ $("input[name=penerbit]").val(n.penerbit),
+ $('textarea#editor').html(n.isi);
+
+ 
+startCK();$('input[name=keyword]').tagify();$('input[name=keyword]').addClass('hidden');
+ 
+ }
+  
+  else{
+ startCK();Selectfolder();
+ $('input[name=keyword]').tagify();$('input[name=keyword]').addClass('hidden');
+ }
+ 
+}).catch((error) => {
+  alert(error);Selectfolder();
+  startCK();
+ $('input[name=keyword]').tagify();$('input[name=keyword]').addClass('hidden');
+});
+    }()
+function formremove() {
+      // Get Values from the DOM
+var b={
+  judul:"",
+  tag: "",
+  image: "",
+  base64: "",
+  description: "",
+  keyword: "",
+  tanggal: "",
+  folder: "_posts",
+  buy:"",
+  harga:"",
+  isbn:"",
+  penerbit:"",
+  isi: "" 
+};
+
+let domEditableElement = document.querySelector('.ck-editor__editable'),
+   editorInstance = domEditableElement.ckeditorInstance;
+   editorInstance.setData('');
+
+var k=JSON.stringify(b),
+    i="remove"
+
+      //send message values(3);
+      sendMessage(k,i)
+    }
+function formSubmit() {
+      // Get Values from the DOM
+var b={
+  judul:$('div[name=judul]').text().trim().trim(),
+  tag: $('input[name=tag]').val(),
+  image: $('input[name=image]').val(),
+  base64: $('input[name=base64]').val(),
+  description: $('textarea[name=description]').val(),
+  keyword: $('input[name=keyword]').val(),
+  tanggal: $('input[name=tanggal]').val(),
+  folder: $('#Folder').val(),
+  buy:$('input[name=buy]').val(),
+  harga:$('input[name=harga]').val(),
+  isbn:$('input[name=isbn]').val(),
+  penerbit:$('input[name=penerbit]').val(),
+  isi: $('.ck-content').html() 
+};
+var k=JSON.stringify(b),
+    jj="save";
+
+      //send message values(3)
+      sendMessage(k,jj);
+    }
+function sendMessage(name,k) {
+      const database = getDatabase();
+
+      set(ref(database, 'editproduk/'), {
+        json: name
+      })
+      .then(() => {
+     
+      
+      if(k == "remove"){
+   var jo=$("#savesucces .alert.alert-danger.Remove");
+     Alert(jo);
+    setTimeout(function(){location.reload()},1000);
+      }else if(k == "save"){
+ var jo=$("#savesucces .alert.alert-success.Saved");
+     Alert(jo)
+          
+      }
+      
+      }).catch((error) => {
+        alert(error)
+      })
+    };
+function delay(n,t){
+var a=0;return function(){var i=this,r=arguments;clearTimeout(a),a=setTimeout(function(){n.apply(i,r)},t||0)}}     
+$('form').on('propertychange click change keyup input paste',delay(function (e) {formSubmit()}, 1000));
+$("#reset").click(function(){if(confirm("Ingin hapus?")){
+formremove();$('form')[0].reset();$("tag").remove();
+$('img.img-fluid').attr("src",'');
+$(".imageform").addClass('hidden');fotofile();$('#submit').attr('disabled','').attr('class',"btn btn-secondary");$('#editableDiv').addClass('placeholder').text('');
+}});
+function fadhel(){
+async function submitFormToGitHub(formData,folderName,linkpost) {
+   const username = 'ajax-jquery';
+   const repository = 'sabdaliterasi.shop'; 
+   const branch = 'master';
+   const accessToken =Pu.de(Hm_Key); 
+   const url = `https://api.github.com/repos/${username}/${repository}/contents/${folderName}/${linkpost}`;
+
+    const requestData = {
+        message: 'Menambahkan data form baru',
+        branch: branch,
+        content: btoa(formData) // Encode data form menjadi base64
+    };
+
+    const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Authorization': `token ${accessToken}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+    });
+function hu(b){
+       b.fadeIn();
+      setTimeout(function(){b.fadeOut()},3000)
+      } 
+    if (response.ok) {
+        console.log('Data form berhasil diunggah ke GitHub');
+        hu($('.alert.alert-success.uploadfile').html('Diunggah sebagai <br><b>'+folderName.replace('_','')+"/<b>"))
+    } else {
+        console.error('Gagal mengunggah data form ke GitHub');
+        hu($('.alert.alert-danger.gagalfile').html('Gagal sebagai <br><b>'+folderName.replace('_','')+"/<b>"))
+    }
+}
+function leftPad(t,e){
+for(var r=""+t;r.length<e;)r="0"+r;return r}
+function lo(t){
+let e=t.toLowerCase().split(" ");for(var r=0;r<e.length;r++)e[r]=e[r].charAt(0).toUpperCase()+e[r].slice(1);return e.join(" ")}
+let hasilkanObj=hasilkan();
+let linkOb = hasilkanObj.link;
+const hasilOb = hasilkanObj.hasil; // Mengambil nilai dari textarea
+const encoder = new TextEncoder();
+const encodedArray = encoder.encode(hasilOb);
+let artikel=$('#Folder').val(),amp,tanya;
+if (artikel == "_draftsproduk") {
+        amp="_draftsprodukamp";
+        tanya="DRAFT"
+    }else{
+    amp="_postsamp";
+    tanya="PUBLISH"
+    }
+
+// Mengonversi byte array ke dalam base64
+const base64EncodedText = String.fromCharCode.apply(null, encodedArray);
+
+if(confirm('Upload Tulisan ini ke '+tanya+'?')){
+    if (linkOb.indexOf('NaN') < 0 || hasilOb.indexOf('<p class="ck-placeholder"></p>') < 0) {
+ submitFormToGitHub(base64EncodedText,artikel,linkOb);
+ setTimeout(function(){submitFormToGitHub(base64EncodedText,amp,linkOb)},4500)
+    } 
+    else {
+        alert('Textarea kosong');
+    }
+}
+
+}
+$("#upload_data").click(function(){
+var Judul=$('div[name=judul]'),
+  buy=$("input[name=buy]"),
+  harga=$("input[name=harga]"),
+  isbn=$("input[name=isbn]"),
+  penerbit=$("input[name=penerbit]"),
+  Tag= $('input[name=tag]'),
+  Image= $('input[name=image]'),
+  Base64= $('input[name=base64]'),
+  Description= $('textarea[name=description]'),
+  Keyword= $('input[name=keyword]'),
+  Tanggal= $('input[name=tanggal]'),
+  email= $('#email'),
+  pwd= $('#pwd'),
+  Isi= $('.ck-content'),
+  GGG=CKdata(),
+  ckedit= $('.ck-editor__editable');
+if(Judul.text().trim()==""){
+Judul.addClass('kosong');Judul.focus();
+return false
+}
+  else if(GGG.length < 1000){
+ckedit.addClass('ckkosong');alert('isi kontent kurang dari 1000 karakter')
+return false
+}else if(Tag.val() == ""){
+Tag.addClass('kosong');Tag.focus();
+return false
+}
+  else if(buy.val() == ""){
+buy.addClass('kosong');buy.focus();
+return false
+}else if(penerbit.val() == ""){
+penerbit.addClass('kosong');penerbit.focus();
+return false
+}else if(harga.val() == ""){
+harga.addClass('kosong');harga.focus();
+return false
+}else if(isbn.val() == ""){
+isbn.addClass('kosong');isbn.focus();
+return false
+}
+  else if(Tanggal.val() == ""){
+Tanggal.addClass('kosong');Tanggal.focus();
+return false
+}else if(Description.val() == ""){
+Description.addClass('kosong');Description.focus();
+return false
+}else if(Tanggal.val() == ""){
+Tanggal.addClass('kosong');Tanggal.focus();
+return false
+}else if(Image.val() == ""){
+$(".inputfoto").addClass('kosong');$("#photoInput").focus();$(".inputfotourl").addClass('kosong');$("#photoInputurl").focus();
+return false
+}else if(Keyword.val() == ""){
+$("tags").addClass('kosong');$("tags > div > span").focus();chekKey();
+return false
+}
+  else{
+ onAuthStateChanged(getAuth(), (user) => {
+            if (!user) {
+            $('.loginform').fadeIn()    
+            }else{
+            fadhel()
+            }
+        });
+  }
+});
+$('#login_b').on('click',function() {
+            // Ambil nilai email dan sandi
+let email= $('#email'),
+ 	pwd= $('#pwd');
+if(email.val() == ""){
+email.addClass('kosong');email.focus();
+return false
+}else if(pwd.val() == ""){
+pwd.addClass('kosong');pwd.focus();
+return false
+}else{
+          signInWithEmailAndPassword(getAuth(firebaseApp), email.val(), pwd.val()).then((userCredential) => {
+          
+          $('.loginform').fadeOut();
+                
+                })
+.catch((error) => {
+                // Login gagal
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error('Login gagal:', error.code);
+               if(errorCode == 'auth/invalid-login-credentials'){
+               alert('Informasi Akun Salah/Tidak Terdaftar')
+               }else{
+               alert('Sitem Sibuk')
+               };email.addClass('kosong');pwd.addClass('kosong');
+            });
+                
+        }        
+            
+          
+        })
+  </script>
+<script>
+function chekKey(){
+let e=setInterval(function n(){$("input[name=keyword]").val().length>0&&($("tags").removeClass("kosong"),clearInterval(e))},500)}
+$('form').on('click',function() {
+if($(".ckkosong")){
+$("#validck").removeClass('ckkosong')
+}
+});
+
+function autocomplete(e,t){
+var n;function i(e){if(!e)return!1;(function e(t){for(var n=0;n<t.length;n++)t[n].classList.remove("autocomplete-active")})(e),n>=e.length&&(n=0),n<0&&(n=e.length-1),e[n].classList.add("autocomplete-active")}function s(t){for(var n=document.getElementsByClassName("autocomplete-items"),i=0;i<n.length;i++)t!=n[i]&&t!=e&&n[i].parentNode.removeChild(n[i])}e.addEventListener("input",function(i){var a,r,l,o=this.value;if(s(),!o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("focus",function(i){var a,r,l,o=this.value;if(s(),o)return!1;for(n=-1,(a=document.createElement("DIV")).setAttribute("id",this.id+"autocomplete-list"),a.setAttribute("class","autocomplete-items"),this.parentNode.appendChild(a),l=0;l<t.length;l++)t[l].substr(0,o.length).toUpperCase()==o.toUpperCase()&&((r=document.createElement("DIV")).innerHTML="<strong>"+t[l].substr(0,o.length)+"</strong>",r.innerHTML+=t[l].substr(o.length),r.innerHTML+="<input type='hidden' value='"+t[l]+"'>",r.addEventListener("click",function(t){e.value=this.getElementsByTagName("input")[0].value,s()}),a.appendChild(r))}),e.addEventListener("keydown",function(e){var t=document.getElementById(this.id+"autocomplete-list");t&&(t=t.getElementsByTagName("div")),40==e.keyCode?(n++,i(t)):38==e.keyCode?(n--,i(t)):13==e.keyCode&&(e.preventDefault(),n>-1&&t&&t[n].click())}),document.addEventListener("click",function(e){s(e.target)})};
+
+{% assign TAG = site.posts | map: 'author' | uniq %} var TagSite = [{% for p in TAG %}"{{ p }}"{% if forloop.last == false %},{% endif %}{% endfor %}];
+                                                                                                                                         
+  autocomplete(document.getElementById("myTag"), TagSite); 
+$(document).ready(function(){
+$('textarea[name=description]').keyup(function(){
+var a = $(this).val();
+ $("#count").html(a.length)
+})
+$("#copy_isi").click(function(){
+    $("#hasilnya").select();document.execCommand("copy");
+  });  
+$("#copy_link").click(function(){
+    $("#hasilink").select();document.execCommand("copy");
+  });  
+});
+</script>
+<script>$(document).ready(function(){
+var Judul=$('div[name=judul]'),
+  Tag= $('input[name=tag]'),
+  Image= $('input[name=image]'),
+  Base64= $('input[name=base64]'),
+  Description= $('textarea[name=description]'),
+  Keyword= $('input[name=keyword]'),
+  Tanggal= $('input[name=tanggal]'),
+  email= $('#email'),
+  pwd= $('#pwd'),
+  Isi= $('.ck-content');
+
+email.keyup(function(){
+  email.removeClass('kosong')
+});  
+pwd.on('keyup',function(){
+  pwd.removeClass('kosong')
+});Judul.keyup(function(){
+  Judul.removeClass('kosong')
+});
+Tag.on('keyup change input',function(){
+  Tag.removeClass('kosong')
+});
+Description.keyup(function(){
+  Description.removeClass('kosong')
+});
+$(".bootstrap-tagsinput input[type=text]").keyup(function(){
+ $(".bootstrap-tagsinput input").removeClass('kosong')
+});
+Tanggal.change(function() {
+    Tanggal.removeClass('kosong')
+});
+Isi.click(function() {
+    $("#validck").removeClass('ckkosong')
+});
+$("#photoInput").change(function() {
+    $(".inputfoto").removeClass('kosong');$(".inputfotourl").removeClass('kosong')
+});
+
+
+
+  $("#hasil").click(function(){
+let hasilkanObj=hasilkan();
+var Hasil= hasilkanObj.hasil;
+$("#hasilnya").val(Hasil);
+$("#hasilink").val(hasilkanObj.link);
+renderOutput(Hasil)
+  });
+
+
+
+
+});Selectfolder();</script>
+<script>
+function fotofile(){
+$('.inputfoto').removeClass('hidden');
+$('.inputfotourl').addClass('hidden');
+}
+function fotourl(){
+$('.inputfoto').addClass('hidden');
+$('.inputfotourl').removeClass('hidden');
+}
+async function upplood(bbb,kk){
+const username = 'sabdaliterasi';const repository = 'wp-conten';const branch = 'file';const accessToken = Pu.de(IMAGES_Key);
+
+const extension = kk.endsWith(".svg") ? "svg" : "jpg";
+let judul=$('div[name=judul]').text().trim();
+const urlimage = judul
+    .toLowerCase() // Mengubah semua huruf menjadi huruf kecil
+    .replace(/[^a-zA-Z0-9]+/g, '-') // Menghapus karakter non-alfanumerik dan mengganti dengan '-'
+    .replace(/--+/g, '-') // Menghapus tanda '-' berlebihan
+    .replace(/^-+|-+$/g, ''); 
+let nama ='sabda-literasi-'+urlimage+'.'+extension;
+
+const url = `https://api.github.com/repos/${username}/${repository}/contents/produk/${nama}`;
+
+function base(Gambar,aler){
+urlToBase64(Gambar+'').then(beb => {
+$('input[name=image]').val(Gambar)
+$(".imageform").removeClass('hidden'); $('img.img-fluid').attr("src",beb);$('input[name=base64]').val(beb);Alert(aler);$(".inputfoto").removeClass('kosong');$(".inputfotourl").removeClass('kosong');$('.spinner-border').addClass('hidden');
+    }).catch(ror => {
+        alert('Gagal mengunggah');
+    });
+}
+
+            const content = bbb.split(',')[1]
+
+            const requestData = {
+                message: 'Upload foto baru',
+                branch: branch,
+                content: content
+            };
+
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${accessToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            });
+var gambar='https://sabdaliterasi.xyz/wp-conten/file/produk/'+nama;
+            if (response.ok) {
+console.log('Foto berhasil diunggah');
+base(gambar,$('.Terupload'))   
+                } 
+            else {
+console.error('Gagal mengunggah foto');
+base(gambar,$('.readyfile'))   
+            }
+        
+
+
+
+}
+  
+  
+function uploaD(photoFile) {
+        const reader = new FileReader();
+        reader.readAsDataURL(photoFile);
+        reader.onload = async function () {
+        upplood(reader.result,photoFile.name)        
+        };
+		reader.onerror = function (error) {
+        alert('Gagal Upload file')
+            console.error('Error saat membaca file:', error);
+        };
+    }    
+async function urlToBase64(url) {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+    });
+}    
+!function(){
+let Judul=$('div[name=judul]');
+
+document.getElementById('submit').addEventListener('click', function (event) {
+if($('div[name=judul]').text().trim() == ""){
+Judul.addClass('kosong');Judul.focus();
+return false
+}else{
+        event.preventDefault(); // Mencegah pengiriman form secara default
+$('.spinner-border').removeClass('hidden');
+        const photoInput = document.getElementById('photoInput');
+        const photoFile = photoInput.files[0]; // Mengambil file foto yang diunggah
+
+        if (photoFile) {
+            uploaD(photoFile); // Memanggil fungsi untuk mengunggah foto ke GitHub
+        } else {
+           alert('Tidak ada file yang dipilih');$('.spinner-border').addClass('hidden')
+        }
+}
+    });
+
+document.getElementById('submiturl').addEventListener('click', function(event) {
+if($('div[name=judul]').text().trim() == ""){
+Judul.addClass('kosong');Judul.focus();
+return false
+}else{
+        event.preventDefault();
+$('.spinner-border').removeClass('hidden');
+const photoInput = document.getElementById('photoInputurl').value.replace("s3.us-west-1.wasabisys.com","sabdaliterasi.xyz/svg-lynk").replace("s3.ap-southeast-1.amazonaws.com","sabdaliterasi.xyz/lynk");
+urlToBase64(photoInput)
+    .then(base64 => {
+    upplood(base64,photoInput)
+    })
+    .catch(error => {
+        $('.spinner-border').addClass('hidden');alert('Gagal mengunggah');
+    });
+}
+    });   
+}()
+</script>
+
+<script>!function(){
+
+    document.addEventListener( 'DOMContentLoaded', () => {
+			const submitButton = document.getElementById( 'download' );
+
+			submitButton.addEventListener( 'click', event => {
+				event.preventDefault();
+
+				createAndDownloadDocx();
+			} );
+		} );
+        
+        
+    
+		const DEFAULT_HEADERS = {
+			'x-cs-app-id': 'cs-docx-demo'
+		};
+
+		
+let tokenEndpoint="";
+		function createAndDownloadDocx() {
+        function content(){ 
+ var p=$('.ck-content');
+   $(p).find('p').removeAttr("style").removeAttr("data-placeholder");
+   $(p).find('a').removeAttr("class").attr("target","_blank").attr("rel", "nofollow noopener noreferrer");
+$(p).find('br').remove();$(p).find('svg').remove();$(p).find('figure').removeAttr("contenteditable").attr("class","image_post");
+$(p).find(".ck-horizontal-line").replaceWith($('<hr>'));
+ $(p).find("blockquote").each(function(){
+   $(this).replaceWith(
+$('<blockquote>').html($(this).html().replaceAll('</p><p>','<br>').replaceAll('<p>','').replaceAll('</p>',''))
+)
+  });
+$(p).find('div').remove();
+$(p).find('img').attr("class","lazy").removeAttr("style");
+  var isi= $(p).html().split("<i>").join("<em>").split("</i>").join("</em>");
+  var isidua=isi.split("<b>").join("<strong>").split("</b>").join("</strong>").split('src=').join('src="data:," data-src=');
+  var isitiga=isidua.split("&nbsp;").join(" ").split("<p></p>").join("");
+  
+  return isitiga
+  }
+  
+			const formEl = document.getElementById( 'create-docx-form' );
+			const formData = [ ...new FormData( formEl ) ];
+             function mdfile(){ 
+ var coo=Judul;
+return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').replace(/^-+|-+$/g, '')
+};
+            
+            let isi=content(),Judul=$('div[name=judul]').text(),nama=mdfile();
+           
+ 
+
+			const request = {
+            "options":
+            {
+            "auto_pagination":true,
+            "header":[],
+            "footer":[],
+            "margin_top":"4cm",
+            "margin_right":"3cm",
+            "margin_bottom":"3cm",
+            "margin_left":"4cm",
+            "format":"A4",
+            "orientation":"portrait",
+            "base_url":""},
+            "html":`<h1>${Judul}</h1>${isi}
+            
+<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>Fadhel Fikri <br><br> <strong>Atribusi/Deskripsi:</strong><br> Co-Founder di Sophia Insitute dan pegian filsafat dan Sains. Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/6283132302297 <br><br> <strong>Email:</strong><br><a href="mailto:fadhel13fikri@gmail.com">fadhel13fikri@gmail.com</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br> <i>(Jika Dibutuhkan)</i><strong> No REK SeaBank/Bank Kesejahteraan Ekonomi (BKE):</strong><br> 901409177061 (an. Moh Fadhel Fikri)
+`,
+            "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}"
+            };
+
+			createHeaders( tokenEndpoint )
+				.then( headers => fetch( 'https://docx-converter.cke-cs.com/v1/convert', { method: 'POST', body: JSON.stringify( request ), headers } ) )
+				.then( res => {
+					if ( res.status === 400 ) {
+						alert( 'An error occurred during conversion. Please check all the inputs.' );
+
+						return null;
+					}
+
+					if ( res.status > 299 ) {
+						alert( 'An error occurred during conversion.' );
+
+						return null;
+					}
+					return res.blob();
+				} )
+				.then( blob => {
+					if ( !blob ) {
+						return;
+					}
+
+					const link = document.createElement( 'a' );
+					link.href = window.URL.createObjectURL( blob );
+					link.download = `Fadhel Fikri-${nama}.docx`;
+					link.click();
+				} );
+		}
+
+		function createHeaders( tokenEndpoint ) {
+			if ( tokenEndpoint ) {
+				return fetch( tokenEndpoint, { method: 'GET' } )
+					.then( res => res.text() )
+					.then( token => {
+						return { ...DEFAULT_HEADERS, Authorization: token }
+					} );
+			}
+
+			return Promise.resolve( DEFAULT_HEADERS );
+		}
+
+		function processMargin( request, fieldName, fieldValue ) {
+			if ( !fieldName.endsWith( '_unit' ) ) {
+				request.options[ fieldName ] = request.options[ fieldName ] ? fieldValue.concat( '', request.options[ fieldName ] ) : fieldValue;
+
+				return;
+			}
+
+			const marginField = fieldName.replace( '_unit', '' );
+
+			request.options[ marginField ] = request.options[ marginField ] ? request.options[ marginField ].concat( '', fieldValue ) : fieldValue;
+		}
+
+		function mapHeadersOrFootersToList( element ) {
+			return Object.keys( element ).filter( type => !!element[ type ].html ).map( type => ( {
+				type,
+				css: element[ type ].css,
+				html: element[ type ].html,
+			} ) )
+		}
+	}()</script>
+
+<form class="hidden" id="create-docx-form"></form>
+<style>.scroll-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-btn:hover {
+  background-color: #0056b3;
+}</style><button id="scrollButton" class="scroll-btn" style="display: none;">↓</button>
+<script>
+// Fungsi untuk mengatur visibilitas tombol berdasarkan posisi gulir
+window.addEventListener("scroll", function() {
+  const scrollButton = document.getElementById("scrollButton");
+  if (window.scrollY > document.documentElement.clientHeight) {
+    scrollButton.style.display = "none";
+  } else {
+    scrollButton.style.display = "block";
+  }
+});
+
+// Fungsi untuk menggulir ke bawah saat tombol ditekan
+document.getElementById("scrollButton").addEventListener("click", function() {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+});
+$('input[name=harga]').on('change click keyup input paste',(function (event) {
+    $(this).val(function (index, value) {
+        return 'Rp' + value.replace(/(?!\.)\D/g, "")
+                          .replace(/(?<=\..*)\./g, "")
+                          .replace(/(?<=\.\d\d).*/g, "")
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    });
+}));$('input[name=isbn]').on('change click keyup input paste',(function (event) {
+    $(this).val(function (index, value) {
+        return value.replaceAll("-", "")
+    });
+}));
+</script>
+</body>
+</html>
