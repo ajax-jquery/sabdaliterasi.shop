@@ -116,7 +116,7 @@ date_short: '${waktu_short}'
 author: '${tag}'
 title: '${judul}'
 buy: '${buy}'
-harga: '${harga}'
+harga: '${harga.replaceAll(",",".")}'
 image: '${image}'
 description: '${description}'
 keyword: ['${keywords}']
@@ -1068,7 +1068,7 @@ $('input[name=harga]').on('change click keyup input paste',(function (event) {
         return 'Rp' + value.replace(/(?!\.)\D/g, "")
                           .replace(/(?<=\..*)\./g, "")
                           .replace(/(?<=\.\d\d).*/g, "")
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     });
 }));$('input[name=isbn]').on('change click keyup input paste',(function (event) {
     $(this).val(function (index, value) {
