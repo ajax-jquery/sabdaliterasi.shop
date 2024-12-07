@@ -242,7 +242,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
         
-  SendMail:
+  Send_Mail_Product:
     if: needs.check_draft_product.outputs.has_published_files == 'true'
     needs: deploy
     runs-on: ubuntu-latest  # Menjalankan workflow di sistem operasi Ubuntu
@@ -256,12 +256,12 @@ jobs:
           node-version: '16'  # Menggunakan versi Node.js 16, Anda bisa sesuaikan dengan versi yang diinginkan
 
       - name: Install dependencies
-        working-directory: app/sendmail
+        working-directory: app/sendmail-product
         run: |
           npm install  # Menginstal dependensi yang ada di package.json
           
       - name: Run the Node.js script
-        working-directory: app/sendmail
+        working-directory: app/sendmail-product
         run: |
           node server.js  # Menjalankan skrip utama Node.js Anda (sesuaikan dengan path file skrip)
         env:
@@ -293,7 +293,7 @@ jobs:
           EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}      
 
-  RSS_post_to_Twitter:
+  RRS_Product_to_Twitter:
     if: needs.check_draft_product.outputs.has_published_files == 'true'
     needs: deploy
     runs-on: ubuntu-latest
@@ -307,12 +307,12 @@ jobs:
           node-version: '16' # Sesuaikan dengan versi Node.js yang Anda gunakan
 
       - name: Install dependencies
-        working-directory: app/post-twitter
+        working-directory: app/twitter-post-product
         run: |
           npm install  # Menginstal dependensi yang ada di package.json
           
       - name: Run server.js to post on Twitter
-        working-directory: app/post-twitter
+        working-directory: app/twitter-post-product
         run: |
           node server.js
         env:
