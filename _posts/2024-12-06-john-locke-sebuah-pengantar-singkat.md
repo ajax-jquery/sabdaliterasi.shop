@@ -4,7 +4,7 @@ date_short: '2024-12-06T16:34:06+08:00'
 author: 'John Dunn'
 title: 'John Locke: Sebuah Pengantar Singkat'
 buy: 'https://lynk.id/sabdaliterasi/JmdlxvB'
-harga: 'Rp23,000'
+harga: 'Rp23.000'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-john-locke-sebuah-pengantar-singkat.jpg'
 description: 'Selami pemikiran John Locke, Bapak Liberalisme Klasik, dalam buku John Locke: Sebuah Pengantar Singkat. Buku ini mengupas tuntas ide-ide revolusioner Locke tentang kebebasan, hak individu, dan pemerintahan terbatas. Dapatkan bukunya sekarang dan temukan relevansi pemikirannya dengan dunia modern!'
 keyword: ['john locke','sebuah pengantar singkat','john dunn','sinopsis','filsafat','liberalisme','basabasi']
