@@ -65,49 +65,49 @@ document.getElementById("bookForm").addEventListener("submit", function(event) {
     const translatedTitle = document.getElementById("translatedTitle").value.trim();
 
     // Create the formatted text
-    let formattedText = `Judul Buku: **${title}**\nPengarang: **${author}**\nPenerbit: **${publisher}**\nTahun Terbit: **${year}**`;
+    let formattedText = `Book Title: **${title}**\nAuthor: **${author}**\nPublisher: **${publisher}, ${year}**`;
     if (isbn) formattedText += `\nISBN: **${isbn}**`;
-    if (translator) formattedText += `\nPenerjemah: **${translator}**`;
-    if (translatedTitle) formattedText += `\nJudul Asli: **${translatedTitle}**`;
+    if (translator) formattedText += `\nTranslator: **${translator}**`;
+    if (translatedTitle) formattedText += `\nOriginal Title: **${translatedTitle}**`;
 
     // Display in the textarea
-    document.getElementById("outputText").value =`**Prompt untuk Anda:**
+    document.getElementById("outputText").value =`**Your Prompt:**
 
-Tugas Anda:  
-Tulis artikel SEO-friendly dengan panjang 400 kata yang membahas sinopsis buku **${title}**, yang akan dijual di website. Artikel ini harus memiliki struktur yang baik untuk SEO, dengan menggunakan kata kunci yang relevan secara natural dan menarik perhatian pembaca. Artikel ini juga harus ditulis dengan gaya yang ringkas, mudah dipahami, dan menggugah minat pembaca untuk membeli buku tersebut.
+Your Task:  
+Write a 400-word SEO-friendly article that discusses the synopsis of the book **${title}**, which will be sold on the my website. The article should be well-structured for SEO, using relevant keywords that naturally attract readers' attention. The article should also be written in a concise, easy-to-understand style that will arouse readers' interest in buying the book.
 
-**Detail Buku:**
+**Book Details:**
 
 ${formattedText}
 
-**Detail Artikel:**
+For more details, I am giving you the book in file PDF file format.
 
-1. **Judul:** Gunakan judul buku yang dijual, misalnya "Sinopsis Buku ${title}" atau "Mengenal Lebih Dekat ${title}".
-   
-2. **Paragraf Pembuka:**  
-   - Mulai dengan kalimat yang menarik pembaca untuk mengetahui lebih lanjut tentang buku ini.  
-   - Sertakan sedikit pengantar yang mencakup genre buku dan siapa target audiens yang cocok untuk membacanya.
+**Article Details:**
 
-3. **Sinopsis Utama:**  
-   - Ringkas cerita utama buku tanpa memberikan spoiler yang terlalu mendalam.
-   - Highlight tema-tema besar yang dibahas dalam buku dan mengapa buku ini layak dibaca.
+**Title:** Use the title of the book being sold, such as "Book Synopsis ${title}" or "Getting to Know ${title}".
 
-4. **Mengapa Membaca Buku Ini:**  
-   - Tulis beberapa alasan mengapa pembaca harus membeli dan membaca buku ini.
-   - Bisa berupa ulasan tentang gaya penulisan penulis, karakter yang kuat, atau ide-ide unik dalam buku.
-
-5. **Penutupan dan Call-to-Action:**  
-   - Akhiri artikel dengan ajakan untuk membeli buku ini atau menjelajahi lebih banyak buku serupa di website.
-   - Sertakan kalimat yang memotivasi pembaca untuk mengambil tindakan setelah membaca artikel.
-
-**SEO dan Monetisasi:**
-- Gunakan kata kunci yang relevan dengan judul buku dan genre buku tersebut.
-- Sisipkan kata kunci dengan natural dalam artikel, seperti “buku ${title}”, “sinopsis ${title}”, dan “beli ${title}”.
-- Pastikan artikel mudah dipahami dan tidak terlalu panjang agar sesuai dengan pembaca yang mencari informasi cepat.
-- Gunakan subjudul yang sesuai dan bantu pembaca menavigasi artikel dengan mudah.
-
-**Tingkatkan Keterlibatan Pembaca:**  
-Pastikan artikel ini tidak hanya menarik dari sisi SEO tetapi juga membuat pembaca merasa tertarik dan ingin membeli buku yang dibahas. Hindari penulisan yang terlalu promosi atau terkesan iklan, namun tetap menggugah minat pembaca untuk membeli.`;
+1.  **Opening Paragraph:**
+    *   Start with a sentence that entices the reader to learn more about the book.
+    *   Include a short introduction that covers the genre of the book and who the target audience is.
+2.  **Main Synopsis:**
+    *   Summarize the main story of the book without giving too many spoilers.
+    *   Highlight the major themes discussed in the book and why it is worth reading.
+3.  **Author Authority:**
+    *   Highlight the author's expertise, credentials, or unique perspective. 
+    *   Why are they qualified to write about this topic? 
+    *   List any awards or recognition.
+4.  **Why Read This Book:**
+    *   List a few reasons why readers should buy and read this book.
+    *   This could be a review of the author's writing style, strong characters, or unique ideas in the book.
+5.  **Closing and Call-to-Action:**
+    *   End the article with an invitation to buy this book or explore more similar books on the website.
+    *   Include a sentence that motivates the reader to take action after reading the article.
+6.  **SEO and Monetization:**
+    *   Use keywords that are relevant to the book title and the genre of the book.
+    *   Insert keywords naturally in the article, such as “book ${title}”, “synopsis ${title}”, and “buy ${title}”.
+    *   Make sure the article is easy to understand and not too long to suit readers looking for quick information.
+    *   Use appropriate subheadings and help readers navigate the article easily.
+    *   Use good and correct Indonesian.`;
 });
 
 // Copy to Clipboard
