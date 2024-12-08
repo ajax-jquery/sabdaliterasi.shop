@@ -91,7 +91,7 @@ layout: null
 /* Breadcrumb */
 {"@type":"BreadcrumbList","@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#breadcrumb","itemListElement":[ { "@type":"ListItem", "position":1, "name":"Home", "item":"{{ site.url }}/"},{ "@type":"ListItem","position":2,"name":"{% if p.tag %}Artikel{% else %}Halaman{% endif %}","item":"{{ site.url }}/artikel"},{"@type":"ListItem","position":3,"name":"{% if p.tag %}{{ p.tag }}{% else %}Page{% endif %}","item":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#{% if p.tag %}{{ p.tag | replace: " ","-" }}{% else %}Page{% endif %}"}, { "@type":"ListItem", "position":4, "name":"{% if p.title %}{{ p.title }}{% endif %}"}]},
 /* THUMBNAIL */
-{ "@type":"ImageObject","inLanguage":"id-ID","@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#primaryimage","url":"{% if p.image %}{{ p.image }}{% endif %}","contentUrl":"{% if p.image %}{{ p.image }}{% endif %}","width":1280,"height":720,"caption":"{% if p.title %}{{ p.title }} – {% endif %}{{ site.title }}"},
+{ "@type":"ImageObject","inLanguage":"id-ID","@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#primaryimage","url":"{% if p.image %}{{ p.image }}{% endif %}","contentUrl":"{% if p.image %}{{ p.image }}{% endif %}","width":1280,"height":720,"caption":"{% if p.title %}{{ p.title }} – {% endif %}{{ site.title }}"}
 ]}</script>
 <div class='pThmb'>
 <a class='thmb' href='{{ p.url | prepend: site.url }}'>
