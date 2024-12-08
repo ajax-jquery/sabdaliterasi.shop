@@ -104,7 +104,7 @@ layout: null
       "@type":"ListItem",
       "position":3,
       "name":"{% if p.tag %}{{ p.tag }}{% else %}Page{% endif %}",
-      "item":"{{ site.url }}{% if p.tag %}https://sabdaliterasi.xyz/category/{{ p.tag | downcase }}/{% endif %}#{% if p.tag %}{{ p.tag | replace: " ","-" }}{% else %}Page{% endif %}"
+      "item":"{{ site.url }}{% if p.tag %}/category/{{ p.tag | downcase }}/{% endif %}#{% if p.tag %}{{ p.tag | replace: " ","-" }}{% else %}Page{% endif %}"
     }, 
     {
       "@type":"ListItem", 
