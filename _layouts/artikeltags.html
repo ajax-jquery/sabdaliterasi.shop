@@ -89,8 +89,32 @@ layout: null
 /* WEBPAGE */
 { "@type":"WebPage","@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#/schema/webpage/1","url":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}","name":"{% if p.title %}{{ p.title }}{% endif %}", "isPartOf":{"@id":"{{ site.url }}/#/schema/website/1"},"primaryImageOfPage":{"@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#primaryimage"}, "image":{ "@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#primaryimage"}, "thumbnailUrl":"{% if p.image %}{{ p.image }}{% endif %}", "datePublished":"{% if p.date %}{{ p.date }}{% endif %}", "dateModified":"{% if p.date %}{{ p.date }}{% endif %}", "description":"{{ site.title }} - {% if p.description %}{{ p.description }}{% endif %}", "keywords":[ {% for keywords in p.keyword limit:10 %}"{{keywords}}"{% if forloop.last == false %},{% endif %}{% endfor %},"{{ p.tag }}","{{ site.title }}","{% if p.title %}{{ p.title }}{% endif %}"],"breadcrumb":{"@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#breadcrumb"},"inLanguage":"id-ID","potentialAction":[{"@type":"ReadAction","target":["{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}"]}]},
 /* Breadcrumb */
-{"@type":"BreadcrumbList","@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#breadcrumb","itemListElement":[ { "@type":"ListItem", "position":1, "name":"Home", "item":"{{ site.url }}/"},{ "@type":"ListItem","position":2,"name":"{% if p.tag %}Artikel{% else %}Halaman{% endif %}","item":"{{ site.url }}/artikel"},{"@type":"ListItem","position":3,"name":"{% if p.tag %}{{ p.tag }}{% else %}Page{% endif %}","item":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#{% if p.tag %}{{ p.tag | replace: " ","-" }}{% else %}Page{% endif %}"}, { "@type":"ListItem", "position":4, "name":"{% if p.title %}{{ p.title }}{% endif %}"}]},
-/* THUMBNAIL */
+{"@type":"BreadcrumbList","@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#breadcrumb",
+  "itemListElement":[
+    {
+      "@type":"ListItem", 
+    "position":1, 
+    "name":"Home", 
+    "item":"{{ site.url }}/"},
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"{% if p.tag %}Artikel{% else %}Halaman{% endif %}","item":"{{ site.url }}/artikel"},
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"{% if p.tag %}{{ p.tag }}{% else %}Page{% endif %}",
+      "item":"{{ site.url }}{% if p.tag %}https://sabdaliterasi.xyz/category/{{ p.tag | downcase }}/{% endif %}#{% if p.tag %}{{ p.tag | replace: " ","-" }}{% else %}Page{% endif %}"
+    }, 
+    {
+      "@type":"ListItem", 
+      "position":4, 
+      "name":"{% if p.title %}{{ p.title }}{% endif %}",
+      "item":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#{% if p.tag %}{{ p.tag | replace: " ","-" }}{% else %}Page{% endif %}"
+    }
+  
+  ]},
+    /* THUMBNAIL */
 { "@type":"ImageObject","inLanguage":"id-ID","@id":"{{ site.url }}{% if p.url %}{{ p.url | replace: 'amp/','' }}{% endif %}#primaryimage","url":"{% if p.image %}{{ p.image }}{% endif %}","contentUrl":"{% if p.image %}{{ p.image }}{% endif %}","width":1280,"height":720,"caption":"{% if p.title %}{{ p.title }} – {% endif %}{{ site.title }}"}
 ]}</script>
 <div class='pThmb'>
