@@ -91,6 +91,7 @@
     "https://sabdaliterasi.xyz/artikel/gus-miftah-dan-teologi-pembebasan-ketika-dakwah-melupakan-kaum-tertindas/",
     "https://sabdaliterasi.xyz/artikel/memaksa-tanpa-menyentuh-pelecehan-seksual-berbasis-psikologi/",
     "https://sabdaliterasi.xyz/artikel/kasus-spbu-palu-dan-soekarnoisme-keadilan-sosial-belum-usai/",
-    "https://sabdaliterasi.xyz/artikel/dari-individu-ke-sistem-menguak-wajah-penindasan-dalam-psikologi-mainstream/"
+    "https://sabdaliterasi.xyz/artikel/dari-individu-ke-sistem-menguak-wajah-penindasan-dalam-psikologi-mainstream/",
+    "https://sabdaliterasi.xyz/artikel/filsafat-cinta-mengapa-cinta-perlu-dipelajari/"
   ]
 }
