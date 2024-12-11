@@ -89,6 +89,7 @@
     "https://sabdaliterasi.xyz/artikel/harari-etika-nasionalisme-di-abad-21/",
     "https://sabdaliterasi.xyz/artikel/bukan-putri-yang-menunggu-diselamatkan-feminisme-dan-perempuan-mandiri-di-era-modern/",
     "https://sabdaliterasi.xyz/artikel/dari-individu-ke-sistem-menguak-wajah-penindasan-dalam-psikologi-mainstream/",
-    "https://sabdaliterasi.xyz/artikel/filsafat-cinta-mengapa-cinta-perlu-dipelajari/"
+    "https://sabdaliterasi.xyz/artikel/filsafat-cinta-mengapa-cinta-perlu-dipelajari/",
+    "https://sabdaliterasi.xyz/artikel/gus-miftah-dan-teologi-pembebasan-ketika-dakwah-melupakan-kaum-tertindas/"
   ]
 }
