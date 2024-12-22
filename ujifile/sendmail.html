@@ -627,7 +627,38 @@ inforek=""
     "language": "id-ID",
     "timezone": "Asia/Makassar"
   },
-            "html":`<h1>${Judul}</h1>${isi.replaceAll("h2>","strong>")}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/{{ site.hp }} <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
+            "html":`<h1>${Judul}</h1>${isi.replaceAll("h2>","strong>")}<br><table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <tbody><tr>
+    <th colspan="2" style="text-align: center;">BIO SAYA</th>
+  </tr>
+  <tr>
+    <td><strong>Nama Penulis</strong></td>
+    <td>${namaku}</td>
+  </tr>
+  <tr>
+    <td><strong>Atribusi/Deskripsi</strong></td>
+    <td>${atribusi} Dan pembisnis di <a href="{{ site.url }}" target="_blank">Sabda Literasi Palu</a></td>
+  </tr>
+  <tr>
+    <td><strong>Website</strong></td>
+    <td><a href="{{ site.url }}" target="_blank">{{ site.url }}</a></td>
+  </tr>
+  <tr>
+    <td><strong>No HP/WA</strong></td>
+    <td><a href="https://wa.me/{{ site.hp }}" target="_blank">https://wa.me/{{ site.hp }}</a></td>
+  </tr>
+  <tr>
+    <td><strong>Email</strong></td>
+    <td><a href="mailto:${mail}">${mail}</a></td>
+  </tr>
+  <tr>
+    <td><strong>Foto Penulis</strong></td>
+    <td><i>Terlampir</i></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center;">${inforek}</td>
+  </tr>
+</tbody></table>
 `,
             "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}li,p{line-height:1.5}"
             };
