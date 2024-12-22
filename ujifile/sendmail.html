@@ -584,25 +584,56 @@ inforek=""
 }
 
 			const request = {
-            "options":
-            {
-            "auto_pagination":true,
-            "header":[],
-            "footer":[],
-            "margin_top":"4cm",
-            "margin_right":"3cm",
-            "margin_bottom":"3cm",
-            "margin_left":"4cm",
-            "format":"A4",
-            "orientation":"portrait",
-            "base_url":""},
+            "config": {
+    "collaboration_features": {},
+    "headers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p { display:none;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    },
+    "footers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    },
+    "document": {
+      "margins": {
+        "top": "4cm",
+        "right": "4cm",
+        "bottom": "3cm",
+        "left": "3cm"
+      },
+      "size": "A4",
+      "orientation": "portrait"
+    },
+    "language": "id-ID",
+    "timezone": "Asia/Makassar"
+  },
             "html":`<h1>${Judul}</h1>${isi.replaceAll("h2>","strong>")}<br><br><br> <strong>BIO SAYA:</strong><br><strong>Nama Penulis: </strong>${namaku}<br><br> <strong>Atribusi/Deskripsi:</strong><br> ${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz">Sabda Literasi Palu</a> <br><br> <strong>Website:</strong><br> <a href="https://sabdaliterasi.xyz">https://sabdaliterasi.xyz</a> <br><br> <strong>No Hp/Wa:</strong><br> https://wa.me/{{ site.hp }} <br><br> <strong>Email:</strong><br><a href="mailto:${mail}">${mail}</a> <br><br> <strong>Foto Penulis:</strong><br> <i>Terlampir</i> <br><br>${inforek}
 `,
             "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}"
             };
 
 			createHeaders( tokenEndpoint )
-				.then( headers => fetch( 'https://docx-converter.cke-cs.com/v1/convert', { method: 'POST', body: JSON.stringify( request ), headers } ) )
+				.then( headers => fetch('https://docx-converter.cke-cs.com/v2/convert/html-docx', { method: 'POST', body: JSON.stringify( request ), headers } ) )
 				.then( res => {
 					if ( res.status === 400 ) {
 						alert( 'An error occurred during conversion. Please check all the inputs.' );
