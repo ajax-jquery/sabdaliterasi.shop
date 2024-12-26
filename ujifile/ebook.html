@@ -5,10 +5,12 @@ permalink: /wp-admin/ebook-generator/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/wp-conten/file/cdn/gh/ajax-jquery/cdn.sophiainstitute.id@master/safelink/css/wcsafelink.js"></script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konversi Link GDrive ke JSON</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <style>
         body {
             padding: 20px;
@@ -21,11 +23,11 @@ permalink: /wp-admin/ebook-generator/
         <h1>Konversi Link GDrive ke JSON</h1>
         <div class="form-group">
             <label for="link">Link Download:</label>
-            <input type="text" class="form-control" id="link" placeholder="Masukkan link download">
+            <input type="text" class="form-control" name="link" id="link" placeholder="Masukkan link download">
         </div>
         <div class="form-group">
             <label for="title">Judul:</label>
-            <input type="text" class="form-control" id="title" placeholder="Masukkan judul">
+            <input type="text" name="judulbuku" class="form-control" id="title" placeholder="Masukkan judul">
         </div>
         <button class="btn btn-primary" onclick="convert()">Konversi</button>
 
@@ -33,8 +35,8 @@ permalink: /wp-admin/ebook-generator/
         <pre id="output"></pre>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.0.5/dist/js/bootstrap.min.js"></script>
+    <script src="/wp-conten/file/cdn/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script src="/wp-conten/file/cdn/npm/bootstrap@3.0.5/dist/js/bootstrap.min.js"></script>
     <script>
   
        function convert() {
@@ -66,7 +68,8 @@ permalink: /wp-admin/ebook-generator/
 };
 var URL_ID = "download/ebook-"+convertToSlug(title), 
     JUDUL =title, 
-    CANONICAL="https://sabdaliterasi.xyz/download/ebook?c="+base64String; 
+    CANONICAL1="https://sabdaliterasi.xyz/download/ebook?c="+base64String,
+    CANONICAL="http://link.sophiainstitute.xyz/2022/01/A.html#?o="+aesCrypto.encrypt(convertstr(CANONICAL1),convertstr("root"));
   
  const options = {
   method: 'POST',
