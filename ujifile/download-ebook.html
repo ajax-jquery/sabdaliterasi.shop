@@ -5,6 +5,29 @@ layout: null
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>// URL server Anda
+const serverUrl = "/api/verify/";
+
+// Fungsi untuk melakukan ping ke server
+function pingServer() {
+  fetch(serverUrl)
+    .then(response => {
+      if (response.ok) {
+        console.log("Ping successful:", response.status);
+      } else {
+        console.error("Ping failed with status:", response.status);
+      }
+    })
+    .catch(error => console.error("Ping error:", error));
+}
+
+// Mulai ping saat halaman dimuat
+document.addEventListener("DOMContentLoaded", () => {
+  // Ping server setiap 5 menit (300000 ms)
+  pingServer();
+  setInterval(pingServer, 300000);
+});
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML2 - Verify and Download</title>
