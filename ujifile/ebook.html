@@ -1,0 +1,134 @@
+---
+layout: null
+permalink: /wp-admin/ebook-generator/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Link GDrive ke JSON</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Konversi Link GDrive ke JSON</h1>
+        <div class="form-group">
+            <label for="link">Link Download:</label>
+            <input type="text" class="form-control" id="link" placeholder="Masukkan link download">
+        </div>
+        <div class="form-group">
+            <label for="title">Judul:</label>
+            <input type="text" class="form-control" id="title" placeholder="Masukkan judul">
+        </div>
+        <button class="btn btn-primary" onclick="convert()">Konversi</button>
+
+        <h2 class="mt-4">Hasil:</h2>
+        <pre id="output"></pre>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.0.5/dist/js/bootstrap.min.js"></script>
+    <script>
+  
+       function convert() {
+            var link = document.getElementById("link").value;
+            var title = document.getElementById("title").value;
+
+            // Ubah link GDrive mentah ke link download
+            link = convertGDriveLink(link);
+
+            // Buat objek JSON
+            var jsonData = {
+                id: link,
+                title: title
+            };
+
+            // Konversi JSON ke string
+            var jsonString = JSON.stringify(jsonData);
+
+            // Encode ke Base64 (manual)
+            var base64String = base64Encode(jsonString);
+
+            // Tampilkan hasil
+
+        function convertToSlug(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-');
+};
+var URL_ID = "download/ebook-"+convertToSlug(title), 
+    JUDUL =title, 
+    CANONICAL="https://sabdaliterasi.xyz/download/ebook?c="+base64String; 
+  
+ const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    Authorization: 'pk_r5nioPNOZO50OdIJ'
+  },
+  body: JSON.stringify({
+    domain: 'm.sabdaliterasi.xyz',
+    allowDuplicates: false,
+    originalURL: CANONICAL,
+    path: URL_ID,
+    title: JUDUL,
+    redirectType: 301
+  })
+};
+
+fetch('https://api.short.io/links/public', options)
+  .then(response => response.json())
+  .then(response => {
+   document.getElementById("output").textContent ="https://m.sabdaliterasi.xyz/"+URL_ID;
+    console.log(response)
+  
+  })
+  .catch(err => console.error(err));
+        }
+
+        function convertGDriveLink(link) {
+            // Contoh konversi link GDrive mentah:
+            // https://drive.google.com/file/d/1aBcDeFgHiJkLmNoPqRsTuVwXyZ/view?usp=sharing
+            // menjadi:
+            // https://drive.google.com/uc?export=download&id=1aBcDeFgHiJkLmNoPqRsTuVwXyZ
+            const fileId = link.match(/\/d\/(.*?)\//)[1];
+            return "https://drive.google.com/uc?export=download&id=" + fileId;
+        }
+
+        function base64Encode(str) {
+            // Implementasi Base64 encoding manual
+            var base64Chars = "LENQWXOCVGTSHFIJBRUMDKPZAYlenqwxocvgtshfijbrumdkpzay1539640827+/=";
+            var result = '';
+            var i = 0;
+            while (i < str.length) {
+                var char1 = str.charCodeAt(i++);
+                var char2 = str.charCodeAt(i++);
+                var char3 = str.charCodeAt(i++);
+
+                var enc1 = char1 >> 2;
+                var enc2 = ((char1 & 3) << 4) | (char2 >> 4);
+                var enc3 = ((char2 & 15) << 2) | (char3 >> 6);
+                var enc4 = char3 & 63;
+
+                if (isNaN(char2)) {
+                    enc3 = enc4 = 64;
+                } else if (isNaN(char3)) {
+                    enc4 = 64;
+                }
+
+                result += base64Chars.charAt(enc1) + base64Chars.charAt(enc2) + base64Chars.charAt(enc3) + base64Chars.charAt(enc4);
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>
