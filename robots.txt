@@ -7,6 +7,7 @@ Disallow: /api/*
 Disallow: /success/
 Disallow: /uji-home/
 Disallow: /buy/
+Disallow: /download/
 Disallow: /offline/
 Disallow: /search/
 Disallow: /konfirmasi/
