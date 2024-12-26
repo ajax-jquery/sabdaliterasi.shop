@@ -22,7 +22,7 @@ layout: null
       <label for="email" class="form-label">Email</label>
       <div class="input-group">
         <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-        <button type="button" id="checkEmail" class="btn btn-secondary">Check Email</button>
+        <button type="button" id="checkEmail" class="btn btn-secondary">Verify Email</button>
       </div>
     </div>
     <div class="mb-3" id="verifyCodeInput" style="display: none;">
@@ -68,7 +68,7 @@ layout: null
 
   // Handle Check Email
   document.getElementById('checkEmail').addEventListener('click', function () {
-    const email = document.getElementById('email').value.trim();
+    const email = document.getElementById('email').value.trim().toLowerCase();
 
     if (email) {
       fetch('/api/verify/check-email-and-download', {
@@ -117,7 +117,7 @@ layout: null
     e.preventDefault();
 
     const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const email = document.getElementById('email').value.trim().toLowerCase();
     const code = document.getElementById('code').value.trim();
 
     if (name && email && code) {
