@@ -71,7 +71,7 @@ layout: null
     const email = document.getElementById('email').value.trim();
 
     if (email) {
-      fetch('http://localhost:3000/check-email-and-download', {
+      fetch('/api/verify/check-email-and-download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, base64: base64Data })
@@ -95,7 +95,7 @@ layout: null
 
   // Send Verification Code
   function sendVerificationCode(email) {
-    fetch('http://localhost:3000/send-verification-code', {
+    fetch('/api/verify/send-verification-code', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -121,7 +121,7 @@ layout: null
     const code = document.getElementById('code').value.trim();
 
     if (name && email && code) {
-      fetch('http://localhost:3000/verify-and-download', {
+      fetch('/api/verify/verify-and-download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, code, base64: base64Data })
