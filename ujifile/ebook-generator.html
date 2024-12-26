@@ -32,7 +32,7 @@ permalink: /wp-admin/ebook-generator/
         <button class="btn btn-primary" onclick="convert()">Konversi</button>
 
         <h2 class="mt-4">Hasil:</h2>
-        <pre id="output"></pre>
+        <p id="output"></p>
     </div>
 
     <script src="/wp-conten/file/cdn/npm/jquery@1.11.1/dist/jquery.min.js"></script>
@@ -91,7 +91,7 @@ var URL_ID = "download/ebook-"+convertToSlug(title),
 fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
-   document.getElementById("output").textContent ="https://m.sabdaliterasi.xyz/"+URL_ID;
+   document.getElementById("output").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}">https://m.sabdaliterasi.xyz/${URL_ID}</a>`;
     console.log(response)
   
   })
