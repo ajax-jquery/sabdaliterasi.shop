@@ -1,0 +1,146 @@
+---
+permalink: /download/ebook
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML2 - Verify and Download</title>
+  <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h1 id="title" class="text-center">Loading...</h1>
+  <form id="formVerify" class="mt-4">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <div class="input-group">
+        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+        <button type="button" id="checkEmail" class="btn btn-secondary">Check Email</button>
+      </div>
+    </div>
+    <div class="mb-3" id="verifyCodeInput" style="display: none;">
+      <label for="code" class="form-label">Verification Code</label>
+      <input type="text" id="code" class="form-control" placeholder="Enter the verification code" required>
+    </div>
+    <button type="submit" class="btn btn-primary" id="submitForm">Submit and Download</button>
+  </form>
+</div>
+
+<script>
+  // Decode Base64 data
+  function decodeBase64(input) {
+    const chars = "LENQWXOCVGTSHFIJBRUMDKPZAYlenqwxocvgtshfijbrumdkpzay1539640827+/=";
+    let str = "";
+    let i = 0;
+
+    while (i < input.length) {
+      const enc1 = chars.indexOf(input.charAt(i++));
+      const enc2 = chars.indexOf(input.charAt(i++));
+      const enc3 = chars.indexOf(input.charAt(i++));
+      const enc4 = chars.indexOf(input.charAt(i++));
+
+      const chr1 = (enc1 << 2) | (enc2 >> 4);
+      const chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+      const chr3 = ((enc3 & 3) << 6) | enc4;
+
+      str += String.fromCharCode(chr1);
+      if (enc3 !== 64) str += String.fromCharCode(chr2);
+      if (enc4 !== 64) str += String.fromCharCode(chr3);
+    }
+    let fix = decodeURIComponent(escape(str));
+    return fix
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const base64Data = params.get('c');
+  const jsonData = base64Data ? JSON.parse(decodeBase64(base64Data)) : null;
+
+  if (jsonData) {
+    document.getElementById('title').textContent = `Daftar dan Download Ebook ${jsonData.title}.pdf`;
+  }
+
+  // Handle Check Email
+  document.getElementById('checkEmail').addEventListener('click', function () {
+    const email = document.getElementById('email').value.trim();
+
+    if (email) {
+      fetch('http://localhost:3000/check-email-and-download', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, base64: base64Data })
+      }).then(response => response.json()).then(data => {
+        if (data.success) {
+          // Redirect to download link if already verified
+          alert('Email verified! Redirecting to download...');
+          window.location.href = data.downloadLink;
+        } else {
+          // If not verified, trigger email verification process
+          sendVerificationCode(email);
+        }
+      }).catch(err => {
+        console.error(err);
+        alert('Error checking email. Please try again.');
+      });
+    } else {
+      alert('Please enter a valid email.');
+    }
+  });
+
+  // Send Verification Code
+  function sendVerificationCode(email) {
+    fetch('http://localhost:3000/send-verification-code', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    }).then(response => response.json()).then(data => {
+      if (data.success) {
+        alert('Verification code sent to your email. Please check your inbox.');
+        document.getElementById('verifyCodeInput').style.display = 'block';
+      } else {
+        alert('Failed to send verification code. Please try again.');
+      }
+    }).catch(err => {
+      console.error(err);
+      alert('Error sending verification code. Please try again.');
+    });
+  }
+
+  // Handle Form Submit
+  document.getElementById('formVerify').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const code = document.getElementById('code').value.trim();
+
+    if (name && email && code) {
+      fetch('http://localhost:3000/verify-and-download', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, code, base64: base64Data })
+      }).then(response => response.json()).then(data => {
+        if (data.success) {
+          // Redirect to download link
+          alert('Verification successful! Redirecting to download...');
+          window.location.href = data.downloadLink;
+        } else {
+          alert(data.message);
+        }
+      }).catch(err => {
+        console.error(err);
+        alert('Error during verification. Please try again.');
+      });
+    } else {
+      alert('Please fill in all fields.');
+    }
+  });
+</script>
+</body>
+</html>
