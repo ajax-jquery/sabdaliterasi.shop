@@ -32,8 +32,30 @@ document.addEventListener("DOMContentLoaded", () => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML2 - Verify and Download</title>
   <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  #loadingOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
 </head>
 <body>
+<!-- Overlay Loading -->
+<div id="loadingOverlay" >
+  <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
 <div class="container mt-5">
   <h1 id="title" class="text-center">Loading...</h1>
   <form id="formVerify" class="mt-4">
@@ -48,6 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <button type="button" id="checkEmail" class="btn btn-secondary">Verify Email</button>
       </div>
     </div>
+    <div id="verificationMessage" class="alert alert-success mt-3" style="display: none;">
+  Kode verifikasi telah dikirim ke email Anda. Silakan periksa kotak masuk/kota spam Anda. Kode akan berakhir dalam 60 Detik.
+</div>
     <div class="mb-3" id="verifyCodeInput" style="display: none;">
       <label for="code" class="form-label">Verification Code</label>
       <input type="text" id="code" class="form-control" placeholder="Enter the verification code" required>
@@ -57,8 +82,39 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script>
-  // Decode Base64 data
-  function decodeBase64(input) {
+
+ // Show loading overlay
+function showLoading() {
+  document.getElementById('loadingOverlay').style.display = 'flex';
+}
+
+// Hide loading overlay
+function hideLoading() {
+  document.getElementById('loadingOverlay').style.display = 'none';
+}
+function showVerificationMessage() {
+  const messageElement = document.getElementById('verificationMessage');
+  messageElement.style.display = 'block';
+}
+  function startCountdown(buttonId, duration) {
+  const button = document.getElementById(buttonId);
+  let timeLeft = duration;
+
+  // Disable tombol dan mulai hitung mundur
+  button.disabled = true;
+  button.textContent = `Please wait ${timeLeft}s`;
+
+  const countdownInterval = setInterval(() => {
+    timeLeft--;
+    if (timeLeft > 0) {
+      button.textContent = `Please wait ${timeLeft}s`;
+    } else {
+      clearInterval(countdownInterval);
+      button.disabled = false;
+      button.textContent = "Verify Email";
+    }
+  }, 1000); // Perbarui setiap 1 detik
+};function decodeBase64(input) {
     const chars = "LENQWXOCVGTSHFIJBRUMDKPZAYlenqwxocvgtshfijbrumdkpzay1539640827+/=";
     let str = "";
     let i = 0;
@@ -88,9 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (jsonData) {
     document.getElementById('title').textContent = `Daftar dan Download Ebook ${jsonData.title}.pdf`;
   }
-
-  // Handle Check Email
-  document.getElementById('checkEmail').addEventListener('click', function () {
+  document.getElementById('checkEmail').addEventListener('click', function () {showLoading();
     const email = document.getElementById('email').value.trim().toLowerCase();
 
     if (email) {
@@ -100,11 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ email, base64: base64Data })
       }).then(response => response.json()).then(data => {
         if (data.success) {
-          // Redirect to download link if already verified
-          alert('Email verified! Redirecting to download...');
-          window.location.href = data.downloadLink;
-        } else {
-          // If not verified, trigger email verification process
+             window.location.href = data.downloadLink;hideLoading();
+        } else {hideLoading();
           sendVerificationCode(email);
         }
       }).catch(err => {
@@ -118,13 +169,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Send Verification Code
   function sendVerificationCode(email) {
+  startCountdown('checkEmail', 60);
     fetch('/api/verify/send-verification-code', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
     }).then(response => response.json()).then(data => {
       if (data.success) {
-        alert('Verification code sent to your email. Please check your inbox.');
+        showVerificationMessage()
         document.getElementById('verifyCodeInput').style.display = 'block';
       } else {
         alert('Failed to send verification code. Please try again.');
@@ -138,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle Form Submit
   document.getElementById('formVerify').addEventListener('submit', function (e) {
     e.preventDefault();
-
+showLoading();
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim().toLowerCase();
     const code = document.getElementById('code').value.trim();
@@ -148,19 +200,19 @@ document.addEventListener("DOMContentLoaded", () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, code, base64: base64Data })
-      }).then(response => response.json()).then(data => {
+      }).then(response => response.json()).then(data => {hideLoading();
         if (data.success) {
           // Redirect to download link
           alert('Verification successful! Redirecting to download...');
           window.location.href = data.downloadLink;
-        } else {
+        } else {hideLoading();
           alert(data.message);
         }
-      }).catch(err => {
+      }).catch(err => {hideLoading();
         console.error(err);
         alert('Error during verification. Please try again.');
       });
-    } else {
+    } else {hideLoading();
       alert('Please fill in all fields.');
     }
   });
