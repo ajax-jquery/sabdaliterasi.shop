@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
   #loadingOverlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -137,7 +137,7 @@ function decodeBase64(input) {
   const base64Data = params.get('c');
   const jsonData = base64Data ? JSON.parse(decodeBase64(base64Data)) : null;
   if (jsonData) {
-    document.getElementById('title').textContent = `Daftar dan Download Ebook ${jsonData.title}.pdf`;
+    document.getElementById('title').textContent = `Daftar dan Download Ebook ${jsonData.title}.pdf`;hideLoading()
   }
   document.getElementById('checkEmail').addEventListener('click', function () {showLoading();
     const email = document.getElementById('email').value.trim().toLowerCase();
