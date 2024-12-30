@@ -45,7 +45,8 @@ permalink: /wp-admin/ebook-generator/
             // Buat objek JSON
             var jsonData = {
                 id: link,
-                title: title
+                title: title,
+                short: "https://m.sabdaliterasi.xyz/download/ebook-"+convertToSlug(title)
             };
 
             // Konversi JSON ke string
@@ -56,12 +57,7 @@ permalink: /wp-admin/ebook-generator/
 
             // Tampilkan hasil
 
-        function convertToSlug(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w ]+/g, '')
-    .replace(/ +/g, '-');
-};
+       
 var URL_ID = "download/ebook-"+convertToSlug(title), 
     JUDUL =title, 
     CANONICAL1="https://sabdaliterasi.xyz/download/ebook?c="+base64String,
@@ -93,7 +89,6 @@ fetch('https://api.short.io/links/public', options)
   })
   .catch(err => console.error(err));
         }
-
         function convertGDriveLink(link) {
             // Contoh konversi link GDrive mentah:
             // https://drive.google.com/file/d/1aBcDeFgHiJkLmNoPqRsTuVwXyZ/view?usp=sharing
@@ -102,7 +97,6 @@ fetch('https://api.short.io/links/public', options)
             const fileId = link.match(/\/d\/(.*?)\//)[1];
             return "https://drive.google.com/uc?export=download&id=" + fileId;
         }
-
         function base64Encode(str) {
             // Implementasi Base64 encoding manual
             var base64Chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
@@ -128,6 +122,12 @@ fetch('https://api.short.io/links/public', options)
             }
             return result;
         }
+         function convertToSlug(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-');
+};
     </script>
 </body>
 </html>
