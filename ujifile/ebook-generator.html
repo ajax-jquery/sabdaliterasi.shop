@@ -42,10 +42,6 @@ permalink: /wp-admin/ebook-generator/
        function convert() {
             var link = document.getElementById("link").value;
             var title = document.getElementById("title").value;
-
-            // Ubah link GDrive mentah ke link download
-            link = convertGDriveLink(link);
-
             // Buat objek JSON
             var jsonData = {
                 id: link,
@@ -109,7 +105,7 @@ fetch('https://api.short.io/links/public', options)
 
         function base64Encode(str) {
             // Implementasi Base64 encoding manual
-            var base64Chars = "LENQWXOCVGTSHFIJBRUMDKPZAYlenqwxocvgtshfijbrumdkpzay1539640827+/=";
+            var base64Chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
             var result = '';
             var i = 0;
             while (i < str.length) {
