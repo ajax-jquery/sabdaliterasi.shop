@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script> 
+
 function showLoading() {
   document.getElementById('loadingOverlay').style.display = 'flex';
 }
@@ -135,9 +136,12 @@ function decodeBase64(input) {
   }
   const params = new URLSearchParams(window.location.search);
   const base64Data = params.get('c');
+  if (!base64Data) {
+   window.location.href=localStorage.getItem("linkbookfree")
+}
   const jsonData = base64Data ? JSON.parse(decodeBase64(base64Data)) : null;
   if (jsonData) {
-    document.getElementById('title').textContent = `Daftar dan Download Ebook ${jsonData.title}.pdf`;hideLoading()
+    document.getElementById('title').textContent = `Daftar dan Download Ebook ${jsonData.title}.pdf`;hideLoading();localStorage.setItem("linkbookfree",jsonData.short)
   }
   document.getElementById('checkEmail').addEventListener('click', function () {showLoading();
     const email = document.getElementById('email').value.trim().toLowerCase();
