@@ -209,7 +209,7 @@ showLoading();
   });
  const currentUrl = new URL(window.location.href);
 const paramss = currentUrl.searchParams;paramss.delete('c');
-    const newUrl = currentUrl.origin + currentUrl.pathname + (params.toString() ? '?' + params.toString() : '');
+    const newUrl = currentUrl.origin + currentUrl.pathname + (paramss.toString() ? '?' + paramss.toString() : '');
     window.history.replaceState({}, '', newUrl);
 </script>
 </body>
