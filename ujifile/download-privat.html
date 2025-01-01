@@ -167,15 +167,14 @@ hideLoading();
     }
   });
   function sendVerificationCode(email) {
-  startCountdown('checkEmail', 60);
     fetch('/api/verify/send-verification-code', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
     }).then(response => response.json()).then(data => {
       if (data.success) {
-        showVerificationMessage()
-        document.getElementById('verifyCodeInput').style.display = 'block';
+        showVerificationMessage();
+       startCountdown('checkEmail', 60); document.getElementById('verifyCodeInput').style.display = 'block';
       } else {
 hideLoading();
         alert('Failed to send verification code. Please try again.');
