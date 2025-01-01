@@ -15,10 +15,10 @@ function pingServer() {
       if (response.ok) {
         console.log("Ping successful:", response.status);
       } else {
-        console.error("Ping failed with status:", response.status);
+        console.error("Ping failed with status:", response.status);pingServer();
       }
     })
-    .catch(error => console.error("Ping error:", error));
+    .catch(error => {console.error("Ping error:", error);pingServer();});
 }
 
 // Mulai ping saat halaman dimuat
