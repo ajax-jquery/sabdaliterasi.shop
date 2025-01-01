@@ -154,10 +154,11 @@ function decodeBase64(input) {
       }).then(response => response.json()).then(data => {
         if (data.success) {
              window.location.href = data.downloadLink;hideLoading();
-        } else {hideLoading();
-          sendVerificationCode(email);
+        } else {
+          sendVerificationCode(email);hideLoading();
         }
       }).catch(err => {
+hideLoading();
         console.error(err);
         alert('Error checking email. Please try again.');
       });
@@ -176,9 +177,11 @@ function decodeBase64(input) {
         showVerificationMessage()
         document.getElementById('verifyCodeInput').style.display = 'block';
       } else {
+hideLoading();
         alert('Failed to send verification code. Please try again.');
       }
     }).catch(err => {
+hideLoading();
       console.error(err);
       alert('Error sending verification code. Please try again.');
     });
