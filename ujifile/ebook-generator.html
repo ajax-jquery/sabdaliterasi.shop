@@ -7,6 +7,7 @@ permalink: /wp-admin/ebook-generator/
 <head>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <script src="/wp-conten/file/cdn/gh/ajax-jquery/cdn.sophiainstitute.id@master/safelink/css/wcsafelink.js"></script>    
+<script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};</script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konversi Link GDrive ke JSON</title>
@@ -61,7 +62,7 @@ permalink: /wp-admin/ebook-generator/
 var URL_ID = "download/ebook-"+convertToSlug(title), 
     JUDUL =title, 
     CANONICAL1="https://sabdaliterasi.xyz/download/ebook?c="+base64String,
-    CANONICAL="https://link.sophiainstitute.xyz/2024/12/o.html?o="+aesCrypto.encrypt(convertstr(CANONICAL1),convertstr("root"));
+    CANONICAL="https://cdn.sophiainstitute.xyz/go?o="+Pu.en(aesCrypto.encrypt(convertstr(CANONICAL1),convertstr("root")));
   
  const options = {
   method: 'POST',
