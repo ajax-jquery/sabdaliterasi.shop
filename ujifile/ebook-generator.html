@@ -75,7 +75,7 @@ var URL_ID = "download/ebook-"+convertToSlug(title),
     domain: 'm.sabdaliterasi.xyz',
     allowDuplicates: false,
     originalURL: CANONICAL,
-    path: URL_ID,
+    path: URL_ID+".pdf",
     title: JUDUL,
     redirectType: 301
   })
@@ -84,7 +84,7 @@ var URL_ID = "download/ebook-"+convertToSlug(title),
 fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
-   document.getElementById("output").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}">https://m.sabdaliterasi.xyz/${URL_ID}</a>`;
+   document.getElementById("output").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
     console.log(response)
   
   })
