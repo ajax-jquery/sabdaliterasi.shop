@@ -33,7 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(pingServer, 300000);
 });
 </script> <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
+  <style>button#submitForm {
+    border-color: var(--linkC);
+    background: var(--linkC);
+}
   #loadingOverlay {
     display: flex;
     position: fixed;
