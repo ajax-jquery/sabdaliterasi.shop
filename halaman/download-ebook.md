@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     z-index: 9999;
     justify-content: center;
     align-items: center;
-  }
+  }h1.pTtl.aTtl.sml.itm{display:none !important}
 </style>
   <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
     <span class="visually-hidden">Loading...</span>
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <div class="container mt-5">
-  <h1 id="title" class="text-center">Loading...</h1>
+  <h1 id="title" class="text-center">Download Ebook</h1>
   <form id="formVerify" class="mt-4">
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
