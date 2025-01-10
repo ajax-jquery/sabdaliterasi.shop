@@ -55,7 +55,9 @@ downloadLink = downloadLink.replace(/https:\/\/github\.com\/(.*?)\/blob\/(.*?\/)
                     );
                 }
                 downloadButton.addEventListener('click', () => {
-                    window.location.href = downloadLink;
+                const linkg = document.createElement( 'a' );
+					linkg.href = downloadLink;
+					linkg.click();
                 });
                 localStorage.setItem('shortnow', fileInfo.short);
             } catch (error) {
