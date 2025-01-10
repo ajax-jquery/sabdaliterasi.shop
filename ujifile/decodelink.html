@@ -53,14 +53,24 @@ permalink: /wp-admin/decodelink
         var link2= urlParams2.get('id'); 
         fineljaon =JSON.parse(decodeBase64(link2));
         let hasilfinal1 = `
-        ${JSON.stringify(fineljaon, null, 2)}
-        =======
         ${hasilfinal}
+        
+ ===================================
+    
+    ${JSON.stringify(fineljaon, null, 2)}
         `;
      hasilfinal = hasilfinal1 ;
          }
          
-         document.getElementById("output").value=hasilfinal
+         document.getElementById("output").value=`
+         Link:${hasil1}
+         
+         ==============================
+         
+         JSON:
+         
+         ${hasilfinal}
+         `
          
         }
        
@@ -90,3 +100,4 @@ permalink: /wp-admin/decodelink
     </script>
 </body>
 </html>
+
