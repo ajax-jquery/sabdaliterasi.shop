@@ -2,7 +2,6 @@
 layout: null
 permalink: /wp-admin/decodelink
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,9 +47,10 @@ permalink: /wp-admin/decodelink
          let decodejson =JSON.parse(decodeBase64(link1));
          let fineljaon=decodejson;
          let hasilfinal =JSON.stringify(fineljaon, null, 2)
-         if(decodejson.id.startsWith('https://sabdaliterasi.xyz/download/start')){
+         
+           if(decodejson.id.startsWith('https://sabdaliterasi.xyz/download/start')){
          var urlParams2 = new URLSearchParams(new URL(decodejson.id).search);
-        var link2= urlParams2.get('c'); 
+        var link2= urlParams2.get('id'); 
         fineljaon =JSON.parse(decodeBase64(link2));
         let hasilfinal1 = `
         ${JSON.stringify(fineljaon, null, 2)}
@@ -86,8 +86,7 @@ permalink: /wp-admin/decodelink
     let fix = decodeURIComponent(escape(str));
     return fix
   }
-  
- 
+
     </script>
 </body>
 </html>
