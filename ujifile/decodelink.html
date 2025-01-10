@@ -1,0 +1,93 @@
+---
+layout: null
+permalink: /wp-admin/decodelink
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/wp-conten/file/cdn/gh/ajax-jquery/cdn.sophiainstitute.id@master/safelink/css/wcsafelink.js"></script>    
+<script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};</script>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Link GDrive ke JSON</title>
+    <link rel="stylesheet" href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }#output{width:100%;height:720px}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Konversi Link JSON</h1>
+        <div class="form-group">
+            <label for="link">Link Download:</label>
+            <input type="url" class="form-control" name="link" id="link" placeholder="Masukkan link download">
+        </div>
+        <button class="btn btn-primary" onclick="convert()">Konversi</button>
+         <div class="form-group">
+            <label for="output">Hasil</label>
+            <textarea class="form-control" name="Output" id="output" readonly></textarea>
+        </div>
+    </div>
+ 
+    <script src="/wp-conten/file/cdn/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script>
+       
+       function convert() {
+            var link1 = document.getElementById("link").value;
+       var urlParams = new URLSearchParams(new URL(link1).search);
+        var link= urlParams.get('o');
+         let hasil1=aesCrypto.decrypt(convertstr(Pu.de(link)),convertstr("root"));
+        var urlParams1 = new URLSearchParams(new URL(hasil1).search);
+        var link1= urlParams1.get('c'); 
+        
+         let decodejson =JSON.parse(decodeBase64(link1));
+         let fineljaon=decodejson;
+         let hasilfinal =JSON.stringify(fineljaon, null, 2)
+         if(decodejson.id.startsWith('https://sabdaliterasi.xyz/download/start')){
+         var urlParams2 = new URLSearchParams(new URL(decodejson.id).search);
+        var link2= urlParams2.get('c'); 
+        fineljaon =JSON.parse(decodeBase64(link2));
+        let hasilfinal1 = `
+        ${JSON.stringify(fineljaon, null, 2)}
+        =======
+        ${hasilfinal}
+        `;
+     hasilfinal = hasilfinal1 ;
+         }
+         
+         document.getElementById("output").value=hasilfinal
+         
+        }
+       
+     function decodeBase64(input) {
+    const chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
+    let str = "";
+    let i = 0;
+
+    while (i < input.length) {
+      const enc1 = chars.indexOf(input.charAt(i++));
+      const enc2 = chars.indexOf(input.charAt(i++));
+      const enc3 = chars.indexOf(input.charAt(i++));
+      const enc4 = chars.indexOf(input.charAt(i++));
+
+      const chr1 = (enc1 << 2) | (enc2 >> 4);
+      const chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+      const chr3 = ((enc3 & 3) << 6) | enc4;
+
+      str += String.fromCharCode(chr1);
+      if (enc3 !== 64) str += String.fromCharCode(chr2);
+      if (enc4 !== 64) str += String.fromCharCode(chr3);
+    }
+    let fix = decodeURIComponent(escape(str));
+    return fix
+  }
+  
+ 
+    </script>
+</body>
+</html>
