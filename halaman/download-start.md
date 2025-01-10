@@ -10,12 +10,13 @@ keyword: [Download Ebook]
 ---
 <style>#Download{font-family:Arial,sans-serif;background-color:#f4f4f4;margin:0;padding:0;display:flex;justify-content:center;align-items:center;height:100vh}#Download .container{background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#Download h1{font-size:24px;margin-bottom:20px}#Download button{border: none;display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:4px}#Download button:hover{background-color:#0056b3}
 </style>
-    <div id="Download"><div class="container">
-        <h1 id="file-title">File: Loading...</h1>
-        <button id="download-btn" href="#" download>Download</button>
-    </div></div>
-
-    <script>
+<div id="Download">
+    <div class="container"> 
+        <h1 id="file-title">File: Loading...</h1> 
+        <button id="download-btn">Download</button> 
+    </div>
+</div>
+<script>
         function base64Decode(base64) {
             const chars = 'AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=';
             let str = '', bytes = [], buffer;
@@ -44,19 +45,15 @@ keyword: [Download Ebook]
                 const fileInfo = JSON.parse(decodedString);
 
                 // Update page content
-                const titleElement = document.getElementById('file-title');
-                const downloadButton = document.getElementById('download-btn');
-
-                titleElement.textContent = `File: ${fileInfo.title}`;
-                let downloadLink = fileInfo.id;
-
-                if (downloadLink.startsWith('https://github.com/')) {
-                    downloadLink = downloadLink.replace(
-                        /https:\/\/github\.com\/(.*?)\/blob\/(.*?\/)path/,
+const titleElement = document.getElementById('file-title');
+const downloadButton = document.getElementById('download-btn');
+titleElement.textContent = `File: ${fileInfo.title}`;
+let downloadLink = fileInfo.id;
+if (downloadLink.startsWith('https://github.com/')) {
+downloadLink = downloadLink.replace(/https:\/\/github\.com\/(.*?)\/blob\/(.*?\/)path/,
                         'https://sabdaliterasi.xyz/wp-conten/file/cdn/gh/$1@$2path'
                     );
                 }
-
                 downloadButton.addEventListener('click', () => {
                     window.location.href = downloadLink;
                 });
@@ -69,4 +66,4 @@ keyword: [Download Ebook]
             const urlWithoutParams = window.location.origin + window.location.pathname;
             window.history.replaceState({}, document.title, urlWithoutParams);
         }
-    </script>
+</script>
