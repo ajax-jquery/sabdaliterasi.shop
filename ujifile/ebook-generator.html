@@ -16,7 +16,7 @@ permalink: /wp-admin/ebook-generator/
     <style>
         body {
             padding: 20px;
-        }#jsonOut{width:100%;height:720px}
+        }#jsonOut{width:100%;height:720px}#output{height:120px}.form-group{ margin-top: 0.5em; }
     </style>
 </head>
 <body>
@@ -38,9 +38,14 @@ permalink: /wp-admin/ebook-generator/
         </label>
     </div>
         <button class="btn btn-primary" onclick="convert()">Konversi</button>
+        <p><strong>Permalink:</strong></p>
+        <p id="perma"></p>
+<div class="form-group">
+<label for="output">SHARE-WA:</label>
+<textarea class="form-control" id="output" readonly></textarea>
 
-        <h2 class="mt-4">Hasil:</h2>
-        <p id="output"></p>
+     </div>
+     <div class="form-group"><p id="shareWa"></p></div>
         <div class="form-group">
             <label for="title">JSON:</label>
             <textarea class="form-control" id="jsonOut" readonly></textarea>
@@ -112,10 +117,42 @@ $(document).ready(function(){
             let link = document.getElementById("link").value;
             let title = document.getElementById("title").value,
             finallink=link,
-            mode="Baca";
+            mode="Baca",
+            caption=`*BACA EBOOK*
+Judul: ${title}
+
+Baca segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(title)}.pdf
+
+> Karena GRATIS, maka untuk mendapatkan *Link Google Drive* harus melewati beberapa proses termasuk melihat IKLAN. *Kami sarankan agar menggunakan Google Chrome
+
+===
+
+> Setelah mendapatkan *Link Google Drive*, silahkan simpan baik-baik linknya, agar Anda bisa membacanya dikemudian hari tanpa melalui proses awal.
+
+*Plus Note:*
+_Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar mendapatkan Ebook gratis dan bahan bacaan menarik_
+`;
+  
+  if(!link){
+  alert("Link Wajib Diisi")
+  return
+  }else if(!title){
+  alert("Judul Wajib Diisi")
+  return
+  }
             
             if (checkbox.checked) {
-            mode="Download"
+            mode="Download";
+            caption=`*DOWNLOAD EBOOK*
+Judul: ${title}
+
+Download segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(title)}.pdf
+
+> Karena GRATIS, maka untuk mendapatkan *Link Download* harus melewati beberapa proses termasuk melihat IKLAN. *Kami sarankan agar menggunakan Google Chrome
+
+*Plus Note:*
+_Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar mendapatkan Ebook gratis dan bahan bacaan menarik_
+`;
             
             let finallink1;
             if(link.startsWith('https://github.com/')){
@@ -183,7 +220,10 @@ var URL_ID = "download/ebook-"+convertToSlug(title),
 fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
-   document.getElementById("output").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
+
+   document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
+   document.getElementById("output").value =caption;
+   document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}">SHARE WA</a>`
    let hasilcanon = CANONICAL.replace("https://cdn.sophiainstitute.xyz/go?o=",""),
 decode1= aesCrypto.decrypt(convertstr(Pu.de(hasilcanon)),convertstr("root")),
 decode2=JSON.parse(decodeBase64(decode1.replace("https://sabdaliterasi.xyz/download/ebook?c=",""))),
@@ -208,6 +248,9 @@ ${decode4}
    ${decode3}
    `
     console.log(response)
+  
+  
+  
   
   })
   .catch(err => console.error(err));
@@ -237,5 +280,3 @@ function decodeBase64(input) {
     </script>
 </body>
 </html>
-
-
