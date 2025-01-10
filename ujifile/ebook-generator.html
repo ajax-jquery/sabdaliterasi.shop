@@ -7,7 +7,8 @@ permalink: /wp-admin/ebook-generator/
 <head>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <script src="/wp-conten/file/cdn/gh/ajax-jquery/cdn.sophiainstitute.id@master/safelink/css/wcsafelink.js"></script>    
-<script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};</script>    
+<script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+</script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konversi Link GDrive ke JSON</title>
@@ -15,7 +16,7 @@ permalink: /wp-admin/ebook-generator/
     <style>
         body {
             padding: 20px;
-        }
+        }#jsonOut{width:100%;height:720px}
     </style>
 </head>
 <body>
@@ -24,28 +25,126 @@ permalink: /wp-admin/ebook-generator/
         <h1>Konversi Link GDrive ke JSON</h1>
         <div class="form-group">
             <label for="link">Link Download:</label>
-            <input type="text" class="form-control" name="link" id="link" placeholder="Masukkan link download">
+            <input type="url" class="form-control" name="link" id="link" placeholder="Masukkan link download">
         </div>
         <div class="form-group">
             <label for="title">Judul:</label>
             <input type="text" name="judulbuku" class="form-control" id="title" placeholder="Masukkan judul">
         </div>
+       <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="customCheckbox">
+        <label class="form-check-label" for="customCheckbox">
+            Download
+        </label>
+    </div>
         <button class="btn btn-primary" onclick="convert()">Konversi</button>
 
         <h2 class="mt-4">Hasil:</h2>
         <p id="output"></p>
+        <div class="form-group">
+            <label for="title">JSON:</label>
+            <textarea class="form-control" id="jsonOut" readonly></textarea>
+        </div>
     </div>
 
-    <script src="/wp-conten/file/cdn/npm/jquery@1.11.1/dist/jquery.min.js"></script>
-    <script src="/wp-conten/file/cdn/npm/bootstrap@3.0.5/dist/js/bootstrap.min.js"></script>
+
+    <script src="/wp-conten/file/cdn/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script>
-  
+         function convertGDriveLink(link) {
+            const fileId = link.match(/\/d\/(.*?)\//)[1];
+            return "https://drive.google.com/uc?export=download&id=" + fileId;
+        }
+function base64Encode(str) {
+            // Implementasi Base64 encoding manual
+            var base64Chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
+            var result = '';
+            var i = 0;
+            while (i < str.length) {
+                var char1 = str.charCodeAt(i++);
+                var char2 = str.charCodeAt(i++);
+                var char3 = str.charCodeAt(i++);
+
+                var enc1 = char1 >> 2;
+                var enc2 = ((char1 & 3) << 4) | (char2 >> 4);
+                var enc3 = ((char2 & 15) << 2) | (char3 >> 6);
+                var enc4 = char3 & 63;
+
+                if (isNaN(char2)) {
+                    enc3 = enc4 = 64;
+                } else if (isNaN(char3)) {
+                    enc4 = 64;
+                }
+
+                result += base64Chars.charAt(enc1) + base64Chars.charAt(enc2) + base64Chars.charAt(enc3) + base64Chars.charAt(enc4);
+            }
+            return result;
+        }
+function convertToSlug(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-');
+};
+function convertToNewLinks(originalLink) {
+                var oldPrefix = "https://github.com/";
+                var newPrefix1 = "https://cdn.jsdelivr.net/gh/";
+
+                var modifiedLink1 = originalLink.replace("/blob/", "@");
+               
+
+                var newLink1 = modifiedLink1.replace(oldPrefix, newPrefix1);
+                
+                
+                return newLink1
+            }
+$(document).ready(function(){
+         $('#link').on('input change focus keydown keypress keyup paste cut click', function() {
+ var link = document.getElementById("link").value;       
+ if(link.startsWith('https://github.com/')){        
+ $('#customCheckbox').prop('checked', true).prop('disabled', true);
+ }else{$('#customCheckbox').prop('disabled', false);}       
+        
+        });
+});
        function convert() {
-            var link = document.getElementById("link").value;
-            var title = document.getElementById("title").value;
-            // Buat objek JSON
+          const checkbox = document.getElementById('customCheckbox');
+          const jsonOut = document.getElementById('jsonOut');
+            let link = document.getElementById("link").value;
+            let title = document.getElementById("title").value,
+            finallink=link,
+            mode="Baca";
+            
+            if (checkbox.checked) {
+            mode="Download"
+            
+            let finallink1;
+            if(link.startsWith('https://github.com/')){
+            finallink1 = convertToNewLinks(link)
+                  
+            }
+            
+            else if(link.startsWith('https://drive.google.com/')){
+            
+            finallink1 =convertGDriveLink(link)
+            
+            };
+            
+               var jsonData2 = {
+                id: finallink1,
+                title: title,
+                short: "https://m.sabdaliterasi.xyz/download/ebook-"+convertToSlug(title)+".pdf"
+            };
+            
+            
+           finallink= "https://sabdaliterasi.xyz/download/start?id="+base64Encode(JSON.stringify(jsonData2));       
+           
+            };
+            
+            
+            
             var jsonData = {
-                id: link,
+            	mode:mode,
+                id: finallink,
                 title: title,
                 short: "https://m.sabdaliterasi.xyz/download/ebook-"+convertToSlug(title)+".pdf"
             };
@@ -85,50 +184,58 @@ fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
    document.getElementById("output").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
+   let hasilcanon = CANONICAL.replace("https://cdn.sophiainstitute.xyz/go?o=",""),
+decode1= aesCrypto.decrypt(convertstr(Pu.de(hasilcanon)),convertstr("root")),
+decode2=JSON.parse(decodeBase64(decode1.replace("https://sabdaliterasi.xyz/download/ebook?c=",""))),
+decode3=JSON.stringify(decode2,null,2);
+
+if(decode2.id.startsWith('https://sabdaliterasi.xyz/download/start')){
+
+let decode4=JSON.stringify(JSON.parse(decodeBase64(decode2.id.replace("https://sabdaliterasi.xyz/download/start?id=",""))),null,2);
+decode3 = `
+${decode3}
+
+===
+
+${decode4}
+`
+}
+   
+   jsonOut.value=`
+   Link: ${decode1}
+   //================
+   JSON:
+   ${decode3}
+   `
     console.log(response)
   
   })
   .catch(err => console.error(err));
         }
-        function convertGDriveLink(link) {
-            // Contoh konversi link GDrive mentah:
-            // https://drive.google.com/file/d/1aBcDeFgHiJkLmNoPqRsTuVwXyZ/view?usp=sharing
-            // menjadi:
-            // https://drive.google.com/uc?export=download&id=1aBcDeFgHiJkLmNoPqRsTuVwXyZ
-            const fileId = link.match(/\/d\/(.*?)\//)[1];
-            return "https://drive.google.com/uc?export=download&id=" + fileId;
-        }
-        function base64Encode(str) {
-            // Implementasi Base64 encoding manual
-            var base64Chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
-            var result = '';
-            var i = 0;
-            while (i < str.length) {
-                var char1 = str.charCodeAt(i++);
-                var char2 = str.charCodeAt(i++);
-                var char3 = str.charCodeAt(i++);
+function decodeBase64(input) {
+    const chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
+    let str = "";
+    let i = 0;
 
-                var enc1 = char1 >> 2;
-                var enc2 = ((char1 & 3) << 4) | (char2 >> 4);
-                var enc3 = ((char2 & 15) << 2) | (char3 >> 6);
-                var enc4 = char3 & 63;
+    while (i < input.length) {
+      const enc1 = chars.indexOf(input.charAt(i++));
+      const enc2 = chars.indexOf(input.charAt(i++));
+      const enc3 = chars.indexOf(input.charAt(i++));
+      const enc4 = chars.indexOf(input.charAt(i++));
 
-                if (isNaN(char2)) {
-                    enc3 = enc4 = 64;
-                } else if (isNaN(char3)) {
-                    enc4 = 64;
-                }
+      const chr1 = (enc1 << 2) | (enc2 >> 4);
+      const chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+      const chr3 = ((enc3 & 3) << 6) | enc4;
 
-                result += base64Chars.charAt(enc1) + base64Chars.charAt(enc2) + base64Chars.charAt(enc3) + base64Chars.charAt(enc4);
-            }
-            return result;
-        }
-         function convertToSlug(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w ]+/g, '')
-    .replace(/ +/g, '-');
-};
+      str += String.fromCharCode(chr1);
+      if (enc3 !== 64) str += String.fromCharCode(chr2);
+      if (enc4 !== 64) str += String.fromCharCode(chr3);
+    }
+    let fix = decodeURIComponent(escape(str));
+    return fix
+  }
     </script>
 </body>
 </html>
+
+
