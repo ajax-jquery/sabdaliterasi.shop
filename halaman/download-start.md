@@ -8,64 +8,14 @@ permalink: /download/start
 image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [Download Ebook]
 ---
-<style>#Download{font-family:Arial,sans-serif;margin:0;padding:0;display:flex;justify-content:center;align-items:center}#Download .container{background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#Download h1{font-size:24px;margin-bottom:20px}#Download button{border: none;display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:4px}#Download button:hover{background-color:#0056b3}
+<style>#Download{font-family:Arial,sans-serif;margin:0;padding:0;display:flex;justify-content:center;align-items:center}#Download .container{background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#Download h2{font-size:24px;margin-bottom:20px}#Download button{border: none;display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:4px}#Download button:hover{background-color:#0056b3}
 </style>
 <div id="Download">
     <div class="container"> 
-        <h1 id="file-title">File: Loading...</h1> 
+        <h2>File: <span id="file-title">Loading...</span>.pdf</h2> 
         <button id="download-btn">Download</button> 
     </div>
 </div>
 <script>
-        function base64Decode(base64) {
-            const chars = 'AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=';
-            let str = '', bytes = [], buffer;
-            for (let i = 0; i < base64.length; i += 4) {
-                buffer = (chars.indexOf(base64[i]) << 18) |
-                         (chars.indexOf(base64[i + 1]) << 12) |
-                         (chars.indexOf(base64[i + 2]) << 6) |
-                         chars.indexOf(base64[i + 3]);
-                bytes.push((buffer >> 16) & 0xFF, (buffer >> 8) & 0xFF, buffer & 0xFF);
-            }
-            bytes = bytes.slice(0, bytes.length - (base64.endsWith('==') ? 2 : base64.endsWith('=') ? 1 : 0));
-            return decodeURIComponent(bytes.map(b => '%' + ('00' + b.toString(16)).slice(-2)).join(''));
-        }
-        const params = new URLSearchParams(window.location.search);
-        const idEncoded = params.get('id');
-        if (!idEncoded) {
-            const storedLink = localStorage.getItem('shortnow');
-            if (storedLink) {
-                window.location.href = storedLink;
-            }
-        } 
-        else {
-            // Decode and parse JSON
-            try {
-                const decodedString = base64Decode(idEncoded);
-                const fileInfo = JSON.parse(decodedString);
-
-                // Update page content
-const titleElement = document.getElementById('file-title');
-const downloadButton = document.getElementById('download-btn');
-titleElement.textContent = `File: ${fileInfo.title}`;
-let downloadLink = fileInfo.id;
-if (downloadLink.startsWith('https://github.com/')) {
-downloadLink = downloadLink.replace(/https:\/\/github\.com\/(.*?)\/blob\/(.*?\/)path/,
-                        'https://sabdaliterasi.xyz/wp-conten/file/cdn/gh/$1@$2path'
-                    );
-                }
-                downloadButton.addEventListener('click', () => {
-                const linkg = document.createElement( 'a' );
-					linkg.href = downloadLink;
-					linkg.click();
-                });
-                localStorage.setItem('shortnow', fileInfo.short);
-            } catch (error) {
-                console.error('Invalid base64 or JSON format.', error);
-            }
-
-            // Remove id parameter without refreshing
-            const urlWithoutParams = window.location.origin + window.location.pathname;
-            window.history.replaceState({}, document.title, urlWithoutParams);
-        }
+  eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('4 o(1v,1D){e 1o=h();5 o=4(u,34){u=u-(-35+-r*-36+33);9 1l=1o[u];5 1l},o(1v,1D)}4 h(){e X=[\'1c\',\'32\',\'2Y\',\'2Z\',\'17\',\'C://30\',\'31\',\'37\',\'38\',\'3f\',\'3g\',\'3h\',\'11\',\'3e\',\'10+/=\',\'3d\',\'39\',\'3a/V\',\'3b\',\'3c-b\',\'2X\',\'J\',\'1T\',\'Q\',\'2W\',\'2H\',\'1g\',\'2I\',\'2J\',\'2K\',\'2G\',\'2F\',\'2B\',\'2C\',\'2D\',\'1H\',\'2E\',\'2L\',\'2M\',\'2T\',\'2U\',\'C://2V\',\'1e\',\'M\',\'2S\',\'2R\',\'2N\',\'V-J\',\'F\',\'2O\',\'2P.1r/\',\'1d\',\'2Q\',\'1O\',\'3i\',\'3j\\3N\\3O\',\'1Z\',\'3P\',\'3M\',\'3L\',\'3H\',\'3I\',\'3J\',\'3K\',\'1I\',\'O\',\'3Q\\3R\',\'i.3Y/3Z-c\',\'40\',\'3X\',\'3W\\3S.\',\'1t\',\'3T:\\3U\',\'3V\',\'1f\',\'19\',\'@$3G\',\'1F\',\'/2A/3F/$1\',\'3q\',\'3r\',\'18\',\'W\',\'3s\',\'3t\'];h=4(){5 X};5 h()}(4(12,1n){e 7=o,n=12();3p(!![]){15{e 1m=8(7(3o))/(-3k+-3l*6+-3m*-6)+8(7(3n))/(3u+3v+-3C*3D)*(-8(7(3E))/(3B*-E+-3A+3w))+8(7(3x))/(S*-3y+z*-1y+3z)*(-8(7(41))/(-2n+-2a*1p+26))+-8(7(28))/(-27+-2b+-6*-2c)*(8(7(2f))/(2e+2d+2g*-25))+8(7(29))/(-2z+-2u+6*2t)+-8(7(2s))/(x*-2v+2w+-2r)*(8(7(2q))/(-2h+-2k+2j))+8(7(2l))/(2p*-2o+-2m*-E+2i*E);16(1m===1n)2x;1z n[\'F\'](n[\'1A\']())}1E(2y){n[\'F\'](n[\'1A\']())}}}(h,-4r*-5y+-1p*-5z+5x*-z),!(4(){e 0=o,3={\'1F\':0(5w)+0(5t)+0(5u)+0(5v)+0(5A)+0(5B)+0(5H),\'1t\':4(1s,1q){5 1s<1q},\'1H\':4(1Y,1X){5 1Y|1X},\'1Z\':4(20,22){5 20<<22},\'1T\':4(1L,1K){5 1L+1K},\'1I\':4(1J,1N){5 1J+1N},\'1O\':4(1R,1Q){5 1R&1Q},\'1g\':4(R,T){5 R>>T},\'Q\':4(N,K){5 N&K},\'O\':4(P,U){5 P>>U},\'M\':4(L,1i){5 L(1i)},\'1c\':4(1b,1a){5 1b-1a},\'19\':0(5I),\'1d\':0(42)+\'5G\',\'1e\':0(5F)+0(5C),\'W\':0(5D)+0(5E)+0(5s)+0(5r)+0(5g)+0(5h),\'1f\':0(1w),\'18\':0(5f),\'17\':0(5e)+0(5b)+0(5c),\'11\':4(Z,Y){5 Z+Y}};9 13=5d 5i(p[0(w)][0(5j)]),D=13[0(5p)](\'1W\');16(D){15{9 1M=4 5q(d){e 2=0;9 l=3[2(5o)],j=[],m;5n(9 f=-5k+5l+5K;3[2(5J)](f,d[2(I)]);f+=-60*r+67*-68+66)m=3[2(B)](3[2(B)](3[2(B)](3[2(A)](l[2(s)](d[f]),65*62+-x*63+64),3[2(A)](l[2(s)](d[3[2(14)](f,-6a*6+-69+-6f*-6b)]),6c+-6d*-6+-6e)),3[2(A)](l[2(s)](d[3[2(14)](f,61+-5Q*-6+-5R)]),5P+-5O+-5L)),l[2(s)](d[3[2(5M)](f,5N+-5S*-5T+-5Y)])),j[2(5Z)](3[2(5X)](3[2(5W)](m,-5U+5V+-6*-5m),6*59+1C*-4q+-5a*-6),3[2(1h)](3[2(4p)](m,-4o+-4l+4m*4n),4s*6+6*-4t+4y),3[2(1h)](4z+-4x*4w+-4u*6,m));5 3[2(4v)](4k,(j=j[2(1S)](4j+48+-49*47,3[2(46)](j[2(I)],d[2(H)](\'==\')?-43+-44+45:d[2(H)](\'=\')?-4a+4b+-S*1V:4h+-4i*4g+4f*6)))[2(4c)](1j=>\'%\'+(\'4d\'+1j[2(4e)](4A*r+z*1C+-4B*4Z))[2(1S)](-(50*x+-4Y*-r+-4X)))[2(4U)](\'\'))}(D),q=4V[0(4W)](1M),23=v[0(1U)+0(21)](3[0(51)]),1k=v[0(1U)+0(21)](3[0(52)]);23[0(57)+\'t\']=0(1V)+q[0(1G)];9 k=q[\'1W\'];k[0(58)](3[0(56)])&&(k=k[0(55)](/C:\\/\\/53\\.1r\\/(.*?)\\/54\\/(.*?\\/)4T/,3[0(4S)])),1k[0(4H)+0(4I)](3[0(4G)],()=>{e g=0;9 G=v[g(4F)+g(4C)](\'a\');G[g(1P)]=k,G[g(1w)]()}),1x[0(1y)](3[0(1B)],q[0(4D)])}1E(1u){4E[0(4J)](3[0(4K)],1u)}9 24=3[0(4Q)](p[0(w)][0(4R)],p[0(w)][0(4P)]);p[0(4O)][0(4L)+\'4M\']({},v[0(1G)],24)}1z{9 y=1x[0(4N)](3[0(1B)]);y&&(p[0(w)][0(1P)]=y)}}()));',62,388,'_0x523858||_0x52c8bc|_0x79bd10|function|return|0x1|_0x2d1fe8|parseInt|let||||_0x207ddd|const|_0x5bb529|_0x330492|_0x205d||_0x2b36ad|_0x2d9b08|_0x5d35d5|_0x576efd|_0x2c3904|_0x4c60|window|_0x350fe1|0x3|0x139||_0x5eb000|document|0x145|0x6|_0x55c22c|0x17|0x140|0x12b|https|_0x1c7c3f|0x4|push|_0x394aa3|0x107|0x121|title|_0x2ded31|_0x1358c3|MpZDo|_0xa5a033|FAxnR|_0x5e84ba|vsqfh|_0xad4f2b|0x21|_0x305992|_0x3662c2|file|jdiTU|_0x1924ea|_0x40c405|_0xaa5744||MOSjV|_0x4e72dd|_0x53fac1|0x11e|try|if|lXYZO|wqubj|vfvco|_0x36c884|_0x5034fe|TZSta|AWNvd|AJeZJ|JZmcQ|NhTMp|0x11f|_0x4d3fa9|_0x54aa52|_0x2b9d58|_0x1daafc|_0x155c73|_0x110b1f|_0xe67a8a|0x2|_0x31f484|com|_0x2a34d7|PKMag|_0x1d4c00|_0x38c5a5|0x130|localStorage|0x112|else|shift|0x104|0x7b|_0x567319|catch|VTjNV|0x11d|RlaDc|crTdt|_0x333f70|_0xeb73c0|_0x14d5ce|_0x204503|_0x3668ed|GWbes|0x127|_0x2f310d|_0x279ca5|0x13e|CRRcx|0x125|0xfb|id|_0x4d8790|_0x2dcf46|dIgMt|_0x26c9e3|0x120|_0x1682ed|_0x2ca271|_0x23930c|0x1c|0x2e98|0xf21|0x12e|0xfc|0x7a4|0x128c|0x21b3|0x478|0x1003|0x12a|0xbb|0x19b6|0x259|0x1fa4|0x5e4|0x103|0x2c5|0x1f4b|0x53|0x3f|0x129|0x5ae|0x136|0x1efb|0x127f|0x10|0x617|break|_0x4ef0c9|0xc74|cdn|map|60KCnpiv|133NEntJO|short|href|addEventLi|length|pathname|join|getElement|replaceSta|6990fIWHnS|260523woHwzd|indexOf|thub|shortnow|IBTGUPOKJH|error|bdaliteras|click|sa|ById|2675949QWlFHo|origin|AMNFCVYXSE|gi|startsWith|stener|0x195|_0x32ae3f|0x2054|0xa93|replace|getItem|8133RpxLDi|onten|1732136FuxBpe|download|cvyxseibtg|toString|10ZQHfVW|setItem|get|slice|se64|0x2159|0x10f0|0x324a|0x106|0x118|while|lq45293678|17589154yHIYYG|2NIqSFB|endsWith|0x55e|0x1779|0x258b|0x11a|0xe7|0x3669|0x1f5c|0x18b|0x79|0x3d|0x11c|gh|2path|parse|location|upokjhdwrz|DWRZLQamnf|history|ent|x20or|x20JS|textConten|Invalid|x20ba|x20format|File|x20|6630768mwPElM|ON|search|xyz|wp|createElem|0x111|0x11b|0x1d60|0x25a2|0x4304|0x108|0x12|0x2346|0x23f|0x50f|0x256b|0x128|00|0x115|0x5d3|0x32b|0x19db|0xa|0x528|decodeURIComponent|0x2468|0xec1|0x5|0x2555|0x149|0x13|0x9e|0x1223|0x1865|0x1a0f|0x133|0xd|0xbf|0x741|0x24c1|0xc67|0x18e|0x142|0x12c|console|0x14c|0xfd|0x126|0x109|0x134|0x10c|0x12d|te|0x110|0x143|0x123|0x114|0x10a|0x105|path|0x124|JSON|0x144|0xadb|0x49|0x1f|0x1ab|0xfe|0x13b|github|blob|0x10f|0x132|0x141|0x10e|0x643|0x3dd|0x13f|0x14e|new|0x14a|0x13c|0x101|0xff|URLSearchParams|0x14d|0x14fa|0x11ae|0x8bd|for|0x100|0x113|_0x3d8c1e|0x119|0x14b|0x135|0x147|0x117|0x10b|0x19bd|0xeed|0x3a81|0x146|0x102|0x13a|0x131|0x12f|0x10d|tn|0x116|0x137|0xfa|0x34c|0xe81|0x148|0x3a8|0x1ed|0x1074|0x15a5|0x293f|0x7|0x3f7|0xc0c|0x35f|0x122|0x13d|0x1f66|0x138|0x81d|0x139c|0x50|0x371|0x2e8|0x39|0x2b56|0x2b|0x71|0x2453|0x24ac|0x92|0xaa0|0x96d|0x1401|0x80'.split('|')))
 </script>
