@@ -8,7 +8,7 @@ permalink: /download/start
 image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [Download Ebook]
 ---
-<style>#Download{font-family:Arial,sans-serif;background-color:#f4f4f4;margin:0;padding:0;display:flex;justify-content:center;align-items:center;height:100vh}#Download .container{background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#Download h1{font-size:24px;margin-bottom:20px}#Download button{border: none;display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:4px}#Download button:hover{background-color:#0056b3}
+<style>#Download{font-family:Arial,sans-serif;margin:0;padding:0;display:flex;justify-content:center;align-items:center}#Download .container{background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#Download h1{font-size:24px;margin-bottom:20px}#Download button{border: none;display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:4px}#Download button:hover{background-color:#0056b3}
 </style>
 <div id="Download">
     <div class="container"> 
