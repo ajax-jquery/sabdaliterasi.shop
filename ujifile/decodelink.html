@@ -26,7 +26,7 @@ permalink: /wp-admin/decodelink
             <label for="link">Link Download:</label>
             <input type="url" class="form-control" name="link" id="link" placeholder="Masukkan link download">
         </div>
-        <button class="btn btn-primary" onclick="convert()">Konversi</button>
+        <button class="btn btn-primary" onclick="convert()">Konversi 1</button>
          <div class="form-group">
             <label for="output">Hasil</label>
             <textarea class="form-control" name="Output" id="output" readonly></textarea>
@@ -35,21 +35,26 @@ permalink: /wp-admin/decodelink
  
     <script src="/wp-conten/file/cdn/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script>
-       
+        
+         
+         
        function convert() {
-            var link1 = document.getElementById("link").value;
+            var link1 = document.getElementById("link").value.replaceAll("#","");
        var urlParams = new URLSearchParams(new URL(link1).search);
         var link= urlParams.get('o');
          let hasil1=aesCrypto.decrypt(convertstr(Pu.de(link)),convertstr("root"));
+         let hasilfinal="";
+         if(hasil1.startsWith('https://sabdaliterasi.xyz')){
+         
         var urlParams1 = new URLSearchParams(new URL(hasil1).search);
         var link1= urlParams1.get('c'); 
         
          let decodejson =JSON.parse(decodeBase64(link1));
          let fineljaon=decodejson;
-         let hasilfinal =JSON.stringify(fineljaon, null, 2)
+         hasilfinal =JSON.stringify(fineljaon, null, 2)
          
            if(decodejson.id.startsWith('https://sabdaliterasi.xyz/download/start')){
-         var urlParams2 = new URLSearchParams(new URL(decodejson.id).search);
+         var urlParams2 = new URLSearchParams(new URL(decodejson.id.replace('?c=','?id=')).search);
         var link2= urlParams2.get('id'); 
         fineljaon =JSON.parse(decodeBase64(link2));
         let hasilfinal1 = `
@@ -62,6 +67,12 @@ permalink: /wp-admin/decodelink
      hasilfinal = hasilfinal1 ;
          }
          
+        
+         
+        }else{
+        hasil1=aesCrypto.decrypt(convertstr(link),convertstr("root"));
+        }
+        
          document.getElementById("output").value=`
          Link:${hasil1}
          
@@ -71,7 +82,7 @@ permalink: /wp-admin/decodelink
          
          ${hasilfinal}
          `
-         
+        
         }
        
      function decodeBase64(input) {
@@ -100,4 +111,3 @@ permalink: /wp-admin/decodelink
     </script>
 </body>
 </html>
-
