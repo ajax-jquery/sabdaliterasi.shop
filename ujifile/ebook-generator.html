@@ -7,7 +7,7 @@ permalink: /wp-admin/ebook-generator/
 <head>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <script src="/wp-conten/file/cdn/gh/ajax-jquery/cdn.sophiainstitute.id@master/safelink/css/wcsafelink.js"></script>    
-<script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+<script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
 </script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,11 +16,14 @@ permalink: /wp-admin/ebook-generator/
     <style>
         body {
             padding: 20px;
-        }#jsonOut{width:100%;height:720px}#output{height:120px}.form-group{ margin-top: 0.5em; }
+        }#jsonOut{width:100%;height:720px}#output{height:120px}.form-group{ margin-top: 0.5em; }#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid #3498db;border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
     </style>
 </head>
 <body>
-
+<!-- Overlay Loading -->
+<div id="loading">
+<div class="spinner"></div>
+ </div>    
     <div class="container">
         <h1>Konversi Link GDrive ke JSON</h1>
         <div class="form-group">
@@ -55,6 +58,12 @@ permalink: /wp-admin/ebook-generator/
 
     <script src="/wp-conten/file/cdn/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script>
+    function showLoading() {
+  document.getElementById('loading').style.display = 'flex';
+}
+function hideLoading() {
+  document.getElementById('loading').style.display = 'none';
+}
          function convertGDriveLink(link) {
             const fileId = link.match(/\/d\/(.*?)\//)[1];
             return "https://drive.google.com/uc?export=download&id=" + fileId;
@@ -107,11 +116,12 @@ $(document).ready(function(){
  var link = document.getElementById("link").value;       
  if(link.startsWith('https://github.com/')){        
  $('#customCheckbox').prop('checked', true).prop('disabled', true);
- }else{$('#customCheckbox').prop('disabled', false);}       
+ }else if(link.startsWith('https://z-library.sk/')){    $('#customCheckbox').prop('checked', true).prop('disabled', true)}else{$('#customCheckbox').prop('disabled', false);}       
         
         });
 });
-       function convert() {
+async function convert() {
+showLoading();
           const checkbox = document.getElementById('customCheckbox');
           const jsonOut = document.getElementById('jsonOut');
             let link = document.getElementById("link").value;
@@ -134,10 +144,10 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
 `;
   
   if(!link){
-  alert("Link Wajib Diisi")
+  alert("Link Wajib Diisi");hideLoading();
   return
   }else if(!title){
-  alert("Judul Wajib Diisi")
+  alert("Judul Wajib Diisi");hideLoading();
   return
   }
             
@@ -164,7 +174,22 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
             
             finallink1 =convertGDriveLink(link)
             
-            };
+            }
+            else if(link.startsWith('https://z-library.sk/')){
+try {
+    let convertlibrary = await libraryToGitHub(link);
+    if (convertlibrary) {
+        finallink1 = convertToNewLinks(convertlibrary);
+    }else{alert ("Gagal mengkonversi Link");hideLoading();
+    return
+    }
+} catch (error) {
+ alert ("Gagal mengkonversi Link");hideLoading(); 
+ console.error('Error during link conversion:', error);
+ return
+}
+
+};
             
                var jsonData2 = {
                 id: finallink1,
@@ -176,9 +201,7 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
            finallink= "https://sabdaliterasi.xyz/download/start?id="+base64Encode(JSON.stringify(jsonData2));       
            
             };
-            
-            
-            
+                    
             var jsonData = {
             	mode:mode,
                 id: finallink,
@@ -216,12 +239,11 @@ var URL_ID = "download/ebook-"+convertToSlug(title),
     redirectType: 301
   })
 };
-
 fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
 
-   document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
+  hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
    document.getElementById("output").value =caption;
    document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}">SHARE WA</a>`
    let hasilcanon = CANONICAL.replace("https://cdn.sophiainstitute.xyz/go?o=",""),
@@ -253,7 +275,7 @@ ${decode4}
   
   
   })
-  .catch(err => console.error(err));
+  .catch(err =>{hideLoading(); console.error(err)});
         }
 function decodeBase64(input) {
     const chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
@@ -277,6 +299,63 @@ function decodeBase64(input) {
     let fix = decodeURIComponent(escape(str));
     return fix
   }
+async function libraryToGitHub(link) {
+    const fetchUrl = `https://sabdaliterasi.xyz/api/fetch/${link}`;
+    const githubApiUrl = 'https://api.github.com/repos/ajax-jquery/buku.github.io/contents/Buku-Filsafat-Gratis';
+    const githubToken = Pu.de(Hm_Key); // Replace with your actual GitHub API key
+
+    try {
+        // Fetch the file
+        const response = await fetch(fetchUrl);
+        if (!response.ok) {
+            alert("Gagal Fetch Library");
+            throw new Error(`Fetch failed with status: ${response.status}`);
+        }
+
+        const blob = await response.blob();
+        const contentDisposition = response.headers.get('Content-Disposition');
+        const fileName = contentDisposition?.match(/filename="(.+)"/)?.[1] || 'downloaded_file';
+        const sanitizedFileName = fileName.replace(/ \(Z-Library\)/g, '');
+
+        const base64File = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+
+        const contentPath = `${githubApiUrl}/${sanitizedFileName}`;
+
+        // Prepare data for GitHub API
+        const body = {
+            message: `Add ${sanitizedFileName}`,
+            content: base64File
+        };
+
+        // Upload file to GitHub
+        const uploadResponse = await fetch(contentPath, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${githubToken}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (uploadResponse.ok) {
+            const directUrl = `https://github.com/ajax-jquery/buku.github.io/blob/main/Buku-Filsafat-Gratis/${encodeURIComponent(sanitizedFileName)}`;
+            return directUrl;
+        } else {
+            const errorData = await uploadResponse.json();
+            console.error('GitHub upload failed:', errorData);
+            alert(`GitHub upload failed: ${errorData.message}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert(`An error occurred: ${error.message}`);
+    }
+}
+
     </script>
 </body>
 </html>
