@@ -7,7 +7,7 @@ permalink: /wp-admin/read-pdf
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Viewer - Full PDF Responsif</title>
+    <title>PDF Viewer Dinamis</title>
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.5.141/build/pdf.min.js"></script>
     <style>
         body, html {
@@ -33,36 +33,46 @@ permalink: /wp-admin/read-pdf
 <body>
     <div id="pdfContainer"></div>
     <script>
-        const url = 'https://cdn.jsdelivr.net/gh/ajax-jquery/buku.github.io@main/Buku-Filsafat-Gratis/Teologi%20Feminisme%20Islam%20(Syarif%20Hidayatullah%2C%20M.Ag.%2C%20M.A.).pdf';
-        const pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.5.141/build/pdf.worker.min.js';
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-        pdfjsLib.getDocument(url).promise.then(function(pdf) {
-            const pdfContainer = document.getElementById('pdfContainer');
+        const pdfUrl = getQueryParam('o');
+        if (!pdfUrl) {
+            document.body.innerHTML = '<h1>Link PDF tidak ditemukan. Gunakan parameter ?o=link_pdf.</h1>';
+        } else {
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.5.141/build/pdf.worker.min.js';
 
-            function renderPage(pageNumber) {
-                pdf.getPage(pageNumber).then(function(page) {
-                    const viewport = page.getViewport({ scale: 1 });
-                    const scale = document.body.clientWidth / viewport.width;
-                    const scaledViewport = page.getViewport({ scale: scale });
-                    const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d');
-                    canvas.classList.add('pdf-page');
-                    canvas.width = scaledViewport.width;
-                    canvas.height = scaledViewport.height;
-                    pdfContainer.appendChild(canvas);
-                    page.render({ canvasContext: context, viewport: scaledViewport }).promise.then(function() {
-                        if (pageNumber < pdf.numPages) {
-                            renderPage(pageNumber + 1); // Render halaman berikutnya
-                        }
+            pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+                const pdfContainer = document.getElementById('pdfContainer');
+
+                function renderPage(pageNumber) {
+                    pdf.getPage(pageNumber).then(function(page) {
+                        const viewport = page.getViewport({ scale: 1 });
+                        const scale = document.body.clientWidth / viewport.width;
+                        const scaledViewport = page.getViewport({ scale: scale });
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        canvas.classList.add('pdf-page');
+                        canvas.width = scaledViewport.width;
+                        canvas.height = scaledViewport.height;
+                        pdfContainer.appendChild(canvas);
+                        page.render({ canvasContext: context, viewport: scaledViewport }).promise.then(function() {
+                            if (pageNumber < pdf.numPages) {
+                                renderPage(pageNumber + 1); // Render halaman berikutnya
+                            }
+                        });
                     });
-                });
-            }
+                }
 
-            renderPage(1); // Mulai dari halaman pertama
-        }).catch(function(error) {
-            console.error('Gagal memuat PDF:', error);
-        });
+                renderPage(1); // Mulai dari halaman pertama
+            }).catch(function(error) {
+                console.error('Gagal memuat PDF:', error);
+                document.body.innerHTML = '<h1>Gagal memuat PDF. Periksa link.</h1>';
+            });
+        }
     </script>
 </body>
 </html>
