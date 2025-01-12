@@ -1,0 +1,68 @@
+---
+layout: null
+permalink: /wp-admin/read-pdf
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer - Full PDF Responsif</title>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.5.141/build/pdf.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        #pdfContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+        .pdf-page {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="pdfContainer"></div>
+    <script>
+        const url = 'https://cdn.jsdelivr.net/gh/ajax-jquery/buku.github.io@main/Buku-Filsafat-Gratis/Teologi%20Feminisme%20Islam%20(Syarif%20Hidayatullah%2C%20M.Ag.%2C%20M.A.).pdf';
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.5.141/build/pdf.worker.min.js';
+
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            const pdfContainer = document.getElementById('pdfContainer');
+
+            function renderPage(pageNumber) {
+                pdf.getPage(pageNumber).then(function(page) {
+                    const viewport = page.getViewport({ scale: 1 });
+                    const scale = document.body.clientWidth / viewport.width;
+                    const scaledViewport = page.getViewport({ scale: scale });
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.classList.add('pdf-page');
+                    canvas.width = scaledViewport.width;
+                    canvas.height = scaledViewport.height;
+                    pdfContainer.appendChild(canvas);
+                    page.render({ canvasContext: context, viewport: scaledViewport }).promise.then(function() {
+                        if (pageNumber < pdf.numPages) {
+                            renderPage(pageNumber + 1); // Render halaman berikutnya
+                        }
+                    });
+                });
+            }
+
+            renderPage(1); // Mulai dari halaman pertama
+        }).catch(function(error) {
+            console.error('Gagal memuat PDF:', error);
+        });
+    </script>
+</body>
+</html>
