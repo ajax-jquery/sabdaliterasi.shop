@@ -152,6 +152,50 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
   }
             
             if (checkbox.checked) {
+                        let finallink1;
+            if(link.startsWith('https://github.com/')){
+            finallink1 = convertToNewLinks(link)
+                  
+            }
+            else if(link.startsWith('https://drive.google.com/')){
+            
+            finallink1 =convertGDriveLink(link)
+            
+            }
+           else if (link.startsWith('https://z-library.sk/')) {
+    try {
+        let convertlibrary;
+        let retryCount = 0;
+        const maxRetries = 3; // Batas maksimal percobaan
+
+        do {
+            convertlibrary = await libraryToGitHub(link);
+
+            if (convertlibrary && convertlibrary.directUrl) {
+                const hasExtension = /\.(pdf|epub|jpg|png|docx|txt)$/i.test(convertlibrary.directUrl);
+                if (hasExtension) {
+                    finallink1 = convertToNewLinks(convertlibrary.directUrl);
+                    title = convertlibrary.namafile;
+                    break;
+                }
+            }
+
+            retryCount++;
+        } while (retryCount < maxRetries);
+
+        if (!convertlibrary || !convertlibrary.directUrl || retryCount >= maxRetries) {
+            alert("Gagal mengkonversi Link setelah beberapa percobaan");
+            hideLoading();
+            return;
+        }
+    } catch (error) {
+        alert("Gagal mengkonversi Link");
+        hideLoading();
+        console.error('Error during link conversion:', error);
+        return;
+    }
+}
+
             mode="Download";
             caption=`*DOWNLOAD EBOOK*
 Judul: ${title}
@@ -164,32 +208,7 @@ Download segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(tit
 _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan untuk mendapatkan Ebook gratis dan bahan bacaan menarik lainnya._
 `;
             
-            let finallink1;
-            if(link.startsWith('https://github.com/')){
-            finallink1 = convertToNewLinks(link)
-                  
-            }
-            
-            else if(link.startsWith('https://drive.google.com/')){
-            
-            finallink1 =convertGDriveLink(link)
-            
-            }
-            else if(link.startsWith('https://z-library.sk/')){
-try {
-    let convertlibrary = await libraryToGitHub(link);
-    if (convertlibrary) {
-        finallink1 = convertToNewLinks(convertlibrary);
-    }else{alert ("Gagal mengkonversi Link");hideLoading();
-    return
-    }
-} catch (error) {
- alert ("Gagal mengkonversi Link");hideLoading(); 
- console.error('Error during link conversion:', error);
- return
-}
 
-};
             
                var jsonData2 = {
                 id: finallink1,
@@ -344,17 +363,20 @@ async function libraryToGitHub(link) {
 
         if (uploadResponse.ok) {
             const directUrl = `https://github.com/ajax-jquery/buku.github.io/blob/main/Buku-Filsafat-Gratis/${encodeURIComponent(sanitizedFileName)}`;
-            return directUrl;
+            const namafile = sanitizedFileName.replace(".pdf","");
+            return { directUrl, namafile };
         } else {
             const errorData = await uploadResponse.json();
             console.error('GitHub upload failed:', errorData);
-            alert(`GitHub upload failed: ${errorData.message}`);
         }
     } catch (error) {
         console.error('Error:', error);
-        alert(`An error occurred: ${error.message}`);
     }
 }
+
+
+
+
 
     </script>
 </body>
