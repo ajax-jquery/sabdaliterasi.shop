@@ -61,15 +61,17 @@ const titleElement = document.getElementById('file-title');
 const downloadButton = document.getElementById('download-btn');
 titleElement.textContent = `File: ${fileInfo.title}`;
 let downloadLink = fileInfo.id;
-if (downloadLink.startsWith('https://github.com/')) {
-downloadLink = downloadLink.replace(/https:\/\/github\.com\/(.*?)\/blob\/(.*?\/)path/,
-                        'https://sabdaliterasi.xyz/wp-conten/file/cdn/gh/$1@$2path'
-                    );
-                }
-                downloadButton.addEventListener('click', () => {showLoading()
-                const linkg = document.createElement( 'a' );
+                downloadButton.addEventListener('click', () => {showLoading();
+                
+                 if (downloadLink.startsWith('https://cdn.jsdelivr.net/')) {
+                
+let dd = downloadLink.replace('https://cdn.jsdelivr.net/','https://sabdaliterasi.xyz/wp-conten/file/cdn/');fetchAndCreateLink(dd);
+                }else{ const linkg = document.createElement( 'a' );
 					linkg.href = downloadLink;
 					linkg.click();
+                  } 
+                
+                
                 });
                 localStorage.setItem('shortnow', fileInfo.short);
             } catch (error) {
@@ -80,6 +82,53 @@ downloadLink = downloadLink.replace(/https:\/\/github\.com\/(.*?)\/blob\/(.*?\/)
             const urlWithoutParams = window.location.origin + window.location.pathname;
             window.history.replaceState({}, document.title, urlWithoutParams);
         }
+        
+async function fetchAndCreateLink(qq) {
+            const url = qq;
+            let attempts = 0;
+            const maxAttempts = 3;
+            let success = false;
+
+            while (attempts < maxAttempts && !success) {
+                try {
+                    // Melakukan fetch ke URL
+                    const response = await fetch(url);
+
+                    // Mengecek apakah fetch berhasil
+                    if (response.ok) {
+                        // Mengambil blob dari response
+                        const blob = await response.blob();
+
+                        // Membuat URL blob
+                        const blobUrl = URL.createObjectURL(blob);
+
+                        // Mendapatkan nama file dari URL dan mendekodekannya
+                        const fileName = decodeURIComponent(url.substring(url.lastIndexOf('/') + 1));
+
+                        // Membuat elemen <a>
+                        const a = document.createElement('a');
+                        a.href = blobUrl;
+                        a.download = fileName; // Menggunakan nama file yang didapat dari URL
+                        a.textContent = 'Klik untuk mengunduh buku';
+
+                        // Menambahkan elemen <a> ke dalam body
+                        a.click();
+
+                        // Menandai bahwa fetch berhasil
+                        success = true;
+                    } else {
+                        throw new Error('Response tidak OK');
+                    }
+                } catch (error) {
+                    attempts++;
+                    console.error(`Percobaan ${attempts} gagal:`, error);
+                    if (attempts === maxAttempts) {
+                    alert("Download Gagal, Coba lagi.");
+                        hideLoading(); 
+                    }
+                }
+            }
+        }        
 </script>
 
 </body>
