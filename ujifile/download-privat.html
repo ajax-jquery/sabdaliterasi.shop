@@ -7,7 +7,6 @@ layout: null
 <head>
     <script>// URL server Anda
 const serverUrl = "/api/verify/";
-
 // Fungsi untuk melakukan ping ke server
 function pingServer() {
   fetch(serverUrl)
@@ -20,7 +19,6 @@ function pingServer() {
     })
     .catch(error => {console.error("Ping error:", error);pingServer();});
 }
-
 // Mulai ping saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
   // Ping server setiap 5 menit (300000 ms)
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     align-items: center;
   }
 </style>
-
 </head>
 <body>
 <!-- Overlay Loading -->
@@ -55,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-
 <div class="container mt-5">
   <h1 id="title" class="text-center">Loading...</h1>
   <form id="formVerify" class="mt-4">
@@ -80,9 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <button type="submit" class="btn btn-primary" id="submitForm">Submit and Download</button>
   </form>
 </div>
-
 <script> 
-
+!function(){
 function showLoading() {
   document.getElementById('loadingOverlay').style.display = 'flex';
 }
@@ -96,11 +91,9 @@ function showVerificationMessage() {
 function startCountdown(buttonId, duration) {
   const button = document.getElementById(buttonId);
   let timeLeft = duration;
-
   // Disable tombol dan mulai hitung mundur
   button.disabled = true;
   button.textContent = `Please wait ${timeLeft}s`;
-
   const countdownInterval = setInterval(() => {
     timeLeft--;
     if (timeLeft > 0) {
@@ -116,17 +109,14 @@ function decodeBase64(input) {
     const chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
     let str = "";
     let i = 0;
-
     while (i < input.length) {
       const enc1 = chars.indexOf(input.charAt(i++));
       const enc2 = chars.indexOf(input.charAt(i++));
       const enc3 = chars.indexOf(input.charAt(i++));
       const enc4 = chars.indexOf(input.charAt(i++));
-
       const chr1 = (enc1 << 2) | (enc2 >> 4);
       const chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
       const chr3 = ((enc3 & 3) << 6) | enc4;
-
       str += String.fromCharCode(chr1);
       if (enc3 !== 64) str += String.fromCharCode(chr2);
       if (enc4 !== 64) str += String.fromCharCode(chr3);
@@ -140,12 +130,14 @@ function decodeBase64(input) {
    window.location.href=localStorage.getItem("linkbookfree")
 }
   const jsonData = base64Data ? JSON.parse(decodeBase64(base64Data)) : null;
+  let mode = "Baca/Download";
   if (jsonData) {
-    document.getElementById('title').textContent = `Daftar dan Download Ebook ${jsonData.title}.pdf`;hideLoading();localStorage.setItem("linkbookfree",jsonData.short)
+  
+  if(jsonData.mode){mode=jsonData.mode}
+    document.getElementById('title').textContent = `Daftar dan ${mode} Gratis Ebook ${jsonData.title}.pdf`;hideLoading();localStorage.setItem("linkbookfree",jsonData.short)
   }
   document.getElementById('checkEmail').addEventListener('click', function () {showLoading();
     const email = document.getElementById('email').value.trim().toLowerCase();
-
     if (email) {
       fetch('/api/verify/check-email-and-download', {
         method: 'POST',
@@ -191,7 +183,6 @@ showLoading();
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim().toLowerCase();
     const code = document.getElementById('code').value.trim();
-
     if (name && email && code) {
       fetch('/api/verify/verify-and-download', {
         method: 'POST',
@@ -217,6 +208,7 @@ showLoading();
 const paramss = currentUrl.searchParams;paramss.delete('c');
     const newUrl = currentUrl.origin + currentUrl.pathname + (paramss.toString() ? '?' + paramss.toString() : '');
     window.history.replaceState({}, '', newUrl);
+    }()
 </script>
 </body>
 </html>
