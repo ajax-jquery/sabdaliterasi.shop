@@ -336,7 +336,7 @@ async function libraryToGitHub(link) {
         const blob = await response.blob();
         const contentDisposition = response.headers.get('Content-Disposition');
         const fileName = contentDisposition?.match(/filename="(.+)"/)?.[1] || document.getElementById("title").value+"."+getExt(fetchUrl);
-        const sanitizedFileName = fileName.replace(/ \(Z-Library\)/g, '').replaceAll("_", ' ');
+        const sanitizedFileName = fileName.replace(/ \(Z-Library\)/g, '(Sabda Literasi Palu)').replaceAll("_", ' ');
 
         const base64File = await new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -366,7 +366,7 @@ async function libraryToGitHub(link) {
         if (uploadResponse.ok) {
         console.log(uploadResponse);
             const directUrl = `https://github.com/ajax-jquery/buku.github.io/blob/main/Buku-Filsafat-Gratis/${encodeURIComponent(sanitizedFileName)}`;
-            const namafile = sanitizedFileName.replace(".pdf","");
+            const namafile = sanitizedFileName.replace(".pdf","").replace('(Sabda Literasi Palu)','');
             return { directUrl, namafile };
         } else {
             const errorData = await uploadResponse.json();
