@@ -1,7 +1,0 @@
----
-layout: null
-permalink: /wp-admin/short.csv
----
-Original,Judul,Slug,type{% for post in site.artikel %}
-"{{ post.url | absolute_url }}","{{ post.title }}","{{ post.url | replace: "/artikel", "" }}","301"{% endfor %}{% for post in site.posts %}
-"{{ post.url | absolute_url }}","{{ post.title }}","{{ post.url | replace: "/artikel", "" }}","301"{% endfor %}

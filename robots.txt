@@ -1,16 +1,1 @@
----
-layout: null
----
-User-agent: *
-Disallow: /wp-admin/*
-Disallow: /api/*
-Disallow: /success/
-Disallow: /uji-home/
-Disallow: /buy/
-Disallow: /download/*
-Disallow: /offline/
-Disallow: /search/
-Disallow: /konfirmasi/
-Disallow: /templatemail.html
-
-Sitemap: {{ site.url }}/sitemap_index.xml
+Sitemap: /sitemap.xml
