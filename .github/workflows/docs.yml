@@ -28,18 +28,18 @@ jobs:
           REMOTE_REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
 
           echo "Publishing to ${GITHUB_REPOSITORY} on branch ${REMOTE_BRANCH}"
-          rm -rf docs/_site/
+          rm -rf _site/
           git clone --depth=1 --branch="${REMOTE_BRANCH}" --single-branch --no-checkout \
-            "${REMOTE_REPO}" docs/_site/
+            "${REMOTE_REPO}" _site/
       - name: Build site
-        run: bundle exec jekyll build --source docs --destination docs/_site --verbose --trace
+        run: bundle exec jekyll build --source docs --destination _site --verbose --trace
         env:
           # For jekyll-github-metadata
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy to GitHub Pages
         run: |
           SOURCE_COMMIT="$(git log -1 --pretty="%an: %B" "$GITHUB_SHA")"
-          pushd docs/_site &>/dev/null
+          pushd _site &>/dev/null
           : > .nojekyll
 
           git add --all
