@@ -240,7 +240,7 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
 var URL_ID = "download/ebook-"+convertToSlug(title), 
     JUDUL =title, 
     CANONICAL1="https://sabdaliterasi.xyz/download/ebook?c="+base64String,
-    CANONICAL="https://cdn.sophiainstitute.xyz/go?o="+Pu.en(aesCrypto.encrypt(convertstr(CANONICAL1),convertstr("root")));
+    CANONICAL="https://cdn.sophiainstitute.xyz/download?o="+Pu.en(aesCrypto.encrypt(convertstr(CANONICAL1),convertstr("root")));
   
  const options = {
   method: 'POST',
@@ -265,7 +265,7 @@ fetch('https://api.short.io/links/public', options)
   hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
    document.getElementById("output").value =caption;
    document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}">SHARE WA</a>`
-   let hasilcanon = CANONICAL.replace("https://cdn.sophiainstitute.xyz/go?o=",""),
+   let hasilcanon = CANONICAL.replace("https://cdn.sophiainstitute.xyz/go?o=","").replace("https://cdn.sophiainstitute.xyz/download?o=",""),
 decode1= aesCrypto.decrypt(convertstr(Pu.de(hasilcanon)),convertstr("root")),
 decode2=JSON.parse(decodeBase64(decode1.replace("https://sabdaliterasi.xyz/download/ebook?c=",""))),
 decode3=JSON.stringify(decode2,null,2);
@@ -373,11 +373,6 @@ async function libraryToGitHub(link) {
         console.error('Error:', error);
     }
 }
-
-
-
-
-
     </script>
 </body>
 </html>
