@@ -162,7 +162,7 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
             finallink1 =convertGDriveLink(link)
             
             }
-           else if (link.startsWith('https://z-library.sk/')) {
+           else {
     try {
         let convertlibrary;
         let retryCount = 0;
@@ -318,6 +318,7 @@ function decodeBase64(input) {
     let fix = decodeURIComponent(escape(str));
     return fix
   }
+function getExt(t){let p=t.split(".").pop().split("?")[0];return p}
 async function libraryToGitHub(link) {
     const fetchUrl = `https://sabdaliterasi.xyz/api/fetch/${link}`;
     const githubApiUrl = 'https://api.github.com/repos/ajax-jquery/buku.github.io/contents/Buku-Filsafat-Gratis';
@@ -333,8 +334,8 @@ async function libraryToGitHub(link) {
 
         const blob = await response.blob();
         const contentDisposition = response.headers.get('Content-Disposition');
-        const fileName = contentDisposition?.match(/filename="(.+)"/)?.[1] || 'downloaded_file';
-        const sanitizedFileName = fileName.replace(/ \(Z-Library\)/g, '');
+        const fileName = contentDisposition?.match(/filename="(.+)"/)?.[1] || document.getElementById("title").value+"."+getExt(fetchUrl);
+        const sanitizedFileName = fileName.replace(/ \(Z-Library\)/g, '').replaceAll("_", ' ');
 
         const base64File = await new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -362,6 +363,7 @@ async function libraryToGitHub(link) {
         });
 
         if (uploadResponse.ok) {
+        console.log(uploadResponse);
             const directUrl = `https://github.com/ajax-jquery/buku.github.io/blob/main/Buku-Filsafat-Gratis/${encodeURIComponent(sanitizedFileName)}`;
             const namafile = sanitizedFileName.replace(".pdf","");
             return { directUrl, namafile };
