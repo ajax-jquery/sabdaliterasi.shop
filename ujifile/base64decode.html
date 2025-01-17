@@ -1,0 +1,140 @@
+---
+layout: null
+permalink: /wp-admin/decode-base64
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Decoder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Base64 Decoder</h2>
+        <form id="decoderForm">
+            <div class="form-group">
+                <label for="inputType">Select Input Type:</label>
+                <select id="inputType" class="form-control">
+                    <option value="text">Text</option>
+                    <option value="file">File (Base64 URL)</option>
+                </select>
+            </div>
+            <div class="form-group" id="textInputGroup">
+                <label for="textInput">Base64 Input:</label>
+                <textarea id="textInput" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group" id="fileInputGroup" class="d-none">
+                <label for="fileInput">Base64 URL Input:</label>
+                <textarea id="fileInput" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="button" id="decodeButton" class="btn btn-primary">Decode</button>
+        </form>
+        <div class="form-group mt-3">
+            <label for="output">Output:</label>
+            <textarea id="output" class="form-control" rows="5" readonly></textarea>
+        </div>
+        <button id="downloadButton" class="btn btn-success">Download File</button>
+    </div>
+
+    <script>
+        document.getElementById('inputType').addEventListener('change', function() {
+            const inputType = this.value;
+            document.getElementById('textInputGroup').classList.toggle('d-none', inputType !== 'text');
+            document.getElementById('fileInputGroup').classList.toggle('d-none', inputType !== 'file');
+        });
+
+        document.getElementById('decodeButton').addEventListener('click', function() {
+            const inputType = document.getElementById('inputType').value;
+            const outputElement = document.getElementById('output');
+            let decodedData = '';
+
+            if (inputType === 'text') {
+                const base64Text = document.getElementById('textInput').value.trim();
+                if (base64Text === "") {
+                    alert("Please enter Base64 data.");
+                    return;
+                }
+
+                try {
+                    // Decode Base64 menjadi teks
+                    decodedData = decodeURIComponent(escape(atob(base64Text)));
+                } catch (e) {
+                    alert("Invalid Base64 input.");
+                    return;
+                }
+
+            } else if (inputType === 'file') {
+                const base64Url = document.getElementById('fileInput').value.trim();
+                if (!base64Url) {
+                    alert('Please enter Base64 URL.');
+                    return;
+                }
+
+                // Ambil Base64 data dari URL
+                const base64Data = base64Url.split(',')[1];
+                if (!base64Data) {
+                    alert("Invalid Base64 data in URL.");
+                    return;
+                }
+
+                // Menampilkan data Base64 di output
+                outputElement.value = base64Data;
+
+                // Mendapatkan mimeType dari URL Base64 (Jika tersedia)
+                const mimeType = base64Url.split(':')[1].split(';')[0] || 'application/octet-stream';
+                const fileExtension = mimeType.split('/')[1] || 'bin';
+
+                // Membuat URL Blob untuk file yang ter-decode
+                const byteCharacters = atob(base64Data);
+                const byteArrays = [];
+
+                for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+                    const slice = byteCharacters.slice(offset, offset + 512);
+                    const byteNumbers = new Array(slice.length);
+                    for (let i = 0; i < slice.length; i++) {
+                        byteNumbers[i] = slice.charCodeAt(i);
+                    }
+                    byteArrays.push(new Uint8Array(byteNumbers));
+                }
+
+                const blob = new Blob(byteArrays, { type: mimeType });
+                const blobURL = URL.createObjectURL(blob);
+
+                // Simpan URL Blob dan mime type
+                window.blobURL = blobURL;
+                window.mimeType = mimeType;
+                window.fileExtension = fileExtension;
+            }
+        });
+
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            const blobURL = window.blobURL;
+            const mimeType = window.mimeType;
+            const fileExtension = window.fileExtension;
+
+            if (!blobURL) {
+                alert("No decoded file available to download.");
+                return;
+            }
+
+            // Gunakan Date.now() untuk nama file dan ekstensi sesuai mime type
+            const filename = `${Date.now()}.${fileExtension}`;
+
+            const a = document.createElement('a');
+            a.href = blobURL;
+            a.download = filename; // Nama file dengan ekstensi sesuai mime
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+    </script>
+</body>
+</html>
