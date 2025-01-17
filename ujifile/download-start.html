@@ -22,7 +22,7 @@ permalink: /wp-admin/download/start
         <button id="download-btn">Download</button> 
     </div>
 </div>
-<script>
+<script>!function(){
 
 function showLoading() {
   document.getElementById('loading').style.display = 'flex';
@@ -61,12 +61,17 @@ if (!idEncoded) {
 const titleElement = document.getElementById('file-title');
 const downloadButton = document.getElementById('download-btn');
 titleElement.textContent = `File: ${fileInfo.title}`;
-let downloadLink = fileInfo.id;
-                downloadButton.addEventListener('click', () => {showLoading();
+let downloadLink = fileInfo.id,
+ judul=fileInfo.title+".pdf";
+                downloadButton.addEventListener('click',async function(){showLoading();
                 
                  if (downloadLink.startsWith('https://cdn.jsdelivr.net/')) {
                 
-let dd = downloadLink.replace('https://cdn.jsdelivr.net/','https://sabdaliterasi.xyz/wp-conten/file/cdn/');fetchAndCreateLink(dd);
+let dd = downloadLink.replace('https://cdn.jsdelivr.net/','https://sabdaliterasi.xyz/wp-conten/file/cdn/');await fetchAndCreateLink(dd);
+                }else if(downloadLink.startsWith('https://sabdaliterasi.xyz/')){
+                
+  await fetchAndCreateLink(downloadLink,judul)             
+                
                 }else{ const linkg = document.createElement( 'a' );
 					linkg.href = downloadLink;
 					linkg.click();
@@ -84,7 +89,7 @@ let dd = downloadLink.replace('https://cdn.jsdelivr.net/','https://sabdaliterasi
             window.history.replaceState({}, document.title, urlWithoutParams);
         }
         
-async function fetchAndCreateLink(qq) {
+async function fetchAndCreateLink(qq,qb) {
             const url = qq;
             let attempts = 0;
             const maxAttempts = 3;
@@ -104,7 +109,8 @@ async function fetchAndCreateLink(qq) {
                         const blobUrl = URL.createObjectURL(blob);
 
                         // Mendapatkan nama file dari URL dan mendekodekannya
-                        const fileName = decodeURIComponent(url.substring(url.lastIndexOf('/') + 1));
+                        let fileName = decodeURIComponent(url.substring(url.lastIndexOf('/') + 1));
+if(qb){fileName=qb};                        
 
                         // Membuat elemen <a>
                         const a = document.createElement('a');
@@ -117,6 +123,7 @@ async function fetchAndCreateLink(qq) {
 
                         // Menandai bahwa fetch berhasil
                         success = true;
+                        alert("Download dimulai...");
                     } else {
                         throw new Error('Response tidak OK');
                     }
@@ -129,8 +136,8 @@ async function fetchAndCreateLink(qq) {
                     }
                 }
             }
-        }        
-</script>
+        }      
+}()</script>
 
 </body>
 </html>
