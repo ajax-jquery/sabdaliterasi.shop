@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
 
   # Deployment job
-  deploy:
+  success:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -70,7 +70,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
   Send_Mail_Product:
-    needs: deploy
+    needs: success
     runs-on: ubuntu-latest  # Menjalankan workflow di sistem operasi Ubuntu
     steps:
       - name: Checkout repository
@@ -120,7 +120,7 @@ jobs:
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}      
 
   RRS_Product_to_Twitter:
-    needs: deploy
+    needs: success
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -148,7 +148,7 @@ jobs:
           TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
 
   Send_Mail_Post:
-    needs: deploy
+    needs: success
     runs-on: ubuntu-latest  # Menjalankan workflow di sistem operasi Ubuntu
     steps:
       - name: Checkout repository
@@ -198,7 +198,7 @@ jobs:
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}      
 
   RSS_post_to_Twitter:
-    needs: deploy
+    needs: success
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
