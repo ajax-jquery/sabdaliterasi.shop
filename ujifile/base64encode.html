@@ -1,0 +1,141 @@
+---
+layout: null
+permalink: /wp-admin/encode-base64
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Base64 Encoder</h2>
+        <form id="encoderForm">
+            <div class="form-group">
+                <label for="inputType">Select Input Type:</label>
+                <select id="inputType" class="form-control">
+                    <option value="text">Text</option>
+                    <option value="file">File</option>
+                </select>
+            </div>
+            <div class="form-group" id="textInputGroup">
+                <label for="textInput">Text Input:</label>
+                <textarea id="textInput" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group d-none" id="fileInputGroup">
+                <label for="fileInput">File Input:</label>
+                <input type="file" id="fileInput" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="outputFormat">Select Output Format:</label>
+                <select id="outputFormat" class="form-control">
+                    <option value="base64">Base64 Only</option>
+                    <option value="dataurl">URL + Base64</option>
+                    <option value="anchor">HTML Anchor Tag</option>
+                </select>
+            </div>
+            <button type="button" id="encodeButton" class="btn btn-primary">Encode</button>
+        </form>
+        <div class="form-group mt-3">
+            <label for="output">Output:</label>
+            <textarea id="output" class="form-control" rows="5" readonly></textarea>
+        </div>
+        <button id="copyButton" class="btn btn-success">Copy to Clipboard</button>
+    </div>
+
+    <script>
+        document.getElementById('inputType').addEventListener('change', function() {
+            const inputType = this.value;
+            document.getElementById('textInputGroup').classList.toggle('d-none', inputType !== 'text');
+            document.getElementById('fileInputGroup').classList.toggle('d-none', inputType !== 'file');
+        });
+document.getElementById('encodeButton').addEventListener('click', function() {
+    const inputType = document.getElementById('inputType').value;
+    const outputFormat = document.getElementById('outputFormat').value;
+    const outputElement = document.getElementById('output');
+
+    let base64String = '';
+    let mimeType = '';
+
+    if (inputType === 'text') {
+        const textInput = document.getElementById('textInput').value;
+        if (textInput.trim() === "") {
+            alert("Please enter some text.");
+            return;
+        }
+        base64String = btoa(unescape(encodeURIComponent(textInput)));  // Encode teks ke Base64
+    } else if (inputType === 'file') {
+        const fileInput = document.getElementById('fileInput').files[0];
+        if (!fileInput) {
+            alert('Please select a file.');
+            return;
+        }
+        mimeType = fileInput.type;
+
+        // Membaca file menggunakan FileReader
+        const reader = new FileReader();
+
+        // Event handler ketika file berhasil dibaca
+        reader.onloadend = function(event) {
+            const base64Data = event.target.result.split(',')[1]; // Ambil data Base64
+
+            let output = '';
+            if (outputFormat === 'base64') {
+                output = base64Data;
+            } else if (outputFormat === 'dataurl') {
+                // Membuat data URL dengan benar
+                output = `data:${mimeType};base64,${base64Data}`;
+            } else if (outputFormat === 'anchor') {
+                output = `<a href="data:${mimeType};base64,${base64Data}" download>Download</a>`;
+            }
+
+            // Menampilkan hasil ke dalam textarea
+            outputElement.value = output;
+        };
+
+        // Event handler error jika file gagal dibaca
+        reader.onerror = function() {
+            alert('Error reading the file.');
+        };
+
+        // Membaca file sebagai Data URL
+        reader.readAsDataURL(fileInput);
+    }
+
+    // Menampilkan hasil Base64 jika input adalah teks
+    if (inputType === 'text') {
+        let output = '';
+        if (outputFormat === 'base64') {
+            output = base64String;
+        } else if (outputFormat === 'dataurl') {
+            output = `data:text/plain;base64,${base64String}`;
+        } else if (outputFormat === 'anchor') {
+            output = `<a href="data:text/plain;base64,${base64String}" download>Download</a>`;
+        }
+
+        outputElement.value = output;
+    }
+});
+
+document.getElementById('copyButton').addEventListener('click', function() {
+    const outputElement = document.getElementById('output');
+    outputElement.select();
+    document.execCommand('copy');
+    alert('Copied to clipboard!');
+});
+        
+ 
+
+    </script>
+
+</body>
+</html>
