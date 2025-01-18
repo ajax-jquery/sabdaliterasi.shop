@@ -102,9 +102,11 @@ function convertToSlug(text) {
 };
 function convertToNewLinks(originalLink) {
                 var oldPrefix = "https://github.com/";
-                var newPrefix1 = "https://cdn.jsdelivr.net/gh/";
-
-                var modifiedLink1 = originalLink.replace("/blob/", "@");
+                var newPrefix1 = "https://sabdaliterasi.xyz/wp-content/cdn/g/";
+                var modifiedLink1 = originalLink
+                .replace("/blob/", "@")
+                .replace("/master/", "/file/")
+                .replace("/main/", "/data/");
                
 
                 var newLink1 = modifiedLink1.replace(oldPrefix, newPrefix1);
