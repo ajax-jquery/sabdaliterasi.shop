@@ -7,7 +7,7 @@ permalink: /wp-admin/ebook-generator/
 <!-- FADHEL -->
 <head>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
-<script src="/wp-conten/file/cdn/gh/ajax-jquery/cdn.sophiainstitute.id@master/safelink/css/wcsafelink.js"></script>    
+<script src="/wp-content/cdn/g/ajax-jquery/cdn.sophiainstitute.id/master/safelink/css/wcsafelink.js"></script>    
 <script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
 </script>    
     <meta charset="UTF-8">
@@ -104,7 +104,7 @@ function convertToNewLinks(originalLink) {
                 var oldPrefix = "https://github.com/";
                 var newPrefix1 = "https://sabdaliterasi.xyz/wp-content/cdn/g/";
                 var modifiedLink1 = originalLink
-                .replace("/blob/", "@")
+                .replace("/blob/", "/")
                 .replace("/master/", "/file/")
                 .replace("/main/", "/data/");
                
@@ -348,11 +348,14 @@ async function libraryToGitHub(link) {
         });
 
         const contentPath = `${githubApiUrl}/${sanitizedFileName}`;
+let sha = await getGitHubSHA(contentPath); 
+if(sha !== null){alert("update: "+contentPath)}
 
         // Prepare data for GitHub API
         const body = {
             message: `Add ${sanitizedFileName}`,
-            content: base64File
+            content: base64File,
+            sha:sha
         };
 
         // Upload file to GitHub
@@ -378,6 +381,31 @@ async function libraryToGitHub(link) {
         console.error('Error:', error);
     }
 }
+
+async function getGitHubSHA(xx) {
+  const apiUrl = xx;
+  
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    
+    return data.sha;
+  } catch (error) {
+    console.error('Gagal mendapatkan SHA:', error);
+    return null; // Kembalikan null jika terjadi error
+  }
+}
+
     </script>
 </body>
 </html>
