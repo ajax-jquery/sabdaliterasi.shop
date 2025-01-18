@@ -8,12 +8,13 @@ permalink: /wp-admin/ebook-generator/
 <head>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
 <script src="/wp-content/cdn/g/ajax-jquery/cdn.sophiainstitute.id/master/safelink/css/wcsafelink.js"></script>    
+<script src="/wp-content/cdn/n/axios/1.7.9/dist/axios.min.js"></script>
 <script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
 </script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konversi Link GDrive ke JSON</title>
-    <link rel="stylesheet" href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/wp-content/cdn/n/bootstrap/5.3.2/dist/css/bootstrap.min.css">
     <style>
         body {
             padding: 20px;
@@ -41,7 +42,31 @@ permalink: /wp-admin/ebook-generator/
             Download
         </label>
     </div>
+    
+    <div id="chekbox">
+<div class="form-check form-check-inline">
+<input onclick="fotofile()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="file" checked="">
+<label class="form-check-label" for="inlineRadio1">From File</label>
+</div>
+<div class="form-check form-check-inline">
+<input onclick="fotourl()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="url">
+<label class="form-check-label" for="inlineRadio2">From URL</label>
+</div>
+</div>
+            <div class="form-group inputfoto">
+            <input type="file" class="form-control" id="fileInput">
+            
+        </div>
+        
+         <div class="form-group inputfotourl d-none">
+        <input type="url" class="form-control mt-2" id="urlInput" placeholder="Masukkan URL Gambar">
+        </div>
+        
+        
+        
+        <div class="form-group">
         <button class="btn btn-primary" onclick="convert()">Konversi</button>
+        </div>
         <p><strong>Permalink:</strong></p>
         <p id="perma"></p>
 <div class="form-group">
@@ -57,18 +82,31 @@ permalink: /wp-admin/ebook-generator/
     </div>
 
 
-    <script src="/wp-conten/file/cdn/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="/wp-content/cdn/n/bootstrap/5.3.2/dist/js/bootstrap.min.js"></script>
     <script>
-    function showLoading() {
+const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
+const username = 'sabdaliterasi';
+const repository = 'wp-conten';
+const branch = 'file';
+const accessToken = Pu.de(IMAGES_Key);
+function fotofile(){
+$('.inputfoto').removeClass('d-none');
+$('.inputfotourl').addClass('d-none');
+};
+function fotourl(){
+$('.inputfoto').addClass('d-none');
+$('.inputfotourl').removeClass('d-none');
+};
+function showLoading() {
   document.getElementById('loading').style.display = 'flex';
-}
+};
 function hideLoading() {
   document.getElementById('loading').style.display = 'none';
-}
-         function convertGDriveLink(link) {
+};
+function convertGDriveLink(link) {
             const fileId = link.match(/\/d\/(.*?)\//)[1];
             return "https://sabdaliterasi.xyz/api/fetch/https://drive.google.com/uc?export=download&id=" + fileId;
-        }
+        };
 function base64Encode(str) {
             // Implementasi Base64 encoding manual
             var base64Chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
@@ -93,7 +131,32 @@ function base64Encode(str) {
                 result += base64Chars.charAt(enc1) + base64Chars.charAt(enc2) + base64Chars.charAt(enc3) + base64Chars.charAt(enc4);
             }
             return result;
-        }
+        };
+function base64Encode1(str) {
+            // Implementasi Base64 encoding manual
+            var base64Chars = "ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=";
+            var result = '';
+            var i = 0;
+            while (i < str.length) {
+                var char1 = str.charCodeAt(i++);
+                var char2 = str.charCodeAt(i++);
+                var char3 = str.charCodeAt(i++);
+
+                var enc1 = char1 >> 2;
+                var enc2 = ((char1 & 3) << 4) | (char2 >> 4);
+                var enc3 = ((char2 & 15) << 2) | (char3 >> 6);
+                var enc4 = char3 & 63;
+
+                if (isNaN(char2)) {
+                    enc3 = enc4 = 64;
+                } else if (isNaN(char3)) {
+                    enc4 = 64;
+                }
+
+                result += base64Chars.charAt(enc1) + base64Chars.charAt(enc2) + base64Chars.charAt(enc3) + base64Chars.charAt(enc4);
+            }
+            return result;
+        };
 function convertToSlug(text) {
   return text
     .toLowerCase()
@@ -113,7 +176,27 @@ function convertToNewLinks(originalLink) {
                 
                 
                 return newLink1
-            }
+            };
+function getFormattedTime() {
+    const now = new Date();
+
+    // Format date and time components
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    // Get timezone offset in minutes
+    const timezoneOffset = -now.getTimezoneOffset();
+    const offsetHours = String(Math.floor(Math.abs(timezoneOffset) / 60)).padStart(2, '0');
+    const offsetMinutes = String(Math.abs(timezoneOffset) % 60).padStart(2, '0');
+    const offsetSign = timezoneOffset >= 0 ? '+' : '-';
+
+    // Combine components into the desired format
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${offsetSign}${offsetHours}${offsetMinutes}`;
+};
 $(document).ready(function(){
          $('#link').on('input change focus keydown keypress keyup paste cut click', function() {
  var link = document.getElementById("link").value;       
@@ -126,9 +209,13 @@ $(document).ready(function(){
 async function convert() {
 showLoading();
           const checkbox = document.getElementById('customCheckbox');
-          const jsonOut = document.getElementById('jsonOut');
-            let link = document.getElementById("link").value;
-            let title = document.getElementById("title").value,
+          const inlineRadio1 = document.getElementById('inlineRadio1');
+          const inlineRadio2 = document.getElementById('inlineRadio2');
+           const fileInput = document.getElementById('fileInput').files[0];
+           const urlInput = document.getElementById('urlInput').value;
+           const jsonOut = document.getElementById('jsonOut');
+           let link = document.getElementById("link").value;
+           let title = document.getElementById("title").value,
             finallink=link,
             mode="Baca",
             caption=`*BACA EBOOK*
@@ -145,14 +232,28 @@ Baca segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(title)}
 *Plus Note:*
 _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan untuk mendapatkan Ebook gratis dan bahan bacaan menarik lainnya._
 `;
-  
+  let hasilJSON;
   if(!link){
   alert("Link Wajib Diisi");hideLoading();
   return
-  }else if(!title){
+  }
+  else if(!title){
   alert("Judul Wajib Diisi");hideLoading();
   return
   }
+  else if(inlineRadio1.checked){
+  if(!fileInput){
+  alert("File Wajib Diupload");hideLoading();
+  return
+  }
+  }
+  else if(inlineRadio2.checked){
+  if(!urlInput){
+  alert("URL File Wajib Diisi");hideLoading();
+  return
+  }
+  };
+    
             
             if (checkbox.checked) {
                         let finallink1;
@@ -223,7 +324,15 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
            finallink= "https://sabdaliterasi.xyz/download/start?id="+base64Encode(JSON.stringify(jsonData2));       
            
             };
-                    
+ if (fileInput) {
+        hasilJSON = await uploadFile(fileInput, title); 
+    } else if (urlInput) {
+        hasilJSON = await fetchAndUploadImage(urlInput, title);
+    } else {
+        hasilJSON = { error: 'Pilih file atau masukkan URL' };
+        alert('Pilih file atau masukkan URL');
+        return
+    }                   
             var jsonData = {
             	mode:mode,
                 id: finallink,
@@ -243,7 +352,18 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
 var URL_ID = "download/ebook-"+convertToSlug(title), 
     JUDUL =title, 
     CANONICAL1="https://sabdaliterasi.xyz/download/ebook?c="+base64String,
-    CANONICAL="https://cdn.sophiainstitute.xyz/download?o="+Pu.en(aesCrypto.encrypt(convertstr(CANONICAL1),convertstr("root")));
+    CANONICAL2="https://cdn.sophiainstitute.xyz/download?o="+Pu.en(aesCrypto.encrypt(convertstr(CANONICAL1),convertstr("root")));
+const dataJson={
+        "Mode": mode,
+        "Judul": title,
+        "urlDownload": CANONICAL2,
+        "linkGambar": hasilJSON.url,
+        "widthGambar":hasilJSON.width,
+        "heightGambar":hasilJSON.height,
+        "mimetype":hasilJSON.mimeType,
+        "Time":getFormattedTime()
+}
+    let CANONICAL="https://sabdaliterasi.xyz/api/download/"+base64Encode1(JSON.stringify(dataJson));
   
  const options = {
   method: 'POST',
@@ -268,8 +388,10 @@ fetch('https://api.short.io/links/public', options)
   hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
    document.getElementById("output").value =caption;
    document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}">SHARE WA</a>`
-   let hasilcanon = CANONICAL.replace("https://cdn.sophiainstitute.xyz/go?o=","").replace("https://cdn.sophiainstitute.xyz/download?o=",""),
-decode1= aesCrypto.decrypt(convertstr(Pu.de(hasilcanon)),convertstr("root")),
+   let hasilcanon = CANONICAL.replace("https://sabdaliterasi.xyz/api/download/","").replace("https://cdn.sophiainstitute.xyz/download?o=",""),
+   
+deco1=JSON.parse(decodeBase641(hasilcanon)),
+decode1= aesCrypto.decrypt(convertstr(Pu.de(deco1.urlDownload.replace("https://cdn.sophiainstitute.xyz/go?o=","").replace("https://cdn.sophiainstitute.xyz/download?o=",""))),convertstr("root")),
 decode2=JSON.parse(decodeBase64(decode1.replace("https://sabdaliterasi.xyz/download/ebook?c=",""))),
 decode3=JSON.stringify(decode2,null,2);
 
@@ -277,6 +399,12 @@ if(decode2.id.startsWith('https://sabdaliterasi.xyz/download/start')){
 
 let decode4=JSON.stringify(JSON.parse(decodeBase64(decode2.id.replace("https://sabdaliterasi.xyz/download/start?id=",""))),null,2);
 decode3 = `
+
+${JSON.stringify(deco1,null,2)}
+
+
+===
+
 ${decode3}
 
 ===
@@ -301,6 +429,28 @@ ${decode4}
         }
 function decodeBase64(input) {
     const chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
+    let str = "";
+    let i = 0;
+
+    while (i < input.length) {
+      const enc1 = chars.indexOf(input.charAt(i++));
+      const enc2 = chars.indexOf(input.charAt(i++));
+      const enc3 = chars.indexOf(input.charAt(i++));
+      const enc4 = chars.indexOf(input.charAt(i++));
+
+      const chr1 = (enc1 << 2) | (enc2 >> 4);
+      const chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+      const chr3 = ((enc3 & 3) << 6) | enc4;
+
+      str += String.fromCharCode(chr1);
+      if (enc3 !== 64) str += String.fromCharCode(chr2);
+      if (enc4 !== 64) str += String.fromCharCode(chr3);
+    }
+    let fix = decodeURIComponent(escape(str));
+    return fix
+  }
+function decodeBase641(input) {
+    const chars = "ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=";
     let str = "";
     let i = 0;
 
@@ -381,7 +531,6 @@ if(sha !== null){alert("update: "+contentPath)}
         console.error('Error:', error);
     }
 }
-
 async function getGitHubSHA(xx) {
   const apiUrl = xx;
   
@@ -405,7 +554,111 @@ async function getGitHubSHA(xx) {
     return null; // Kembalikan null jika terjadi error
   }
 }
+async function uploadFile(file, judul) {
+    const formData = new FormData();
+    formData.append('file', file);
 
+    const filename = judul + '.' + file.name.split('.').pop();
+    const mimeType = file.type;
+
+    const reader = new FileReader();
+    return new Promise((resolve, reject) => {
+        reader.onloadend = function() {
+            const base64data = reader.result.split(',')[1];
+
+            axios.put(`https://api.github.com/repos/${username}/${repository}/contents/produk/download/${filename}`, 
+                JSON.stringify({
+                    message: 'Upload gambar',
+                    content: base64data,
+                    branch: branch
+                }), {
+                    headers: {
+                        'Authorization': `token ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    handleSuccess(response, filename, mimeType, resolve); // Pastikan resolve dipanggil di sini
+                })
+                .catch(error => {
+                    reject({ error: 'Error uploading file', details: error });
+                });
+        };
+        reader.readAsDataURL(file);
+    });
+}
+async function fetchAndUploadImage(url, judul) {
+    try {
+        // Pastikan URL yang dimasukkan di-encode dengan benar
+        const encodedUrl = encodeURIComponent(url);
+        
+        // Ambil file dari URL dengan axios, pastikan responseType adalah arraybuffer
+        const response = await axios.get(`/api/fetch/${url}`, { responseType: 'arraybuffer' });
+        
+        const mimeType = response.headers['content-type'];
+        const ext = mimeType.split('/')[1]; // Ambil ekstensi dari MIME type
+        const filename = judul + '.' + ext; // Nama file berdasarkan judul dan ekstensi
+
+        // Convert file yang diambil menjadi base64
+        const base64data = arrayBufferToBase64(response.data);
+
+        // Upload file ke GitHub repository
+        const uploadResponse = await axios.put(`https://api.github.com/repos/${username}/${repository}/contents/produk/download/${filename}`, 
+            JSON.stringify({
+                message: 'Upload gambar',
+                content: base64data,
+                branch: branch
+            }), {
+                headers: {
+                    'Authorization': `token ${accessToken}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+        // Menangani hasil upload dan mengembalikan JSON
+        return await handleSuccess(uploadResponse, filename, mimeType); // Menggunakan await untuk menunggu hasil
+    } catch (error) {
+        console.error('Error fetching or uploading image:', error);
+        return { error: 'Error fetching or uploading image', details: error };
+    }
+}
+function handleSuccess(response, filename, mimeType, resolve) {
+    let res = response.data.content;
+    const imageUrl = "https://sabdaliterasi.xyz/wp-conten/file/" + res.path.replace(res.name, encodeURIComponent(res.name));
+
+    const jsonResponse = {
+        url: imageUrl,
+        mimeType: mimeType
+    };
+
+    // Jika MIME type adalah gambar, kita perlu mendapatkan dimensi gambar
+    if (mimeType.startsWith('image/')) {
+        return new Promise((resolveImage) => {
+            const img = new Image();
+            img.onload = function() {
+                jsonResponse.width = img.width;
+                jsonResponse.height = img.height;
+                resolveImage(jsonResponse); // Kembalikan JSON setelah gambar dimuat
+            };
+            img.src = imageUrl;
+        }).then(result => {
+            if (resolve) resolve(result); // Pastikan resolve dipanggil dengan hasil
+            return result;
+        });
+    } else {
+        if (resolve) resolve(jsonResponse); // Kembalikan hasil JSON jika bukan gambar
+        return jsonResponse; // Jika bukan gambar, langsung kembalikan hasil
+    }
+}
+function arrayBufferToBase64(buffer) {
+    let binary = '';
+    let bytes = new Uint8Array(buffer);
+    let length = bytes.byteLength;
+    for (let i = 0; i < length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+}
     </script>
 </body>
 </html>
