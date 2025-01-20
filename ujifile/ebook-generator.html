@@ -10,6 +10,13 @@ permalink: /wp-admin/ebook-generator/
 <script src="/wp-content/cdn/g/ajax-jquery/cdn.sophiainstitute.id/master/safelink/css/wcsafelink.js"></script>    
 <script src="/wp-content/cdn/n/axios/1.7.9/dist/axios.min.js"></script>
 <script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
+const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
+const username = 'sabdaliterasi';
+const repository = 'wp-conten';
+const branch = 'file';
+const accessToken = Pu.de(IMAGES_Key);
+const myproxy ="https://sabdaliterasi.xyz/api/fetch/";
+function fotofile(){$(".inputfoto").removeClass("d-none"),$(".inputfotourl").addClass("d-none")}function fotourl(){$(".inputfoto").addClass("d-none"),$(".inputfotourl").removeClass("d-none")}function showLoading(){document.getElementById("loading").style.display="flex"}function hideLoading(){document.getElementById("loading").style.display="none"}function convertGDriveLink(t){return myproxy+"https://drive.usercontent.google.com/download?export=download&id="+t.match(/\/d\/(.*?)\//)[1]}function base64Encode(t){for(var e="AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=",o="",a=0;a<t.length;){var r=t.charCodeAt(a++),n=t.charCodeAt(a++),d=t.charCodeAt(a++),c=r>>2,i=(3&r)<<4|n>>4,p=(15&n)<<2|d>>6,s=63&d;isNaN(n)?p=s=64:isNaN(d)&&(s=64),o+=e.charAt(c)+e.charAt(i)+e.charAt(p)+e.charAt(s)}return o}function base64Encode1(t){for(var e="ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=",o="",a=0;a<t.length;){var r=t.charCodeAt(a++),n=t.charCodeAt(a++),d=t.charCodeAt(a++),c=r>>2,i=(3&r)<<4|n>>4,p=(15&n)<<2|d>>6,s=63&d;isNaN(n)?p=s=64:isNaN(d)&&(s=64),o+=e.charAt(c)+e.charAt(i)+e.charAt(p)+e.charAt(s)}return o}function convertToSlug(t){return t.toLowerCase().replace(/[^\w ]+/g,"").replace(/ +/g,"-")}function convertToNewLinks(t){return t.replace("/blob/","/").replace("/master/","/file/").replace("/main/","/data/").replace("https://github.com/","https://sabdaliterasi.xyz/wp-content/cdn/g/")}function getFormattedTime(){let t=new Date,e=t.getFullYear(),o=String(t.getMonth()+1).padStart(2,"0"),a=String(t.getDate()).padStart(2,"0"),r=String(t.getHours()).padStart(2,"0"),n=String(t.getMinutes()).padStart(2,"0"),d=String(t.getSeconds()).padStart(2,"0"),c=-t.getTimezoneOffset(),i;return`${e}-${o}-${a} ${r}:${n}:${d} ${c>=0?"+":"-"}${String(Math.floor(Math.abs(c)/60)).padStart(2,"0")}${String(Math.abs(c)%60).padStart(2,"0")}`}$(document).ready(function(){$("#link").on("input change focus keydown keypress keyup paste cut click",function(){var t=document.getElementById("link").value;t.startsWith("https://github.com/")?($("#customCheckbox").prop("checked",!0).prop("disabled",!0),$("#UploadToGit").prop("checked",!1).prop("disabled",!0)):t.startsWith("https://z-library.sk/")?$("#customCheckbox").prop("checked",!0).prop("disabled",!0):t.startsWith("https://drive.google.com/")?$("#UploadToGit").prop("checked",!1).prop("disabled",!0):($("#customCheckbox").prop("disabled",!1),$("#UploadToGit").prop("disabled",!1))})});
 </script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +25,7 @@ permalink: /wp-admin/ebook-generator/
     <style>
         body {
             padding: 20px;
-        }#jsonOut{width:100%;height:720px}#output{height:120px}.form-group{ margin-top: 0.5em; }#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid #3498db;border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
+        }.jsonOut{width:100%;height:720px}#output{height:120px}.form-group{ margin-top: 0.5em; }#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid #3498db;border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
     </style>
 </head>
 <body>
@@ -36,14 +43,19 @@ permalink: /wp-admin/ebook-generator/
             <label for="title">Judul:</label>
             <input type="text" name="judulbuku" class="form-control" id="title" placeholder="Masukkan judul">
         </div>
-       <div class="form-check">
+       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="customCheckbox">
         <label class="form-check-label" for="customCheckbox">
             Download
         </label>
     </div>
-    
-    <div id="chekbox">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="UploadToGit">
+        <label class="form-check-label" for="UploadToGit">
+            Upload
+        </label>
+    </div> 
+ <div id="chekbox">
 <div class="form-check form-check-inline">
 <input onclick="fotofile()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="file" checked="">
 <label class="form-check-label" for="inlineRadio1">From File</label>
@@ -57,13 +69,9 @@ permalink: /wp-admin/ebook-generator/
             <input type="file" class="form-control" id="fileInput">
             
         </div>
-        
          <div class="form-group inputfotourl d-none">
         <input type="url" class="form-control mt-2" id="urlInput" placeholder="Masukkan URL Gambar">
         </div>
-        
-        
-        
         <div class="form-group">
         <button class="btn btn-primary" onclick="convert()">Konversi</button>
         </div>
@@ -74,141 +82,21 @@ permalink: /wp-admin/ebook-generator/
 <textarea class="form-control" id="output" readonly></textarea>
 
      </div>
-     <div class="form-group"><p id="shareWa"></p></div>
-        <div class="form-group">
-            <label for="title">JSON:</label>
-            <textarea class="form-control" id="jsonOut" readonly></textarea>
+<div class="form-group"><p id="shareWa"></p></div>
+<div class="form-group">
+<label for="title">JSON:</label>
+<textarea class="form-control jsonOut" id="jsonOut" readonly></textarea>
         </div>
     </div>
 
 
     <script src="/wp-content/cdn/n/bootstrap/5.3.2/dist/js/bootstrap.min.js"></script>
     <script>
-const IMAGES_Key="X0jzU8QCVUVkmZXaHYWRrTXQY5WpWaASG0QSQT5qtRBerRSzmqNNLG==";
-const username = 'sabdaliterasi';
-const repository = 'wp-conten';
-const branch = 'file';
-const accessToken = Pu.de(IMAGES_Key);
-function fotofile(){
-$('.inputfoto').removeClass('d-none');
-$('.inputfotourl').addClass('d-none');
-};
-function fotourl(){
-$('.inputfoto').addClass('d-none');
-$('.inputfotourl').removeClass('d-none');
-};
-function showLoading() {
-  document.getElementById('loading').style.display = 'flex';
-};
-function hideLoading() {
-  document.getElementById('loading').style.display = 'none';
-};
-function convertGDriveLink(link) {
-            const fileId = link.match(/\/d\/(.*?)\//)[1];
-            return "https://sabdaliterasi.xyz/api/fetch/https://drive.google.com/uc?export=download&id=" + fileId;
-        };
-function base64Encode(str) {
-            // Implementasi Base64 encoding manual
-            var base64Chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
-            var result = '';
-            var i = 0;
-            while (i < str.length) {
-                var char1 = str.charCodeAt(i++);
-                var char2 = str.charCodeAt(i++);
-                var char3 = str.charCodeAt(i++);
 
-                var enc1 = char1 >> 2;
-                var enc2 = ((char1 & 3) << 4) | (char2 >> 4);
-                var enc3 = ((char2 & 15) << 2) | (char3 >> 6);
-                var enc4 = char3 & 63;
-
-                if (isNaN(char2)) {
-                    enc3 = enc4 = 64;
-                } else if (isNaN(char3)) {
-                    enc4 = 64;
-                }
-
-                result += base64Chars.charAt(enc1) + base64Chars.charAt(enc2) + base64Chars.charAt(enc3) + base64Chars.charAt(enc4);
-            }
-            return result;
-        };
-function base64Encode1(str) {
-            // Implementasi Base64 encoding manual
-            var base64Chars = "ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=";
-            var result = '';
-            var i = 0;
-            while (i < str.length) {
-                var char1 = str.charCodeAt(i++);
-                var char2 = str.charCodeAt(i++);
-                var char3 = str.charCodeAt(i++);
-
-                var enc1 = char1 >> 2;
-                var enc2 = ((char1 & 3) << 4) | (char2 >> 4);
-                var enc3 = ((char2 & 15) << 2) | (char3 >> 6);
-                var enc4 = char3 & 63;
-
-                if (isNaN(char2)) {
-                    enc3 = enc4 = 64;
-                } else if (isNaN(char3)) {
-                    enc4 = 64;
-                }
-
-                result += base64Chars.charAt(enc1) + base64Chars.charAt(enc2) + base64Chars.charAt(enc3) + base64Chars.charAt(enc4);
-            }
-            return result;
-        };
-function convertToSlug(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w ]+/g, '')
-    .replace(/ +/g, '-');
-};
-function convertToNewLinks(originalLink) {
-                var oldPrefix = "https://github.com/";
-                var newPrefix1 = "https://sabdaliterasi.xyz/wp-content/cdn/g/";
-                var modifiedLink1 = originalLink
-                .replace("/blob/", "/")
-                .replace("/master/", "/file/")
-                .replace("/main/", "/data/");
-               
-
-                var newLink1 = modifiedLink1.replace(oldPrefix, newPrefix1);
-                
-                
-                return newLink1
-            };
-function getFormattedTime() {
-    const now = new Date();
-
-    // Format date and time components
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-
-    // Get timezone offset in minutes
-    const timezoneOffset = -now.getTimezoneOffset();
-    const offsetHours = String(Math.floor(Math.abs(timezoneOffset) / 60)).padStart(2, '0');
-    const offsetMinutes = String(Math.abs(timezoneOffset) % 60).padStart(2, '0');
-    const offsetSign = timezoneOffset >= 0 ? '+' : '-';
-
-    // Combine components into the desired format
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${offsetSign}${offsetHours}${offsetMinutes}`;
-};
-$(document).ready(function(){
-         $('#link').on('input change focus keydown keypress keyup paste cut click', function() {
- var link = document.getElementById("link").value;       
- if(link.startsWith('https://github.com/')){        
- $('#customCheckbox').prop('checked', true).prop('disabled', true);
- }else if(link.startsWith('https://z-library.sk/')){    $('#customCheckbox').prop('checked', true).prop('disabled', true)}else{$('#customCheckbox').prop('disabled', false);}       
-        
-        });
-});
 async function convert() {
 showLoading();
           const checkbox = document.getElementById('customCheckbox');
+          const UploadToGit = document.getElementById('UploadToGit');
           const inlineRadio1 = document.getElementById('inlineRadio1');
           const inlineRadio2 = document.getElementById('inlineRadio2');
            const fileInput = document.getElementById('fileInput').files[0];
@@ -267,6 +155,8 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
             
             }
            else {
+           
+           if(UploadToGit.checked){        
     try {
         let convertlibrary;
         let retryCount = 0;
@@ -292,12 +182,52 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
             hideLoading();
             return;
         }
-    } catch (error) {
+    } 
+    catch (error) {
         alert("Gagal mengkonversi Link");
         hideLoading();
         console.error('Error during link conversion:', error);
         return;
     }
+    }
+           else{               
+           
+           try {
+        let convertlibraryy;
+        let retryCountt = 0;
+        const maxRetriess = 3; // Batas maksimal percobaan
+
+        do {
+            convertlibraryy = await getName(link);
+            console.log(convertlibraryy)
+
+            if (convertlibraryy) {
+                const hasExtension = /\.(pdf|epub|jpg|png|docx|txt)$/i.test(convertlibraryy);
+                if (hasExtension) {
+                    finallink1 = myproxy+link;
+                    title = convertlibraryy.replace(/\.(pdf|epub|jpg|png|docx|txt)$/i, '');
+                    break;
+                }
+            }
+
+            retryCountt++;
+        } while (retryCountt < maxRetriess);
+
+        if (!convertlibraryy || retryCountt >= maxRetriess) {
+            alert("Gagal mengkonversi Judul setelah beberapa percobaan");
+            hideLoading();
+            return;
+        }
+    } 
+    catch (error) {
+        alert("Gagal mengkonversi Judul");
+        hideLoading();
+        console.error('Error during title conversion:', error);
+        return;
+    }}
+    
+    
+    
 }
 
             mode="Download";
@@ -412,6 +342,8 @@ ${decode3}
 ${decode4}
 `
 }
+
+
    
    jsonOut.value=`
    Link: ${decode1}
@@ -473,7 +405,7 @@ function decodeBase641(input) {
   }
 function getExt(t){let p=t.split(".").pop().split("?")[0];return p}
 async function libraryToGitHub(link) {
-    const fetchUrl = `https://sabdaliterasi.xyz/api/fetch/${link}`;
+    const fetchUrl = myproxy+link;
     const githubApiUrl = 'https://api.github.com/repos/ajax-jquery/buku.github.io/contents/Buku-Filsafat-Gratis';
     const githubToken = Pu.de(Hm_Key); // Replace with your actual GitHub API key
 
@@ -593,7 +525,7 @@ async function fetchAndUploadImage(url, judul) {
         const encodedUrl = encodeURIComponent(url);
         
         // Ambil file dari URL dengan axios, pastikan responseType adalah arraybuffer
-        const response = await axios.get(`/api/fetch/${url}`, { responseType: 'arraybuffer' });
+        const response = await axios.get(`/api/fetch/${url.replace(/covers\d+/g, 'covers720')}`, { responseType: 'arraybuffer' });
         
         const mimeType = response.headers['content-type'];
         const ext = mimeType.split('/')[1]; // Ambil ekstensi dari MIME type
@@ -659,6 +591,34 @@ function arrayBufferToBase64(buffer) {
     }
     return window.btoa(binary);
 }
+async function getName(q) {
+    const url = myproxy + q;
+    console.log(url);
+
+    try {
+        const response = await fetch(url, { method: 'HEAD' });
+        // Check if the Content-Disposition header exists
+        const contentDisposition = response.headers.get('Content-Disposition');
+        if (contentDisposition) {
+            // Extract the filename from the header
+            const filenameMatch = contentDisposition.match(/filename="(.+)"/);
+            if (filenameMatch) {
+                let Judul = filenameMatch[1];
+                return Judul.replace(/ \(Z-Library\)/g, '');  // Mengembalikan Judul setelah berhasil ditemukan
+            } else {
+                alert("NULL: Tidak ada Nama File.");
+                return null;  // Mengembalikan null jika tidak ditemukan
+            }
+        } else {
+            alert("NULL: Tidak ada Nama File.");
+            return null;  // Mengembalikan null jika header tidak ada
+        }
+    } catch (error) {
+        alert("ERR: Tidak ada Nama File.");
+        return null;  // Mengembalikan null jika terjadi error
+    }
+}
+
     </script>
 </body>
 </html>
