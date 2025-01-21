@@ -1,0 +1,78 @@
+---
+layout: null
+permalink: /wp-admin/shortlink
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlink Generator</title>
+    <!-- Bootstrap 5.0.2 dari jsDelivr -->
+   <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+
+        .card {
+            border-radius: 12px;
+        }
+
+        input[type="url"] {
+            border-radius: 8px;
+        }
+
+        button {
+            border-radius: 8px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        #result {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+   <div class="container my-5">
+    <h2 class="text-center mb-4">Shortlink Generator</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="longUrl" class="form-label">URL Panjang</label>
+                        <input type="url" id="longUrl" class="form-control" placeholder="Masukkan URL panjang">
+                    </div>
+                    <button class="btn btn-primary w-100" onclick="generateShortlink()">Buat Shortlink</button>
+                    <!-- Loading Spinner -->
+                    <div id="loading" class="text-center mt-3" style="display: none;">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p>Memproses...</p>
+                    </div>
+                    <!-- Hasil URL Pendek -->
+                    <div id="result" class="mt-4" style="display: none;">
+                        <label class="form-label">URL Pendek</label>
+                        <input type="text" class="form-control" id="shortUrl" readonly>
+                        <button class="btn btn-success mt-2 w-100" onclick="copyToClipboard()">Salin ke Papan Klip</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+    
+   
+    <script>
+    function generateShortlink(){let e=document.getElementById("longUrl").value;if(!e){alert("Masukkan URL yang valid.");return}document.getElementById("loading").style.display="block",document.getElementById("result").style.display="none",fetch("https://api.short.cm/links/public",{method:"post",headers:{accept:"application/json","Content-Type":"application/json",authorization:"pk_r5nioPNOZO50OdIJ"},body:JSON.stringify({domain:"m.sabdaliterasi.xyz",originalURL:e,allowDuplicates:!1,redirectType:302})}).then(function(e){return e.json()}).then(function(e){let t=e.path;document.getElementById("shortUrl").value="https://sabdaliterasi.xyz/api/short/"+t,document.getElementById("result").style.display="block",document.getElementById("loading").style.display="none",document.getElementById("longUrl").value=""}).catch(e=>{console.error("Terjadi kesalahan:",e),alert("Gagal membuat shortlink. Coba lagi."),document.getElementById("loading").style.display="none"})}function copyToClipboard(){let e=document.getElementById("shortUrl");e.select(),e.setSelectionRange(0,99999),document.execCommand("copy"),alert("URL pendek telah disalin!")}
+    </script>
+</body>
+</html>
