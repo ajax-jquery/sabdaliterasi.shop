@@ -93,6 +93,7 @@
     "https://sabdaliterasi.xyz/artikel/gus-miftah-dan-teologi-pembebasan-ketika-dakwah-melupakan-kaum-tertindas/",
     "https://sabdaliterasi.xyz/artikel/memaksa-tanpa-menyentuh-pelecehan-seksual-berbasis-psikologi/",
     "https://sabdaliterasi.xyz/artikel/kasus-spbu-palu-dan-soekarnoisme-keadilan-sosial-belum-usai/",
-    "https://sabdaliterasi.xyz/artikel/melampaui-supranatural-memahami-perang-badar-secara-realistis/"
+    "https://sabdaliterasi.xyz/artikel/melampaui-supranatural-memahami-perang-badar-secara-realistis/",
+    "https://sabdaliterasi.xyz/artikel/krisis-epistemologi-dalam-islam-analisis-terhadap-stagnasi-pemikiran-dan-glorifikasi-ulama-klasik/"
   ]
 }
