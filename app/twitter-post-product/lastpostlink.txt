@@ -41,6 +41,7 @@
     "https://sabdaliterasi.xyz/filsafat-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/hermeneutika-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/john-locke-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/gandhi-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/gandhi-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/galileo-galilei-sebuah-pengantar-singkat/"
   ]
 }
