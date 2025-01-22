@@ -69,16 +69,16 @@ async function updateSlugToMail(slug, emails) {
   const db = firebaseAdmin.database();
   const ref = db.ref('SlugToMail');
 
+  // Validasi slug untuk Firebase
+  if (!slug || typeof slug !== 'string' || slug.trim() === '') {
+    throw new Error(`Slug tidak valid: "${slug}"`);
+  }
+
+  const sanitizedSlug = slug.replace(/[.#$\[\]/]/g, "_");
+
   // Ambil data yang ada
   const snapshot = await ref.once('value');
   const existingData = snapshot.val() || {};
-
-  // Validasi slug untuk Firebase
- if (!slug || typeof slug !== 'string' || slug.trim() === '') {
-  throw new Error(`Slug tidak valid: "${slug}"`);
-}
-
-const sanitizedSlug = slug.replace(/[.#$\[\]/]/g, "_");
 
   // Perbarui slug dengan email baru
   const updatedEmails = new Set([...(existingData[sanitizedSlug] || []), ...emails]);
@@ -132,6 +132,12 @@ async function main() {
 
     for (const article of newArticles) {
       const slug = article.link.split('/').pop(); // Ambil slug dari URL
+
+      if (!slug || typeof slug !== 'string' || slug.trim() === '') {
+        console.error(`Slug tidak valid untuk artikel dengan URL: ${article.link}`);
+        continue; // Lewati artikel ini jika slug tidak valid
+      }
+
       const sentEmailsForSlug = new Set(slugToMailData[slug] || []);
 
       const unsentSubscribers = subscribers.filter(
@@ -144,7 +150,7 @@ async function main() {
         continue;
       }
 
-      console.log("Mengirim email untuk slug ${slug}...");
+      console.log(`Mengirim email untuk slug ${slug}...`);
       const emailPromises = unsentSubscribers.map(async (subscriber) => {
         try {
           const emailContent = compiledTemplate({
@@ -202,4 +208,3 @@ async function main() {
 
 // Jalankan fungsi utama
 main().catch((err) => console.error("Error utama:", err));
-
