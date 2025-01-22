@@ -34,8 +34,8 @@ jobs:
           node server.js  # Menjalankan skrip utama Node.js Anda (sesuaikan dengan path file skrip)
         env:
           SERVICE: ${{ secrets.SERVICE }}
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER_PRODUCT }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS_PRODUCT }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_REPO: ${{ secrets.GH_REPO }}
           GITHUB_FILE_PATH: ${{ secrets.GH_FILE_PATH }}
