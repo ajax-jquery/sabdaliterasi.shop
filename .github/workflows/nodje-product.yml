@@ -57,6 +57,7 @@ jobs:
           FIREBASE_CLIENT_X509_CERT_URL: ${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}
           FIREBASE_LASTSENT: ${{ secrets.FIREBASE_LASTSENT }}
           FIREBASE_SUBSCRIBER: ${{ secrets.FIREBASE_SUBSCRIBER }}
+          SLUG_TO_MAIL: ${{ secrets.SLUG_TO_MAIL }}
           EMAIL_SECURE: ${{ secrets.EMAIL_SECURE }}
           EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}      
