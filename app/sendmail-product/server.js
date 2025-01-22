@@ -29,7 +29,7 @@ firebaseAdmin.initializeApp({
 const RSS_URL = "https://sabdaliterasi.xyz/rss-product-mail.xml";
 const SUBSCRIBER_URL = process.env.FIREBASE_SUBSCRIBER;
 const LAST_SENT_URL = process.env.FIREBASE_LASTSENT;
-const SLUG_TO_MAIL_URL = "https://subscribesabda-default-rtdb.firebaseio.com/SlugToMail.json"
+const SLUG_TO_MAIL_URL = process.env.SLUG_TO_MAIL;
 const TEMPLATE_URL = "https://sabdaliterasi.xyz/templatemailproduct.html";
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
@@ -48,7 +48,6 @@ async function fetchJSON(url) {
   }
   return await response.json();
 }
-
 async function fetchTemplate(url) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -56,7 +55,6 @@ async function fetchTemplate(url) {
   }
   return await response.text();
 }
-
 // Fungsi untuk memperbarui 'lastsent.json' di Firebase
 async function updateFirebase(url, data) {
   const db = firebaseAdmin.database();
@@ -64,7 +62,6 @@ async function updateFirebase(url, data) {
   await ref.set(data);
   console.log(`${url} berhasil diperbarui di Firebase.`);
 }
-
 async function updateSlugToMail(slug, emails) {
   const db = firebaseAdmin.database();
   const ref = db.ref('SlugToMail');
@@ -154,35 +151,52 @@ async function main() {
       }
 
       console.log(`Mengirim email untuk slug ${slug}...`);
-      const emailPromises = unsentSubscribers.map(async (subscriber) => {
-        try {
-          const emailContent = compiledTemplate({
-            title: article.title,
-            Thumbnail: article.thumbnail ? article.thumbnail.$.url : "",
-            link: article.link,
-            fullContent: article.fullContent,
-            penulis: article.penulis,
-            harga: article.harga,
-            isbn: article.isbn,
-            surat: subscriber.email,
-            nama: Pu.en(subscriber.email),
-          });
 
-          const mailOptions = {
-            from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
-            to: subscriber.email,
-            subject: `Ebook Untuk Anda: ${article.title}`,
-            html: emailContent,
-          };
+      // Interval pengiriman setiap 45 email
+      const emailPromises = [];
+      let emailCount = 0;
 
-          await transporter.sendMail(mailOptions);
-          console.log(`Email berhasil dikirim ke ${subscriber.email}`);
-          return subscriber.email; // Email berhasil dikirim
-        } catch (err) {
-          console.error(`Gagal mengirim email ke ${subscriber.email}:`, err);
-          return null; // Email gagal dikirim
+      for (const subscriber of unsentSubscribers) {
+        emailPromises.push(
+          (async () => {
+            try {
+              const emailContent = compiledTemplate({
+                title: article.title,
+                Thumbnail: article.thumbnail ? article.thumbnail.$.url : "",
+                link: article.link,
+                fullContent: article.fullContent,
+                penulis: article.penulis,
+                harga: article.harga,
+                isbn: article.isbn,
+                surat: subscriber.email,
+                nama: Pu.en(subscriber.email),
+              });
+
+              const mailOptions = {
+                from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
+                to: subscriber.email,
+                subject: `Ebook Untuk Anda: ${article.title}`,
+                html: emailContent,
+              };
+
+              await transporter.sendMail(mailOptions);
+              console.log(`Email berhasil dikirim ke ${subscriber.email}`);
+              return subscriber.email; // Email berhasil dikirim
+            } catch (err) {
+              console.error(`Gagal mengirim email ke ${subscriber.email}:`, err);
+              return null; // Email gagal dikirim
+            }
+          })()
+        );
+
+        emailCount++;
+
+        // Jeda setiap 45 email
+        if (emailCount % 45 === 0) {
+          console.log("Jeda 10 detik sebelum melanjutkan pengiriman...");
+          await new Promise((resolve) => setTimeout(resolve, 10000)); // Tunggu 10 detik
         }
-      });
+      }
 
       const sentEmails = (await Promise.all(emailPromises)).filter(Boolean);
 
@@ -214,8 +228,6 @@ async function main() {
     process.exit(0);
   }
 }
-
-
 
 // Jalankan fungsi utama
 main().catch((err) => console.error("Error utama:", err));
