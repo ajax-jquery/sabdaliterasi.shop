@@ -130,75 +130,75 @@ async function main() {
     const templateHTML = await fetchTemplate(TEMPLATE_URL);
     const compiledTemplate = handlebars.compile(templateHTML);
 
-for (const article of newArticles) {
-  // Ambil slug dari URL
-  let slug = article.link.split('/').filter(Boolean).pop(); // Pastikan slug tidak kosong
+    for (const article of newArticles) {
+      // Ambil slug dari URL
+      let slug = article.link.split('/').filter(Boolean).pop(); // Pastikan slug tidak kosong
 
-  // Validasi dan sanitasi slug
-  if (!slug || typeof slug !== 'string' || slug.trim() === '') {
-    console.error(`Slug tidak valid untuk artikel dengan URL: ${article.link}`);
-    continue; // Lewati artikel ini jika slug tidak valid
-  }
-  slug = slug.replace(/[.#$\[\]/]/g, "_"); // Pastikan slug valid untuk Firebase
+      // Validasi dan sanitasi slug
+      if (!slug || typeof slug !== 'string' || slug.trim() === '') {
+        console.error(`Slug tidak valid untuk artikel dengan URL: ${article.link}`);
+        continue; // Lewati artikel ini jika slug tidak valid
+      }
+      slug = slug.replace(/[.#$\[\]/]/g, "_"); // Pastikan slug valid untuk Firebase
 
-  const sentEmailsForSlug = new Set(slugToMailData[slug] || []);
+      const sentEmailsForSlug = new Set(slugToMailData[slug] || []);
 
-  const unsentSubscribers = subscribers.filter(
-    (subscriber) => !sentEmailsForSlug.has(subscriber.email)
-  );
+      const unsentSubscribers = subscribers.filter(
+        (subscriber) => !sentEmailsForSlug.has(subscriber.email)
+      );
 
-  if (unsentSubscribers.length === 0) {
-    console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
-    sentLinks.add(article.link);
-    continue;
-  }
+      if (unsentSubscribers.length === 0) {
+        console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
+        sentLinks.add(article.link);
+        continue;
+      }
 
-  console.log(`Mengirim email untuk slug ${slug}...`);
-  const emailPromises = unsentSubscribers.map(async (subscriber) => {
-    try {
-      const emailContent = compiledTemplate({
-        title: article.title,
-        Thumbnail: article.thumbnail ? article.thumbnail.$.url : "",
-        link: article.link,
-        fullContent: article.fullContent,
-        penulis: article.penulis,
-        harga: article.harga,
-        isbn: article.isbn,
-        surat: subscriber.email,
-        nama: Pu.en(subscriber.email)
+      console.log(`Mengirim email untuk slug ${slug}...`);
+      const emailPromises = unsentSubscribers.map(async (subscriber) => {
+        try {
+          const emailContent = compiledTemplate({
+            title: article.title,
+            Thumbnail: article.thumbnail ? article.thumbnail.$.url : "",
+            link: article.link,
+            fullContent: article.fullContent,
+            penulis: article.penulis,
+            harga: article.harga,
+            isbn: article.isbn,
+            surat: subscriber.email,
+            nama: Pu.en(subscriber.email)
+          });
+
+          const mailOptions = {
+            from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
+            to: subscriber.email,
+            subject: `Ebook Untuk Anda: ${article.title}`,
+            html: emailContent,
+          };
+
+          await transporter.sendMail(mailOptions);
+          console.log(`Email berhasil dikirim ke ${subscriber.email}`);
+          return subscriber.email;
+        } catch (err) {
+          console.error(`Gagal mengirim email ke ${subscriber.email}:`, err);
+          return null;
+        }
       });
 
-      const mailOptions = {
-        from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
-        to: subscriber.email,
-        subject: `Ebook Untuk Anda: ${article.title}`,
-        html: emailContent,
-      };
+      const sentEmails = (await Promise.all(emailPromises)).filter(Boolean);
 
-      await transporter.sendMail(mailOptions);
-      console.log(`Email berhasil dikirim ke ${subscriber.email}`);
-      return subscriber.email;
-    } catch (err) {
-      console.error(`Gagal mengirim email ke ${subscriber.email}:`, err);
-      return null;
+      // Perbarui SlugToMail
+      const updatedEmails = await updateSlugToMail(slug, sentEmails);
+
+      // Periksa apakah semua email sudah menerima slug
+      if (updatedEmails.length === subscribers.length) {
+        console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
+        sentLinks.add(article.link);
+      }
     }
-  });
-
-  const sentEmails = (await Promise.all(emailPromises)).filter(Boolean);
-
-  // Perbarui SlugToMail
-  const updatedEmails = await updateSlugToMail(slug, sentEmails);
-
-  // Periksa apakah semua email sudah menerima slug
-  if (updatedEmails.length === subscribers.length) {
-    console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
-    sentLinks.add(article.link);
-  }
-}
-
 
     // Simpan lastsent.json jika ada URL baru
     if (sentLinks.size > lastSentData.link.length) {
+      console.log("Memperbarui lastsent.json...");
       await updateFirebase('lastsent', { link: Array.from(sentLinks) });
     }
 
@@ -210,5 +210,7 @@ for (const article of newArticles) {
   }
 }
 
+
 // Jalankan fungsi utama
 main().catch((err) => console.error("Error utama:", err));
+
