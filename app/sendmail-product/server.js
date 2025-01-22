@@ -130,8 +130,9 @@ async function main() {
     const templateHTML = await fetchTemplate(TEMPLATE_URL);
     const compiledTemplate = handlebars.compile(templateHTML);
 
-   for (const article of newArticles) {
-  let slug = article.link.split('/').pop(); // Ambil slug dari URL
+for (const article of newArticles) {
+  // Ambil slug dari URL
+  let slug = article.link.split('/').filter(Boolean).pop(); // Pastikan slug tidak kosong
 
   // Validasi dan sanitasi slug
   if (!slug || typeof slug !== 'string' || slug.trim() === '') {
@@ -194,6 +195,7 @@ async function main() {
     sentLinks.add(article.link);
   }
 }
+
 
     // Simpan lastsent.json jika ada URL baru
     if (sentLinks.size > lastSentData.link.length) {
