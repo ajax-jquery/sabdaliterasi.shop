@@ -27,7 +27,7 @@ firebaseAdmin.initializeApp({
 
 // Konstanta URL
 const RSS_URL = "https://sabdaliterasi.xyz/rss-product-mail.xml";
-const SUBSCRIBER_URL = process.env.FIREBASE_SUBSCRIBER;
+const SUBSCRIBER_URL = "https://subscribesabda-default-rtdb.firebaseio.com/tessubs.json";
 const LAST_SENT_URL = process.env.FIREBASE_LASTSENT;
 const TEMPLATE_URL = "https://sabdaliterasi.xyz/templatemailproduct.html";
 const transporter = nodemailer.createTransport({
@@ -57,22 +57,31 @@ async function fetchTemplate(url) {
 }
 
 // Fungsi untuk memperbarui 'lastsent.json' di Firebase
-async function updateLastSentInFirebase(newLinks) {
+async function updateFirebase(url, data) {
   const db = firebaseAdmin.database();
-  const ref = db.ref('lastsent');
+  const ref = db.ref(url);
+  await ref.set(data);
+  console.log(`${url} berhasil diperbarui di Firebase.`);
+}
+
+async function updateSlugToMail(slug, emails) {
+  const db = firebaseAdmin.database();
+  const ref = db.ref('SlugToMail');
 
   // Ambil data yang ada
   const snapshot = await ref.once('value');
   const existingData = snapshot.val() || {};
 
-  // Gabungkan data baru dengan data yang sudah ada
-  const updatedData = { ...existingData, link: newLinks };
+  // Perbarui slug dengan email baru
+  const updatedEmails = new Set([...(existingData[slug] || []), ...emails]);
+  existingData[slug] = Array.from(updatedEmails);
 
-  // Update data di Firebase
-  await ref.set(updatedData);
-  console.log("lastsent.json berhasil diperbarui di Firebase.");
+  // Simpan kembali ke Firebase
+  await ref.set(existingData);
+  console.log(`Slug ${slug} berhasil diperbarui di SlugToMail.`);
+
+  return existingData[slug];
 }
-
 // Fungsi utama
 async function main() {
   const parser = new Parser({
@@ -81,9 +90,9 @@ async function main() {
         ['media:thumbnail', 'thumbnail'],
         ['media:content', 'contentMedia'],
         ['content:encoded', 'fullContent'],
-        ['dc:creator','penulis'],
-        ['dc:identifier','isbn'],
-        ['dc:price','harga']
+        ['dc:creator', 'penulis'],
+        ['dc:identifier', 'isbn'],
+        ['dc:price', 'harga']
       ]
     }
   });
@@ -94,11 +103,14 @@ async function main() {
 
     console.log("Mengambil data subscriber...");
     const subscriberData = await fetchJSON(SUBSCRIBER_URL);
-    const subscribers = Object.values(subscriberData); // Mengonversi objek ke array
+    const subscribers = Object.values(subscriberData);
 
     console.log("Mengambil data 'lastsent'...");
     const lastSentData = await fetchJSON(LAST_SENT_URL);
-    const sentLinks = new Set(Object.values(lastSentData.link || {}));
+    const sentLinks = new Set(lastSentData.link || []);
+
+    console.log("Mengambil data 'SlugToMail'...");
+    const slugToMailData = await fetchJSON(SLUG_TO_MAIL_URL);
 
     const newArticles = feed.items.filter((item) => !sentLinks.has(item.link));
     if (newArticles.length === 0) {
@@ -110,56 +122,75 @@ async function main() {
     const templateHTML = await fetchTemplate(TEMPLATE_URL);
     const compiledTemplate = handlebars.compile(templateHTML);
 
-    console.log("Mengirim email...");
-    const emailPromises = [];
-    for (const subscriber of subscribers) {
-      for (const article of newArticles) {
-        const emailContent = compiledTemplate({
-          title: article.title,
-          Thumbnail: article.thumbnail ? article.thumbnail.$.url : "",
-          link: article.link,
-          fullContent: article.fullContent,
-          penulis: article.penulis,
-          harga: article.harga,
-          isbn: article.isbn,
-          surat: subscriber.email,
-          nama: Pu.en(subscriber.email)
-        });
+    for (const article of newArticles) {
+      const slug = article.link.split('/').pop(); // Ambil slug dari URL
+      const sentEmailsForSlug = new Set(slugToMailData[slug] || []);
 
-        const mailOptions = {
-          from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
-          to: subscriber.email,
-          subject: `Ebook Untuk Anda: ${article.title}`,
-          html: emailContent,
-        };
+      const unsentSubscribers = subscribers.filter(
+        (subscriber) => !sentEmailsForSlug.has(subscriber.email)
+      );
 
-        emailPromises.push(
-          transporter.sendMail(mailOptions)
-            .then(() => console.log(`Email berhasil dikirim ke ${subscriber.email}`))
-            .catch((err) => console.error(`Gagal mengirim email ke ${subscriber.email}:`, err))
-        );
+      if (unsentSubscribers.length === 0) {
+        console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
+        sentLinks.add(article.link);
+        continue;
+      }
+
+      console.log("Mengirim email untuk slug ${slug}...");
+      const emailPromises = unsentSubscribers.map(async (subscriber) => {
+        try {
+          const emailContent = compiledTemplate({
+            title: article.title,
+            Thumbnail: article.thumbnail ? article.thumbnail.$.url : "",
+            link: article.link,
+            fullContent: article.fullContent,
+            penulis: article.penulis,
+            harga: article.harga,
+            isbn: article.isbn,
+            surat: subscriber.email,
+            nama: Pu.en(subscriber.email)
+          });
+
+          const mailOptions = {
+            from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
+            to: subscriber.email,
+            subject: `Ebook Untuk Anda: ${article.title}`,
+            html: emailContent,
+          };
+
+          await transporter.sendMail(mailOptions);
+          console.log(`Email berhasil dikirim ke ${subscriber.email}`);
+          return subscriber.email;
+        } catch (err) {
+          console.error(`Gagal mengirim email ke ${subscriber.email}:`, err);
+          return null;
+        }
+      });
+
+      const sentEmails = (await Promise.all(emailPromises)).filter(Boolean);
+
+      // Perbarui SlugToMail
+      const updatedEmails = await updateSlugToMail(slug, sentEmails);
+
+      // Periksa apakah semua email sudah menerima slug
+      if (updatedEmails.length === subscribers.length) {
+        console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
+        sentLinks.add(article.link);
       }
     }
 
-    // Tunggu semua email dikirim
-    await Promise.all(emailPromises);
+    // Simpan lastsent.json jika ada URL baru
+    if (sentLinks.size > lastSentData.link.length) {
+      await updateFirebase('lastsent', { link: Array.from(sentLinks) });
+    }
 
-    console.log("Email selesai dikirim.");
-
-    // 7. Perbarui 'lastsent.json' dengan produk yang baru saja dikirim
-    const updatedLinks = [...sentLinks, ...newArticles.map((item) => item.link)];
-    await updateLastSentInFirebase(updatedLinks);
-
-    console.log("File lastSentArticle.json berhasil diperbarui di Firebase.");
-    
+    console.log("Proses selesai.");
   } catch (err) {
     console.error("Terjadi kesalahan:", err);
   } finally {
-    console.log("Proses selesai.");
-    process.exit(0); // Pastikan untuk menutup proses dengan jelas
+    process.exit(0);
   }
 }
 
 // Jalankan fungsi utama
-main().catch((err) => console.error("Error utama:", err)); 
-  
+main().catch((err) => console.error("Error utama:", err));
