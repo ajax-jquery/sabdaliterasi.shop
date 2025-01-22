@@ -27,7 +27,7 @@ firebaseAdmin.initializeApp({
 
 // Konstanta URL
 const RSS_URL = "https://sabdaliterasi.xyz/rss-product-mail.xml";
-const SUBSCRIBER_URL = "https://subscribesabda-default-rtdb.firebaseio.com/tessubs.json";
+const SUBSCRIBER_URL = process.env.FIREBASE_SUBSCRIBER;
 const LAST_SENT_URL = process.env.FIREBASE_LASTSENT;
 const SLUG_TO_MAIL_URL = "https://subscribesabda-default-rtdb.firebaseio.com/SlugToMail.json"
 const TEMPLATE_URL = "https://sabdaliterasi.xyz/templatemailproduct.html";
