@@ -73,17 +73,20 @@ async function updateSlugToMail(slug, emails) {
   const snapshot = await ref.once('value');
   const existingData = snapshot.val() || {};
 
+  // Validasi slug untuk Firebase
+  const sanitizedSlug = slug.replace(/[.#$\[\]/]/g, "_");
+
   // Perbarui slug dengan email baru
-  const updatedEmails = new Set([...(existingData[slug] || []), ...emails]);
-  existingData[slug] = Array.from(updatedEmails);
+  const updatedEmails = new Set([...(existingData[sanitizedSlug] || []), ...emails]);
+  existingData[sanitizedSlug] = Array.from(updatedEmails);
 
   // Simpan kembali ke Firebase
   await ref.set(existingData);
-  console.log(`Slug ${slug} berhasil diperbarui di SlugToMail.`);
+  console.log(`Slug ${sanitizedSlug} berhasil diperbarui di SlugToMail.`);
 
-  return existingData[slug];
+  return existingData[sanitizedSlug];
 }
-// Fungsi utama
+
 async function main() {
   const parser = new Parser({
     customFields: {
@@ -195,3 +198,4 @@ async function main() {
 
 // Jalankan fungsi utama
 main().catch((err) => console.error("Error utama:", err));
+
