@@ -74,7 +74,11 @@ async function updateSlugToMail(slug, emails) {
   const existingData = snapshot.val() || {};
 
   // Validasi slug untuk Firebase
-  const sanitizedSlug = slug.replace(/[.#$\[\]/]/g, "_");
+ if (!slug || typeof slug !== 'string' || slug.trim() === '') {
+  throw new Error(`Slug tidak valid: "${slug}"`);
+}
+
+const sanitizedSlug = slug.replace(/[.#$\[\]/]/g, "_");
 
   // Perbarui slug dengan email baru
   const updatedEmails = new Set([...(existingData[sanitizedSlug] || []), ...emails]);
