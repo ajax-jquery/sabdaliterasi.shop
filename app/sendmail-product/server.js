@@ -100,9 +100,9 @@ async function main() {
         ['content:encoded', 'fullContent'],
         ['dc:creator', 'penulis'],
         ['dc:identifier', 'isbn'],
-        ['dc:price', 'harga']
-      ]
-    }
+        ['dc:price', 'harga'],
+      ],
+    },
   });
 
   try {
@@ -132,14 +132,14 @@ async function main() {
 
     for (const article of newArticles) {
       // Ambil slug dari URL
-      let slug = article.link.split('/').filter(Boolean).pop(); // Pastikan slug tidak kosong
+      let slug = article.link.split('/').filter(Boolean).pop();
 
       // Validasi dan sanitasi slug
       if (!slug || typeof slug !== 'string' || slug.trim() === '') {
         console.error(`Slug tidak valid untuk artikel dengan URL: ${article.link}`);
         continue; // Lewati artikel ini jika slug tidak valid
       }
-      slug = slug.replace(/[.#$\[\]/]/g, "_"); // Pastikan slug valid untuk Firebase
+      slug = slug.replace(/[.#$\[\]/]/g, '_'); // Pastikan slug valid untuk Firebase
 
       const sentEmailsForSlug = new Set(slugToMailData[slug] || []);
 
@@ -148,8 +148,8 @@ async function main() {
       );
 
       if (unsentSubscribers.length === 0) {
-        console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
-        sentLinks.add(article.link);
+        console.log(`Semua email sudah menerima slug ${slug}.`);
+        sentLinks.add(article.link); // Tambahkan artikel ke lastsent.json
         continue;
       }
 
@@ -165,7 +165,7 @@ async function main() {
             harga: article.harga,
             isbn: article.isbn,
             surat: subscriber.email,
-            nama: Pu.en(subscriber.email)
+            nama: Pu.en(subscriber.email),
           });
 
           const mailOptions = {
@@ -177,28 +177,33 @@ async function main() {
 
           await transporter.sendMail(mailOptions);
           console.log(`Email berhasil dikirim ke ${subscriber.email}`);
-          return subscriber.email;
+          return subscriber.email; // Email berhasil dikirim
         } catch (err) {
           console.error(`Gagal mengirim email ke ${subscriber.email}:`, err);
-          return null;
+          return null; // Email gagal dikirim
         }
       });
 
       const sentEmails = (await Promise.all(emailPromises)).filter(Boolean);
 
       // Perbarui SlugToMail
-      const updatedEmails = await updateSlugToMail(slug, sentEmails);
+      if (sentEmails.length > 0) {
+        await updateSlugToMail(slug, sentEmails);
+      }
 
       // Periksa apakah semua email sudah menerima slug
-      if (updatedEmails.length === subscribers.length) {
+      if (sentEmails.length + sentEmailsForSlug.size === subscribers.length) {
         console.log(`Semua email sudah menerima slug ${slug}. Menyimpan URL ke lastsent.json.`);
         sentLinks.add(article.link);
+      } else {
+        console.warn(
+          `Beberapa email untuk slug ${slug} gagal dikirim. Akan dicoba lagi nanti.`
+        );
       }
     }
 
     // Simpan lastsent.json jika ada URL baru
     if (sentLinks.size > lastSentData.link.length) {
-      console.log("Memperbarui lastsent.json...");
       await updateFirebase('lastsent', { link: Array.from(sentLinks) });
     }
 
@@ -211,6 +216,6 @@ async function main() {
 }
 
 
+
 // Jalankan fungsi utama
 main().catch((err) => console.error("Error utama:", err));
-
