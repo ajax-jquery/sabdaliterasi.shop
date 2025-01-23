@@ -2,6 +2,7 @@
 layout: null
 permalink: /wp-admin/ebook-generator/
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- FADHEL -->
@@ -314,6 +315,7 @@ const dataJson={
 fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
+  if(response.success){
 
   hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
    document.getElementById("output").value =caption;
@@ -351,9 +353,15 @@ ${decode4}
    JSON:
    ${decode3}
    `
-    console.log(response)
+    
   
   
+  
+  }
+  else{
+  hideLoading();
+  alert("Judul Buku sudah pernah dishare..");
+  }
   
   
   })
@@ -535,10 +543,13 @@ async function fetchAndUploadImage(url, judul) {
         const base64data = arrayBufferToBase64(response.data);
 
         // Upload file ke GitHub repository
-        const uploadResponse = await axios.put(`https://api.github.com/repos/${username}/${repository}/contents/produk/download/${filename}`, 
+        let contentpath=`https://api.github.com/repos/${username}/${repository}/contents/produk/download/${filename}`
+        let sha = await getGitHubSHA(contentpath); 
+        const uploadResponse = await axios.put(contentpath, 
             JSON.stringify({
                 message: 'Upload gambar',
                 content: base64data,
+                sha:sha,
                 branch: branch
             }), {
                 headers: {
@@ -619,6 +630,9 @@ async function getName(q) {
     }
 }
 
+
     </script>
+
 </body>
 </html>
+
