@@ -67,7 +67,7 @@ let repoPath,branch,filePath,cdnUrl;
             }else{alret("invalid URL...");return}
 
            
-document.getElementById('cdnUrl').value = cdnUrl;
+document.getElementById('cdnUrl').value = cdnUrl.replace('/ajax-jquery/sabdaliterasi.shop','/ajax-jquery/site');
 document.getElementById('resultContainer').style.display = 'block';
 
             const fileExtension = filePath.split('.').pop().toLowerCase();
