@@ -191,7 +191,10 @@ async function main() {
 
         emailCount++;
 
-        // Jeda setiap 45 email
+          // Jeda 2 detik setelah setiap email
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+        
+        // Jeda 10 detik setiap 5 email
         if (emailCount % 5 === 0) {
           console.log("Jeda 10 detik sebelum melanjutkan pengiriman...");
           await new Promise((resolve) => setTimeout(resolve, 10000)); // Tunggu 10 detik
@@ -228,6 +231,4 @@ async function main() {
     process.exit(0);
   }
 }
-
-// Jalankan fungsi utama
 main().catch((err) => console.error("Error utama:", err));
