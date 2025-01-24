@@ -175,7 +175,7 @@ async function main() {
               const mailOptions = {
                 from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
                 to: subscriber.email,
-                subject: `Ebook Untuk Anda: ${article.title}`,
+                subject: `Ebook Untuk ${subscriber.nama}: ${article.title}`,
                 html: emailContent,
               };
 
