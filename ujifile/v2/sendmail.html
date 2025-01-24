@@ -229,6 +229,7 @@ async function kirimSemuaEmail(tujuan,myfotoku,filename,filedoc) {
     }
     
 }
+
 async function kirim(email, media, website, subyek,body,dataku,myfotoku,filename,filedoc) {
 
 
@@ -259,12 +260,14 @@ attachment1 = await fileToBase64(file1);
 Nameattachment1 =replacename(nama)+"."+extension;
     }
             
-    const attachment2 = filedoc;
-    const Nameattachment2 = filename;
+    let attachment2 = filedoc;
+    let Nameattachment2 = filename;
     
     let badan="",lampirkan="lampirkan",bb="";
     if(body==true){
     badan = `<hr><h1 style="text-align:center;">${judul}</h1>${await CKdata()}`,lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
+     attachment2=false
+      Nameattachment2=false
     }
     
     
@@ -272,22 +275,30 @@ Nameattachment1 =replacename(nama)+"."+extension;
   
   
   if(dataku==true){
+    attachment1=false
+      Nameattachment1=false
   message=`<p> Assalamualaikum.. saya mau kirim tulisan lagi kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya kali ini yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: SEPERTI BIASA, TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br> Nama Penulis: ${nama} </p> <p> Untuk biodata lainnya, sudah saya kirim saat pengiriman artikel pertama kali kepada kaka.</p>${badan}`
   }
     
     
 
     const data = { 
-        mail, 
-        nama,
-        recipientEmail, 
-        subject, 
-        message, 
-        attachment1, 
-        attachment2,
-        Nameattachment1,
-        Nameattachment2 
-    };
+    mail, 
+    nama,
+    recipientEmail, 
+    subject, 
+    message
+};
+    
+    if (attachment1 && Nameattachment1) {
+    data.attachment1 = attachment1;
+    data.Nameattachment1 = Nameattachment1;
+}
+
+if (attachment2 && Nameattachment2) {
+    data.attachment2 = attachment2;
+    data.Nameattachment2 = Nameattachment2;
+}
 
     var hasil = document.getElementById('hasil');
     let listItem="";
