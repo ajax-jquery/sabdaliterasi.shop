@@ -192,7 +192,7 @@ async function main() {
         emailCount++;
 
         // Jeda setiap 45 email
-        if (emailCount % 45 === 0) {
+        if (emailCount % 5 === 0) {
           console.log("Jeda 10 detik sebelum melanjutkan pengiriman...");
           await new Promise((resolve) => setTimeout(resolve, 10000)); // Tunggu 10 detik
         }
