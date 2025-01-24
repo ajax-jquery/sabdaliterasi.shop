@@ -1,71 +1,66 @@
-name: Write Secrets to env.json
+name: Create and Push env.json
 
 on:
   push:
     branches:
-      - master  # atau sesuai dengan branch yang Anda gunakan
+      - master  # Ganti dengan branch Anda jika perlu
 
 jobs:
-  write-secrets:
+  generate-and-push:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'  # Anda bisa menyesuaikan versi Node.js sesuai kebutuhan
-
-      - name: Create env.json with secrets
+      - name: Generate env.json file
         run: |
-          echo 'const fs = require("fs");' > create-env.js
-          echo 'const secrets = {' >> create-env.js
-          echo '  "email": {' >> create-env.js
-          echo '    "EMAIL_USER": process.env.EMAIL_USER,' >> create-env.js
-          echo '    "EMAIL_USER_PRODUCT": process.env.EMAIL_USER_PRODUCT,' >> create-env.js
-          echo '    "EMAIL_PASS": process.env.EMAIL_PASS,' >> create-env.js
-          echo '    "EMAIL_PASS_PRODUCT": process.env.EMAIL_PASS_PRODUCT,' >> create-env.js
-          echo '    "EMAIL_SECURE": process.env.EMAIL_SECURE,' >> create-env.js
-          echo '    "EMAIL_PORT": process.env.EMAIL_PORT,' >> create-env.js
-          echo '    "EMAIL_HOST": process.env.EMAIL_HOST' >> create-env.js
-          echo '  },' >> create-env.js
-          echo '  "github": {' >> create-env.js
-          echo '    "GITHUB_TOKEN": process.env.GITHUB_TOKEN,' >> create-env.js
-          echo '    "GITHUB_REPO": process.env.GITHUB_REPO,' >> create-env.js
-          echo '    "GITHUB_FILE_PATH": process.env.GITHUB_FILE_PATH,' >> create-env.js
-          echo '    "GITHUB_BRANCH": process.env.GITHUB_BRANCH' >> create-env.js
-          echo '  },' >> create-env.js
-          echo '  "firebase": {' >> create-env.js
-          echo '    "FIREBASE_API_KEY": process.env.FIREBASE_API_KEY,' >> create-env.js
-          echo '    "FIREBASE_APP_ID": process.env.FIREBASE_APP_ID,' >> create-env.js
-          echo '    "FIREBASE_AUTH_DOMAIN": process.env.FIREBASE_AUTH_DOMAIN,' >> create-env.js
-          echo '    "FIREBASE_DATABASE_URL": process.env.FIREBASE_DATABASE_URL,' >> create-env.js
-          echo '    "FIREBASE_PROJECT_ID": process.env.FIREBASE_PROJECT_ID,' >> create-env.js
-          echo '    "FIREBASE_STORAGE_BUCKET": process.env.FIREBASE_STORAGE_BUCKET,' >> create-env.js
-          echo '    "FIREBASE_MESSAGING_SENDER_ID": process.env.FIREBASE_MESSAGING_SENDER_ID,' >> create-env.js
-          echo '    "FIREBASE_PRIVATE_KEY": process.env.FIREBASE_PRIVATE_KEY,' >> create-env.js
-          echo '    "FIREBASE_CLIENT_EMAIL": process.env.FIREBASE_CLIENT_EMAIL,' >> create-env.js
-          echo '    "FIREBASE_AUTH_URI": process.env.FIREBASE_AUTH_URI,' >> create-env.js
-          echo '    "FIREBASE_TOKEN_URI": process.env.FIREBASE_TOKEN_URI,' >> create-env.js
-          echo '    "FIREBASE_PRIVATE_KEY_ID": process.env.FIREBASE_PRIVATE_KEY_ID,' >> create-env.js
-          echo '    "FIREBASE_CLIENT_ID": process.env.FIREBASE_CLIENT_ID,' >> create-env.js
-          echo '    "FIREBASE_AUTH_PROVIDER_X509_CERT_URL": process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,' >> create-env.js
-          echo '    "FIREBASE_CLIENT_X509_CERT_URL": process.env.FIREBASE_CLIENT_X509_CERT_URL,' >> create-env.js
-          echo '    "FIREBASE_LASTSENT": process.env.FIREBASE_LASTSENT,' >> create-env.js
-          echo '    "FIREBASE_SUBSCRIBER": process.env.FIREBASE_SUBSCRIBER' >> create-env.js
-          echo '  },' >> create-env.js
-          echo '  "other": {' >> create-env.js
-          echo '    "SERVICE": process.env.SERVICE,' >> create-env.js
-          echo '    "SLUG_TO_MAIL": process.env.SLUG_TO_MAIL' >> create-env.js
-          echo '  }' >> create-env.js
-          echo '};' >> create-env.js
-          echo 'fs.writeFileSync("./env.json", JSON.stringify(secrets, null, 2));' >> create-env.js
-          node create-env.js
+          echo '{
+            "email": {
+              "EMAIL_USER": "${{ secrets.EMAIL_USER }}",
+              "EMAIL_USER_PRODUCT": "${{ secrets.EMAIL_USER_PRODUCT }}",
+              "EMAIL_PASS": "${{ secrets.EMAIL_PASS }}",
+              "EMAIL_PASS_PRODUCT": "${{ secrets.EMAIL_PASS_PRODUCT }}",
+              "EMAIL_SECURE": "${{ secrets.EMAIL_SECURE }}",
+              "EMAIL_PORT": "${{ secrets.EMAIL_PORT }}",
+              "EMAIL_HOST": "${{ secrets.EMAIL_HOST }}"
+            },
+            "github": {
+              "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}",
+              "GITHUB_REPO": "${{ secrets.GITHUB_REPO }}",
+              "GITHUB_FILE_PATH": "${{ secrets.GITHUB_FILE_PATH }}",
+              "GITHUB_BRANCH": "${{ secrets.GITHUB_BRANCH }}"
+            },
+            "firebase": {
+              "FIREBASE_API_KEY": "${{ secrets.FIREBASE_API_KEY }}",
+              "FIREBASE_APP_ID": "${{ secrets.FIREBASE_APP_ID }}",
+              "FIREBASE_AUTH_DOMAIN": "${{ secrets.FIREBASE_AUTH_DOMAIN }}",
+              "FIREBASE_DATABASE_URL": "${{ secrets.FIREBASE_DATABASE_URL }}",
+              "FIREBASE_PROJECT_ID": "${{ secrets.FIREBASE_PROJECT_ID }}",
+              "FIREBASE_STORAGE_BUCKET": "${{ secrets.FIREBASE_STORAGE_BUCKET }}",
+              "FIREBASE_MESSAGING_SENDER_ID": "${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}",
+              "FIREBASE_PRIVATE_KEY": "${{ secrets.FIREBASE_PRIVATE_KEY }}",
+              "FIREBASE_CLIENT_EMAIL": "${{ secrets.FIREBASE_CLIENT_EMAIL }}",
+              "FIREBASE_AUTH_URI": "${{ secrets.FIREBASE_AUTH_URI }}",
+              "FIREBASE_TOKEN_URI": "${{ secrets.FIREBASE_TOKEN_URI }}",
+              "FIREBASE_PRIVATE_KEY_ID": "${{ secrets.FIREBASE_PRIVATE_KEY_ID }}",
+              "FIREBASE_CLIENT_ID": "${{ secrets.FIREBASE_CLIENT_ID }}",
+              "FIREBASE_AUTH_PROVIDER_X509_CERT_URL": "${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }}",
+              "FIREBASE_CLIENT_X509_CERT_URL": "${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}",
+              "FIREBASE_LASTSENT": "${{ secrets.FIREBASE_LASTSENT }}",
+              "FIREBASE_SUBSCRIBER": "${{ secrets.FIREBASE_SUBSCRIBER }}"
+            },
+            "other": {
+              "SERVICE": "${{ secrets.SERVICE }}",
+              "SLUG_TO_MAIL": "${{ secrets.SLUG_TO_MAIL }}"
+            }
+          }' > env.json
 
-      - name: Upload env.json artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: env-json
-          path: ./env.json
+      - name: Add env.json to Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add env.json
+          git commit -m "Add generated env.json"
+          git push origin ${{ github.ref }}
+
