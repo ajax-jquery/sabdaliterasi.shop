@@ -1,91 +1,74 @@
-name: Update .env
+name: Write Secrets to env.json
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - master  # atau sesuai dengan branch yang Anda gunakan
 
 jobs:
-  update-env-file:
+  write-secrets:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Write secrets to .env in alphabetical order
-      env: # Menggunakan semua secrets yang diberikan
-        SERVICE: ${{ secrets.SERVICE }}
-        EMAIL_USER: ${{ secrets.EMAIL_USER }}
-        EMAIL_USER_PRODUCT: ${{ secrets.EMAIL_USER_PRODUCT }}
-        EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-        EMAIL_PASS_PRODUCT: ${{ secrets.EMAIL_PASS_PRODUCT }}
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        GITHUB_REPO: ${{ secrets.GH_REPO }}
-        GITHUB_FILE_PATH: ${{ secrets.GH_FILE_PATH }}
-        GITHUB_BRANCH: ${{ secrets.GH_BRANCH }}
-        FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-        FIREBASE_AUTH_DOMAIN: ${{ secrets.EMAIL_FIREBASE_AUTH_DOMAIN }}
-        FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
-        FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-        FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
-        FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
-        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-        FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
-        FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
-        FIREBASE_AUTH_URI: ${{ secrets.FIREBASE_AUTH_URI }}
-        FIREBASE_TOKEN_URI: ${{ secrets.FIREBASE_TOKEN_URI }}
-        FIREBASE_PRIVATE_KEY_ID: ${{ secrets.FIREBASE_PRIVATE_KEY_ID }}
-        FIREBASE_CLIENT_ID: ${{ secrets.FIREBASE_CLIENT_ID }}
-        FIREBASE_AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }}
-        FIREBASE_CLIENT_X509_CERT_URL: ${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}
-        FIREBASE_LASTSENT: ${{ secrets.FIREBASE_LASTSENT }}
-        FIREBASE_SUBSCRIBER: ${{ secrets.FIREBASE_SUBSCRIBER }}
-        SLUG_TO_MAIL: ${{ secrets.SLUG_TO_MAIL }}
-        EMAIL_SECURE: ${{ secrets.EMAIL_SECURE }}
-        EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
-        EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
-      run: |
-        echo "Menulis .env file dalam urutan abjad..."
-        cat <<EOF > .env
-        EMAIL_HOST=${EMAIL_HOST}
-        EMAIL_PASS=${EMAIL_PASS}
-        EMAIL_PASS_PRODUCT=${EMAIL_PASS_PRODUCT}
-        EMAIL_PORT=${EMAIL_PORT}
-        EMAIL_SECURE=${EMAIL_SECURE}
-        EMAIL_USER=${EMAIL_USER}
-        EMAIL_USER_PRODUCT=${EMAIL_USER_PRODUCT}
-        FIREBASE_API_KEY=${FIREBASE_API_KEY}
-        FIREBASE_APP_ID=${FIREBASE_APP_ID}
-        FIREBASE_AUTH_DOMAIN=${FIREBASE_AUTH_DOMAIN}
-        FIREBASE_AUTH_PROVIDER_X509_CERT_URL=${FIREBASE_AUTH_PROVIDER_X509_CERT_URL}
-        FIREBASE_AUTH_URI=${FIREBASE_AUTH_URI}
-        FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
-        FIREBASE_CLIENT_ID=${FIREBASE_CLIENT_ID}
-        FIREBASE_CLIENT_X509_CERT_URL=${FIREBASE_CLIENT_X509_CERT_URL}
-        FIREBASE_DATABASE_URL=${FIREBASE_DATABASE_URL}
-        FIREBASE_LASTSENT=${FIREBASE_LASTSENT}
-        FIREBASE_MESSAGING_SENDER_ID=${FIREBASE_MESSAGING_SENDER_ID}
-        FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}
-        FIREBASE_PRIVATE_KEY_ID=${FIREBASE_PRIVATE_KEY_ID}
-        FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
-        FIREBASE_STORAGE_BUCKET=${FIREBASE_STORAGE_BUCKET}
-        FIREBASE_SUBSCRIBER=${FIREBASE_SUBSCRIBER}
-        FIREBASE_TOKEN_URI=${FIREBASE_TOKEN_URI}
-        FIREBASE_CLIENT_X509_CERT_URL=${FIREBASE_CLIENT_X509_CERT_URL}
-        FIREBASE_AUTH_URI=${FIREBASE_AUTH_URI}
-        GITHUB_BRANCH=${GITHUB_BRANCH}
-        GITHUB_FILE_PATH=${GITHUB_FILE_PATH}
-        GITHUB_REPO=${GITHUB_REPO}
-        GITHUB_TOKEN=${GITHUB_TOKEN}
-        SERVICE=${SERVICE}
-        SLUG_TO_MAIL=${SLUG_TO_MAIL}
-        EOF
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # Anda bisa menyesuaikan versi Node.js sesuai kebutuhan
 
-    - name: Commit and push changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "Update .env with secrets in alphabetical order"
-        branch: ${{ secrets.GH_BRANCH }}
-        file_pattern: .env
+      - name: Write secrets to env.json
+        run: |
+          const fs = require('fs');
+          const path = './env.json';
+
+          const secrets = {
+            "email": {
+              "EMAIL_USER": "${{ secrets.EMAIL_USER }}",
+              "EMAIL_USER_PRODUCT": "${{ secrets.EMAIL_USER_PRODUCT }}",
+              "EMAIL_PASS": "${{ secrets.EMAIL_PASS }}",
+              "EMAIL_PASS_PRODUCT": "${{ secrets.EMAIL_PASS_PRODUCT }}",
+              "EMAIL_SECURE": "${{ secrets.EMAIL_SECURE }}",
+              "EMAIL_PORT": "${{ secrets.EMAIL_PORT }}",
+              "EMAIL_HOST": "${{ secrets.EMAIL_HOST }}"
+            },
+            "github": {
+              "GITHUB_TOKEN": "${{ secrets.GH_TOKEN }}",
+              "GITHUB_REPO": "${{ secrets.GH_REPO }}",
+              "GITHUB_FILE_PATH": "${{ secrets.GH_FILE_PATH }}",
+              "GITHUB_BRANCH": "${{ secrets.GH_BRANCH }}"
+            },
+            "firebase": {
+              "FIREBASE_API_KEY": "${{ secrets.FIREBASE_API_KEY }}",
+              "FIREBASE_APP_ID": "${{ secrets.FIREBASE_APP_ID }}",
+              "FIREBASE_AUTH_DOMAIN": "${{ secrets.EMAIL_FIREBASE_AUTH_DOMAIN }}",
+              "FIREBASE_DATABASE_URL": "${{ secrets.FIREBASE_DATABASE_URL }}",
+              "FIREBASE_PROJECT_ID": "${{ secrets.FIREBASE_PROJECT_ID }}",
+              "FIREBASE_STORAGE_BUCKET": "${{ secrets.FIREBASE_STORAGE_BUCKET }}",
+              "FIREBASE_MESSAGING_SENDER_ID": "${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}",
+              "FIREBASE_PRIVATE_KEY": "${{ secrets.FIREBASE_PRIVATE_KEY }}",
+              "FIREBASE_CLIENT_EMAIL": "${{ secrets.FIREBASE_CLIENT_EMAIL }}",
+              "FIREBASE_AUTH_URI": "${{ secrets.FIREBASE_AUTH_URI }}",
+              "FIREBASE_TOKEN_URI": "${{ secrets.FIREBASE_TOKEN_URI }}",
+              "FIREBASE_PRIVATE_KEY_ID": "${{ secrets.FIREBASE_PRIVATE_KEY_ID }}",
+              "FIREBASE_CLIENT_ID": "${{ secrets.FIREBASE_CLIENT_ID }}",
+              "FIREBASE_AUTH_PROVIDER_X509_CERT_URL": "${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }}",
+              "FIREBASE_CLIENT_X509_CERT_URL": "${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}",
+              "FIREBASE_LASTSENT": "${{ secrets.FIREBASE_LASTSENT }}",
+              "FIREBASE_SUBSCRIBER": "${{ secrets.FIREBASE_SUBSCRIBER }}"
+            },
+            "other": {
+              "SERVICE": "${{ secrets.SERVICE }}",
+              "SLUG_TO_MAIL": "${{ secrets.SLUG_TO_MAIL }}"
+            }
+          };
+
+          // Write secrets to env.json file
+          fs.writeFileSync(path, JSON.stringify(secrets, null, 2));
+
+      - name: Upload env.json artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: env-json
+          path: ./env.json
