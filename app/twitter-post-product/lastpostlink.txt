@@ -44,6 +44,7 @@
     "https://sabdaliterasi.xyz/gandhi-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/galileo-galilei-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/persoalan-persoalan-filsafat/",
-    "https://sabdaliterasi.xyz/fasisme-sebuah-pengantar-singkat/"
+    "https://sabdaliterasi.xyz/fasisme-sebuah-pengantar-singkat/",
+    "https://sabdaliterasi.xyz/ekonomi-sebuah-pengantar-singkat/"
   ]
 }
