@@ -139,7 +139,15 @@ function decodeBase64(input) {
   document.getElementById('checkEmail').addEventListener('click', function () {showLoading();
     const email = document.getElementById('email').value.trim().toLowerCase();
     const name = document.getElementById('name').value.trim();
+    
     if (email && name) {
+        const allowedDomains = ['gmail.com', 'outlook.com', 'yahoo.com'];
+    const emailDomain = email.split('@')[1]; 
+    if (!allowedDomains.includes(emailDomain)) {
+        hideLoading();
+        alert('Email hanya diperbolehkan dari domain Gmail, Outlook, atau Yahoo.');
+        return;
+    }
       fetch('/api/verify/check-email-and-download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
