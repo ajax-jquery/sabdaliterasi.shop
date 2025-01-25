@@ -80,4 +80,4 @@ document.addEventListener("DOMContentLoaded", () => {
   </form>
 </div>
 
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/script/download/ebook/0.1/main.min.js"></script>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/script/download/ebook/0.2/main.min.js"></script>
