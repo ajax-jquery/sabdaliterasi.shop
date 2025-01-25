@@ -16,3 +16,5 @@ group :jekyll_plugins do
   gem 'jekyll-tagories'
 end
 gem 'cucumber'
+gem 'google-protobuf', '~> 3.21.0'
+
