@@ -45,6 +45,7 @@ jobs:
         run: |
           export JEKYLL_VERSION=4.0
           docker run \
+          --no-same-owner \
           -v ${{ github.workspace }}:/srv/jekyll \
           -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           -e JEKYLL_ENV=production \
