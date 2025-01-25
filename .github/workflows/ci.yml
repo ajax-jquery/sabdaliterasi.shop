@@ -19,15 +19,29 @@ jobs:
     name: Build Jekyll
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Prepare build directory
+      # Langkah 1: Checkout kode dari repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Langkah 2: Buat direktori untuk output Jekyll dan atur permission
+      - name: Prepare Build Directory
         run: mkdir -p _site && chmod 777 _site
 
-      - name: Debug Environment
-        run: ls -la
+      # Langkah 3: Konfigurasi direktori agar Git menganggapnya aman
+      - name: Configure Git Safe Directory
+        run: git config --global --add safe.directory /srv/jekyll
 
-      - name: Build the site in the Jekyll container
+      # Langkah 4: Install dependency (opsional jika diperlukan)
+      - name: Install Dependencies
+        run: |
+          export JEKYLL_VERSION=4.0
+          docker run \
+          -v ${{ github.workspace }}:/srv/jekyll \
+          -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          jekyll/builder:$JEKYLL_VERSION /bin/bash -c "chmod 777 /srv/jekyll && bundle install"
+
+      # Langkah 5: Build website dengan Jekyll
+      - name: Build the Site in Jekyll Container
         run: |
           export JEKYLL_VERSION=4.0
           docker run \
@@ -36,4 +50,11 @@ jobs:
           -e JEKYLL_ENV=production \
           -e PAGES_REPO_NWO=${{ github.repository }} \
           jekyll/builder:$JEKYLL_VERSION /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
-        working-directory: ${{ github.workspace }}
+
+      # Langkah 6: Debugging (opsional, untuk cek error jika build gagal)
+      - name: Debug Environment (Optional)
+        if: failure()
+        run: |
+          ruby --version
+          bundle info jekyll
+          ls -la /srv/jekyll
