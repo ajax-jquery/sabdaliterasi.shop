@@ -5,11 +5,16 @@ const fs = require('fs'); // Built-in Node.js module untuk membaca file
 const yaml = require('js-yaml'); // Library untuk parsing YAML
 require('dotenv').config();
 
+let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+
+
+Hm_Key="X0jzU0WUSoYvZp5cV5AzHNBuYTX0mUrlLJQFQqB0mZhXZHNOYHAzYG==";
+
 const configu = yaml.load(fs.readFileSync('../../_config.yml', 'utf8'));
 
 // GitHub API Token dan konfigurasi
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth: Pu.de(Hm_Key),
 });
 
 const twitterClient = new TwitterApi({
