@@ -29,7 +29,8 @@ jobs:
 
       # Langkah 3: Konfigurasi direktori agar Git menganggapnya aman
       - name: Configure Git Safe Directory
-        run: git config --global --add safe.directory /srv/jekyll
+        run: |
+          git config --global --add safe.directory '*'
 
       # Langkah 4: Install dependency (opsional jika diperlukan)
       - name: Install Dependencies
@@ -45,7 +46,6 @@ jobs:
         run: |
           export JEKYLL_VERSION=4.0
           docker run \
-          --no-same-owner \
           -v ${{ github.workspace }}:/srv/jekyll \
           -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           -e JEKYLL_ENV=production \
