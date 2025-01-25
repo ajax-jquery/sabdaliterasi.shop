@@ -138,7 +138,8 @@ function decodeBase64(input) {
   }
   document.getElementById('checkEmail').addEventListener('click', function () {showLoading();
     const email = document.getElementById('email').value.trim().toLowerCase();
-    if (email) {
+    const name = document.getElementById('name').value.trim();
+    if (email && name) {
       fetch('/api/verify/check-email-and-download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -147,7 +148,7 @@ function decodeBase64(input) {
         if (data.success) {
              window.location.href = data.downloadLink;hideLoading();
         } else {
-          sendVerificationCode(email);hideLoading();
+          sendVerificationCode(email,name);hideLoading();
         }
       }).catch(err => {
 hideLoading();
@@ -155,14 +156,14 @@ hideLoading();
         alert('Error checking email. Please try again.');
       });
     } else {
-      alert('Please enter a valid email.');hideLoading();
+      alert('Please enter a valid data.');hideLoading();
     }
   });
-  function sendVerificationCode(email) {
+function sendVerificationCode(email, name) {
     fetch('/api/verify/send-verification-code', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email, name })
     }).then(response => response.json()).then(data => {
       if (data.success) {
         showVerificationMessage();
@@ -177,7 +178,7 @@ hideLoading();
       alert('Error sending verification code. Please try again.');
     });
   }
-  document.getElementById('formVerify').addEventListener('submit', function (e) {
+document.getElementById('formVerify').addEventListener('submit', function (e) {
     e.preventDefault();
 showLoading();
     const name = document.getElementById('name').value.trim();
@@ -204,9 +205,9 @@ showLoading();
       alert('Please fill in all fields.');
     }
   });
- const currentUrl = new URL(window.location.href);
+const currentUrl = new URL(window.location.href);
 const paramss = currentUrl.searchParams;paramss.delete('c');
-    const newUrl = currentUrl.origin + currentUrl.pathname + (paramss.toString() ? '?' + paramss.toString() : '');
+const newUrl = currentUrl.origin + currentUrl.pathname + (paramss.toString() ? '?' + paramss.toString() : '');
     window.history.replaceState({}, '', newUrl);
     }()
 </script>
