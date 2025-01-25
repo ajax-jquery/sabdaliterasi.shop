@@ -67,7 +67,7 @@ document.getElementById("bookForm").addEventListener("submit", function(event) {
     *   Publisher: **${publisher}**
     *   ISBN: **${isbn}**
     *   Harga: **${year}**`;
-    if (translatedTitle) formattedText += `\nOriginal Title: **${translatedTitle}**`;
+    if (translatedTitle) formattedText += `\n    *   Original Title: **${translatedTitle}**`;
 
     // Display in the textarea
     document.getElementById("outputText").value =`Saya ingin menjual buku dengan judul **${title}** di website saya Sabda Literasi (https://sabdaliterasi.xyz). Jadi, saya ingin kamu membuatkan narasi untuk mengenalkan buku tersebut. Ada beberapa syaratnya, yaitu:
@@ -82,6 +82,10 @@ document.getElementById("bookForm").addEventListener("submit", function(event) {
 8.  Hindari penggunaan frasa yang tidak dimengerti sebagian kecil orang Indonesia. 
 9.  Ajaklah pembaca untuk membeli buku, dengan mengklik tombol \`Beli Sekarang\` yang ada di bagian atas.
 10.  Panjang Narasi 400 hingga 500 kata.
+11. Di akhir Narasi, buatlah meta descriptionnya sebanyak 200 Karakter.
+12. setelah meta description, buatlah 7 meta keyword yang ditulis secara terpisah menggunakan tanda koma (,)
+
+---
 
 Untuk detail buku, sebagai berikut:${formattedText}`;
 });
@@ -92,12 +96,19 @@ document.getElementById("copyButton").addEventListener("click", function() {
     outputText.select();
     document.execCommand("copy");
     alert("Text copied to clipboard!");
-});$('input#year').on('change click keyup input paste',(function (event) {
+});
+
+$('input#year').on('change click keyup input paste',(function (event) {
     $(this).val(function (index, value) {
         return 'Rp' + value.replace(/(?!\.)\D/g, "")
                           .replace(/(?<=\..*)\./g, "")
                           .replace(/(?<=\.\d\d).*/g, "")
                           .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    });
+}));
+$('input#isbn').on('change click keyup input paste',(function (event) {
+    $(this).val(function (index, value) {
+        return value.replace(/[-\s]/g, '');
     });
 }));
 </script>
