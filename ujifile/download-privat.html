@@ -87,7 +87,7 @@ fetch('/api/verify/validation', {
 })
   .then(response => response.json())
   .then(data => {
-    if (data.success) {location.href=data.downloadLink;}hideLoading(); 
+    if (data.success) {location.href=data.downloadLink;}else{hideLoading()}; 
   })
   .catch(error => {console.error('Error:', error);hideLoading();});
   
