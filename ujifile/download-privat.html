@@ -2,34 +2,16 @@
 permalink: /wp-admin/download/ebook
 layout: null
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>// URL server Anda
-const serverUrl = "/api/verify/";
-// Fungsi untuk melakukan ping ke server
-function pingServer() {
-  fetch(serverUrl)
-    .then(response => {
-      if (response.ok) {
-        console.log("Ping successful:", response.status);
-      } else {
-        console.error("Ping failed with status:", response.status);pingServer();
-      }
-    })
-    .catch(error => {console.error("Ping error:", error);pingServer();});
-}
-// Mulai ping saat halaman dimuat
-document.addEventListener("DOMContentLoaded", () => {
-  // Ping server setiap 5 menit (300000 ms)
-  pingServer();
-  setInterval(pingServer, 300000);
-});
-</script>
+    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML2 - Verify and Download</title>
+ 
+</head>
+<body>
   <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
   #loadingOverlay {
@@ -45,8 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     align-items: center;
   }
 </style>
-</head>
-<body>
 <!-- Overlay Loading -->
 <div id="loadingOverlay" >
   <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
@@ -78,7 +58,39 @@ document.addEventListener("DOMContentLoaded", () => {
   </form>
 </div>
 <script> 
-!function(){
+async function NextPage(g){
+function decodeBase641(e){let r="ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=",d="",f=0;for(;f<e.length;){let o=r.indexOf(e.charAt(f++)),t=r.indexOf(e.charAt(f++)),a=r.indexOf(e.charAt(f++)),h=r.indexOf(e.charAt(f++)),n=o<<2|t>>4,c=(15&t)<<4|a>>2,C=(3&a)<<6|h;d+=String.fromCharCode(n),64!==a&&(d+=String.fromCharCode(c)),64!==h&&(d+=String.fromCharCode(C))}return decodeURIComponent(escape(d))};
+ 
+  const base64Data = g;
+
+fetch('/api/verify/validation', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ base64: base64Data }),
+  credentials: 'include', // Sertakan cookie
+})
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {location.href=data.downloadLink;
+    } 
+  })
+  .catch(error => console.error('Error:', error));
+  
+  
+  }
+!async function(){
+async function pingServer() {
+const serverUrl = "/api/verify/";
+  fetch(serverUrl)
+    .then(response => {
+      if (response.ok) {
+        console.log("Ping successful:", response.status);
+      } else {
+        console.error("Ping failed with status:", response.status);pingServer();
+      }
+    })
+    .catch(error => {console.error("Ping error:", error);pingServer();});
+}pingServer();setInterval(pingServer, 300000);
 function showLoading() {
   document.getElementById('loadingOverlay').style.display = 'flex';
 }
@@ -127,13 +139,14 @@ function decodeBase64(input) {
   }
   const params = new URLSearchParams(window.location.search);
   const base64Data = params.get('c');
+  
   if (!base64Data) {
    window.location.href=localStorage.getItem("linkbookfree")
 }
   const jsonData = base64Data ? JSON.parse(decodeBase64(base64Data)) : null;
   let mode = "Baca/Download";
   if (jsonData) {
-  
+  await NextPage(base64Data);
   if(jsonData.mode){mode=jsonData.mode}
     document.getElementById('title').textContent = `Daftar dan ${mode} Gratis Ebook ${jsonData.title}.pdf`;hideLoading();localStorage.setItem("linkbookfree",jsonData.short)
   }
@@ -152,6 +165,7 @@ function decodeBase64(input) {
       fetch('/api/verify/check-email-and-download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ email, base64: base64Data })
       }).then(response => response.json()).then(data => {
         if (data.success) {
