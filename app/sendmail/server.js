@@ -43,6 +43,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Fungsi utilitas
+function formatName(e){return e.split(" ").map(e=>e.charAt(0).toUpperCase()+e.slice(1).toLowerCase()).join(" ")}
 async function fetchJSON(url) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -172,7 +173,7 @@ async function main() {
               const mailOptions = {
                 from: `New Articles Sabda Literasi <${process.env.EMAIL_USER}>`,
                 to: subscriber.email,
-                subject: `Artikel Untuk ${subscriber.nama}: ${article.title}`,
+                subject: `Artikel Untuk ${formatName(subscriber.nama)}: ${article.title}`,
                 html: emailContent,
               };
 
