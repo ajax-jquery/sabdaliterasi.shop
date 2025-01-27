@@ -46,6 +46,7 @@
     "https://sabdaliterasi.xyz/persoalan-persoalan-filsafat/",
     "https://sabdaliterasi.xyz/fasisme-sebuah-pengantar-singkat/",
     "https://sabdaliterasi.xyz/ekonomi-sebuah-pengantar-singkat/",
-    "https://sabdaliterasi.xyz/the-analysis-of-mind-analisis-pikiran/"
+    "https://sabdaliterasi.xyz/the-analysis-of-mind-analisis-pikiran/",
+    "https://sabdaliterasi.xyz/psikoanalisis-revolusi-psikologi-kritis-untuk-gerakan-pembebasan/"
   ]
 }
