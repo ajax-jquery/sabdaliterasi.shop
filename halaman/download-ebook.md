@@ -9,7 +9,7 @@ image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [Download Ebook]
 ---
  <link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
+  <style>button#submitForm {border-color: var(--linkC);background: var(--linkC)}h1.pTtl.aTtl.sml.itm{display:none !important}
   #loadingOverlay {
     display: flex;
     position: fixed;
