@@ -1,3 +1,4 @@
+
 ---
 layout: null
 permalink: /wp-admin/download/start
@@ -8,28 +9,63 @@ permalink: /wp-admin/download/start
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-
-<style>#Download{font-family:Arial,sans-serif;margin:0;padding:0;display:flex;justify-content:center;align-items:center}#Download .container{background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#Download h2{font-size:24px;margin-bottom:20px}#Download button{border: none;display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:4px}#Download button:hover{border-color: var(--linkC);background: var(--linkC);}#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid #3498db;border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
+<style>#Download{font-family:Arial,sans-serif;margin:0;padding:0;display:flex;justify-content:center;align-items:center}#Download .container{background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);text-align:center}#Download h2{font-size:24px;margin-bottom:20px}#Download button{border: none;display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:4px}#Download button:hover{border-color: var(--linkC);background: var(--linkC);}#loading{display:flex;position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid #3498db;border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
 </style>
 <!-- Overlay Loading -->
 <div id="loading">
 <div class="spinner"></div>
 </div>    
-
 <div id="Download">
     <div class="container"> 
+        <h2>Halo Kawan <span id="username">Loading...</span>!</h2> 
+        <p><strong>Silahkan Download Ebooknya</strong></p>
         <h2><span id="file-title">Loading...</span>.pdf</h2> 
         <button id="download-btn">Download</button> 
     </div>
 </div>
-<script>!function(){
+<script>
+!async function(){
 
 function showLoading() {
   document.getElementById('loading').style.display = 'flex';
 }
 function hideLoading() {
-  document.getElementById('loading').style.display = 'none';
+let d=document.getElementById('loading');
+  d.style.display = 'none';
+  d.style.background="rgba(0,0,0,.6)"
 }
+
+function ChekSesion(qq){
+function decodeBase641(e){let r="ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=",d="",f=0;for(;f<e.length;){let o=r.indexOf(e.charAt(f++)),t=r.indexOf(e.charAt(f++)),a=r.indexOf(e.charAt(f++)),h=r.indexOf(e.charAt(f++)),n=o<<2|t>>4,c=(15&t)<<4|a>>2,C=(3&a)<<6|h;d+=String.fromCharCode(n),64!==a&&(d+=String.fromCharCode(c)),64!==h&&(d+=String.fromCharCode(C))}return decodeURIComponent(escape(d))};
+  const base64Data = qq;
+let storedLink = localStorage.getItem('shortnow');
+fetch('/api/verify/validation', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ base64: base64Data }),
+  credentials: 'include', // Sertakan cookie
+})
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+    let base64=JSON.parse(decodeBase641(data.base64));
+   console.log(base64.name)// 
+document.getElementById('username').textContent = base64.name;
+    hideLoading()
+    } else {
+    
+    if (storedLink) {
+                window.location.href = storedLink;
+     }
+      console.error('Invalid cookie:', data.message);
+    }
+  })
+  .catch(error => {if (storedLink) {
+                window.location.href = storedLink;
+     };console.error('Error:', error)});
+  
+  
+  }
 function base64Decode(base64) {
             const chars = 'AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=';
             let str = '', bytes = [], buffer;
@@ -52,7 +88,7 @@ if (!idEncoded) {
             }
         } 
         else {
-            // Decode and parse JSON
+           await ChekSesion(idEncoded)
             try {
                 const decodedString = base64Decode(idEncoded);
                 const fileInfo = JSON.parse(decodedString);
