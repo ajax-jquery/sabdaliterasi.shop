@@ -8,35 +8,8 @@ permalink: /download/ebook
 image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [Download Ebook]
 ---
-
-<div id="loadingOverlay" >
-       <script>// URL server Anda
-const serverUrl = "/api/verify/";
-
-// Fungsi untuk melakukan ping ke server
-function pingServer() {
-  fetch(serverUrl)
-    .then(response => {
-      if (response.ok) {
-        console.log("Ping successful:", response.status);
-      } else {pingServer();
-        console.error("Ping failed with status:", response.status);
-      }
-    })
-    .catch(error => {console.error("Ping error:", error);pingServer();});
-}
-
-// Mulai ping saat halaman dimuat
-document.addEventListener("DOMContentLoaded", () => {
-  // Ping server setiap 5 menit (300000 ms)
-  pingServer();
-  setInterval(pingServer, 300000);
-});
-</script> <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>button#submitForm {
-    border-color: var(--linkC);
-    background: var(--linkC);
-}
+ <link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
   #loadingOverlay {
     display: flex;
     position: fixed;
@@ -44,19 +17,20 @@ document.addEventListener("DOMContentLoaded", () => {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #fff;
     z-index: 9999;
     justify-content: center;
     align-items: center;
-  }h1.pTtl.aTtl.sml.itm{display:none !important}
+  }
 </style>
+ <!-- Overlay Loading -->
+<div id="loadingOverlay" >
   <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-
 <div class="container mt-5">
-  <h1 id="title" class="text-center">Download Ebook</h1>
+  <h1 id="title" class="text-center">Loading...</h1>
   <form id="formVerify" class="mt-4">
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
@@ -79,5 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
     <button type="submit" class="btn btn-primary" id="submitForm">Submit and Download</button>
   </form>
 </div>
-
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/script/download/ebook/0.2/main.min.js"></script>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/script/download/ebook/0.3/main.min.js"></script>
