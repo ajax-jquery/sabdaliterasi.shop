@@ -42,6 +42,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 // Fungsi utilitas
+function formatName(e){return e.split(" ").map(e=>e.charAt(0).toUpperCase()+e.slice(1).toLowerCase()).join(" ")}
 async function fetchJSON(url) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -176,7 +177,7 @@ async function main() {
               const mailOptions = {
                 from: `New Ebook Sabda Literasi <${process.env.EMAIL_USER}>`,
                 to: subscriber.email,
-                subject: `Ebook Untuk ${subscriber.nama}: ${article.title}`,
+                subject: `Ebook Untuk ${formatName(subscriber.nama)}: ${article.title}`,
                 html: emailContent,
               };
 
