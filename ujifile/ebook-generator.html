@@ -26,7 +26,7 @@ function fotofile(){$(".inputfoto").removeClass("d-none"),$(".inputfotourl").add
     <style>
         body {
             padding: 20px;
-        }.jsonOut{width:100%;height:720px}#output{height:120px}.form-group{ margin-top: 0.5em; }#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid #3498db;border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
+        }.jsonOut{width:100%;height:720px}#description,#output{height:120px}.form-group{ margin-top: 0.5em; }#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid #3498db;border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
     </style>
 </head>
 <body>
@@ -73,6 +73,12 @@ function fotofile(){$(".inputfoto").removeClass("d-none"),$(".inputfotourl").add
          <div class="form-group inputfotourl d-none">
         <input type="url" class="form-control mt-2" id="urlInput" placeholder="Masukkan URL Gambar">
         </div>
+        
+<div class="form-group">
+<label for="description">DESKRIPSI:</label>
+<textarea class="form-control" id="description"></textarea>
+
+     </div>        
         <div class="form-group">
         <button class="btn btn-primary" onclick="convert()">Konversi</button>
         </div>
@@ -104,11 +110,23 @@ showLoading();
            const urlInput = document.getElementById('urlInput').value;
            const jsonOut = document.getElementById('jsonOut');
            let link = document.getElementById("link").value;
-           let title = document.getElementById("title").value,
-            finallink=link,
+           let title = document.getElementById("title").value,description = "";
+           
+           if(document.getElementById("description").value){
+description=`
+---
+         ${document.getElementById("description").value}
+
+---
+`;  
+           }
+           
+           let finallink=link,
             mode="Baca",
             caption=`*BACA EBOOK*
 Judul: ${title}
+
+${description}
 
 Baca segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(title)}.pdf
 
@@ -235,6 +253,8 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
             caption=`*DOWNLOAD EBOOK*
 Judul: ${title}
 
+${description}
+
 Download segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(title)}.pdf
 
 > Karena GRATIS, maka untuk mendapatkan *Link Download* harus melewati beberapa proses termasuk melihat IKLAN. *Kami sarankan agar menggunakan Google Chrome.*
@@ -319,7 +339,7 @@ fetch('https://api.short.io/links/public', options)
 
   hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
    document.getElementById("output").value =caption;
-   document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}">SHARE WA</a>`
+   document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}" target="_blank">SHARE WA</a>  <button class="btn btn-primary" onclick="copyText()" >COPY</button>`
    let hasilcanon = CANONICAL.replace("https://sabdaliterasi.xyz/api/download/","").replace("https://cdn.sophiainstitute.xyz/download?o=",""),
    
 deco1=JSON.parse(decodeBase641(hasilcanon)),
@@ -532,8 +552,16 @@ async function fetchAndUploadImage(url, judul) {
         // Pastikan URL yang dimasukkan di-encode dengan benar
         const encodedUrl = encodeURIComponent(url);
         
-        // Ambil file dari URL dengan axios, pastikan responseType adalah arraybuffer
-        const response = await axios.get(`/api/fetch/${url.replace(/covers\d+/g, 'covers720')}`, { responseType: 'arraybuffer' });
+       const responsefetch = await fetch(`/api/fetch/${url.replace(/covers\d+/g, 'covers400')}`, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
+
+// Mengambil data sebagai arraybuffer
+
+        const response = await axios.get(`/api/fetch/${url.replace(/covers\d+/g, 'covers400')}`, { responseType: 'arraybuffer' });
         
         const mimeType = response.headers['content-type'];
         const ext = mimeType.split('/')[1]; // Ambil ekstensi dari MIME type
@@ -590,7 +618,7 @@ function handleSuccess(response, filename, mimeType, resolve) {
         });
     } else {
         if (resolve) resolve(jsonResponse); // Kembalikan hasil JSON jika bukan gambar
-        return jsonResponse; // Jika bukan gambar, langsung kembalikan hasil
+        return // Jika bukan gambar, langsung kembalikan hasil
     }
 }
 function arrayBufferToBase64(buffer) {
@@ -629,10 +657,22 @@ async function getName(q) {
         return null;  // Mengembalikan null jika terjadi error
     }
 }
+function copyText() {
+            // Ambil elemen textarea
+            const textarea = document.getElementById('output');
 
+            // Pilih teks dalam textarea
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // Untuk mobile devices
+
+            // Salin teks ke clipboard
+            document.execCommand('copy');
+
+         
+            alert('Teks berhasil disalin');
+        }
 
     </script>
 
 </body>
 </html>
-
