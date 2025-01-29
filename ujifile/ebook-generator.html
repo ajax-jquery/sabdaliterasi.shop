@@ -3,7 +3,7 @@ layout: null
 permalink: /wp-admin/ebook-generator/
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <!-- FADHEL -->
 <head>
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
@@ -18,7 +18,7 @@ const accessToken = Pu.de(IMAGES_Key);
 const myproxy ="https://sabdaliterasi.xyz/api/fetch/";
 function fotofile(){$(".inputfoto").removeClass("d-none"),$(".inputfotourl").addClass("d-none")}function fotourl(){$(".inputfoto").addClass("d-none"),$(".inputfotourl").removeClass("d-none")}function showLoading(){document.getElementById("loading").style.display="flex"}function hideLoading(){document.getElementById("loading").style.display="none"}function convertGDriveLink(t){return myproxy+"https://drive.usercontent.google.com/download?export=download&id="+t.match(/\/d\/(.*?)\//)[1]}function base64Encode(t){for(var e="AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=",o="",a=0;a<t.length;){var r=t.charCodeAt(a++),n=t.charCodeAt(a++),d=t.charCodeAt(a++),c=r>>2,i=(3&r)<<4|n>>4,p=(15&n)<<2|d>>6,s=63&d;isNaN(n)?p=s=64:isNaN(d)&&(s=64),o+=e.charAt(c)+e.charAt(i)+e.charAt(p)+e.charAt(s)}return o}function base64Encode1(t){for(var e="ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=",o="",a=0;a<t.length;){var r=t.charCodeAt(a++),n=t.charCodeAt(a++),d=t.charCodeAt(a++),c=r>>2,i=(3&r)<<4|n>>4,p=(15&n)<<2|d>>6,s=63&d;isNaN(n)?p=s=64:isNaN(d)&&(s=64),o+=e.charAt(c)+e.charAt(i)+e.charAt(p)+e.charAt(s)}return o}function convertToSlug(t){return t.toLowerCase().replace(/[^\w ]+/g,"").replace(/ +/g,"-")}function convertToNewLinks(t){return t.replace("/blob/","/").replace("/master/","/file/").replace("/main/","/data/").replace("https://github.com/","https://sabdaliterasi.xyz/wp-content/cdn/g/")}function getFormattedTime(){let t=new Date,e=t.getFullYear(),o=String(t.getMonth()+1).padStart(2,"0"),a=String(t.getDate()).padStart(2,"0"),r=String(t.getHours()).padStart(2,"0"),n=String(t.getMinutes()).padStart(2,"0"),d=String(t.getSeconds()).padStart(2,"0"),c=-t.getTimezoneOffset(),i;return`${e}-${o}-${a} ${r}:${n}:${d} ${c>=0?"+":"-"}${String(Math.floor(Math.abs(c)/60)).padStart(2,"0")}${String(Math.abs(c)%60).padStart(2,"0")}`}
 
-$(document).ready(function(){$("#link").on("input change focus keydown keypress keyup paste cut click",function(){var t=document.getElementById("link").value;t.startsWith("https://github.com/")?($("#customCheckbox").prop("checked",!0).prop("disabled",!0),$("#UploadToGit").prop("checked",!1).prop("disabled",!0)):t.startsWith("https://z-library.sk/")?$("#customCheckbox").prop("checked",!0).prop("disabled",!0):t.startsWith("https://drive.google.com/")?$("#UploadToGit").prop("checked",!1).prop("disabled",!0):t.startsWith("https://id.scribd.com") || t.startsWith("https://scribd.com")?($("#customCheckbox").prop("checked",!0).prop("disabled",!0),$('#penting').removeClass('d-none')):($('#penting').addClass('d-none'),$("#customCheckbox").prop("disabled",!1),$("#UploadToGit").prop("disabled",!1))})});
+$(document).ready(function(){$("#link").on("input change focus keydown keypress keyup paste cut click",function(){var t=document.getElementById("link").value;t.startsWith("https://github.com/")?($("#customCheckbox").prop("checked",!0).prop("disabled",!0),$("#UploadToGit").prop("checked",!1).prop("disabled",!0)):t.startsWith("https://z-library.sk/")?$("#customCheckbox").prop("checked",!0).prop("disabled",!0):t.startsWith("https://drive.google.com/")?$("#UploadToGit").prop("checked",!1).prop("disabled",!0):t.startsWith("https://id.scribd.com") || t.startsWith("https://www.scribd.com")?($("#customCheckbox").prop("checked",!0).prop("disabled",!0),$('#penting').removeClass('d-none')):($('#penting').addClass('d-none'),$("#customCheckbox").prop("disabled",!1),$("#UploadToGit").prop("disabled",!1))})});
 </script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,21 +114,17 @@ showLoading();
            let title = document.getElementById("title").value,description = "";
            
            if(document.getElementById("description").value){
-description=`
----
+description=`---
          ${document.getElementById("description").value}
 
----
-`;  
+---`;  
            }
            
            let finallink=link,
             mode="Baca",
             caption=`*BACA EBOOK*
 Judul: ${title}
-
 ${description}
-
 Baca segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(title)}.pdf
 
 > Karena GRATIS, maka untuk mendapatkan *Link Google Drive* harus melewati beberapa proses termasuk melihat IKLAN. *Kami sarankan agar menggunakan Google Chrome.*
@@ -254,9 +250,7 @@ _Silahkan Subscribe Channel Whatsapp *Sabda Literasi* agar tidak ketinggalan unt
             mode="Download";
             caption=`*DOWNLOAD EBOOK*
 Judul: ${title}
-
 ${description}
-
 Download segerah: https://m.sabdaliterasi.xyz/download/ebook-${convertToSlug(title)}.pdf
 
 > Karena GRATIS, maka untuk mendapatkan *Link Download* harus melewati beberapa proses termasuk melihat IKLAN. *Kami sarankan agar menggunakan Google Chrome.*
@@ -449,10 +443,14 @@ async function libraryToGitHub(link) {
 
         const blob = await response.blob();
         const contentDisposition = response.headers.get('Content-Disposition');
+       let ext=response.headers.get('Content-Type'),extention=ext.split("/");
         
         
         let fileName = contentDisposition?.match(/filename="(.+)"/)?.[1] || document.getElementById("title").value+"."+getExt(fetchUrl);
-        
+   
+   if(link.startsWith("https://id.scribd.com") || link.startsWith("https://www.scribd.com")){
+   fileName=document.getElementById("title").value.trim()+"."+extention[1]
+   }
         
         
         
@@ -640,17 +638,26 @@ function arrayBufferToBase64(buffer) {
 }
 async function getName(q) {
     const url = myproxy + q;
-    console.log(url);
+    
 
     try {
         const response = await fetch(url, { method: 'HEAD' });
         // Check if the Content-Disposition header exists
         const contentDisposition = response.headers.get('Content-Disposition');
+   let ext=response.headers.get('Content-Type'),extention=ext.split("/")[1];     if(q.startsWith("https://id.scribd.com") || q.startsWith("https://www.scribd.com")){
+   return document.getElementById("title").value.trim()+"."+extention
+   
+   }
         if (contentDisposition) {
             // Extract the filename from the header
             const filenameMatch = contentDisposition.match(/filename="(.+)"/);
             if (filenameMatch) {
+            
+            
                 let Judul = filenameMatch[1];
+                
+               
+                
                 return Judul.replace(/ \(Z-Library\)/g, '');  // Mengembalikan Judul setelah berhasil ditemukan
             } else {
                 alert("NULL: Tidak ada Nama File.");
