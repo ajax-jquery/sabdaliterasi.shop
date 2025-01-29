@@ -70,24 +70,55 @@ document.getElementById("bookForm").addEventListener("submit", function(event) {
     if (translatedTitle) formattedText += `\n    *   Original Title: **${translatedTitle}**`;
 
     // Display in the textarea
-    document.getElementById("outputText").value =`Saya ingin menjual Ebook dengan judul **${title}** di website saya Sabda Literasi ([https://sabdaliterasi.xyz](https://sabdaliterasi.xyz)). Jadi, saya ingin kamu membuatkan narasi untuk mengenalkan buku tersebut. Ada beberapa syaratnya, yaitu:
+    document.getElementById("outputText").value =`Saya ingin menjual Ebook (File PDF) dengan judul **${title}** di website saya Sabda Literasi ([https://sabdaliterasi.xyz](https://sabdaliterasi.xyz)). Jadi, saya ingin kamu membuatkan narasi untuk mengenalkan buku tersebut. Ada beberapa syaratnya, yaitu:
 
 1.  Bacalah Ebook **${title}**, yang saya kirim dalam bentuk file PDF.
 2.  Kamu harus membacanya secara penuh.
 3.  Setelah membaca Ebook **${title}**, buatkan Narasi yang SEO-Friendly dan kreatif untuk perkenalan terhadap Ebook **${title}**.
 4.  Narasi harus murni human-touch, atau humanize agar terhindar dari deteksi AI.
 5.  Narasi juga harus terhindar dari deteksi narasi yang dibuat oleh mesin pembuat narasi otomatis.
-6.  Gunakan bahasa yang santai, namun namun mudah dimengerti oleh pembaca diseluruh Indonesia.
-7.  Gunakan farasa "kawan" untuk menyapa pembaca, dan sebagai frasa pengganti untuk frasa "anda/kamu".
-8.  Hindari penggunaan frasa yang tidak dimengerti sebagian kecil orang Indonesia.
-9.  Ajaklah pembaca untuk membeli Ebook, dengan mengklik tombol **Beli Sekarang** yang ada di bagian atas.
-10.  Panjang Narasi 600 hingga 700 kata.
-11.  Di akhir Narasi, buatlah meta descriptionnya sebanyak 200 Karakter.
-12.  setelah meta description, buatlah 7 meta keyword yang ditulis secara terpisah menggunakan tanda koma (,)
+6.  Gunakan farasa "**kawan**" untuk menyapa pembaca, dan sebagai frasa pengganti untuk frasa "_anda/kamu_".
+7.  Hindari penggunaan frasa yang tidak dimengerti sebagian kecil orang Indonesia.
+8.  Ajaklah pembaca untuk membeli Ebook, dengan mengklik tombol **Beli Sekarang** yang ada di bagian atas.
+9.  Panjang Narasi 600 hingga 700 kata.
+10.  Di akhir Narasi, buatlah meta descriptionnya sebanyak 200 Karakter.
+11.  setelah meta description, buatlah 7 meta keyword yang ditulis secara terpisah menggunakan tanda koma (,)
 
 - - -
 
-Untuk detail buku (Ebook), sebagai berikut:${formattedText}`;
+**Untuk detail buku (Ebook), sebagai berikut:**${formattedText}
+
+- - -
+
+**SARAN KEPENULISAN:**
+
+1. **Judul yang Menarik & Deskripsi Singkat yang Memikat:**
+
+*   Gunakan judul yang jelas, ringkas, dan menarik perhatian.
+*   Sertakan deskripsi singkat (tagline) yang merangkum inti dari ebook **${title}** dan menonjolkan manfaat utamanya.
+*   Jelaskan tentang kelebihan dan kredibilitas **${author}** sebagai penulisnya dalam menulis buku tersebut.
+
+2. **Jelaskan Isi & Manfaat Ebook:**
+
+*   Berikan gambaran jelas tentang apa yang akan dipelajari pembaca dari ebook **${title}**.
+*   Jelaskan poin-poin penting, bab-bab utama, atau topik yang dibahas.
+*   **Fokus pada manfaat** yang akan didapatkan pembaca, seperti:
+    *   Pengetahuan baru
+    *   Peningkatan keterampilan
+    *   Pemecahan masalah
+    *   Hiburan
+    *   Dll.
+
+3. **Tonjolkan Keunikan & Kelebihan Ebook:**
+
+*   Apa yang membedakan ebook **${title}** dari yang lain?
+*   Apakah ada bonus, studi kasus, template, atau akses eksklusif yang disertakan?
+
+**Ingat**:
+
+*   **Sesuaikan penjelasan dengan target pasar yang cocok pada ebook itu.** Gunakan bahasa dan gaya penulisan yang sesuai dengan mereka.
+*   **Buat penjelasan yang ringkas dan to the point.** Hindari informasi yang berlebihan atau tidak relevan.
+*   **Tekankan nilai dan manfaat** yang akan didapatkan pembaca.`;
 });
 
 // Copy to Clipboard
