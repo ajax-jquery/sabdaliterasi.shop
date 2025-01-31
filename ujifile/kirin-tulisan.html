@@ -1,0 +1,387 @@
+---
+layout: null
+permalink: /wp-admin/kirim-tulisan
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Kirim Tulisan</title>
+  <style id="styleroot">
+/* Variable color */ :root, :root .lgT:not(.drK), :root .theme0:not(.drK){/* Theme */ --themeC: #f26926; /* Body */ --headC: #08102b; --bodyC: #08102b; --bodyCa: #989b9f; --bodyB: #fdfcff; /* Link */ --linkC: #ff6c00; --linkB: #ff6c00; /* Wave */ --waveB: #fce7c6; /* Icon */ --iconC: #08102b; --iconCa: #08102b; --iconCs: #767676; /* Header */ --headerC: #343435; --headerT: 16px; --headerW: 400; /* write 400(normal) or 700(bold) */ --headerB: #fffdfc; --headerL: 1px; --headerI: #08102b; --headerH: 60px; --headerHi: -60px; --headerHm: 60px; --headerR: 30px; /* Notif */ --notifH: 60px; --notifU: #fef8e8; --notifC: #9b0101; /* Content */ --contentB: #fffdfc; --contentL: #e6e6e6; --contentW: 1280px; --sideW: 300px; --transB: rgba(0,0,0,.05); /* Page */ --pageW: 780px; --pageW: 780px; --postT: 36px; --postF: 16px; --postTm: 24px; --postFm: 15px; /* Widget */ --widgetT: 15px; --widgetTw: 400; /* write 400(normal) or 700(bold) */ --widgetTa: 25px; --widgetTac: #989b9f; /* Nav */ --navW: 230px; --navT: #08102b; --navI: #08102b; --navB: #fffdfc; --navL: 1px; /* Search */ --srchI: #48525c; --srchB: #fffdfc; /* Mob Men */ --mobT: #08102b; --mobHv: #f1f1f0; --mobB: #fffdfc; --mobL: 1px; --mobBr: 12px; /* Footer */ --fotT: #08102b; --fotB: #fffdfc; --fotL: 1px; /* Font family */ --fontH: Google Sans Text,Arial,Helvetica,sans-serif; --fontB: Google Sans Text,Arial,Helvetica,sans-serif; --fontBa: Google Sans Text,Arial,Helvetica,sans-serif; --fontC: Google Sans Mono,monospace; /* Trans */ --trans-1: all .1s ease; --trans-2: all .2s ease; --trans-3: all .3s ease; --trans-4: all .4s ease; /* Synx */ --synxBg: #f6f6f6; --synxC: #2f3337; --synxOrange: #b75501; --synxBlue: #920101; --synxGreen: #54790d; --synxRed: #f15a5a; --synxGray: #656e77; /* Border Radius */ --buttonR: 50px; --greetR: 10px;  --iconHr: 15px;  --thumbEr: 5px; --srchMr: 20px; --srchDr : 20px; /* Dark */ --darkT: #fffdfc; --darkTa: #989b9f; --darkU: #ff6c00; --darkW: #343435; --darkB: #1e1e1e; --darkBa: #2d2d30; --darkBs: #252526;}
+/* Dark Mode */ :root .drK{/* Theme */ --themeC: #1e1e1e;}
+/* Theme 1 - Red */ :root .theme1:not(.drK){/* Theme */ --themeC: #D32F2F; /* Body */ --bodyB: #FFFCFD; /* Link */ --linkC: #F44336; --linkB: #F44336; /* Header */ --headerB: #FFEBEE; /* Notif */ --notifU: #FFEBEE; --notifC: #B71C1C; /* Search */ --srchB: #FFEBEE; /* MobMn */ --mobB: #FFEBEE; /* Wave */ --waveB: #FFEBEE;}
+/* Theme 2 - Green */ :root .theme2:not(.drK){/* Theme */ --themeC: #00796B; /* Body */ --bodyB: #FCFFFC; /* Link */ --linkC: #009688; --linkB: #009688; /* Header */ --headerB: #E0F2F1; /* Notif */ --notifU: #E0F2F1; --notifC: #00796B; /* Search */ --srchB: #E0F2F1; /* MobMn */ --mobB: #E0F2F1; /* Wave */ --waveB: #E0F2F1;}
+/* Theme 3 - Blue */ :root .theme3:not(.drK){/* Theme */ --themeC: #1565C0; /* Body */ --bodyB: #FBFEFF; /* Link */ --linkC: #1976D2; --linkB: #1976D2; /* Header */ --headerB: #E3F2FD; /* Notif */ --notifU: #E3F2FD; --notifC: #1565C0; /* Search */ --srchB: #E3F2FD; /* MobMn */ --mobB: #E3F2FD; /* Wave */ --waveB: #E3F2FD;}
+/* Theme 4 - Yellow */ :root .theme4:not(.drK){/* Theme */ --themeC: #FFC107; /* Body */ --bodyB: #FFFEFA; /* Link */ --linkC: #FF8F00; --linkB: #FF8F00; /* Header */ --headerB: #FFF8E1; /* Notif */ --notifU: #FFF8E1; --notifC: #FF8F00; /* Search */ --srchB: #FFF8E1; /* MobMn */ --mobB: #FFF8E1; /* Wave */ --waveB: #FFF8E1;}
+/* Theme 5 - Pink */ :root .theme5:not(.drK){/* Theme */ --themeC: #C2185B; /* Body */ --bodyB: #FFFCFD; /* Link */ --linkC: #D81B60; --linkB: #D81B60; /* Header */ --headerB: #FCE4EC; /* Notif */ --notifU: #FCE4EC; --notifC: #C2185B; /* Search */ --srchB: #FCE4EC; /* MobMn */ --mobB: #FCE4EC; /* Wave */ --waveB: #FCE4EC;}
+/* Theme 6 - Orange */ :root .theme6:not(.drK){/* Theme */ --themeC: #E64A19; /* Body */ --bodyB: #FBFEFF; /* Link */ --linkC: #F4511E; --linkB: #F4511E; /* Header */ --headerB: #FBE9E7; /* Notif */ --notifU: #FBE9E7; --notifC: #E64A19; /* Search */ --srchB: #FBE9E7; /* MobMn */ --mobB: #FBE9E7; /* Wave */ --waveB: #FBE9E7;}
+/* Theme 7 - Blue Grey */ :root .theme7:not(.drK){/* Theme */ --themeC: #455A64; /* Body */ --bodyB: #FBFEFF; /* Link */ --linkC: #546E7A; --linkB: #546E7A; /* Header */ --headerB: #ECEFF1; /* Notif */ --notifU: #ECEFF1; --notifC: #455A64; /* Search */ --srchB: #ECEFF1; /* MobMn */ --mobB: #ECEFF1; /* Wave */ --waveB: #ECEFF1;}
+/* Theme 8 - Brown */ :root .theme8:not(.drK){/* Theme */ --themeC: #5D4037; /* Body */ --bodyB: #FBFEFF; /* Link */ --linkC: #5D4037; --linkB: #5D4037; /* Header */ --headerB: #EFEBE9; /* Notif */ --notifU: #EFEBE9; --notifC: #5D4037; /* Search */ --srchB: #EFEBE9; /* MobMn */ --mobB: #EFEBE9; /* Wave */ --waveB: #EFEBE9;}
+/* Theme 9 - Purple */ :root .theme9:not(.drK){/* Theme */ --themeC: #7B1FA2; /* Body */ --bodyB: #FBFEFF; /* Link */ --linkC: #8E24AA; --linkB: #8E24AA; /* Header */ --headerB: #F3E5F5; /* Notif */ --notifU: #F3E5F5; --notifC: #7B1FA2; /* Search */ --srchB: #F3E5F5; /* MobMn */ --mobB: #F3E5F5; /* Wave */ --waveB: #F3E5F5;}
+/* Theme 10 - Indigo */ :root .theme10:not(.drK){/* Theme */ --themeC: #283593; /* Body */ --bodyB: #FBFEFF; /* Link */ --linkC: #3949AB; --linkB: #3949AB; /* Header */ --headerB: #E8EAF6; /* Notif */ --notifU: #E8EAF6; --notifC: #283593; /* Search */ --srchB: #E8EAF6; /* MobMn */ --mobB: #E8EAF6; /* Wave */ --waveB: #E8EAF6;}
+</style>
+</head>
+
+<body>
+		
+<script src="/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/assets/js/editartikel.min.js"></script><style>
+div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:4px solid #9b26af;box-shadow:2px 2px 2px hsla(0,0%,0%,.1)}div#word-count *{margin-right:1.5em;display:inline-block}
+    #send {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: var(--contentB);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .1)
+    }
+
+    #send h2 {
+      text-align: center;
+      margin-bottom: 20px
+    }
+
+    #send label {
+      margin-top: 10px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      display: block
+    }
+
+    #send input,
+    #send select,
+    #send textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--contentL);
+      border-radius: 4px;
+      box-sizing: border-box
+    }
+
+    #send small {
+      display: block;
+      margin-top: 1px;
+      font-size: .875em;
+      color: var(--darkTa)
+    }
+
+    #send small.required {
+      display: inline;
+      font-size: .875em;
+      color: red
+    }
+
+    #send button[type=submit] {
+      width: 100%;
+      margin-top: 25px;
+      padding: 10px;
+      background-color: var(--linkB);
+      color: #fffdfc;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer
+    }
+
+    #send button:hover {
+      background-color: var(--themeC)
+    }
+
+    @media (max-width: 600px) {
+      #send {
+        padding: 15px
+      }
+
+      #send h2 {
+        font-size: 1.5em
+      }
+    }
+
+    #send label.ck.ck-label.ck-voice-label {
+      display: none !important;
+    }
+
+    /* Modal Styling */
+    #send .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
+
+    #send .modal-content {
+      background-color: var(--contentB);
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+    }
+
+    #send .modal-close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    #send .modal-close:hover,
+   #send .modal-close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+   #send p#SendmodalMessage {
+    font-weight: 600;
+    font-size: 17px;
+    text-align: center;
+}
+#send .modal-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}#send svg#suksesModal,#send svg#errorModal {
+    display: none;
+}#loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:9999;justify-content:center;align-items:center}.spinner{width:60px;height:60px;border:6px solid #f3f3f3;border-top:6px solid var(--linkC);border-radius:50%;animation:1s linear infinite spin}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#loading-text{margin-top:20px;font-family:Arial,sans-serif;font-size:20px;color:#fff}
+  </style>
+<div id="loading">
+<div class="spinner"></div>
+</div>    
+  <div id="send">
+    <h2>Form Kirim Tulisan</h2>
+    <form id="submitForm">
+      <label for="namaPenulis">Nama Penulis<small class="required">*</small>:</label>
+      <input type="text" id="namaPenulis" name="namaPenulis" required>
+      <small>Contoh: Karl Marx</small>
+
+      <label for="email">Email<small class="required">*</small>:</label>
+      <input type="email" id="email" name="email" required>
+      <small>Contoh: karlmarx@mail.com</small>
+
+      <label for="noWhatsapp">No Whatsapp<small class="required">*</small>:</label>
+      <input type="tel" id="noWhatsapp" name="noWhatsapp" required>
+      <small>Contoh: 08123456789</small>
+
+      <label for="domisili">Domisili<small class="required">*</small>:</label>
+      <input type="text" id="domisili" name="domisili" required>
+      <small>Contoh: Berlin</small>
+
+      <label for="atribusi">Atribusi (Deskripsi Diri):</label>
+      <textarea id="atribusi" name="atribusi" rows="4"></textarea>
+      <small>Contoh: Saya adalah seorang filsuf yang mengkaji teori-teori sosial, politik, dan ekonomi.</small>
+
+      <label for="linkMedia">Link Media Sosial:</label>
+      <input type="text" id="linkMedia" name="linkMedia">
+      <small>Contoh: https://facebook.com/karlmarx, https://instagram.com/karlmarx</small>
+
+      <label for="jenisTulisan">Jenis Tulisan<small class="required">*</small>:</label>
+      <select id="jenisTulisan" name="jenisTulisan" required>
+        <option value="">Pilih Jenis Tulisan</option>
+        <option value="filsafat">Filsafat</option>
+        <option value="agama">Agama</option>
+        <option value="sosial">Sosial</option>
+        <option value="kebangsaan">Kebangsaan</option>
+        <option value="tokoh">Tokoh</option>
+        <option value="feminis">Feminis</option>
+        <option value="sains">Sains</option>
+        <option value="refleksi">Refleksi</option>
+        <option value="ulasan">Ulasan</option>
+      </select>
+      <small>Contoh: Pilih jenis tulisan yang sesuai.</small>
+
+      <label for="judulTulisan">Judul Tulisan<small class="required">*</small>:</label>
+      <input type="text" id="judulTulisan" name="judulTulisan" required>
+      <small>Contoh: Teori Dasar Marxisme</small>
+
+      <label for="isiTulisan">Isi Tulisan<small class="required">*</small>:</label>
+      <textarea id="isiTulisan" name="isiTulisan"></textarea>
+     <div id="word-count"></div>
+      <label for="fotoPenulis">Foto Penulis<small class="required">*</small>:</label>
+      <input type="file" id="fotoPenulis" name="fotoPenulis" accept="image/*" required>
+      <small>Max 3MB, format gambar (JPEG, PNG, GIF)</small>
+
+      <button type="submit">Kirim Tulisan</button>
+    </form>
+  
+  
+    <!-- Modal for Notifications -->
+  <div id="SendmyModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <p class="modal-svg">
+      <svg fill="#10c200" id="suksesModal" width="75" height="75" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 17.292l-4.5-4.364 1.857-1.858 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.643z"/></svg>
+      <svg fill="#ff0000" id="errorModal" width="85" height="85" viewBox="0 0 24 24"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z"/></svg>
+      </p>
+      <p id="SendmodalMessage"></p>
+    </div>
+  </div>
+  </div>
+  <script>
+  
+ function showLoading() {
+  document.getElementById('loading').style.display = 'flex';
+}
+function hideLoading() {
+let d=document.getElementById('loading');
+  d.style.display = 'none';
+}
+let editorInstance
+let WordCount;
+
+ClassicEditor.create(document.getElementById("isiTulisan"), {
+toolbar: {
+                    items: [
+                        
+                       
+                        'heading', '|',
+                        'bold', 'italic', "|",'link', 'blockQuote','|',
+                        'bulletedList', 'numberedList', 'todoList', '|',
+                        
+                        
+                         
+                       
+                    ],
+                    shouldNotGroupWhenFull: true
+                },
+    heading: {
+      options: [
+        { model: 'paragraph', title: 'Normal', class: 'ck-heading_paragraph' },
+        { model: 'heading2', view: 'h2', title: 'Subjudul', class: 'ck-heading_heading2' },
+        { model: 'heading3', view: 'h3', title: 'Sub-Subjudul', class: 'ck-heading_heading3'  }
+      ]
+    },
+    wordCount: {
+            onUpdate: stats => {
+                WordCount=stats.words 
+            }
+        }
+  })
+  .then(editor => {
+        const i = editor.plugins.get( 'WordCount' );
+        const a = document.getElementById( 'word-count' );
+
+        a.appendChild( i.wordCountContainer );
+        console.log(i.wordCountContainer)
+    editorInstance = editor; // Menyimpan instance editor
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+    // Handle form submission
+    document.getElementById("submitForm").addEventListener("submit", async function (event) {
+      event.preventDefault();showLoading()
+      const formData = new FormData(this);
+      const atribusi = formData.get("atribusi");
+      const linkMedia = formData.get("linkMedia");
+
+      if (!atribusi) formData.set("atribusi", "___");
+      if (!linkMedia) formData.set("linkMedia", "___");
+      const isiTulisanEditor = editorInstance.getData();  
+      if (!isiTulisanEditor.trim()) {
+    showModal("Isi Tulisan tidak boleh kosong.",1);hideLoading();
+    return; 
+  }
+  if(WordCount < 800){
+  let kurang= parseInt(800-WordCount);
+  showModal(`Jumlah Kata minimal 800. Tambahkan ${kurang} kata lagi`,1);hideLoading();
+    return; 
+  }
+
+  formData.set('isiTulisan', isiTulisanEditor);
+
+      const fotoPenulis = document.getElementById("fotoPenulis").files[0];
+      if (fotoPenulis) {
+        const validImageTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/webp'];
+        if (!validImageTypes.includes(fotoPenulis.type)) {
+          showModal("File harus berupa gambar (JPEG, PNG, WEBP).",1);hideLoading();
+          return;
+        }
+        if (fotoPenulis.size > 3 * 1024 * 1024) { // Maksimum 3MB
+          showModal("Ukuran file gambar tidak boleh lebih dari 3MB.",1);hideLoading();
+          return;
+        }
+formData.set("fotoPenulis", fotoPenulis);
+sendData(formData);
+       
+      } 
+      
+      else {
+        showModal("Foto penulis wajib diupload.",1);hideLoading();
+      }
+    });
+
+    // Fungsi untuk mengirim data ke server
+    async function sendData(formData) {
+      try {
+        const response = await fetch("/api/verify/kirim-tulisan", {
+          method: "POST",
+          body: formData,
+          
+        });
+
+        const result = await response.json();
+        showModal(result.message || "Gagal mengirim tulisan.",response.ok ? 0 : 1);hideLoading();
+        
+        if (response.ok) {
+      document.getElementById("submitForm").reset();
+      if (editorInstance) {
+        editorInstance.setData('');  // Mereset CKEditor
+      }
+    }
+      } catch (error) {
+        showModal("Terjadi kesalahan, coba lagi nanti.",1);hideLoading();
+      }
+    }
+    function showModal(message,error) {
+      const modal = document.getElementById("SendmyModal");
+      let svg = document.getElementById("suksesModal");
+      if(error){
+      svg = document.getElementById("errorModal");
+      }
+      
+      const SendmodalMessage = document.getElementById("SendmodalMessage");
+      SendmodalMessage.innerText = message;
+      modal.style.display = "block";
+      svg.style.display = "block";
+
+      // Close modal when user clicks on <span> (x)
+      document.getElementById("modalClose").onclick = function () {
+        modal.style.display = "none";
+        svg.style.display = "none";
+      }
+
+      // Close modal when user clicks outside the modal
+      window.onclick = function (event) {
+        if (event.target == modal || event.target == svg) {
+          modal.style.display = "none";
+          svg.style.display = "none";
+        }
+      }
+    }
+    
+   function FormtoJSON(formData) {
+  const formDataObj = {};
+  
+  formData.forEach((value, key) => {
+    formDataObj[key] = value;
+  });
+  
+  return formDataObj;
+}
+
+
+  </script>
+</body>
+
+</html>
