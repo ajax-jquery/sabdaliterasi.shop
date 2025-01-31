@@ -1,13 +1,13 @@
 ---
-layout: halaman
-author: Sabda Literasi
-title: Download Ebook
-harga: Rp0
-description: Koleksi ebook terlengkap! Download gratis novel, komik, buku pelajaran, dan berbagai genre lainnya. Baca online atau offline kapanpun dan dimanapun.
-permalink: /download/ebook
-image: https://sabdaliterasi.xyz/media/android-icon-512x512
+layout: 'halaman'
+author: 'Sabda Literasi'
+title: 'Download Ebook'
+harga: 'Rp0'
+description: 'Koleksi ebook terlengkap! Download gratis novel, komik, buku pelajaran, dan berbagai genre lainnya. Baca online atau offline kapanpun dan dimanapun.'
+permalink: '/download/ebook'
+image: 'https://sabdaliterasi.xyz/media/android-icon-512x512'
 keyword: [Download Ebook]
-tag_head:['<link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">']
+tag_head: ['<link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">']
 tag_body: ['<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/script/download/ebook/0.3/main.min.js"></script>']
 ---
 
