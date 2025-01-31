@@ -116,3 +116,5 @@ var PathThis="{{ page.url }}tts";function Voice(){document.getElementById("Tts")
 LazyScript("{{ site.url }}/assets/js/plusui/tts.min.js?versi=14.2","Voice()");
 </script>
 {% endif %}
+{% if page.tag_body %}{% for tag in page.tag_body %}
+{{ tag }}{% endfor %}{% endif %}
