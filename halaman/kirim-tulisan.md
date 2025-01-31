@@ -13,7 +13,8 @@ tag_body: ['<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/
 
 <div id="loading">
 <div class="spinner"></div>
-</div>    
+</div> 
+<p>Punya gagasan, refleksi, atau analisis mendalam yang ingin dibagikan? Kirim tulisanmu ke Sabda Literasi dan jangkau lebih banyak pembaca! Sebelum mengirim, pastikan untuk membaca syarat dan ketentuan di <a href="https://sabdaliterasi.xyz/undangan-menulis/" target="_blank">halaman ini</a> agar tulisanmu sesuai dengan ketentuan yang berlaku.</p>
   <div id="send">
     <h2>Form Kirim Tulisan</h2>
     <form id="submitForm">
