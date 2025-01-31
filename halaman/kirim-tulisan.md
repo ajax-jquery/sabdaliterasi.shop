@@ -7,7 +7,7 @@ description: "Kirim tulisanmu ke Sabda Literasi dan bagikan gagasan, opini, atau
 permalink: '/kirim-tulisan/'
 image: 'https://sabdaliterasi.xyz/media/android-icon-512x512'
 keyword: ['kirim tulisan']
-tag_head: ['<script src="/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/assets/js/editartikel.min.js"></script>','<link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/css/kirim-tulisan/0.1/main.min.css">']
+tag_head: ['<link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/css/kirim-tulisan/0.2/main.min.css">','<script src="/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/assets/js/editartikel.min.js"></script>']
 tag_body: ['<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/script/kirim-tulisan/0.2/main.min.js"></script>']
 ---
 
