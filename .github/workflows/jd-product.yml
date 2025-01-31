@@ -162,7 +162,7 @@ jobs:
 
       - name: Upload Renamed Articles Artifact
         if: env.HAS_PUBLISHED_FILES == 'true'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: renamed-articles
           path: |
