@@ -7,8 +7,10 @@ description: Koleksi ebook terlengkap! Download gratis novel, komik, buku pelaja
 permalink: /download/ebook
 image: https://sabdaliterasi.xyz/media/android-icon-512x512
 keyword: [Download Ebook]
+tag_head:['<link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">']
+tag_body: ['<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/script/download/ebook/0.3/main.min.js"></script>']
 ---
- <link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>div#loadingOverlay .text-light{color:var(--linkC)!important}button#submitForm {border-color: var(--linkC);background: var(--linkC)}h1.pTtl.aTtl.sml.itm{display:none !important}
   #loadingOverlay {
     display: flex;
@@ -53,4 +55,4 @@ keyword: [Download Ebook]
     <button type="submit" class="btn btn-primary" id="submitForm">Submit and Download</button>
   </form>
 </div>
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/script/download/ebook/0.3/main.min.js"></script>
+
