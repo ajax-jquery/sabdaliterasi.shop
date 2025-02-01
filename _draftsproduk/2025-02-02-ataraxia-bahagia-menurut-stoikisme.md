@@ -1,0 +1,14 @@
+---
+date: '2025-02-02 09:00:00 +0800'
+date_short: '2025-02-02T09:00:00+08:00'
+author: 'A. Setyo Wibowo'
+title: 'Ataraxia: Bahagia Menurut Stoikisme'
+buy: 'http://lynk.id/sabdaliterasi/7vDzx44'
+harga: 'Rp37.500'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-ataraxia-bahagia-menurut-stoikisme.jpg'
+description: 'Temukan kebahagiaan sejati dengan ebook Ataraxia karya A. Setyo Wibowo. Pelajari Stoikisme & terapkan dalam hidupmu. '
+keyword: ['ataraxia','stoikisme','bahagia','filsafat','ketenangan batin','a. setyo wibowo','ebook']
+penerbit: 'PT Kanisius'
+ISBN: '9789792157703'
+---
+<p>Kawan, pernahkah kamu merasa gundah, gelisah, dan tak tenang? Atau mungkin kamu merasa hidup ini seperti roller coaster, naik turun tanpa henti? Jika iya, mungkin kamu perlu mencoba pendekatan baru untuk menemukan kebahagiaan. Pendekatan yang sudah ada sejak zaman Yunani kuno, yaitu Stoikisme.   </p><p>Dalam ebook Ataraxia: Bahagia Menurut Stoikisme, kamu akan diajak menyelami dunia Stoikisme dan menemukan kebahagiaan sejati. A. Setyo Wibowo, penulis buku ini, akan memandu kawan untuk memahami filosofi Stoikisme secara mendalam dan bagaimana menerapkannya dalam kehidupan sehari-hari.   </p><p>Buku ini membahas berbagai topik menarik, mulai dari filsafat sebagai latihan mati, pentingnya membedakan hal yang bisa dan tidak bisa kita kendalikan, hingga bagaimana mencapai <em>ataraxia</em>, yaitu ketenangan batin yang tak tergoyahkan. Kamu akan belajar bagaimana menerima kenyataan hidup apa adanya, tanpa perlu cemas atau takut akan hal-hal yang berada di luar kendali kita. </p><p>Dengan memahami Stoikisme, kawan akan lebih mudah menghadapi berbagai tantangan hidup, seperti penyakit, kehilangan orang yang dicintai, atau bahkan menghadapi kemacetan lalu lintas yang menyebalkan. Stoikisme mengajarkan kita untuk fokus pada hal-hal yang bisa kita kendalikan, yaitu pikiran dan tindakan kita sendiri.   </p><p>Tidak hanya itu, ebook ini juga akan membahas secara khusus tentang Stoikisme di era Romawi, yang diwakili oleh tiga tokoh besar: Seneca, Epiktetos, dan Marcus Aurelius. Kamu akan belajar bagaimana mereka menerapkan Stoikisme dalam kehidupan mereka sebagai negarawan, filsuf, dan bahkan seorang kaisar.   </p><p><strong>Keunikan ebook ini:</strong></p><ul><li>Penulisnya, A. Setyo Wibowo, adalah seorang ahli filsafat yang telah mendalami Stoikisme selama bertahun-tahun.   </li><li>Bahasanya mudah dipahami, sehingga cocok untuk siapa saja yang ingin belajar tentang Stoikisme, bahkan untuk pemula sekalipun.</li><li>Berisi banyak contoh kasus dan ilustrasi yang relevan dengan kehidupan masa kini.   </li><li>Mengajarkan teknik-teknik praktis yang bisa langsung kamu terapkan untuk mencapai <em>ataraxia</em>.   </li></ul><p>Jadi, tunggu apa lagi? Kawan, klik tombol Beli Sekarang di bagian atas dan mulailah perjalananmu menuju kebahagiaan sejati dengan Ataraxia: Bahagia Menurut Stoikisme.</p>
