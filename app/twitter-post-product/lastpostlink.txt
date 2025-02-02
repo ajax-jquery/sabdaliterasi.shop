@@ -50,6 +50,7 @@
     "https://sabdaliterasi.xyz/psikoanalisis-revolusi-psikologi-kritis-untuk-gerakan-pembebasan/",
     "https://sabdaliterasi.xyz/antara-tuhan-manusia-dan-alam/",
     "https://sabdaliterasi.xyz/arkeologi-pengetahuan/",
-    "https://sabdaliterasi.xyz/ataraxia-bahagia-menurut-stoikisme/"
+    "https://sabdaliterasi.xyz/ataraxia-bahagia-menurut-stoikisme/",
+    "https://sabdaliterasi.xyz/awal-mula-origins/"
   ]
 }
