@@ -1,0 +1,14 @@
+---
+date: '2025-02-04 09:00:40 +0800'
+date_short: '2025-02-04T09:00:40+08:00'
+author: 'Erich Fromm'
+title: 'Bahasa yang Terlupakan'
+buy: 'https://lynk.id/sabdaliterasi/K8Z1GAq'
+harga: 'Rp31.500'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-bahasa-yang-terlupakan.jpg'
+description: 'Selami dunia bawah sadar manusia melalui bahasa simbolis dalam mimpi, dongeng, dan mitos bersama Erich Fromm dalam buku Bahasa yang Terlupakan.'
+keyword: ['erich fromm','bahasa yang terlupakan','mimpi','dongeng','mitos','simbolisme','psikoanalisissumber dan konten terkait']
+penerbit: 'IRCiSoD'
+ISBN: '9786237378259'
+---
+<p><em>Kawan</em>, pernahkah kau merasa terombang-ambing dalam lautan mimpi? Atau terkesima oleh dongeng dan mitos yang dikisahkan turun-temurun? Buku <strong>Bahasa yang Terlupakan</strong> ini akan mengajakmu menyelami dunia simbolis yang tersembunyi di balik mimpi, dongeng, dan mitos. Erich Fromm, seorang psikoanalis ternama, akan menjadi pemandu setiamu dalam petualangan menyingkap tabir misteri alam bawah sadar manusia.   </p><p>Dalam Bahasa yang Terlupakan, Erich Fromm dengan apik memaparkan gagasannya tentang bahasa simbolis yang universal. Ia menjelaskan bahwa mimpi, dongeng, dan mitos bukanlah sekadar bunga tidur atau cerita pengantar lelap. Lebih dari itu, ketiganya adalah gerbang menuju pemahaman yang lebih dalam tentang diri kita sendiri dan dunia di sekitar kita.   </p><p>Fromm dengan gamblang menguraikan berbagai jenis simbol dan bagaimana mereka bekerja dalam mimpi, dongeng, dan mitos. Ia juga membahas sejarah panjang interpretasi mimpi, dari zaman kuno hingga teori-teori modern yang dikembangkan oleh Sigmund Freud dan Carl Jung.   </p><p>Bahasa yang Terlupakan bukan sekadar buku teks tentang psikologi atau mitologi. Fromm menuliskannya dengan gaya yang mudah dipahami dan diresapi, bahkan oleh mereka yang awam dengan dunia psikoanalisis. Ia mengajakmu untuk menyelami kisah-kisah mimpi, dongeng, dan mitos, bukan hanya sebagai pembaca, tetapi sebagai penjelajah yang aktif.   </p><p>Buku ini akan memberikanmu wawasan baru tentang bagaimana mimpi, dongeng, dan mitos dapat menjadi cermin bagi pikiran dan perasaanmu yang terdalam. Kau akan belajar untuk memahami bahasa simbolis yang mereka gunakan, dan dengan pemahaman itu, kau dapat membuka pintu menuju pemahaman diri yang lebih utuh.   </p><p>Bahasa yang Terlupakan adalah buku yang wajib dibaca oleh siapa pun yang tertarik untuk menjelajahi dunia bawah sadar manusia. Erich Fromm, dengan kepiawaiannya dalam bidang psikoanalisis, akan membimbingmu dalam perjalanan yang menakjubkan ini. </p><p>Kawan, tunggu apa lagi? <strong>Beli Sekarang</strong> dan mulailah petualanganmu menyingkap misteri Bahasa yang Terlupakan!</p>
