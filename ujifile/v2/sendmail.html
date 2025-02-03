@@ -10,7 +10,10 @@ permalink: /wp-admin/v2/sendmail
 <title>Send Email via API: V2</title>
 <link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/assets/js/jquery-3.7.1.min.js"></script>
-<script src="/wp-content/cdn/g/ajax-jquery/site/file/assets/js/editartikel.min.js"></script>
+<link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/ckeditor5myplug.min.css">
+<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/ckeditor5-v3.umd.js"></script>
+<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/translations/id.umd.js"></script>
+
 <style>.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
 </style>
 </head>
@@ -64,9 +67,6 @@ Tulis Konten
 <div id="tulis_konten" class="">
 <div id="validck" class="form-outline mb-2 CKeditnya">
 <textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea>
-</div>
-<div class="mb-3 field">
-<button class="btn btn-primary" id="cetak">Download</button>
 </div>
 </div>
 
@@ -489,9 +489,186 @@ setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaks
     });
            }           
 function openCK(){
-ClassicEditor.create(document.getElementById("editor"), {
-heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
-});}openCK()
+const editorConfig = {
+	toolbar: {
+		items: [
+        	'sourceEditing','FindAndReplace',
+			'|',
+			
+			'bold','italic','link','ExportWord','|',
+            'heading',
+			'|',
+			'insertImage',
+			'insertTable',
+			'blockQuote',
+			'codeBlock',
+			'|',
+			'bulletedList',
+			'numberedList',
+			'todoList',
+			'outdent',
+			'indent'
+		],
+		shouldNotGroupWhenFull: false
+	},
+    	balloonToolbar: ['heading','bold', 'italic', '|', 'link','|', 'bulletedList', 'numberedList'],
+plugins: [
+    Autoformat,
+		AutoImage,
+		Autosave,
+        BalloonToolbar,
+		BlockQuote,
+		Bold,
+		Bookmark,
+		Code,
+		CodeBlock,
+		Essentials,
+        ExportWord,
+		FindAndReplace,
+		Heading,
+		ImageBlock,
+		ImageCaption,
+		ImageInline,
+		ImageInsert,
+		ImageInsertViaUrl,
+		ImageResize,
+		ImageStyle,
+		ImageTextAlternative,
+		ImageToolbar,
+		ImageUpload,
+		Indent,
+		Italic,
+		Link,
+		LinkImage,
+		List,
+		ListProperties,
+		Paragraph,
+		PasteFromOffice,
+		SourceEditing,
+		SpecialCharacters,
+		SpecialCharactersArrows,
+		SpecialCharactersCurrency,
+		SpecialCharactersEssentials,
+		SpecialCharactersLatin,
+		SpecialCharactersMathematical,
+		SpecialCharactersText,
+		Strikethrough,
+		Table,
+		TableCaption,
+		TableCellProperties,
+		TableColumnResize,
+		TableProperties,
+		TableToolbar,
+		TextTransformation,
+		TodoList,
+		Underline,
+		WordCount
+	],
+    
+	heading: {
+		options: [
+			{
+				model: 'paragraph',
+				title: 'Paragraph',
+				class: 'ck-heading_paragraph'
+			},
+			
+			{
+				model: 'heading2',
+				view: 'h2',
+				title: 'Tajuk Sub',
+				class: 'ck-heading_heading2'
+			},
+			{
+				model: 'heading3',
+				view: 'h3',
+				title: 'Subtajuk 1',
+				class: 'ck-heading_heading3'
+			},
+			{
+				model: 'heading4',
+				view: 'h4',
+				title: 'Subtajuk 2',
+				class: 'ck-heading_heading4'
+			}
+		]
+	},
+	image: {
+		toolbar: [
+			'toggleImageCaption',
+			'imageTextAlternative',
+			'|',
+			'imageStyle:inline',
+			'imageStyle:wrapText',
+			'imageStyle:breakText',
+			'|',
+			'resizeImage'
+		]
+	},
+	language: 'id',
+	link: {
+		addTargetToExternalLinks: true,
+		defaultProtocol: 'https://',
+		decorators: {
+			toggleDownloadable: {
+				mode: 'manual',
+				label: 'Downloadable',
+				attributes: {
+					download: 'file'
+				}
+			}
+		}
+	},
+	list: {
+		properties: {
+			styles: true,
+			startIndex: true,
+			reversed: true
+		}
+	},
+	menuBar: {
+		isVisible: true
+	},
+	placeholder: 'Type or paste your content here!',
+	table: {
+		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
+	},
+   extraPlugins: [MyUploadAdapterPlugin],
+   exportWord: {
+converterOptions: {
+"headers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p { display:none;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    },
+"footers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    }
+}    
+},
+   licenseKey: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSJdLCJkaXN0cmlidXRpb25DaGFubmVsIjoiY2xvdWQiLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiZmIwN2ZhNzkifQ.-ZWZVPSnqhPcRnTu7Jcov9cosLNqm-KQo7FoeV4THelVZVtAg7yZdA-OWkd0_NDIvhh2BoFCWNNbOqUe0cTZrA",
+ };
+ClassicEditor.create(document.getElementById("editor"), editorConfig);}openCK()
 function CKdata(){
 let u = document.querySelector('.ck-editor__editable'),
    e = u.ckeditorInstance.getData().trim();
@@ -601,7 +778,7 @@ inforek=""
             };
 
 try {
-        const res = await fetch('https://docx-converter.cke-cs.com/v2/convert/html-docx', {
+        const res = await fetch('/api/convert/docx', {
             method: 'POST',
             body: JSON.stringify(request), 
             headers: {
