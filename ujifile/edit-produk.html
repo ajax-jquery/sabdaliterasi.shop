@@ -11,13 +11,16 @@ permalink: /wp-admin/edit-produk/
 <link rel="dns-prefetch preload" href="//sabdaliterasi.xyz" />
 <link rel="dns-prefetch preload" href="//www.gstatic.com" />
 <link rel="dns-prefetch preload" href="//sabda-562b1-default-rtdb.firebaseio.com" />
-<link rel="preload" href="/assets/js/editartikel.min.js?m3s" as="script" />
 <link rel="preload" href="/assets/js/jquery-3.7.1.min.js" as="script" />
 <link rel="preload" href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" as="style" />
 <link rel="preload" href="https://sabda-562b1-default-rtdb.firebaseio.com/editartikel" />
 <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
-<script src="/assets/js/editartikel.min.js"></script>
+
+<link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/ckeditor5myplug.min.css">
+<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/ckeditor5-v3.umd.js"></script>
+<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/translations/id.umd.js"></script>
+
 <script>
 let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
 function DuplikatKey(t){let i=t.split(",").map(t=>t.trim()).filter(t=>t),e=new Set(i),n=Array.from(e);return n.join(", ")}
@@ -134,7 +137,8 @@ ISBN: '${isbn}'
   
     }  </script>
 <div id="savesucces"> <div class="alert alert-success Saved" role="alert"> Saved </div> <div class="alert alert-danger Remove" role="alert"> Remove </div> <div class="alert alert-primary Terupload" role="alert"> Terupload </div> <div class="alert alert-warning readyfile" role="alert"> File sudah ada </div> <div class="alert alert-success uploadfile" role="alert"> File berhasil di unggah sebagai: </div> <div class="alert alert-danger gagalfile" role="alert"> File Gagal di unggah sebagai: </div> </div>
-<script>function Alert(b){b.fadeIn();setTimeout(function(){b.fadeOut()},1000)};  </script><style>
+<script>function Alert(b){b.fadeIn();setTimeout(function(){b.fadeOut()},1000)};  </script>
+<style>
   .placeholder::before{
   content:attr(data-text)
   }.editable {
@@ -335,9 +339,187 @@ function Selectfolder(){
 updateFolderOption();$('[name="tanggal"]').on("change",updateFolderOption)}
 
 function startCK(){
-ClassicEditor.create(document.getElementById("editor"), {
-heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading2', view: 'h2', title: 'H2', class: 'ck-heading_heading2' }, { model: 'heading3', view: 'h3', title: 'H3', class: 'ck-heading_heading3' }, { model: 'heading4', view: 'h4', title: 'H4', class: 'ck-heading_heading4' }, { model: 'heading5', view: 'h5', title: 'H5', class: 'ck-heading_heading5' }, { model: 'heading6', view: 'h6', title: 'H6', class: 'ck-heading_heading6' } ] }
-}).then( editor => {
+const editorConfig = {
+	toolbar: {
+		items: [
+        	'sourceEditing','FindAndReplace',
+			'|',
+			
+			'bold','italic','link','ExportWord','|',
+            'heading',
+			'|',
+			'insertImage',
+			'insertTable',
+			'blockQuote',
+			'codeBlock',
+			'|',
+			'bulletedList',
+			'numberedList',
+			'todoList',
+			'outdent',
+			'indent'
+		],
+		shouldNotGroupWhenFull: false
+	},
+    	balloonToolbar: ['heading','bold', 'italic', '|', 'link','|', 'bulletedList', 'numberedList'],
+plugins: [
+    Autoformat,
+		AutoImage,
+		Autosave,
+        BalloonToolbar,
+		BlockQuote,
+		Bold,
+		Bookmark,
+		Code,
+		CodeBlock,
+		Essentials,
+        ExportWord,
+		FindAndReplace,
+		Heading,
+		ImageBlock,
+		ImageCaption,
+		ImageInline,
+		ImageInsert,
+		ImageInsertViaUrl,
+		ImageResize,
+		ImageStyle,
+		ImageTextAlternative,
+		ImageToolbar,
+		ImageUpload,
+		Indent,
+		Italic,
+		Link,
+		LinkImage,
+		List,
+		ListProperties,
+		MediaEmbed,
+		Paragraph,
+		PasteFromOffice,
+		SourceEditing,
+		SpecialCharacters,
+		SpecialCharactersArrows,
+		SpecialCharactersCurrency,
+		SpecialCharactersEssentials,
+		SpecialCharactersLatin,
+		SpecialCharactersMathematical,
+		SpecialCharactersText,
+		Strikethrough,
+		Table,
+		TableCaption,
+		TableCellProperties,
+		TableColumnResize,
+		TableProperties,
+		TableToolbar,
+		TextTransformation,
+		TodoList,
+		Underline,
+		WordCount
+	],
+    
+	heading: {
+		options: [
+			{
+				model: 'paragraph',
+				title: 'Paragraph',
+				class: 'ck-heading_paragraph'
+			},
+			
+			{
+				model: 'heading2',
+				view: 'h2',
+				title: 'Tajuk Sub',
+				class: 'ck-heading_heading2'
+			},
+			{
+				model: 'heading3',
+				view: 'h3',
+				title: 'Subtajuk 1',
+				class: 'ck-heading_heading3'
+			},
+			{
+				model: 'heading4',
+				view: 'h4',
+				title: 'Subtajuk 2',
+				class: 'ck-heading_heading4'
+			}
+		]
+	},
+	image: {
+		toolbar: [
+			'toggleImageCaption',
+			'imageTextAlternative',
+			'|',
+			'imageStyle:inline',
+			'imageStyle:wrapText',
+			'imageStyle:breakText',
+			'|',
+			'resizeImage'
+		]
+	},
+	language: 'id',
+	link: {
+		addTargetToExternalLinks: true,
+		defaultProtocol: 'https://',
+		decorators: {
+			toggleDownloadable: {
+				mode: 'manual',
+				label: 'Downloadable',
+				attributes: {
+					download: 'file'
+				}
+			}
+		}
+	},
+	list: {
+		properties: {
+			styles: true,
+			startIndex: true,
+			reversed: true
+		}
+	},
+	menuBar: {
+		isVisible: true
+	},
+	placeholder: 'Type or paste your content here!',
+	table: {
+		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
+	},
+   extraPlugins: [MyUploadAdapterPlugin],
+   exportWord: {
+converterOptions: {
+"headers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p { display:none;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    },
+"footers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    }
+}    
+},
+   licenseKey: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSJdLCJkaXN0cmlidXRpb25DaGFubmVsIjoiY2xvdWQiLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiZmIwN2ZhNzkifQ.-ZWZVPSnqhPcRnTu7Jcov9cosLNqm-KQo7FoeV4THelVZVtAg7yZdA-OWkd0_NDIvhh2BoFCWNNbOqUe0cTZrA",
+ };
+ClassicEditor.create(document.getElementById("editor"), editorConfig).then( editor => {
         const i = editor.plugins.get( 'WordCount' );
         const a = document.getElementById( 'word-count' );
 
