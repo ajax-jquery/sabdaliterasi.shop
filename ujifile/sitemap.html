@@ -13,13 +13,16 @@ permalink: /wp-admin/sitemap
  </style>
 </head>
 <body><h1>Daftar Permalink</h1>
+
+<h1>Daftar Permalink</h1>
 <ul>
-  {% for file in site.static_files %}
-    {% if file.path contains 'ujifile/' %}
+  {% for page in site.pages %}
+    {% if page.path contains 'ujifile/' and page.permalink %}
       <li>
-        <a href="{{ file.path | relative_url }}">{{ file.path }}</a>
+        <a href="{{ page.permalink | relative_url }}">{{ page.permalink }}</a>
       </li>
     {% endif %}
   {% endfor %}
-</ul></body>
+</ul>    
+</body>
 </html>
