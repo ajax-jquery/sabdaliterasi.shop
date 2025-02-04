@@ -19,7 +19,7 @@ permalink: /wp-admin/sitemap
   {% for page in site.pages %}
     {% if page.path contains 'ujifile/' and page.permalink %}
       <li>
-        <a href="{{ page.permalink | relative_url }}">{{ page.permalink }}</a>
+        <a href="{{ page.permalink | relative_url }}" target="_blank">{{ page.permalink }}</a>
       </li>
     {% endif %}
   {% endfor %}
