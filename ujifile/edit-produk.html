@@ -1343,12 +1343,13 @@ $('input[name=harga]').on('change click keyup input paste',(function (event) {
         
         cropButton.addEventListener("click", function () {
         if(sudah){
+const File = photoInput.files[0];
             const croppedCanvas = cropper.getCroppedCanvas();
-            croppedBase64 = croppedCanvas.toDataURL("image/jpeg");
+            croppedBase64 = croppedCanvas.toDataURL(File.type);
             submitButton.dataset.image = croppedBase64;
             submitButton.removeAttribute("disabled");
      submitButton.classList.replace("btn-secondary", "btn-primary")
- $('img.img-fluid').attr("src",croppedBase64)
+ $('img.img-fluid').attr("src",croppedBase64);$(".imageform").removeClass("hidden");
             const cropModal = bootstrap.Modal.getInstance(document.getElementById("cropModal"));
             cropModal.hide();
             sudah=false
