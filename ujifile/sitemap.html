@@ -1,0 +1,25 @@
+---
+layout: none
+permalink: /wp-admin/sitemap
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+  
+  
+ </style>
+</head>
+<body><h1>Daftar Permalink</h1>
+<ul>
+  {% for file in site.static_files %}
+    {% if file.path contains 'ujifile/' %}
+      <li>
+        <a href="{{ file.path | relative_url }}">{{ file.path }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul></body>
+</html>
