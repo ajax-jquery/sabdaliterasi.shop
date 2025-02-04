@@ -52,6 +52,7 @@
     "https://sabdaliterasi.xyz/arkeologi-pengetahuan/",
     "https://sabdaliterasi.xyz/ataraxia-bahagia-menurut-stoikisme/",
     "https://sabdaliterasi.xyz/awal-mula-origins/",
-    "https://sabdaliterasi.xyz/bahasa-yang-terlupakan/"
+    "https://sabdaliterasi.xyz/bahasa-yang-terlupakan/",
+    "https://sabdaliterasi.xyz/bangsa-tanpa-nasionalisme/"
   ]
 }
