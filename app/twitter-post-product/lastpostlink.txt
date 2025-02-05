@@ -53,6 +53,7 @@
     "https://sabdaliterasi.xyz/ataraxia-bahagia-menurut-stoikisme/",
     "https://sabdaliterasi.xyz/awal-mula-origins/",
     "https://sabdaliterasi.xyz/bahasa-yang-terlupakan/",
-    "https://sabdaliterasi.xyz/bangsa-tanpa-nasionalisme/"
+    "https://sabdaliterasi.xyz/bangsa-tanpa-nasionalisme/",
+    "https://sabdaliterasi.xyz/berpikir-kritis-kecakapan-hidup-di-era-digital/"
   ]
 }
