@@ -5,7 +5,7 @@ layout: null
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>{{ site.title }}</title><link>{{ site.url }}</link><description>{{ site.description }}</description><atom:link href="{{ site.url }}/rss" rel="self"></atom:link><lastBuildDate>{{ site.time }}</lastBuildDate>
  {% for post in site.posts %} 
 <item>
-  <title>{{ post.title }}</title>
+  <title>{{ post.title | escape  }}</title>
   <link>{{ site.url }}{{ post.url }}</link><description>{{ post.harga | replace: "Rp","" }}</description><author>{{ post.image }}</author><pubDate>{{ post.date }}</pubDate><guid isPermaLink="false">{{ post.buy }}</guid><enclosure length="0" type="audio/mpeg" url="{{ post.image }}"></enclosure></item>
 {% endfor %} 
 </channel>
