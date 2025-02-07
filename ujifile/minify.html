@@ -1,0 +1,87 @@
+---
+layout: null
+permalink: /wp-admin/minify
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Minifier</title>
+    <style>textarea.form-control {
+    min-height: calc(25.5em + .75rem + calc(var(--bs-border-width)* 2))!important;
+}</style>
+    <link rel="stylesheet" href="/wp-content/cdn/n/bootstrap/5.3.0/dist/css/bootstrap.min.css">
+    <script src="/wp-content/cdn/n/bootstrap/5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+<div class="card-body">
+<label class="form-label">Pilih Tipe:</label>
+    <select id="minifyType" class="form-select" onchange="toggleFields()">
+        <option value="javascript">JavaScript</option>
+        <option value="css">CSS</option>
+    </select>
+    </div>
+    </div>
+    
+<div id="javascript">
+<div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>JavaScript Minifier</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="inputJS" class="form-label">Masukkan JavaScript:</label>
+                    <textarea id="inputJS" class="form-control" rows="5" placeholder="Tulis kode JavaScript di sini..."></textarea>
+                </div>
+                <button id="minifyButtonJS" class="btn btn-success w-100" onclick="minifyCodeJS()">
+                    <span id="minifyTextJS">Minify</span>
+                    <span id="loadingSpinnerJS" class="spinner-border spinner-border-sm d-none"></span>
+                </button>
+
+                <div class="mt-4">
+                    <label for="outputCodeJS" class="form-label">Hasil Minify:</label>
+                    <textarea id="outputCodeJS" class="form-control" rows="5" readonly></textarea>
+                    <button id="copyButtonJS" class="btn btn-secondary mt-2 w-100" onclick="copyJS()" style="display: none;">
+                        Copy Hasil Minify
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>async function minifyCodeJS(){const e=document.getElementById("inputJS").value,t=document.getElementById("minifyButtonJS"),n=document.getElementById("minifyTextJS"),o=document.getElementById("loadingSpinnerJS"),d=document.getElementById("outputCodeJS"),i=document.getElementById("copyButtonJS");if(e.trim()){t.disabled=!0,n.textContent="Minifying...",o.classList.remove("d-none");try{const t=await fetch("/api/verify/minify-js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:e})}),n=await t.json();if(!t.ok)throw new Error(n.error||"Kode tidak valid!");d.value=n.minifiedCode,d.style.border="1px solid #ced4da",i.style.display="block"}catch(e){d.value=`Error: ${e.message}`,d.style.border="2px solid red",i.style.display="none"}t.disabled=!1,n.textContent="Minify",o.classList.add("d-none")}else alert("Masukkan kode JavaScript dulu!")}function copyJS(){document.getElementById("outputCodeJS").select(),document.execCommand("copy"),alert("Hasil minify berhasil disalin!")}</script>
+</div>    
+<div id="css" style="display:none">
+<div class="container mt-5">
+ <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>CSS Minifier</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="inputCSS" class="form-label">Masukkan CSS:</label>
+                    <textarea id="inputCSS" class="form-control" rows="5" placeholder="Tulis kode CSS di sini..."></textarea>
+                </div>
+                <button id="minifyButtonCSS" class="btn btn-success w-100" onclick="minifyCSS()">
+                    <span id="minifyTextCSS">Minify</span>
+                    <span id="loadingSpinnerCSS" class="spinner-border spinner-border-sm d-none"></span>
+                </button>
+
+                <div class="mt-4">
+                    <label for="outputCodeCSS" class="form-label">Hasil Minify:</label>
+                    <textarea id="outputCodeCSS" class="form-control" rows="5" readonly></textarea>
+                    <button id="copyButtonCSS" class="btn btn-secondary mt-2 w-100" onclick="copyCSS()" style="display: none;">
+                        Copy Hasil Minify
+                    </button>
+                </div>
+            </div>
+        </div>
+<script>async function minifyCSS(){const e=document.getElementById("inputCSS").value,t=document.getElementById("minifyButtonCSS"),n=document.getElementById("minifyTextCSS"),o=document.getElementById("loadingSpinnerCSS"),d=document.getElementById("outputCodeCSS"),i=document.getElementById("copyButtonCSS");if(e.trim()){t.disabled=!0,n.textContent="Minifying...",o.classList.remove("d-none");try{const t=await fetch("/api/verify/minify-css",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:e})}),n=await t.json();if(!t.ok)throw new Error(n.error||"Kode tidak valid!");d.value=n.minifiedCode,d.style.border="1px solid #ced4da",i.style.display="block"}catch(e){d.value=`Error: ${e.message}`,d.style.border="2px solid red",i.style.display="none"}t.disabled=!1,n.textContent="Minify",o.classList.add("d-none")}else alert("Masukkan kode CSS dulu!")}function copyCSS(){document.getElementById("outputCodeCSS").select(),document.execCommand("copy"),alert("Hasil minify berhasil disalin!")}</script>        
+    </div>
+</div>
+<script>function toggleFields(){const e=document.getElementById("minifyType").value;document.getElementById("javascript").style.display="javascript"===e?"block":"none",document.getElementById("css").style.display="css"===e?"block":"none"}</script>
+</body>
+</html>
