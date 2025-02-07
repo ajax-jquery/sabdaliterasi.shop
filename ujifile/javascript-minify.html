@@ -1,0 +1,94 @@
+---
+layout: null
+permalink: /wp-admin/javascript-minify
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Minifier</title>
+    <style>textarea.form-control {
+    min-height: calc(25.5em + .75rem + calc(var(--bs-border-width)* 2))!important;
+}</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>JavaScript Minifier</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="inputCode" class="form-label">Masukkan JavaScript:</label>
+                    <textarea id="inputCode" class="form-control" rows="5" placeholder="Tulis kode JavaScript di sini..."></textarea>
+                </div>
+                <button id="minifyButton" class="btn btn-success w-100" onclick="minifyCode()">
+                    <span id="minifyText">Minify</span>
+                    <span id="loadingSpinner" class="spinner-border spinner-border-sm d-none"></span>
+                </button>
+
+                <div class="mt-4">
+                    <label for="outputCode" class="form-label">Hasil Minify:</label>
+                    <textarea id="outputCode" class="form-control" rows="5" readonly></textarea>
+                    <button id="copyButton" class="btn btn-secondary mt-2 w-100" onclick="copyToClipboard()" style="display: none;">
+                        Copy Hasil Minify
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    async function minifyCode() {
+    const code = document.getElementById('inputCode').value;
+    const minifyButton = document.getElementById('minifyButton');
+    const minifyText = document.getElementById('minifyText');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const outputCode = document.getElementById('outputCode');
+    const copyButton = document.getElementById('copyButton');
+
+    if (!code.trim()) {
+        alert('Masukkan kode JavaScript dulu!');
+        return;
+    }
+
+    // Disable tombol & tampilkan loading
+    minifyButton.disabled = true;
+    minifyText.textContent = 'Minifying...';
+    loadingSpinner.classList.remove('d-none');
+
+    try {
+        const response = await fetch('/api/verify/minify-js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            outputCode.value = result.minifiedCode;
+            outputCode.style.border = '1px solid #ced4da'; // Reset warna border normal
+            copyButton.style.display = 'block';
+        } else {
+            throw new Error(result.error || 'Kode tidak valid!');
+        }
+    } catch (error) {
+        outputCode.value = `Error: ${error.message}`;
+        outputCode.style.border = '2px solid red'; // Warna merah biar kelihatan error
+        copyButton.style.display = 'none';
+    }
+
+    // Aktifkan kembali tombol
+    minifyButton.disabled = false;
+    minifyText.textContent = 'Minify';
+    loadingSpinner.classList.add('d-none');
+}function copyToClipboard(){document.getElementById("outputCode").select(),document.execCommand("copy"),alert("Hasil minify berhasil disalin!")}
+    </script>
+</body>
+</html>
