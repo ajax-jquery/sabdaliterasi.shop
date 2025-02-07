@@ -56,6 +56,7 @@
     "https://sabdaliterasi.xyz/bangsa-tanpa-nasionalisme/",
     "https://sabdaliterasi.xyz/berpikir-kritis-kecakapan-hidup-di-era-digital/",
     "https://sabdaliterasi.xyz/essays-moral-political-and-literary-buku-ii/",
-    "https://sabdaliterasi.xyz/essays-moral-political-and-literary-buku-iii/"
+    "https://sabdaliterasi.xyz/essays-moral-political-and-literary-buku-iii/",
+    "https://sabdaliterasi.xyz/che-guevara-sang-revolusioner/"
   ]
 }
