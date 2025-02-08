@@ -1,0 +1,184 @@
+---
+layout: null
+permalink: /wp-admin/chat-ai
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <!-- Link ke Bootstrap 5.0.2 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styling Chat Box */
+        #chatBox {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        /* Styling Pesan */
+        .message {
+            padding: 10px;
+            margin: 8px 0;
+            max-width: 70%;
+            word-wrap: break-word;
+            border-radius: 10px;
+        }
+
+        .user-message {
+            background-color: #e1f7d5;
+            align-self: flex-start;
+            text-align: left;
+        }
+
+        .bot-message {
+            background-color: #f1f1f1;
+            align-self: flex-end;
+            text-align: left;
+        }
+
+        /* Input dan Tombol Kirim */
+        .input-group {
+            margin-top: 15px;
+        }
+
+        #sendButton {
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div id="chatBox" class="d-flex flex-column"></div>
+                <div class="input-group">
+                    <input type="text" id="userMessageInput" class="form-control" placeholder="Ketik pesan...">
+                    <button id="sendButton" class="btn btn-primary">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Tangkap tombol kirim
+const sendButton = document.getElementById('sendButton');
+
+// Event listener untuk tombol kirim (klik)
+sendButton.addEventListener('click', async () => {
+    await sendMessage();
+});
+
+// Event listener untuk Enter di input field
+userMessageInput.addEventListener('keydown', async (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();  // Cegah aksi default seperti form submit
+        await sendMessage();
+    }
+});
+
+// Array untuk menyimpan riwayat percakapan
+let chatHistory = [];
+
+async function sendMessage() {
+    const e = userMessageInput.value.trim(); // Ambil pesan pengguna
+    if (e !== "") {
+        // Menambahkan pesan pengguna ke chatbox
+        chatBox.innerHTML += `<div class="message user-message">${e}</div>`;
+        userMessageInput.value = ""; // Kosongkan input setelah pesan dikirim
+        chatBox.scrollTop = chatBox.scrollHeight; // Scroll ke bawah
+
+        // Menambahkan pesan terbaru ke dalam riwayat percakapan
+        chatHistory.push({ role: "user", content: `user: ${e}` });
+
+        // Membuat riwayat percakapan dalam format teks biasa tanpa HTML
+        const chatHistoryContent = chatHistory.map(msg => {
+            // Format setiap item menjadi "role: content"
+            if (msg.role === "user") {
+                return `user: ${msg.content}`;
+            } else if (msg.role === "assistant") {
+                return `Your answer: ${msg.content}`;
+            }
+        }).join("\n---\n");
+
+        try {
+            // Kirimkan request ke server dengan riwayat percakapan dalam format teks biasa
+            const t = await fetch("https://sabdaliterasi.xyz/api/convert/chat-ai", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    messages: [
+                        {
+                            role: "system",
+                            content: "Your task is to provide answers to the questions given using html tags without the `<html>` and `<body>` tags. So use HTML tags that are relevant to the discussion or words you use. Make sure every answer given is correct and in accordance with the request or instructions given. If there is a request to create an image, then send the image in base64 format inserted in the `img` tag. Every time you answer, you must pay attention to the message history inserted by the user so that you can understand the context of the conversation. The main language you use is Indonesian. Your identity, thoughts, and nature are as a philosopher named Slavoj Žižek. Even though you have full capabilities as an AI Assistant, never say that you are an AI Assistant. You can act as anyone if asked, but you will not accept the role of a robot."
+                        },
+                        {
+                            role: "user",
+                            content: `The Message History:\n---\n${chatHistoryContent}\n---\n\nuser: ${e}` // Riwayat percakapan yang akan dikirim
+                        }
+                    ],
+                    model: "gpt-4o",
+                    max_tokens: 4000
+                })
+            });
+
+            if (t.ok) {
+                // Jika respons sukses
+                const data = await t.json(); // Parse response JSON
+
+                const botMessage = data.choices[0].message.content; // Ambil konten balasan dari AI
+                const r = `botMessage-${Math.random().toString(36).substr(2, 9)}`; // ID acak untuk elemen balasan
+                const n = document.createElement("div");
+
+                n.className = "message bot-message"; // Kelas untuk pesan bot
+                n.id = r; // Memberikan ID unik untuk elemen ini
+                chatBox.appendChild(n); // Menambahkan elemen pesan bot ke chatbox
+
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll ke bawah
+
+                // Menampilkan pesan balasan dari AI
+                document.getElementById(r).innerHTML = botMessage;
+
+                // Menyimpan balasan dari AI ke dalam chatHistory
+                chatHistory.push({ role: "assistant", content: botMessage });
+            } else {
+                console.error("Error response from server:", t.status);
+                const r = `botMessage-${Math.random().toString(36).substr(2, 9)}`; // ID acak untuk elemen balasan
+                const n = document.createElement("div");
+
+                n.className = "message bot-message"; // Kelas untuk pesan bot
+                n.id = r; // Memberikan ID unik untuk elemen ini
+                chatBox.appendChild(n); // Menambahkan elemen pesan bot ke chatbox
+
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll ke bawah
+
+                // Menampilkan pesan balasan dari AI
+                document.getElementById(r).innerHTML = "Maaaf saya tidak bisa memproses permintaan Anda. Mari kita bahas yang lain saja. (Response code: "+t.status+")";
+
+                // Menyimpan balasan dari AI ke dalam chatHistory
+                chatHistory.push({ role: "assistant", content: "Maaaf saya tidak bisa memproses permintaan Anda. Mari kita bahas yang lain saja. (Response code: "+t.status+")" });
+            }
+        } catch (e) {
+            console.error("Error:", e);
+        }
+    }
+}
+
+
+    
+    </script>
+
+    <!-- Link ke JS Bootstrap 5.0.2 (untuk interaksi) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
