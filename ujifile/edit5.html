@@ -16,9 +16,8 @@ permalink: /wp-admin/edit5/
 <link rel="preload" href="https://sabda-562b1-default-rtdb.firebaseio.com/editartikel" />
 <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="/assets/js/jquery-3.7.1.min.js"></script>
-<link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/ckeditor5myplug.min.css">
-<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/ckeditor5-v3.umd.js"></script>
-<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/ckeditor5/translations/id.umd.js"></script>
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.css" integrity="sha256-b5UADD68Dn+QwTQwyEY2oFW3Lq+gLtjdInToYWa2AIo=">
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.css" integrity="sha256-Ds3jtkdnB2IlO2UcJqG5atkBGPx/80aEHk0Li3T73Bo=">
 <script>
 let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
 function DuplikatKey(t){let i=t.split(",").map(t=>t.trim()).filter(t=>t),e=new Set(i),n=Array.from(e);return n.join(", ")}
@@ -226,160 +225,49 @@ function renderOutput(e){let r=e,t=r;t=(t=t.replace(/---\n([\s\S]*?)\n---/g,(e,r
 </div>
 </div>
 </div>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.umd.min.js" integrity="sha256-izeEgV+REn0q47Nelry1CsZkbnCA9COWexrd/Oe7qaQ="></script><script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.umd.min.js" integrity="sha256-y30tH+6JysoGNP6peQaS1yfv/s4C5mJk/D/AZTktao4="></script>
+		
+       <script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/translations/id.umd.js" integrity="sha256-dbxe0WTz0rLYghF/jxT94xvf0GjdBlYT5VXeYtJusIA="></script>
+		<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/translations/id.umd.js" integrity="sha256-pDpjyySVDGt3EfVLWYB4uahwgVwMbRs52HLT5q4h6Hc="></script>
 <script>
 function updateFolderOption(){let a=$('[name="tanggal"]'),e=$("#Folder"),l=a.val();if(l){let t=new Date(l),n=new Date;t>n?e.val("_drafts"):e.val("_artikel")}}
 function Selectfolder(){
 updateFolderOption();$('[name="tanggal"]').on("change",updateFolderOption)}
 
 function startCK(){
+const { ClassicEditor, Autoformat, AutoImage, Autosave, BalloonToolbar, BlockQuote, Bold, Bookmark, CloudServices, Code, CodeBlock, Essentials, FindAndReplace, Heading, HorizontalLine, ImageBlock, ImageCaption, ImageInline, ImageInsert, ImageInsertViaUrl, ImageTextAlternative, ImageToolbar, ImageUpload, Indent, IndentBlock, Italic, Link, List, ListProperties, MediaEmbed, Paragraph, PasteFromOffice, ShowBlocks, SimpleUploadAdapter, SourceEditing, SpecialCharacters, SpecialCharactersArrows, SpecialCharactersCurrency, SpecialCharactersEssentials, SpecialCharactersLatin, SpecialCharactersMathematical, SpecialCharactersText, Subscript, Superscript, Table, TableCaption, TableCellProperties, TableColumnResize, TableProperties, TableToolbar, TextTransformation, TodoList, Underline, WordCount } = window.CKEDITOR; const { AIAssistant, CaseChange, ExportPdf, ExportWord, ImportWord, MultiLevelList, OpenAITextAdapter } = window.CKEDITOR_PREMIUM_FEATURES;
 const editorConfig = {
 	toolbar: {
-		items: [
-        	'sourceEditing','FindAndReplace',
-			'|',
-			
-			'bold','italic','link','ExportWord','|',
-            'heading',
-			'|',
-            'MediaEmbed',
-			'insertImage',
-			'insertTable',
-			'blockQuote',
-			'codeBlock',
-			'|',
-			'bulletedList',
-			'numberedList',
-			'todoList',
-			'outdent',
-			'indent'
-		],
+		items: [ 'aiCommands', 'aiAssistant', '|', 'sourceEditing', 'showBlocks',  'findAndReplace', '|', 'heading', '|', 'bold', 'italic','link', 'blockQuote', 'caseChange','underline','horizontalLine', '|', 'bulletedList', 'numberedList', 'multiLevelList', 'todoList','subscript', 'superscript', 'code', '|', 'specialCharacters',   'bookmark', 'insertImage', 'insertImageViaUrl', 'mediaEmbed', 'insertTable', 'codeBlock',  'outdent', 'indent','importWord', 'exportWord', 'exportPdf' ],
 		shouldNotGroupWhenFull: false
 	},
-    	balloonToolbar: ['heading','bold', 'italic', '|', 'link','|', 'bulletedList', 'numberedList'],
-plugins: [
-    Autoformat,
-		AutoImage,
-		Autosave,
-        BalloonToolbar,
-		BlockQuote,
-		Bold,
-		Bookmark,
-		Code,
-		CodeBlock,
-		Essentials,
-        ExportWord,
-		FindAndReplace,
-		Heading,
-		ImageBlock,
-		ImageCaption,
-		ImageInline,
-		ImageInsert,
-		ImageInsertViaUrl,
-		ImageResize,
-		ImageStyle,
-		ImageTextAlternative,
-		ImageToolbar,
-		ImageUpload,
-		Indent,
-		Italic,
-		Link,
-		LinkImage,
-		List,
-		ListProperties,
-		MediaEmbed,
-		Paragraph,
-		PasteFromOffice,
-		SourceEditing,
-		SpecialCharacters,
-		SpecialCharactersArrows,
-		SpecialCharactersCurrency,
-		SpecialCharactersEssentials,
-		SpecialCharactersLatin,
-		SpecialCharactersMathematical,
-		SpecialCharactersText,
-		Strikethrough,
-		Table,
-		TableCaption,
-		TableCellProperties,
-		TableColumnResize,
-		TableProperties,
-		TableToolbar,
-		TextTransformation,
-		TodoList,
-		Underline,
-		WordCount
-	],
-    
-	heading: {
-		options: [
-			{
-				model: 'paragraph',
-				title: 'Paragraph',
-				class: 'ck-heading_paragraph'
-			},
+    balloonToolbar: ['aiAssistant', '|', 'bold', 'italic', '|', 'link', 'heading', '|', 'bulletedList', 'numberedList'],
+	plugins: [ AIAssistant, Autoformat, AutoImage, Autosave, BalloonToolbar, BlockQuote, Bold, Bookmark, CaseChange, CloudServices, Code, CodeBlock, Essentials, ExportPdf, ExportWord, FindAndReplace, Heading, HorizontalLine, ImageBlock, ImageCaption, ImageInline, ImageInsert, ImageInsertViaUrl, ImageTextAlternative, ImageToolbar, ImageUpload, ImportWord, Indent, IndentBlock, Italic, Link, List, ListProperties, MediaEmbed, MultiLevelList, OpenAITextAdapter, Paragraph, PasteFromOffice, ShowBlocks, SimpleUploadAdapter, SourceEditing, SpecialCharacters, SpecialCharactersArrows, SpecialCharactersCurrency, SpecialCharactersEssentials, SpecialCharactersLatin, SpecialCharactersMathematical, SpecialCharactersText, Subscript, Superscript, Table, TableCaption, TableCellProperties, TableColumnResize, TableProperties, TableToolbar, TextTransformation, TodoList, Underline, WordCount ],
+	ai: {
+		openAI: {
+			requestHeaders: {
+				Authorization: 'Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE5MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSIsInNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiYjdkMWY2N2UiLCJpYXQiOjE3Mzg4MDUyNjV9.oSQByfTnIb3CRt-Y-cB3z7ES6Og7hHTyldAq_CmO4Etpv6BRVVHQfj7MrNWZuDLMzefQ--qb6W_5mSos5s6JOQ'
+			}
+		}
+	},
+	
+	exportPdf: {
+		stylesheets: [
 			
-			{
-				model: 'heading2',
-				view: 'h2',
-				title: 'Tajuk Sub',
-				class: 'ck-heading_heading2'
-			},
-			{
-				model: 'heading3',
-				view: 'h3',
-				title: 'Subtajuk 1',
-				class: 'ck-heading_heading3'
-			},
-			{
-				model: 'heading4',
-				view: 'h4',
-				title: 'Subtajuk 2',
-				class: 'ck-heading_heading4'
-			}
-		]
-	},
-	image: {
-		toolbar: [
-			'toggleImageCaption',
-			'imageTextAlternative',
-			'|',
-			'imageStyle:inline',
-			'imageStyle:wrapText',
-			'imageStyle:breakText',
-			'|',
-			'resizeImage'
-		]
-	},
-	language: 'id',
-	link: {
-		addTargetToExternalLinks: true,
-		defaultProtocol: 'https://',
-		decorators: {
-			toggleDownloadable: {
-				mode: 'manual',
-				label: 'Downloadable',
-				attributes: {
-					download: 'file'
-				}
-			}
+			'https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css',
+			'https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.css'
+		],
+		fileName: 'export-pdf-demo.pdf',
+		converterOptions: {
+			format: 'Tabloid',
+			margin_top: '20mm',
+			margin_bottom: '20mm',
+			margin_right: '24mm',
+			margin_left: '24mm',
+			page_orientation: 'portrait'
 		}
 	},
-	list: {
-		properties: {
-			styles: true,
-			startIndex: true,
-			reversed: true
-		}
-	},
-	menuBar: {
-		isVisible: true
-	},
-	placeholder: 'Type or paste your content here!',
-	table: {
-		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
-	},
-   extraPlugins: [MyUploadAdapterPlugin],
-   exportWord: {
+	exportWord: {
 converterOptions: {
 "headers": {
       "first": {
@@ -411,8 +299,71 @@ converterOptions: {
     }
 }    
 },
-   licenseKey: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSJdLCJkaXN0cmlidXRpb25DaGFubmVsIjoiY2xvdWQiLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiZmIwN2ZhNzkifQ.-ZWZVPSnqhPcRnTu7Jcov9cosLNqm-KQo7FoeV4THelVZVtAg7yZdA-OWkd0_NDIvhh2BoFCWNNbOqUe0cTZrA",
- };
+	heading: {
+		options: [
+			{
+				model: 'paragraph',
+				title: 'Paragraph',
+				class: 'ck-heading_paragraph'
+			},
+			
+			{
+				model: 'heading2',
+				view: 'h2',
+				title: 'Tajuk Sub',
+				class: 'ck-heading_heading2'
+			},
+			{
+				model: 'heading3',
+				view: 'h3',
+				title: 'Subtajuk 1',
+				class: 'ck-heading_heading3'
+			},
+			{
+				model: 'heading4',
+				view: 'h4',
+				title: 'Subtajuk 2',
+				class: 'ck-heading_heading4'
+			}
+		]
+	},
+	image: {
+		toolbar: ['toggleImageCaption', 'imageTextAlternative']
+	},	
+	link: {
+		addTargetToExternalLinks: true,
+		defaultProtocol: 'https://',
+		decorators: {
+			toggleDownloadable: {
+				mode: 'manual',
+				label: 'Downloadable',
+				attributes: {
+					download: 'file'
+				}
+			}
+		}
+	},
+	list: {
+		properties: {
+			styles: true,
+			startIndex: true,
+			reversed: true
+		}
+	},
+	menuBar: {
+		isVisible: true
+	},
+	placeholder: 'Type or paste your content here!',
+	table: {
+		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
+	},
+    simpleUpload: {
+            
+            uploadUrl: 'https://sabdaliterasi.xyz/api/convert/upload',
+
+        },
+        licenseKey:'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE5MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSIsInNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiYjdkMWY2N2UiLCJpYXQiOjE3Mzg4MDUyNjV9.oSQByfTnIb3CRt-Y-cB3z7ES6Og7hHTyldAq_CmO4Etpv6BRVVHQfj7MrNWZuDLMzefQ--qb6W_5mSos5s6JOQ',
+};
 ClassicEditor.create(document.getElementById("editor"),editorConfig).then( editor => {
         const i = editor.plugins.get( 'WordCount' );
         const a = document.getElementById( 'word-count' );
