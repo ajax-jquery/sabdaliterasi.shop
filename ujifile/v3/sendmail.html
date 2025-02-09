@@ -1,0 +1,699 @@
+---
+layout: null
+permalink: /wp-admin/v3/sendmail
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send Email via API: V2</title>
+<link href="/wp-content/cdn/n/bootstrap/5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/assets/js/jquery-3.7.1.min.js"></script><link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.css" integrity="sha256-b5UADD68Dn+QwTQwyEY2oFW3Lq+gLtjdInToYWa2AIo=">
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.css" integrity="sha256-Ds3jtkdnB2IlO2UcJqG5atkBGPx/80aEHk0Li3T73Bo=">
+
+<style>.ck-content{font-family:Lato;line-height:1.6;word-break:break-word}.editor-container_classic-editor .editor-container__editor{max-width:100%}.editor_container__word-count .ck-word-count{color:var(--ck-color-text);display:flex;font-family:var(--ck-font-face);font-size:var(--ck-font-size-base);gap:var(--ck-spacing-small);justify-content:flex-end;line-height:var(--ck-line-height-base);padding:var(--ck-spacing-small) var(--ck-spacing-standard)}.editor-container_include-word-count.editor-container_classic-editor .editor_container__word-count{border-radius:var(--ck-border-radius);border-top:none;border-top-left-radius:0;border-top-right-radius:0}.editor-container_include-word-count.editor-container_classic-editor .editor-container__editor .ck-editor .ck-editor__editable{border-radius:0}#snippet-autosave-header{align-items:center;background:var(--ck-color-toolbar-background);border:1px solid var(--ck-color-toolbar-border);border-radius:var(--ck-border-radius);border-top:0;border-top-left-radius:0;border-top-right-radius:0;display:flex;justify-content:space-between;padding:10px}#snippet-autosave-status_spinner{align-items:center;display:flex;position:relative}#snippet-autosave-status_spinner-label{position:relative}#snippet-autosave-status_spinner-label:after{color:green;content:"Saved!";display:inline-block;margin-right:var(--ck-spacing-medium)}#snippet-autosave-status.busy #snippet-autosave-status_spinner-label:after{color:red;content:"Saving..."}#snippet-autosave-status.busy #snippet-autosave-status_spinner-loader{animation:autosave-status-spinner 1s linear infinite;border-radius:50%;border-right:2px solid transparent;border-top:3px solid #b3b3b3;display:block;height:16px;width:16px}#snippet-autosave-server,#snippet-autosave-status{align-items:center;display:flex}#snippet-autosave-server_label,#snippet-autosave-status_label{font-weight:700;margin-right:var(--ck-spacing-medium)}#snippet-autosave+.ck.ck-editor .ck-editor__editable{border-bottom-left-radius:0;border-bottom-right-radius:0}@keyframes autosave-status-spinner{to{transform:rotate(1turn)}}.ck.ck-balloon-panel.ck-balloon-panel_position_border-side_right.ck-balloon-panel_visible.ck-powered-by-balloon{display:none}.hidden{display:none}#lihatkontak svg,#tambah svg{fill:#0d6efd;width:24px}div#hasil{background:#000;font-size:14px;padding:13px 15px;width:100%;height:auto;font-family:monospace;line-height:.9rem}button.btn[data-toggle=collapse]{display:-webkit-inline-box;width:100%;margin-right:auto}input.mykontaksend{margin-right:5px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1 class="text-center mb-4">Send Email via API: V2</h1>
+<form id="emailForm">
+<div class="mb-3">
+                <label for="pilihan" class="form-label">Pilih Jenis Kirim:</label>
+                <select id="pilihan" class="form-select" required>
+                    <option value="" disabled selected>Pilih salah satu...</option>
+                    <option value="Eksternal">Eksternal</option>
+                    <option value="Local">Local</option>
+                </select>
+                <div class="invalid-feedback">Harap pilih salah satu opsi.</div>
+            </div>
+<div class="mb-3 field">
+<label for="subject" class="form-label">Judul:</label>
+<input type="text" id="subject" class="form-control" name="subject" required>
+</div>
+<div class="mb-3 field">
+<label for="DeskripsiArtikel" class="form-label">Deskripsi:</label>
+<textarea id="DeskripsiArtikel" class="form-control" name="DeskripsiArtikel" required></textarea>
+</div>
+
+<!--
+<div class="mb-3 field">
+<label for="attachment2" class="form-label">Tulisan:</label>
+<input accept=".doc, .docx" type="file" id="attachment2" class="form-control" name="attachment2">
+</div>
+-->
+<div class="mb-3 field">
+<label for="EmailSaya" class="form-label">Pengirim:</label>
+<input type="email" id="EmailSaya" class="form-control" name="EmailSaya" required>
+</div>
+
+<div class="form-check form-check-inline">
+<input class="form-check-input" type="checkbox" id="uploadfotoku" name="uploadfotoku" value="true">
+<label class="form-check-label" for="uploadfotoku">
+Upload Foto
+</label>
+</div>
+
+<div class="form-check form-check-inline">
+<input class="form-check-input" type="checkbox" id="Tulis_Konten" name="Tulis_Konten" value="true" checked>
+<label class="form-check-label" for="Tulis_Konten">
+Tulis Konten
+</label>
+</div>
+
+<div id="tulis_konten" class="">
+
+<div id="validck" class="form-outline mb-2 CKeditnya">
+
+
+						<div class="editor-container editor-container_classic-editor editor-container_include-word-count editor-container_include-word-count" id="editor-container">
+
+				<div class="editor-container__editor"><textarea name="editor" class="form-control" id="editor" rows="4" placeholder="editor"></textarea></div>
+ <div class="ck ck-content" id="snippet-autosave-header">
+	<div id="snippet-autosave-status">
+		<div id="snippet-autosave-status_label">Status:</div>
+		<div id="snippet-autosave-status_spinner">
+			<span id="snippet-autosave-status_spinner-label"></span>
+			<span id="snippet-autosave-status_spinner-loader"></span>
+		</div>
+	</div>
+    <div id="snippet-autosave-server">
+<div id="snippet-autosave-server_label"><div class="editor_container__word-count" id="editor-word-count"></div></div>
+	</div>
+    <button id="clearEditor" class="btn btn-danger">Reset Editor</button>
+</div>
+
+                </div>
+
+
+</div>
+
+</div>
+
+<div class="mb-3 field uploadfotoku hidden">
+<label for="attachment1" class="form-label">Foto:</label>
+<input accept="image/*" type="file" id="attachment1" class="form-control" name="attachment1">
+</div>
+<div class="mb-3 field">
+<input type="submit" value="Send Email" class="btn btn-primary">
+</div>
+</form>
+<div class="mb-3 field">
+Jumlah berhasil: <span id="targetsukses">0</span>/<span id="target">0</span> | Jumlah Cheked: <span id="jumlahcheked">0</span>
+</div>
+<div class="mb-3 field">
+<div id="hasil" class="hidden"></div>
+</div>
+<div class="card-header py-3"><input class="hidden" type="checkbox" id="chekkon" name="chekkon"><h5 class="mb-0"><label role="button" for="chekkon">Contak(<span id="jumlahkontak">0</span>)
+<span id="lihatkontak"><svg viewBox="0 0 24 24"><path d="m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z" /></svg></span></label>
+<span id="tambah" role="button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m21 3.998c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-9.75 7.252v-3.5c0-.414.336-.75.75-.75s.75.336.75.75v3.5h3.5c.414 0 .75.336.75.75s-.336.75-.75.75h-3.5v3.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-3.5h-3.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75z" /></svg></span>
+</h5> </div>
+<div class="mb-3 field"><form id="myForm" class="hidden">
+<div class="card-header"><h5 class="mb-0">tambah kontak</h5></div>
+<div class="input-group mb-3">
+<input type="text" id="namaWebsite" name="namaWebsite" class="form-control" placeholder="Nama" required>
+<input class="form-control" placeholder="Email" type="email" id="email" name="email" required>
+</div>
+<div class="input-group mb-3">
+<input type="url" id="website" class="form-control" placeholder="Website" name="website" required>
+<input type="text" id="subyek" name="subyek" class="form-control" placeholder="Subyek" required>
+</div>
+
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" id="bodyCheckbox" name="body" value="true">
+<label class="form-check-label" for="bodyCheckbox">
+Body Email
+</label>
+</div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" id="datakuCheckbox" name="dataku" value="true">
+<label class="form-check-label" for="datakuCheckbox">
+Dataku Email
+</label>
+</div>
+
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form></div>
+<div id="Kontaksave" class="mb-3 field hidden"><ul id="websiteList" class="list-group"></ul></div>
+</div>
+<script src="/wp-conten/file/cdn/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/wp-conten/file/cdn/npm/jszip@3.7.1/dist/jszip.min.js"></script>
+
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.umd.min.js" integrity="sha256-izeEgV+REn0q47Nelry1CsZkbnCA9COWexrd/Oe7qaQ="></script><script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.umd.min.js" integrity="sha256-y30tH+6JysoGNP6peQaS1yfv/s4C5mJk/D/AZTktao4="></script>
+       <script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/translations/id.umd.js" integrity="sha256-dbxe0WTz0rLYghF/jxT94xvf0GjdBlYT5VXeYtJusIA="></script>
+		<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/translations/id.umd.js" integrity="sha256-pDpjyySVDGt3EfVLWYB4uahwgVwMbRs52HLT5q4h6Hc="></script>
+<script type="module">
+  let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  import { getDatabase, ref, set, get, remove } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+   const firebaseConfig = {
+    apiKey: "AIzaSyAFuoVF8LkEtVHtd33A0FJHIyIOhDzGbjA",
+    authDomain: "sabaliterasipalu.firebaseapp.com",
+    databaseURL: "https://sabaliterasipalu-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sabaliterasipalu",
+    storageBucket: "sabaliterasipalu.appspot.com",
+    messagingSenderId: "567229920099",
+    appId: "1:567229920099:web:636ca97b7ee332b342d956",
+    measurementId: "G-7W6SD9QBY7"
+  };
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+let stopped = false;
+
+$("input#uploadfotoku").on('change',function(){
+  $("div.uploadfotoku").slideToggle();
+});
+$("span#tambah").click(function(){
+  $("form#myForm").slideToggle();
+});
+$("input#chekkon").click(function(){
+  $("#Kontaksave").slideToggle();
+});
+$("input#Tulis_Konten").click(function(){
+  $("#tulis_konten").slideToggle();
+});
+function LinkToBase64(url, onSuccess) {
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64String = reader.result.split(",")[1];
+                onSuccess(base64String);
+            };
+            reader.readAsDataURL(blob);
+        })
+        .catch(error => {
+            console.error("Error converting image to base64:", error);
+            alert("gagal kirim gambar");
+        });
+}
+document.getElementById('emailForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    stopped = false;
+var isValid = $('.mykontaksend:checked').length;
+let mail = $("#EmailSaya").val(),imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/sabdaliterasi.shop@master/assets/image/fadhel-fikri.png";if(mail === "martinamulia04@gmail.com"){imageUrl = "/wp-conten/file/cdn/gh/ajax-jquery/asset.sabdaliterasi.shop@main/img/Martina-Mulia-Dewi.png"}
+
+
+if(isValid > 0){ 
+
+LinkToBase64(imageUrl, async function(base64String) {
+
+$("#targetsukses").text("0");$("#target").text("0");$("#hasil").slideDown().html("");
+let tujuan =[]
+ $('input.mykontaksend').each(function () {
+      var checkbox = $(this);
+      var isChecked = checkbox.is(':checked');
+      
+      // Jika checkbox dicentang, tambahkan nilai dari value atribut ke array jsonArray
+      if (isChecked) {
+        var value =JSON.parse(checkbox.val());
+        tujuan.push(value);
+      }
+    });
+ const aa = await createAndDownloadDocx();
+if (aa) {
+        const{base64Data,fileName} = aa;
+          kirimSemuaEmail(tujuan,base64String,fileName,base64Data);
+        } else {
+            return;
+        }
+    
+
+});
+
+
+
+
+}
+else{
+alert("Anda harus memilih setidaknya satu item.");
+}
+
+
+});
+async function kirimSemuaEmail(tujuan,myfotoku,filename,filedoc) {
+    const data = tujuan;
+    document.getElementById('target').innerHTML=data.length;
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        try {
+            await kirim(item.email, item.nama, item.website, item.subyek,item.body,item.dataku,myfotoku,filename,filedoc);
+            if (stopped) {
+                break;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            stopped = true; // Set stopped menjadi true jika terjadi kesalahan
+            break;
+        }
+    }
+    
+}
+async function kirim(email, media, website, subyek,body,dataku,myfotoku,filename,filedoc) {
+
+
+let mail = $("#EmailSaya").val(),
+nama = "Fadhel Fikri",
+atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek=Pu.de("PTiim0TfWFocrUW5mFhjbcpfHs1fVpYOCNQoKVAjbslyGsNvmkBOXUQomsNerFYkKZNvCTYwb04ybZpfPTAOWLp9IFAkIapzSHGzEHT8QxM0SLMeKZ7vCT5ymDBFKZWeXZzfWsowdspi");
+if(mail === "martinamulia04@gmail.com"){
+nama="Martina Mulia Dewi",
+atribusi="Lifelong Learner, content writer, recipe writer, blogger, and feminist activist.",
+inforek=""
+}
+
+function replacename(n) {return n.toLowerCase().replaceAll(" ","-")}
+const senderName = nama;
+    const judul = $('#subject').val();
+    let Dede = $('#DeskripsiArtikel').val(),
+    Deskripsi=`<p>Terkait artikel, ${Dede}</p>`;
+    const recipientEmail = email;
+    const subject = subyek.replaceAll("JUDULNYA", judul).replaceAll("NAMAKU", nama);
+   let file1 = document.getElementById('attachment1').files[0];
+    let file2 = filedoc;
+            
+    let attachment1 = myfotoku;
+    let Nameattachment1 = replacename(nama)+".png";
+    if(file1){
+var url = file1.name,parts = url.split("."),extension = parts[parts.length - 1];
+attachment1 = await fileToBase64(file1);
+Nameattachment1 =replacename(nama)+"."+extension;
+    }
+            
+    let attachment2 = filedoc;
+    let Nameattachment2 = filename;
+    
+    let badan="",lampirkan="lampirkan",bb="";
+    if(body==true){
+    badan = `<hr><h1 style="text-align:center;">${judul}</h1>${await CKdata()}`,lampirkan="tulis (copy paste dari word ke badan email) di bawah biodata saya",bb=',"body":true'
+     attachment2=false
+      Nameattachment2=false
+    }
+    
+    
+    let message = `<p>Assalamualaikum.. saya mau kirim tulisan kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br>Nama Penulis: ${nama}</p><p>Atribusi/Deskripsi:<br>${atribusi} Dan pembisnis di Sabda Literasi Palu(https://sabdaliterasi.xyz)</p><p>Website:<br>https://sabdaliterasi.xyz</p><p>No Hp/Wa:<br>https://wa.me/6285186664889</p><p>Email:<br>${mail}</p><p>Foto Penulis:<br>Terlampir</p><p>${inforek}</p>${badan}`;
+  
+  
+  if(dataku==true){
+    attachment1=false
+      Nameattachment1=false
+  message=`<p> Assalamualaikum.. saya mau kirim tulisan lagi kak, untuk di terbitkan di ${media} (${website}). Judul tulisan saya kali ini yaitu "${judul}". Filenya telah saya ${lampirkan}.</p>${Deskripsi}<p>DISCLAIMER: SEPERTI BIASA, TULISAN YANG SAYA KIRIM BERSIFAT ORISINAL, HASIL KARYA SAYA (${nama}).</p><p>Dan ini biodata Saya:<br> Nama Penulis: ${nama} </p> <p> Untuk biodata lainnya, sudah saya kirim saat pengiriman artikel pertama kali kepada kaka.</p>${badan}`
+  }
+    
+    
+
+    const data = { 
+    mail, 
+    nama,
+    recipientEmail, 
+    subject, 
+    message
+};
+    
+    if (attachment1 && Nameattachment1) {
+    data.attachment1 = attachment1;
+    data.Nameattachment1 = Nameattachment1;
+}
+
+if (attachment2 && Nameattachment2) {
+    data.attachment2 = attachment2;
+    data.Nameattachment2 = Nameattachment2;
+}
+
+    var hasil = document.getElementById('hasil');
+    let listItem="";
+     const js={
+     		"from":`"${nama}" <${mail}>`,
+            "nama": media,
+            "email": recipientEmail,
+            "website": website,
+            "subyek": subject,
+            "body":body,
+            "dataku":dataku
+        };
+let pilihan = document.getElementById('pilihan').value,
+MyFetc='http://localhost:3000/send-email';
+if (pilihan == "Eksternal"){MyFetc='/wp-conten/api/v1/send-email'}
+
+    try {
+        const response = await fetch(MyFetc, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to send email');
+        }
+
+        const result = await response.text();
+        console.log('Email sent:', result);$("div#hasil").attr("style","color:#00ff14");
+        listItem+= `"SUKSES":${JSON.stringify(js,null,2)}`;var jumlahtarget=document.getElementById('targetsukses');
+        jumlahtarget.innerText=parseInt(jumlahtarget.innerText)+1
+    } catch (error) {
+        console.error('Error:', error);$("div#hasil").attr("style","color:red");
+         listItem+= `"ERROR":${JSON.stringify(js,null,2)}`;
+        stopped = true;
+    }
+$("div#hasil").slideDown();
+    hasil.innerText=listItem;   
+}
+async function fileToBase64(file) {
+    if (!file) return null;
+
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+    });
+}
+function getDataFromFirebase() {
+    const websiteList = document.getElementById('websiteList');
+    
+    websiteList.innerHTML = '';
+
+    // Gunakan fungsi get() untuk mengambil data dari Firebase
+    get(ref(database, 'MyContact'))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+        
+        let listItem=`<li class="list-group-item" id="checkAllList"><input type="checkbox" id="checkAll"> 
+        <label for="checkAll">Check All</label></li>`;
+        
+        let total = 0;
+          snapshot.forEach((childSnapshot) => {
+         
+            const website = childSnapshot.val();
+            
+            let namakontak=childSnapshot.key
+            // Buat elemen list untuk setiap website
+            
+            listItem+=`
+            <li class="list-group-item" id="${namakontak}">
+    
+      <div class="d-flex  justify-content-between align-items-center">
+      
+        
+        
+          <input type="checkbox" class="custom-control-input mykontaksend" id="${namakontak}-chekbox" name="${namakontak}" value='${JSON.stringify(website)}'>
+          <label class="custom-control-label" for="${namakontak}-chekbox"></label>
+          
+        
+        <button class="btn" type="button" data-toggle="collapse" data-target="#${namakontak}-info" aria-expanded="false" aria-controls="collapseItem1">
+          ${namakontak.replaceAll("-",".")}
+        </button><button class="btn" id="removekontak" type="button" data-kontak="${namakontak}">X</button>
+      </div>
+      <div class="collapse" id="${namakontak}-info">
+        <div class="list-group-item">
+          <strong>Nama Website:</strong> ${website.nama}<br>
+              <strong>Email:</strong> ${website.email}<br>
+              <strong>Subyek:</strong> ${website.subyek}<br>
+              <strong>Website:</strong> <a href="${website.website}" target="_blank">${website.website}</a><br>
+              <strong>Body:</strong> ${website.body}<br>	    
+              <strong>Dataku:</strong> ${website.dataku}<br>
+              <br>
+        </div>
+      </div>
+      
+    </li>
+    
+              
+            `;total++
+           
+          
+       }); $("#jumlahkontak").text(total);
+           websiteList.innerHTML=listItem;
+          chekboxkui()
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting data:", error);
+      });
+  }getDataFromFirebase();
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Hindari pengiriman formulir secara langsung
+    
+    // Dapatkan nilai-nilai input
+    const namaWebsite = document.getElementById("namaWebsite").value;
+    const email = document.getElementById("email").value;
+    const website = document.getElementById("website").value;
+    const subyek = document.getElementById("subyek").value;
+    const body = document.getElementById("bodyCheckbox").checked;
+  	const dataku = document.getElementById("datakuCheckbox").checked;
+    
+    // Simpan data ke Firebase Realtime Database dengan menggunakan set()
+     function namauri(url) {
+  // Ekspresi reguler untuk mencocokkan nama domain tanpa TLD
+  const regex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/g;
+  const match = regex.exec(url);
+  if (match && match[1]) {
+    return match[1];
+  } else {
+    return null; // Jika tidak ada kecocokan ditemukan
+  }
+} 
+    
+    set(ref(database, "MyContact/" +namauri(website.replaceAll(".","-"))), {
+      nama: namaWebsite,
+      email: email,
+      website: website,
+      subyek: subyek,
+      body: body,
+      dataku: dataku
+    })
+    .then(() => {
+      document.getElementById("myForm").reset();
+      // Ambil data terbaru dari Firebase setelah disimpan
+      getDataFromFirebase();
+    })
+    .catch(error => {
+      console.error("Error menyimpan data: ", error);
+      alert("Terjadi kesalahan. Silakan coba lagi.");
+    });
+  });
+function chekboxkui(){
+         function deleteDataFromFirebase(websiteKey) {
+  
+  const dataRef = ref(database, "MyContact/"+websiteKey);
+  
+  // Gunakan metode remove() untuk menghapus data
+  remove(dataRef)
+    .then(() => {
+      alert("Data berhasil dihapus"); getDataFromFirebase();$("#"+websiteKey).remove()
+    })
+    .catch((error) => {
+      console.error("Error removing data: ", error);
+    });
+}
+           $('button#removekontak').on('click', function () {  
+           
+           var k = $(this).attr("data-kontak");
+           if(confirm("ingin menghapu "+k.replaceAll('-','.')+"?")){
+           
+           deleteDataFromFirebase(k)
+           
+           }
+           
+           }); 
+           $(function(){$('#checkAll').change(function(){if($(this).is(':checked')){$('.mykontaksend').prop('checked',true);}else{$('.mykontaksend').prop('checked',false);}});});
+           
+           $('#websiteList li input[type=checkbox]').change(function() {
+setTimeout(function(){ var jumlahTercentang = $('#websiteList li input.mykontaksend:checked').length;
+ $('span#jumlahcheked').text(jumlahTercentang);
+ },0)
+    });
+           }           
+function openCK(){const{ClassicEditor:e,Autoformat:t,AutoImage:o,Autosave:a,BalloonToolbar:i,BlockQuote:n,Bold:l,Bookmark:r,CloudServices:s,Code:d,CodeBlock:c,Essentials:p,FindAndReplace:m,Heading:u,HorizontalLine:I,ImageBlock:g,ImageCaption:h,ImageInline:b,ImageInsert:C,ImageInsertViaUrl:k,ImageTextAlternative:T,ImageToolbar:y,ImageUpload:S,Indent:L,IndentBlock:f,Italic:v,Link:W,List:w,ListProperties:x,MediaEmbed:z,Paragraph:N,PasteFromOffice:M,ShowBlocks:A,SimpleUploadAdapter:E,SourceEditing:J,SpecialCharacters:R,SpecialCharactersArrows:Y,SpecialCharactersCurrency:j,SpecialCharactersEssentials:O,SpecialCharactersLatin:V,SpecialCharactersMathematical:B,SpecialCharactersText:U,Subscript:Q,Superscript:Z,Table:G,TableCaption:P,TableCellProperties:_,TableColumnResize:D,TableProperties:X,TableToolbar:H,TextTransformation:q,TodoList:F,Underline:K,WordCount:$}=window.CKEDITOR,{AIAssistant:ee,CaseChange:te,ExportPdf:oe,ExportWord:ae,ImportWord:ie,MultiLevelList:ne,OpenAITextAdapter:le}=window.CKEDITOR_PREMIUM_FEATURES,re={toolbar:{items:["aiCommands","aiAssistant","|","sourceEditing","showBlocks","findAndReplace","|","heading","|","bold","italic","link","blockQuote","caseChange","underline","horizontalLine","|","bulletedList","numberedList","multiLevelList","todoList","subscript","superscript","code","|","specialCharacters","bookmark","insertImage","insertImageViaUrl","mediaEmbed","insertTable","codeBlock","outdent","indent","importWord","exportWord","exportPdf"],shouldNotGroupWhenFull:!1},balloonToolbar:["aiAssistant","|","bold","italic","|","link","heading","|","bulletedList","numberedList"],plugins:[ee,t,o,a,i,n,l,r,te,s,d,c,p,oe,ae,m,u,I,g,h,b,C,k,T,y,S,ie,L,f,v,W,w,x,z,ne,le,N,M,A,E,J,R,Y,j,O,V,B,U,Q,Z,G,P,_,D,X,H,q,F,K,$],ai:{openAI:{requestHeaders:{Authorization:"Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE5MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSIsInNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiYjdkMWY2N2UiLCJpYXQiOjE3Mzg4MDUyNjV9.oSQByfTnIb3CRt-Y-cB3z7ES6Og7hHTyldAq_CmO4Etpv6BRVVHQfj7MrNWZuDLMzefQ--qb6W_5mSos5s6JOQ"}}},exportPdf:{stylesheets:["https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css","https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.css"],fileName:"export-pdf-demo.pdf",converterOptions:{format:"Tabloid",margin_top:"20mm",margin_bottom:"20mm",margin_right:"24mm",margin_left:"24mm",page_orientation:"portrait"}},exportWord:{converterOptions:{headers:{first:{html:"<p></p>",css:"p { display:none;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"},odd:{html:"<p></p>",css:"p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"},even:{html:"<p></p>",css:"p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"}},footers:{first:{html:"<p></p>",css:"p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"},odd:{html:"<p></p>",css:"p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"},even:{html:"<p></p>",css:"p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"}}}},heading:{options:[{model:"paragraph",title:"Paragraph",class:"ck-heading_paragraph"},{model:"heading2",view:"h2",title:"Tajuk Sub",class:"ck-heading_heading2"},{model:"heading3",view:"h3",title:"Subtajuk 1",class:"ck-heading_heading3"},{model:"heading4",view:"h4",title:"Subtajuk 2",class:"ck-heading_heading4"}]},image:{toolbar:["toggleImageCaption","imageTextAlternative"]},link:{addTargetToExternalLinks:!0,defaultProtocol:"https://",decorators:{toggleDownloadable:{mode:"manual",label:"Downloadable",attributes:{download:"file"}}}},list:{properties:{styles:!0,startIndex:!0,reversed:!0}},menuBar:{isVisible:!0},placeholder:"Type or paste your content here!",table:{contentToolbar:["tableColumn","tableRow","mergeTableCells","tableProperties","tableCellProperties"]},simpleUpload:{uploadUrl:"https://sabdaliterasi.xyz/api/convert/upload"},autosave:{save(e){return t=e.getData(),new Promise((e=>{setTimeout((()=>{!function(e){setTimeout((()=>{localStorage.setItem("editorContent",e)}),500)}(t),e()}),1e3)}));var t}},licenseKey:"eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE5MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSIsInNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiYjdkMWY2N2UiLCJpYXQiOjE3Mzg4MDUyNjV9.oSQByfTnIb3CRt-Y-cB3z7ES6Og7hHTyldAq_CmO4Etpv6BRVVHQfj7MrNWZuDLMzefQ--qb6W_5mSos5s6JOQ"};e.create(document.getElementById("editor"),re).then((e=>{window.editor=e,function(e){const t=localStorage.getItem("editorContent");t&&(e.setData(t),console.log("Loaded from localStorage"))}(e),function(e){const t=e.plugins.get("PendingActions"),o=document.querySelector("#snippet-autosave-status");t.on("change:hasAny",((e,t,a)=>{a?o.classList.add("busy"):o.classList.remove("busy")}))}(e);const t=e.plugins.get("WordCount");return document.querySelector("#editor-word-count").appendChild(t.wordCountContainer),document.querySelector("#editor-menu-bar").appendChild(e.ui.view.menuBarView.element),e})).catch((e=>{console.error(e.stack)}))}openCK();
+document.getElementById('clearEditor').addEventListener('click', () => {
+    localStorage.removeItem('editorContent');
+    console.log('Editor content cleared from localStorage');
+    location.reload(); // Refresh halaman biar editor kosong
+});
+function CKdata(){
+let u = document.querySelector('.ck-editor__editable'),
+   e = u.ckeditorInstance.getData().trim();
+   return e
+}  
+const DEFAULT_HEADERS = {
+			'x-cs-app-id': 'cs-docx-demo'
+		};	
+let tokenEndpoint="";
+async function createAndDownloadDocx() {
+const formEl = document.getElementById( 'create-docx-form' );
+			const formData = [ ...new FormData( formEl ) ];
+             function mdfile(){ 
+ var coo=Judul;
+return coo.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-').replace(/--+/g, '-').replace(/^-+|-+$/g, '')
+};
+            
+            let isi=CKdata(),Judul=$('#subject').val(),nama=mdfile();
+           
+ let mail = $("#EmailSaya").val(),
+namaku = "Fadhel Fikri",
+atribusi="Co-Founder di Sophia Insitute dan pegian filsafat dan Sains.",inforek=Pu.de("IFp+PTiim0TfWFocrUW5mFhjbcp1O0p+IJQ3ds6vXx7fHs1fVpYOCNQoKVAjbslyGsNvmkBOXUQomsNerFYkKZNvCTYwb04ybZpfPTAOWLp9ID6xrJAybsd+IFAkIcM4SRT3SRpuQxdzQaTfPFNvOcBQb0ffWsNpmFYlPG==");
+if(mail === "martinamulia04@gmail.com"){
+namaku="Martina Mulia Dewi",
+atribusi="Lifelong Learner, content writer, recipe writer, blogger, and feminist activist.",
+inforek=""
+}
+
+			const request = {
+            "config": {
+    "collaboration_features": {},
+    "headers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p { display:none;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    },
+    "footers": {
+      "first": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "odd": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      },
+      "even": {
+        "html": "<p></p>",
+        "css": "p {display:none;\n\tcolor: #333;\n\ttext-align: center;\n\tfont-size: 12px;\n}\n\t\t\t\t"
+      }
+    },
+    "document": {
+      "margins": {
+        "top": "4cm",
+        "right": "4cm",
+        "bottom": "3cm",
+        "left": "3cm"
+      },
+      "size": "A4",
+      "orientation": "portrait"
+    },
+    "language": "id-ID",
+    "timezone": "Asia/Makassar"
+  },
+            "html":`<h1>${Judul}</h1>${isi.replaceAll("h2>","strong>")}<br><table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <tbody><tr>
+    <th colspan="2" style="text-align: center;">BIO SAYA</th>
+  </tr>
+  <tr>
+    <td><strong>Nama Penulis</strong></td>
+    <td>${namaku}</td>
+  </tr>
+  <tr>
+    <td><strong>Atribusi/Deskripsi</strong></td>
+    <td>${atribusi} Dan pembisnis di <a href="https://sabdaliterasi.xyz" target="_blank">Sabda Literasi Palu</a></td>
+  </tr>
+  <tr>
+    <td><strong>Website</strong></td>
+    <td><a href="https://sabdaliterasi.xyz" target="_blank">https://sabdaliterasi.xyz</a></td>
+  </tr>
+  <tr>
+    <td><strong>No HP/WA</strong></td>
+    <td><a href="https://wa.me/6285186664889" target="_blank">https://wa.me/6285186664889</a></td>
+  </tr>
+  <tr>
+    <td><strong>Email</strong></td>
+    <td><a href="mailto:${mail}">${mail}</a></td>
+  </tr>
+  <tr>
+    <td><strong>Foto Penulis</strong></td>
+    <td><i>Terlampir</i></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center;">${inforek}</td>
+  </tr>
+</tbody></table>
+`,
+            "css":"h2{font-weight:bold}h2,p{text-align:justify;font-size: 16px;}h1{text-align: center;font-size: 18px;font-weight:bold}p#bio{text-align:justify;text-align:left;}li,p{line-height:1.5}"
+            };
+
+try {
+        const res = await fetch('/api/convert/docx', {
+            method: 'POST',
+            body: JSON.stringify(request), 
+            headers: {
+                'Content-Type': 'application/json',
+                'x-cs-app-id': 'cs-docx-demo'
+            }
+        });
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
+        const blob = await res.blob();
+        console.log("Blob received:", blob);
+
+        // Konversi blob ke data Base64
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64Data = reader.result.split(',')[1]; // Ambil data base64
+                resolve({
+                    fileName: `${namaku}-${nama}.docx`,
+                    base64Data: base64Data
+                });
+            };
+            reader.onerror = (err) => {
+                console.error("Error reading blob as Base64:", err);
+                reject(err);
+            };
+            reader.readAsDataURL(blob);
+        });
+    } catch (error) {
+        console.error("Error creating or downloading document:", error);
+        throw error; 
+    }
+		}
+function createHeaders( tokenEndpoint ) {
+			if ( tokenEndpoint ) {
+				return fetch( tokenEndpoint, { method: 'GET' } )
+					.then( res => res.text() )
+					.then( token => {
+						return { ...DEFAULT_HEADERS, Authorization: token }
+					} );
+			}
+
+			return Promise.resolve( DEFAULT_HEADERS );
+		}
+function processMargin( request, fieldName, fieldValue ) {
+			if ( !fieldName.endsWith( '_unit' ) ) {
+				request.options[ fieldName ] = request.options[ fieldName ] ? fieldValue.concat( '', request.options[ fieldName ] ) : fieldValue;
+
+				return;
+			}
+
+			const marginField = fieldName.replace( '_unit', '' );
+
+			request.options[ marginField ] = request.options[ marginField ] ? request.options[ marginField ].concat( '', fieldValue ) : fieldValue;
+		}
+function mapHeadersOrFootersToList( element ) {
+			return Object.keys( element ).filter( type => !!element[ type ].html ).map( type => ( {
+				type,
+				css: element[ type ].css,
+				html: element[ type ].html,
+			} ) )
+		}
+
+</script><form class="hidden" id="create-docx-form"></form>
+</body>
+</html>
