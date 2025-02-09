@@ -7,14 +7,14 @@ description: "Kirim tulisanmu ke Sabda Literasi dan bagikan gagasan, opini, atau
 permalink: '/kirim-tulisan/'
 image: 'https://sabdaliterasi.xyz/media/android-icon-512x512'
 keyword: ['kirim tulisan']
-tag_head: ['<link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/css/kirim-tulisan/0.3/main.min.css">','<script src="/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/assets/js/editartikel.min.js"></script>']
-tag_body: ['<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/script/kirim-tulisan/0.2/main.min.js"></script>']
+tag_head: ['<link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/css/kirim-tulisan/0.3/main.min.css"><link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.css" integrity="sha256-b5UADD68Dn+QwTQwyEY2oFW3Lq+gLtjdInToYWa2AIo="> <link rel="stylesheet" href="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.css" integrity="sha256-Ds3jtkdnB2IlO2UcJqG5atkBGPx/80aEHk0Li3T73Bo="><script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.umd.min.js" integrity="sha256-izeEgV+REn0q47Nelry1CsZkbnCA9COWexrd/Oe7qaQ="></script><script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/editor.umd.min.js"></script> <script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/translations/id.umd.js" integrity="sha256-dbxe0WTz0rLYghF/jxT94xvf0GjdBlYT5VXeYtJusIA="></script> <script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/translations/id.umd.js" integrity="sha256-pDpjyySVDGt3EfVLWYB4uahwgVwMbRs52HLT5q4h6Hc="></script>']
+tag_body: ['<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/script/kirim-tulisan/0.3/main.min.js"></script>']
 ---
 
 <div id="loading">
 <div class="spinner"></div>
 </div> 
-<p>Punya gagasan, refleksi, atau analisis mendalam yang ingin dibagikan? Kirim tulisanmu ke Sabda Literasi dan jangkau lebih banyak pembaca! Sebelum mengirim, pastikan untuk membaca syarat dan ketentuan di <a href="https://sabdaliterasi.xyz/undangan-menulis/" target="_blank">halaman ini</a> agar tulisanmu sesuai dengan ketentuan yang berlaku.</p>
+<p>Punya gagasan, refleksi, atau analisis mendalam yang ingin dibagikan? Kirim tulisanmu ke Sabda Literasi dan jangkau lebih banyak pembaca! Sebelum mengirim, pastikan untuk membaca syarat dan ketentuan di <a href="/undangan-menulis/" target="_blank">halaman ini</a> agar tulisanmu sesuai dengan ketentuan yang berlaku.</p>
   <div id="send">
     <h2>Form Kirim Tulisan</h2>
     <form id="submitForm">
