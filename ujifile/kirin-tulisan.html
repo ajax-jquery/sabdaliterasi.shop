@@ -27,7 +27,10 @@ permalink: /wp-admin/kirim-tulisan
 
 <body>
 		
-<script src="/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/assets/js/editartikel.min.js"></script><style>
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.css" integrity="sha256-b5UADD68Dn+QwTQwyEY2oFW3Lq+gLtjdInToYWa2AIo=">
+		<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.css" integrity="sha256-Ds3jtkdnB2IlO2UcJqG5atkBGPx/80aEHk0Li3T73Bo=">
+	
+<style>
 div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:4px solid #9b26af;box-shadow:2px 2px 2px hsla(0,0%,0%,.1)}div#word-count *{margin-right:1.5em;display:inline-block}
     #send {
       max-width: 800px;
@@ -226,6 +229,11 @@ div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:
     </div>
   </div>
   </div>
+  
+  <script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.umd.min.js" integrity="sha256-izeEgV+REn0q47Nelry1CsZkbnCA9COWexrd/Oe7qaQ="></script><script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/editor.umd.min.js"></script>
+       <script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/translations/id.umd.js" integrity="sha256-dbxe0WTz0rLYghF/jxT94xvf0GjdBlYT5VXeYtJusIA="></script>
+		<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/translations/id.umd.js" integrity="sha256-pDpjyySVDGt3EfVLWYB4uahwgVwMbRs52HLT5q4h6Hc="></script>
+        
   <script>
   
  function showLoading() {
@@ -236,36 +244,100 @@ let d=document.getElementById('loading');
   d.style.display = 'none';
 }
 let editorInstance
-let WordCount;
-
-ClassicEditor.create(document.getElementById("isiTulisan"), {
-toolbar: {
-                    items: [
-                        
-                       
-                        'heading', '|',
-                        'bold', 'italic', "|",'link', 'blockQuote','|',
-                        'bulletedList', 'numberedList', 'todoList', '|',
-                        
-                        
-                         
-                       
-                    ],
-                    shouldNotGroupWhenFull: true
-                },
-    heading: {
+const {
+	ClassicEditor,
+	AutoLink,
+	Autosave,
+	BalloonToolbar,
+	BlockQuote,
+	Bold,
+	Essentials,
+	Heading,
+	Italic,
+	Link,
+	List,
+	ListProperties,
+	Paragraph,WordCount
+} = window.CKEDITOR;
+const { AIAssistant, OpenAITextAdapter } = window.CKEDITOR_PREMIUM_FEATURES;
+ClassicEditor.create(document.getElementById("isiTulisan"),
+{
+	toolbar: {
+		items: [
+			'aiCommands',
+			'aiAssistant',
+			'|',
+			'heading',
+			'|',
+			'bold',
+			'italic',
+			'|',
+			'link',
+			'blockQuote',
+			'|',
+			'bulletedList',
+			'numberedList'
+		],
+		shouldNotGroupWhenFull: false
+	},
+	plugins: [
+		AIAssistant,
+		AutoLink,
+		Autosave,
+		BalloonToolbar,
+		BlockQuote,
+		Bold,
+		Essentials,
+		Heading,
+		Italic,
+		Link,
+		List,
+		ListProperties,
+		OpenAITextAdapter,
+		Paragraph,WordCount
+	],
+	ai: {
+		openAI: {
+			requestHeaders: {
+				Authorization: 'Bearer '
+			}
+		}
+	},
+	balloonToolbar: ['aiAssistant', '|', 'bold', 'italic', '|', 'link', '|', 'bulletedList', 'numberedList'],
+	heading: {
       options: [
         { model: 'paragraph', title: 'Normal', class: 'ck-heading_paragraph' },
         { model: 'heading2', view: 'h2', title: 'Subjudul', class: 'ck-heading_heading2' },
         { model: 'heading3', view: 'h3', title: 'Sub-Subjudul', class: 'ck-heading_heading3'  }
       ]
     },
-    wordCount: {
-            onUpdate: stats => {
-                WordCount=stats.words 
-            }
-        }
-  })
+	
+	licenseKey: 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE5MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSIsInNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiYjdkMWY2N2UiLCJpYXQiOjE3Mzg4MDUyNjV9.oSQByfTnIb3CRt-Y-cB3z7ES6Og7hHTyldAq_CmO4Etpv6BRVVHQfj7MrNWZuDLMzefQ--qb6W_5mSos5s6JOQ',
+	link: {
+		addTargetToExternalLinks: true,
+		defaultProtocol: 'https://',
+		decorators: {
+			toggleDownloadable: {
+				mode: 'manual',
+				label: 'Downloadable',
+				attributes: {
+					download: 'file'
+				}
+			}
+		}
+	},
+	list: {
+		properties: {
+			styles: true,
+			startIndex: true,
+			reversed: true
+		}
+	},
+	menuBar: {
+		isVisible: true
+	},
+	placeholder: 'Type or paste your content here!'
+})
   .then(editor => {
         const i = editor.plugins.get( 'WordCount' );
         const a = document.getElementById( 'word-count' );
@@ -278,7 +350,7 @@ toolbar: {
     console.error(error);
   });
 
-    // Handle form submission
+ 
     document.getElementById("submitForm").addEventListener("submit", async function (event) {
       event.preventDefault();showLoading()
       const formData = new FormData(this);
@@ -321,7 +393,6 @@ sendData(formData);
       }
     });
 
-    // Fungsi untuk mengirim data ke server
     async function sendData(formData) {
       try {
         const response = await fetch("/api/verify/kirim-tulisan", {
@@ -369,8 +440,7 @@ sendData(formData);
         }
       }
     }
-    
-   function FormtoJSON(formData) {
+    function FormtoJSON(formData) {
   const formDataObj = {};
   
   formData.forEach((value, key) => {
