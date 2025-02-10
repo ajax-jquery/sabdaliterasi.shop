@@ -225,7 +225,8 @@ function renderOutput(e){let r=e,t=r;t=(t=t.replace(/---\n([\s\S]*?)\n---/g,(e,r
 </div>
 </div>
 </div>
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.umd.min.js" integrity="sha256-izeEgV+REn0q47Nelry1CsZkbnCA9COWexrd/Oe7qaQ="></script><script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5.umd.min.js"></script>
+    <script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/main.umd.min.js"></script>
+<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/main.umd.min.js"></script>
 		
        <script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/translations/id.umd.js" integrity="sha256-dbxe0WTz0rLYghF/jxT94xvf0GjdBlYT5VXeYtJusIA="></script>
 		<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/translations/id.umd.js" integrity="sha256-pDpjyySVDGt3EfVLWYB4uahwgVwMbRs52HLT5q4h6Hc="></script>
@@ -362,7 +363,7 @@ converterOptions: {
             uploadUrl: 'https://sabdaliterasi.xyz/api/convert/upload',
 
         },
-        licenseKey:'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE5MzU3NzYwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsiKi5ja2VkaXRvci1kZXYuY29tIiwiKi5ja2VkaXRvci1zdGFnaW5nLmNvbSIsImNrZWRpdG9yLmNvbSIsInNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiYjdkMWY2N2UiLCJpYXQiOjE3Mzg4MDUyNjV9.oSQByfTnIb3CRt-Y-cB3z7ES6Og7hHTyldAq_CmO4Etpv6BRVVHQfj7MrNWZuDLMzefQ--qb6W_5mSos5s6JOQ',
+        licenseKey:'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjkwMDAwMDAwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsic2FiZGFsaXRlcmFzaS54eXoiLCIqLnNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InByb2R1Y3Rpb24iLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiMjdlZTQyMmMiLCJpYXQiOjE2MzU3NzYwMDB9.4qJo-7JX0pv4zeRp2zlgbb1e6t8dqrrBEvC9mNlYsSE5g5iLATS6t-78vM1NmH8bVGlwDBPgLBE6BS5LUySrIw',
 };
 ClassicEditor.create(document.getElementById("editor"),editorConfig).then( editor => {
         const i = editor.plugins.get( 'WordCount' );
