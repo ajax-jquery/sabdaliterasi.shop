@@ -1,0 +1,14 @@
+---
+date: '2025-02-12 16:14:50 +0800'
+date_short: '2025-02-12T16:14:50+08:00'
+author: 'Roland Barthes'
+title: 'Elemen-Elemen Semiologi'
+buy: 'https://lynk.id/sabdaliterasi/QlKPk8L'
+harga: 'Rp22.000'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-elemen-elemen-semiologi.jpg'
+description: 'Ebook Elemen-Elemen Semiologi karya Roland Barthes menjelaskan cara kerja tanda dan makna dalam media, budaya, dan komunikasi. Cocok buat kawan yang ingin memahami dunia secara lebih kritis.'
+keyword: ['semiologi','roland barthes','tanda dan makna','kajian budaya','linguistik','teori komunikasi','analisis media']
+penerbit: 'Basabasi'
+ISBN: '9786026651204'
+---
+<p>Kawan, pernah nggak kepikiran kalau segala hal di sekitar kita punya makna lebih dalam dari yang kelihatan? Dari iklan yang lalu-lalang di media sosial, logo produk yang familiar, sampai cara berita ditulis—semua itu nggak asal dibuat, tapi ada sistem tanda yang membentuk maknanya. Nah, kalau kawan penasaran gimana cara memahami dunia dari sudut pandang tanda dan makna, ebook <strong>Elemen-Elemen Semiologi</strong> karya <strong>Roland Barthes</strong> ini wajib banget kawan baca!</p><p>Sekarang sudah tersedia di <em>Sabda Literasi</em> dengan harga super terjangkau, cuma <strong>Rp22.000</strong>. Ebook ini bakal bantu kawan memahami gimana cara membaca dunia di sekitar kita secara lebih kritis dan mendalam.</p><h3><strong>Kenapa Kawan Harus Baca Buku Ini?</strong></h3><p><strong>1. Pahami Cara Tanda dan Makna Bekerja</strong>Buku ini bakal ngajarin kawan konsep-konsep dasar semiologi, dari cara tanda bekerja, bagaimana makna terbentuk, sampai gimana sistem tanda berkembang dalam budaya kita. Barthes menjelaskannya dengan cara yang runtut dan gampang dipahami.</p><p><strong>2. Biar Nggak Gampang Kena Manipulasi Media</strong>Di era digital seperti sekarang, informasi berseliweran tiap detik. Dengan memahami semiologi, kawan bisa lebih jeli dalam memilah mana informasi yang objektif dan mana yang sudah dimanipulasi.</p><p><strong>3. Cocok Buat Siapa Saja yang Suka Kajian Budaya</strong>Mau kawan seorang mahasiswa, akademisi, kreator konten, atau sekadar ingin tahu lebih banyak soal dunia media dan budaya, buku ini bisa jadi referensi keren yang memperluas wawasan.</p><p><strong>4. Ditulis oleh Ahli Semiologi Dunia</strong>Roland Barthes adalah salah satu pemikir besar dalam semiologi. Teorinya soal denotasi, konotasi, dan mitos banyak dipakai dalam kajian komunikasi, budaya, hingga analisis media.</p><h3><strong>Yuk, Baca dan Bongkar Makna di Balik Tanda-Tanda!</strong></h3><p>Ebook Elemen-Elemen Semiologi ini bisa langsung kawan baca kapan aja dan di mana aja. Dengan harga cuma Rp22.000, kawan bisa dapat wawasan seru tentang cara dunia ini bekerja lewat tanda dan makna.</p><p>Jangan sampai ketinggalan! Klik tombol <code><strong>Beli Sekarang</strong></code> dan mulai perjalanan seru dalam memahami dunia dari sudut pandang semiologi!</p>
