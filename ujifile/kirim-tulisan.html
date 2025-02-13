@@ -26,9 +26,8 @@ permalink: /wp-admin/kirim-tulisan
 </head>
 
 <body>
-		
-<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/ckeditor5.css" integrity="sha256-b5UADD68Dn+QwTQwyEY2oFW3Lq+gLtjdInToYWa2AIo=">
-		<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.css" integrity="sha256-Ds3jtkdnB2IlO2UcJqG5atkBGPx/80aEHk0Li3T73Bo=">
+		<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5/ckeditor5.min.css">
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.min.css" >
 	
 <style>
 div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:4px solid #9b26af;box-shadow:2px 2px 2px hsla(0,0%,0%,.1)}div#word-count *{margin-right:1.5em;display:inline-block}
@@ -229,11 +228,18 @@ div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:
     </div>
   </div>
   </div>
-  <script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/main.umd.min.js"></script>
-<script src="/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/pub-main.umd.min.js"></script>
+
+
+
+
+
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5/ckeditor5.umd.js"></script>
+
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5-premium-features/pub-ckeditor5-premium-features.umd.min.js"></script>
     
-       <script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5/translations/id.umd.js" integrity="sha256-dbxe0WTz0rLYghF/jxT94xvf0GjdBlYT5VXeYtJusIA="></script>
-		<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/translations/id.umd.js" integrity="sha256-pDpjyySVDGt3EfVLWYB4uahwgVwMbRs52HLT5q4h6Hc="></script>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5/translations/id.umd.js"></script>
+
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5-premium-features/translations/id.umd.js"></script>
         
   <script>
   
@@ -258,7 +264,18 @@ const {
 	Link,
 	List,
 	ListProperties,
-	Paragraph,WordCount
+	Paragraph,
+    WordCount,
+    AutoImage,
+    ImageBlock,
+	ImageCaption,
+	ImageInsert,
+	ImageInsertViaUrl,
+	ImageResize,
+	ImageTextAlternative,
+	ImageToolbar,
+	ImageUpload,
+    SimpleUploadAdapter
 } = window.CKEDITOR;
 const { AIAssistant, OpenAITextAdapter } = window.CKEDITOR_PREMIUM_FEATURES;
 ClassicEditor.create(document.getElementById("isiTulisan"),
@@ -276,6 +293,7 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
 			'link',
 			'blockQuote',
 			'|',
+            'insertImage',
 			'bulletedList',
 			'numberedList'
 		],
@@ -295,14 +313,40 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
 		List,
 		ListProperties,
 		OpenAITextAdapter,
-		Paragraph,WordCount
+		Paragraph,WordCount,
+        AutoImage,
+    ImageBlock,
+	ImageCaption,
+	ImageInsert,
+	ImageInsertViaUrl,
+	ImageResize,
+	ImageTextAlternative,
+	ImageToolbar,
+	ImageUpload,
+    SimpleUploadAdapter
 	],
+    simpleUpload: {
+            // The URL that the images are uploaded to.
+            uploadUrl: 'https://sabdaliterasi.xyz/api/convert/upload',
+
+            // Enable the XMLHttpRequest.withCredentials property.
+            withCredentials: true,
+
+            // Headers sent along with the XMLHttpRequest to the upload server.
+            headers: {
+                'X-CSRF-TOKEN': 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjk3NDA1MjgwMDAsImp0aSI6ImQyNmM5ZDYzLTQ4NTUtNDhiYi04YjRlLWY3YjA0YmI1ODRjOCIsImxpY2Vuc2VkSG9zdHMiOlsic2FiZGFsaXRlcmFzaS54eXoiLCIqLnNhYmRhbGl0ZXJhc2kueHl6Il0sImZlYXR1cmVzIjpbIioiXSwidmMiOiJiMWNiOWUxOCJ9.b51kPtbdDmR8EIdOH4uHyq5K9LBEWNUofm9LwIRAIxvd8HWm1K8ZHMSWuRLgKFIq-pOPxYAxeQObSAJQsXApow',
+                Authorization: 'Bearer eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjk3NDA1MjgwMDAsImp0aSI6ImQyNmM5ZDYzLTQ4NTUtNDhiYi04YjRlLWY3YjA0YmI1ODRjOCIsImxpY2Vuc2VkSG9zdHMiOlsic2FiZGFsaXRlcmFzaS54eXoiLCIqLnNhYmRhbGl0ZXJhc2kueHl6Il0sImZlYXR1cmVzIjpbIioiXSwidmMiOiJiMWNiOWUxOCJ9.b51kPtbdDmR8EIdOH4uHyq5K9LBEWNUofm9LwIRAIxvd8HWm1K8ZHMSWuRLgKFIq-pOPxYAxeQObSAJQsXApow'
+            }
+        },
 	ai: {
 		openAI: {
 			requestHeaders: {
 				Authorization: 'Bearer '
 			}
 		}
+	},
+    image: {
+		toolbar: ['toggleImageCaption', 'imageTextAlternative', '|', 'resizeImage']
 	},
 	balloonToolbar: ['aiAssistant', '|', 'bold', 'italic', '|', 'link', '|', 'bulletedList', 'numberedList'],
 	heading: {
@@ -313,7 +357,7 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
       ]
     },
 	
-	licenseKey: 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjkwMDAwMDAwMDAsImp0aSI6IjM2ZTcxNTIwLTdlMTYtNDQ5Mi1iMzIyLWE1NGVmZjQ3N2U0OSIsImxpY2Vuc2VkSG9zdHMiOlsic2FiZGFsaXRlcmFzaS54eXoiLCIqLnNhYmRhbGl0ZXJhc2kueHl6Il0sImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InByb2R1Y3Rpb24iLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiMjdlZTQyMmMiLCJpYXQiOjE2MzU3NzYwMDB9.4qJo-7JX0pv4zeRp2zlgbb1e6t8dqrrBEvC9mNlYsSE5g5iLATS6t-78vM1NmH8bVGlwDBPgLBE6BS5LUySrIw',
+	licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjk3NDA1MjgwMDAsImp0aSI6ImQyZjc4OWVlLWM4YTgtNGRhNC1iNTg0LTU3MTYxZDRlNzgxMCIsImxpY2Vuc2VkSG9zdHMiOlsic2FiZGFsaXRlcmFzaS54eXoiLCIqLnNhYmRhbGl0ZXJhc2kueHl6Il0sImZlYXR1cmVzIjpbIioiXSwidmMiOiIyZmEzZjBkMSJ9.Unm38hPcSu-AJMVEpHJRCQw0Wr5j9GJ_NxUcTY0HJj2481-FLBeRtVQ5PtzY54LR-MLfIjxf4LbxWTEfBXAtyw',
 	link: {
 		addTargetToExternalLinks: true,
 		defaultProtocol: 'https://',
@@ -337,14 +381,13 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
 	menuBar: {
 		isVisible: true
 	},
-	placeholder: 'Type or paste your content here!'
+	placeholder: 'Mulailah mengetik atau tempel konten Kamu di sini!'
 })
   .then(editor => {
         const i = editor.plugins.get( 'WordCount' );
         const a = document.getElementById( 'word-count' );
 
         a.appendChild( i.wordCountContainer );
-        console.log(i.wordCountContainer)
     editorInstance = editor; // Menyimpan instance editor
   })
   .catch(error => {
