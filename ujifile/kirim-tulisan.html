@@ -27,7 +27,7 @@ permalink: /wp-admin/kirim-tulisan
 
 <body>
 		<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5/ckeditor5.min.css">
-<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/repository/editor/ckeditor/ckeditor5-premium-features/ckeditor5-premium-features.min.css" >
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5-premium-features/ckeditor5-premium-features.min.css" >
 	
 <style>
 div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:4px solid #9b26af;box-shadow:2px 2px 2px hsla(0,0%,0%,.1)}div#word-count *{margin-right:1.5em;display:inline-block}
@@ -162,10 +162,36 @@ div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:
   <div id="send">
     <h2>Form Kirim Tulisan</h2>
     <form id="submitForm">
+     <label for="judulTulisan">Judul Tulisan<small class="required">*</small>:</label>
+      <input type="text" id="judulTulisan" name="judulTulisan" required>
+      <small>Contoh: Teori Dasar Marxisme</small>
+          <label for="jenisTulisan">Jenis Tulisan<small class="required">*</small>:</label>
+      <select id="jenisTulisan" name="jenisTulisan" required>
+        <option value="">Pilih Jenis Tulisan</option>
+        <option value="filsafat">Filsafat</option>
+        <option value="agama">Agama</option>
+        <option value="sosial">Sosial</option>
+        <option value="kebangsaan">Kebangsaan</option>
+        <option value="tokoh">Tokoh</option>
+        <option value="feminis">Feminis</option>
+        <option value="sains">Sains</option>
+        <option value="refleksi">Refleksi</option>
+        <option value="ulasan">Ulasan</option>
+      </select>
+      <small>Contoh: Pilih jenis tulisan yang sesuai.</small>
+
+     
+
+      <label for="isiTulisan">Isi Tulisan<small class="required">*</small>:</label>
+      <textarea id="isiTulisan" name="isiTulisan"></textarea>
+     <div id="word-count"></div>
+      
+      <small>Max 3MB, format gambar (JPEG, PNG, GIF)</small>
       <label for="namaPenulis">Nama Penulis<small class="required">*</small>:</label>
       <input type="text" id="namaPenulis" name="namaPenulis" required>
       <small>Contoh: Karl Marx</small>
-
+<label for="fotoPenulis">Foto Penulis<small class="required">*</small>:</label>
+      <input type="file" id="fotoPenulis" name="fotoPenulis" accept="image/*" required>
       <label for="email">Email<small class="required">*</small>:</label>
       <input type="email" id="email" name="email" required>
       <small>Contoh: karlmarx@mail.com</small>
@@ -186,31 +212,7 @@ div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:
       <input type="text" id="linkMedia" name="linkMedia">
       <small>Contoh: https://facebook.com/karlmarx, https://instagram.com/karlmarx</small>
 
-      <label for="jenisTulisan">Jenis Tulisan<small class="required">*</small>:</label>
-      <select id="jenisTulisan" name="jenisTulisan" required>
-        <option value="">Pilih Jenis Tulisan</option>
-        <option value="filsafat">Filsafat</option>
-        <option value="agama">Agama</option>
-        <option value="sosial">Sosial</option>
-        <option value="kebangsaan">Kebangsaan</option>
-        <option value="tokoh">Tokoh</option>
-        <option value="feminis">Feminis</option>
-        <option value="sains">Sains</option>
-        <option value="refleksi">Refleksi</option>
-        <option value="ulasan">Ulasan</option>
-      </select>
-      <small>Contoh: Pilih jenis tulisan yang sesuai.</small>
 
-      <label for="judulTulisan">Judul Tulisan<small class="required">*</small>:</label>
-      <input type="text" id="judulTulisan" name="judulTulisan" required>
-      <small>Contoh: Teori Dasar Marxisme</small>
-
-      <label for="isiTulisan">Isi Tulisan<small class="required">*</small>:</label>
-      <textarea id="isiTulisan" name="isiTulisan"></textarea>
-     <div id="word-count"></div>
-      <label for="fotoPenulis">Foto Penulis<small class="required">*</small>:</label>
-      <input type="file" id="fotoPenulis" name="fotoPenulis" accept="image/*" required>
-      <small>Max 3MB, format gambar (JPEG, PNG, GIF)</small>
 
       <button type="submit">Kirim Tulisan</button>
     </form>
