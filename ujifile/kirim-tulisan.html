@@ -252,7 +252,7 @@ function hideLoading() {
 let d=document.getElementById('loading');
   d.style.display = 'none';
 }
-let editorInstance
+let editorInstance;
 const {
 	ClassicEditor,
 	AutoLink,
@@ -388,9 +388,8 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
   .then(editor => {
         const i = editor.plugins.get( 'WordCount' );
         const a = document.getElementById( 'word-count' );
-
         a.appendChild( i.wordCountContainer );
-    editorInstance = editor; // Menyimpan instance editor
+    editorInstance = editor;
   })
   .catch(error => {
     console.error(error);
@@ -410,9 +409,10 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
     showModal("Isi Tulisan tidak boleh kosong.",1);hideLoading();
     return; 
   }
-  if(WordCount < 800){
-  let kurang= parseInt(800-WordCount);
-  showModal(`Jumlah Kata minimal 800. Tambahkan ${kurang} kata lagi`,1);hideLoading();
+  let Wordss=editorInstance.plugins.get('WordCount'),Words=Wordss.words;
+  if(Words < 800){
+  let kurang= parseInt(800-Words);
+  showModal(`Jumlah Kata minimal 800. Tambahkan ${kurang} kata lagi.`,1);hideLoading();
     return; 
   }
 
