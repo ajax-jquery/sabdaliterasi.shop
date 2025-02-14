@@ -2,6 +2,7 @@
 layout: null
 permalink: /wp-admin/full-editor-2
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -155,7 +156,7 @@ const {
 } = window.CKEDITOR_PREMIUM_FEATURES;
 
 const LICENSE_KEY =
-	'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjI3Mzk1Nzc1OTksImp0aSI6IjE1MTRhOTI4LTZhZWItNGVjNi1iMjQ2LTQ4NDBkYTE4NjY5NCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3NhYmRhbGl0ZXJhc2kueHl6L2FwaS9jb252ZXJ0L3ZhbGlkYXNpIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCIsInNoIl0sIndoaXRlTGFiZWwiOmZhbHNlLCJsaWNlbnNlVHlwZSI6InByb2R1Y3Rpb24iLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiOTAxNGVmOWYifQ.dznuCzQr3JSntEix02kbsHb1QdggWS_zpPZMoYfRHpLk0gMm_hM0ezNx_7CHA1j0-K-LNqRGi23zac8ztakcAg';
+	'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjI3Mzk1Nzc1OTksImp0aSI6Ijk2YmNkNDQxLTk3ODUtNDBkNS1iYzcxLTc0ODU2YzAxNzM3NyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3NhYmRhbGl0ZXJhc2kueHl6L2FwaS9jb252ZXJ0L3ZhbGlkYXNpIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCIsInNoIl0sIndoaXRlTGFiZWwiOmZhbHNlLCJsaWNlbnNlVHlwZSI6InByb2R1Y3Rpb24iLCJmZWF0dXJlcyI6WyIqIl0sInZjIjoiZTU2Yzc3ZmMifQ.6tMbNq7LuBmqb4oRvrb2wnN7_oba_69fYhN0pyRNBDKVvVUgUE0KMZPmIclj3ZzCFaq7mZypfGq0XyXoVjcuLQ';
 
 /**
  * USE THIS INTEGRATION METHOD ONLY FOR DEVELOPMENT PURPOSES.
@@ -489,6 +490,7 @@ const editorConfig = {
 			'https://cdn.ckeditor.com/ckeditor5/44.2.0/ckeditor5.css',
 			'https://cdn.ckeditor.com/ckeditor5-premium-features/44.2.0/ckeditor5-premium-features.css'
 		],
+        converterUrl: 'https://sabdaliterasi.xyz/api/convert/pdf',
 		fileName: 'export-pdf-demo.pdf',
 		converterOptions: {
 			format: 'A4',
@@ -508,6 +510,7 @@ const editorConfig = {
 			'https://cdn.ckeditor.com/ckeditor5/44.2.0/ckeditor5.css',
 			'https://cdn.ckeditor.com/ckeditor5-premium-features/44.2.0/ckeditor5-premium-features.css'
 		],
+        converterUrl: 'https://sabdaliterasi.xyz/api/convert/html-docx',
 		fileName: 'export-word-demo.docx',
 		converterOptions: {
 			document: {
@@ -522,6 +525,9 @@ const editorConfig = {
 			}
 		}
 	},
+    importWord: {
+            converterUrl: 'https://sabdaliterasi.xyz/api/convert/docx-html'
+        },
 	fontFamily: {
 		supportAllValues: true
 	},
@@ -744,7 +750,12 @@ DecoupledEditor.create(document.querySelector('#editor'), editorConfig).then(edi
 	return editor;
 });
 
+
+
 </script>
-	</body>
+	
+</body>
 </html>
+
+
 
