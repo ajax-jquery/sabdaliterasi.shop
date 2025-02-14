@@ -1,0 +1,81 @@
+---
+layout: null
+permalink: /wp-admin/ai-detektor
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Teks AI</title>
+   <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.0/dist/css/bootstrap.min.css">
+   <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/axios/1.7.9/dist/axios.min.js"></script>
+    <style>
+        .ai-text { background-color: yellow; }
+        .mixed-text { background-color: lightblue; }
+        .loading-spinner { display: none; }
+    </style>
+</head>
+<body class="container py-4">
+    <h2 class="text-center">Deteksi Teks AI</h2>
+    <div class="mb-3">
+        <label class="form-label">Bahasa:</label>
+        <select id="lang" class="form-select">
+            <option value="id">Indonesia</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Teks:</label>
+        <textarea id="text" class="form-control" rows="6" oninput="updateTextStats()"></textarea>
+        <small id="textStats" class="form-text text-muted">Karakter: 0 | Kata: 0</small>
+    </div>
+    <button id="detectBtn" class="btn btn-primary w-100" onclick="detectAI()">
+        <span id="btnText">Deteksi</span>
+        <span id="loading" class="loading-spinner spinner-border spinner-border-sm"></span>
+    </button>
+    <div id="result" class="mt-4"></div>
+    
+    <script>
+    function detectAI(){
+        const e=document.getElementById("detectBtn"),t=document.getElementById("btnText"),n=document.getElementById("loading");
+        e.disabled=!0,t.textContent="Memproses...",n.style.display="inline-block";
+        const s=document.getElementById("lang").value,a=document.getElementById("text").value;
+        axios.post("https://sabdaliterasi.xyz/api/convert/isgen/detect",{lang:s,text:a})
+            .then((e=>{displayResult(e.data)}))
+            .catch((e=>{document.getElementById("result").innerHTML="<div class='alert alert-danger'>Terjadi kesalahan!</div>"}))
+            .finally((()=>{e.disabled=!1,t.textContent="Deteksi",n.style.display="none"}))
+    }
+    
+    function displayResult(e){
+        let t=`<h4>Statistik</h4>
+                <div class='progress mb-3'>
+                    <div class='progress-bar bg-success' style='width: ${100*e.summary.human}%;'>Human: ${Math.round(100*e.summary.human)}%</div>
+                    <div class='progress-bar bg-primary' style='width: ${100*e.summary.mixed}%;'>Mixed: ${Math.round(100*e.summary.mixed)}%</div>
+                    <div class='progress-bar bg-warning text-dark' style='width: ${100*e.summary.ai}%;'>AI: ${Math.round(100*e.summary.ai)}%</div>
+                </div>
+                <h4>Analisis Teks</h4>
+                <div class='border p-3'>`;
+        
+        e.paragraphs.forEach((e=>{
+            let n="<p>";
+            e.sentence_predictions.forEach((e=>{
+                let t="ai"===e.label?"ai-text":"mixed"===e.label?"mixed-text":"";
+                n+=`<span class='${t}'>${e.sentence} </span>`
+            })),
+            n+="</p>",
+            t+=n
+        })),
+        t+="</div>",
+        document.getElementById("result").innerHTML=t
+    }
+    
+    function updateTextStats() {
+        const text = document.getElementById("text").value;
+        const charCount = text.length;
+        const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+        document.getElementById("textStats").textContent = `Karakter: ${charCount} | Kata: ${wordCount}`;
+    }
+    </script>
+</body>
+</html>
