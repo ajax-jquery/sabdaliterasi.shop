@@ -8,16 +8,15 @@ permalink: /wp-admin/ai-detektor
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deteksi Teks AI</title>
-   <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.0/dist/css/bootstrap.min.css">
-   <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/axios/1.7.9/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/axios/1.7.9/dist/axios.min.js"></script>
     <style>
-        .ai-text { background-color: yellow; }
-        .mixed-text { background-color: lightblue; }
-        .loading-spinner { display: none; }
+       .ai-text{background-color:#ff0}.mixed-text{background-color:#add8e6}.loading-spinner{display:none}.circular-chart{height:120px;width:120px}.circle-bg{stroke:#eee}.circle,.circle-bg{fill:none;stroke-width:3.8}.circle{stroke-linecap:round;transition:stroke-dasharray .6s ease-in-out}.percentage{font-size:10px;font-weight:700;fill:#000;text-anchor:middle;dominant-baseline:central}#aiScoreContainer{display:none;margin-top:20px;text-align:center}
     </style>
 </head>
 <body class="container py-4">
     <h2 class="text-center">Deteksi Teks AI</h2>
+
     <div class="mb-3">
         <label class="form-label">Bahasa:</label>
         <select id="lang" class="form-select">
@@ -34,48 +33,19 @@ permalink: /wp-admin/ai-detektor
         <span id="btnText">Deteksi</span>
         <span id="loading" class="loading-spinner spinner-border spinner-border-sm"></span>
     </button>
+
+    <!-- AI Score Circle -->
+    <div id="aiScoreContainer">
+        <h4>AI Score</h4>
+        <svg class="circular-chart" viewBox="0 0 36 36">
+            <circle class="circle-bg" cx="18" cy="18" r="16"></circle>
+            <circle id="circle-progress" class="circle" cx="18" cy="18" r="16" stroke="#00C851" stroke-dasharray="0, 100"></circle>
+            <text x="18" y="17" class="percentage" id="percentageText">0%</text>
+        </svg>
+    </div>
+
     <div id="result" class="mt-4"></div>
-    
-    <script>
-    function detectAI(){
-        const e=document.getElementById("detectBtn"),t=document.getElementById("btnText"),n=document.getElementById("loading");
-        e.disabled=!0,t.textContent="Memproses...",n.style.display="inline-block";
-        const s=document.getElementById("lang").value,a=document.getElementById("text").value;
-        axios.post("https://sabdaliterasi.xyz/api/convert/isgen/detect",{lang:s,text:a})
-            .then((e=>{displayResult(e.data)}))
-            .catch((e=>{document.getElementById("result").innerHTML="<div class='alert alert-danger'>Terjadi kesalahan!</div>"}))
-            .finally((()=>{e.disabled=!1,t.textContent="Deteksi",n.style.display="none"}))
-    }
-    
-    function displayResult(e){
-        let t=`<h4>Statistik</h4>
-                <div class='progress mb-3'>
-                    <div class='progress-bar bg-success' style='width: ${100*e.summary.human}%;'>Human: ${Math.round(100*e.summary.human)}%</div>
-                    <div class='progress-bar bg-primary' style='width: ${100*e.summary.mixed}%;'>Mixed: ${Math.round(100*e.summary.mixed)}%</div>
-                    <div class='progress-bar bg-warning text-dark' style='width: ${100*e.summary.ai}%;'>AI: ${Math.round(100*e.summary.ai)}%</div>
-                </div>
-                <h4>Analisis Teks</h4>
-                <div class='border p-3'>`;
-        
-        e.paragraphs.forEach((e=>{
-            let n="<p>";
-            e.sentence_predictions.forEach((e=>{
-                let t="ai"===e.label?"ai-text":"mixed"===e.label?"mixed-text":"";
-                n+=`<span class='${t}'>${e.sentence} </span>`
-            })),
-            n+="</p>",
-            t+=n
-        })),
-        t+="</div>",
-        document.getElementById("result").innerHTML=t
-    }
-    
-    function updateTextStats() {
-        const text = document.getElementById("text").value;
-        const charCount = text.length;
-        const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
-        document.getElementById("textStats").textContent = `Karakter: ${charCount} | Kata: ${wordCount}`;
-    }
-    </script>
+
+    <script>function detectAI(){const e=document.getElementById("detectBtn"),t=document.getElementById("btnText"),a=document.getElementById("loading"),n=document.getElementById("lang").value,s=document.getElementById("text").value,d=(document.getElementById("aiScoreContainer"),document.getElementById("result"));e.disabled=!0,t.textContent="Memproses...",a.style.display="inline-block",axios.post("https://sabdaliterasi.xyz/api/convert/isgen/detect",{lang:n,text:s}).then((e=>{displayResult(e.data)})).catch((e=>{d.innerHTML="<div class='alert alert-danger'>Terjadi kesalahan!</div>"})).finally((()=>{e.disabled=!1,t.textContent="Deteksi",a.style.display="none"}))}function displayResult(e){const t=Math.round(e.ai_score),a=document.getElementById("circle-progress"),n=document.getElementById("percentageText"),s=t/100*100;let d="#00C851";t>40&&(d="#ffbb33"),a.style.strokeDasharray=`${s}, 100`,a.setAttribute("stroke",d),n.textContent=`${t}%`,document.getElementById("aiScoreContainer").style.display="block";let l=`<h4>Statistik</h4> <div class='progress mb-3'> <div class='progress-bar bg-success' style='width: ${Math.round(100*e.summary.human)}%;'>Human: ${Math.round(100*e.summary.human)}%</div> <div class='progress-bar bg-primary' style='width: ${Math.round(100*e.summary.mixed)}%;'>Mixed: ${Math.round(100*e.summary.mixed)}%</div> <div class='progress-bar bg-warning text-dark' style='width: ${Math.round(100*e.summary.ai)}%;'>AI: ${Math.round(100*e.summary.ai)}%</div> </div> <h4>Analisis Teks</h4> <div class='border p-3'>`;e.paragraphs.forEach((e=>{let t="<p>";e.sentence_predictions.forEach((e=>{let a="ai"===e.label?"ai-text":"mixed"===e.label?"mixed-text":"";t+=`<span class='${a}'>${e.sentence} </span>`})),t+="</p>",l+=t})),l+="</div>",document.getElementById("result").innerHTML=l}function updateTextStats(){const e=document.getElementById("text").value,t=e.length,a=e.trim()?e.trim().split(/\s+/).length:0;document.getElementById("textStats").textContent=`Karakter: ${t} | Kata: ${a}`}</script>
 </body>
 </html>
