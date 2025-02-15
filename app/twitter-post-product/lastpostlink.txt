@@ -60,6 +60,7 @@
     "https://sabdaliterasi.xyz/che-guevara-sang-revolusioner/",
     "https://sabdaliterasi.xyz/demokrasi-dan-etika-sosial/",
     "https://sabdaliterasi.xyz/elemen-elemen-semiologi/",
-    "https://sabdaliterasi.xyz/fidel-castro/"
+    "https://sabdaliterasi.xyz/fidel-castro/",
+    "https://sabdaliterasi.xyz/filsafat-politik-apa-dan-bagaimana/"
   ]
 }
