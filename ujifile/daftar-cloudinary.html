@@ -1,0 +1,96 @@
+---
+layout: null
+permalink: /wp-admin/daftar-cloudinary
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch POST Example</title>
+</head>
+<body>
+    <h1>Fetch POST Request Example</h1>
+   <input id="email" type="email" name="email"> <button id="sendRequest">Send POST Request</button>
+   
+   <pre id="output"></pre>
+   <input id="link" type="link" name="link"> <button id="gethead">getheat</button>
+   <pre id="outputhead"></pre>
+    <script>
+  
+const y=new Array(256).fill("").map(((e,t)=>("0"+t.toString(16)).slice(-2)));
+function k(){
+const[e,t,i,n]=crypto.getRandomValues(new Uint32Array(4));return "e"+y[255&e]+y[e>>8&255]+y[e>>16&255]+y[e>>24&255]+y[255&t]+y[t>>8&255]+y[t>>16&255]+y[t>>24&255]+y[255&i]+y[i>>8&255]+y[i>>16&255]+y[i>>24&255]+y[255&n]+y[n>>8&255]+y[n>>16&255]+y[n>>24&255]}
+     
+     document.getElementById('sendRequest').addEventListener('click', function() {
+       const email =document.getElementById('email').value.trim();
+            const url = '/api/convert/cloudimage/registrasi';
+             document.getElementById('output').innerText="";
+            const data = {
+  "user": {
+    "firstname": email.split('@')[0],
+    "lastname": email.split('@')[0],
+    "email": email,
+    "company": email.split('@')[1],
+    "phone_number": "62822"+Math.floor(10000000 + Math.random() * 90000000),
+    "password": email,
+    "Checkbox": "on",
+    "country": "Indonesia",
+    "Checkbox 4": "on",
+    "Checkbox 5": "on",
+    "form_name": "wf-form-Cloudimage-Registration",
+    "landing_page": "https://www.cloudimage.io/registration",
+    "querystring": "",
+    "country_name": "Indonesia",
+    "hubspotutk": k(),
+    "hubspot_form_id": "registration",
+    "source": "Unknown",
+    "referrer": "https://www.cloudimage.io/"
+  }
+};
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Tambahkan header lain yang diperlukan, seperti Authorization jika diperlukan
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+     document.getElementById('output').innerText= data.status;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+        
+        document.getElementById('gethead').addEventListener('click', async function() {
+      
+            const url =document.getElementById('link').value.trim().replace("http://","");
+            document.getElementById('outputhead').innerText="";
+        
+
+           const get =await fetch("/api/convert/"+url, {
+                method: 'GET',
+               
+            }),
+            hasil=await get.json(),
+            json={
+            domain:hasil.lokasi.session_project.name,
+            uuid:hasil.lokasi.session_project.session_uuid,
+            login:hasil.login
+            };
+            
+document.getElementById('outputhead').innerText=JSON.stringify(json,null,2);
+         
+            
+        });
+        
+
+     
+      
+    </script>
+</body>
+</html>
