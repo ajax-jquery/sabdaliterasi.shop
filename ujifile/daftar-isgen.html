@@ -1,0 +1,93 @@
+---
+layout: null
+permalink: /wp-admin/isgen
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch POST Example</title>
+</head>
+<body>
+    <h1>Fetch POST Request Example</h1>
+   <input id="email" type="email" name="email"> <button id="sendRequest">Send POST Request</button>
+   
+   <pre id="output"></pre>
+   <input id="link" type="link" name="link"> <button id="gethead">getheat</button>
+   <pre id="outputhead"></pre>
+    <script>
+  
+const y=new Array(256).fill("").map(((e,t)=>("0"+t.toString(16)).slice(-2)));
+function k(){
+const[e,t,i,n]=crypto.getRandomValues(new Uint32Array(4));return "e"+y[255&e]+y[e>>8&255]+y[e>>16&255]+y[e>>24&255]+y[255&t]+y[t>>8&255]+y[t>>16&255]+y[t>>24&255]+y[255&i]+y[i>>8&255]+y[i>>16&255]+y[i>>24&255]+y[255&n]+y[n>>8&255]+y[n>>16&255]+y[n>>24&255]}
+     
+     document.getElementById('sendRequest').addEventListener('click', async function() {
+       const email =document.getElementById('email').value.trim();
+            const url = 'https://sabdaliterasi.xyz/api/convert/isgen/register';
+             document.getElementById('output').innerText="";
+            const data = [{"email":email,"password":email,"name":email.split('@')[1],"language":"id","redirectTo":null}];
+try{
+            const g= await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Tambahkan header lain yang diperlukan, seperti Authorization jika diperlukan
+                },
+                body: JSON.stringify(data)
+            })
+            
+            
+            findAndDisplayMessage(g.body);
+  }catch (e){
+  }          
+        });
+        
+        document.getElementById('gethead').addEventListener('click', async function() {
+      
+            const url =document.getElementById('link').value.trim();
+            const decodedUrl = decodeURIComponent(url);
+const fix=decodedUrl.split('/').slice(6,15).join('/');
+            document.getElementById('outputhead').innerText="";
+        
+
+           const get =await fetch("/api/convert/isgen/verify/"+fix, {
+                method: 'GET',
+               
+            }),
+            hasil=await get.json();
+            
+document.getElementById('outputhead').innerText=JSON.stringify(hasil,null,2);
+         
+            
+        });
+        
+
+     async function findAndDisplayMessage(stream) {
+    const reader = stream.getReader();
+    let chunks = '';
+    const targetMessage = 'Silakan periksa email Anda untuk menyelesaikan proses pendaftaran';
+
+    // Membaca stream hingga selesai
+    while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        // Mengonversi chunk menjadi string
+        const chunkText = new TextDecoder().decode(value);
+        chunks += chunkText;
+
+        // Memeriksa apakah pesan yang dicari ada di stream
+        if (chunks.includes(targetMessage)) {
+            document.getElementById('output').innerText = targetMessage;
+            return; // Berhenti mencari setelah menemukan pesan
+        }
+    }
+
+    // Jika pesan tidak ditemukan, beri informasi
+    document.getElementById('output').innerText = 'Pesan tidak ditemukan.';
+}
+  
+    </script>
+</body>
+</html>
