@@ -11,7 +11,14 @@ permalink: /wp-admin/tmail
   <title>Form Input Email &amp; Messages</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
- 
+ <style>.btn.btn-outline-secondary svg {
+    color: #242525;
+}
+svg.icon {
+    fill: currentColor;
+    height: 1em;
+    vertical-align: text-top;
+}</style>
 </head>
 
 <body class="container my-4">
@@ -61,21 +68,29 @@ permalink: /wp-admin/tmail
       </label>
     </div>
 
-    <button type="button" class="btn btn-primary" onclick="submitForm()">Kirim</button>
+    <button type="submit" class="btn btn-primary">Kirim</button>
   </form>
-
+<div id="myres" class="d-none">
   <div class="my-4">
     <h4>Email Terdaftar:</h4>
-    <p id="email">N/A</p>
+   <div class="input-group">
+            <input type="text" id="email" class="form-control" readonly="" value="N/A">
+            <button class="btn btn-secondary" id="copymail"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg></button>
+            <button type="button" class="btn btn-danger" onclick="resetForm()"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero"/></svg></button>
+            
+        </div>
+   <small id="infoc"></small>     
   </div>
-
   <div class="my-4">
-    <h4>Messages:</h4>
+    <h4>Messages: <button type="button" class="btn btn-primary" onclick="startMessageFetching()">GET</button></h4>
+    <small id="infop"></small>
     <div id="messages"></div>
-  </div><div id="iframeContainer" class="my-4"></div>
+  </div>
+  <div id="iframeContainer" class="my-4"></div>
+</div>
    <script>
     let emailBoxInterval;
-
+    let numpros=0;
     async function generateUsername() {
        let e = Math.random().toString(36).substring(2, 15);
   // Batasi panjangnya antara 3 sampai 6 karakter
@@ -120,10 +135,12 @@ username: username
       })).json();
 
       if (n.success) {
-        document.getElementById("email").textContent = n.email;
+      document.getElementById("emailForm").classList.add("d-none");
+      document.getElementById("myres").classList.remove("d-none");
+        document.getElementById("email").value = n.email;
         document.getElementById("messages").innerHTML = "";
         document.getElementById("iframeContainer").innerHTML = "";
-        startMessageFetching();
+        
       } else {
         alert("Gagal mengirim data!");
       }
@@ -131,10 +148,16 @@ username: username
 
     async function startMessageFetching() {
       if (!emailBoxInterval) {
+      
+     
         emailBoxInterval = setInterval(async () => {
+         document.getElementById("infop").innerText=`[${numpros}]Proses...`
           let e = await (await fetch("https://sabdaliterasi.xyz/api/convert/email-box")).json();
+          
           let t = document.getElementById("messages");
           t.innerHTML = "";
+          numpros+=1;
+          
           e.messages.length > 0 && e.messages.forEach((e) => {
             let n = document.createElement("div");
             n.classList.add("card", "my-2");
@@ -148,6 +171,8 @@ username: username
             t.appendChild(n);
           });
         }, 5000);
+      
+      
       }
     }
 
@@ -155,13 +180,31 @@ username: username
       document.getElementById("iframeContainer").innerHTML = `<iframe src="${e}" width="100%" height="500px"></iframe>`;
     }
 
-    function resetForm() {
-      document.getElementById("username").value = "";
-      document.getElementById("subdomain").value = "";
-      document.getElementById("email").textContent = "N/A";
-      document.getElementById("messages").innerHTML = "";
-      clearInterval(emailBoxInterval);
-      emailBoxInterval = null;
+   async function resetForm() {
+   if(confirm("Yakin ingin hapus?")){
+   try{
+   let e = await (await fetch("https://sabdaliterasi.xyz/api/convert/email-delete")).json();
+   
+   if(!e.success){
+   alert("Gagal Logout Tanpa Alasan")
+   return
+   }
+   numpros=0;
+   document.getElementById("username").value = "";
+   document.getElementById("subdomain").value = "";
+   document.getElementById("email").value = "N/A";
+   document.getElementById("messages").innerHTML = "";
+   document.getElementById("emailForm").classList.remove("d-none");
+   document.getElementById("myres").classList.add("d-none");
+   document.getElementById("infop").innerText="";
+   clearInterval(emailBoxInterval);
+   emailBoxInterval = null;
+   
+   }catch(e){
+   console.error(e);alert("Gagal Logut")
+   }
+   }
+   
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -182,6 +225,22 @@ username: username
           document.getElementById("subdomain").disabled = false;
         }
       });
+    });
+    
+ document.getElementById('emailForm').addEventListener('submit', function (e) {
+ e.preventDefault()
+ submitForm()
+ });   
+    
+document.getElementById('copymail').addEventListener('click', function () {
+        const cdnUrl = document.getElementById('email'),
+        info= document.getElementById('infoc');
+        
+        cdnUrl.select();
+        document.execCommand('copy');
+       
+      info.innerText='URL copied to clipboard!';
+      setTimeout(function(){info.innerText=""},2000)
     });
   </script>
 </body>
