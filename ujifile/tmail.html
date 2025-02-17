@@ -25,7 +25,7 @@ svg.icon {
   <form id="emailForm" class="my-3">
     <div class="mb-3">
       <label for="domain" class="form-label">Domain</label>
-      <select class="form-control" id="domain" required>
+      <select class="form-control" id="domain">
         <option value="">Pilih Domain</option>
         <option value="teml.net">teml.net</option>
         <option value="tmpeml.com">tmpeml.com</option>
@@ -44,7 +44,7 @@ svg.icon {
     </div>
 
     <div class="mb-3">
-      <label for="subdomain" class="form-label">Subdomain (Opsional)</label>
+      <label for="subdomain" class="form-label">Subdomain</label>
       <input type="text" class="form-control" id="subdomain" placeholder="Masukkan Subdomain" />
     </div>
 
@@ -56,7 +56,7 @@ svg.icon {
     </div>
 
     <div class="mb-3">
-      <label for="username" class="form-label">Username</label>
+      <label for="username" class="form-label">Username <small style="color:red">*</small></label>
       <input type="text" class="form-control" id="username" placeholder="Masukkan Username" required />
     </div>
 
@@ -82,7 +82,7 @@ svg.icon {
   </div>
   <div class="my-4">
     <h4>Messages: <button type="button" class="btn btn-primary" id="GET_MESS">GET</button></h4>
-    <small id="infop"></small>
+    <small id="infop" style="color:blue"></small>
     <div id="messages"></div>
   </div>
   <div id="iframeContainer" class="my-4"></div>
@@ -113,7 +113,7 @@ svg.icon {
   }
 
     async function submitForm() {
-      let domain = DOMAIN.value || "goohle.disbox.org";
+      let domain = DOMAIN.value || getRandomDomain();
       let subdomain = SUB_DOMAIN.value;
       let username =USER_NAME.value;
       
@@ -263,7 +263,10 @@ COPY_MAIL.addEventListener('click', function () {
 
 GET_MESS.addEventListener('click', function () {startMessageFetching()});
 RESET_FORM.addEventListener('click', function () {resetForm()});
-}()
+
+function getRandomDomain(){let t=["teml.net","tmpeml.com","tmpbox.net","moakt.cc","disbox.net","tmpmail.org","tmpmail.net","tmails.net","disbox.org","moakt.co","moakt.ws","tmail.ws","bareed.ws","drmail.in"],m=Math.floor(Math.random()*t.length);return t[m]}
+}();
+
 	</script>
       <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
