@@ -1,0 +1,284 @@
+---
+layout: null
+permalink: /wp-admin/email
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Input Email &amp; Messages</title>
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.3/dist/css/bootstrap.min.css">
+    <style>.btn.btn-outline-secondary svg {
+    color: #242525;
+}
+svg.icon {
+    fill: currentColor;
+    height: 1em;
+    vertical-align: text-top;
+}</style>
+
+</head>
+
+<body class="container my-4">
+  <h1 class="text-center">Form Input Email &amp; Messages</h1>
+  <form id="emailForm" class="my-3">
+    <div class="mb-3">
+      <label for="domain" class="form-label">Domain</label>
+      <select class="form-control" id="domain">
+        <option value="">Pilih Domain</option>
+         </select>
+    </div>
+
+    <div class="mb-3 d-none">
+      <label for="subdomain" class="form-label">Subdomain</label>
+      <input type="hidden" class="form-control" id="subdomain" placeholder="Masukkan Subdomain" />
+    </div>
+
+    <div class="form-check mb-3 d-none">
+      <input class="form-check-input" type="checkbox" value="" id="randomCheckboxSubdomain">
+      <label class="form-check-label" for="randomCheckboxSubdomain">
+        Generate Random Subdomain
+      </label>
+    </div>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username <small style="color:red">*</small></label>
+      <input type="text" class="form-control" id="username" placeholder="Masukkan Username" required />
+    </div>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" value="" id="randomCheckboxUsername">
+      <label class="form-check-label" for="randomCheckboxUsername">
+        Generate Random Username
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Kirim</button> | <button class="btn btn-success" id="auto"  type="button">Auto</button>
+  </form>
+
+<div id="myres" class="d-none">
+  <div class="my-4">
+    <h4>Email Terdaftar:</h4>
+   <div class="input-group">
+            <input type="text" id="email" class="form-control" readonly="" value="N/A">
+            <button class="btn btn-secondary" id="copymail"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg></button>
+            <button type="button" class="btn btn-danger" id="RESET_FORM"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero"/></svg></button>
+            
+        </div>
+   <small id="infoc"></small>     
+  </div>
+  <div class="my-4">
+    <h4>Messages: <button type="button" class="btn btn-primary" id="GET_MESS">GET</button></h4>
+    <small id="infop" style="color:blue"></small>
+    <div id="messages"></div>
+  </div>
+  <div id="iframeContainer" class="my-4"></div>
+</div>
+ 
+     <script>
+      !async function(){
+
+   let emailBoxInterval;
+    let numpros=0;
+	 const DgBi=document.getElementById.bind(document),USER_NAME= DgBi("username"),SUB_DOMAIN=DgBi("subdomain"),DOMAIN=DgBi("domain"),GET_MESS=DgBi("GET_MESS"),RESET_FORM=DgBi("RESET_FORM"),
+	RANDOM_USERNAME=DgBi("randomCheckboxUsername"),RANDOM_SUBDOMAIN=DgBi("randomCheckboxSubdomain"),
+	EMAIL_FORM=DgBi("emailForm"),MY_RES=DgBi("myres"),EMAIL=DgBi("email"),MESSAGES=DgBi("messages"),AUTO=DgBi("auto"),
+	IFRAME_CONTAINER=DgBi("iframeContainer"),INFOP=DgBi("infop"),INFOC=DgBi('infoc'),
+	COPY_MAIL=DgBi('copymail');
+ const dore=await fetch("https://sabdaliterasi.xyz/api/convert/email-domain");
+const data =await dore.json();
+if(data.domains){
+ data.domains.forEach(domain => {
+            const option = document.createElement("option");
+            option.value = domain.qdn;
+            option.textContent = domain.qdn;
+            DOMAIN.appendChild(option);
+ });
+   }else{location.href=location.href}
+      
+    
+    async function generateUsername() {
+      let a=["Aldi","Budi","Citra","Dian","Eka","Farhan","Gita","Hadi","Indra","Joko","Kiki","Lina","Mira","Nanda","Oka","Putri","Qory","Rizki","Siti","Toni","Umar","Vina","Wawan","Xena","Yusuf","Zahra"],i=["Pratama","Saputra","Hidayat","Wijaya","Nugroho","Siregar","Santoso","Gunawan","Fadilah","Putra","Ramadhan","Susanto","Lestari","Rahman","Syahputra","Anggraini","Mahardika","Novita","Kusuma","Setiawan","Halim","Firmansyah","Baskoro","Saputri","Anjani"],r=a[Math.floor(Math.random()*a.length)],n=i[Math.floor(Math.random()*i.length)],o=`${r}.${n}${Math.floor(1e4*Math.random())}`; 
+     USER_NAME.value = o.toLowerCase();
+    }
+
+
+ 
+ 
+    
+    async function submitForm(k) {
+    
+      let domain = DOMAIN.value || getRandomDomain();
+      let subdomain = SUB_DOMAIN.value;
+      let username =USER_NAME.value;
+      
+      if (RANDOM_USERNAME.checked) {
+        generateUsername();
+        username =USER_NAME.value;
+      }
+      if(k){
+      generateUsername();
+      username =USER_NAME.value;
+      domain:getRandomDomain();
+      }
+
+    let fixmain=domain;  
+    
+try{
+
+const body={
+domain: fixmain,
+username: username
+}
+      let n = await (await fetch("https://sabdaliterasi.xyz/api/convert/create-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      })).json();
+
+      if (n.success) {
+      EMAIL_FORM.classList.add("d-none");
+      MY_RES.classList.remove("d-none");
+        EMAIL.value = n.email;
+        MESSAGES.innerHTML = "";
+        IFRAME_CONTAINER.innerHTML = "";
+        
+      } else {
+        alert("Gagal mengirim data!");
+      }
+      }catch(e){
+      alert("Gagal mengirim data!");
+      console.error(e)
+      }
+    }
+
+    async function startMessageFetching() {
+       if(emailBoxInterval){clearInterval(emailBoxInterval);emailBoxInterval=null};
+    async function start(){
+ 
+         INFOP.innerText=`[${numpros}]Proses...`
+          let e = await (await fetch("https://sabdaliterasi.xyz/api/convert/email-box")).json();
+          
+          let t = MESSAGES;
+          t.innerHTML = "";
+          numpros+=1;
+          
+          e.messages.length > 0 && e.messages.forEach((e) => {
+           const urlParts=e.link.split('/');const lastPart = urlParts[urlParts.length - 1];const modifiedString = lastPart.replace(/-/g, '_');
+           
+          let fu=document.createElement("button");
+          fu.classList.add('btn','btn-primary');
+          fu.id=modifiedString;
+          fu.innerText="Lihat Pesan"
+            let n = document.createElement("div");
+            let qq = document.createElement("span");
+            qq.appendChild(fu);
+            n.classList.add("card", "my-2");
+            
+            n.innerHTML = `
+              <div class="card-body">
+                <h5 class="card-title">${e.subject}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${e.sender}</h6>
+                ${qq.innerHTML}
+              </div>
+            `;
+            t.appendChild(n);
+            DgBi(fu.id).addEventListener('click', function () {showMessageIframe(e.link)});
+          });
+        }
+        start()
+      if (!emailBoxInterval) {
+      
+     
+        emailBoxInterval = setInterval(async () => {start()}, 1e4);
+      
+      
+      }
+    }
+
+    function showMessageIframe(e) {
+      IFRAME_CONTAINER.innerHTML = `<iframe src="${e}" width="100%" height="360px"></iframe>`;
+    }
+
+   async function resetForm() {
+   if(confirm("Yakin ingin hapus?")){
+   try{
+   
+   let e = await (await fetch("https://sabdaliterasi.xyz/api/convert/email-delete")).json();
+   
+   if(!e.success){
+   alert("Gagal Logout Tanpa Alasan")
+   return
+   }
+   numpros=0;
+  USER_NAME.value = "";
+   SUB_DOMAIN.value = "";
+   EMAIL.value = "N/A";
+   MESSAGES.innerHTML = "";
+   EMAIL_FORM.classList.remove("d-none");
+   MY_RES.classList.add("d-none");
+   INFOP.innerText="";
+   clearInterval(emailBoxInterval);
+   emailBoxInterval = null;
+   
+   }catch(e){
+   console.error(e);alert("Gagal Logut")
+   }
+   }
+   
+    }
+
+document.addEventListener("DOMContentLoaded", () => {
+      RANDOM_USERNAME.addEventListener("change", function () {
+        if (this.checked) {
+         USER_NAME.disabled = true;
+          generateUsername();
+        } else {
+         USER_NAME.disabled = false;
+        }
+      });
+
+      RANDOM_SUBDOMAIN.addEventListener("change", function () {
+        if (this.checked) {
+          SUB_DOMAIN.disabled = true;
+          generateRandomSubdomain();
+        } else {
+          SUB_DOMAIN.disabled = false;
+        }
+      });
+    });
+    
+EMAIL_FORM.addEventListener('submit', function (e) {
+ e.preventDefault()
+ submitForm()
+ });   
+AUTO.addEventListener('click', function () {submitForm("auto")});    
+COPY_MAIL.addEventListener('click', function () {
+        const cdnUrl = EMAIL,
+        info= INFOC;
+        
+        cdnUrl.select();
+        document.execCommand('copy');
+       
+      info.innerText='URL copied to clipboard!';
+      setTimeout(function(){info.innerText=""},2000)
+    });
+
+GET_MESS.addEventListener('click', function () {startMessageFetching()});
+RESET_FORM.addEventListener('click', function () {resetForm()});
+
+function getRandomDomain(){const options = DOMAIN.options;
+    if (options.length > 0) {
+        const randomIndex = Math.floor(Math.random() * options.length);
+        return options[randomIndex].value;
+    }
+    return "blondmail.com";
+    }
+}();
+	</script>
+      <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
