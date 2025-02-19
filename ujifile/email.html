@@ -70,7 +70,24 @@ svg.icon {
   <div class="my-4">
     <h4>Messages: <button type="button" class="btn btn-primary" id="GET_MESS">GET</button></h4>
     <small id="infop" style="color:blue"></small>
-    <div id="messages"></div>
+    
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+ <th>Waktu</th>
+ <th>Dari</th>
+                <th>Subjek</th>
+                
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="messages">
+           
+        </tbody>
+    </table>
+    
+    
+    
   </div>
   <div id="iframeContainer" class="my-4"></div>
 </div>
@@ -170,17 +187,19 @@ username: username
           fu.classList.add('btn','btn-primary');
           fu.id=modifiedString;
           fu.innerText="Lihat Pesan"
-            let n = document.createElement("div");
+            let n = document.createElement("tr");
             let qq = document.createElement("span");
             qq.appendChild(fu);
-            n.classList.add("card", "my-2");
             
             n.innerHTML = `
-              <div class="card-body">
-                <h5 class="card-title">${e.subject}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${e.sender}</h6>
-                ${qq.innerHTML}
-              </div>
+              
+              
+ <td>${e.date.replaceAll('.',':')}</td>               
+                <td>${e.sender}</td>
+               
+                <td>${e.subject}</td>
+                <td>${qq.innerHTML}</td>
+           
             `;
             t.appendChild(n);
             DgBi(fu.id).addEventListener('click', function () {showMessageIframe(e.link)});
