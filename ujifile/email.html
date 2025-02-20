@@ -20,7 +20,7 @@ svg.icon {
 
 </head>
 
-<body class="container my-4">
+<body class="container my-4 d-none">
   <h1 class="text-center">Form Input Email &amp; Messages</h1>
   <form id="emailForm" class="my-3">
     <div class="mb-3">
@@ -53,7 +53,7 @@ svg.icon {
         Generate Random Username
       </label>
     </div>
-    <button type="submit" class="btn btn-primary">Kirim</button> | <button class="btn btn-success" id="auto"  type="button">Auto</button>
+    <button id="submitnya" type="submit" class="btn btn-primary" disabled>Kirim</button> | <button class="btn btn-success" id="auto"  type="button" disabled>Auto</button>
   </form>
 
 <div id="myres" class="d-none">
@@ -99,19 +99,30 @@ svg.icon {
     let numpros=0;
 	 const DgBi=document.getElementById.bind(document),USER_NAME= DgBi("username"),SUB_DOMAIN=DgBi("subdomain"),DOMAIN=DgBi("domain"),GET_MESS=DgBi("GET_MESS"),RESET_FORM=DgBi("RESET_FORM"),
 	RANDOM_USERNAME=DgBi("randomCheckboxUsername"),RANDOM_SUBDOMAIN=DgBi("randomCheckboxSubdomain"),
-	EMAIL_FORM=DgBi("emailForm"),MY_RES=DgBi("myres"),EMAIL=DgBi("email"),MESSAGES=DgBi("messages"),AUTO=DgBi("auto"),
+	EMAIL_FORM=DgBi("emailForm"),MY_RES=DgBi("myres"),EMAIL=DgBi("email"),MESSAGES=DgBi("messages"),AUTO=DgBi("auto"),SUBMITNYA=DgBi("submitnya"),
 	IFRAME_CONTAINER=DgBi("iframeContainer"),INFOP=DgBi("infop"),INFOC=DgBi('infoc'),
 	COPY_MAIL=DgBi('copymail');
- const dore=await fetch("https://sabdaliterasi.xyz/api/convert/email-domain");
-const data =await dore.json();
-if(data.domains){
+ fetch("https://sabdaliterasi.xyz/api/convert/email-domain")
+ .then(res =>{ 
+ if (!res.ok) {
+                        location.href=location.href
+                    }
+                    return res.json();})
+ .then(data=>{
+ if(data.domains){
  data.domains.forEach(domain => {
             const option = document.createElement("option");
             option.value = domain.qdn;
             option.textContent = domain.qdn;
             DOMAIN.appendChild(option);
  });
-   }else{location.href=location.href}
+ SUBMITNYA.disabled = false;
+ AUTO.disabled = false;
+ document.body.classList.remove("d-none");
+   }else{location.href=location.href}})
+ .catch(error => {location.href=location.href});
+ 
+
       
     
     async function generateUsername() {
