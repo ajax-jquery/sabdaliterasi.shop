@@ -1,7 +1,8 @@
 ---
 layout: null
-permalink: /wp-admin/daftar-cloudinary
+permalink: /wp-admin/cloudinary
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +16,8 @@ permalink: /wp-admin/daftar-cloudinary
    
    <pre id="output"></pre>
    <input id="link" type="link" name="link"> <button id="gethead">getheat</button>
+   
+   <p><textarea id="domainnya" readonly></textarea></p>
    <pre id="outputhead"></pre>
     <script>
   
@@ -22,7 +25,9 @@ const y=new Array(256).fill("").map(((e,t)=>("0"+t.toString(16)).slice(-2)));
 function k(){
 const[e,t,i,n]=crypto.getRandomValues(new Uint32Array(4));return "e"+y[255&e]+y[e>>8&255]+y[e>>16&255]+y[e>>24&255]+y[255&t]+y[t>>8&255]+y[t>>16&255]+y[t>>24&255]+y[255&i]+y[i>>8&255]+y[i>>16&255]+y[i>>24&255]+y[255&n]+y[n>>8&255]+y[n>>16&255]+y[n>>24&255]}
      
-     document.getElementById('sendRequest').addEventListener('click', function() {
+const hasilnya=JSON.parse(localStorage.getItem("cloudinary"));
+document.getElementById('domainnya').innerText=JSON.stringify(hasilnya);
+document.getElementById('sendRequest').addEventListener('click', function() {
        const email =document.getElementById('email').value.trim();
             const url = '/api/convert/cloudimage/registrasi';
              document.getElementById('output').innerText="";
@@ -70,7 +75,7 @@ const[e,t,i,n]=crypto.getRandomValues(new Uint32Array(4));return "e"+y[255&e]+y[
       
             const url =document.getElementById('link').value.trim().replace("http://","");
             document.getElementById('outputhead').innerText="";
-        
+        document.getElementById('domainnya').innerText=""
 
            const get =await fetch("/api/convert/"+url, {
                 method: 'GET',
@@ -82,8 +87,13 @@ const[e,t,i,n]=crypto.getRandomValues(new Uint32Array(4));return "e"+y[255&e]+y[
             uuid:hasil.lokasi.session_project.session_uuid,
             login:hasil.login
             };
+            hasilnya.push(json.domain.replace(".cloudimg.io",""))
+            localStorage.setItem("cloudinary", JSON.stringify(hasilnya));
             
 document.getElementById('outputhead').innerText=JSON.stringify(json,null,2);
+document.getElementById('domainnya').innerText=JSON.stringify(hasilnya);
+document.getElementById('email').value=""
+document.getElementById('link').value=""
          
             
         });
@@ -92,5 +102,7 @@ document.getElementById('outputhead').innerText=JSON.stringify(json,null,2);
      
       
     </script>
+
 </body>
 </html>
+
