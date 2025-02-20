@@ -177,9 +177,8 @@ username: username
           let e = await (await fetch("https://sabdaliterasi.xyz/api/convert/email-box")).json();
           
           let t = MESSAGES;
-          t.innerHTML = "";
           numpros+=1;
-          
+          if(e.success){t.innerHTML = "";
           e.messages.length > 0 && e.messages.forEach((e) => {
            const urlParts=e.link.split('/');const lastPart = urlParts[urlParts.length - 1];const modifiedString = lastPart.replace(/-/g, '_');
            
@@ -204,6 +203,7 @@ username: username
             t.appendChild(n);
             DgBi(fu.id).addEventListener('click', function () {showMessageIframe(e.link)});
           });
+          }
         }
         start()
       if (!emailBoxInterval) {
