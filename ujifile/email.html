@@ -247,7 +247,7 @@ username: username
    
     }
 
-document.addEventListener("DOMContentLoaded", () => {
+
       RANDOM_USERNAME.addEventListener("change", function () {
         if (this.checked) {
          USER_NAME.disabled = true;
@@ -257,15 +257,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      RANDOM_SUBDOMAIN.addEventListener("change", function () {
-        if (this.checked) {
-          SUB_DOMAIN.disabled = true;
-          generateRandomSubdomain();
-        } else {
-          SUB_DOMAIN.disabled = false;
-        }
-      });
-    });
+
+
     
 EMAIL_FORM.addEventListener('submit', function (e) {
  e.preventDefault()
