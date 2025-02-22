@@ -2,6 +2,7 @@
 layout: null
 permalink: /wp-admin/ai-detektor
 ---
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,7 +12,7 @@ permalink: /wp-admin/ai-detektor
     <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.0/dist/css/bootstrap.min.css">
     <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/axios/1.7.9/dist/axios.min.js"></script>
     <style>
-       .ai-text{background-color:#ff0}.mixed-text{background-color:#add8e6}.loading-spinner{display:none}.circular-chart{height:120px;width:120px}.circle-bg{stroke:#eee}.circle,.circle-bg{fill:none;stroke-width:3.8}.circle{stroke-linecap:round;transition:stroke-dasharray .6s ease-in-out}.percentage{font-size:10px;font-weight:700;fill:#000;text-anchor:middle;dominant-baseline:central}#aiScoreContainer{display:none;margin-top:20px;text-align:center}
+       .ai-text{background-color:#ff0}.mixed-text{background-color:#add8e6}.loading-spinner{display:none}.circular-chart{height:120px;width:120px}.circle-bg{stroke:#eee}.circle,.circle-bg{fill:none;stroke-width:3.8}.circle{stroke-linecap:round;transition:stroke-dasharray .6s ease-in-out}.percentage{font-size:10px;font-weight:700;fill:#000;text-anchor:middle;dominant-baseline:central}#aiScoreContainer{display:none;margin-top:20px;text-align:center}.textres{ overflow: auto; max-height: 500px; }
     </style>
 </head>
 <body class="container py-4">
@@ -46,6 +47,93 @@ permalink: /wp-admin/ai-detektor
 
     <div id="result" class="mt-4"></div>
 
-    <script>function detectAI(){const e=document.getElementById("detectBtn"),t=document.getElementById("btnText"),a=document.getElementById("loading"),n=document.getElementById("lang").value,s=document.getElementById("text").value,d=(document.getElementById("aiScoreContainer"),document.getElementById("result"));e.disabled=!0,t.textContent="Memproses...",a.style.display="inline-block",axios.post("https://sabdaliterasi.xyz/api/convert/isgen/detect",{lang:n,text:s}).then((e=>{displayResult(e.data)})).catch((e=>{d.innerHTML="<div class='alert alert-danger'>Terjadi kesalahan!</div>"})).finally((()=>{e.disabled=!1,t.textContent="Deteksi",a.style.display="none"}))}function displayResult(e){const t=Math.round(e.ai_score),a=document.getElementById("circle-progress"),n=document.getElementById("percentageText"),s=t/100*100;let d="#00C851";t>40&&(d="#ffbb33"),a.style.strokeDasharray=`${s}, 100`,a.setAttribute("stroke",d),n.textContent=`${t}%`,document.getElementById("aiScoreContainer").style.display="block";let l=`<h4>Statistik</h4> <div class='progress mb-3'> <div class='progress-bar bg-success' style='width: ${Math.round(100*e.summary.human)}%;'>Human: ${Math.round(100*e.summary.human)}%</div> <div class='progress-bar bg-primary' style='width: ${Math.round(100*e.summary.mixed)}%;'>Mixed: ${Math.round(100*e.summary.mixed)}%</div> <div class='progress-bar bg-warning text-dark' style='width: ${Math.round(100*e.summary.ai)}%;'>AI: ${Math.round(100*e.summary.ai)}%</div> </div> <h4>Analisis Teks</h4> <div class='border p-3'>`;e.paragraphs.forEach((e=>{let t="<p>";e.sentence_predictions.forEach((e=>{let a="ai"===e.label?"ai-text":"mixed"===e.label?"mixed-text":"";t+=`<span class='${a}'>${e.sentence} </span>`})),t+="</p>",l+=t})),l+="</div>",document.getElementById("result").innerHTML=l}function updateTextStats(){const e=document.getElementById("text").value,t=e.length,a=e.trim()?e.trim().split(/\s+/).length:0;document.getElementById("textStats").textContent=`Karakter: ${t} | Kata: ${a}`}</script>
+<script>
+function detectAI(){
+    const e=document.getElementById("detectBtn"),
+          t=document.getElementById("btnText"),
+          a=document.getElementById("loading"),
+          n=document.getElementById("lang").value,
+          s=document.getElementById("text").value,
+          d=document.getElementById("result");
+    
+    e.disabled=!0, t.textContent="Memproses...", a.style.display="inline-block";
+    
+    axios.post("https://sabdaliterasi.xyz/api/convert/isgen/detect", {lang:n, text:s})
+        .then((res) => {
+            displayResult(res.data);
+        })
+        .catch(() => {
+            d.innerHTML = "<div class='alert alert-danger'>Terjadi kesalahan!</div>";
+        })
+        .finally(() => {
+            e.disabled=!1, t.textContent="Deteksi", a.style.display="none";
+        });
+}
+function displayResult(data){
+    const t = Math.round(data.ai_score),
+          a = document.getElementById("circle-progress"),
+          n = document.getElementById("percentageText"),
+          s = t/100*100;
+    
+    let d = "#00C851";
+    t > 40 && (d = "#ffbb33");
+    a.style.strokeDasharray = `${s}, 100`;
+    a.setAttribute("stroke", d);
+    n.textContent = `${t}%`;
+    document.getElementById("aiScoreContainer").style.display="block";
+
+    let resultHTML = `<h4>Statistik</h4>
+        <div class='progress mb-3'>
+            <div class='progress-bar bg-success' style='width: ${Math.round(100 * data.summary.human)}%;'>Human: ${Math.round(100 * data.summary.human)}%</div>
+            <div class='progress-bar bg-primary' style='width: ${Math.round(100 * data.summary.mixed)}%;'>Mixed: ${Math.round(100 * data.summary.mixed)}%</div>
+            <div class='progress-bar bg-warning text-dark' style='width: ${Math.round(100 * data.summary.ai)}%;'>AI: ${Math.round(100 * data.summary.ai)}%</div>
+        </div>`;
+       
+resultHTML+="<h4>Analisis Teks</h4><div class='border p-3 textres'>"
+    data.paragraphs.forEach((p) => {
+        let paragraphHTML = "<p>";
+        p.sentence_predictions.forEach((sp) => {
+            let className = sp.label === "ai" ? "ai-text" : sp.label === "mixed" ? "mixed-text" : "";
+            paragraphHTML += `<span class='${className}'>${sp.sentence} </span>`;
+        });
+        paragraphHTML += "</p>";
+        resultHTML += paragraphHTML;
+    });
+resultHTML += "</div>";
+
+  if (!data.platform.error) {
+        resultHTML+="<h4>Deteksi Platform</h4><div class='d-flex flex-wrap gap-2'>";
+        Object.keys(data.platform).forEach(platform => {
+            if (platform) {
+                let score = data.platform[platform];
+                let iconColor = score === 0 ? "red" : score === 50 ? "yellow" : "green";
+                let icon = getPlatformIcon(iconColor);
+                const namanya=platform
+                .replace("score", "")
+                .replace("GptZero","GPTZero")
+                .replace("CrossPlag","QuillBot")
+                .replace("ContentAtScale","Grammarly")
+                
+                resultHTML += `<div class='d-flex align-items-center'>
+                                ${icon} <span class='ms-2'>${namanya}</span>
+                               </div>`;
+            }
+        });
+        resultHTML += "</div>";
+    }else{resultHTML+=`<h4>Deteksi Platform</h4><div class='d-flex flex-wrap gap-2'><div class="alert alert-danger"><strong>Terjadi kesalahan!</strong> ${data.platform.message}</div></div>`}   
+
+    document.getElementById("result").innerHTML = resultHTML;
+}
+function getPlatformIcon(color) {
+    let svgIcons = {
+        red: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m2.095 19.886 9.248-16.5c.133-.237.384-.384.657-.384.272 0 .524.147.656.384l9.248 16.5c.064.115.096.241.096.367 0 .385-.309.749-.752.749h-18.496c-.44 0-.752-.36-.752-.749 0-.126.031-.252.095-.367zm9.907-6.881c-.414 0-.75.336-.75.75v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5c0-.414-.336-.75-.75-.75zm-.002-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1z" fill="red"/></svg>`,
+        yellow: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m2.095 19.886 9.248-16.5c.133-.237.384-.384.657-.384.272 0 .524.147.656.384l9.248 16.5c.064.115.096.241.096.367 0 .385-.309.749-.752.749h-18.496c-.44 0-.752-.36-.752-.749 0-.126.031-.252.095-.367zm9.907-6.881c-.414 0-.75.336-.75.75v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5c0-.414-.336-.75-.75-.75zm-.002-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1z" fill="orange"/></svg>`,
+        green: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z" fill="green"/></svg>`
+    };
+    return svgIcons[color] || "";
+}function updateTextStats(){const e=document.getElementById("text").value,t=e.length,a=e.trim()?e.trim().split(/\s+/).length:0;document.getElementById("textStats").textContent=`Karakter: ${t} | Kata: ${a}`}
+</script>
+
+
 </body>
 </html>
