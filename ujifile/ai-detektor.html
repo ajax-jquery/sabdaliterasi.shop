@@ -102,7 +102,9 @@ resultHTML+="<h4>Analisis Teks</h4><div class='border p-3 textres'>"
 resultHTML += "</div>";
 
   if (!data.platform.error) {
-        resultHTML+="<h4>Deteksi Platform</h4><div class='d-flex flex-wrap gap-2'>";
+        resultHTML+="<h4 class='mb-3 text-center'>Deteksi Platform</h4><table class='table table-bordered table-striped text-center'>";
+        let thead=`<thead class='table-dark'><tr><th>Platform</th><th>Status</th></tr></thead>`,
+        tbody="<tbody>"
         Object.keys(data.platform).forEach(platform => {
             if (platform) {
                 let score = data.platform[platform];
@@ -113,13 +115,14 @@ resultHTML += "</div>";
                 .replace("GptZero","GPTZero")
                 .replace("CrossPlag","QuillBot")
                 .replace("ContentAtScale","Grammarly")
-                
-                resultHTML += `<div class='d-flex align-items-center'>
-                                ${icon} <span class='ms-2'>${namanya}</span>
-                               </div>`;
+      tbody+=`<tr><th>${namanya}</th><th>${icon}</th></tr>`;
             }
         });
-        resultHTML += "</div>";
+        tbody+="</tbody>"
+         
+         
+         
+        resultHTML += thead+tbody+"</table>";
     }else{resultHTML+=`<h4>Deteksi Platform</h4><div class='d-flex flex-wrap gap-2'><div class="alert alert-danger"><strong>Terjadi kesalahan!</strong> ${data.platform.message}</div></div>`}   
 
     document.getElementById("result").innerHTML = resultHTML;
