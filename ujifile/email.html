@@ -2,12 +2,13 @@
 layout: null
 permalink: /wp-admin/email
 ---
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Input Email &amp; Messages</title>
+  <title>Email Temporary</title>
 <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.3/dist/css/bootstrap.min.css">
     <style>.btn.btn-outline-secondary svg {
     color: #242525;
@@ -101,7 +102,7 @@ svg.icon {
 	RANDOM_USERNAME=DgBi("randomCheckboxUsername"),RANDOM_SUBDOMAIN=DgBi("randomCheckboxSubdomain"),
 	EMAIL_FORM=DgBi("emailForm"),MY_RES=DgBi("myres"),EMAIL=DgBi("email"),MESSAGES=DgBi("messages"),AUTO=DgBi("auto"),SUBMITNYA=DgBi("submitnya"),
 	IFRAME_CONTAINER=DgBi("iframeContainer"),INFOP=DgBi("infop"),INFOC=DgBi('infoc'),
-	COPY_MAIL=DgBi('copymail');
+	COPY_MAIL=DgBi('copymail'),TITLE_DOC=document.title;
  fetch("https://sabdaliterasi.xyz/api/convert/email-domain")
  .then(res =>{ 
  if (!res.ok) {
@@ -180,14 +181,17 @@ username: username
       }
     }
 
-   async function startMessageFetching() {
+ let unreadEmails = 0; // Tetap global agar tidak di-reset
+let readMessages = new Set(); // Menyimpan pesan yang sudah dibaca
+
+async function startMessageFetching() {
     if (emailBoxInterval) {
         clearInterval(emailBoxInterval);
         emailBoxInterval = null;
     }
 
     // Inisialisasi audio notifikasi
-    let notificationSound = new Audio("https://www.myinstants.com/media/sounds/final_60a3d6e9fd484e009c1974f8_411929.mp3"); // Ganti dengan URL suara lain jika perlu
+    let notificationSound = new Audio("https://www.myinstants.com/media/sounds/final_60a3d6e9fd484e009c1974f8_411929.mp3"); 
     let lastEmailCount = 0;
 
     async function start() {
@@ -199,16 +203,18 @@ username: username
         if (e.success) {
             t.innerHTML = "";
             let emailCount = e.messages.length;
+            
+            // Hitung hanya pesan yang belum dibaca
+            let newUnreadEmails = e.messages.filter(msg => !readMessages.has(msg.link)).length;
 
-            // Jika ada email baru, mainkan suara
-            if (emailCount > lastEmailCount) {
+            // Jika ada pesan baru, update unreadEmails
+            if (newUnreadEmails > unreadEmails) {
+                unreadEmails = newUnreadEmails;
                 notificationSound.play();
+                document.title = `(${unreadEmails}) ${TITLE_DOC}`;
             }
 
-            // Update title dengan jumlah email masuk
-            document.title = `(${emailCount}) Kotak Masuk`;
-
-            e.messages.length > 0 && e.messages.forEach((e) => {
+            e.messages.forEach((e) => {
                 const urlParts = e.link.split('/');
                 const lastPart = urlParts[urlParts.length - 1];
                 const modifiedString = lastPart.replace(/-/g, '_');
@@ -222,19 +228,52 @@ username: username
                 let qq = document.createElement("span");
                 qq.appendChild(fu);
 
-                n.innerHTML = `
-                    <td>${e.date.replaceAll('.', ':')}</td>               
-                    <td>${e.sender}</td>
-                    <td>${e.subject}</td>
-                    <td>${qq.innerHTML}</td>
-                `;
+                // Buat elemen <td> dengan teks pesan
+                let dateTd = document.createElement("td");
+                dateTd.innerText = e.date.replaceAll('.', ':');
+
+                let senderTd = document.createElement("td");
+                senderTd.innerText = e.sender;
+
+                let subjectTd = document.createElement("td");
+                subjectTd.innerText = e.subject;
+
+                let buttonTd = document.createElement("td");
+                buttonTd.appendChild(fu);
+
+                // Jika pesan belum dibaca, buat teks bold
+                if (!readMessages.has(e.link)) {
+                    dateTd.style.fontWeight = "bold";
+                    senderTd.style.fontWeight = "bold";
+                    subjectTd.style.fontWeight = "bold";
+                }
+
+                // Tambahkan elemen ke baris <tr>
+                n.appendChild(dateTd);
+                n.appendChild(senderTd);
+                n.appendChild(subjectTd);
+                n.appendChild(buttonTd);
                 t.appendChild(n);
+
+                // Event listener untuk tombol
                 DgBi(fu.id).addEventListener('click', function () {
                     showMessageIframe(e.link);
+
+                    // Jika pesan belum dibaca, tambahkan ke readMessages dan update unreadEmails
+                    if (!readMessages.has(e.link)) {
+                        readMessages.add(e.link);
+                        unreadEmails -= 1;
+                        document.title = `(${unreadEmails}) ${TITLE_DOC}`;
+
+                        // Hilangkan efek bold setelah pesan diklik
+                        dateTd.style.fontWeight = "normal";
+                        senderTd.style.fontWeight = "normal";
+                        subjectTd.style.fontWeight = "normal";
+                    }
                 });
             });
 
-            lastEmailCount = emailCount; // Update jumlah email terakhir
+            lastEmailCount = emailCount;
         }
     }
 
@@ -246,6 +285,7 @@ username: username
         }, 1e4);
     }
 }
+ 
 
     function showMessageIframe(e) {
       IFRAME_CONTAINER.innerHTML = `<iframe src="${e}" width="100%" height="360px"></iframe>`;
