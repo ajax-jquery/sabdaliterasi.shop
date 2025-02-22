@@ -8,7 +8,7 @@ permalink: /wp-admin/email
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Temporary</title>
+  <title>Form Input Email &amp; Messages</title>
 <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.3/dist/css/bootstrap.min.css">
     <style>.btn.btn-outline-secondary svg {
     color: #242525;
@@ -102,7 +102,7 @@ svg.icon {
 	RANDOM_USERNAME=DgBi("randomCheckboxUsername"),RANDOM_SUBDOMAIN=DgBi("randomCheckboxSubdomain"),
 	EMAIL_FORM=DgBi("emailForm"),MY_RES=DgBi("myres"),EMAIL=DgBi("email"),MESSAGES=DgBi("messages"),AUTO=DgBi("auto"),SUBMITNYA=DgBi("submitnya"),
 	IFRAME_CONTAINER=DgBi("iframeContainer"),INFOP=DgBi("infop"),INFOC=DgBi('infoc'),
-	COPY_MAIL=DgBi('copymail'),TITLE_DOC=document.title;
+	COPY_MAIL=DgBi('copymail'),RECENT_TITLE=document.title;let TITLE_DOC="";
  fetch("https://sabdaliterasi.xyz/api/convert/email-domain")
  .then(res =>{ 
  if (!res.ok) {
@@ -169,6 +169,8 @@ username: username
       EMAIL_FORM.classList.add("d-none");
       MY_RES.classList.remove("d-none");
         EMAIL.value = n.email;
+        TITLE_DOC = n.email;
+        document.title =n.email;
         MESSAGES.innerHTML = "";
         IFRAME_CONTAINER.innerHTML = "";
         
@@ -302,6 +304,7 @@ async function startMessageFetching() {
    return
    }
    numpros=0;
+   document.title=RECENT_TITLE;
   USER_NAME.value = "";
    SUB_DOMAIN.value = "";
    EMAIL.value = "N/A";
