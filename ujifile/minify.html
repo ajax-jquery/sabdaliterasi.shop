@@ -2,7 +2,6 @@
 layout: null
 permalink: /wp-admin/minify
 ---
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,6 +16,13 @@ permalink: /wp-admin/minify
 </head>
 <body class="bg-light">
 <div class="container mt-5">
+<div class="card-body">
+<label class="form-label">Endpoin:</label>
+    <select id="Endpoin" class="form-select">
+        <option value="http://localhost:3001">Local</option>
+        <option value="https://sabdaliterasi.xyz">External</option>
+    </select>
+    </div>
 <div class="card-body">
 <label class="form-label">Pilih Tipe:</label>
     <select id="minifyType" class="form-select" onchange="toggleFields()">
@@ -52,7 +58,7 @@ permalink: /wp-admin/minify
             </div>
         </div>
     </div>
-  <script>async function minifyCodeJS(){const e=document.getElementById("inputJS").value,t=document.getElementById("minifyButtonJS"),n=document.getElementById("minifyTextJS"),o=document.getElementById("loadingSpinnerJS"),d=document.getElementById("outputCodeJS"),i=document.getElementById("copyButtonJS");if(e.trim()){t.disabled=!0,n.textContent="Minifying...",o.classList.remove("d-none");try{const t=await fetch("/api/verify/minify-js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:e})}),n=await t.json();if(!t.ok)throw new Error(n.error||"Kode tidak valid!");d.value=n.minifiedCode,d.style.border="1px solid #ced4da",i.style.display="block"}catch(e){d.value=`Error: ${e.message}`,d.style.border="2px solid red",i.style.display="none"}t.disabled=!1,n.textContent="Minify",o.classList.add("d-none")}else alert("Masukkan kode JavaScript dulu!")}function copyJS(){document.getElementById("outputCodeJS").select(),document.execCommand("copy"),alert("Hasil minify berhasil disalin!")}</script>
+  <script>async function minifyCodeJS(){const domain=document.getElementById("Endpoin").value,e=document.getElementById("inputJS").value,t=document.getElementById("minifyButtonJS"),n=document.getElementById("minifyTextJS"),o=document.getElementById("loadingSpinnerJS"),d=document.getElementById("outputCodeJS"),i=document.getElementById("copyButtonJS");if(e.trim()){t.disabled=!0,n.textContent="Minifying...",o.classList.remove("d-none");try{const t=await fetch(domain+"/api/verify/minify-js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:e})}),n=await t.json();if(!t.ok)throw new Error(n.error||"Kode tidak valid!");d.value=n.minifiedCode,d.style.border="1px solid #ced4da",i.style.display="block"}catch(e){d.value=`Error: ${e.message}`,d.style.border="2px solid red",i.style.display="none"}t.disabled=!1,n.textContent="Minify",o.classList.add("d-none")}else alert("Masukkan kode JavaScript dulu!")}function copyJS(){document.getElementById("outputCodeJS").select(),document.execCommand("copy"),alert("Hasil minify berhasil disalin!")}</script>
 </div>    
 <div id="css" style="display:none">
 <div class="container mt-5">
@@ -79,9 +85,10 @@ permalink: /wp-admin/minify
                 </div>
             </div>
         </div>
-<script>async function minifyCSS(){const e=document.getElementById("inputCSS").value,t=document.getElementById("minifyButtonCSS"),n=document.getElementById("minifyTextCSS"),o=document.getElementById("loadingSpinnerCSS"),d=document.getElementById("outputCodeCSS"),i=document.getElementById("copyButtonCSS");if(e.trim()){t.disabled=!0,n.textContent="Minifying...",o.classList.remove("d-none");try{const t=await fetch("/api/verify/minify-css",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:e})}),n=await t.json();if(!t.ok)throw new Error(n.error||"Kode tidak valid!");d.value=n.minifiedCode,d.style.border="1px solid #ced4da",i.style.display="block"}catch(e){d.value=`Error: ${e.message}`,d.style.border="2px solid red",i.style.display="none"}t.disabled=!1,n.textContent="Minify",o.classList.add("d-none")}else alert("Masukkan kode CSS dulu!")}function copyCSS(){document.getElementById("outputCodeCSS").select(),document.execCommand("copy"),alert("Hasil minify berhasil disalin!")}</script>        
+<script>async function minifyCSS(){const domain=document.getElementById("Endpoin").value,e=document.getElementById("inputCSS").value,t=document.getElementById("minifyButtonCSS"),n=document.getElementById("minifyTextCSS"),o=document.getElementById("loadingSpinnerCSS"),d=document.getElementById("outputCodeCSS"),i=document.getElementById("copyButtonCSS");if(e.trim()){t.disabled=!0,n.textContent="Minifying...",o.classList.remove("d-none");try{const t=await fetch(domain+"/api/verify/minify-css",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:e})}),n=await t.json();if(!t.ok)throw new Error(n.error||"Kode tidak valid!");d.value=n.minifiedCode,d.style.border="1px solid #ced4da",i.style.display="block"}catch(e){d.value=`Error: ${e.message}`,d.style.border="2px solid red",i.style.display="none"}t.disabled=!1,n.textContent="Minify",o.classList.add("d-none")}else alert("Masukkan kode CSS dulu!")}function copyCSS(){document.getElementById("outputCodeCSS").select(),document.execCommand("copy"),alert("Hasil minify berhasil disalin!")}</script>        
     </div>
 </div>
 <script>function toggleFields(){const e=document.getElementById("minifyType").value;document.getElementById("javascript").style.display="javascript"===e?"block":"none",document.getElementById("css").style.display="css"===e?"block":"none"}</script>
 </body>
 </html>
+
