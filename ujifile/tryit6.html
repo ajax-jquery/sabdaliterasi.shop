@@ -2,7 +2,6 @@
 layout: null
 permalink: /wp-admin/tryit6
 ---
-
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -196,6 +195,7 @@ const {EditorView, basicSetup}= CM["codemirror"]
 const {html} = CM["@codemirror/lang-html"]
 const { oneDark } = CM["@codemirror/theme-one-dark"];
 const { StateEffect } = CM["@codemirror/state"];
+const { lineNumbers, EditorView: { lineWrapping } } = CM["@codemirror/view"];
 const themeEffect = StateEffect.define();
 let Editor;
 function drkm(){
@@ -226,12 +226,12 @@ if(d){
 config={
   parent: document.getElementById("Editor"),
   doc: editor.value,
-  extensions: [basicSetup,html()]
+  extensions: [basicSetup,html(),lineWrapping]
 }
 }else{config={
   parent: document.getElementById("Editor"),
   doc: editor.value,
-  extensions: [basicSetup,html(),oneDark]
+  extensions: [basicSetup,html(),oneDark,lineWrapping]
 }}
     
     
@@ -263,3 +263,4 @@ dragstart(e)}),document.getElementById("dragbar").addEventListener("touchstart",
 
 </body>
 </html>
+
