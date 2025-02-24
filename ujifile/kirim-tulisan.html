@@ -26,8 +26,8 @@ permalink: /wp-admin/kirim-tulisan
 </head>
 
 <body>
-		<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5/ckeditor5.min.css">
-<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5-premium-features/ckeditor5-premium-features.min.css" >
+		<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.1/ckeditor5/ckeditor5.min.css">
+<link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.1/ckeditor5-premium-features/ckeditor5-premium-features.min.css" >
 	
 <style>
 div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:4px solid #9b26af;box-shadow:2px 2px 2px hsla(0,0%,0%,.1)}div#word-count *{margin-right:1.5em;display:inline-block}
@@ -235,16 +235,27 @@ div#word-count{padding:10px 20px;margin-bottom:15px;background:#fff;border-left:
 
 
 
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5/ckeditor5.umd.js"></script>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.1/ckeditor5/ckeditor5.umd.js"></script>
 
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5-premium-features/pub-ckeditor5-premium-features.umd.min.js"></script>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.1/ckeditor5-premium-features/ckeditor5-premium-features.umd.min.js"></script>
     
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5/translations/id.umd.js"></script>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.1/ckeditor5/translations/id.umd.js"></script>
 
-<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.0/ckeditor5-premium-features/translations/id.umd.js"></script>
+<script src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/assets/ckeditor5/44.2.1/ckeditor5-premium-features/translations/id.umd.js"></script>
         
   <script>
-  
+  !function(){
+  function ping(){
+  try{
+  fetch("/api/verify/",{ method: "HEAD" }
+  )
+  }catch{
+  ping()
+  }
+  }
+  ping()
+setInterval(ping,4.5 * 60 * 1e3)
+  const localTime = new Date().toLocaleString();
  function showLoading() {
   document.getElementById('loading').style.display = 'flex';
 }
@@ -280,6 +291,20 @@ const {
     SimpleUploadAdapter
 } = window.CKEDITOR;
 const { AIAssistant, OpenAITextAdapter } = window.CKEDITOR_PREMIUM_FEATURES;
+class Adapterai extends OpenAITextAdapter {
+    async prepareMessages(query, context, actionId) {
+        // Ambil messages asli dari parent class
+        const messages = await super.prepareMessages(query, context, actionId);
+
+        // Tambahin role system di awal, tapi tetap jaga pesan yang udah ada
+        return [
+            { role: "system", content: "You are an AI assistant on the Sabda Literasi website (https://sabdaliterasi.xyz), a platform dedicated to providing articles with deep philosophical thoughts, exclusive ebook collections at affordable prices, and trusted services for completing college and school assignments. Since its founding on June 13, 2021, we have been committed to transforming the way people interact with the world of literacy and philosophy. Its founder is Fadhel Fikri, a Philosophy and Science activist. You are his AI assistant version, and your name is the same as his." },{role:"system", content:"The primary language you use when speaking is Indonesian. Use the phrase 'Comrade' when speaking."},
+{role:"system", content:"The current time is:"+localTime+",Timezone:"+Intl.DateTimeFormat().resolvedOptions().timeZone},
+            ...messages
+        ];
+    }
+}
+
 ClassicEditor.create(document.getElementById("isiTulisan"),
 {
 	toolbar: {
@@ -314,8 +339,9 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
 		Link,
 		List,
 		ListProperties,
-		OpenAITextAdapter,
-		Paragraph,WordCount,
+		Adapterai,
+		Paragraph,
+        WordCount,
         AutoImage,
     ImageBlock,
 	ImageCaption,
@@ -341,12 +367,31 @@ ClassicEditor.create(document.getElementById("isiTulisan"),
             }
         },
 	ai: {
-		openAI: {
-			requestHeaders: {
-				Authorization: 'Bearer '
-			}
-		}
-	},
+     openAI: {
+            apiUrl: "https://sabdaliterasi.xyz/api/convert/chat-ai",
+            requestParameters:{  
+   model: "gpt-4o",
+   max_tokens: 4000,
+   stream: true,
+    },
+   
+            
+        },
+     aiAssistant: {
+            contentAreaCssClass: "formatted",
+             extraCommandGroups: [{
+                        groupId: 'translate',
+                        commands: [
+                            {
+                                id: 'translateIndonesia',
+                                label: 'Indonesia',
+                                prompt: 'Translate to Indonesian language.'
+                            }
+                        ]
+                    }]
+        },
+     
+        },
     image: {
 		toolbar: ['toggleImageCaption', 'imageTextAlternative', '|', 'resizeImage']
 	},
@@ -438,7 +483,6 @@ sendData(formData);
         showModal("Foto penulis wajib diupload.",1);hideLoading();
       }
     });
-
     async function sendData(formData) {
       try {
         const response = await fetch("/api/verify/kirim-tulisan", {
@@ -495,7 +539,7 @@ sendData(formData);
   
   return formDataObj;
 }
-
+}()
 
   </script>
 </body>
