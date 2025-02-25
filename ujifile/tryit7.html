@@ -17,7 +17,7 @@ permalink: /wp-admin/tryit7
 /* Pastikan toolbar tidak terlalu ke atas */
 .toolbar-container {
     max-width: 50%;
-    top: 30%;
+    top: 25%;
     right: 0px;
     position: fixed;
     background: rgba(0, 0, 0, 0.8);
@@ -388,73 +388,75 @@ $(document).ready(function () {
     function makeDraggable(element) {
         let offsetX, offsetY, startY;
 
-        $(element).on("pointerdown", function (e) {
+        $(element).on("pointerdown touchstart", function (e) {
             isDragging = false;
             let el = $(this);
             let elOffset = el.offset();
 
-            offsetX = e.clientX - elOffset.left;
-            offsetY = e.clientY - elOffset.top;
+            let clientX = e.clientX || e.originalEvent.touches[0].clientX;
+            let clientY = e.clientY || e.originalEvent.touches[0].clientY;
+
+            offsetX = clientX - elOffset.left;
+            offsetY = clientY - elOffset.top;
             startY = elOffset.top;
 
-            // Matikan event di iframe agar tidak mengganggu drag
             $("#output").css("pointer-events", "none");
 
-            $(document).on("pointermove", function (e) {
+            $(document).on("pointermove touchmove", function (e) {
                 isDragging = true;
 
-                let newX = e.clientX - offsetX;
-                let newY = e.clientY - offsetY;
+                let moveX = e.clientX || e.originalEvent.touches[0].clientX;
+                let moveY = e.clientY || e.originalEvent.touches[0].clientY;
 
-                // Batas layar agar elemen tidak keluar dari viewport
+                let newX = moveX - offsetX;
+                let newY = moveY - offsetY;
+
                 newX = Math.max(0, Math.min($(window).width() - el.outerWidth(), newX));
                 newY = Math.max(50, Math.min($(window).height() - el.outerHeight() - 20, newY));
 
                 el.css({ left: newX + "px", top: newY + "px", position: "fixed" });
             });
 
-            $(document).on("pointerup", function () {
-                $(document).off("pointermove pointerup");
+            $(document).on("pointerup touchend", function () {
+                $(document).off("pointermove touchmove pointerup touchend");
                 clearTimeout(dragTimeout);
                 dragTimeout = setTimeout(() => (isDragging = false), 100);
 
-                // Aktifkan kembali event di iframe
                 $("#output").css("pointer-events", "auto");
             });
         });
     }
 
-    // Terapkan draggable ke toolbar & tombol toggle
     makeDraggable(".toolbar-container");
     makeDraggable("#togg");
-   let ontools=!1;
-    // Toggle toolbar saat tombol toggle diklik
-    $("#togg").on("click", function () {
+
+    let ontools = false;
+
+    $("#togg").on("click touchstart", function (e) {
+        e.preventDefault();
         if (!isDragging) {
-          if(!ontools){
-            $("#toolbar_container").fadeIn(200).addClass("show");
-            ontools=!0
-          }else{
-             $("#toolbar_container").fadeOut(200).removeClass("show");
-             ontools=!1
-          }
+            if (!ontools) {
+                $("#toolbar_container").fadeIn(200).addClass("show");
+                ontools = true;
+            } else {
+                $("#toolbar_container").fadeOut(200).removeClass("show");
+                ontools = false;
+            }
         }
     });
 
-    // Klik di luar toolbar = sembunyikan
-    $(document).on("click", function (e) {
+    $(document).on("click touchstart", function (e) {
         if (!$(e.target).closest(".toolbar-container, #togg").length) {
-            $(".toolbar-container").fadeOut(200).removeClass("show");ontools=!1
+            $(".toolbar-container").fadeOut(200).removeClass("show");
+            ontools = false;
         }
     });
 
-  
-
-    // Pastikan tombol dalam toolbar bisa diklik tanpa terganggu
-    $(".toolbar-container button").on("click", function (e) {
+    $(".toolbar-container button").on("click touchstart", function (e) {
         e.stopPropagation();
     });
 });
+
 
 
 document.getElementById("viewAll").addEventListener("click", function () {
