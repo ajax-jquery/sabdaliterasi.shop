@@ -1,3 +1,4 @@
+
 ---
 layout: null
 permalink: /wp-admin/tryit7
@@ -333,7 +334,7 @@ document.getElementById("runCode").addEventListener("click", function() {
                     editor.dispatch({
                         changes: { from: 0, to: editor.state.doc.length, insert: snapshot.val().content }
                     });
-                    hiddenTextarea.value = snapshot.val().content;
+                    hiddenTextarea.innerText = escapeHTML(snapshot.val().content);
                 } else {
                     alert("Tidak ada kode tersimpan.");
                 }
