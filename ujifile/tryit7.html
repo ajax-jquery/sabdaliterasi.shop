@@ -117,7 +117,7 @@ permalink: /wp-admin/tryit7
     </style>
 </head>
 <body class="bg-light">
-
+<script>if (localStorage.getItem("darkMode") === "enabled") {document.body.classList.add("dark-mode");}</script>
     <!-- Tombol Toggle Toolbar -->
     <div id="togg" class="toggle-toolbar" >☰</div>
 
@@ -174,10 +174,10 @@ document.getElementsByTagName(&quot;li&quot;)
     </div>
 
     <script type="module">
-      
+  
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
         import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-
+  $(document).ready(function () {
         // Firebase Config
         const firebaseConfig = {
     apiKey: "AIzaSyAFuoVF8LkEtVHtd33A0FJHIyIOhDzGbjA",
@@ -189,50 +189,36 @@ document.getElementsByTagName(&quot;li&quot;)
     appId: "1:567229920099:web:636ca97b7ee332b342d956",
     measurementId: "G-7W6SD9QBY7"
   };
-let isViewAllMode = false; let ontools = false;
+        let isViewAllMode = false; let ontools = false;
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
         // CodeMirror Setup
-        const {EditorView, basicSetup}= CM["codemirror"]
+  
+const {EditorView, basicSetup}= CM["codemirror"]
 const {html} = CM["@codemirror/lang-html"]
 const { oneDark } = CM["@codemirror/theme-one-dark"];
 const { StateEffect,EditorState } = CM["@codemirror/state"];
 const { keymap,lineNumbers, EditorView: { lineWrapping } } = CM["@codemirror/view"];
-     const { undo, redo,history } = CM["@codemirror/commands"];
-
+const { undo, redo,history } = CM["@codemirror/commands"];
 const customKeymap = keymap.of([
-    { key: "Mod-z", run: undo },  // Ctrl + Z untuk undo
+    { key: "Mod-z", run: undo }, 
     { key: "Mod-Shift-z", run: redo },  
 ]);
-const themeEffect = StateEffect.define();
 
-
-        let hiddenTextarea = document.getElementById("hiddenCode");
-
-        let editor = new EditorView({
+let hiddenTextarea = $("#hiddenCode");
+const extensi=[basicSetup,html(),lineWrapping,customKeymap,history()]
+ let editor = new EditorView({
             parent: document.getElementById("editor"),
            state: EditorState.create({
-            doc: hiddenTextarea.value,
-            extensions: [
-                basicSetup, 
-                html(),
-                lineWrapping,
-                customKeymap,
-                  history()
-            ]
+            doc: hiddenTextarea.val(),
+            extensions:extensi 
         })
         });
 if (localStorage.getItem("darkMode") === "enabled") {
     document.body.classList.add("dark-mode");
    editor.dispatch({
-        effects: StateEffect.reconfigure.of([ basicSetup, 
-                html(),
-                lineWrapping,
-                customKeymap,
-               history(),
-                                              
-              oneDark])
+        effects: StateEffect.reconfigure.of([...extensi,oneDark])
     });
 }
         // Sinkronisasi CodeMirror dengan textarea
@@ -246,7 +232,7 @@ if (localStorage.getItem("darkMode") === "enabled") {
                .replace(/&gt;/g, ">")
                .replace(/&amp;/g, "&");
 }
-        function syncTextarea() {
+      function syncTextarea() {
         const edit=editor.state.doc.toString();
            $("#hiddenCode").text(escapeHTML(edit));
         }
@@ -257,40 +243,40 @@ if (localStorage.getItem("darkMode") === "enabled") {
 });
       
         editor.dispatch({
-            changes: { from: 0, to: editor.state.doc.length, insert: unescapeHTML(hiddenTextarea.value) }
+            changes: { from: 0, to: editor.state.doc.length, insert: unescapeHTML($("#hiddenCode").val()) }
         });
 
 
       
 
-     document.body.addEventListener("click", function(event) {
-    const toolbar = document.querySelector(".toolbar-container");
-    const toggler = document.getElementById("togg");
+$(document).on("click", function(event) {
+    const $toolbar = $(".toolbar-container");
+    const $toggler = $("#togg");
 
-    // Cek jika toolbar sedang terbuka dan kliknya bukan di dalam toolbar atau tombol toggler
-    if (toolbar.classList.contains("show") && !toolbar.contains(event.target) && event.target !== toggler) {
-        toolbar.classList.remove("show");ontools=false
+    if ($toolbar.hasClass("show") && !$toolbar.is(event.target) && !$toolbar.has(event.target).length && !$toggler.is(event.target)) {
+        $toolbar.removeClass("show");
+        ontools = false;
     }
 });
 
 
-        // Toggle View Editor <-> Output
-        document.getElementById("toggleView").addEventListener("click", function() {
-            const editorContainer = document.getElementById("editorContainer");
-            const outputContainer = document.getElementById("outputContainer");
-            if (editorContainer.style.display === "none") {
-                editorContainer.style.display = "flex";
-                outputContainer.style.display = "none";
-            } else {
-                editorContainer.style.display = "none";
-                outputContainer.style.display = "flex";
-            }
-        });
 
-        
+        // Toggle View Editor <-> Output
+        $("#toggleView").on("click", function() {
+    let editorContainer = $("#editorContainer");
+    let outputContainer = $("#outputContainer");
+
+    if (editorContainer.css("display") === "none") {
+        editorContainer.css("display", "flex");
+        outputContainer.css("display", "none");
+    } else {
+        editorContainer.css("display", "none");
+        outputContainer.css("display", "flex");
+    }
+});
 
         // Save Code ke Firebase
-        document.getElementById("saveCode").addEventListener("click", function() {
+        $("#saveCode").on("click", function() {
             syncTextarea();
             const code = editor.state.doc.toString();
             const codeRef = ref(db, "code");
@@ -301,63 +287,46 @@ if (localStorage.getItem("darkMode") === "enabled") {
                 set(codeRef, { content: code }).then(() => alert("Kode berhasil disimpan!"));
             });
         });
-
         // Load Code dari Firebase
-        document.getElementById("loadCode").addEventListener("click", function() {
+        $("#loadCode").on("click", function() {
             get(ref(db, "code")).then(snapshot => {
                 if (snapshot.exists()) {
                     editor.dispatch({
                         changes: { from: 0, to: editor.state.doc.length, insert: snapshot.val().content }
                     });
-                    hiddenTextarea.innerText = escapeHTML(snapshot.val().content);
+                    $("#hiddenCode").text(escapeHTML(snapshot.val().content)) 
                 } else {
                     alert("Tidak ada kode tersimpan.");
                 }
             });
         });
-
         // Dark Mode
-        document.getElementById("toggleDarkMode").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
+       $("#toggleDarkMode").on("click", function() {
+    $("body").toggleClass("dark-mode");
 
-    let isDark = document.body.classList.contains("dark-mode");
+    let isDark = $("body").hasClass("dark-mode");
 
-   editor.dispatch({
-        effects: StateEffect.reconfigure.of(isDark ? [ basicSetup, 
-                html(),
-                lineWrapping,
-                customKeymap,
-                  history(),oneDark] : [ basicSetup, 
-                html(),
-                lineWrapping,
-                customKeymap,
-                  history()])
+    editor.dispatch({
+        effects: StateEffect.reconfigure.of(isDark ? [...extensi, oneDark] : extensi)
     });
-        isDark?localStorage.setItem("darkMode", "enabled"):localStorage.setItem("darkMode", "disabled");
-    
-  $(editor.dom).on("click change keyup",function(event) {
-   syncTextarea() 
+
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+
+    $(editor.dom).on("click change keyup", function() {
+        syncTextarea();
+    });
 });
-      
-   
-
-});
-
-
-
 
 // Event Listener untuk Undo
-document.getElementById("undoCode").addEventListener("click", function() {
+$("#undoCode").on("click", function() {
     undo(editor); syncTextarea() 
 });
-
 // Event Listener untuk Redo
-document.getElementById("redoCode").addEventListener("click", function() {
+$("#redoCode").on("click", function() {
     redo(editor); syncTextarea() 
 });
-
-    
-$(document).ready(function () {
+!function (){
+        
     let isDragging = false;
     let dragTimeout;
 
@@ -428,53 +397,58 @@ $(document).ready(function () {
     $(".toolbar-container button").on("click touchstart", function (e) {
         e.stopPropagation();
     });
-});
 
+      
+                        }();
+$("#viewAll").on("click", function () {
+    let body = $("body");
+    let editorContainer = $("#editorContainer");
+    let outputContainer = $("#outputContainer");
 
-
-document.getElementById("viewAll").addEventListener("click", function () {
-    const editorContainer = document.getElementById("editorContainer");
-    const outputContainer = document.getElementById("outputContainer");
-    const body = document.body;
-
-    if (body.classList.contains("view-all")) {
+    if (body.hasClass("view-all")) {
         // Kembali ke tampilan default
-        body.classList.remove("view-all");
-        editorContainer.style.display = "flex";
-        outputContainer.style.display = "none";
+        body.removeClass("view-all");
+        editorContainer.css("display", "flex");
+        outputContainer.css("display", "none");
     } else {
         // Aktifkan tampilan View All
-        body.classList.add("view-all");
-        editorContainer.style.display = "flex";
-        outputContainer.style.display = "flex";
+        body.addClass("view-all");
+        editorContainer.css("display", "flex");
+        outputContainer.css("display", "flex");
     }
 });
 // Run Code
-document.getElementById("runCode").addEventListener("click", function() {
+$("#runCode").on("click", function () {
     syncTextarea();
-    const output = document.getElementById("output").contentWindow.document;
+    let output = $("#output")[0].contentWindow.document;
     output.open();
-    output.write(unescapeHTML(hiddenTextarea.value));
+    output.write(unescapeHTML($("#hiddenCode").text()));
     output.close();
 
     // Cek apakah sedang dalam mode "View All"
-    if (document.body.classList.contains("view-all")) {
+    if ($("body").hasClass("view-all")) {
         // Dalam mode "View All", jangan sembunyikan editorContainer
-        document.getElementById("outputContainer").style.display = "flex";
+        $("#outputContainer").css("display", "flex");
     } else {
         // Jika tidak dalam mode "View All", sembunyikan editorContainer
-        document.getElementById("editorContainer").style.display = "none";
-        document.getElementById("outputContainer").style.display = "flex";
+        $("#editorContainer").css("display", "none");
+        $("#outputContainer").css("display", "flex");
     }
 
-    $("#toolbar_container").fadeOut(200).removeClass("show");ontools=false;
-  $(output).on("click", function (e) {
+    $("#toolbar_container").fadeOut(200).removeClass("show");
+    ontools = false;
+
+    $(output).on("click", function () {
         if (ontools) {
             $("#toolbar_container").fadeOut(200).removeClass("show");
             ontools = false;
         }
     });
 });
+
+      
+      });
+     
     </script>
 
 </body>
