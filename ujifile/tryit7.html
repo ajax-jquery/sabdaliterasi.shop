@@ -8,47 +8,83 @@ permalink: /wp-admin/tryit7
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Editor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://sabdaliterasi.xyz/wp-content/cdn/n/bootstrap/5.3.2/dist/css/bootstrap.min.css">
   <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/jquery/3.7.1/dist/jquery.min.js"></script>
-    <script defer src="https://codemirror.net/codemirror.js"></script>
+    <script defer src="https://sabdaliterasi.xyz/wp-content/cdn/g/ajax-jquery/sabdaliterasi.shop/file/ujifile/file/tryit/codemirror6.min.js"></script>
     
     <style>
         body { margin: 0; padding: 0; }
-        .toolbar-container {
-            position: fixed;
-            left: -200px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: left 0.3s;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 0 5px 5px 0;
-            width: 190px;
-            z-index: 9999;
-        }
-        .toolbar-container.show { left: 0; }
-        .toggle-toolbar {
-            position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #007bff;
-            color: white;
-            padding: 5px;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            z-index: 10000;
-        }
+/* Pastikan toolbar tidak terlalu ke atas */
+.toolbar-container {
+    max-width: 50%;
+    top: 30%;
+    right: 0px;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 9999;
+  display:none
+}
+
+/* Styling tombol toggle agar berbentuk bulatan */
+#togg {
+    width: 50px;
+    height: 50px;
+    background: #007bff;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    position: fixed;
+   bottom: 0 ;
+   right: 0;
+    z-index: 10000;
+    transition: background 0.3s;
+  
+}
+
+#togg:hover {
+    background: #0056b3;
+}
+
+/* Mencegah iframe menutupi toolbar saat dragging */
+#output {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Saat toolbar aktif */
+.toolbar-container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+      
         #editorContainer, #outputContainer {
-            width: 100vw;
+            width: 100%;
             height: 100vh;
             display: flex;
+          position: relative;
+    z-index: 1;
         }
         #editor, iframe {
             width: 100%;
             height: 100%;
             border: none;
+              position: relative;
+    z-index: 1;
         }
+
         .dark-mode { background-color: #121212; color: white; }
         textarea { display: none; }
     </style>
@@ -59,7 +95,7 @@ permalink: /wp-admin/tryit7
     <div id="togg" class="toggle-toolbar" >☰</div>
 
     <!-- Toolbar -->
-    <div class="toolbar-container">
+    <div id="toolbar_container" class="toolbar-container">
         <button id="toggleView" class="btn btn-info w-100 mb-2">Lihat Blok</button>
         <button id="runCode" class="btn btn-primary w-100 mb-2">Run</button>
         <button id="saveCode" class="btn btn-success w-100 mb-2">Save</button>
@@ -82,6 +118,7 @@ permalink: /wp-admin/tryit7
     </div>
 
     <script type="module">
+      
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
         import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
@@ -156,10 +193,7 @@ const themeEffect = StateEffect.define();
             changes: { from: 0, to: editor.state.doc.length, insert: unescapeHTML(hiddenTextarea.value) }
         });
 
-    document.getElementById("togg").addEventListener("click", function() {
-       
-            document.querySelector(".toolbar-container").classList.toggle("show");
-        })
+
       
 
      document.body.addEventListener("click", function(event) {
@@ -197,10 +231,14 @@ document.getElementById("runCode").addEventListener("click", function() {
     // Tampilkan outputContainer dan sembunyikan editorContainer
     document.getElementById("editorContainer").style.display = "none";
     document.getElementById("outputContainer").style.display = "flex";
-  document.querySelector(".toolbar-container").classList.remove("show");
-  output.addEventListener("click", function() {
-        document.querySelector(".toolbar-container").classList.remove("show");
+ $(".toolbar-container").fadeOut(200).removeClass("show");
+ $(output).on("click", function (e) {
+        if (!$(e.target).closest(".toolbar-container, #togg").length) {
+            $(".toolbar-container").fadeOut(200).removeClass("show");
+        }
     });
+
+  
 });
 
 
@@ -269,7 +307,80 @@ document.getElementById("redoCode").addEventListener("click", function() {
     redo(editor); syncTextarea() 
 });
 
+    
+$(document).ready(function () {
+    let isDragging = false;
+    let dragTimeout;
+
+    function makeDraggable(element) {
+        let offsetX, offsetY, startY;
+
+        $(element).on("pointerdown", function (e) {
+            isDragging = false;
+            let el = $(this);
+            let elOffset = el.offset();
+
+            offsetX = e.clientX - elOffset.left;
+            offsetY = e.clientY - elOffset.top;
+            startY = elOffset.top;
+
+            // Matikan event di iframe agar tidak mengganggu drag
+            $("#output").css("pointer-events", "none");
+
+            $(document).on("pointermove", function (e) {
+                isDragging = true;
+
+                let newX = e.clientX - offsetX;
+                let newY = e.clientY - offsetY;
+
+                // Batas layar agar elemen tidak keluar dari viewport
+                newX = Math.max(0, Math.min($(window).width() - el.outerWidth(), newX));
+                newY = Math.max(50, Math.min($(window).height() - el.outerHeight() - 20, newY));
+
+                el.css({ left: newX + "px", top: newY + "px", position: "fixed" });
+            });
+
+            $(document).on("pointerup", function () {
+                $(document).off("pointermove pointerup");
+                clearTimeout(dragTimeout);
+                dragTimeout = setTimeout(() => (isDragging = false), 100);
+
+                // Aktifkan kembali event di iframe
+                $("#output").css("pointer-events", "auto");
+            });
+        });
+    }
+
+    // Terapkan draggable ke toolbar & tombol toggle
+    makeDraggable(".toolbar-container");
+    makeDraggable("#togg");
+
+    // Toggle toolbar saat tombol toggle diklik
+    $("#togg").on("click", function () {
+        if (!isDragging) {
+            $(".toolbar-container").fadeToggle(200).toggleClass("show");
+        }
+    });
+
+    // Klik di luar toolbar = sembunyikan
+    $(document).on("click", function (e) {
+        if (!$(e.target).closest(".toolbar-container, #togg").length) {
+            $(".toolbar-container").fadeOut(200).removeClass("show");
+        }
+    });
+
+  
+
+    // Pastikan tombol dalam toolbar bisa diklik tanpa terganggu
+    $(".toolbar-container button").on("click", function (e) {
+        e.stopPropagation();
+    });
+});
+
+
+
     </script>
 
 </body>
 </html>
+
