@@ -189,7 +189,7 @@ document.getElementsByTagName(&quot;li&quot;)
     appId: "1:567229920099:web:636ca97b7ee332b342d956",
     measurementId: "G-7W6SD9QBY7"
   };
-let isViewAllMode = false;
+let isViewAllMode = false; let ontools = false;
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
@@ -269,7 +269,7 @@ if (localStorage.getItem("darkMode") === "enabled") {
 
     // Cek jika toolbar sedang terbuka dan kliknya bukan di dalam toolbar atau tombol toggler
     if (toolbar.classList.contains("show") && !toolbar.contains(event.target) && event.target !== toggler) {
-        toolbar.classList.remove("show");
+        toolbar.classList.remove("show");ontools=false
     }
 });
 
@@ -305,7 +305,7 @@ document.getElementById("runCode").addEventListener("click", function() {
         document.getElementById("outputContainer").style.display = "flex";
     }
 
-    $(".toolbar-container").fadeOut(200).removeClass("show");
+    $(".toolbar-container").fadeOut(200).removeClass("show");ontools=false;
     $(output).on("click", function (e) {
         if (!$(e.target).closest(".toolbar-container, #togg").length) {
             $(".toolbar-container").fadeOut(200).removeClass("show");
@@ -429,9 +429,6 @@ $(document).ready(function () {
 
     makeDraggable(".toolbar-container");
     makeDraggable("#togg");
-
-    let ontools = false;
-
     $("#togg").on("click touchstart", function (e) {
         e.preventDefault();
         if (!isDragging) {
