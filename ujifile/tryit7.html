@@ -1,0 +1,275 @@
+---
+layout:null
+permalink: /wp-admin/tryit7
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://sabdaliterasi.xyz/wp-content/cdn/n/jquery/3.7.1/dist/jquery.min.js"></script>
+    <script defer src="https://codemirror.net/codemirror.js"></script>
+    
+    <style>
+        body { margin: 0; padding: 0; }
+        .toolbar-container {
+            position: fixed;
+            left: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: left 0.3s;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+            width: 190px;
+            z-index: 9999;
+        }
+        .toolbar-container.show { left: 0; }
+        .toggle-toolbar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #007bff;
+            color: white;
+            padding: 5px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        #editorContainer, #outputContainer {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        #editor, iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .dark-mode { background-color: #121212; color: white; }
+        textarea { display: none; }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Tombol Toggle Toolbar -->
+    <div id="togg" class="toggle-toolbar" >☰</div>
+
+    <!-- Toolbar -->
+    <div class="toolbar-container">
+        <button id="toggleView" class="btn btn-info w-100 mb-2">Lihat Blok</button>
+        <button id="runCode" class="btn btn-primary w-100 mb-2">Run</button>
+        <button id="saveCode" class="btn btn-success w-100 mb-2">Save</button>
+        <button id="loadCode" class="btn btn-warning w-100 mb-2">Load</button>
+        <button id="toggleDarkMode" class="btn btn-dark w-100">Dark Mode</button>
+      <button id="undoCode" class="btn btn-secondary w-100 mb-2">Undo</button>
+<button id="redoCode" class="btn btn-secondary w-100 mb-2">Redo</button>
+    </div>
+
+    <div id="editorContainer">
+        <textarea id="hiddenCode">
+                    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+        fgdfg
+        </textarea>
+        <div id="editor"></div>
+    </div>
+
+    <div id="outputContainer" style="display: none;">
+        <iframe id="output"></iframe>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+        // Firebase Config
+        const firebaseConfig = {
+    apiKey: "AIzaSyAFuoVF8LkEtVHtd33A0FJHIyIOhDzGbjA",
+    authDomain: "sabaliterasipalu.firebaseapp.com",
+    databaseURL: "https://sabaliterasipalu-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sabaliterasipalu",
+    storageBucket: "sabaliterasipalu.appspot.com",
+    messagingSenderId: "567229920099",
+    appId: "1:567229920099:web:636ca97b7ee332b342d956",
+    measurementId: "G-7W6SD9QBY7"
+  };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // CodeMirror Setup
+        const {EditorView, basicSetup}= CM["codemirror"]
+const {html} = CM["@codemirror/lang-html"]
+const { oneDark } = CM["@codemirror/theme-one-dark"];
+const { StateEffect,EditorState } = CM["@codemirror/state"];
+const { keymap,lineNumbers, EditorView: { lineWrapping } } = CM["@codemirror/view"];
+     const { undo, redo,history } = CM["@codemirror/commands"];
+
+const customKeymap = keymap.of([
+    { key: "Mod-z", run: undo },  // Ctrl + Z untuk undo
+    { key: "Mod-Shift-z", run: redo },  
+]);
+const themeEffect = StateEffect.define();
+
+
+        let hiddenTextarea = document.getElementById("hiddenCode");
+
+        let editor = new EditorView({
+            parent: document.getElementById("editor"),
+           state: EditorState.create({
+            doc: hiddenTextarea.value,
+            extensions: [
+                basicSetup, 
+                html(),
+                lineWrapping,
+                customKeymap,
+                  history()
+            ]
+        })
+        });
+
+        // Sinkronisasi CodeMirror dengan textarea
+      function escapeHTML(html) {
+    return html.replace(/&/g, "&amp;")
+               .replace(/</g, "&lt;")
+               .replace(/>/g, "&gt;");
+}
+      function unescapeHTML(html) {
+    return html.replace(/&lt;/g, "<")
+               .replace(/&gt;/g, ">")
+               .replace(/&amp;/g, "&");
+}
+        function syncTextarea() {
+        const edit=editor.state.doc.toString();
+           $("#hiddenCode").text(escapeHTML(edit));
+        }
+
+
+      $(editor.dom).on("click change keyup", function(event) {
+   syncTextarea() 
+});
+      
+        editor.dispatch({
+            changes: { from: 0, to: editor.state.doc.length, insert: unescapeHTML(hiddenTextarea.value) }
+        });
+
+    document.getElementById("togg").addEventListener("click", function() {
+       
+            document.querySelector(".toolbar-container").classList.toggle("show");
+        })
+      
+
+     document.body.addEventListener("click", function(event) {
+    const toolbar = document.querySelector(".toolbar-container");
+    const toggler = document.getElementById("togg");
+
+    // Cek jika toolbar sedang terbuka dan kliknya bukan di dalam toolbar atau tombol toggler
+    if (toolbar.classList.contains("show") && !toolbar.contains(event.target) && event.target !== toggler) {
+        toolbar.classList.remove("show");
+    }
+});
+
+
+        // Toggle View Editor <-> Output
+        document.getElementById("toggleView").addEventListener("click", function() {
+            const editorContainer = document.getElementById("editorContainer");
+            const outputContainer = document.getElementById("outputContainer");
+            if (editorContainer.style.display === "none") {
+                editorContainer.style.display = "flex";
+                outputContainer.style.display = "none";
+            } else {
+                editorContainer.style.display = "none";
+                outputContainer.style.display = "flex";
+            }
+        });
+
+        // Run Code
+document.getElementById("runCode").addEventListener("click", function() {
+    syncTextarea();
+    const output = document.getElementById("output").contentWindow.document;
+    output.open();
+    output.write( unescapeHTML(hiddenTextarea.value));
+    output.close();
+
+    // Tampilkan outputContainer dan sembunyikan editorContainer
+    document.getElementById("editorContainer").style.display = "none";
+    document.getElementById("outputContainer").style.display = "flex";
+  document.querySelector(".toolbar-container").classList.remove("show");
+  output.addEventListener("click", function() {
+        document.querySelector(".toolbar-container").classList.remove("show");
+    });
+});
+
+
+        // Save Code ke Firebase
+        document.getElementById("saveCode").addEventListener("click", function() {
+            syncTextarea();
+            const code = editor.state.doc.toString();
+            const codeRef = ref(db, "code");
+            get(codeRef).then(snapshot => {
+                if (snapshot.exists()) {
+                    if (!confirm("Mau menimpa kode yang sudah ada?")) return;
+                }
+                set(codeRef, { content: code }).then(() => alert("Kode berhasil disimpan!"));
+            });
+        });
+
+        // Load Code dari Firebase
+        document.getElementById("loadCode").addEventListener("click", function() {
+            get(ref(db, "code")).then(snapshot => {
+                if (snapshot.exists()) {
+                    editor.dispatch({
+                        changes: { from: 0, to: editor.state.doc.length, insert: snapshot.val().content }
+                    });
+                    hiddenTextarea.value = snapshot.val().content;
+                } else {
+                    alert("Tidak ada kode tersimpan.");
+                }
+            });
+        });
+
+        // Dark Mode
+        document.getElementById("toggleDarkMode").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+
+    let isDark = document.body.classList.contains("dark-mode");
+
+   editor.dispatch({
+        effects: StateEffect.reconfigure.of(isDark ? [ basicSetup, 
+                html(),
+                lineWrapping,
+                customKeymap,
+                  history(),oneDark] : [ basicSetup, 
+                html(),
+                lineWrapping,
+                customKeymap,
+                  history()])
+    });
+           $(editor.dom).on("click change keyup", function(event) {
+   syncTextarea() 
+});
+      
+   
+
+});
+
+
+
+
+// Event Listener untuk Undo
+document.getElementById("undoCode").addEventListener("click", function() {
+    undo(editor); syncTextarea() 
+});
+
+// Event Listener untuk Redo
+document.getElementById("redoCode").addEventListener("click", function() {
+    redo(editor); syncTextarea() 
+});
+
+    </script>
+
+</body>
+</html>
