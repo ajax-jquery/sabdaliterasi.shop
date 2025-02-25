@@ -427,18 +427,24 @@ $(document).ready(function () {
     // Terapkan draggable ke toolbar & tombol toggle
     makeDraggable(".toolbar-container");
     makeDraggable("#togg");
-
+   let ontools=!1;
     // Toggle toolbar saat tombol toggle diklik
     $("#togg").on("click", function () {
         if (!isDragging) {
-            $(".toolbar-container").fadeToggle(200).toggleClass("show");
+          if(!ontools){
+            $("#toolbar_container").fadeIn(200).addClass("show");
+            ontools=!0
+          }else{
+             $("#toolbar_container").fadeOut(200).removeClass("show");
+             ontools=!1
+          }
         }
     });
 
     // Klik di luar toolbar = sembunyikan
     $(document).on("click", function (e) {
         if (!$(e.target).closest(".toolbar-container, #togg").length) {
-            $(".toolbar-container").fadeOut(200).removeClass("show");
+            $(".toolbar-container").fadeOut(200).removeClass("show");ontools=!1
         }
     });
 
