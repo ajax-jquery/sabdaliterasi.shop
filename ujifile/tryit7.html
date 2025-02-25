@@ -170,9 +170,7 @@ document.getElementsByTagName(&quot;li&quot;)
         <div id="editor"></div>
     </div>
 
-    <div id="outputContainer" style="display: none;">
-        <iframe id="output"></iframe>
-    </div>
+    <div id="outputContainer" style="display: none;"></div>
 
     <script type="module">
   
@@ -237,19 +235,12 @@ if (localStorage.getItem("darkMode") === "enabled") {
         const edit=editor.state.doc.toString();
            $("#hiddenCode").text(escapeHTML(edit));
         }
-
-
-      $(editor.dom).on("click change keyup", function(event) {
+ $(editor.dom).on("click change keyup", function(event) {
    syncTextarea() 
 });
-      
-        editor.dispatch({
+editor.dispatch({
             changes: { from: 0, to: editor.state.doc.length, insert: unescapeHTML($("#hiddenCode").val()) }
         });
-
-
-      
-
 $(document).on("click", function(event) {
     const $toolbar = $(".toolbar-container");
     const $toggler = $("#togg");
@@ -259,11 +250,7 @@ $(document).on("click", function(event) {
         ontools = false;
     }
 });
-
-
-
-        // Toggle View Editor <-> Output
-        $("#toggleView").on("click", function() {
+$("#toggleView").on("click", function() {
     let editorContainer = $("#editorContainer");
     let outputContainer = $("#outputContainer");
 
@@ -275,9 +262,7 @@ $(document).on("click", function(event) {
         outputContainer.css("display", "flex");
     }
 });
-
-        // Save Code ke Firebase
-        $("#saveCode").on("click", function() {
+$("#saveCode").on("click", function() {
             syncTextarea();
             const code = editor.state.doc.toString();
             const codeRef = ref(db, "code");
@@ -288,21 +273,20 @@ $(document).on("click", function(event) {
                 set(codeRef, { content: code }).then(() => alert("Kode berhasil disimpan!"));
             });
         });
-        // Load Code dari Firebase
-        $("#loadCode").on("click", function() {
+$("#loadCode").on("click", function() {
             get(ref(db, "code")).then(snapshot => {
                 if (snapshot.exists()) {
                     editor.dispatch({
                         changes: { from: 0, to: editor.state.doc.length, insert: snapshot.val().content }
                     });
-                    $("#hiddenCode").text(escapeHTML(snapshot.val().content)) 
+                    $("#hiddenCode").text(escapeHTML(snapshot.val().content)); 
+                  
                 } else {
                     alert("Tidak ada kode tersimpan.");
                 }
             });
         });
-        // Dark Mode
-       $("#toggleDarkMode").on("click", function() {
+$("#toggleDarkMode").on("click", function() {
     $("body").toggleClass("dark-mode");
 
     let isDark = $("body").hasClass("dark-mode");
@@ -317,12 +301,9 @@ $(document).on("click", function(event) {
         syncTextarea();
     });
 });
-
-// Event Listener untuk Undo
 $("#undoCode").on("click", function() {
     undo(editor); syncTextarea() 
 });
-// Event Listener untuk Redo
 $("#redoCode").on("click", function() {
     redo(editor); syncTextarea() 
 });
@@ -418,38 +399,51 @@ $("#viewAll").on("click", function () {
         outputContainer.css("display", "flex");
     }
 });
-// Run Code
-$("#runCode").on("click", function () {
+    
+
+
+      
+      
+function runCODE() {
     syncTextarea();
-    let output = $("#output")[0].contentWindow.document;
-    output.open();
-    output.write(unescapeHTML($("#hiddenCode").text()));
-    output.close();
+  
+    let a = document.createElement("iframe");
+    a.setAttribute("frameborder", "0");
+    a.setAttribute("id", "output");
+    a.setAttribute("name", "iframeResult");
+    a.setAttribute("allowfullscreen", "true");
 
-    // Cek apakah sedang dalam mode "View All"
-    if ($("body").hasClass("view-all")) {
-        // Dalam mode "View All", jangan sembunyikan editorContainer
-        $("#outputContainer").css("display", "flex");
-    } else {
-        // Jika tidak dalam mode "View All", sembunyikan editorContainer
-        $("#editorContainer").css("display", "none");
-        $("#outputContainer").css("display", "flex");
-    }
+    let outputContainer = document.getElementById("outputContainer");
+    outputContainer.innerHTML = "";
+    outputContainer.appendChild(a);
 
+    let r = a.contentWindow || a.contentDocument;
+   r.document.open();
+    r.document.write(unescapeHTML($("#hiddenCode").val())); 
+    r.document.close();
+r.document.body&&!r.document.body.isContentEditable&&(r.document.body.contentEditable=!0,r.document.body.contentEditable=!1)
     $("#toolbar_container").fadeOut(200).removeClass("show");
     ontools = false;
 
-    $(output).on("click", function () {
+    $(r).on("click", function () {
         if (ontools) {
             $("#toolbar_container").fadeOut(200).removeClass("show");
             ontools = false;
         }
     });
-});
+}runCODE() 
+      $("#runCode").on("click", function () {runCODE() 
+        
+    // Cek apakah sedang dalam mode "View All"
+    if ($("body").hasClass("view-all")) {
+        $("#outputContainer").css("display", "flex");
+    } else {
+        $("#editorContainer").css("display", "none");
+        $("#outputContainer").css("display", "flex");
+    }
 
-      
       });
-     
+       });
     </script>
 
 </body>
