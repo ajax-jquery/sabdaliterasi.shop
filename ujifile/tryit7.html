@@ -77,6 +77,32 @@ permalink: /wp-admin/tryit7
           position: relative;
     z-index: 1;
         }
+      
+/* Tampilan "View All" untuk layar besar (laptop/PC) */
+.view-all #editorContainer,
+.view-all #outputContainer {
+    display: flex;
+    width: 50%;
+    height: 100vh;
+}
+
+.view-all {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Tampilan "View All" untuk mobile */
+@media (max-width: 768px) {
+    .view-all {
+        flex-direction: column;
+    }
+    
+    .view-all #editorContainer,
+    .view-all #outputContainer {
+        width: 100%;
+        height: 50vh;
+    }
+}
         #editor, iframe {
             width: 100%;
             height: 100vh;
@@ -101,14 +127,43 @@ permalink: /wp-admin/tryit7
         <button id="saveCode" class="btn btn-success w-100 mb-2">Save</button>
         <button id="loadCode" class="btn btn-warning w-100 mb-2">Load</button>
         <button id="toggleDarkMode" class="btn btn-dark w-100">Dark Mode</button>
-      <button id="undoCode" class="btn btn-secondary w-100 mb-2">Undo</button>
+<button id="undoCode" class="btn btn-secondary w-100 mb-2">Undo</button>
 <button id="redoCode" class="btn btn-secondary w-100 mb-2">Redo</button>
+<button id="viewAll" class="btn btn-secondary w-100 mb-2">View All</button>
+
     </div>
 
     <div id="editorContainer">
         <textarea id="hiddenCode">
-                    &lt;h1&gt;Hello, World!&lt;/h1&gt;
-        fgdfg
+     &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src=&quot;https://sabdaliterasi.xyz/wp-content/cdn/n/jquery/3.7.1/dist/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+  
+  
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;If you click on me, I will disappear.&lt;/p&gt;
+&lt;p&gt;Click me away!&lt;/p&gt;
+&lt;p&gt;Click me too!&lt;/p&gt;
+&lt;script&gt;
+!function(){
+document.getElementById(&quot;demo&quot;);
+document.getElementsByClassName(&quot;example&quot;);
+document.querySelector(&quot;p&quot;);
+document.querySelectorAll(&quot;p&quot;);
+document.getElementsByTagName(&quot;li&quot;)
+}()
+&lt;/script&gt;
+  
+  &lt;script&gt;
+    
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
         </textarea>
         <div id="editor"></div>
     </div>
@@ -133,7 +188,7 @@ permalink: /wp-admin/tryit7
     appId: "1:567229920099:web:636ca97b7ee332b342d956",
     measurementId: "G-7W6SD9QBY7"
   };
-
+let isViewAllMode = false;
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
@@ -236,22 +291,26 @@ document.getElementById("runCode").addEventListener("click", function() {
     syncTextarea();
     const output = document.getElementById("output").contentWindow.document;
     output.open();
-    output.write( unescapeHTML(hiddenTextarea.value));
+    output.write(unescapeHTML(hiddenTextarea.value));
     output.close();
 
-    // Tampilkan outputContainer dan sembunyikan editorContainer
-    document.getElementById("editorContainer").style.display = "none";
-    document.getElementById("outputContainer").style.display = "flex";
- $(".toolbar-container").fadeOut(200).removeClass("show");
- $(output).on("click", function (e) {
+    // Cek apakah sedang dalam mode "View All"
+    if (document.body.classList.contains("view-all")) {
+        // Dalam mode "View All", jangan sembunyikan editorContainer
+        document.getElementById("outputContainer").style.display = "flex";
+    } else {
+        // Jika tidak dalam mode "View All", sembunyikan editorContainer
+        document.getElementById("editorContainer").style.display = "none";
+        document.getElementById("outputContainer").style.display = "flex";
+    }
+
+    $(".toolbar-container").fadeOut(200).removeClass("show");
+    $(output).on("click", function (e) {
         if (!$(e.target).closest(".toolbar-container, #togg").length) {
             $(".toolbar-container").fadeOut(200).removeClass("show");
         }
     });
-
-  
 });
-
 
         // Save Code ke Firebase
         document.getElementById("saveCode").addEventListener("click", function() {
@@ -391,6 +450,23 @@ $(document).ready(function () {
 });
 
 
+document.getElementById("viewAll").addEventListener("click", function () {
+    const editorContainer = document.getElementById("editorContainer");
+    const outputContainer = document.getElementById("outputContainer");
+    const body = document.body;
+
+    if (body.classList.contains("view-all")) {
+        // Kembali ke tampilan default
+        body.classList.remove("view-all");
+        editorContainer.style.display = "flex";
+        outputContainer.style.display = "none";
+    } else {
+        // Aktifkan tampilan View All
+        body.classList.add("view-all");
+        editorContainer.style.display = "flex";
+        outputContainer.style.display = "flex";
+    }
+});
 
     </script>
 
