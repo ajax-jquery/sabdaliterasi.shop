@@ -287,31 +287,7 @@ if (localStorage.getItem("darkMode") === "enabled") {
             }
         });
 
-        // Run Code
-document.getElementById("runCode").addEventListener("click", function() {
-    syncTextarea();
-    const output = document.getElementById("output").contentWindow.document;
-    output.open();
-    output.write(unescapeHTML(hiddenTextarea.value));
-    output.close();
-
-    // Cek apakah sedang dalam mode "View All"
-    if (document.body.classList.contains("view-all")) {
-        // Dalam mode "View All", jangan sembunyikan editorContainer
-        document.getElementById("outputContainer").style.display = "flex";
-    } else {
-        // Jika tidak dalam mode "View All", sembunyikan editorContainer
-        document.getElementById("editorContainer").style.display = "none";
-        document.getElementById("outputContainer").style.display = "flex";
-    }
-
-    $(".toolbar-container").fadeOut(200).removeClass("show");ontools=false;
-    $(output).on("click", function (e) {
-        if (!$(e.target).closest(".toolbar-container, #togg").length) {
-            $(".toolbar-container").fadeOut(200).removeClass("show");
-        }
-    });
-});
+        
 
         // Save Code ke Firebase
         document.getElementById("saveCode").addEventListener("click", function() {
@@ -473,7 +449,32 @@ document.getElementById("viewAll").addEventListener("click", function () {
         outputContainer.style.display = "flex";
     }
 });
+// Run Code
+document.getElementById("runCode").addEventListener("click", function() {
+    syncTextarea();
+    const output = document.getElementById("output").contentWindow.document;
+    output.open();
+    output.write(unescapeHTML(hiddenTextarea.value));
+    output.close();
 
+    // Cek apakah sedang dalam mode "View All"
+    if (document.body.classList.contains("view-all")) {
+        // Dalam mode "View All", jangan sembunyikan editorContainer
+        document.getElementById("outputContainer").style.display = "flex";
+    } else {
+        // Jika tidak dalam mode "View All", sembunyikan editorContainer
+        document.getElementById("editorContainer").style.display = "none";
+        document.getElementById("outputContainer").style.display = "flex";
+    }
+
+    $("#toolbar_container").fadeOut(200).removeClass("show");ontools=false;
+  $(output).on("click", function (e) {
+        if (ontools) {
+            $("#toolbar_container").fadeOut(200).removeClass("show");
+            ontools = false;
+        }
+    });
+});
     </script>
 
 </body>
