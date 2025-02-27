@@ -10,7 +10,7 @@ const AI_SB_context={
           "page":{
   "status":"Produk",
   "title": "Ebook {{ page.title }}",
-  "url": "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}",
+  "url-path": "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}",
   "author": "{% if page.author %}{{ page.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
   "harga" :"{{ page.harga }}", 
   "format" :"PDF-Google Drive"            
@@ -29,6 +29,43 @@ Wajib Baca Cara Membeli:
 9.  Hubungi WA [085186664889](https://wa.me/6285186664889) untuk membuka akses ebook.
 10.  Always Happy To Read The Ebook
 11.  MEMBELI = MEMAHAMI dan MENERIMA SEMUA POINT DI ATAS`
+}
+{% elsif page.title == "Produk" %}
+const AI_SB_context={
+          "page":{
+  "status":"List Produk by Kategory",
+  "title": "Category All {{ page.title }} 10 in 100",
+  "url-path": "{{ page.url }}",
+   "item":[
+         {% for post in site.posts limit:10 %}
+       {
+  "title": "Ebook {{ post.title }}",
+  "url-path": "{{ site.url }}{% if post.url %}{{ post.url }}{% endif %}",
+  "author": "{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
+  "harga" :"{{ post.harga }}", 
+  "format" :"PDF-Google Drive"
+       }{% if forloop.last == false %},{% endif %} {% endfor %}
+   ]              
+},
+  "content":""
+}
+{% elsif page.title == "Artikel" %}{% assign postan = site.artikel | sort: "date_short" | reverse %}
+const AI_SB_context={
+          "page":{
+  "status":"List Artikel by Kategory",
+  "title": "Category All {{ page.title }} 10 in 100",
+  "url-path": "{{ page.url }}",
+   "item":[
+         {% for post in postan limit:10 %}
+       {
+  "title": "{{ post.title }}",
+  "url-path": "{{ site.url }}{% if post.url %}{{ post.url }}{% endif %}",
+  "author": "{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
+  "description": "{{ post.description }}"
+         }{% if forloop.last == false %},{% endif %}{% endfor %}
+   ]              
+},
+"content":""
 }
 {% elsif page.layout == "artikeltags" %}
 {% assign postaaa = site.artikel | sort: "date_short" | reverse %}
@@ -85,7 +122,7 @@ const AI_SB_context={
   "page": {
     "status": "{% if page.layout == 'artikel' %}Artikel{% else %}Halaman{% endif %}",
     "title": "{{ page.title }}",
-    "url": "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}",
+    "url-path": "{{ page.url }}",
     "description": "{% if page.description %}{{ page.description }}{% endif %}",
     "author": {
       "name": "{% if page.author %}{{ page.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
