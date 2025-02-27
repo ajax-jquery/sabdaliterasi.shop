@@ -4,136 +4,10 @@
 </div>
 </div>
 </div>
+<div id="AI_SB" style="display:none"></div>
+<script>{% if page.buy %} const AI_SB_context={ "page":{ "status":"Produk", "title": "Ebook {{ page.title }}", "url-path": "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}", "author": "{% if page.author %}{{ page.author }}{% else %}Redaksi {{ site.title }}{% endif %}", "harga" :"{{ page.harga }}", "format" :"PDF-Google Drive" }, "content":`{{ content | strip_html | strip }} Wajib Baca Cara Membeli: 1.  Klik tombol Beli Sekarang 2.  Kamu akan diarahkan ke halaman pembayaran 3.  Klik tombol Buy Now 4.  Saat muncul Pop-up, klik lagi Buy Now 5.  Masukkan data diri kamu yang tepat berupa Email, No Hp, dan Nama kamu. Harap masukkan email yang valid 6.  Pilih Metode Pembayaran 7.  Lakukan pembayaran 8.  Kamu Akan menerima Link Baca Ebook Ini di Kotak Masuk email kamu. 9.  Hubungi WA [085186664889](https://wa.me/6285186664889) untuk membuka akses ebook. 10.  Always Happy To Read The Ebook 11.  MEMBELI = MEMAHAMI dan MENERIMA SEMUA POINT DI ATAS` } {% elsif page.title == "Produk" %} const AI_SB_context={ "page":{ "status":"List Produk by Kategory", "title": "Category All {{ page.title }} 10 in 100", "url-path": "{{ page.url }}", "item":[ {% for post in site.posts limit:10 %} { "title": "Ebook {{ post.title }}", "url-path": "{{ site.url }}{% if post.url %}{{ post.url }}{% endif %}", "author": "{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}", "harga" :"{{ post.harga }}", "format" :"PDF-Google Drive" }{% if forloop.last == false %},{% endif %} {% endfor %} ] }, "content":"" } {% elsif page.title == "Artikel" %}{% assign postan = site.artikel | sort: "date_short" | reverse %} const AI_SB_context={ "page":{ "status":"List Artikel by Kategory", "title": "Category All {{ page.title }} 10 in 100", "url-path": "{{ page.url }}", "item":[ {% for post in postan limit:10 %} { "title": "{{ post.title }}", "url-path": "{{ site.url }}{% if post.url %}{{ post.url }}{% endif %}", "author": "{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}", "description": "{{ post.description }}" }{% if forloop.last == false %},{% endif %}{% endfor %} ] }, "content":"" } {% elsif page.layout == "artikeltags" %} {% assign postaaa = site.artikel | sort: "date_short" | reverse %} {% assign filtered_artikel = postaaa | where: "tag", page.title %} const AI_SB_context={ "page":{ "status":"List Artikel by Kategory", "title": "Category {{ page.title }}", "artikel":[ {% for post in filtered_artikel limit:5 %} { "title":"{{ post.title }}", "url-path": "{{ post.url }}", "description":"{{ post.description }}", "author":"{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}" }{% if forloop.last == false %},{% endif %} {% endfor %} ] }, "content":"" } {% elsif page.url == "/" %} {% assign posta = site.artikel | sort: "date_short" | reverse %} const AI_SB_context={ "page":{ "status":"Home Page", "title": "{{ page.title }} - Home Page", "artikel":[ {% for post in posta limit:5 %} { "title":"{{ post.title }}", "url-path": "{{ post.url }}", "description":"{{ post.description }}", "author":"{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}" }{% if forloop.last == false %},{% endif %} {% endfor %} ], "produk_ebook":[ {% for post in site.posts limit:5 %} { "title":"{{ post.title }}", "url-path": "{{ post.url }}", "description":"{{ post.description }}", "author":"{{ post.author }}", "harga":"{{ post.harga }}" }{% if forloop.last == false %},{% endif %} {% endfor %} ] }, "content":"" } {% else %} const AI_SB_context={ "page": { "status": "{% if page.layout == 'artikel' %}Artikel{% else %}Halaman{% endif %}", "title": "{{ page.title }}", "url-path": "{{ page.url }}", "description": "{% if page.description %}{{ page.description }}{% endif %}", "author": { "name": "{% if page.author %}{{ page.author }}{% else %}Redaksi {{ site.title }}{% endif %}", "description": "{% if page.author_description %}{{ page.author_description }}{% else %}{{ site.description }}{% endif %}", "url_profil": "{% if page.author_url %}{{ page.author_url }}{% else %}{{ site.url }}/about-us/{% endif %}" } }, "content": `{{ content | strip_html | strip }}` } {% endif %}</script>
 <script>
-{% if page.buy %}
-const AI_SB_context={
-          "page":{
-  "status":"Produk",
-  "title": "Ebook {{ page.title }}",
-  "url-path": "{{ site.url }}{% if page.url %}{{ page.url }}{% endif %}",
-  "author": "{% if page.author %}{{ page.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
-  "harga" :"{{ page.harga }}", 
-  "format" :"PDF-Google Drive"            
-},
-"content":`{{ content | strip_html | strip }}
-Wajib Baca Cara Membeli:
-1.  Klik tombol Beli Sekarang
-2.  Kamu akan diarahkan ke halaman pembayaran
-3.  Klik tombol Buy Now
-4.  Saat muncul Pop-up, klik lagi Buy Now
-5.  Masukkan data diri kamu yang tepat berupa Email, No Hp, dan Nama kamu.  
-    Harap masukkan email yang valid
-6.  Pilih Metode Pembayaran
-7.  Lakukan pembayaran
-8.  Kamu Akan menerima Link Baca Ebook Ini di Kotak Masuk email kamu.
-9.  Hubungi WA [085186664889](https://wa.me/6285186664889) untuk membuka akses ebook.
-10.  Always Happy To Read The Ebook
-11.  MEMBELI = MEMAHAMI dan MENERIMA SEMUA POINT DI ATAS`
-}
-{% elsif page.title == "Produk" %}
-const AI_SB_context={
-          "page":{
-  "status":"List Produk by Kategory",
-  "title": "Category All {{ page.title }} 10 in 100",
-  "url-path": "{{ page.url }}",
-   "item":[
-         {% for post in site.posts limit:10 %}
-       {
-  "title": "Ebook {{ post.title }}",
-  "url-path": "{{ site.url }}{% if post.url %}{{ post.url }}{% endif %}",
-  "author": "{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
-  "harga" :"{{ post.harga }}", 
-  "format" :"PDF-Google Drive"
-       }{% if forloop.last == false %},{% endif %} {% endfor %}
-   ]              
-},
-  "content":""
-}
-{% elsif page.title == "Artikel" %}{% assign postan = site.artikel | sort: "date_short" | reverse %}
-const AI_SB_context={
-          "page":{
-  "status":"List Artikel by Kategory",
-  "title": "Category All {{ page.title }} 10 in 100",
-  "url-path": "{{ page.url }}",
-   "item":[
-         {% for post in postan limit:10 %}
-       {
-  "title": "{{ post.title }}",
-  "url-path": "{{ site.url }}{% if post.url %}{{ post.url }}{% endif %}",
-  "author": "{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
-  "description": "{{ post.description }}"
-         }{% if forloop.last == false %},{% endif %}{% endfor %}
-   ]              
-},
-"content":""
-}
-{% elsif page.layout == "artikeltags" %}
-{% assign postaaa = site.artikel | sort: "date_short" | reverse %}
-{% assign filtered_artikel = postaaa | where: "tag", page.title %}
-const AI_SB_context={
-          "page":{
-  "status":"List Artikel by Kategory",
-  "title": "Category {{ page.title }}",
-   "artikel":[
-        {% for post in filtered_artikel limit:5 %}
-       {
-           "title":"{{ post.title }}",
-           "url-path": "{{ post.url }}",
-           "description":"{{ post.description }}",
-           "author":"{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}"
-           
-       }{% if forloop.last == false %},{% endif %} {% endfor %}
-   ]              
-},
-"content":""
-}
-{% elsif page.url == "/" %}
-{% assign posta = site.artikel | sort: "date_short" | reverse %}
-const AI_SB_context={
-          "page":{
-  "status":"Home Page",
-  "title": "{{ page.title }} - Home Page",
-   "artikel":[
-        {% for post in posta limit:5 %}
-       {
-           "title":"{{ post.title }}",
-           "url-path": "{{ post.url }}",
-           "description":"{{ post.description }}",
-           "author":"{% if post.author %}{{ post.author }}{% else %}Redaksi {{ site.title }}{% endif %}"
-           
-       }{% if forloop.last == false %},{% endif %} {% endfor %}
-   ],
-  "produk_ebook":[
-        {% for post in site.posts limit:5 %}
-       {
-           "title":"{{ post.title }}",
-           "url-path": "{{ post.url }}",
-           "description":"{{ post.description }}",
-           "author":"{{ post.author }}",
-           "harga":"{{ post.harga }}"           
-       }{% if forloop.last == false %},{% endif %} {% endfor %}
-   ]
-              
-},
-"content":""
-}
-{% else %}
-const AI_SB_context={
-  "page": {
-    "status": "{% if page.layout == 'artikel' %}Artikel{% else %}Halaman{% endif %}",
-    "title": "{{ page.title }}",
-    "url-path": "{{ page.url }}",
-    "description": "{% if page.description %}{{ page.description }}{% endif %}",
-    "author": {
-      "name": "{% if page.author %}{{ page.author }}{% else %}Redaksi {{ site.title }}{% endif %}",
-      "description": "{% if page.author_description %}{{ page.author_description }}{% else %}{{ site.description }}{% endif %}",
-      "url_profil": "{% if page.author_url %}{{ page.author_url }}{% else %}{{ site.url }}/about-us/{% endif %}"
-    }
-  },
-  "content": `{{ content | strip_html | strip }}`
-}
-{% endif %}
-console.log(AI_SB_context);
+
 var MYfire="{{ site.firebase }}";
 function Like(){function e(e){var t=e;if(e>=1e3){for(var a=Math.floor((""+e).length/3),l="",i=2;i>=1&&!(((l=parseFloat((0!=a?e/Math.pow(1e3,a):e).toPrecision(i)))+"").replace(/[^a-zA-Z 0-9]+/g,"").length<=2);i--);l%1!=0&&(l=l.toFixed(1)),t=l+["","K","M","B","T"][a]}return t}var t,BB=document.getElementById("liked").getAttribute("data-link").replace("artikel","").split("/").join(""),l=document.getElementById("Liked");(t=new Firebase(MYfire+"/Like/"+BB)).once("value",function(q){var i=q.val(),n=!1;null==i&&((i={}).value=0,n=!0),document.getElementById("liked").setAttribute("data-text",e(i.value)),localStorage.getItem("like_"+BB)?l.checked=!0:l.checked=!1,"/"!=window.location.pathname&&(n?t.set(i):t.child("value").set(i.value))}),l.addEventListener("change",function(){var t,i;!0==l.checked?(localStorage.setItem("like_"+BB,"true"),(t=new Firebase(MYfire+"/Like/"+BB)).once("value",function(i){var n=i.val(),u=!1;null==n&&((n={}).value=0,u=!0),document.getElementById("liked").setAttribute("data-text",e(n.value+1)),n.value++,l.checked=!0,"/"!=window.location.pathname&&(u?t.set(n):t.child("value").set(n.value))})):(localStorage.removeItem("like_"+BB),(i=new Firebase(MYfire+"/Like/"+BB)).once("value",function(t){var n=t.val(),u=!1;null==n&&((n={}).value=0,u=!0),document.getElementById("liked").setAttribute("data-text",e(n.value-1)),n.value--,l.checked=!1,"/"!=window.location.pathname&&(u?i.set(n):i.child("value").set(n.value))}))})};
 LazyScript("{{ site.url }}/assets/js/plusui/js/countComment.min.js");
@@ -146,6 +20,7 @@ LazyScript("{{ site.url }}/assets/js/plusui/subscribe.min.js?v=12.06.99",null,"m
 function closeIG(){document.getElementById("popupIG").classList.remove("active"),document.getElementById("embedContainerIG").innerHTML=""};
 LazyScript("{{ site.url }}/assets/js/plusui/popupbox.min.js");
 LazyScript("{{ site.url }}/assets/js/plusui/js/livesearchbox.js");
+LazyScript("{{ site.url }}/wp-content/cdn/g/ajax-jquery/assets/repository/SB_AI/script/0.1/main.min.js");
 document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("DMCA_BADGE");e&&-1===e.getAttribute("href").indexOf("refurl")&&(e.href=e.href+(-1===e.href.indexOf("?")?"?":"&")+"refurl="+document.location)},!1);
 </script>
 <!--[ additional javascript ]-->
