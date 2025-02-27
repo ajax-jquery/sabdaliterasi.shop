@@ -417,7 +417,7 @@ function runCODE() {
     outputContainer.innerHTML = "";
     outputContainer.appendChild(a);
 
-    let r = a.contentWindow || a.contentDocument;
+    let r = a.contentWindow?a.contentWindow:a.contentDocument.document?a.contentDocument.document:a.contentDocument;
    r.document.open();
     r.document.write(unescapeHTML($("#hiddenCode").val())); 
     r.document.close();
