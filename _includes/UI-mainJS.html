@@ -15,8 +15,10 @@ LazyScript("{{ site.url }}/assets/js/plusui/js/countComment.min.js");
 LazyScript("{{ site.url }}/assets/js/disqus.min.js");
 LazyScript("{{ site.url }}/assets/js/firebase-2-4-2.min.js","Like()");
 {% endif %}
-LazyScript("//www.instagram.com/embed.js")
+LazyScript("//www.instagram.com/embed.js");
+{% if page.layout != "halaman" %}
 LazyScript("{{ site.url }}/assets/js/plusui/subscribe.min.js?v=12.06.99",null,"module");
+{% endif %}
 function closeIG(){document.getElementById("popupIG").classList.remove("active"),document.getElementById("embedContainerIG").innerHTML=""};
 LazyScript("{{ site.url }}/assets/js/plusui/popupbox.min.js");
 LazyScript("{{ site.url }}/assets/js/plusui/js/livesearchbox.js");
