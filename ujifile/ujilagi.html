@@ -1,0 +1,28 @@
+---
+layout: none
+permalink: /wp-admin/uji_halaman
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+  
+  
+ </style>
+</head>
+<body><h1>Daftar Permalink</h1>
+
+<h1>Daftar Permalink</h1>
+<ul>
+  {% for page in site.pages %}
+    {% if page.path contains 'halaman/' and page.permalink %}
+      <li>
+        <a href="{{ page.permalink | relative_url }}" target="_blank">{{ pagetitle }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>    
+</body>
+</html>
