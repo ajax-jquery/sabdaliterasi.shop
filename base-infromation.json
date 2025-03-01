@@ -8,11 +8,11 @@ layout : null
 						 "main_page":[
                {% for page in site.pages %}
     {% if page.path contains 'halaman/' %}
-						   {
-							 "title":"{{ page.title }}",
-							 "content:"{{ page.content | strip_html | strip_newlines | escape }}",
-							 "path-url":"{{ page.url }}"
-						   }{% if forloop.last == false %},{% endif %}  {% endif %}
+						  {
+  "title": "{{ page.title | escape }}",
+  "permalink": "{{ page.url | relative_url }}",
+  "content": "{{ page.content | strip_html | strip_newlines | replace: '  ', ' ' | liquid | escape }}"
+}{% if forloop.last == false %},{% endif %}  {% endif %}
 {% endfor %}
 						 ], 
 						"email": "info@sabdaliterasi.xyz",
