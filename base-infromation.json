@@ -1,0 +1,56 @@
+---
+layout : null
+---
+{
+						"name": "{{ site.title }}",
+						"description": "{{ site.description }}",
+						"url": "{{ site.url }}",
+						 "main_page":[
+               {% for page in site.pages %}
+    {% if page.path contains 'halaman/' %}
+						   {
+							 "title":"{{ page.title }}",
+							 "content:"{{ page.content | strip_html | strip_newlines | escape }}",
+							 "path-url":"{{ page.url }}"
+						   }{% if forloop.last == false %},{% endif %}  {% endif %}
+{% endfor %}
+						 ], 
+						"email": "info@sabdaliterasi.xyz",
+						"address": {
+						  "streetAddress": "Jl. Asam III",
+						  "addressLocality": "Kota Palu",
+						  "addressRegion": "Sulawesi Tengah",
+						  "postalCode": "94221",
+						  "addressCountry": "ID"
+						},
+						"socialMedia": [
+						  "https://wa.me/6285186664889",
+						  "https://facebook.com/sabdaliterasiplu",
+						  "https://instagram.com/sabdaliterasipalu",
+						  "https://www.tiktok.com/@sabdaliterasipalu",
+						  "mailto:info@sabdaliterasi.xyz"
+						],
+						"store": {
+						  "name": "Sabda Literasi",
+						  "description": "Platform yang menawarkan artikel dengan pemikiran filosofis mendalam, koleksi ebook eksklusif dan legal, serta layanan penyelesaian tugas kuliah dan sekolah yang terpercaya.",
+						  "url": "https://sabdaliterasi.xyz",
+						  "telephone": "+6285186664889",
+						  "priceRange": "Rp10.000 - Rp100.000",
+						  "paymentAccepted": "Tunai, kartu kredit, debit, QRIS",
+						  "openingHours": {
+							"Monday": "08:00 - 23:59",
+							"Tuesday": "08:00 - 23:59",
+							"Wednesday": "08:00 - 23:59",
+							"Thursday": "08:00 - 23:59",
+							"Friday": "08:00 - 23:59",
+							"Saturday": "08:00 - 23:59",
+							"Sunday": "08:00 - 23:59"
+						  },
+						  "ratings": {
+							"bestRating": 5,
+							"worstRating": 1,
+							"ratingCount": 3111745,
+							"ratingValue": 4.9
+						  }
+						}
+					  }
