@@ -17,7 +17,7 @@ permalink: /wp-admin/uji_halaman
 <h1>Daftar Permalink</h1>
 <ul>
   {% for page in site.pages %}
-    {% if page.path contains 'halaman/' and page.permalink %}
+    {% if page.path contains 'halaman/' %}
       <li>
         <a href="{{ page.permalink | relative_url }}" target="_blank">{{ pagetitle }}</a>
       </li>
