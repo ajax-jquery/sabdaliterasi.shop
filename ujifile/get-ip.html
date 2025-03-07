@@ -1,0 +1,28 @@
+---
+layout: null
+permalink: /wp-admin/get-ip
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek IP</title>
+</head>
+<body>
+    <h2>IP Anda:</h2>
+    <pre id="output">Mengambil data...</pre>
+
+    <script>
+        fetch("https://cke-cs-com.cdnsophia.workers.dev/get-ip")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById("output").textContent = "Gagal mengambil data: " + error;
+            });
+    </script>
+</body>
+</html>
