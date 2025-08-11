@@ -125,7 +125,7 @@ const PuSet = {
 let isi_content=`<h1>{{page.title}}</h1><p>Media Penerbit "{{ site.title }}" ({{ site.url }}).</p>{{ isi | strip_newlines }}<p>Terimakasih telah membaca artikel dengan judul "{{ page.title }}" yang di terbitkan oleh media {{ site.title }}. Silahkan share pengetahuan ini agar bermanfaat bagi orang lain.</p>`,
 isi_tts=isi_content.replaceAll('а','a').replaceAll('ј','j').replaceAll('і','i').replaceAll('ѕ','s');
 var PathThis="{{ page.url }}tts";function Voice(){document.getElementById("Tts").classList.remove('hidden')}
-LazyScript("{{ site.url }}/wp-content/cdn/g/ajax-jquery/site/file/assets/js/plusui/tts.min.js?versi=14.34","Voice()");
+LazyScript("{{ site.url }}/assets/js/plusui/tts.min.js?versi=14.34","Voice()");
 </script>
 {% endif %}
 {% if page.tag_body %}{% for tag in page.tag_body %}
