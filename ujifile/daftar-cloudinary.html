@@ -10,6 +10,7 @@ permalink: /wp-admin/cloudinary
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloudinary Registrasi</title>
 </head>
+  <style>#domainnya{width: 100%;height: 240px}</style>
 <body>
     <h1>Cloudinary Registrasi</h1>
    <input id="email" type="email" name="email"> <button id="sendRequest">Send POST Request</button>
@@ -27,7 +28,7 @@ const[e,t,i,n]=crypto.getRandomValues(new Uint32Array(4));return "e"+y[255&e]+y[
      
 let hasilnya=JSON.parse(localStorage.getItem("cloudinary"));
       if(!hasilnya){hasilnya=[]}
-document.getElementById('domainnya').innerText=JSON.stringify(hasilnya);
+document.getElementById('domainnya').innerText=JSON.stringify(hasilnya,null, 2);
 document.getElementById('sendRequest').addEventListener('click', function() {
        const email =document.getElementById('email').value.trim();
             const url = '/api/convert/cloudimage/registrasi';
@@ -73,7 +74,7 @@ document.getElementById('sendRequest').addEventListener('click', function() {
         });
         
         document.getElementById('gethead').addEventListener('click', async function() {
-      
+      const email =document.getElementById('email').value.trim();
             const url =document.getElementById('link').value.trim().replace("http://","");
             document.getElementById('outputhead').innerText="";
         document.getElementById('domainnya').innerText=""
@@ -87,12 +88,13 @@ document.getElementById('sendRequest').addEventListener('click', function() {
             domain:hasil.lokasi.session_project.name,
             uuid:hasil.lokasi.session_project.session_uuid,
             login:hasil.login
-            };
-            hasilnya.push(json.domain.replace(".cloudimg.io",""))
+            },
+             datpush={dom:json.domain.replace(".cloudimg.io",""),email};
+            hasilnya.push(datpush)
             localStorage.setItem("cloudinary", JSON.stringify(hasilnya));
             
 document.getElementById('outputhead').innerText=JSON.stringify(json,null,2);
-document.getElementById('domainnya').innerText=JSON.stringify(hasilnya);
+document.getElementById('domainnya').innerText=JSON.stringify(hasilnya,null, 2);
 document.getElementById('email').value=""
 document.getElementById('link').value=""
          
@@ -106,4 +108,3 @@ document.getElementById('link').value=""
 
 </body>
 </html>
-
