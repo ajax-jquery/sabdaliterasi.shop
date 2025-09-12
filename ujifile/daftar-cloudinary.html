@@ -40,7 +40,7 @@ document.getElementById('sendRequest').addEventListener('click', function() {
     "email": email,
     "company": email.split('@')[1],
     "phone_number": "62822"+Math.floor(10000000 + Math.random() * 90000000),
-    "password": email,
+    "password": "A1"+email,
     "Checkbox": "on",
     "country": "Indonesia",
     "Checkbox 4": "on",
@@ -66,7 +66,11 @@ document.getElementById('sendRequest').addEventListener('click', function() {
             })
             .then(response => response.json())
             .then(data => {
-     document.getElementById('output').innerText= data.status;
+                if(data.status==="error"){
+                    document.getElementById('email').value="";
+                    document.getElementById('output').innerHTML= "<b style='color:red'>"+data.status+"</b>";
+                }
+     document.getElementById('output').innerText= "<b style='color:green'>"+data.status+"</b>";
             })
             .catch((error) => {
                 console.error('Error:', error);
