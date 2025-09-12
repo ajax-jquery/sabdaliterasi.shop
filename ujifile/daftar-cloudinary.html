@@ -69,8 +69,9 @@ document.getElementById('sendRequest').addEventListener('click', function() {
                 if(data.status==="error"){
                     document.getElementById('email').value="";
                     document.getElementById('output').innerHTML= "<b style='color:red'>"+data.status+"</b>";
+                }else{
+     document.getElementById('output').innerHTML= "<b style='color:green'>"+data.status+"</b>";
                 }
-     document.getElementById('output').innerText= "<b style='color:green'>"+data.status+"</b>";
             })
             .catch((error) => {
                 console.error('Error:', error);
