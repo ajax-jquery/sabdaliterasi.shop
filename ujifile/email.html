@@ -297,13 +297,13 @@ async function startMessageFetching() {
    async function resetForm(k) {
    if(confirm("Yakin ingin hapus?")){
    try{
-   
    let e = await (await fetch("https://sabdaliterasi.xyz/api/convert/email-delete")).json();
    
    if(!e.success){
    alert("Gagal Logout Tanpa Alasan")
    return
    }
+       fetch("https://sabdaliterasi.xyz/api/convert/email-domain");
    numpros=0;
    document.title=RECENT_TITLE;
   USER_NAME.value = "";
