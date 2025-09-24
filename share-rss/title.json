@@ -3,7 +3,7 @@ layout: null
 permalink: /title.json
 ---
 [
-  {% assign posta = site.artikel | sort: "date_short" | reverse | slice: 0, 10 %}
+  {% assign posta = site.artikel | sort: "date_short" | reverse %}
     {% for post in posta %}
   {
   image:"{{ post.image }}",
