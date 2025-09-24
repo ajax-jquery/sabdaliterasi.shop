@@ -2,4 +2,4 @@
 layout: null
 permalink: /title.json
 ---
-[ {% assign posta = site.artikel | sort: "date_short" | reverse %} {% for post in posta %} { "image":"{{ post.image }}", "title":"{{ post.title | xml_escape }}" }, {% endfor %}{% for post in site.posts %} { "image":"{{ post.image }}", "title":"{{ post.title | xml_escape }}" }{% if forloop.last == false %},{% endif %} {% endfor %} ]
+[ {% assign posta = site.artikel | sort: "date_short" | reverse %} {% for post in posta %} { "image":"{{ post.image  | replace: "https://sabdaliterasi.xyz", "" }}", "title":"{{ post.title | xml_escape }}" }, {% endfor %}{% for post in site.posts %} { "image":"{{ post.image | replace: "https://sabdaliterasi.xyz", "" }}", "title":"{{ post.title | xml_escape }}" }{% if forloop.last == false %},{% endif %} {% endfor %} ]
