@@ -8,7 +8,7 @@ permalink: /title.json
   {
   image:"{{ post.image }}",
   title:"{{ post.title | xml_escape }}"   
-  }, {% endfor %} {% assign posta = site.posts | reverse %}{% for post in site.posts %}
+  }, {% endfor %}{% for post in site.posts %}
   {
   image:"{{ post.image }}",
   title:"{{ post.title | xml_escape }}"   
