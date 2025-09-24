@@ -1,0 +1,274 @@
+---
+layout: null
+permalink: /wp-admin/cloudimg
+---
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Gallery</title> 
+  <style>
+    body{display: block;overflow: auto;
+        background-color:#000;color:green}
+    textarea {
+      background-color:#000;
+      width: 100%;
+      height: 200px;
+      margin: 5px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    #success {
+width: 100%;
+      border: 2px solid green;
+      color: green;
+    }
+    .faill{
+      overflow: hidden;
+width: 100%;
+      border: 2px solid red;
+      color: red;
+    }
+button{color:yellow}
+#sendRequest{background:green}
+#stop{background:red}
+  </style>
+</head>
+<body>
+ <input type="checkbox" id="myCheck"> my<br>
+<button id="sendRequest">run</button>
+  <button id="stop">stop</button>
+    <h3>Token Berhasil <i id="nums">0</i></h3>
+  
+  <textarea id="success" readonly></textarea>
+
+  <h3>Token Gagal <i id="numa">0</i></h3>
+  <textarea id="failA" class="faill"></textarea>
+  <h4>Token 402/403 <i id="numb">0</i></h4>
+    <textarea id="failB" class="faill"></textarea>
+    <h4>Token 200 but Not <i id="numc">0</i></h4>
+    <textarea id="failC" class="faill"></textarea>
+
+  <script>
+    let a=JSON.parse(localStorage.getItem("200")),b=[]; 
+if(!a)a=[];
+    let run=false;
+  let wakeLock = null;
+    function stop() {
+      run=false;
+      matikanWakeLock()
+    }
+document.getElementById('stop').addEventListener('click',stop)
+document.getElementById("success").value=JSON.stringify(a);
+document.getElementById('sendRequest').addEventListener('click', async function() {
+  run=true;aktifkanWakeLock()
+  
+  const checkbox = document.getElementById("myCheck");
+const aa=await fetch("https://subdomains.whoisxmlapi.com/api/v1?apiKey=at_JaMaBJOGXEoHDPEmYI69PUBdFpqBU&domainName=Cloudimg.io"),
+  bb= await aa.json(),tokenkuu=bb.result.records;
+  const tokenkuui=[
+    "hexa012","aqaldvotio","awnwmdfhpq","ahhpvkaden","apgvuktgao","cfjrqvkhma","crruhflsda","alwrjhduer","atnotregjo","adkziacten","asuqfaihhp","akpgokpgjo","amwkejmaio","atxlxwbymq","akeajymoop","hexa255","aypfolnsio","avavuvumpq","agtqzibaoq","crgsdtamaa","comccxipca","allldegqsq","aukieyoten","azrdqwjwen","aghaqfexmq","almxblrvbq","alxtzrjaen","achsxacbsr","coflvozsya","apioairuxm","aavnuvgonm","aofanbnbfr","apoqrsgtqq","ajbvlnrdxr","cvkvwwdzpa","ckdxyrxkma","apwrhqhwdq","aaqickmlto","adqmzlashp","elastic356","hexa212","hexa269","afeffprgzo","ccv2fy3n","awocxnhzio","ahlmkwgjep","ckusimhqua","aypjehwnso","caitrrwbpa","ce88e649c","aruulwduir","cdcecmsxfa","apvluhocyo","axocbjvnmo","saint-laurent","hugendubel","cgnihvkwqa","aksifaeuxo","cvbxmogoha","awvvwedymo","crptxenjga","ajkqtwqghq","aucwimpzen","elastic704","elastic357","aakkqoyulq","cf4ki3ac","apyfdiblwp","akvorwneyo","arjcwberiq","aezbjzwwnq","ayxlxbbogo","anemesekwq","acimthoczq","ce86c1acc","adtizihqen","acegbizsen","clpanvcn","avterycaho","aucluwlyzo","aecbmesvcm","acftpddubo","anieiuxpwo","eu7cmie","adrcezvpwp","ccijlpqcxa","axsvfaeogr","sj082i","ckkfmtbsza","cedddpmaaa","ce882bbdc","ahtlgiqbqo","avigqktpdo","ahxsbyepso","aasogkween","aihfaywzko","akt25309n","aubmowsmco","arxmzbfnzq","afbwprceam","acyhcgqxen","aigvhotven","ahyqnizyrm","doc","axynoohcto","czfhcbnffa","avcekfzvzq","as1t4mzwn","cczlvkgska","aeasntxwqq","cs0glzwn","aovihjkbbm","awogykmsbo","aenmyqmfwr","cjlpplsfza","elastic707","aquvoajqbp","asnhbeucyo","ahajftmovo","aaaxmdzqmq","cmxlm0yn","aohwewectq","cyagvxzhsa","cbtlkjicma","azqpc2z7n","ce8a9656c","azvhsszfwp","ayjgqakthm","cnhjpcbrva","awjfpxsefo","amudynecep","ckerewcyma","aqeslssmcp","czseuyjhfa","ce8b3eedc","absqltzylo","avmdjiusen","auuiyqpdxq","abjwokxjen","aijnjhgkkm","hexa205","ctdczwoc","acdvauhhfq","geoelastic","ce803b35c","aoxfzqsmkp","agqrsgnfpq","aairknuagp","ayirlxgeop","agmwbmkien","aerpdvlteo","awbrxrhowq","portfolium1","axpqpdoqlo","aytnhkstwo","alwepmqxeq","axpfwdwkgo","azrfmqghiq","cf75d1d9c","atdztmbcqp","chpxyzyeka","czzcrkgupa","cdm0lfbn","ce8ca9c8c","spnc2j","papalexios","asvsqmwmvp","aiuagxegmo","cpqeneflqa","acnfrqiulo","aiwexwfziq","atszvmagen","axnsgfhseo","abvewerspr","ajznxagmcp","awflcfcyjo","aweegbzfzp","aowkppapyr","algwuzxqlo","ajkcwlojpo","apuncrpbuo","aceapugtar","demoaws","aifjylvodr","atzghweicq","cznbemgsca","aqpxrwhfpr","cy1er32c","awwueckywq","cpbtlatgfa","afwlmugbpo","aembtrsycr","agftjztrqq","hexa260","hexa256","ak2gwsmkn","agejpjbago","a8xotb7in","avmrvmyqgq","apxefaivfp","ayvdjoiemo","acjdvutpvq","cypowjktna","ce838d3ec","c08zc71n","apsjariaoo","ajjnhqzevo","ce838a15c","cxbqalgdna","arrwkndqoo","aifainycqp","avvdmcqlrq","aogwistsxo","annyazommq","anvfnzuaen","acoskntzno","adyuuzydbq","amvgyrgken","cbnvuwigxa","agidbqsaqo","asbxbswxmo","acbgvdgwiq","aebyeuybwr","a1cwgjkwn","cqkmbsputa","avzlamsrtp","elastic204","elastic358","adfirxzlfo","ayuzvtspkq","ajppixpwyq","crqkrekzca","asjbztivjp","hexa002","ahofflspcq","awipibcawp","ahwegvyren","arwotbilpr","clesrkhdya","abvcmghhlq","aaiowooyzq","cvanyykaqa","aelyjcujyo","amhqajbken","auhvlqqmjo","aqzkuexuen","aujeexfmen","amlieplwjr","apmyztgbko","cynnxltpla","awfsnicudo","asxhlfevlp","aboirwgztr","alnnibitpo","acydxmklfo","cemccrdlca","agczyddfzo","asawbjqmhr","auvmnjirlp","elastic353","ajkfsypgwo","ahtfxxjwen","cbgaunklwa","allwskflyo","cqgruswuwa","aksbnzripq","akoxoqtvoo","cuoajbun","ce80f8e3c","ce858a05c","aqabowthmq","amtrgeyito","axxcangyro","algvclhjqq","awrgivcesm","almkdxjefo","crogmjsrza","cpecbghjua","awwuhoaceo","aoxrcmrhwr","asvayzahso","ceigjkzcha","atttpgdeen","aimmnzpwmq","ayswazyocq","axhjqzcawo","cxhfekumha","akmcrfgycq","ahpsyitoor","aefulufxtr","ce8db294c","cbhanxaiza","aldjzzecko","cwc9g8an","elastic354","hexa261","akrcnejoqo","aqblppioqr","crajwdnbaa","azsetyqzko","cthkthtwca","afvwhmgeyr","ce8d82ebc","asvickxzkq","akfbxenaro","aiymxkkouq","cn9joyzn","ancv17t6n","ajvphhwjko","aadgtzyyen","asfqzbazen","ce8d4cb2c","araxfdscrm","cyxgoeepra","aatnncvhsm","axpoizodlr","cnbdnbzxua","aoaordfyco","crnbtxkdma","cstmvczlua","acezrydszo","agtbfmdocp","cqzrwhpbua","agdnbfsjaq","agdhpmnben","alrvclrvgo","avmzhwfqgo","hexa209","exqkjye","chsglvdtka","aadqhjliqq","axbcodujsq","webcova","cxgveiouca","asyvwyykxo","acdvbcbfrr","cloncdrlva","asryxnufoo","aiepbtsuzq","cmmbsczaga","ctqgustmfa","afvqotwfkq","annggtqpen","cpmxodwffa","asbsxfnzeq","aegcxpqsbo","aexpvjgslo","alihdwyjxq","aiwsdltqdo","aaosyjgvjq","awdxxbnghp","akswdnfbyq","aavtygaqgq","aclbptkgro","abbwxfouyo","eo5lkae","amgxfglico","adunsjngsq","atdqxqyceo","atjvmwuhdp","avtqgaappq","aarpcdpugq","ce87b037c","aityjhzven","asuhhnlaho","agwpryvnto","aauftqietm","ctrozsxoaa","azvyjzecrm","avsbebiepo","anqkswrzco","abtgjlgwgq","apldbrlyjo","ce8238f5c","ce8a516bc","aezfpwabco","afnjjkqnlo","anuzcylpen","argahhyjup","ajazzwftjq","atlbaqclvq","ajahwflrqq","abjgfnepmo","ajafoppkyr","apgrzqyzlo","awkdecvsqp","ajswacpair","alwtxpmmho","ce8c5543c","c7v4sx8c","cosxeuwlta","adkooyyroo","ahbytvofaq","afcmcynknm","ancvrfbqjo","e79fnce","afbkduxkzr","axqajnvujo","ce89d47fc","abzgyzozeq","abyelnhllo","ajyxosvgyq","ahvnbbtsoq","aqotbjgzpq","yuka","aygfbfuxen","clzseiyrja","apxhzjsoxo","aicumzczen","cwrjdkxpca","chrkfpfcna","agfhczsjep","adyscndhuo","ciznzqzema","cjdvxvmbia","akzonnjzzq","abykpravnr","cpkvvbrsda","apjfcirxuo","alehjnysur","afzkblnuxm","ce802d67c","ce8ded6bc","acxqtwgspr","www","alhprcgxxq","aujxyjuqwo","awqkltxfkr","anrbvurqjo","ce8737e8c","alswxnemjq","avfssjymen","cuptybgbsa","ahwhcoyztp","c1h6fwmn","cp7if2un","aqpeavjvyq","c0rvl4mc","ce809f11c","arqvqsqazo","akefpedheo","ce820bc6c","axknuxlozo","aqohqiyflq","advqqcosyp","cztvsrlbma","aapevahjap","asqnwpythq","e7h3aie","ajgfurrqyo","chbmkrtsaa","arcbvmgvmp","azxnwokqgq","ayppeblxro","ce8a6554c","ce85fe80c","armbxjujzm","aeahrhpttq","azlqkobuum","ce89d16ec","ahvykecylq","adetnhugmo","chuaduuera","argcpzzdxq","ahnjlxgfeo","c7ltjx0c","aylmcfcvyo","awgikyrvip","aichmnzkzo","abmphgtpjq","cbnslgndba","aresaixkhq","apfgsfuden","adixazoden","cqznjibzsa","akvkryzdtr","awkamyaulq","cmamjuihka","ayrbnzsren","ae8e9h8qn","adjeygjfyo","ezn8pwe","aqjhqehxsm","adhcqiftwo","ce-prod","cgftwgjjpa","awrazjsqio","axlpdawrqq","e7ut8we","auhjduoxso","cryffuwsda","awvdvowren","cgthiopuha","aexjsqsbko","coxlsiooqa","cqr2yt4c","cjasrlbxja","cgxauzehqa","aaymitmhip","arjylrwqqo","acljxjtzen","aorzpxqwvr","cyoxltrcha","agcewmiben","afprlcjujo","awzllyfzmm","aiqq333ln","abrgsyenen","aeulokdjlo","cokiwkiula","aqtwjxliio","aiusleeeen","ahdgwiewgo","acvdvgecyo","abstoxloqq","e2e6bae","ajxdwmrbpo","alxnsgievp","czmagrjoxa","aackwxgken","hexa006","cxadfl5n","geo","elastic349","hexa022","clhimysyha","apaxtxozen","abmotoedyq","abfmvtaben","bottegaveneta","ctotamosea","ca0d453n","awjgkrlien","aanqmsqtjo","cmnkxwviqa","anjifx5en","cvjlavhlca","aptcyvnkfo","aqxmgysxdo","aofkufiten","cmnrfrkgra","aopensdwup","afebjsnier","cvatkenopa","ankujdfoen","agqnhofndo","ajpdoiyyap","arjxmpuqco","cbhiosrnta","asprssbin","atwshlvlso","cstqgdvfqa","crooetqzqa","cfkthnbxta","adzktgbqdq","avvyjudyzo","hexa250","hexa203","awlkljzzyq","aiansxnpuq","cfoznolvda","aeixpyhfao","ajtuihdoiq","c8d0zkrc","stationf","ajqhldrseq","axrlfxgioo","amlpuuwcyq","cvsqtgaxsa","cigkomtnra","avpryqhmlo","akwsgbxejq","alslrzrvfo","cwfpbvhhra","aiollmesio","anijhiiaio","anltjnmqcq","ahtugwulqp","aguqavxrqo","alrrzrosro","atnaeddlro","aumhyblfao","aggxoifwvr","actviiwszo","amtjfjkehq","hexa265","auodhesbpo","czbwik0n","ccrlfbnwwa","cj4m63qn","cfrcryncca","auobjmnklq","asanslvaqo","awpflufhmr","cefcgtpdya","aoppogvyio","ackgjohsso","awvdsbltqm","aeymesehmr","aevrjpabur","aunlcajdfq","abvqegfkoq","aujxbafubq","asohecbhko","agbskcywjp","aeenenwieo","amuyjabnim","cxygeguaqa","ce8996d1c","aegdlxyglr","cdhzyammza","aookdwenar","aiwhffmjen","abrnevgtuq","cpkufvzoda","acildqgjpp","anttununsq","awoijnplhq","aphaljxhro","hexa008","avqlgxuoxp","hexa213","hexa214","aifdhpfgoo","ayqpnlllsq","adurwivmen","aucnkfpyvr","ce8a610ac","ce8193d5c","awmhvvgpir","ce8e2a3ac","amgcktypso","aedqsoxeep","ajhrlokngo","awiczcjioq","aynnymcmgq","avvqchsven","aaxhspevpo","aezupipaoq","aisiiczsuo","cuikourzva","amoltkhouo","evdo8pe","cesnrdacea","aywignmjpo","amvkzyrimq","ahozat6rn","hexa252","ayqjujjtwq","awpmrbnrep","cqiflxtuwa","azmzzvdrlp","alkmdxltbr","aswzpkybur","afazwgrpen","aqbnggpeiq","cozuqhtnha","cbzwvpfvoa","aalwufdtkq","qa","atmudgyvzo","akgovoixlp","ajpebfiuwm","abevmnncmp","ahbqdnhkpr","aucnzotvzr","agwpcykpmo","avkfyforeo","aptdxnrfuq","swta3k","arfoqvamsr","ahnjweswco","cwuzkkgiia","ctvewjzysa","alfpeubyyq","agpybhiceo","aldkilvkeo","acskixzifo","adwrsbazen","ctrshsjmoa","agewvlkkgp","ccmhcbdfja","c6ac61d9c","axjceppgfo","axytrsdttq","cgnorxdaqa","abvlaipyho","abhvyoebvo","cyqqqhlxia","czzldgkvia","awrrnppnmq","aprhvruovo","azjjxeuhen","ce8a6222c","avimtqtdsr","arkyyvlvqo","aisnxlzfhr","ahplsqhgcp","adymrxvmro","a5flvh1bn","arhgnbcttp","cgeqzbdexa","csndmapzfa","aepwwqwjfo","agzwvqjihr","auxrnvqwen","jolipage","acdlbqomvm","axohhqaiqo","ce801f83c","cvhcuazcca","aclvbhusen","acwivohben","amnsptgcxo","adocdayhjq","athkzxqaro","cgdfkgnoea","awfkpdueno","akheiyhubo","aqyhzidtfq","aqmyzqrfro","attwmrlysq","adwmbyizvo","agqpkyrzen","atouqjondq","czxfusrhsa","adunbkcjhr","aiazqaelen","azptsuojen","ax151qown","aqoobhckvq","amynyihpkr","coqujctqma","hexa264","hexa202","cmpvfqwyga","avxqjbhxnq","cvbisafgaa","cfrluwejaa","avkhhbmven","aeysyjppco","a51pi2qnn","ckutipdxva","ce86dd76c","axkgzdaxen","anvxqtxvcq","aaoowullfp","alzmrfdffo","aauxiblsaq","ce85b2aac","cgtuyxtlla","abakbytcto","aahoaoikqm","ajlmypqawp","ajfqdjptho","crhuytxrxa","ce87afd4c","cnqkdnrkea","acmhadudgo","cxctputtda","cscauvmffa","atncvvyaen","acuvrfkwen","abekpgaoen","afypnnwhen","acszigalen","aqoundzpoo","cfcofxpyuf","hexa257","cz2ta1nn","clwfonruka","asbuvzmxqq","abskragtfo","afkhauaumo","avjdofdcen","admankdsen","cmwrlavbea","arynwhtlho","anvkgjjben","ahuamlrzhq","axouciyrvq","cxykshttca","awutyfpmen","axyqwmwryo","crkdibyava","cromzduqfa","alpkwcvweq","sbndv3","cfhkrbucwa","akpkejajen","ajzhopllrp","aeqqktywno","cyetesiooa","autmxoiren","hexa208","aovxgaofwp","ajcanjusao","amarhnhgeo","ayzcwtg8n","cvtazdjjka","cnjewhuloa","axdxvnjuwp","cnwjb3uc","cjvvmmevwa","ce8f17f2c","asfkdhhasq","cknsqckqha","cddio03n","ayvpaqxydo","czamjmbcra","apih6yipn","auvaregrco","avlijhefoo","cmi7387n","aqckyywour","aaqqxdavco","auvmmmtcmq","afdbbajlen","arrjutmtvo","a7duxxsxn","ehlqice","s2rf64","abuwjaawap","avtjqfwgsq","emyzcae","adshqqgfep","afrkybsqbr","caffvlakya","cmdckfiaua","aqqdqoukyr","cc48qtoc","afcblheewr","ce87236fc","azldabcoen","aeyeluewho","aozaqccxdo","awzlmutgho","cogftjcc","csjrjfqpma","cnwfuvppra","avmntvdpio","cuwlhihhaa","aogywahmso","aluqjkenio","aqwslruan","axanmu2wn","amefvqkbpq","aznjqgkioq","amfnmkwwko","aheioqhobo","azvgvdpauo","atzdmkopwq","anucqvzhlo","axjencmoen","axtdpbcdco","ajfedfbgxo","cfmnsugzia","hexa253","cmiptkivza","azlajwefsr","ayvozlrxtq","aqhzrbixoo","inventtatte","ayso32m5n","awdkbinneq","abkjkeiaoo","auwhtzlyen","azjkrxcxxq","aayjygnwrr","a3pcpn8cn","auhpktopoo","covwzovraa","amllysifeo","anqbxabuyo","aeygfxocjp","azvbyqkdzr","cqpyqfxeta","cewnuufyna","ahegawcyen","cnvifqkvza","aslydsxouo","ahlpbywxbq","aeybznrlnr","cdvvuizira","azipqeisno","aintnccrdo","azrussafym","apxqxnjoxo","ccpkofjcsa","ahyqgksluo","asw9rfeyn","alizvfdwaq","ce856871c","ad0tb11on","asgvthscsr","autbcmlsgr","asdgvdoyen","hexa701","cftphyjhxa","azqetcjswo","cabd8639c","aapjbkxjfq","aou6h86rn","czlxnvrrra","aqzruagwmr","ce88df7fc","aedeblucen","aggbwkxwqp","anwqpmwhpo","agejvtrldo","aaczjdqven","aignkqflzo","axutuweotm","ayigzvyqbo","cc6ali2c","az2mz534n","atnphvurjp","axktnfgzfo","cwexfosvoa","cjwpbkogza","cycfkprkta","ahyejotbho","aylsxhytyq","aqvyrxhmnq","ajyhdnkahr","prosteps","adabgmwwup","amkrtqffen","hexa003","hexa021","avylilggqo","aqibrytmuq","agmhjgxoxo","autu6yegn","arolzpkrjp","eg69ive","aifeuuvijp","aswpndlkmq","afmhqiqien","acucvayyro","aoxkajtrio","azfwmdvjco","aicuplpjbq","asrxmlqfap","avembbbksq","crejqbcbpa","aztsmeuqao","acezjslkqo","awchbitvgq","angtpegmwq","aiyyoptalo","cxlcntsfta","aqcmdadxlo","amdevhmqmq","alunsrsjaq","aqimlprgjr","cfdobkpvha","ashoohbogr","aklfqeryio","amzxywrwyo","azqmydcuvo","bp-prod","ahgzjenpgo","alkbwppisq","atzkrcmthr","ciepisyfya","guidecentral","cjvgjkwyaa","etzf52e","portfolium","awweotlqkr","aqfzwkieen","aupqhaklrr","auydrogkpo","cvhzirxnja","aaffmwcuen","ccydzjljna","ce84f8adc","aaqqjemiur","abzelgtrir","akmivthrko","atwiarxqmo","blog","adybleoqen","aaovzoxwto","cbsscevpfa","csdvcbwyma","cg2obzwn","aeeonquilo","c2f15709c","cbioqetdna","ab7z78cmn","agpbxsddco","aehglolneq","ajtooigruo","cmnkftzpna","cimpacfvka","acodsaidap","ce8a7f46c","ajxmokolxp","alofmzptzp","ce87f78fc","hexa258","cccjquyxya","cibqykkyna","ah6wq859n","cnlriqjmka","aqqpageqhp","cgsyufnvda","clmeuojfaa","adyyagkqbq","ajgdtoweor","aangtpncgo","ajtejxlvcq","axowvechen","czjhaasumaemil","awbekzvgbo","ahazsfroto","aeyuazqruo","afzwchdlxo","algfdwvdmq","aucstynxyo","axblfqtolp","aogbshmaoq","ahzjsqocwo","aykojaqhdo","akvcpgjmrp","aijxxppmen","acxngcvroo","ckzwgidten","ajahofrzam","aaefajisso","aofmrrapgq","ausfotkpto","aaurtliyzo","apjtklfzkp","arxblccxem","aknwzqbxen","critkxioza","arxyidqfao","aimmmibuqo","cxxyigwrqa","cqcprecvsa","c03uk1vc","adkrgpcpiq","abbpapqcbr","aqbjglkjqp","cehmwmiosa","cfwxcqszga","clsgbmtida","a8f1vg4vn","aohgraeasp","auolvdswuo","alnjqgscxo","aiexrjxkpp","s3mack","azqxgfejop","avrjollrip","aalqjixznq","awbumnqsdp","apikegxrbo","caaq9yen","aqbvxmveen","abjubxwrqq","aqhpovgpoo","chquwzbkea","ch7bmv8n","atfyrazqvq","e2k9ube","allnvysbhq","agyjkamkwq","athvjfszlo","acfyqeecbo","hexa013","awkzsafyro","ce8e1142c","abbqxkrxeo","axjeobpwso","aauvdotnen","afvgqxekko","acjujabdop","ayunzwqcqo","apppqlqcrq","ce845754c","ce850c98c","afkmwkbcuo","au3yrrd9n","aoocyzohen","cddzmgvsoa","ajdkbtmdqq","aenlhfpjyo","cppojejeva","aivnyjuyyo","azdzwolyqo","ajebvshqaq","addujesvpo","c69fdfd9c","heise-aws","abgjjczzjp","ampyrxbtyq","aqdgkiflen","agflhzyjnp","anydhhnsep","cacylxbcqa","cxjfmubqia","afvvrtywqo","cikcensnla","aidkoziahp","afkctwiyrm","cdnihddipa","ahcjjmkcgo","pagemind","awtluxcgen","hexa266","atpwltnhen","cahyjklwwa","ce84d8f1c","anqfdprbhr","ajeblwrven","agrddpxdbm","cmwmrwccqa","awgjdbcdyo","adfzgnuewo","abtqaktiho","aodxunvnyo","awcltyvqyp","atyfbykqjo","ajurbnnmen","e63tqae","ce84d1d3c","cxkwhfwvra","apphlsocnm","cosrpxtuba","aimbbufgoo","anaytrxdzo","aywhjtgnor","cjvnnigiya","aslibfjren","azogfmjmto","ce880219c","afhlcgnenq","aktpmauzqo","asoxilccwm","aqtgebcden","ahcoofbumq","advxjwvvyq","cnhvpmnhta","aexuijsuqo","ce8432b8c","agbvkrrzbq","hexa004","elastic351","hexa010","adyvcbqxen","ce8362a2c","aopyysvnho","agqcvcudno","aohhnoicen","axegiljypo","aoxpqaidqo","qa-ent","aamwnqwnfo","cwloontfya","aljbyuajio","alkzpnhuen","cayidfqupa","c3mc4woc","aspjiihrxo","cf68ektn","ckxnxfzkma","ce872cc6c","ambjqkjaen","aposxgmjnq","adoeftwjio","arhesoctro","alxlbzyymo","afmzolfxgq","atnklsnkpo","aweniddofq","coorzjdvba","agajmtcknq","akydefpybp","aycssdnhlo","cinsulddca","azakdautsr","c3n4sovn","apixvaamnp","aqqkowuysp","ce89a691c","anauopdqhq","cvgmcqzqpa","ctbitnrdea","clexvuzjca","a50tdcvdn","ce87c5efc","abnlxzrjjr","czwkwwhrfa","clhokbfqoa","adodaktsco","aqdsyzuzoq","acezxdmxto","ce8f3f56c","ce80e19bc","adzxmvzwgo","akhpdgxmxr","amnzylpzao","cywhpkeypa","databeats","cryrzzvxza","ahsvlsiqaq","cdkbocszta","coededoada","ctjjiztwna","aojkqyhqen","avrhgvsten","azaguuxhen","aszasixkgp","aoyluwilar","ce84d4d7c","anpeiorzlo","ckegpmziva","alqthlpnen","cidibzsoca","hexa210","cdcbvqdqva","apvzafzgzr","awuvclrdhp","azcfeyqjjq","ce880fbcc","adiugjlnoo","3radical","aofrgbdbdr","cnsxhjdgna","alsclarhar","ciniaqrjua","cevwntaxra","apqrromejo","aegugdgqfp","azehmvikop","aqiqhumnto","cgavibfbba","almysuxrdp","c9jnmtec","acgulboben","abrwpixien","ehc6jne","aaxjtwjvgo","craidrcasa","arkzgbeiep","aarfuidsap","avfuefcxen","cxrtmxswha","axpklvivqo","cpxomqsywa","auwqpqohbq","cnbfbyruha","aumejtoqen","e6ysple","azwlqrvreo","anltup4an","atheabcwbr","aofveacxdq","agngnconpm","atbv9zjhn","ahhfbcurfo","cpsgygezfa","ainucukyjq","atnfnodnen","adphxruhpq","c9pa04uc","acwkfffwjo","handpicked","anenhxybao","acshxbnbaq","chswogncda","cyjzdqrcua","akiuyevypo","e82pqce","assmhccyhq","ce8113e4c","gilmar","cqmqxcaxka","arxsilmemo","amjcslshfo","czi3m2qn","ainmydsimq","aqmrbczqho","aebhxqizen","akgltctsqq","azbkvmmoen","aorxuxfjeq","aurkxityen","ajcttljdyo","axfdrsoehq","anmgkotloo","akwmvhztdq","cexuavomia","acdofgrlpo","aidyorlbbo","adycnjordo","aftpnqspcq","liquimoly","arbzscqkuo","arnpefjvto","shonir","ageuttcchr","atrcpeivqp","eywonfe","aydmmfwnwo","cwrfaxvfda","cxsdkggnza","aihsvmgxxq","curvexncra","ce86e0acc","ajqejuoven","cnvczjloaa","ardwyofdfo","a4q8trt0n","aujtzahimq","abelolmqwq","aqdzrasfsq","atoahawnwo","amnvkvupen","avyqdkbazq","crziynwwaa","ec6hrwe","acqwmovtio","aiuaeafbno","aceiebahaq","cq7bfirc","clkbgtmgka","asfmskdren","adaoklneoo","ez367xe","hexa262","cdfeocmfzf","cyzaormvua","adbhltgubo","avzfvdwhho","ahlorclcbq","aubqrnagyo","scandlines","ajwqlqqlen","ajxywn0wn","cryaoooxla","cffexgchqa","cathdeuqba","cbvaitdsya","amajmkbgip","aydvewoyxq","ckxoswwnia","cggpynjqwa","ce879c53c","ce8bead2c","aoantwzndr","aqzrxtxcxr","aizgbnkooo","cvcoxaudia","aeaqubcueo","asqasviqjr","afejidzuen","amexvxrwvr","sbg94y","cekwojvnfa","auixaysgjr","c2zyebdn","amdgjadcen","aukdbdwmjo","hexa215","crbsaaefoa","aaqebfyaen","cldmfdwwaa","abmiobeqvo","atgvwtuasq","ammxraheyq","audflxcesm","asqurixxen","aphtgyjlfq","aqzahuxbco","ce879928c","ahdntsiygo","cjytk54c","awnghvyxen","atkhrfnsco","clptxyqvna","demoaka","apmjxgwken","aharsltavm","ahlkqsbsrq","acyleaomvp","agptxipylp","crfdrklsqa","ahozkwebfo","akenjpvufr","avccxlqtlq","apywtmmlbo","anfsxbqxyp","ayzwspxcio","amgeqknvio","asnwhnkcio","cltarabyfa","ce87d921c","axrxghbrxq","aumiekjrpq","cxzxcgswra","aqijcepjdp","cvplxbdn","abravunujo","cxm2kp8n","awbngovgsp","cyakscpwqa","aaanfmfppo","eisvxee","ackejtvgbo","ce8a4d02c","awzvwqcsnq","avudvtxyom","copufxlola","axfbqreven","edkco6e","cuwpmlqxha","ce86d079c","aekvwtunyo","chzgqjmxpa","allirssllq","aqxpfczhzq","avtrqitlaq","arzlzikoyr","apkvfjgppq","acdrippdnq","demo2","cushalonga","akzliyjgho","kozmos","addydfmnxm","aftnwbufsq","ajeuwbhvhr","cjpswjyzpa","aosnxmcciq","agtgfjojto","ckbvwmfbka","alphzbqgpo","asoruoarto","atdbnnvmao","adbzdksduq","ce83c3c8c","auhngndzjo","cvgpdzrvma","axgqolbbzq","alvxvhwyen","ampyikzikq","acngpmcrkp","cnkjeptmma","adhgfzvyfq","aakdcmvkao","aruetvglkp","a60walqbn","alzpopvghq","aqofeumcjp","akmvcaugzq","aceptmqcen","ahvekeumen","agglppxdmo","czsicdlgia","aqnwniapmr","auroqqxten","agskcsvpro","abphhtggio","adhfuvaozo","aeiljuispo","us","azwklfcpfp","alxiazqwso","afsqejptsq","abmozsrlzo","azmfsymven","geo-europe","azcojmscrq","aiwvraancq","axhpvdjkoo","cenunymtba","ayahqxoawr","ahvxpbwmeq","c70wl1ln","aufktkgsbo","ajrkiwgymq","axpipprnlq","acskohvlcr","ahguuudrno","artztfucdq","ajkhsbrnyo","caouspkela","ckecdbuqha","ce85dc24c","aalsdnxkwq","aktsfyueen","avjfzkhsqq","ckgbuvdjxa","acbhhqsehq","cbdonusiaf","aqfjyrmoen","cgmydercsa","cnxph9an","aguwdrvofo","aazhxkeasr","afdptjdxen","atevpxvdfq","cmmdhoksda","atnoyualen","amlxemqeqp","aysqa04an","aoijekjsyq","abnrqgovso","hexa870","azzbjccqen","thrively","ckuaknfkja","akuuvhzphp","amzwsgrlrq","anxgmagqqq","czjhaasuma","anmrozajwo","agxydutdbr","cjzysswyoa","azbxuwxwcm","azuqtromho","cxijcvptxa","cbnwjrpjva","acalivfmso","azfscpazuo","ce8d6febc","aamedemeen","cuugbpklca","avfblvgfkq","ajfnulmtho","abbhbhjlqr","avnpzzwzfo","ayyppajfrq","cuxazpmtla","asiwfwjden","ayvrnsqeuq","apvxkikwlq","abgeeauzno","scaleflex","awumpekdco","awskkkdhao","awtvvrzynq","asubhxkqpq","amurtdyjvq","aqgabvxrzo","exfolse","afsuvcxqen","abpooljitq","adtpvfwnen","hexa207","aknuunhcwr","adyatuyqen","avqjbobufo","azmmsrzloo","cyllasyika","aqjjspidmr","ctqukbrdda","ageoayxntq","aeapwyzobq","arpgsyrdrq","inmoba","cuqufnlhla","anybcyxlfo","amnxyplxto","awaohxvrxo","alyxidzmmo","adalgoznn","avdausodjo","aaxlieznfr","auvqpffmen","affdskbmdo","avbgxjsgyo","csdkxmdbsa","avztzhnkco","czvmvdmywa","arvndtxkvq","aexmgzvvjp","avxjnrgevq","ajrctguoxo","aqusozpeuq","adfnjoxprq","auwujpwhfm","apqznyzfvo","aauepuqvxr","hexa211","eu","cdheefyn","cilbsdcboa","aowowggqoo","acqqymhqpr","avxcqsynxq","ajwlgzfasq","amilhxhytp","aljedakxem","aorhvneyqo","copglqpqqa","cvttfirdwa","aklmuvxhap","asdmuhtdro","eyqs8le","csnlmhnnma","cqnwagikqa","aubrjmvtto","cyslhsrlta","aybvmojcaq","apnbjdtser","cyovpgkzua","aadzcpcypr","alfplekfmp","afjtlgxtdo","axzdkhwsuq","avqyqeaycp","alebymwcfr","adxdkkfwxo","afubfluhfo","cvijuvvdua","axamepnrnp","aueepjjeen","axdebntfdp","arpzlshoen","aitewjtazq","aklzyovimo","acfdsgtmhq","appjwvzydr","ampgzhfxvo","hexa251","evmgkde","ambzoinren","asikyvbsen","cszeuuqtla","cmytxhghfa","ahuimyyexp","aygzhkrfvq","aebybgexyo","azthchpgko","aadlvqzkbr","c7es5j4n","auucjzbjpo","afucmhvuen","ckejpvmrya","atkcqhvpuo","axkhjxuatq","ac6rfwidn","aaavvoogtq","c5px2jgn","ayxjlfjtjq","advscklxuo","axwwgrkdco","asuwtgovyq","cjciadcsqa","ayiszsbdmo","hexa501","aztlwywlao","demo-e9f9d3a9.proxy","ek8whxe","cfcotrtypa","aaharmnten","cwjytatgwa","afosuuxyqq","azcmmtvdyq","avfrqpqfen","akjwygpwtp","ce85ca7fc","ayeswidxom","ayxynjyqmq","c8uq19dc","ce82e2bfc","ce86140dc","cbvnnelpaa","arduvzvqho","ccmkusdboa","aurtylinto","aimfdwhzqr","aqbiamauao","c6oxm85c","cwqfakngca","ca48de19c","awotsxricq","cuxkjaevta","aqspvsrfoo","acanhixrho","aldhuybmnp","caqfifvvza","anihdwkorr","auqmprewen","ce806f3fc","aduwlvajep","cyaaeczpka","abvuxjipvo","adnjxlogdq","atsxghqeko","ce8cbd7bc","acjgpfqbqr","azhzuyujdm","ajhzxjjfeo","arirwtkysq","akesgtlden","arfjglvyhq","aoiveazcdq","a5q6df74n","axolvgzthr","ahxastzhtq","chpf7rdc","ce893c7bc","cuvmqljika","avieoavqen","cnephqozga","afmhgmndap","aaydrhlsgp","afxfuvomxq","asxgujuabq","crvsepqtha","aqyondauen","abjgyjvqwq","ayafqvclto","atevdlkyxq","abvhvnnknq","agkglcipso","azgkybhrcq","ce8dc832c","aelwrzoecp","ayilolvodm","acnaayzuen","ajhjgblguo","aksjlkqxtp","hexa502","hexa033","hexa201","ashyblmeen","clwxowniwa","ce8317aec","aimravcyen","astbjxbvqr","auqudifjvo","calwefdcya","agylrorxyq","cmivntowma","cqyflzsrza","aolkvnzdmq","azoulwthyo","aoentrisen","aha2er9fn","aoutnziken","cerrfyczoa","aqyjnlkrmo","aridbtumen","atygdjvkho","amzapqiotr","auhswcigdo","avlzqefdgo","ce848228c","amcgqpsrjr","kyero","aebscdbgsm","ameakcbhkm","acdxlyyzen","attyylizxq","aoroartgup","cajjhieqsa","axpmuiplgo","axbcouexto","arvbicuhen","cutjhqvjma","aesbufcbbp","cadfem","hexa001","aiwtftntvo","cmndpapgpa","axhhdihcrr","ccblxryxka","agpfexjlxm","aukznybrro","akknbhrlfo","cibvdyqiba","czdsxqcwaa","abmpzrfapo","akvvgxgvhq","aogrjsxrho","purprojet","cthzyyjxda","aunavdldoo","etvluee","aipbvczbup","ajmdtlaqep","aadizwmkyq","ce8f6958c","aafdqtvanq","ahhzseqssq","cxnaowewea","cqwstmmbsa","aanmorhuop","adrjbamdqo","demo","cmxsapnc","adbfqiixen","awjmrjmzyp","arazolasen","cilnsebrma","aljafpptxp","azpebrodvq","angrropyho","anjaxftdoo","a05xnzcmn","awmsfbyjxp","ce8cf45ac","avjleijybo","hexa204","ajxpbjb3n","hexa005","hexa254","axqmrxtoho","adh4wzgkn","adofwwisno","aectfxayso","chmdefhtaa","amemyfbcgq","aljpkohutq","aeisgmonvp","apvrlcvhgo","ac6a4n62n","awgjgupmcq","butagaz-prod","ancbcjncwq","ajkwrfsyen","axxlfrmnpq","czzmpposla","aeowikaaqm","cayalnoada","akcvahvdnq","cclqkqwjja","ce8f609cc","aonndpeydo","aebpdeuzpo","agcrqpqxen","aphnwqpnvq","cmpxqhikga","amq","altrqivszo","ahawkgxuoo","acbbesnfco","avsuwzdjuo","aplzwtdven","akslfrbryo","amihkturdo","admin-v3","hexa702","hexa020","azjvqorwaq","a929voj7n","stadtlauscher","aozlclasen","akngmxfhco","axbnoxtpfo","e89pfle","clrlzxyqxa","ahcrpxvhto","auabwqjdio","ahydipdcgq","cxxvkpguia","axnvexhozo","coqas9nc","akgavleneo","akkclvuato","celuaaon","azkcwhagrq","aadhmqulyo","aqovwzqqqo","apgnnfowoo","acbmotuaeo","ackimknnjq","avowhcbwko","cizqwhlnqa","agryghsjho","auinuoxocm","aagnhjsqbo","aupvuiezrp","zediet","cefymuciba","cpqvujosza","ctdgglxzua","ebeqsne","aayswcntyp","hexa263","ce8acb95c","ce830b4cc","cyc281hc","asjrvgyaco","auguuyvowo","amohaonsim","ce81317bc","aurkhmioen","ahdtgoxonq","cxg2qwrn","ce84e7b5c","c3tnlx7c","cmmyvswkya","aarhzbssup","aaejzbougq","aelgebzslp","ce8ea63cc","avpamydqkr","ce89188bc","ahygwaecro","cgotbmmsia","abpivulxen","atelzjztdq","appzxusavq","ctgbsrwvia","awneonhqfo","aiwcwhaxfq","absgvylobp","cdtbrmzena","ahmmympvjo","amvsekofyo","aymxozepwq","anzewhfwco","abxwkvkdho","exeg5le","aobeptqsxp","atynwdbqxr","aoxrxprclp","ccaqtrxmba","heise","aiunzrdxyo","attopdegoo","ajnbhpktyp","atbvjicwbo","aejmlyuldr","hexa259","anbjkwwyjr","avsxjtwooo","attfmrsufp","cdqwlbmgfa","aouuwkzten","cjwarrtcva","axvglyphzq","ce868735c","amaxiihlpq","ahlhwgmjqq","aqnsvutmoq","athhnphopm","cbvydwjswa","azdmttadao","atfbptreen","zeb","aendonsbpo","axputwfyrm","apvhyngqeo","cclbbdzyba","cjvghcngya","aeevicatko","cxshbydama","adzxtjzsvo","asnyskkrmo","afcbdhczgr","adxdlpuvmo","aueomdnqfp","akzzsuefen","azshicisjq","aktwmdthdq","cpdueeaova","cobwkrdmoa","corrgtdbra","amlvyqsxso","ce0ijuan","awhxoctrxq","alauvsmnzo","cphfcrflaa","avpbnxsziq","afxmrohdvr","azvavsteeo","avxooeizmq","apvvhqkauq","aopptltren","afbamvqeen","abiarhindo","a5kun5l2n","avrzcjwvoq","aoyxturhjo","elastic101","hexa302","axsmjngadq","atxstowavo","acskwuchgo","aqbrdfooen","akhabrhceo","acaamdmguo","ce87e712c","anfimcctpq","arpuvpcmyo","cuwsiypgka","apyxuhgnxq","alaumoupso","cgsbnwqdka","aoprtbikbo","aqcaetrhxm","axajvrynho","ambxxoqmuo","aphkdpfjuq","ayyhgaqclp","ardixfkuup","airwykkxao","atfxnxkpbq","abnvpejznq","aumcgogrzo","ayxrmyyrep","afppitpkcq","ayxgj9k9n","auziqbateq"]
+   console.log(tokenkuu.length)
+let tokenku =generateStrings();
+  let my=false
+if (checkbox.checked){tokenku=tokenkuu
+my=true}
+checkTokens(tokenku,my);
+
+ async function checkTokens(tokenku,my=false) { 
+   const successBox = document.getElementById("success");
+  const failBox = document.getElementById("failA");
+  const failBox1 = document.getElementById("failB");
+   const failBox2 = document.getElementById("failC"),numA=document.getElementById("numa"),numB=document.getElementById("numb"),numC=document.getElementById("numc");
+
+if(failBox.value)numA.innerText=failBox.value.split(",").length
+if(failBox1.value)numB.innerText=failBox1.value.split(",").length
+if(failBox2.value)numC.innerText=failBox2.value.split(",").length
+if(a.length>1)document.getElementById("nums").innerText=a.length
+      
+        if(!run)return
+
+if(my){
+for (let i = 0; i < tokenku.length; i++) { 
+if(!run)return
+if(failBox.value)numA.innerText=failBox.value.split(",").length
+if(failBox1.value)numB.innerText=failBox1.value.split(",").length
+if(failBox2.value)numC.innerText=failBox2.value.split(",").length
+if(a.length>1)document.getElementById("nums").innerText=a.length
+const id = tokenku[i].domain.replace(".cloudimg.io","");
+
+        // angka random 1 - 4
+        const loopAngka = getRandomItem(["1","2","3","4"]);
+
+        const url = `https://${id}.cloudimg.io/v7/cdn.jsdelivr.net/gh/ajax-jquery/sabdaliterasi.shop@master/assets/image/${loopAngka}.jpg?id=${Date.now()}`;
+
+try {
+          // tunggu fetch selesai
+          const res = await fetch(url, { method: "GET" });
+         const type =  res.headers.get("content-type");
+          if ((res.status === 200 && type === "image/webp") || (res.status === 200 && type === "image/jpeg")) {
+            a.push(id)
+            successBox.value=JSON.stringify(a)
+            localStorage.setItem("200",JSON.stringify(a))
+          }
+          else if(res.status === 200 && (type !== "image/webp" && type !== "image/jpeg")){
+           failBox2.value=id+", "+failBox2.value; 
+          }
+          else if(res.status === 403 || res.status === 402 || res.status === 400 || !res.ok){
+failBox1.value=id+", "+failBox1.value;
+            
+          }
+          else {
+            failBox.value=id+", "+failBox.value
+          }
+        } 
+        catch (err) {
+
+          const msg = err.message || err.toString();
+
+    if (msg.includes("ERR_NAME_NOT_RESOLVED")) {
+       failBox.value=id+", "+failBox.value
+      console.log("ERR_NAME_NOT_RESOLVED")
+    } else if (msg.includes("ERR_FAILED")) {
+    failBox1.value=id+", "+failBox1.value;
+console.log("ERR_FAILED")
+    } else {
+      failBox.value=id+", "+failBox.value
+      console.log(err)
+    }
+          
+                      
+        }
+
+}
+return
+}
+   
+        const id = tokenku[0];
+
+        // angka random 1 - 4
+        const loopAngka = getRandomItem(["1","2","3","4"]);
+
+const url = `https://${id}.cloudimg.io/cdn.jsdelivr.net/gh/ajax-jquery/sabdaliterasi.shop@master/assets/image/${loopAngka}.jpg?func=crop&width=200&height=500&grey=1&id=${Date.now()}`;
+
+        try {
+          // tunggu fetch selesai
+          const res = await fetch(url, { method: "GET" });
+           if (res.status === 200) {
+            a.push(id)
+            successBox.value=JSON.stringify(a)
+            localStorage.setItem("200",JSON.stringify(a))
+          }
+          else if(res.status === 403 || res.status === 402 || !res.ok){
+failBox1.value=id+", "+failBox1.value;
+            
+          }
+          else {
+            failBox.value=id+", "+failBox.value
+          }
+        } 
+     catch (err) {
+
+          const msg = err.message || err.toString();
+
+    if (msg.includes("ERR_NAME_NOT_RESOLVED")) {
+       failBox.value=id+", "+failBox.value
+      console.log("ERR_NAME_NOT_RESOLVED")
+    } else if (msg.includes("ERR_FAILED")) {
+    failBox1.value=id+", "+failBox1.value;
+console.log("ERR_FAILED")
+    } else {
+      failBox.value=id+", "+failBox.value
+      console.log(err)
+    }
+          
+                      
+        }
+
+tokenku =generateStrings();
+if (checkbox.checked)tokenku=tokenkuu
+checkTokens(tokenku);
+      }
+
+    // helper random
+    function getRandomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateStrings(n=1) {
+    const consonants = "bcdfghjklmnpqrstvwxyz";
+  const vowels = "aeiou";
+  const rare = "qwxzy"; // huruf langka
+
+  function randomChar(pool) {
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function generateWord() {
+    let word = "c"; // selalu mulai dengan c
+    for (let i = 1; i < 9; i++) {
+      let charPool;
+
+      // lebih sering pakai konsonan, kadang vokal, jarang huruf langka
+      if (Math.random() < 0.65) {
+        charPool = consonants;
+      } else if (Math.random() < 0.25) {
+        charPool = vowels;
+      } else {
+        charPool = rare;
+      }
+
+      word += randomChar(charPool);
+
+      // 1 dari 12 kesempatan bikin double huruf
+      if (Math.random() < 0.08 && word.length < 9) {
+        word += word[word.length - 1];
+        i++;
+      }
+    }
+    return word + "a"; // selalu akhiri a
+  }
+
+  let arr = [];
+  for (let i = 0; i < n; i++) {
+    arr.push(generateWord());
+  }
+  return arr;
+}
+  
+})
+
+  
+
+async function aktifkanWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    console.log("Wake Lock aktif: layar tetap menyala ✅");
+
+    // Kalau tab hilang fokus, beberapa browser matiin wake lock
+    // jadi kita pasang event listener biar nyala lagi
+    document.addEventListener("visibilitychange", async () => {
+      if (wakeLock !== null && document.visibilityState === "visible") {
+        wakeLock = await navigator.wakeLock.request("screen");
+      }
+    });
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+function matikanWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release();
+    wakeLock = null;
+    console.log("Wake Lock dimatikan ❌");
+  }
+}
+
+// Contoh penggunaan:
+ // ganti 10 jadi jumlah yang lu mau
+
+//document.write(hasil.join("\n"));
+  </script>
+</body>
+</html>
