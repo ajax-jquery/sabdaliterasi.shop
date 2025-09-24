@@ -1,0 +1,16 @@
+---
+layout: null
+permalink: /title.json
+---
+[
+  {% assign posta = site.artikel | sort: "date_short" | reverse | slice: 0, 10 %}
+    {% for post in posta %}
+  {
+  image:"{{ post.image }}",
+  title:"{{ post.title | xml_escape }}"   
+  }, {% endfor %} {% assign posta = site.posts | reverse %}{% for post in site.posts %}
+  {
+  image:"{{ post.image }}",
+  title:"{{ post.title | xml_escape }}"   
+  }{% if forloop.last == false %},{% endif %} {% endfor %}
+]
