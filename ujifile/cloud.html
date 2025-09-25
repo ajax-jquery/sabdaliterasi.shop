@@ -1,0 +1,410 @@
+---
+layout: null
+permalink: /wp-admin/cloud
+---
+<!doctype html>
+<html lang="id">
+<head>
+  <script>let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
+  const dom=Pu.de("OsQlb8YpmZ5qOsoy"),f1=Pu.de("mJW3dJS9Ok6xrZApb05jmZ4xOqreb0oxtF5lKUBiOsQybL6jdFpyraT/KUBiL0Y4IZN3U3o4dZYyYZ54VTWFSxojKUC0YYAyX35xrpoAVZXZAsWybZNibp4jbZV6G0uyrZWibZdvmZ1="),f2=Pu.de("mJW3dJS9Ok6jd8QorD5xKZApKL4aXF4xb8BemZTvr06km0Ykdk4pXUKyXso7rF6wXZ7=")
+  </script>
+  <meta charset="utf-8">
+  <title>Gallery</title> 
+  <style>
+    @media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .container textarea {
+    width: 100%;
+  }
+}
+    body{display: block;overflow: auto;
+        background-color:#000;color:green}
+    textarea {
+      background-color:#000;
+      width: 100%;
+      height: 200px;
+      margin: 5px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+   .container {
+  display: flex;     
+  gap: 10px;         
+}
+
+.box {
+  flex: 1;           /* bagi rata tiap box */
+  display: flex;
+  flex-direction: column; /* biar label di atas textarea */
+}
+
+.box label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.box textarea {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+
+.container.success textarea{
+  border: 2px solid green;
+  color: green;
+}
+  .container.fail textarea,.faill{
+      overflow: hidden;
+      border: 2px solid red;
+      color: red;
+    }
+.faill{width: 100%; box-sizing: border-box;}
+   .container.fail .box label,.gagal {
+  color: red;
+}
+button{color:yellow}
+#sendRequest{background:green}
+#stop{background:red}
+  </style>
+</head>
+<body>
+ <input type="checkbox" id="myCheck"> my |<input type="checkbox" id="myCheckv7"> V7<br>
+<button id="sendRequest">run</button>
+  <button id="stop">stop</button>
+    <h3>Token Berhasil <i id="nums">0</i></h3>
+  
+ 
+
+  <div class="container success">
+  <div class="box">
+    <label for="success">NON-VERSI</label>
+    <textarea id="success" readonly></textarea>
+  </div>
+  <div class="box">
+    <label for="successv7">VERSI V7</label>
+    <textarea id="successv7" readonly></textarea>
+  </div>
+</div>
+
+  
+  <h3 class="gagal">Token Gagal <i id="numa">0</i></h3>
+  <textarea id="failA" class="faill" readonly></textarea>
+
+   <div class="container fail">
+  <div class="box">
+    <label for="failB">Token 402/403 <i id="numb">0</i></label>
+   <textarea id="failB" readonly></textarea>
+  </div>
+  <div class="box">
+    <label for="failC">Token 200 but Not <i id="numc">0</i></label>
+    <textarea id="failC" readonly></textarea>
+  </div>
+</div>
+  
+
+
+  <script>
+    let a=JSON.parse(localStorage.getItem("200")),
+      b=JSON.parse(localStorage.getItem("200v7")); 
+   let my=false,
+    v7="/",
+    vv=false;
+if(!a)a=[];
+if(!b)b=[];
+let fix=[...a,...b];
+    if(fix.length>1)document.getElementById("nums").innerText=fix.length;
+    let run=false;
+  let wakeLock = null;
+    function stop() {
+       const checkbox = document.getElementById("myCheck"),
+        checkboxv7 = document.getElementById("myCheckv7");
+      run=false;
+      matikanWakeLock();
+      checkbox.disabled=!1;
+      checkboxv7.disabled=!1;
+    my=false,
+    v7="/",
+    vv=false;
+      location.href=location.href
+      
+    }
+document.getElementById('stop').addEventListener('click',stop)
+document.getElementById("success").value=JSON.stringify(a);
+document.getElementById("successv7").value=JSON.stringify(b);
+document.getElementById('sendRequest').addEventListener('click', async function() {
+      const checkbox = document.getElementById("myCheck"),
+        checkboxv7 = document.getElementById("myCheckv7");
+  run=true;aktifkanWakeLock();
+  checkbox.disabled=!0;
+    checkboxv7.disabled=!0;
+
+const [aa,cc]=await Promise.all([
+  fetch(f1),
+  fetch(f2)
+]);
+  const [bb,dd]= await Promise.all([aa.json(),cc.json()]),
+  tokenkuu=bb.result.records,
+  tokenfix=dd.result;
+   console.log(tokenkuu.length)
+let tokenku =generateStrings();
+ 
+if(checkboxv7.checked){
+  v7="/v7/";
+  vv=true
+}else{
+v7="/",
+vv=false;    
+}
+  
+if (checkbox.checked){
+  tokenku=tokenkuu
+my=true
+}else{
+tokenku =generateStrings();
+my=false 
+}
+
+checkTokens(tokenku,my);
+
+ async function checkTokens(tokenku,my=false) {
+   
+   fix=[...a,...b];
+   const successBox = document.getElementById("success"),
+     successBoxv7 = document.getElementById("successv7");
+  const failBox = document.getElementById("failA");
+  const failBox1 = document.getElementById("failB");
+   const failBox2 = document.getElementById("failC"),numA=document.getElementById("numa"),numB=document.getElementById("numb"),numC=document.getElementById("numc");
+
+
+      
+        if(!run){stop();return} 
+
+if(my){
+for (let i = 0; i < tokenku.length; i++) { 
+
+  
+let id;
+if(!tokenfix.includes(tokenku[i].domain.replace(dom,"")))id= tokenku[i].domain.replace(dom,"");
+
+        // angka random 1 - 4
+        const loopAngka = getRandomItem(["1","2","3","4"]);
+
+        const url = `https://${id}${dom}${v7}cdn.jsdelivr.net/gh/ajax-jquery/sabdaliterasi.shop@master/assets/image/${loopAngka}.jpg?id=${Date.now()}`;
+
+try {if(id){
+          // tunggu fetch selesai
+          const res = await fetch(url, { method: "GET" });
+   if(!run){stop();return} 
+         const type =  res.headers.get("content-type");
+          if ((res.status === 200 && type === "image/webp") || (res.status === 200 && type === "image/jpeg")) {
+            if(vv){
+            if(!b.includes(id)){
+            b.push(id);
+            localStorage.setItem("200v7",JSON.stringify(b))
+            }
+            successBoxv7.value=JSON.stringify(b)
+                  }else{
+            if(!a.includes(id)){
+            a.push(id);
+            localStorage.setItem("200",JSON.stringify(a))
+            }
+            successBox.value=JSON.stringify(a)
+            }
+            
+          }
+          else if(res.status === 200 && (type !== "image/webp" && type !== "image/jpeg")){
+           failBox2.value=id+", "+failBox2.value; 
+          }
+          else if(res.status === 403 || res.status === 402 || res.status === 400 || !res.ok){
+failBox1.value=id+", "+failBox1.value;
+            
+          }
+          else {
+            failBox.value=id+", "+failBox.value
+          }
+        }} 
+        catch (err) {
+
+          const msg = err.message || err.toString();
+
+    if (msg.includes("ERR_NAME_NOT_RESOLVED")) {
+       failBox.value=id+", "+failBox.value
+      console.log("ERR_NAME_NOT_RESOLVED")
+    } 
+    else if (msg.includes("ERR_FAILED")) {
+    failBox1.value=id+", "+failBox1.value;
+console.log("ERR_FAILED")
+    } 
+    else {
+      failBox.value=id+", "+failBox.value
+      console.log(err)
+    }
+          
+                      
+        }
+if(failBox.value)numA.innerText=failBox.value.split(",").length
+if(failBox1.value)numB.innerText=failBox1.value.split(",").length
+if(failBox2.value)numC.innerText=failBox2.value.split(",").length;
+fix=[...a,...b];
+if(fix.length>1)document.getElementById("nums").innerText=fix.length
+if(!run){stop();return} 
+}
+return
+}
+   
+        const id = tokenku[0];
+
+        // angka random 1 - 4
+        const loopAngka = getRandomItem(["1","2","3","4"]);
+
+const url = `https://${id}${dom}${v7}cdn.jsdelivr.net/gh/ajax-jquery/sabdaliterasi.shop@master/assets/image/${loopAngka}.jpg?id=${Date.now()}`;
+
+        try {
+          // tunggu fetch selesai
+          const res = await fetch(url, { method: "GET" });
+           if ((res.status === 200 && type === "image/webp") || (res.status === 200 && type === "image/jpeg")) {
+              if(vv){
+            if(!b.includes(id)){
+            b.push(id);
+            localStorage.setItem("200v7",JSON.stringify(b))
+            }
+            successBoxv7.value=JSON.stringify(b)
+                  }else{
+            if(!a.includes(id)){
+            a.push(id);
+            localStorage.setItem("200",JSON.stringify(a))
+            }
+            successBox.value=JSON.stringify(a)
+            }
+            
+          }
+          else if(res.status === 200 && (type !== "image/webp" && type !== "image/jpeg")){
+           failBox2.value=id+", "+failBox2.value; 
+          }
+          else if(res.status === 403 || res.status === 402 || res.status === 400 || !res.ok){
+failBox1.value=id+", "+failBox1.value;
+            
+          }
+          else {
+            failBox.value=id+", "+failBox.value
+          }
+        } 
+     catch (err) {
+
+          const msg = err.message || err.toString();
+
+    if (msg.includes("ERR_NAME_NOT_RESOLVED")) {
+       failBox.value=id+", "+failBox.value
+      console.log("ERR_NAME_NOT_RESOLVED")
+    } 
+    else if (msg.includes("ERR_FAILED")) {
+    failBox1.value=id+", "+failBox1.value;
+console.log("ERR_FAILED")
+    } 
+    else {
+      failBox.value=id+", "+failBox.value
+      console.log(err)
+    }
+          
+                      
+        }
+if(failBox.value)numA.innerText=failBox.value.split(",").length
+if(failBox1.value)numB.innerText=failBox1.value.split(",").length
+if(failBox2.value)numC.innerText=failBox2.value.split(",").length;
+fix=[...a,...b];
+if(fix.length>1)document.getElementById("nums").innerText=fix.length
+tokenku =generateStrings();
+if (checkbox.checked)tokenku=tokenkuu
+checkTokens(tokenku);
+      }
+
+    // helper random
+    function getRandomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateStrings(n=1) {
+    const consonants = "bcdfghjklmnpqrstvwxyz";
+  const vowels = "aeiou";
+  const rare = "qwxzy"; // huruf langka
+
+  function randomChar(pool) {
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function generateWord() {
+    let word = "c"; // selalu mulai dengan c
+    for (let i = 1; i < 9; i++) {
+      let charPool;
+
+      // lebih sering pakai konsonan, kadang vokal, jarang huruf langka
+      if (Math.random() < 0.65) {
+        charPool = consonants;
+      } else if (Math.random() < 0.25) {
+        charPool = vowels;
+      } else {
+        charPool = rare;
+      }
+
+      word += randomChar(charPool);
+
+      // 1 dari 12 kesempatan bikin double huruf
+      if (Math.random() < 0.08 && word.length < 9) {
+        word += word[word.length - 1];
+        i++;
+      }
+    }
+    return word + "a"; // selalu akhiri a
+  }
+
+  let arr = [];
+  for (let i = 0; i < n; i++) {
+    arr.push(generateWord());
+  }
+  return arr;
+}
+  
+})
+
+  
+
+async function aktifkanWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    console.log("Wake Lock aktif: layar tetap menyala ✅");
+
+    // Kalau tab hilang fokus, beberapa browser matiin wake lock
+    // jadi kita pasang event listener biar nyala lagi
+    document.addEventListener("visibilitychange", async () => {
+      if (wakeLock !== null && document.visibilityState === "visible") {
+        wakeLock = await navigator.wakeLock.request("screen");
+      }
+    });
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+function matikanWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release();
+    wakeLock = null;
+    console.log("Wake Lock dimatikan ❌");
+  }
+}
+
+// Contoh penggunaan:
+ // ganti 10 jadi jumlah yang lu mau
+
+//document.write(hasil.join("\n"));
+  </script>
+
+</body>
+</html>
+
+
