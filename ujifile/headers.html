@@ -34,42 +34,26 @@ permalink: /wp-admin/headers
     </div>
 
     <script>
-       function parseHeaders(a) {
-    const headerString=a  
-    let headersObject = {};
-    let lines = headerString.split("\n");
-    let currentKey = "";
-    
-    lines.forEach(line => {
-     let match;
-    if(!line.startsWith("http")){
-       match = line.match(/^([\w-]+):\s*(.*)$/);
-        }
-        if (match) {
-            // Jika baris baru punya header key yang valid
-            currentKey = match[1];
-            let value = match[2].trim();
-            
-          
-           value = value.slice(1, -1);
-            
+function parseHeaders(a) {
+  const lines = a.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+  let headersObject = {};
 
-            // Pastikan origin dan referer tetap muncul
-            headersObject[currentKey] = value.trim();
-        } else if (currentKey) {
-           
-            headersObject[currentKey] +=line.trim();
-        }
-    });
+  for (let i = 0; i < lines.length; i += 2) {
+    let key = lines[i];
+    let value = lines[i + 1] || ""; // kalau value kosong
+    headersObject[key] = value;
+  }
 
-    return JSON.stringify(headersObject, null, 2);
+  return JSON.stringify(headersObject, null, 2);
 }
 
-function convertToJSON(){
-const a =document.getElementById("inputHeaders").value
-document.getElementById("outputJSON").textContent=parseHeaders(a)
-console.log(JSON.parse(parseHeaders(a)))
+function convertToJSON() {
+  const a = document.getElementById("inputHeaders").value;
+  const jsonStr = parseHeaders(a);
+  document.getElementById("outputJSON").textContent = jsonStr;
+  console.log(JSON.parse(jsonStr)); // cek hasil
 }
+
 
         function copyJSON() {
             let jsonText = document.getElementById("outputJSON").textContent;
@@ -82,5 +66,7 @@ console.log(JSON.parse(parseHeaders(a)))
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+
