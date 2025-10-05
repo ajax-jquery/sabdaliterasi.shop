@@ -185,10 +185,9 @@ checkTokens(tokenku,my);
 
 if(my){
 for (let i = 0; i < tokenku.length; i++) { 
-
-  
+const H=tokenku[i].domain;
 let id;
-if(!tokenfix.includes(tokenku[i].domain.replace(dom,"")) || !tokenku[i].startWith("hexa"))id= tokenku[i].domain.replace(dom,"");
+if(!tokenfix.includes(H.replace(dom,"")) || !H.startWith("hexa"))id=H.replace(dom,"");
 
         // angka random 1 - 4
         const loopAngka = getRandomItem(["1","2","3","4"]);
