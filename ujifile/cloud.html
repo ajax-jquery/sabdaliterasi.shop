@@ -130,7 +130,6 @@ let fix=[...a,...b];
     my=false,
     v7="/",
     vv=false;
-      location.href=location.href
       
     }
 document.getElementById('stop').addEventListener('click',stop)
@@ -189,7 +188,7 @@ for (let i = 0; i < tokenku.length; i++) {
 
   
 let id;
-if(!tokenfix.includes(tokenku[i].domain.replace(dom,"")))id= tokenku[i].domain.replace(dom,"");
+if(!tokenfix.includes(tokenku[i].domain.replace(dom,"")) || !tokenku[i].startWith("hexa"))id= tokenku[i].domain.replace(dom,"");
 
         // angka random 1 - 4
         const loopAngka = getRandomItem(["1","2","3","4"]);
@@ -254,7 +253,7 @@ fix=[...a,...b];
 if(fix.length>1)document.getElementById("nums").innerText=fix.length
 if(!run){stop();return} 
 }
-return
+stop();return
 }
    
         const id = tokenku[0];
