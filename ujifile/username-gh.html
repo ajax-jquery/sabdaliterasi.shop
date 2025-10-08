@@ -1,0 +1,137 @@
+---
+layout: null
+permalink: /wp-admin/username-gh
+---
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Username & Token → JSON</title>
+
+  <!-- Bootstrap 5.0.2 CSS CDN -->
+  <link href="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background:#f8f9fa; }
+    .card { max-width:720px; margin:40px auto; }
+    pre.json-output { background:#0d1117; color:#c9f0ff; padding:16px; border-radius:6px; overflow:auto; }
+    .small-muted { font-size:0.85rem; color:#6c757d; }
+  </style>
+</head>
+<body>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-3">Input Username & Token</h4>
+
+      <form id="dataForm" class="row g-3">
+        <div class="col-md-6">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" class="form-control" placeholder="masukkan username" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="token" class="form-label">Token</label>
+          <input type="text" id="token" class="form-control" placeholder="masukkan token" required>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" id="generateOnly" class="btn btn-outline-secondary">Generate tanpa submit</button>
+          <button type="button" id="copyBtn" class="btn btn-success ms-auto" disabled>Copy JSON</button>
+        </div>
+      </form>
+
+      <hr>
+
+      <div>
+        <div class="d-flex align-items-center mb-2">
+          <h6 class="mb-0">Hasil (JSON)</h6>
+          <span class="small-muted ms-2">— objek akan tampil di bawah</span>
+        </div>
+        <pre id="output" class="json-output" aria-live="polite">{"username": "...", "token": "...", "key": "......"}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (includes Popper) -->
+  <script src="/wp-conten/file/cdn/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Utility: buat key acak 6 karakter (huruf besar/kecil & angka)
+    function generateRandomKey(length = 6) {
+      // karakter yang diizinkan
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      // pakai crypto untuk randomness yang lebih baik
+      const array = new Uint32Array(length);
+      window.crypto.getRandomValues(array);
+      let key = '';
+      for (let i = 0; i < length; i++) {
+        key += chars[array[i] % chars.length];
+      }
+      return key;
+    }
+
+    // Ambil elemen
+    const form = document.getElementById('dataForm');
+    const usernameInput = document.getElementById('username');
+    const tokenInput = document.getElementById('token');
+    const outputPre = document.getElementById('output');
+    const copyBtn = document.getElementById('copyBtn');
+    const generateOnlyBtn = document.getElementById('generateOnly');
+
+    // Fungsi untuk membangun dan menampilkan objek
+    function buildAndShowObject(username, token) {
+      const obj = {
+        username: String(username),
+        token: String(token),
+        key: generateRandomKey(6)
+      };
+      const pretty = JSON.stringify(obj, null, 2);
+      outputPre.textContent = pretty;
+      copyBtn.disabled = false;
+      return obj;
+    }
+
+    // Submit handler
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Validasi sederhana
+      const username = usernameInput.value.trim();
+      const token = tokenInput.value.trim();
+      if (!username || !token) {
+        // Bootstrap toast not necessary — pakai alert sederhana
+        alert('Username dan token harus diisi.');
+        return;
+      }
+      const result = buildAndShowObject(username, token);
+      // Jika mau melakukan sesuatu lebih (contoh: kirim ke server), tambahkan fetch di sini.
+      // Namun sesuai permintaan, cukup menghasilkan objek.
+      console.log('Hasil objek:', result);
+    });
+
+    // Tombol "Generate tanpa submit" hanya buat key baru memakai input saat ini (tidak wajib input)
+    generateOnlyBtn.addEventListener('click', function () {
+      const username = usernameInput.value.trim() || '';
+      const token = tokenInput.value.trim() || '';
+      buildAndShowObject(username, token);
+    });
+
+    // Copy JSON ke clipboard
+    copyBtn.addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText(outputPre.textContent);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => copyBtn.textContent = 'Copy JSON', 1500);
+      } catch (err) {
+        alert('Gagal menyalin: ' + err);
+      }
+    });
+
+    // Inisialisasi tampilan awal dengan key example
+    outputPre.textContent = JSON.stringify({ username: '', token: '', key: generateRandomKey(6) }, null, 2);
+  </script>
+
+</body>
+</html>
