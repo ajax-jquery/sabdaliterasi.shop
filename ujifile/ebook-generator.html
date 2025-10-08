@@ -333,18 +333,7 @@ fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
   if(response.success){
-fetch("https://ebook.cdnsophia.workers.dev/data.json", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    judul: title,
-    image: hasilJSON.url+"?share=1&func=cropfit&w=593&h=593&bg_img_fit=1&bg_colorize=navy&bg_opacity=0.5&bg_blur=20",
-    link: jsonData.short,
-  }),
-})
-  .then((res) => res.json())
-  .then((res) => console.log(res))
-  .catch(console.error);
+
   
   hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
    document.getElementById("output").value =caption;
@@ -391,7 +380,18 @@ ${decode4}
   hideLoading();
   alert("Judul Buku sudah pernah dishare..");
   }
-  
+  fetch("https://ebook.cdnsophia.workers.dev/data.json", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    judul: title,
+    image: hasilJSON.url+"?share=1&func=cropfit&w=593&h=593&bg_img_fit=1&bg_colorize=navy&bg_opacity=0.5&bg_blur=20",
+    link: jsonData.short,
+  }),
+})
+  .then((res) => res.json())
+  .then((res) => console.log(res))
+  .catch(console.error);
   
   })
   .catch(err =>{hideLoading(); console.error(err)});
