@@ -185,7 +185,8 @@ const a=e.target.link.value.trim();
 
   try {
     const result = await pushToGithub(data);
-    out.textContent = JSON.stringify(result, null, 2);
+    const fix={DATA:r,GITHUB:result}
+    out.textContent = JSON.stringify(fix, null, 2);
     document.getElementById("ebookForm").reset();
   } catch (err) {
     out.textContent = "Error: " + err.message;
@@ -198,4 +199,3 @@ const a=e.target.link.value.trim();
 
 </body>
 </html>
-
