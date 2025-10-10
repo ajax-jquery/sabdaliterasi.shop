@@ -333,13 +333,21 @@ fetch('https://api.short.io/links/public', options)
   .then(response => response.json())
   .then(response => {
 !async function(){
+  try{
+  const res=await fetch("https://ebook.cdnsophia.workers.dev/"+jsonData.short)
+  if(!res.ok)throw new Error("Terjadi kesalahan: tidak bisa memproses");
+  const r=await res.json();
+  if(!r.status)throw new Error("Terjadi kesalahan: tidak bisa memproses");
       const A12 ={
 judul:JUDUL,
 permalink:URL_ID,
-image:hasilJSON.url+"?share=1&func=cropfit&w=593&h=593&bg_img_fit=1&bg_colorize=navy&bg_opacity=0.5&bg_blur=20",
+image:r.image.trim(),
 link:jsonData.short
 }
   const data=await pushToGithub(A12)
+      }catch(e){
+    console.log("GAGAL PUSH GITHUB",e)
+      }
 }()
   if(response.success){
 
