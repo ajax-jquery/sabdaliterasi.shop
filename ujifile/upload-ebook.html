@@ -2,6 +2,7 @@
 layout: null
 permalink: /wp-admin/upload-ebook/
 ---
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -74,14 +75,10 @@ permalink: /wp-admin/upload-ebook/
   <form id="ebookForm">
     <h2>Upload Redirect Ebook</h2>
 
-    <label for="judul">Judul Ebook</label>
-    <input type="text" id="judul" name="judul" placeholder="Contoh: Filsafat Absurdisme" required>
 
     <label for="link">Link File PDF</label>
     <input type="url" id="link" name="link" placeholder="https://example.com/file.pdf" required>
 
-    <label for="image">Gambar Thumbnail</label>
-    <input type="url" id="image" name="image" placeholder="https://example.com/image.jpg" required>
 
     <button type="submit">Kirim ke GitHub</button>
     <div id="output"></div>
@@ -175,11 +172,15 @@ document.getElementById("ebookForm").addEventListener("submit", async (e) => {
   out.textContent = "";
 const a=e.target.link.value.trim();
   const b=a.replace("https://m.sabdaliterasi.xyz/","").replace(".pdf",'')
+  const res=await fetch("https://ebook.cdnsophia.workers.dev/"+a)
+  if(!res.ok)throw new Error("Terjadi kesalahan: tidak bisa memproses");
+  const r=await res.json();
+  if(!r.status)throw new Error("Terjadi kesalahan: tidak bisa memproses");
   const data = {
-    judul: e.target.judul.value.trim(),
+    judul: r.title.trim(),
     permalink: b,
     link: a,
-    image: e.target.image.value.trim(),
+    image: r.image.trim(),
   };
 
   try {
@@ -194,5 +195,7 @@ const a=e.target.link.value.trim();
   }
 });
 </script>
+
 </body>
 </html>
+
