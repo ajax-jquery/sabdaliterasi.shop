@@ -17,8 +17,7 @@ permalink: /wp-admin/uji_halaman
 {% assign new_url = url 
   | replace: "/free-ebook", "" 
   | replace: "//", "/" 
-  | rstrip: "/" 
-  | append: ".pdf" %}
+  | replace_last: "/", ".pdf"
 {{ new_url }}
 
 <!--<h1>Daftar Permalink</h1>
