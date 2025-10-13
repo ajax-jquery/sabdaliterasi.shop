@@ -13,8 +13,15 @@ permalink: /wp-admin/uji_halaman
  </style>
 </head>
 <body><h1>Daftar Permalink</h1>
+{% assign url = "/free-ebook/download/ebook-37-masalah-populer-h-abdul-somad-lc-ma/" %}
+{% assign new_url = url 
+  | replace: "/free-ebook", "" 
+  | replace: "//", "/" 
+  | rstrip: "/" 
+  | append: ".pdf" %}
+{{ new_url }}
 
-<h1>Daftar Permalink</h1>
+<!--<h1>Daftar Permalink</h1>
 <ul>
   {% for page in site.pages %}
     {% if page.path contains 'halaman/' %}
@@ -23,6 +30,7 @@ permalink: /wp-admin/uji_halaman
       </li>
     {% endif %}
   {% endfor %}
-</ul>    
+</ul>
+    -->
 </body>
 </html>
