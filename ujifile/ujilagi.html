@@ -13,13 +13,10 @@ permalink: /wp-admin/uji_halaman
  </style>
 </head>
 <body><h1>Daftar Permalink</h1>
-{% assign url = "/free-ebook/download/ebook-37-masalah-populer-h-abdul-somad-lc-ma/" %}
-{% assign new_url = url | replace: "/free-ebook", "" | replace: "//", "/" | replace_last: "/", ".pdf" %}
-{{ new_url }}
-{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
-
-
-  <h1>{{ beatles[0] }}</h1>
+{% assign url = "/free-ebook/download/ebook-37-masalah-populer-h-abdul-somad-lc-ma/" | split: "/"%}
+{% assign URL = "https://m.sabdaliterasi.xyz/" | append: url[1] | append: "/" | append: url[2] | append: ".pdf" %}    
+    
+<h1>{{ URL }}</h1>
 
 </body>
 </html>
