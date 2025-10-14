@@ -16,7 +16,11 @@ permalink: /wp-admin/uji_halaman
 {% assign url = "/free-ebook/download/ebook-37-masalah-populer-h-abdul-somad-lc-ma/" %}
 {% assign new_url = url | replace: "/free-ebook", "" | replace: "//", "/" | replace_last: "/", ".pdf" %}
 {{ new_url }}
+{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
 
+{% for member in beatles %}
+  {{ member[0] }}
+{% endfor %}
 
 </body>
 </html>
