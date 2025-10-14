@@ -18,9 +18,8 @@ permalink: /wp-admin/uji_halaman
 {{ new_url }}
 {% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
 
-{% for member in beatles %}
-  {{ member[0] }}
-{% endfor %}
+
+  <h1>{{ beatles[0] }}</h1>
 
 </body>
 </html>
