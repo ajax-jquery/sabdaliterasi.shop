@@ -318,7 +318,6 @@ const dataJson={
   headers: {
     accept: 'application/json',
     'content-type': 'application/json',
-    Authorization: 'pk_r5nioPNOZO50OdIJ'
   },
   body: JSON.stringify({
     domain: 'm.sabdaliterasi.xyz',
@@ -329,7 +328,7 @@ const dataJson={
     redirectType: 301
   })
 };
-fetch('https://api.short.io/links/public', options)
+fetch('https://shortio.cdnsophia.workers.dev/links', options)
   .then(response => response.json())
   .then(response => {
 !async function(){
@@ -350,8 +349,6 @@ link:jsonData.short
       }
 }()
   if(response.success){
-
-  
   hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
    document.getElementById("output").value =caption;
    document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}" target="_blank">SHARE WA</a>  <button class="btn btn-primary" onclick="copyText()" >COPY</button>`
@@ -394,13 +391,90 @@ ${decode4}
   
   }
   else{
+  const url = 'https://shortio.cdnsophia.workers.dev/links/expand?domain=m.sabdaliterasi.xyz&path='+URL_ID+".pdf";
+const options = {
+  method: 'GET',
+  headers: {accept: 'application/json'}
+};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => {
+  const linkID=json.idString?json.idString:null;
+    if(!linkID)throw new Error("gagal memuat")
+   const url = 'https://shortio.cdnsophia.workers.dev/links/'+linkID;
+const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+  },
+  body: JSON.stringify({
+    originalURL: CANONICAL
+  })
+};
+fetch(url, options).then(res => res.json()).then(response =>{
+  if(response.originalURL === CANONICAL){
+  hideLoading(); document.getElementById("perma").innerHTML =`<a href="https://m.sabdaliterasi.xyz/${URL_ID}.pdf">https://m.sabdaliterasi.xyz/${URL_ID}.pdf</a>`;
+   document.getElementById("output").value =caption;
+   document.getElementById("shareWa").innerHTML=`<a class="btn btn-success" href="https://wa.me/?text=${encodeURIComponent(caption)}" target="_blank">SHARE WA</a>  <button class="btn btn-primary" onclick="copyText()" >COPY</button>`
+   let hasilcanon = CANONICAL.replace("https://sabdaliterasi.xyz/api/download/","").replace("https://cdn.sophiainstitute.xyz/download?o=",""),
+   
+deco1=JSON.parse(decodeBase641(hasilcanon)),
+decode1= aesCrypto.decrypt(convertstr(Pu.de(deco1.urlDownload.replace("https://cdn.sophiainstitute.xyz/go?o=","").replace("https://cdn.sophiainstitute.xyz/download?o=",""))),convertstr("root")),
+decode2=JSON.parse(decodeBase64(decode1.replace("https://sabdaliterasi.xyz/download/ebook?c=",""))),
+decode3=JSON.stringify(decode2,null,2);
+
+if(decode2.id.startsWith('https://sabdaliterasi.xyz/download/start')){
+
+let decode4=JSON.stringify(JSON.parse(decodeBase64(decode2.id.replace("https://sabdaliterasi.xyz/download/start?id=",""))),null,2);
+decode3 = `
+
+${JSON.stringify(deco1,null,2)}
+
+
+===
+
+${decode3}
+
+===
+
+${decode4}
+`
+}
+
+
+   
+   jsonOut.value=`
+   Link: ${decode1}
+   //================
+   JSON:
+   ${decode3}
+   `
+    
+  
+  
+  
+  }else{
   hideLoading();
-  alert("Judul Buku sudah pernah dishare..");
+  alert("Judul Buku sudah pernah dishare..");}
+                                                            }).catch(err => {
+    hideLoading(); 
+    console.error(err)}); 
+  })
+  .catch(err => {
+    hideLoading(); 
+    console.error(err)
+  });
+
+  
   }
  
   
   })
-  .catch(err =>{hideLoading(); console.error(err)});
+  .catch(err =>{
+    hideLoading(); 
+    console.error(err)});
         }
 function decodeBase64(input) {
     const chars = "AMNFCVYXSEIBTGUPOKJHDWRZLQamnfcvyxseibtgupokjhdwrzlq4529367810+/=";
