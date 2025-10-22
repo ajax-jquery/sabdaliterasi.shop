@@ -110,7 +110,7 @@ showLoading();
            const fileInput = document.getElementById('fileInput').files[0];
            const urlInput = document.getElementById('urlInput').value;
            const jsonOut = document.getElementById('jsonOut');
-           let link = document.getElementById("link").value;
+           let link = document.getElementById("link").value.replace("id.z-","");
            let title = document.getElementById("title").value,description = "";
            
            if(document.getElementById("description").value){
