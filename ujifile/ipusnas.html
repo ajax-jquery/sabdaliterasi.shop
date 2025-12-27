@@ -1,0 +1,215 @@
+---
+layout: null
+permalink: /wp-admin/ipusnas/
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <script>
+    const TOKEN="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZG1pbiIsInN1YiI6IjgzMWJiMzEzLTBiZDctNDBmZi1hYzBhLTBjZjllNmNiNWZkMSIsImF1ZCI6WyJLNjhQNEo2SyJdLCJleHAiOjE3NjU4MTk4NDMsImlhdCI6MTc2NTgxNjI0MywianRpIjoiYWNjZXNzOmFkY2I1OTdlLTJiNWQtNGI3OC1hODFmLTg3Y2QzMTliYTk4ZiJ9.HD0-IgN9bY4_AvWufhJjzwCtEsiCkK3sJx4Zy8xxj3w"
+  </script>
+  <meta charset="UTF-8">
+  <title>Daftar Buku iPusnas</title>
+
+  <style>
+    .tag-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px 8px;
+  background: #fff;
+}
+
+.tag-check {
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.tag-check input {
+  display: none;
+}
+
+.tag-check span {
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  user-select: none;
+}
+
+.tag-check input:checked + span {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+    body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f5f5f5;
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  padding: 8px;
+}
+
+.book-card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.book-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.book-info {
+  padding: 6px 5px;
+}
+
+.book-title {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 3px;
+
+  /* jangan potong teks */
+  white-space: normal;
+  overflow: visible;
+}
+
+.book-author {
+  font-size: 10px;
+  color: #555;
+  line-height: 1.2;
+
+  /* jangan potong teks */
+  white-space: normal;
+  overflow: visible;
+}
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+
+  
+  </style>
+</head>
+<body>
+<input id="key"><button id="click">RUN</button>
+<h1>Daftar Buku</h1>
+<div class="tag-bar">
+  <label class="tag-check">
+    <input type="checkbox" value="dd51fb48-5302-11ea-b6cc-87ba0e195354,dd51fe90-5302-11ea-b6cc-87ba0e195354">
+    <span>Filsafat</span>
+  </label>
+
+  <label class="tag-check">
+    <input type="checkbox" value="dd51fb3f-5302-11ea-b6cc-87ba0e195354">
+    <span>Psikologi</span>
+  </label>
+
+    <label class="tag-check">
+    <input type="checkbox" value="dd51ff12-5302-11ea-b6cc-87ba0e195354,dd51faee-5302-11ea-b6cc-87ba0e195354">
+    <span>Agama</span>
+    </label>
+
+  <label class="tag-check">
+    <input type="checkbox" value="dd51fbac-5302-11ea-b6cc-87ba0e195354">
+    <span>Sosiologi</span>
+  </label>
+
+  <label class="tag-check">
+    <input type="checkbox" value="dd51fd1e-5302-11ea-b6cc-87ba0e195354,dd51fd14-5302-11ea-b6cc-87ba0e195354">
+    <span>Hukum</span>
+</label>
+  <label class="tag-check">
+    <input type="checkbox" value="e0cceb52-449e-4aec-9c78-cfe204b5b1e4,dd51faa8-5302-11ea-b6cc-87ba0e195354,2109738c-f037-46fb-a1ea-957d6b11e3d5">
+    <span>Sejarah</span>
+  </label>
+</div>
+<div class="book-list" id="bookList"></div>
+<script>
+  document.getElementById("click").addEventListener('click', () => {let key="Bearer "+document.getElementById("key").value.replace("Bearer ","");
+                                gas(key)                                 });
+function gas(params=TOKEN){
+const BASE_URL = "https://api2-ipusnas.perpusnas.go.id/api/webhook/book-list",key="Bearer "+params.replace("Bearer ","")
+const BASE_QUERY = {
+  limit: 9999,
+  offset: 0,
+  sort: "-created_at"
+};
+
+const checkboxes = document.querySelectorAll('.tag-check input');
+
+function buildUrl() {
+  const params = new URLSearchParams(BASE_QUERY);
+
+  checkboxes.forEach(cb => {
+    if (cb.checked) {
+      // category_ids bisa diulang
+      const a=cb.value.split(",")
+      a.forEach(cbb=>{
+        params.append("category_ids", cbb);  
+      })
+ 
+      
+    }
+  });
+
+  return `${BASE_URL}?${params.toString()}`;
+}
+
+checkboxes.forEach(cb => {
+  cb.addEventListener('change', () => {
+    const url = buildUrl();
+    console.log(url);
+
+    // contoh langsung fetch
+    fetchbook(url);
+  });
+});
+
+  function fetchbook(url="https://api2-ipusnas.perpusnas.go.id/api/webhook/book-list?limit=9999&offset=0&sort=-created_at&") {
+
+   fetch(url, {
+  headers: {
+    "accept": "application/vnd.api+json",
+    "authorization": key
+  }
+})
+.then(res => res.json())
+.then(json => {
+  const container = document.getElementById("bookList");
+container.innerHTML="";
+  json.data.forEach(book => {
+    const card = document.createElement("div");
+    card.className = "book-card";
+    let red="color:red"
+if(book.available_qty)red=""
+    card.innerHTML = `
+      <a target="_blank" href="https://ipusnas2.perpusnas.go.id/book/${book.id}/"><img  loading="lazy"  src="${book.cover_url}" alt="${book.book_title}"></a>
+      <div class="book-info">
+        <a target="_blank" href="https://ipusnas2.perpusnas.go.id/book/${book.id}/"><div style="${red}" class="book-title">${book.book_title}</div>
+        </a><a target="_blank" href="https://ipusnas2.perpusnas.go.id/book/${book.id}/"><div class="book-author">${book.author_name}</div></a>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+})
+.catch(err => {
+  console.error("Error fetch:", err);
+}); 
+  }fetchbook()
+  };gas()</script>
+
+</body>
+</html>
+        
