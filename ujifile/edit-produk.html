@@ -2,6 +2,7 @@
 layout: null
 permalink: /wp-admin/edit-produk/
 ---
+
 <!DOCTYPE html>
 <html lang="id">
 <head><meta name="robots" content="noindex, nofollow" />
@@ -117,14 +118,14 @@ var link=mdfile();
 var hasil=`---
 date: '${waktu}'
 date_short: '${waktu_short}'
-author: '${tag}'
-title: '${judul}'
+author: '${tag.replaceAll("'","''")}'
+title: '${judul.replaceAll("'","''")}'
 buy: '${buy.replace("http:","https:")}'
 harga: '${harga.replaceAll(",",".")}'
 image: '${image}'
-description: '${description}'
-keyword: ['${keywords}']
-penerbit: '${penerbit}'
+description: '${description.replaceAll("'","''")}'
+keyword: ['${keywords.replaceAll("'","''")}']
+penerbit: '${penerbit.replaceAll("'","''")}'
 ISBN: '${isbn}'
 ---
 `
