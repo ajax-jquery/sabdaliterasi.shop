@@ -2,6 +2,7 @@
 layout: null
 permalink: /wp-admin/ipusnas/
 ---
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -102,7 +103,7 @@ permalink: /wp-admin/ipusnas/
   </style>
 </head>
 <body>
-<input id="key"><button id="click">RUN</button>
+
 <h1>Daftar Buku</h1>
 <div class="tag-bar">
   <label class="tag-check">
@@ -136,10 +137,9 @@ permalink: /wp-admin/ipusnas/
 </div>
 <div class="book-list" id="bookList"></div>
 <script>
-  document.getElementById("click").addEventListener('click', () => {let key="Bearer "+document.getElementById("key").value.replace("Bearer ","");
-                                gas(key)                                 });
+  
 function gas(params=TOKEN){
-const BASE_URL = "https://api2-ipusnas.perpusnas.go.id/api/webhook/book-list",key="Bearer "+params.replace("Bearer ","")
+const BASE_URL = "https://ipusnas.cdnsophia.workers.dev/api/webhook/book-list",key="Bearer "+params.replace("Bearer ","")
 const BASE_QUERY = {
   limit: 9999,
   offset: 0,
@@ -176,7 +176,7 @@ checkboxes.forEach(cb => {
   });
 });
 
-  function fetchbook(url="https://api2-ipusnas.perpusnas.go.id/api/webhook/book-list?limit=9999&offset=0&sort=-created_at&") {
+  function fetchbook(url="https://ipusnas.cdnsophia.workers.dev/api/webhook/book-list?limit=100&offset=0&sort=-created_at&") {
 
    fetch(url, {
   headers: {
@@ -212,4 +212,5 @@ if(book.available_qty)red=""
 
 </body>
 </html>
+        
         
