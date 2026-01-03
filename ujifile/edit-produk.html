@@ -118,14 +118,14 @@ var link=mdfile();
 var hasil=`---
 date: '${waktu}'
 date_short: '${waktu_short}'
-author: '${tag.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''");}'
-title: '${judul.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''");}'
+author: '${tag.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''")}'
+title: '${judul.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''")}'
 buy: '${buy.replace("http:","https:")}'
 harga: '${harga.replaceAll(",",".")}'
 image: '${image}'
-description: '${description.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''");}'
-keyword: ['${keywords.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''");}']
-penerbit: '${penerbit.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''");}'
+description: '${description.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''")}'
+keyword: ['${keywords.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''")}']
+penerbit: '${penerbit.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g,"''")}'
 ISBN: '${isbn}'
 ---
 `
