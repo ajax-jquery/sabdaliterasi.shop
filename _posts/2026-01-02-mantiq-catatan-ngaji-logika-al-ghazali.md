@@ -7,7 +7,7 @@ buy: 'https://lynk.id/sabdaliterasi/mz7oqg3993z3'
 harga: 'Rp30.000'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-mantiq-catatan-ngaji-logika-al-ghazali.jpg'
 description: 'Ebook Mantiq: Catatan Ngaji Logika Al-Ghazali karya Azis Anwar Fachrudin. Panduan belajar logika Islam yang renyah & praktis untuk menata pikiran, memperkuat akidah, dan menangkal sesat pikir.'
-keyword: ['ebook mantiq al-ghazali'',''belajar logika islam'',''buku filsafat islam'',''azis anwar fachrudin'',''berpikir kritis'',''ilmu mantiq pdf'',''toko buku islam online']
+keyword: ['ebook mantiq al-ghazali','belajar logika islam','buku filsafat islam','azis anwar fachrudin','berpikir kritis','ilmu mantiq pdf','toko buku islam online']
 penerbit: 'IRCiSoD'
 ISBN: '9786236166390'
 ---
