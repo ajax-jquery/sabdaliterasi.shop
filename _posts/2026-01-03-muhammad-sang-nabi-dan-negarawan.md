@@ -7,7 +7,7 @@ buy: 'https://lynk.id/sabdaliterasi/ww6yqmo52j3p'
 harga: 'Rp35.500'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-muhammad-sang-nabi-dan-negarawan.jpg'
 description: 'Temukan sisi lain Rasulullah sebagai strategiwan ulung dalam Ebook Muhammad: Sang Nabi dan Negarawan karya W. Montgomery Watt. Analisis sejarah tajam, objektif, dan penuh humanisme. Beli sekarang!'
-keyword: ['muhammad sang nabi dan negarawan'',''sejarah islam w montgomery watt'',''ebook biografi nabi muhammad'',''sejarah politik islam'',''buku ircisod pdf'',''sirah nabawiyah objektif'',''kajian orientalis islam']
+keyword: ['muhammad sang nabi dan negarawan','sejarah islam w montgomery watt','ebook biografi nabi muhammad','sejarah politik islam','buku ircisod pdf','sirah nabawiyah objektif','kajian orientalis islam']
 penerbit: 'IRCiSoD'
 ISBN: '9786236699065'
 ---
