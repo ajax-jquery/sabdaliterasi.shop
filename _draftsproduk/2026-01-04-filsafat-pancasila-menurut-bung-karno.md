@@ -7,7 +7,7 @@ buy: 'https://lynk.id/sabdaliterasi/ekz9wwd3jzvk'
 harga: 'Rp28.500'
 image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-filsafat-pancasila-menurut-bung-karno.jpg'
 description: 'Temukan api semangat Bung Karno dalam Ebook Filsafat Pancasila. Kumpulan pidato otentik tentang dasar negara, meja statis, dan leitstar dinamis. Beli di Sabda Literasi, harga pelajar!'
-keyword: ['filsafat pancasila bung karno'',''ebook ir sukarno'',''sejarah lahirnya pancasila'',''buku politik indonesia'',''pemikiran soekarno pdf'',''dasar negara indonesia']
+keyword: ['filsafat pancasila bung karno','ebook ir sukarno','sejarah lahirnya pancasila','buku politik indonesia','pemikiran soekarno pdf','dasar negara indonesia']
 penerbit: 'Media Pressindo'
 ISBN: '9786025752803 '
 ---
