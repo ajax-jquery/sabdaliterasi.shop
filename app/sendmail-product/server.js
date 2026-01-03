@@ -171,7 +171,7 @@ async function main() {
                 harga: article.harga,
                 isbn: article.isbn,
                 surat: subscriber.email,
-                nama: Pu.en(subscriber.email),
+                nama: IDmen(Pu.en(subscriber.email)),
               });
 
               const mailOptions = {
@@ -236,3 +236,4 @@ async function main() {
   }
 }
 main().catch((err) => console.error("Error utama:", err));
+function IDmen(t){let e=(()=>{let t,e=[];for(let r=0;r<256;r++){t=r;for(let n=0;n<8;n++)t=1&t?3988292384^t>>>1:t>>>1;e[r]=t}return e})(),r=(function t(r){let n=-1;for(let o=0;o<r.length;o++)n=n>>>8^e[(n^r.charCodeAt(o))&255];return(-1^n)>>>0})(t).toString(16).toUpperCase().padStart(8,"0");return r}
