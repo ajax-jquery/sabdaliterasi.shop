@@ -2,6 +2,7 @@
   "event": "test_event",
   "data": {
     "message": "This is a test webhook",
-    "timestamp": 1770456387223
-  }
+    "timestamp": 1770457208539
+  },
+  "signature": null
 }
