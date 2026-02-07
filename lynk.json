@@ -1,51 +1,7 @@
 {
-  "event": "payment.received",
+  "event": "test_event",
   "data": {
-    "message_action": "SUCCESS",
-    "message_code": "0",
-    "message_data": {
-      "createdAt": "2025-04-10T14:30:45",
-      "customer": {
-        "email": "user@lynk.id",
-        "name": "Lynk User",
-        "phone": "0812345677889"
-      },
-      "items": [
-        {
-          "addons": [
-            {
-              "id": "67c6b9a5593dd002a0ec4ab7-5498-4703872927-1741076901767",
-              "name": "Iniprodukaddon",
-              "price": "50,000"
-            }
-          ],
-          "appointment_data": {},
-          "pafId": "",
-          "price": 25000,
-          "public_affiliate_content": {},
-          "qty": 1,
-          "questions": "{\"Apa pekerjaanmu ?\": \"Wiraswasta\", \"Pilih hobi kamu\": \"Olahraga\", \"Foto KTP\": \"https://lynk.id/v1/get/file-upload/69710b16629d0370b199020f-4543-6241302291-1769016086878\"}",
-          "stock": 1,
-          "title": "Digital Produk",
-          "uuid": "63cfd869524d15196a557388-8244-36439"
-        }
-      ],
-      "refId": "13f8d23beeb2aacbbc01c94060cc88d7",
-      "shippingAddress": "",
-      "shippingInfo": "",
-      "totals": {
-        "affiliate": 0,
-        "convenienceFee": -3000,
-        "discount": 0,
-        "grandTotal": 72000,
-        "totalAddon": 50000,
-        "totalItem": 1,
-        "totalPrice": 25000,
-        "totalShipping": 0
-      }
-    },
-    "message_desc": "",
-    "message_id": "API_CALL_1744270275143115_4624014",
-    "message_title": ""
+    "message": "This is a test webhook",
+    "timestamp": 1770456387223
   }
 }
