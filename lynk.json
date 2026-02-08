@@ -1,8 +1,47 @@
 {
-  "event": "test_event",
+  "event": "payment.received",
   "data": {
-    "message": "This is a test webhook",
-    "timestamp": 1770457208539
+    "message_action": "SUCCESS",
+    "message_code": "0",
+    "message_data": {
+      "createdAt": "2026-02-08T08:24:24",
+      "customer": {
+        "email": "fadhel98fikri@gmail.com",
+        "name": "Fadhel Fikri",
+        "phone": "082281697749"
+      },
+      "items": [
+        {
+          "addons": [],
+          "appointment_data": {},
+          "pafId": "",
+          "price": 2500,
+          "public_affiliate_content": {},
+          "qty": 1,
+          "questions": "{}",
+          "stock": 0,
+          "title": "Uji coba",
+          "uuid": "6987e59d67b17720670f195c-6356-6101900496-1770513821324"
+        }
+      ],
+      "refId": "a0137e004d3efa365ce8b52cb8f81aab",
+      "shippingAddress": "",
+      "shippingInfo": "",
+      "totals": {
+        "affiliate": 0,
+        "convenienceFee": 0,
+        "customerPay": 2517,
+        "discount": 0,
+        "grandTotal": 2500,
+        "totalAddon": 0,
+        "totalItem": 1,
+        "totalPrice": 2500,
+        "totalShipping": 0
+      }
+    },
+    "message_desc": "",
+    "message_id": "API_CALL_17705139018251_513841",
+    "message_title": ""
   },
-  "signature": null
+  "signature": "e68b032c63908204e4197e2102abb05942556de05afa822ef3c12022948fbb73"
 }
