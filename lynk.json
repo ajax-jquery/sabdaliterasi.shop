@@ -1,8 +1,49 @@
 {
-  "event": "test_event",
+  "event": "payment.received",
   "data": {
-    "message": "This is a test webhook",
-    "timestamp": 1770541212620
+    "message_action": "SUCCESS",
+    "message_code": "0",
+    "message_data": {
+      "createdAt": "2026-02-17T06:09:37",
+      "customer": {
+        "email": "herrysum@gmail.com",
+        "name": "Herry",
+        "phone": "082129794644"
+      },
+      "items": [
+        {
+          "addons": [],
+          "appointment_data": {},
+          "pafId": "",
+          "price": 50000,
+          "public_affiliate_content": {},
+          "qty": 1,
+          "questions": "{}",
+          "stock": "unlimited",
+          "title": "Biografi Lengkap: Umar bin Khathab Ra.",
+          "uuid": "66af4f9ee36457a354ba03c2-5269-868806609"
+        }
+      ],
+      "refId": "08755ca7f469ce141d37c805d52bf9c9",
+      "shippingAddress": "",
+      "shippingInfo": "",
+      "totals": {
+        "affiliate": 0,
+        "convenienceFee": 0,
+        "customerPay": 50350,
+        "discount": 0,
+        "grandTotal": 50000,
+        "totalAddon": 0,
+        "totalItem": 1,
+        "totalPrice": 50000,
+        "totalShipping": 0
+      },
+      "voucherCode": "",
+      "voucherQuantity": ""
+    },
+    "message_desc": "",
+    "message_id": "API_CALL_177128341061010_8894674",
+    "message_title": ""
   },
-  "signature": null
+  "signature": "0c524f4a2c0814dfa67a11ea29d7ad1dd965f72f29b257eab861f63e6ebbda1d"
 }
