@@ -4,46 +4,62 @@
     "message_action": "SUCCESS",
     "message_code": "0",
     "message_data": {
-      "createdAt": "2026-03-06T12:07:18",
+      "createdAt": "2026-03-07T05:40:42",
       "customer": {
-        "email": "octasukma@gmail.com",
-        "name": "Octa",
-        "phone": "0881012792011"
+        "email": "fkansaz@gmail.com",
+        "name": "Che Guevara",
+        "phone": "082281697748"
       },
       "items": [
         {
           "addons": [],
           "appointment_data": {},
           "pafId": "",
-          "price": 28500,
+          "price": 1,
           "public_affiliate_content": {},
           "qty": 1,
           "questions": "{}",
           "stock": "unlimited",
-          "title": "Filsafat Pancasila Menurut Bung Karno",
-          "uuid": "69517d519c326ac55ca15f75-8290-3968583385-1766948177972"
+          "title": "Uji coba",
+          "uuid": "6987e59d67b17720670f195c-6356-6101900496-1770513821324"
+        },
+        {
+          "addons": [],
+          "appointment_data": {},
+          "pafId": "",
+          "price": 2,
+          "public_affiliate_content": {},
+          "qty": 1,
+          "questions": "{}",
+          "stock": "unlimited",
+          "title": "uji coba 2",
+          "uuid": "69ab5624e32ae22c8b6aea2a-4892-6065597962-1772836388851"
         }
       ],
-      "refId": "f14602a552850c001f062b0e3f68982a",
+      "refId": "92c3edb4b0f4451c921867eca2bb3ff1",
       "shippingAddress": "",
       "shippingInfo": "",
       "totals": {
         "affiliate": 0,
         "convenienceFee": 0,
-        "customerPay": 28699,
+        "customerPay": 3,
         "discount": 0,
-        "grandTotal": 28500,
+        "grandTotal": 3,
         "totalAddon": 0,
-        "totalItem": 1,
-        "totalPrice": 28500,
+        "totalItem": 2,
+        "totalPrice": 3,
         "totalShipping": 0
       },
       "voucherCode": "",
       "voucherQuantity": ""
     },
     "message_desc": "",
-    "message_id": "API_CALL_17727736881288_9477764",
+    "message_id": "API_CALL_17728368665416_2669331",
     "message_title": ""
   },
-  "signature": "cefaf757a90c9a9ef0b61002955bd67d5c31803961133f11d6abee1816cc36ac"
+  "signature": "20fcc16667633803ca0855edb69403c52779bc7c3cdb0719496b54c0653c1894",
+  "hasil": {
+    "valid": 2,
+    "invalid": 0
+  }
 }
