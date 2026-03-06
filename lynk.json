@@ -4,46 +4,46 @@
     "message_action": "SUCCESS",
     "message_code": "0",
     "message_data": {
-      "createdAt": "2026-02-18T11:01:05",
+      "createdAt": "2026-03-06T12:07:18",
       "customer": {
-        "email": "hajasaja374@gmail.com",
-        "name": "Chamid",
-        "phone": "08123385013"
+        "email": "octasukma@gmail.com",
+        "name": "Octa",
+        "phone": "0881012792011"
       },
       "items": [
         {
           "addons": [],
           "appointment_data": {},
           "pafId": "",
-          "price": 35500,
+          "price": 28500,
           "public_affiliate_content": {},
           "qty": 1,
           "questions": "{}",
           "stock": "unlimited",
-          "title": "Muhammad: Sang Nabi dan Negarawan",
-          "uuid": "69517b34f23e110bf8486c4c-6855-4881341839-1766947636651"
+          "title": "Filsafat Pancasila Menurut Bung Karno",
+          "uuid": "69517d519c326ac55ca15f75-8290-3968583385-1766948177972"
         }
       ],
-      "refId": "713f1a0c0f713e016793b3d5a1982178",
+      "refId": "f14602a552850c001f062b0e3f68982a",
       "shippingAddress": "",
       "shippingInfo": "",
       "totals": {
         "affiliate": 0,
         "convenienceFee": 0,
-        "customerPay": 36093,
+        "customerPay": 28699,
         "discount": 0,
-        "grandTotal": 35500,
+        "grandTotal": 28500,
         "totalAddon": 0,
         "totalItem": 1,
-        "totalPrice": 35500,
+        "totalPrice": 28500,
         "totalShipping": 0
       },
       "voucherCode": "",
       "voucherQuantity": ""
     },
     "message_desc": "",
-    "message_id": "API_CALL_177138731011150_9252617",
+    "message_id": "API_CALL_17727736881288_9477764",
     "message_title": ""
   },
-  "signature": "b89f8e78c95e1aa359631b5f8bb5b886ddf6518e417c3f098787d59946181758"
+  "signature": "cefaf757a90c9a9ef0b61002955bd67d5c31803961133f11d6abee1816cc36ac"
 }
