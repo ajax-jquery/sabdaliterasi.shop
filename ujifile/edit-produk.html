@@ -296,6 +296,19 @@ function updateFileName() {
 </div>
 </div>
 </div>
+
+<div class="row mb-2">
+<div class="col">
+<div class="form-outline">
+<input name="uuid" type="text" id="uuid" class="form-control" placeholder="uuid" />    
+</div>
+</div>
+<div class="col">
+<div class="form-outline">
+<input name="bookid" type="text" id="bookid" class="form-control" placeholder="bookid" />
+</div>
+</div>
+</div>
   
     
 </form>
@@ -545,7 +558,9 @@ $('#Folder').val(n.folder);
   
   
   
-if(n.penerbit.length > 0 || 
+if(n.uuid.length > 0 || 
+   n.bookid.length > 0 ||
+   n.penerbit.length > 0 || 
    n.isbn.length > 0 || 
    n.harga.length > 0 || 
    n.buy.length > 0 || 
@@ -579,6 +594,8 @@ if(n.image.length > 0){
  $("input[name=harga]").val(n.harga),
  $("input[name=isbn]").val(n.isbn),
  $("input[name=penerbit]").val(n.penerbit),
+ $("input[name=bookid]").val(n.bookid),
+ $("input[name=uuid]").val(n.uuid),
  $('textarea#editor').html(n.isi);
 
  
@@ -612,6 +629,8 @@ var b={
   harga:"",
   isbn:"",
   penerbit:"",
+  bookid:"",
+  uuid:"",
   isi: "" 
 };
 
@@ -640,6 +659,8 @@ var b={
   harga:$('input[name=harga]').val(),
   isbn:$('input[name=isbn]').val(),
   penerbit:$('input[name=penerbit]').val(),
+  uuid:$('input[name=uuid]').val().trim(),
+  bookid:$('input[name=bookid]').val().trim(),
   isi: $('.ck-content').html() 
 };
 var k=JSON.stringify(b),
@@ -701,6 +722,7 @@ async function submitFormToGitHub(formData,folderName,linkpost) {
         },
         body: JSON.stringify(requestData)
     });
+
 function hu(b){
        b.fadeIn();
       setTimeout(function(){b.fadeOut()},3000)
@@ -711,6 +733,27 @@ function hu(b){
     } else {
         console.error('Gagal mengunggah data form ke GitHub');
         hu($('.alert.alert-danger.gagalfile').html('Gagal sebagai <br><b>'+folderName.replace('_','')+"/<b>"))
+    }
+
+function extractUID(t){let r=t.match(/my-products\/([^\/]+)/);return r?r[1]:t}
+function extractID(t){let r=t.match(/\/d\/([^\/]+)/);return r?r[1]:t}
+
+const uid=await fetch("https://filelynk.cdnsophia.workers.dev/post", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    uuid: extractUID($('input[name=uuid]').val().trim()),
+    id: extractID($('input[name=bookid]').val().trim())
+  })
+})
+   if (uid.ok) {
+        console.log('Data form berhasil diunggah ke GitHub');
+        hu($('.alert.alert-success.uploadfile').html('UUID ditambahkan'))
+    } else {
+        console.error('Gagal mengunggah data form ke GitHub');
+        hu($('.alert.alert-danger.gagalfile').html('UUID GAGAL ditambahkan'))
     }
 }
 function leftPad(t,e){
@@ -751,6 +794,8 @@ var Judul=$('div[name=judul]'),
   harga=$("input[name=harga]"),
   isbn=$("input[name=isbn]"),
   penerbit=$("input[name=penerbit]"),
+  bookid=$("input[name=bookid]"),
+  uuid=$("input[name=uuid]"),
   Tag= $('input[name=tag]'),
   Image= $('input[name=image]'),
   Base64= $('input[name=base64]'),
@@ -779,8 +824,14 @@ return false
 }else if(penerbit.val() == ""){
 penerbit.addClass('kosong');penerbit.focus();
 return false
+}else if(uuid.val() == ""){
+uuid.addClass('kosong');uuid.focus();
+return false
 }else if(harga.val() == ""){
 harga.addClass('kosong');harga.focus();
+return false
+}else if(bookid.val() == ""){
+bookid.addClass('kosong');bookid.focus();
 return false
 }else if(isbn.val() == ""){
 isbn.addClass('kosong');isbn.focus();
