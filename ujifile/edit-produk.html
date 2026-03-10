@@ -745,7 +745,8 @@ const uid=await fetch("https://filelynk.cdnsophia.workers.dev/post", {
   },
   body: JSON.stringify({
     uuid: extractUID($('input[name=uuid]').val().trim()),
-    id: extractID($('input[name=bookid]').val().trim())
+    id: extractID($('input[name=bookid]').val().trim()),
+    title: $('div[name=judul]').text().trim()
   })
 })
    if (uid.ok) {
