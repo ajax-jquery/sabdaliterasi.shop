@@ -1,4 +1,13 @@
 {% if page.buy %}
+<!-- Masukkan ini di antara tag <head> dan </head> -->
+<meta name="citation_title" content="{{ page.title }}">
+<meta name="citation_author" content="{% if page.author %}{{ page.author }}{% endif %}">
+<meta name="citation_publication_date" content="{{ page.date | date_to_xmlschema }}">
+<meta name="citation_isbn" content="{{ page.ISBN | replace: '-','' }}">
+<meta name="citation_publisher" content="{% if page.penerbit %}{{ page.penerbit }}{% else %}{{ site.title }}{% endif %}">
+<meta name="citation_pdf_url" content="{{ page.url | prepend: site.url | replace: 'amp/','' }}#workExample">
+<meta name="citation_language" content="id">
+
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 
 {"@type":"Organization","@id":"{{ site.url }}/#/schema/Store/1", "image": "{{ site.url }}{{ site.avatar }}", "url": "{{ site.url }}", "sameAs": ["https://wa.me/{{ site.hp }}","{{ site.fb }}","{{ site.ig }}","{{ site.tk }}","{{ site.mail }}"], "logo": "{{ site.url }}{{ site.avatar }}", "name": "{{ site.title }}", "description": "{{ site.description }}", "email": "{{ site.mail | replace: 'mailto:','' }}", "telephone": "+{{ site.hp }}", "address": {"@type":"PostalAddress","@id":"{{ site.url }}/#/schema/PostalAddress/1","streetAddress":"Jl. Asam III", "addressLocality":"Kota Palu", "addressRegion":"Sulawesi Tengah", "postalCode":"94221", "addressCountry":"ID" },"hasPOS":{ "@type":"Store","@id":"{{ site.url }}/#/schema/Store/2","name":"{{ site.title }}","description": "{{ site.description }}","image":"{{ site.url }}{{ site.avatar }}","url":"{{ site.url }}","address":{"@id":"{{ site.url }}/#/schema/PostalAddress/1"}, "telephone":"+{{ site.hp }}","sameAs":["https://wa.me/{{ site.hp }}","{{ site.fb }}","{{ site.ig }}","{{ site.tk }}","{{ site.mail }}"],"priceRange":"Rp10.000 - Rp100.000","openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek": [ "Monday","Tuesday" ],"opens":"00:00","closes":"23:59" },{"@type":"OpeningHoursSpecification","dayOfWeek": [ "Wednesday","Thursday","Friday" ],"opens":"00:00","closes":"23:59" },{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"00:00","closes":"23:59" },{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"00:00","closes":"23:59" } ],"aggregateRating":{ "@type":"AggregateRating","bestRating":5,"worstRating":1,"ratingCount":"{{ site.posts | size | times: 34195 }}","ratingValue":"4.9" },"paymentAccepted": "Tunai, kartu kredit, debit, QRIS"}},
