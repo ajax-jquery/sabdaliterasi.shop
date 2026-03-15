@@ -5,7 +5,7 @@ author: 'K.h. Husein Muhammad'
 title: 'Perempuan Ulama di Atas Panggung Sejarah'
 buy: 'https://lynk.id/sabdaliterasi/6m5ro68eevp4'
 harga: 'Rp28.000'
-image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-perempuan-ulama-di-atas-panggung-sejarah.jpg'
+image: 'https://sabdaliterasi.xyz/wp-conten/file/produk/sabda-literasi-perempuan-ulama-di-atas-panggung-sejarah1.jpg'
 description: 'Temukan kisah perempuan ulama dalam sejarah Islam melalui Ebook Perempuan Ulama di Atas Panggung Sejarah karya K.H. Husein Muhammad. Inspiratif, membuka wawasan, dan tersedia dengan harga spesial.'
 keyword: ['perempuan ulama','perempuan dalam sejarah islam','buku perempuan ulama','husein muhammad','sejarah ulama perempuan','ebook islam gender','sabda literasi']
 penerbit: 'IRCiSoD'
