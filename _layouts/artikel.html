@@ -6,6 +6,20 @@ layout: null
 <!--[ <head> Open ]-->
 {% include head-ui.html %}
 <body class='MN-3 mobS flT hdMn bD onItm onPs' id='mainCont'>
+<script async type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAowvvypDA:openaccess",
+      clientOptions: { theme: "light", lang: "id" },
+    });
+  });
+</script>
+
+
 {% include UI-bawahBody.html %}
 <style>a#Istanareload .lbImg{
     position: relative;
