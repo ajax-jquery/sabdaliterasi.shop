@@ -1,0 +1,158 @@
+---
+layout: null
+permalink: /wp-admin/gdrive
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Upload PDF</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+/* Overlay loading */
+#loadingOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#loadingOverlay .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+</style>
+</head>
+
+<body class="bg-light">
+
+<!-- Overlay -->
+<div id="loadingOverlay">
+  <div class="text-center text-white">
+    <div class="spinner-border mb-3" role="status"></div>
+    <div>Mengupload file…</div>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+
+          <h5 class="mb-4 text-center">Upload File PDF</h5>
+
+          <form id="uploadForm">
+            <div class="mb-3">
+              <label class="form-label">Pilih File PDF</label>
+              <input 
+                type="file" 
+                id="fileInput" 
+                class="form-control" 
+                accept="application/pdf" 
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+              Upload
+            </button>
+          </form>
+
+          <hr>
+
+          <div class="mb-2">
+            <label class="form-label">Response</label>
+            <div class="input-group">
+              <input 
+                type="text" 
+                id="responseInput" 
+                class="form-control" 
+                disabled
+              >
+              <button 
+                class="btn btn-outline-secondary" 
+                type="button" 
+                id="copyBtn"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const form = document.getElementById('uploadForm');
+const fileInput = document.getElementById('fileInput');
+const responseInput = document.getElementById('responseInput');
+const copyBtn = document.getElementById('copyBtn');
+const loadingOverlay = document.getElementById('loadingOverlay');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const file = fileInput.files[0];
+
+  // Validasi PDF
+  if (!file || file.type !== 'application/pdf') {
+    alert('Hanya file PDF yang diizinkan');
+    return;
+  }
+
+  loadingOverlay.style.display = 'flex';
+
+  const fr = new FileReader();
+
+  fr.onload = function(e) {
+    const base64Content = e.target.result.split(',')[1];
+
+    const payload = new URLSearchParams();
+    payload.append('data', base64Content);
+    payload.append('mimetype', file.type);
+    payload.append('filename', file.name);
+
+    fetch('https://gdriveupload.cdnsophia.workers.dev/', {
+      method: 'POST',
+      body: payload
+    })
+    .then(res => res.text())
+    .then(text => {
+      responseInput.value = text;
+    })
+    .catch(err => {
+      alert('Upload gagal');
+      console.error(err);
+    })
+    .finally(() => {
+      loadingOverlay.style.display = 'none';
+    });
+  };
+
+  fr.readAsDataURL(file);
+});
+
+// Copy response
+copyBtn.addEventListener('click', () => {
+  if (!responseInput.value) return;
+  navigator.clipboard.writeText(responseInput.value);
+  copyBtn.textContent = 'Copied!';
+  setTimeout(() => copyBtn.textContent = 'Copy', 1500);
+});
+</script>
+
+</body>
+</html>
