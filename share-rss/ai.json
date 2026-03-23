@@ -1,0 +1,29 @@
+---
+layout:null
+---
+{
+"product":[
+{% for post in site.posts %}
+{
+"link":"{{ post.url | prepend: site.baseurl | prepend: site.url }}",
+"title":"{{ post.title | xml_escape }}",
+"author":"{{ post.author }}",
+"ISBN":"{{ post.ISBN }}",
+"harga":"{{ post.harga }}",
+"penerbit":"{{ post.penerbit }}",
+"description":"{{ post.description | xml_escape }}",
+"body":"{{ post.body | xml_escape }}"
+}{% if forloop.last == false %},{% endif %}
+{% endfor %}
+],
+"article":[
+{% assign posta = site.artikel | sort: "date_short" | reverse %}
+    {% for post in posta %}
+"link":"{{ post.url | prepend: site.baseurl | prepend: site.url }}",
+"title":"{{ post.title | xml_escape }}",
+"description":"{{ post.description | xml_escape }}",
+"body":"{{ post.body | xml_escape }}"
+}{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]
+}
