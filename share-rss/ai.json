@@ -2,31 +2,17 @@
 layout: null
 permalink: /ai.json
 ---
-{
-"product":[{% for post in site.posts %}{
+{"product":[{% for post in site.posts %}{
 "link":"{{ post.url | prepend: site.baseurl | prepend: site.url }}",
 "title":"{{ post.title | xml_escape }}",
 "author":"{{ post.author }}",
 "ISBN":"{{ post.ISBN }}",
 "harga":"{{ post.harga }}",
 "penerbit":"{{ post.penerbit }}",
-"description":"{{ post.description | xml_escape }}",
-"body":"{{ post.content | strip_html 
-  | strip_newlines 
-  | replace: '\n', ' ' 
-  | replace: '\r', ' ' 
-  | replace: '  ', ' ' 
-  | xml_escape }}"
+"description":"{{ post.description | xml_escape }}"
 }{% if forloop.last == false %},{% endif %}{% endfor %}],
 "article":[{% assign posta = site.artikel | sort: "date_short" | reverse %}{% for post in posta %}{  
 "link":"{{ post.url | prepend: site.baseurl | prepend: site.url }}",
 "title":"{{ post.title | xml_escape }}",
-"description":"{{ post.description | xml_escape }}",
-"body":"{{ post.content | strip_html 
-  | strip_newlines 
-  | replace: '\n', ' ' 
-  | replace: '\r', ' ' 
-  | replace: '  ', ' ' 
-  | xml_escape }}"
-}{% if forloop.last == false %},{% endif %}{% endfor %}]
-}
+"description":"{{ post.description | xml_escape }}"
+}{% if forloop.last == false %},{% endif %}{% endfor %}]}
