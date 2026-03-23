@@ -13,7 +13,12 @@ permalink: /ai.json
 "harga":"{{ post.harga }}",
 "penerbit":"{{ post.penerbit }}",
 "description":"{{ post.description | xml_escape }}",
-"body":"{{ post.content | strip_html | replace: '\n', ' ' | xml_escape }}"
+"body":"{{ post.content | strip_html 
+  | strip_newlines 
+  | replace: '\n', ' ' 
+  | replace: '\r', ' ' 
+  | replace: '  ', ' ' 
+  | xml_escape }}"
 }{% if forloop.last == false %},{% endif %}
 {% endfor %}
 ],
@@ -23,7 +28,12 @@ permalink: /ai.json
 "link":"{{ post.url | prepend: site.baseurl | prepend: site.url }}",
 "title":"{{ post.title | xml_escape }}",
 "description":"{{ post.description | xml_escape }}",
-"body":"{{ post.content | strip_html | replace: '\n', ' ' | xml_escape }}"
+"body":"{{ post.content | strip_html 
+  | strip_newlines 
+  | replace: '\n', ' ' 
+  | replace: '\r', ' ' 
+  | replace: '  ', ' ' 
+  | xml_escape }}"
 }{% if forloop.last == false %},{% endif %}
 {% endfor %}
 ]
