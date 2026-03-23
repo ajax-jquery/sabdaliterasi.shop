@@ -3,9 +3,7 @@ layout: null
 permalink: /ai.json
 ---
 {
-"product":[
-{% for post in site.posts %}
-{
+"product":[{% for post in site.posts %}{
 "link":"{{ post.url | prepend: site.baseurl | prepend: site.url }}",
 "title":"{{ post.title | xml_escape }}",
 "author":"{{ post.author }}",
@@ -19,12 +17,8 @@ permalink: /ai.json
   | replace: '\r', ' ' 
   | replace: '  ', ' ' 
   | xml_escape }}"
-}{% if forloop.last == false %},{% endif %}
-{% endfor %}
-],
-"article":[
-{% assign posta = site.artikel | sort: "date_short" | reverse %}
-    {% for post in posta %}
+}{% if forloop.last == false %},{% endif %}{% endfor %}],
+"article":[{% assign posta = site.artikel | sort: "date_short" | reverse %}{% for post in posta %}{  
 "link":"{{ post.url | prepend: site.baseurl | prepend: site.url }}",
 "title":"{{ post.title | xml_escape }}",
 "description":"{{ post.description | xml_escape }}",
@@ -34,7 +28,5 @@ permalink: /ai.json
   | replace: '\r', ' ' 
   | replace: '  ', ' ' 
   | xml_escape }}"
-}{% if forloop.last == false %},{% endif %}
-{% endfor %}
-]
+}{% if forloop.last == false %},{% endif %}{% endfor %}]
 }
